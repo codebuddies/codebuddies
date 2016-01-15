@@ -1,20 +1,25 @@
 if (Meteor.isClient) {
-  // counter starts at 0
-  Session.setDefault('counter', 0);
 
-  Template.hello.helpers({
-    counter: function () {
-      return Session.get('counter');
+  Meteor.subscribe('userStatus');
+
+  Template.activeUsers.helpers({
+    usersOnline:function(){
+      return Meteor.users.find({ "status.online": true })
+    },
+    usersOnlineCount:function(){
+      //event a count of users online too.
+    return Meteor.users.find({ "status.online": true }).count();
     }
   });
-
-  Template.hello.events({
-    'click button': function () {
-      // increment the counter when button is clicked
-      Session.set('counter', Session.get('counter') + 1);
-    }
-  });
-
+  
+  Template.activeUsers.labelClass = function() {
+  if (this.status.idle)
+    return "label-warning"
+  else if (this.status.online)
+    return "label-success"
+  else
+    return "label-default"
+  };
 
   //configure the accounts UI to use usernames instead of email addresses:
    Accounts.ui.config({
@@ -23,7 +28,8 @@ if (Meteor.isClient) {
 }
 
 if (Meteor.isServer) {
-  Meteor.startup(function () {
-    // code to run on server at startup
+
+  Meteor.publish("userStatus", function() {
+    return Meteor.users.find({ "status.online": true });
   });
 }
