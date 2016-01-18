@@ -65,7 +65,7 @@
 			{{> activeUsers}}
 		</div>
 		<div class="col-md-7">
-
+      {{> scheduledHangouts}}
 		</div>
 	</div>
 </div>
@@ -76,11 +76,22 @@
 </body>
 
 <template name="activeUsers">
- There are currently {{usersOnlineCount}} users online.
-<h1>List of Users online </h1>
+  <h2>What are you working on right now?</h2>
+  
+  <textarea id="current_status" name="currentStatus" value="hmm">I am working on... </textarea>
+  I am interested in:
+  <label for="status_solo"><input type="radio" name="hangout_status" value="solo"> Solo study</label>
+  <label for="status_silent"><input type="radio" name="hangout_status" value="silent"> Silent study</label>
+  <label for="status_collaborative"><input type="radio" name="hangout_status" value="collaborative"> Collaborative study</label>
+  <h3>{{usersOnlineCount}} people are online and learning right now.</h3>
    <ul>
    {{#each usersOnline}}
-   <li><span class="label {{labelClass}}">{{username}}</span></li>
+   <li><span class="label {{labelClass}}">{{username}} {{currentStatus}}</span></li>
    {{/each}}
   </ul>
+</template>
+
+<template name="scheduledHangouts">
+  <button>Join our discussions on Slack</button>
+  <button>Create a hangout</button>
 </template>
