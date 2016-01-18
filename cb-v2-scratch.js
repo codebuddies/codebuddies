@@ -14,49 +14,47 @@ if (Meteor.isClient) {
 
   Template.activeUsers.events({
     'focusout textarea#current_status': function(event) {
-        //console.log(event.target.currentStatus.value);
-      var currentStatusVar = $(event.target).val();
-      console.log(currentStatusVar);
-      Meteor.call(setUserStatus, currentStatusVar);
+      var currentStatus = $(event.target).val();
 
+      // Call the server method to update the current status
+      Meteor.call('setUserStatus', currentStatus);
     }
   });
-  
+
   Template.activeUsers.labelClass = function() {
-  if (this.status.idle)
-    return "label-warning"
-  else if (this.status.online)
-    return "label-success"
-  else
-    return "label-default"
+    if (this.status.idle)
+      return "label-warning"
+    else if (this.status.online)
+      return "label-success"
+    else
+      return "label-default"
   };
 
   //configure the accounts UI to use usernames instead of email addresses:
-   Accounts.ui.config({
+  Accounts.ui.config({
     passwordSignupFields: "USERNAME_ONLY"
-   });
-   
-   Meteor.methods({
-    setUserStatus: function(currentStatusVar) {
-        if (! Meteor.userId()) {
-            throw new Meteor.Error("not-authorized");
-        }
-        var currentUserId = Meteor.userId();
-        Users.insert({
-            currentStatusVar: currentStatusVar,
-            createdBy: currentUserId
-        });
-    }
   });
 }
 
 if (Meteor.isServer) {
   Accounts.onCreateUser(function(user) {
-    user.setUserStatus = "";
+    user.statusMessage = "";
     return user;
   });
 
-  
+  Meteor.methods({
+    setUserStatus: function(currentStatus) {
+      // Check the user is currently logged in
+      if (!Meteor.userId()) {
+        throw new Meteor.Error("not-authorized");
+      }
+      // Check the parameter is a string
+      check(currentStatus, String);
+
+      // Update the current users status
+      Meteor.users.update({_id: Meteor.userId()}, {$set: {statusMessage: currentStatus}});
+    }
+  });
 
   Meteor.publish("userStatus", function() {
     return Meteor.users.find({ "status.online": true });
