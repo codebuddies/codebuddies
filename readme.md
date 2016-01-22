@@ -19,7 +19,7 @@ List your codebuddiesmeet Slack handle and your github username below if you’d
 - @oliver84 https://github.com/Oliver84
 - Your Name Here
 
-Add your name on the google doc (http://bit.ly/codebuddies-hangouts-platform-v2-googledoc)[http://bit.ly/codebuddies-hangouts-platform-v2-googledoc] if your name is not listed, and you want to be added as a collaborator. 
+Add your name on the google doc [http://bit.ly/codebuddies-hangouts-platform-v2-googledoc](http://bit.ly/codebuddies-hangouts-platform-v2-googledoc) if your name is not listed, and you want to be added as a collaborator. 
 
 
 ##What is CodeBuddies?
