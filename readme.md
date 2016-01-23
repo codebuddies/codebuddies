@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/codebuddiesdotorg/cb-v2-scratch.png?label=ready&title=Ready)](https://waffle.io/codebuddiesdotorg/cb-v2-scratch)
 #CodeBuddies Hangouts Platform v2.0 - from scratch
 
 #FAQ
