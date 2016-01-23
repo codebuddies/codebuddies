@@ -81,15 +81,15 @@
   <textarea id="current_status" name="currentStatus" value="hmm">I am working on... </textarea>
   I am interested in:
   <label for="status_solo">
-    <input type="radio" name="hangout_status" value="solo"> Solo study</label>
+    <input type="radio" name="hangout_status" value="solo"> independent study</label>
   <label for="status_silent">
-    <input type="radio" name="hangout_status" value="silent"> Silent study</label>
+    <input type="radio" name="hangout_status" value="silent"> joining a silent hangout</label>
   <label for="status_collaborative">
-    <input type="radio" name="hangout_status" value="collaborative"> Collaborative study</label>
+    <input type="radio" name="hangout_status" value="collaborative"> joining a collaborative hangout</label>
   <h3>{{usersOnlineCount}} people are online and learning right now.</h3>
   <ul>
     {{#each usersOnline}}
-    <li><span class="label {{labelClass}}">{{username}}</span> <span>{{statusMessage}}</span></li>
+    <li><span class="label {{labelClass}}">{{username}}</span> <span>{{statusMessage}} </span><span class="status_hangout">{{statusHangout}}</span></li>
     {{/each}}
   </ul>
 </template>
