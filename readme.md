@@ -18,7 +18,9 @@ List your codebuddiesmeet Slack handle and your github username below if you’d
 - @ghazi https://github.com/ghmoha
 - @mualth https://github.com/maudem
 - @oliver84 https://github.com/Oliver84
-- Your Name Here
+- @selfspunwebs, https://github.com/anonRegions
+- @luxis https://github.com/Luxisapex
+- Add Your Name Here
 
 Add your name on the google doc [http://bit.ly/codebuddies-hangouts-platform-v2-googledoc](http://bit.ly/codebuddies-hangouts-platform-v2-googledoc) if your name is not listed, and you want to be added as a collaborator. 
 
@@ -84,11 +86,13 @@ To merge a branch back into `master`, type `git merge [name_of_branch]` while yo
 
 Remember, you can always check which branch you are in by typing `git branch`. 
 
+- Remember to `git pull` occasionally to get the new commits and branches others have pushed up.
+
 - Type `meteor` to run this app. Your terminal will tell you to open up a new browser window and go to http://localhost:3000. 
 
-- Browse through the list of issues to see what features are up for grabs. 
+- Browse through the list of issues to see what features are up for grabs. If you decide to start working on an issue, add a comment to that issue thread. 
 
-- Join the `#codebuddies-meta` channel on the CodeBuddies Slack (go to [http://codebuddiesmeet.herokuapp.com](http://codebuddiesmeet.herokuapp.com) if you need an invitation to the Slack) to discuss this project and to ask any questions.
+- Remember to join the `#codebuddies-meta` channel on the CodeBuddies Slack (go to [http://codebuddiesmeet.herokuapp.com](http://codebuddiesmeet.herokuapp.com) if you need an invitation to the Slack) to discuss updates to this project and to ask questions.
 
 
 ##Very rough mockup of what we're building:
