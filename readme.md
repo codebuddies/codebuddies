@@ -35,29 +35,48 @@ P2 == Priority 2
 P3 == Priority 3
 
 CodeBuddies Hangouts Platform v2.0 will be built using meteor and will feature:
-- P1: ability to see who else is online when you load the frontpage (or hangout-page)
-- P1: a spot for every person to fill in a “current status” to describe what they’re “currently working on”. This way, you’ll be able to see at a glance what everyone is working on.
-- P1: create a new (google?) hangout with a click of a button. 
-- P2: ability to schedule start and end times for future hangouts (existing feature on hangouts.codebuddies.org)
-- P1: ability to start a hangout “NOW” and not have to specify an end time
-- P3: ability to see the # of people who’ve already joined each hangout. 
-- P1: an explanation of the types of hangouts one can create:
+
+### P1 Issues
+- [issue 5] (https://github.com/codebuddiesdotorg/cb-v2-scratch/issues/5) - ability to see who else is online when you load the frontpage (or hangout-page)
+- [issue 6] (https://github.com/codebuddiesdotorg/cb-v2-scratch/issues/6) - a spot for every person to fill in a “current status” to describe what they’re “currently working on”. This way, you’ll be able to see at a glance what everyone is working on.
+- [issue 7] (https://github.com/codebuddiesdotorg/cb-v2-scratch/issues/7) - create a new (google?) hangout with a click of a button.
+- [issue 8] (https://github.com/codebuddiesdotorg/cb-v2-scratch/issues/8) - ability to start a hangout “NOW” and not have to specify an end time
+- [issue 10] (https://github.com/codebuddiesdotorg/cb-v2-scratch/issues/10) - an explanation of the types of hangouts one can create:
 silent hangout / general study motivation hangout where video + mic is muted teaching hangout (hangout creator will be someone who wants to teach)
 talk through a chapter of a dense programming book or article
 pair program on a set of coding exercises
 work on TUTORIAL X at the same time and ask each other questions if they come up (mostly silent, but everyone working on the same material)
 Project (Like codequarters)
-- P1: an embed of the slackin widget to let people sign up on the codebuddiesmeet slack
-an explanation of the #100daysofcode challenge and #todayilearned hashtag (currently side projects in development by @abdulhannanali and @linda… if you guys want to help let us know in #codebuddies-meta!)
-an explanation of how to use Slack -- e.g. recommend downloading the slack app so one can join other Slack communities as well without having to switch, short explanation of the 88 channels, highlights of some channels such as #
-- P1: An “about” page (or section of the home page?) explaining what the community is about, and some of the top contributors here -- i.e. people who’ve made pull requests, are volunteer moderators on the Slack, have lots of /prowd points, etc. 
+- [issue 11] (https://github.com/codebuddiesdotorg/cb-v2-scratch/issues/11) - an embed of the slackin widget to let people sign up on the codebuddiesmeet slack
+- [issue 13] (https://github.com/codebuddiesdotorg/cb-v2-scratch/issues/13) - an explanation of the #100daysofcode challenge and #todayilearned hashtag (currently side projects in development by @abdulhannanali and @linda… if you guys want to help let us know in #codebuddies-meta!)
+- [issue 14] (https://github.com/codebuddiesdotorg/cb-v2-scratch/issues/14) - an explanation of how to use Slack -- e.g. recommend downloading the slack app so one can join other Slack communities as well without having to switch, short explanation of the 88 channels, highlights of some channels such as
+- [issue 12] (https://github.com/codebuddiesdotorg/cb-v2-scratch/issues/12) - An “about” page (or section of the home page?) explaining what the community is about, and some of the top contributors here -- i.e. people who’ve made pull requests, are volunteer moderators on the Slack, have lots of /prowd points, etc.
+
+### P2 Issues
+- [issue 15] (https://github.com/codebuddiesdotorg/cb-v2-scratch/issues/15) - ability to schedule start and end times for future hangouts (existing feature on hangouts.codebuddies.org)
+
+### P3 Issues
+- [issue 9] (https://github.com/codebuddiesdotorg/cb-v2-scratch/issues/9) - ability to see the # of people who’ve already joined each hangout.
 
 
 ## How to contribute as a collaborator on this codebase:
 
--  Install Meteor.
--  `git clone` this repo.
--  `git checkout [branchname]` to work on one of the branches. You can type `git branch` to see the list of available branches. For example, to check out the `active-users` branch, type `git checkout active-users` in your command line. If you need to create a new branch to work on a feature, type `git checkout -b [name_of_your_new_branch]` and `git push origin [name_of_your_new_branch]`.
+-  [Install Meteor](https://www.meteor.com/install)
+-  Clone this repo to your computer by typing in the command line:
+
+  `git clone https://github.com/codebuddiesdotorg/cb-v2-scratch.git`
+
+- To work on a new feature, create a new branch to work on and switch to that branch by typing:
+
+  `git checkout -b [name_of_your_new_branch]`
+
+- Name the branch something like `fix/xxx` or `feature/xxx` where `xxx` is a short description of the changes or feature you are attempting to add. For example `feature/hangout-now` would be a branch for creating the hangout "now" feature.
+
+- Push your new branch to the repo by typing:
+
+  `git push origin [name_of_your_new_branch]`
+
+- Type `git checkout [branchname]` to work on one of the existing branches. You can type `git branch -a` to see the list of all local and remote branches. For example, to check out the `feature/active-users` branch, you would type `git checkout feature/active-users` in your command line.
 
 A note on merge conflicts: occasionally you'll want to merge the latest from master into your branch by typing `git merge master` while you are in the branch. Sometimes when you do so, you'll run into merge conflicts. To resolve a merge conflict, edit the file in the code (getting rid of the `>>>> HEAD` and `======` and `<<<<<MASTER` lines, save it, type `git add [filename where the merge conflict occurred]`, and then `git commit`. At this point you'll be in the VIM editor. Hit the `escape` key on your keyboard and then type `:wq` and `enter` on your keyboard to succcesfully conclude the merge conflict.)
 
