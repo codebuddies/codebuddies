@@ -13,7 +13,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">CodeBuddies.org</a>
+        <a class="navbar-brand" href="#">CodeBuddies 2.0 Beta</a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
@@ -78,14 +78,24 @@
 
 <template name="activeUsers">
   <h2>What are you working on right now?</h2>
-  <textarea id="current_status" name="currentStatus" value="hmm">I am working on... </textarea>
-  I am interested in:
-  <label for="status_solo">
-    <input type="radio" name="hangout_status" value="solo"> independent study</label>
-  <label for="status_silent">
-    <input type="radio" name="hangout_status" value="silent"> joining a silent hangout</label>
-  <label for="status_collaborative">
-    <input type="radio" name="hangout_status" value="collaborative"> joining a collaborative hangout</label>
+  <textarea class="form-control" id="current_status" name="currentStatus" value="hmm">I am working on... </textarea>
+  
+  <div class="checkbox">
+   <input type="radio" name="hangout_status" value="I'd like to work by myself" class="btn" id="status_solo">
+    <label for="status_solo" class="hangout-status status-solo btn">
+      ... and I'd like to work by myself right now.</label>
+  </div>
+  <p class="align-center"> I am interested in:</p>
+  <div class="checkbox">
+  <input type="radio" name="hangout_status" value="I am up for joining a silent hangout" id="status_silent">
+    <label for="status_silent" class="hangout-status status-silent btn">
+       joining a silent hangout</label>
+  </div>
+  <div class="checkbox">
+    
+      <input type="radio" name="hangout_status" value="I am up for joining a collaborative hangout" id="status_collaborative">
+      <label for="status_collaborative" class="hangout-status status-collaborative btn"> joining a collaborative hangout</label>
+  </div>
   <h3>{{usersOnlineCount}} people are online and learning right now.</h3>
   <ul>
     {{#each usersOnline}}
