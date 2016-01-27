@@ -1,3 +1,40 @@
 input[type="text"], textarea { 
 	width: 100%;
+	padding: 8px;
+}
+
+label { 
+	display: block;
+}
+
+input[type="radio"] {
+	display: none;
+}
+
+input[type="radio"]:checked + label {
+	background: dodgerblue;
+}
+
+label.hangout-status {
+	color: black;
+	width: 100%;
+	padding: 10px 3px;
+	border: 1px solid #ccc;
+}
+
+/*Styles for hangout status*/
+input[type="radio"]:checked + label.hangout-status {
+	color: white;
+	&.status-solo {
+		background: dodgerblue;
+	}
+	&.status-collaborative {
+		background: #0f9453;
+	}
+	&.status-silent {
+		background: #db4437;
+	}
+	&:hover {
+		color: white;
+	}
 }

@@ -15,9 +15,16 @@ if (Meteor.isClient) {
   Template.activeUsers.events({
     'focusout textarea#current_status': function(event) {
       var currentStatus = $(event.target).val();
+      console.log(currentStatus);
 
       // Call the server method to update the current status
       Meteor.call('setUserStatus', currentStatus);
+    },
+    'click input[name="hangout_status"]': function(event) {
+      var hangoutStatus = event.target.value;
+      console.log(hangoutStatus);
+
+      Meteor.call('setHangoutStatus', hangoutStatus);
     }
   });
 
@@ -39,6 +46,7 @@ if (Meteor.isClient) {
 if (Meteor.isServer) {
   Accounts.onCreateUser(function(user) {
     user.statusMessage = "";
+    user.statusHangout = "";
     return user;
   });
 
@@ -53,7 +61,18 @@ if (Meteor.isServer) {
 
       // Update the current users status
       Meteor.users.update({_id: Meteor.userId()}, {$set: {statusMessage: currentStatus}});
+    },
+
+    setHangoutStatus: function(hangoutStatus) {
+      if (!Meteor.userId()) {
+        throw new Meteor.Error("not-authorized");
+      }
+
+      Meteor.users.update({_id: Meteor.userId()}, {$set: {statusHangout: hangoutStatus}})
+
+
     }
+
   });
 
   Meteor.publish("userStatus", function() {
