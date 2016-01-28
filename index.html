@@ -83,21 +83,21 @@
   
   <div id="hangout_status">
   <div class="checkbox">
-   <input type="radio" name="hangout_status" value="I'd like to work by myself" class="btn" id="status_solo">
-    <label for="status_solo" class="hangout-status status-solo btn">
+   <input type="radio" name="hangout_status" value="solo" class="btn" id="status_solo">
+    <label for="status_solo" class="hangout-status status-solo btn" data-toggle="tooltip" data-placement="top" title="I'd like to study by myself! I'm not interested in joining a hangout at this time.">
       <i class="fa fa-user"></i></label>
   </div>
   <div class="checkbox">
-  <input type="radio" name="hangout_status" value="I am up for joining a silent hangout" id="status_silent">
-    <label for="status_silent" class="hangout-status status-silent btn">
+  <input type="radio" name="hangout_status" value="silent" id="status_silent">
+    <label for="status_silent" class="hangout-status status-silent btn" data-toggle="tooltip" data-placement="top" title="I would be up for joining a silent google hangout to study a topic with others. (Microphones turned off, optional screensharing.)">
        <i class="fa fa-microphone-slash"></i></label>
   </div>
   <div class="checkbox">
-      <input type="radio" name="hangout_status" value="I am up for joining a collaborative hangout" id="status_collaborative">
-      <label for="status_collaborative" class="hangout-status status-collaborative btn"> <i class="fa fa-users"></i></label>
+      <input type="radio" name="hangout_status" value="collab" id="status_collaborative">
+      <label for="status_collaborative" class="hangout-status status-collaborative btn" data-toggle="tooltip" data-placement="top" title="A collaborative hangout is one where"> <i class="fa fa-users"></i></label>
   </div>
   </div><!--#hangout_status-->
-  <h3>{{usersOnlineCount}} people are online and learning right now.</h3>
+  <h3>{{usersOnlineCount}} people are online learning right now.</h3>
   <ul>
     {{#each usersOnline}}
     <li><span class="label {{labelClass}}">{{username}}</span> <span>{{statusMessage}} </span><span class="status_hangout">{{statusHangout}}</span></li>
@@ -111,5 +111,7 @@
 
 
 <template name="accomplishments">
-
+  <h2>What did you learn or accomplish?</h2>
+  <textarea class="form-control" id="accomplishment" name="accomplishment" placeholder=" "></textarea>
+  <button class="btn btn-primary btn-submit">Submit</button>
 </template>

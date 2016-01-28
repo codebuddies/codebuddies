@@ -2,6 +2,20 @@ if (Meteor.isClient) {
 
   Meteor.subscribe('userStatus');
 
+  Meteor.startup(function() {
+   $(function () {
+      $('[data-toggle="tooltip"]').tooltip();
+
+      var solo = $('label.hangout-status.status-solo').html();
+      console.log(solo);
+      var silent = $('label.hangout-status.status-silent');
+      var collab = $('label.hangout-status.status-collaborative');
+      $( "span.status_hangout:contains('solo')" ).html(silent);
+      $( "span.status_hangout:contains('silent')" ).html(silent);
+      $( "span.status_hangout:contains('collab')" ).html(silent);
+    });
+  });
+
   Template.activeUsers.helpers({
     usersOnline:function(){
       return Meteor.users.find({ "status.online": true })

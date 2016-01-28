@@ -6,6 +6,15 @@ input[type="text"], textarea {
 label { 
 	display: block;
 }
+.form-control {
+	font-size: 18px;
+}
+textarea {
+	resize: vertical;
+	min-height: 100px;
+	font-size: 18px;
+	margin-bottom: 10px;
+}
 
 input[type="radio"] {
 	display: none;
@@ -16,15 +25,16 @@ input[type="radio"]:checked + label {
 }
 
 div#hangout_status { 
-	float: right;
+	text-align: right;
 }
 div.checkbox {
 	display: inline-block;
+	margin: 0px;
 }
 
 label.hangout-status {
 	color: black;
-	padding: 10px;
+	padding: 6.5px 10px;
 	display: inline-block;
 	border: 1px solid #ccc;
 	&.status-solo:hover {
