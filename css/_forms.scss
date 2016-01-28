@@ -1,9 +1,9 @@
-input[type="text"], textarea { 
+input[type="text"], textarea {
 	width: 100%;
 	padding: 8px;
 }
 
-label { 
+label {
 	display: block;
 }
 .form-control {
@@ -24,12 +24,17 @@ input[type="radio"]:checked + label {
 	background: dodgerblue;
 }
 
-div#hangout_status { 
+div#hangout_status {
 	text-align: right;
 }
+
 div.checkbox {
 	display: inline-block;
 	margin: 0px;
+
+	.tooltip {
+		min-width: 200px;
+	}
 }
 
 label.hangout-status {
