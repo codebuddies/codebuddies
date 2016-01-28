@@ -31,6 +31,7 @@ ejson@1.0.7
 email@1.0.8
 es5-shim@4.1.14
 fastclick@1.0.7
+fortawesome:fontawesome@4.5.0
 fourseven:scss@3.4.1
 geojson-utils@1.0.4
 hot-code-push@1.0.0

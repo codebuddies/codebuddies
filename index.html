@@ -71,31 +71,32 @@
       </div>
       <div class="col-md-7">
         {{> scheduledHangouts}}
+        {{> accomplishments}}
       </div>
     </div>
   </div>
 </body>
 
 <template name="activeUsers">
-  <h2>What are you working on right now?</h2>
-  <textarea class="form-control" id="current_status" name="currentStatus" value="hmm">I am working on... </textarea>
+  <h2>What are you working on?</h2>
+  <textarea class="form-control" id="current_status" name="currentStatus" placeholder=" "></textarea>
   
+  <div id="hangout_status">
   <div class="checkbox">
    <input type="radio" name="hangout_status" value="I'd like to work by myself" class="btn" id="status_solo">
     <label for="status_solo" class="hangout-status status-solo btn">
-      ... and I'd like to work by myself right now.</label>
+      <i class="fa fa-user"></i></label>
   </div>
-  <p class="align-center"> I am interested in:</p>
   <div class="checkbox">
   <input type="radio" name="hangout_status" value="I am up for joining a silent hangout" id="status_silent">
     <label for="status_silent" class="hangout-status status-silent btn">
-       joining a silent hangout</label>
+       <i class="fa fa-microphone-slash"></i></label>
   </div>
   <div class="checkbox">
-    
       <input type="radio" name="hangout_status" value="I am up for joining a collaborative hangout" id="status_collaborative">
-      <label for="status_collaborative" class="hangout-status status-collaborative btn"> joining a collaborative hangout</label>
+      <label for="status_collaborative" class="hangout-status status-collaborative btn"> <i class="fa fa-users"></i></label>
   </div>
+  </div><!--#hangout_status-->
   <h3>{{usersOnlineCount}} people are online and learning right now.</h3>
   <ul>
     {{#each usersOnline}}
@@ -105,6 +106,10 @@
 </template>
 
 <template name="scheduledHangouts">
-  <button>Join our discussions on Slack</button>
-  <button>Create a hangout</button>
+
+</template>
+
+
+<template name="accomplishments">
+
 </template>

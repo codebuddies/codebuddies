@@ -25,3 +25,4 @@ seba:minifiers-autoprefixer
 acemtp:accounts-slack
 check
 ejson
+fortawesome:fontawesome

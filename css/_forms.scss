@@ -15,11 +15,30 @@ input[type="radio"]:checked + label {
 	background: dodgerblue;
 }
 
+div#hangout_status { 
+	float: right;
+}
+div.checkbox {
+	display: inline-block;
+}
+
 label.hangout-status {
 	color: black;
-	width: 100%;
-	padding: 10px 3px;
+	padding: 10px;
+	display: inline-block;
 	border: 1px solid #ccc;
+	&.status-solo:hover {
+		background: dodgerblue;
+		color: #fff;
+	}
+	&.status-collaborative:hover {
+		background: #0f9453;
+		color: #fff;
+	}
+	&.status-silent:hover {
+		background: #db4437;
+		color: #fff;
+	}
 }
 
 /*Styles for hangout status*/
