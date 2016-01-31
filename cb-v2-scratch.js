@@ -7,10 +7,7 @@ if (Meteor.isClient) {
       $('[data-toggle="tooltip"]').tooltip();
 
 
-      $( "span.status_hangout:contains('solo')" ).html('<i class="fa fa-user"></i>');
-      $( "span.status_hangout:contains('silent')" ).html('<i class="fa fa-microphone-slash"></i>');
-      $( "span.status_hangout:contains('collab')" ).html('<i class="fa fa-users"></i>');
-    });
+        });
   });
 
   Template.activeUsers.helpers({
@@ -36,11 +33,6 @@ if (Meteor.isClient) {
       console.log(hangoutStatus);
 
       Meteor.call('setHangoutStatus', hangoutStatus);
-    },
-    'click #hangout_status': function() {
-      $( "span.status_hangout:contains('solo')" ).replaceWith('<i class="fa fa-user"></i>');
-      $( "span.status_hangout:contains('silent')" ).replaceWith('<i class="fa fa-microphone-slash"></i>');
-      $( "span.status_hangout:contains('collab')" ).replaceWith('<i class="fa fa-users"></i>');
     }
   });
 
