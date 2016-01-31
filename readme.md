@@ -88,6 +88,8 @@ Remember, you can always check which branch you are in by typing `git branch`.
 
 - Remember to `git pull` occasionally to get the new commits and branches others have pushed up.
 
+- Remember to `git merge master` occasionally if you're working inside a branch that you intend to merge back into master. Make sure you're in this branch when you type `git merge master`. 
+
 - Type `meteor` to run this app. Your terminal will tell you to open up a new browser window and go to http://localhost:3000. 
 
 - Browse through the list of issues to see what features are up for grabs. If you decide to start working on an issue, add a comment to that issue thread. 
