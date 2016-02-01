@@ -78,7 +78,7 @@
 </body>
 
 <template name="activeUsers">
-  <h2>What are you working on right now?</h2>
+  <h2>What are you working on?</h2>
   <textarea class="form-control" id="current_status" name="currentStatus" placeholder="I am working on..." value=""></textarea>
   
   <div id="hangout_status">
@@ -100,7 +100,19 @@
   <h3>{{usersOnlineCount}} people are online learning right now.</h3>
   <ul>
     {{#each usersOnline}}
-    <li><span class="label {{labelClass}}">{{username}}</span> <span>{{statusMessage}} </span><span class="status_hangout">{{statusHangout}}</span></li>
+    <li>
+      <span class="label {{labelClass}}">
+        {{# if username }}
+          {{username}}
+        {{/if}}
+
+        {{# if profile.name }}
+          <a href="https://codebuddiesmeet.slack.com/messages/@{{profile.name}}" target="_blank">{{profile.name}}</a>
+        {{/if}}
+        </span>
+        <span> {{statusMessage}} </span>
+        <span class="status_hangout">{{statusHangout}}</span>
+    </li>
     {{/each}}
   </ul>
 </template>
