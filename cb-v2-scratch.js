@@ -2,6 +2,11 @@ Learnings = new Mongo.Collection("learnings");
 
 if (Meteor.isClient) {
 
+    //configure the accounts UI to use usernames instead of email addresses:
+  Accounts.ui.config({
+    passwordSignupFields: "USERNAME_ONLY"
+  });
+
   Meteor.subscribe('userStatus');
 
   Meteor.subscribe('learnings');
@@ -49,10 +54,7 @@ if (Meteor.isClient) {
       return "label-default"
   };
 
-  //configure the accounts UI to use usernames instead of email addresses:
-  Accounts.ui.config({
-    passwordSignupFields: "USERNAME_ONLY"
-  });
+
 
   //Learnings
   Template.learnings.helpers({
@@ -111,9 +113,12 @@ if (Meteor.isClient) {
 
 
 if (Meteor.isServer) {
-  Accounts.onCreateUser(function(user) {
+  Accounts.onCreateUser(function(options,user) {
     user.statusMessage = "";
     user.statusHangout = "";
+    if (options.profile) {
+      user.profile = options.profile;
+    }
     return user;
   });
 
