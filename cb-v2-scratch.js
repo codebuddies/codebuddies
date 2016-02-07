@@ -32,14 +32,14 @@ if (Meteor.isClient) {
   Template.activeUsers.events({
     'focusout textarea#current_status': function(event) {
       var currentStatus = $(event.target).val();
-      console.log(currentStatus);
+      //console.log(currentStatus);
 
       // Call the server method to update the current status
       Meteor.call('setUserStatus', currentStatus);
     },
     'click input[name="hangout_status"]': function(event) {
       var hangoutStatus = event.target.value;
-      console.log(hangoutStatus);
+      //console.log(hangoutStatus);
 
       Meteor.call('setHangoutStatus', hangoutStatus);
     }
@@ -67,7 +67,7 @@ if (Meteor.isClient) {
   });
   Template.learning.helpers({
     ownPost: function() {
-      console.log(this);
+      //console.log(this);
       return this.owner === Meteor.userId();
     }
   });
@@ -92,9 +92,18 @@ if (Meteor.isClient) {
       // Set the checked property to the opposite of its current value
       Meteor.call("setChecked", this._id, ! this.checked);
     },
-    "click .delete": function () {
+    "click .delete-learning": function () {
       Meteor.call("deleteLearning", this._id);
-    }
+    }/*,
+    "click .edit-learning": function(event) {
+        console.log('editing learning');
+      
+    },
+    "click .edit-learning-button": function(event) {
+
+      var text = "hello";
+       // Meteor.call("editLearning", this._id, text);
+    }*/
   });
 
 
@@ -139,8 +148,11 @@ if (Meteor.isServer) {
         throw new Meteor.Error("not-authorized");
       }
 
-      Meteor.users.update({_id: Meteor.userId()}, {$set: {statusHangout: hangoutStatus}})
+      Meteor.users.update({_id: Meteor.userId()}, {$set: {statusHangout: hangoutStatus}});
     },
+    /*editLearning: function(learningId,text) {
+      Learnings.update(learningId, { $set: { text: text} });
+    },*/
     addLearning: function(text) {
       if (! Meteor.userId()) {
         throw new Meteor.Error("not-authorized");
