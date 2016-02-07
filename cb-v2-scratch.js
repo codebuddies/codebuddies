@@ -87,6 +87,16 @@ if (Meteor.isClient) {
       Meteor.call("deleteLearning", this._id);
     }
   });
+
+
+  /*Template helpers*/
+  UI.registerHelper('formatTime', function(context, options) {
+    if(context) {
+      return moment(context).format('dddd, MMMM Do YYYY');
+    }
+  });
+
+
 }
 
 

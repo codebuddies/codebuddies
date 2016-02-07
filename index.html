@@ -134,9 +134,8 @@
    <!-- <input type="checkbox" checked="{{checked}}" class="toggle-checked" />-->
  
   <p>{{text}}</p>
-  Created at: {{createdAt}},
-  Date: {{date}},
-  {{username}}
+  <span>Shared on {{formatTime createdAt}} by
+  {{username}}</span>
   <span class="delete">&times;</span>
   </li>
 </template>
