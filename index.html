@@ -1,5 +1,7 @@
 <head>
   <title>CodeBuddies.org V2.0</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 </head>
 
 <body>
@@ -133,9 +135,10 @@
  
    <!-- <input type="checkbox" checked="{{checked}}" class="toggle-checked" />-->
  
-  <p>{{text}}</p>
+  <p class="learning">{{text}}</p>
   <span>Shared on {{formatTime createdAt}} by
   {{username}}</span>
-  <span class="delete">&times;</span>
+  <span class="edit"><i class="material-icons">mode_edit</i></span>
+  <span class="delete"><i class="material-icons">delete</i></span>
   </li>
 </template>
