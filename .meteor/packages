@@ -26,3 +26,4 @@ acemtp:accounts-slack
 check
 ejson
 fortawesome:fontawesome
+momentjs:moment

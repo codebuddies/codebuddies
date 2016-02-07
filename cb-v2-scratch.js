@@ -1,6 +1,10 @@
+Learnings = new Mongo.Collection("learnings");
+
 if (Meteor.isClient) {
 
   Meteor.subscribe('userStatus');
+
+  Meteor.subscribe('learnings');
 
   Meteor.startup(function() {
    $(function () {
@@ -49,7 +53,45 @@ if (Meteor.isClient) {
   Accounts.ui.config({
     passwordSignupFields: "USERNAME_ONLY"
   });
+
+  //Learnings
+  Template.learnings.helpers({
+    learnings: function () {
+      return Learnings.find({}, {sort: {createdAt: -1}});
+    },
+    date: function(){
+      return moment(this.createdAt).format("MMMM DD");
+    }
+  });
+  Template.learnings.events({
+    "submit .submit-learning": function (event) {
+      // Prevent default browser form submit
+      event.preventDefault();
+ 
+      // Get value from form element
+      var text = event.target.text.value;
+ 
+      // Insert a task into the collection
+      Meteor.call("addLearning", text);
+ 
+      // Clear form
+      event.target.text.value = "";
+    }
+  });
+  Template.learning.events({
+     "click .toggle-checked": function () {
+      // Set the checked property to the opposite of its current value
+      Meteor.call("setChecked", this._id, ! this.checked);
+    },
+    "click .delete": function () {
+      Meteor.call("deleteLearning", this._id);
+    }
+  });
 }
+
+
+
+
 
 if (Meteor.isServer) {
   Accounts.onCreateUser(function(user) {
@@ -70,15 +112,29 @@ if (Meteor.isServer) {
       // Update the current users status
       Meteor.users.update({_id: Meteor.userId()}, {$set: {statusMessage: currentStatus}});
     },
-
     setHangoutStatus: function(hangoutStatus) {
       if (!Meteor.userId()) {
         throw new Meteor.Error("not-authorized");
       }
 
       Meteor.users.update({_id: Meteor.userId()}, {$set: {statusHangout: hangoutStatus}})
-
-
+    },
+    addLearning: function(text) {
+      if (! Meteor.userId()) {
+        throw new Meteor.Error("not-authorized");
+      }
+      Learnings.insert({
+        text: text,
+        createdAt: new Date(),
+        owner: Meteor.userId(),
+        username: Meteor.user().username || Meteor.user().profile.name
+      });
+    },
+    deleteLearning: function (learningId) {
+      Learnings.remove(learningId);
+    },
+    setChecked: function (learningId, setChecked) {
+      Learnings.update(learningId, { $set: { checked: setChecked} });
     }
 
   });
@@ -86,4 +142,9 @@ if (Meteor.isServer) {
   Meteor.publish("userStatus", function() {
     return Meteor.users.find({ "status.online": true });
   });
+  Meteor.publish("learnings", function() {
+    return Learnings.find();
+  });
+
+
 }

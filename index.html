@@ -22,18 +22,7 @@
           <li><a href="#" onclick="return false;">{{> loginButtons}}</a></li>
           <li class="active"><a href="#">About <span class="sr-only">(current)</span></a></li>
           <li><a href="#">FAQ</a></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories<span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">Action</a></li>
-              <li><a href="#">Another action</a></li>
-              <li><a href="#">Something else here</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">Separated link</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">One more separated link</a></li>
-            </ul>
-          </li>
+         
         </ul>
         <form class="navbar-form navbar-left" role="search">
           <div class="form-group">
@@ -71,7 +60,7 @@
       </div>
       <div class="col-md-7">
         {{> scheduledHangouts}}
-        {{> accomplishments}}
+        {{> learnings}}
       </div>
     </div>
   </div>
@@ -122,8 +111,32 @@
 </template>
 
 
-<template name="accomplishments">
+<template name="learnings">
   <h2>What did you learn or accomplish?</h2>
-  <textarea class="form-control" id="accomplishment" name="accomplishment" placeholder=" "></textarea>
-  <button class="btn btn-primary btn-submit">Submit</button>
+  
+  <form class="submit-learning">
+  <input type="text" name="text" placeholder="Share something you learned or accomplished!" />
+  <button class="btn btn-primary btn-submit" type="submit">Submit</button>
+  </form>
+  <a href="#">See feed of learnings</a>
+
+  <ul id="learnings">
+       {{#each learnings}}
+        {{> learning}}
+      {{/each}}
+  </ul>
+</template>
+
+<template name="learning">
+  <li class="{{#if checked}}checked{{/if}}">
+    
+ 
+   <!-- <input type="checkbox" checked="{{checked}}" class="toggle-checked" />-->
+ 
+  <p>{{text}}</p>
+  Created at: {{createdAt}},
+  Date: {{date}},
+  {{username}}
+  <span class="delete">&times;</span>
+  </li>
 </template>
