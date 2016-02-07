@@ -138,7 +138,10 @@
   <p class="learning">{{text}}</p>
   <span>Shared on {{formatTime createdAt}} by
   {{username}}</span>
-  <span class="edit"><i class="material-icons">mode_edit</i></span>
-  <span class="delete"><i class="material-icons">delete</i></span>
+  {{#if ownPost}}
+   <span class="edit"><i class="material-icons">mode_edit</i></span>
+   <span class="delete"><i class="material-icons">delete</i></span>
+  {{/if}}
+ 
   </li>
 </template>

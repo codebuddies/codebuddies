@@ -63,6 +63,13 @@ if (Meteor.isClient) {
       return moment(this.createdAt).format("MMMM DD");
     }
   });
+  Template.learning.helpers({
+    ownPost: function() {
+      console.log(this);
+      return this.owner === Meteor.userId();
+    }
+  });
+
   Template.learnings.events({
     "submit .submit-learning": function (event) {
       // Prevent default browser form submit

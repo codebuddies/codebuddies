@@ -28,3 +28,5 @@ ejson
 fortawesome:fontawesome
 momentjs:moment
 
+accounts-base
+accounts-oauth
