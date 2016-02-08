@@ -137,12 +137,35 @@
   <input type="text" name="text" placeholder="Share something you learned or accomplished!" />
   <button type="submit">Submit</button>
   </form>
+
+  <!-- Button trigger modal -->
+  <a data-toggle="modal" data-target="#myModal">
+  View feed of learnings/accomplishments
+  </a>
+
+  <!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Feed of learnings/accomplishments</h4>
+      </div>
+      <div class="modal-body">
+         <ul id="learnings">
+           {{#each learnings}}
+             {{> learning}}
+           {{/each}}
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
  
-  <ul id="learnings">
-       {{#each learnings}}
-        {{> learning}}
-      {{/each}}
-  </ul>
+ 
 </template>
 
 <template name="learning">
