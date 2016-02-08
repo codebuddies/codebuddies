@@ -16,6 +16,10 @@ textarea {
 	margin-bottom: 10px;
 }
 
+textarea#current_status {
+	border: none;
+}
+
 input[type="radio"] {
 	display: none;
 }
