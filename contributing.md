@@ -18,7 +18,9 @@
 
 - Type `git checkout [branchname]` to work on one of the existing branches. You can type `git branch -a` to see the list of all local and remote branches. For example, to check out the `feature/active-users` branch, you would type `git checkout feature/active-users` in your command line.
 
-A note on merge conflicts: occasionally you'll want to merge the latest from master into your branch by typing `git merge master` while you are in the branch. Sometimes when you do so, you'll run into merge conflicts. To resolve a merge conflict, edit the file in the code (getting rid of the `>>>> HEAD` and `======` and `<<<<<MASTER` lines, save it, type `git add [filename where the merge conflict occurred]`, and then `git commit`. At this point you'll be in the VIM editor. Hit the `escape` key on your keyboard and then type `:wq` and `enter` on your keyboard to succcesfully conclude the merge conflict.)
+A note on merge conflicts: occasionally you'll want to merge the latest from master into your branch by typing `git merge master` while you are in the branch. Sometimes when you do so, you'll run into merge conflicts. To resolve a merge conflict, edit the file in the code (getting rid of the `>>>> HEAD` and `======` and `<<<<<MASTER` lines, save it, type `git add [filename where the merge conflict occurred]`, and then `git commit -m "COMMENT"`. 
+
+A second note for beginners: if you forget to add the comment when you `git commit`, you'll be redirected to the VIM editor while you're in the terminal. Hit the `escape` key on your keyboard and then type `:wq` and `enter` on your keyboard to succcesfully conclude the merge conflict.
 
 To merge a branch back into `master`, type `git merge [name_of_branch]` while you are in the `master` branch.
 
