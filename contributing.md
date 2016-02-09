@@ -22,13 +22,16 @@ A note on merge conflicts: occasionally you'll want to merge the latest from mas
 
 A second note for beginners: if you forget to add the comment when you `git commit`, you'll be redirected to the VIM editor while you're in the terminal. Hit the `escape` key on your keyboard and then type `:wq` and `enter` on your keyboard to succcesfully conclude the merge conflict.
 
-To merge a branch back into `master`, type `git merge [name_of_branch]` while you are in the `master` branch.
+##Merging to staging
+All branches should be merged to staging for occasional deployment and testing at [cbv2-staging1.meteor.com](http://cbv2-staging1.meteor.com).
+
+To merge a branch into `staging`, type `git merge [name_of_branch]` while you are in the `staging` branch.
 
 Remember, you can always check which branch you are in by typing `git branch`. 
 
 - Remember to `git pull` occasionally to get the new commits and branches others have pushed up.
 
-- Remember to `git merge master` occasionally if you're working inside a branch that you intend to merge back into master. Make sure you're in this branch when you type `git merge master`. 
+- Remember to `git merge staging` occasionally if you're working inside a branch that you intend to merge back into staging. Make sure you're in this branch when you type `git merge staging`. 
 
 - Type `meteor` to run this app. Your terminal will tell you to open up a new browser window and go to http://localhost:3000. 
 
