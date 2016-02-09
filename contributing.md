@@ -36,4 +36,4 @@ Remember, you can always check which branch you are in by typing `git branch`.
 
 
 ##Mockup of what we're building (designed by @adachiu):
-![very rough mockup of hangouts v2.0](https://files.slack.com/files-pri/T04AQ6GEY-F0LGNGMED/screen_shot_2016-02-07_at_12.46.48_pm.jpg)
+![very rough mockup of hangouts v2.0](http://codebuddies.org/images/landingpage3.png)
