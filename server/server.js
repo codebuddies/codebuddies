@@ -6,8 +6,8 @@ Meteor.startup(function() {
 
   Accounts.loginServiceConfiguration.insert({
     service     : 'slack',
-    "clientId" : "4364220508.20538290355",
-    "secret" : "cd704626e9237a43ce75e99ffdc09e17",
+    "clientId" : "4364220508.19931575810",
+    "secret" : "1f444a99afd6ee81a67197229c5a2b27",
     "loginStyle" : "popup"
   });
 
