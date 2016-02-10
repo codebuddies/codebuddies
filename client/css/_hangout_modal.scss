@@ -1,0 +1,49 @@
+.modal-backdrop {
+   background-color: $cta-blue;
+}
+
+#create-hangout-modal h4 {
+  @include font-face(700, 20px, bold, #000000);
+}
+
+#create-hangout-modal {
+
+  .modal-dialog {
+    width: 800px;
+  }
+
+  .btn-info {
+    margin-top: -30px;
+  }
+
+  #start-date-time, #end-date-time, #topic, #description {
+    border: none;
+    background-color: $bg-lightgrey;
+  }
+
+  #description {
+    resize: vertical;
+  }
+
+  .input-group-addon {
+    border: none;
+    color: $cta-blue;
+    font-size: 18px;
+    background-color: $bg-lightgrey;
+  }
+
+  .btn-group-vertical {
+
+    margin-top: 20px;
+
+    label.btn {
+      margin: 10px 0;
+    }
+
+  }
+
+  .message {
+    @include font-face(400, 13px, normal, $warm-grey);
+  }
+
+}

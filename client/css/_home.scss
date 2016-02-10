@@ -1,0 +1,21 @@
+#home {
+
+  margin-top: 50px;
+
+  .heading  {
+
+    @include font-face(700, 32px, bold, $primary-grey);
+    text-align: center;
+
+    .title {
+      margin: 10px 0 20px 0;
+    }
+
+  }
+
+  .question {
+    @include font-face(400, 13px, italic, $warm-grey);
+    margin-top: -5px;
+  }
+
+}

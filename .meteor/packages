@@ -27,4 +27,16 @@ fortawesome:fontawesome
 momentjs:moment
 accounts-base
 accounts-oauth
+meteorhacks:flow-router
+meteorhacks:flow-layout
+arillo:flow-router-helpers
+http
 acemtp:accounts-slack
+reactive-var
+simple:reactive-method
+peppelg:bootstrap-3-modal
+tsega:bootstrap3-datetimepicker
+kevohagan:sweetalert
+natestrauser:connection-banner
+tap:i18n
+copleykj:livestamp

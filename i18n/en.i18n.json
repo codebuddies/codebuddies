@@ -1,0 +1,59 @@
+{
+  // general & menu
+  "sign_out": "Sign Out",
+  "sign_in_with": "Sign In with",
+
+  // other pages
+  "about": "About",
+  "faq": "FAQ",
+  "profile": "Profile",
+
+  // status messages
+  "i_am_working_on": "I'm working on ...",
+  "today_i_learned": "Today I learned ...",
+  "start_a_hangout": "Start a Hangout",
+  "learning_message": "__count__ person is online learning",
+  "learning_message_plural": "__count__ people are online learning",
+  "accomplishment_message": "__count__ accomplishment",
+  "accomplishment_message_plural": "__count__ accomplishments",
+  "working_on": "working on HTML5 ...",
+  "accomplished": "What did you learn or accomplish?",
+  "mastered_x_days_ago": "Mastered __days__ day ago",
+  "mastered_x_days_ago_plural": "Mastered __days__ days ago",
+  "mastered_today_time": "Mastered today __time__",
+
+  // buttons
+  "update": "Update",
+  "join_hangouts" : "Join Hangouts",
+  "create_a_hangout": "Create a Hangout",
+  "join": "Join",
+  "load_more": "Load more...",
+  "load_page": "Load page __start__/__total__",
+  "ok": "OK",
+
+  // hangout
+  "what_is_a_hangout": "What is a hangout?",
+  "loading_hangouts": "Loading hangouts... please wait.",
+  "create_hangout_hint": "Your scheduled study session will appear on the home page immediately. After you propose a study session, you can always go back and edit the text. If you need styling, note that all text boxes accept markdown.",
+  "silent_hangout": "Silent Hangout",
+  "teaching_hangout": "Teaching Hangout",
+  "collaboration_hangout": "Collaboration Hangout",
+
+  // popup messages
+  "you_are_almost_there": "You are almost there!",
+  "login_join_hangout": "Please login to join a hangout",
+  "login_update_status": "Please login to update your status",
+  "login_create_hangout_title": "You are pretty awesome you know! Just one more step",
+  "login_create_hangout_message": "Please login to create a hangout",
+  "you_are_awesome": "You are awesome!",
+  "looking_forward_to_see_you": "Looking forward to see you.",
+  "remove_owner_from_hangout": "Hey! You can't remove yourself from your hangout.",
+
+  // create hangout modal - popup messages
+  "hangout_created_title": "Hangout Created Successfully",
+  "hangout_created_message": "Pretty awesome hah!",
+  "select_start_time": "Please select a start time",
+  "select_end_time": "Please select an end time",
+  "enter_topic": "Please fill the hangout topic",
+  "enter_description": "Please fill the hangout description"
+}

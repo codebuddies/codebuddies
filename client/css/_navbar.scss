@@ -1,0 +1,38 @@
+.navbar {
+
+  .container {
+
+    .navbar-brand {
+
+      @include font-face(700, 24px, bold, #000000);
+      margin-top: 4px;
+
+      img {
+        display: inline-block;
+      }
+
+    }
+
+  }
+
+}
+
+.navbar-default {
+
+  .navbar-nav {
+
+    li > a {
+      @include font-face(400, 18px, normal, $cta-blue);
+      margin-top: 4px;
+    }
+
+    li > a > img {
+      display: inline-block;
+      width: 34px;
+      height: 34px;
+      margin-top: -4px;
+    }
+
+  }
+
+}
