@@ -1,0 +1,7 @@
+@mixin font-face ($weight, $size, $style, $color) {
+  font-family: $open-sans;
+  font-weight: $weight;
+  font-size: $size;
+  font-style: $style;
+  color: $color;
+}

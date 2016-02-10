@@ -1,0 +1,29 @@
+input:focus, textarea:focus {
+  outline: none;
+}
+
+.status-input textarea {
+  resize: vertical;
+  width: 100%;
+  border: none;
+  padding: 20px;
+  @include font-face(400, 16px, normal, $primary-grey);
+}
+
+.status-actions {
+
+  width: 100%;
+  background-color: $bg-white;
+  height: 60px;
+  margin-top: -5px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  padding-left: 21px;
+  padding-right: 21px;
+  padding-top: 12px;
+
+  .btn-circle {
+    margin-right: 30px;
+  }
+
+}

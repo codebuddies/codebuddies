@@ -1,0 +1,50 @@
+.status-list  {
+
+  background-color: $bg-white;
+  min-height: 50px;
+  border-radius: 4px;
+  padding: 20px;
+
+  .title {
+    text-align: center;
+    padding: 10px 0 15px 0;
+    @include font-face(700, 16px, bold, #000000);
+  }
+
+  .status-item {
+
+    margin: 20px 0;
+    list-style: none;
+    display: table;
+    padding: 0;
+
+    li {
+      display: table-cell;
+      vertical-align: top;
+    }
+
+    .btn {
+
+      display: inline-block;
+      @include font-face(400, 13px, normal, #000000);
+
+      &:hover {
+        color: $bg-white;
+      }
+
+    }
+
+
+    .status {
+      padding-left: 10px;
+      display: inline-block;
+      @include font-face(400, 13px, normal, $cta-blue);
+    }
+
+    .status-date {
+      @include font-face(400, 11px, italic, $warm-grey);
+    }
+
+  }
+
+}

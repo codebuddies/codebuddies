@@ -1,0 +1,25 @@
+<template name="hangout">
+  <div id="about" class="container">
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        {{#if isReady}}
+          {{#with hangout}}
+            <div class="panel panel-default">
+              <div class="panel-heading"><h4>{{topic}}</h4></div>
+              <div class="panel-body">
+                {{description}}
+              </div>
+              <div class="panel-footer">
+                {{#each users}}
+                  {{> hangoutUser this}}
+                {{/each}}
+              </div>
+            </div>
+          {{/with}}
+        {{else}}
+          please wait..
+        {{/if}}
+      </div>
+    </div>
+  </div>
+</template>

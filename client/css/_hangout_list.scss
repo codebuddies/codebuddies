@@ -1,0 +1,109 @@
+#hangouts {
+
+  margin-top: 30px;
+  padding: 0;
+
+  .hangout-item {
+
+    padding-left: 10px;
+    margin: 15px 0;
+
+    .status {
+      list-style: none;
+      display: table;
+      padding: 0;
+
+      li {
+        display: table-cell;
+        vertical-align: top;
+      }
+
+      i {
+        padding-right: 10px;
+      }
+
+      label {
+        @include font-face(400, 12px, normal, $warm-grey);
+        display: inline-block;
+      }
+
+      i.faa-burst {
+        margin-top: 20px;
+      }
+
+    }
+
+    label {
+
+      &.name {
+        @include font-face(400, 14px, normal, $primary-grey);
+      }
+
+      span {
+        @include font-face(400, 12px, normal, $warm-grey);
+      }
+
+    }
+
+  }
+
+  .btn-block {
+    margin-top: 20px;
+    border: none;
+    background: $bg-white;
+    @include font-face(700, 13px, bold, #000000);
+  }
+
+}
+
+#hangout-options {
+
+  .btn {
+
+    text-align: left;
+
+    &.active {
+      box-shadow: none;
+    }
+
+  }
+
+  span.title {
+    @include font-face(400, 17px, normal, $primary-grey);
+    padding-left: 10px;
+  }
+
+  label {
+    input[type="radio"] {
+      ~ i.fa {
+        &.fa-circle-o {
+          color: $primary-grey;
+          display: inline;
+          outline: none;
+        }
+        &.fa-dot-circle-o {
+          display: none;
+        }
+      }
+      &:checked ~ i.fa {
+        &.fa-circle-o {
+          display: none;
+        }
+        &.fa-dot-circle-o {
+          color: $cta-blue;
+          display: inline;
+        }
+      }
+    }
+
+    &.btn i.type {
+      font-size: 20px;
+      padding-left: 10px;
+    }
+
+    &:hover input[type="radio"] ~ i.fa {
+      color: $cta-blue;
+    }
+  }
+
+}
