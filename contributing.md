@@ -1,7 +1,7 @@
 ## How to contribute as a collaborator on this codebase:
 - Add your name on the google doc [http://bit.ly/codebuddies-hangouts-platform-v2-googledoc](http://bit.ly/codebuddies-hangouts-platform-v2-googledoc) if your name is not listed, and you want to be added as a collaborator. 
 - Say hello on the [#codebuddies-meta channel in the Slack](https://codebuddiesmeet.slack.com/messages/codebuddies-meta/)
--  [Install Meteor](https://www.meteor.com/install)
+-  [Install Meteor](https://www.meteor.com/install) and Node: [https://docs.npmjs.com/cli/install](https://docs.npmjs.com/cli/install)
 -  Clone this repo to your computer by typing in the command line:
 
   `git clone https://github.com/codebuddiesdotorg/cb-v2-scratch.git`
@@ -33,7 +33,7 @@ Remember, you can always check which branch you are in by typing `git branch`.
 
 - Remember to `git merge staging` occasionally if you're working inside a branch that you intend to merge back into staging. Make sure you're in this branch when you type `git merge staging`. 
 
-- Type `meteor` to run this app. Your terminal will tell you to open up a new browser window and go to http://localhost:3000. 
+- Type `npm run meteor:dev` to run this app. Your terminal will tell you to open up a new browser window and go to http://localhost:3000. 
 
 - Browse through the list of issues to see what features are up for grabs. If you decide to start working on an issue, add a comment to that issue thread. 
 
