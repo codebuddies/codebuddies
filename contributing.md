@@ -6,6 +6,9 @@
 
   `git clone https://github.com/codebuddiesdotorg/cb-v2-scratch.git`
 - Look at some of the [open issues](https://github.com/codebuddiesdotorg/cb-v2-scratch/issues) and pick one to work on.
+
+- Type `npm run meteor:dev` in your terminal to start up the app in your `localhost:3000`.
+
 - To work on a new feature, create a new branch to work on and switch to that branch by typing:
 
   `git checkout -b [name_of_your_new_branch]`
