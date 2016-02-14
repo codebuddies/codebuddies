@@ -26,7 +26,7 @@ A note on merge conflicts: occasionally you'll want to merge the latest from mas
 A second note for beginners: if you forget to add the comment when you `git commit`, you'll be redirected to the VIM editor while you're in the terminal. Hit the `escape` key on your keyboard and then type `:wq` and `enter` on your keyboard to succcesfully conclude the merge conflict.
 
 ##Merging to staging
-All branches should be merged to staging for occasional deployment and testing at [cbv2-staging1.meteor.com](http://cbv2-staging1.meteor.com).
+All branches should be merged to staging for occasional deployment and testing at [http://cbv2-staging2.meteor.com](http://cbv2-staging2.meteor.com).
 
 To merge a branch into `staging`, type `git merge [name_of_branch]` while you are in the `staging` branch. 
 
