@@ -1,5 +1,17 @@
 <template name="home">
   <div id="home" class="container">
+    
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <div id="jumbotron" class="not-logged-in">
+            <span class="subtitle">{{_ "jumbotron_subtitle" count=userCount}}</span>
+            {{#unless currentUser}}
+                <p>If you don't have an account at <a href="http://codebuddiesmeet.slack.com" target="_blank">codebuddiesmeet.slack.com</a>, get your invite at <script async defer src="https://codebuddiesmeet.herokuapp.com/slackin.js"></script>. Then, sign in with Slack. </p>
+            {{/unless}}
+          </div>
+        </div>
+      </div>
+  
     <div class="row">
       <div class="col-md-6 col-md-offset-1">
         <div class="panel panel-default">

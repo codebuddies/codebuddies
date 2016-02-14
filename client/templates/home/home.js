@@ -1,4 +1,7 @@
 Template.home.rendered = function() {
+   Meteor.call('getUserCount', function (err, result) {
+      Session.set('userCount', result);
+    });
   $('#statusTabs a').click(function (e) {
     e.preventDefault();
     $(this).tab('show');
@@ -19,3 +22,11 @@ Template.home.rendered = function() {
     }
   })
 };
+
+Template.home.helpers({
+  userCount: function() {
+      var totalUsers = Session.get('userCount');
+      //console.log(totalUsers);
+      return totalUsers;
+  }
+})

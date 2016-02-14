@@ -3,6 +3,9 @@
   "sign_out": "Sign Out",
   "sign_in_with": "Sign In with",
 
+  //home
+  "jumbotron_subtitle": "We're __count__ people who help each other by sharing knowledge",
+
   // other pages
   "about": "About",
   "faq": "FAQ",
