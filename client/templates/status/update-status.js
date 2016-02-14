@@ -28,8 +28,8 @@ Template.updateStatus.events({
         type: 'info'
       });
     } else {
-      var currentStatus = $('#learned-text').val();
-      Meteor.call("addLearning", currentStatus, function(error, result) { });
+      var learningStatus = $('#learned-text').val();
+      Meteor.call("addLearning", learningStatus, function(error, result) { });
       $('#learned-text').val('');
     }
   },
