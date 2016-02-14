@@ -63,7 +63,15 @@ Meteor.methods({
       owner: Meteor.userId(),
       username: Meteor.user().username || Meteor.user().profile.name,
       timestamp: new Date(),
+      kudos: 0
     });
+  },
+
+  incrementKudoCount: function(learningItemId) {
+    Learnings.update(
+      { _id: learningItemId },
+      { $inc: { kudos: 1 } }
+    )
   },
 
   getHangout: function(hangoutId) {

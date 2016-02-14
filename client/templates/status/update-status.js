@@ -15,7 +15,7 @@ Template.updateStatus.events({
       });
     } else {
       var currentStatus = $('#working-text').val();
-      Meteor.call('setUserStatus', currentStatus, function(error, result) { });;
+      Meteor.call('setUserStatus', currentStatus, function(error, result) { });
       $('#working-text').val('');
     }
   },
