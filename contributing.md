@@ -28,9 +28,9 @@ A second note for beginners: if you forget to add the comment when you `git comm
 ##Merging to staging
 All branches should be merged to staging for occasional deployment and testing at [cbv2-staging1.meteor.com](http://cbv2-staging1.meteor.com).
 
-To merge a branch into `staging`, type `git merge [name_of_branch]` while you are in the `staging` branch.
+To merge a branch into `staging`, type `git merge [name_of_branch]` while you are in the `staging` branch. 
 
-Remember, you can always check which branch you are in by typing `git branch`. 
+Remember, you can always check which branch you are in by typing `git branch` or `git branch -a` to see all the branches that exist. 
 
 - Remember to `git pull` occasionally to get the new commits and branches others have pushed up.
 
