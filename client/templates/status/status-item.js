@@ -8,5 +8,8 @@ Template.statusItem.helpers({
       return "btn-success";
     else
       return "btn-success";
+  },
+  logged_in_using_codebuddies_team: function() {
+    return Meteor.user().profile.team_id === "T04AQ6GEY";
   }
-});
+});  
