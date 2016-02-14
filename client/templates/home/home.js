@@ -20,6 +20,10 @@ Template.home.rendered = function() {
     } else {
       Modal.show('createHangoutModal');
     }
+  });
+
+  $('#hangout-faq-popup').click(function() {
+    Modal.show('hangoutFAQModal');
   })
 };
 
