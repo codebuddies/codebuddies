@@ -1,5 +1,17 @@
 <template name="home">
   <div id="home" class="container">
+    
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <div id="jumbotron" class="not-logged-in">
+            <span class="subtitle">{{_ "jumbotron_subtitle" count=userCount}}</span>
+            {{#unless currentUser}}
+                <p>If you don't have an account at <a href="http://codebuddiesmeet.slack.com" target="_blank">codebuddiesmeet.slack.com</a>, get your invite at <script async defer src="https://codebuddiesmeet.herokuapp.com/slackin.js"></script>. Then, sign in with Slack. </p>
+            {{/unless}}
+          </div>
+        </div>
+      </div>
+  
     <div class="row">
       <div class="col-md-6 col-md-offset-1">
         <div class="panel panel-default">
@@ -7,7 +19,7 @@
             <div class="heading">
               <div class="title">{{_ "join_hangouts"}}</div>
               <button id="create-hangout-popup" class="btn btn-cb2">{{_ "create_a_hangout"}}</button>
-              <span class="question"><a href="{{pathFor 'about'}}">{{_ "what_is_a_hangout"}}</a></span>
+              <span class="question"><a id="hangout-faq-popup">{{_ "what_is_a_hangout"}}</a></span>
             </div>
             {{> hangoutList}}
           </div>

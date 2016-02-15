@@ -20,6 +20,10 @@ Meteor.methods({
     }
   },
 
+  getUserCount: function() {
+    return Meteor.users.find().count();
+  },
+
   createHangout: function(data) {
     check(data, Match.ObjectIncluding({
       user_id: String,
