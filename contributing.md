@@ -72,10 +72,15 @@ In summary, the steps are:
 
 ##Reminders: 
 1. Remember, you can always check which branch you are in by typing `git branch` or `git branch -a` to see all the branches that exist. 
+
 2. Remember to `git pull` occasionally to get the new commits and branches others have pushed up.
+
 3. Remember to `git merge staging` occasionally if you're working inside a branch that you intend to merge back into staging. Make sure you're in this branch when you type `git merge staging`. 
+
 4. Type `npm run meteor:dev` to run this app. Your terminal will tell you to open up a new browser window at http://localhost:3000. 
+
 5. Remember to leave a comment on the issue if you decide to start working on an issue, so that others know.
+
 6. Remember to join the `#codebuddies-meta` channel on the CodeBuddies Slack (go to [http://codebuddiesmeet.herokuapp.com](http://codebuddiesmeet.herokuapp.com) if you need an invitation to the Slack) to discuss updates to this project and to ask questions. We'll be there!
 
 
