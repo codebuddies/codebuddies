@@ -28,9 +28,11 @@ All right. After we've created our branch, the next step is to push our new bran
 
   `git push origin NAME_OF_NEW_BRANCH`
 
+
 2. Note: As you're working, it's always a good idea to check which branch you're in by typing `git branch`. When you first `git clone` the repo, you'll only see a single branch, but you can discover other branches you can check out by typing `git branch -a`. 
 
 For example, to check out the `feature/active-users` branch, you would type `git checkout feature/active-users` in your command line.
+
 
 3. Our staging site is located at (http://cbv2-staging2.meteor.com/)[http://cbv2-staging2.meteor.com/]. There is also a branch named `staging`.
 
@@ -43,6 +45,7 @@ Again, type this while you are in your branch.
 When you are ready to merge your branch back into the main app, [send a message to @linda on Slack](https://codebuddiesmeet.slack.com/messages/@linda/), and she will merge your changes into staging. Because everyone has commit privileges on this app, this is our alternative to using pull requests.
 
 @anbuselvan is working on integrating javascript; automated testing will be available soon in the `dev/testing` branch. 
+
 
 4. If you are unfamiliar with how to resolve a merge conflict in git, you should read this: [https://githowto.com/resolving_conflicts](https://githowto.com/resolving_conflicts). 
 
