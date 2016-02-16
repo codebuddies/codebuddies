@@ -22,12 +22,15 @@ So for example, if you wanted to work on issue #29 (https://github.com/codebuddi
 
   `git checkout -b fix/issue-29-limit-140-characters`
 
+![screenshot of typing git checkout -b fix/issue-29-limit-140-characters](http://codebuddies.org/images/contributing-screenshot2.jpg)
+
 How you name your branch doesn't really matter as long as you put the issue number in there, so that other people can figure out what you're working on. Putting the number of the issue in your branch name helps prevent duplicate branches.
 
 All right. After we've created our branch, the next step is to push our new branch to the repo by typing:
 
   `git push origin NAME_OF_NEW_BRANCH`
 
+Now we can make commits to our branch (`git commit -am "commit message"`) and `git pull` to get other people's changes to the branch, and `git push` our own commits to the branch. 
 
 - Note: As you're working, it's always a good idea to check which branch you're in by typing `git branch`. When you first `git clone` the repo, you'll only see a single branch, but you can discover other branches you can check out by typing `git branch -a`. 
 
@@ -52,7 +55,7 @@ When you are ready to merge your branch back into the main app, [send a message 
 A note on VIM for beginners: if you forget to include the commit message when you `git commit`, you'll be redirected to the VIM editor while you're in the terminal. Hit the `escape` key on your keyboard and then type `:wq` and `enter` on your keyboard to succcesfully finish the commit.
 
 
-##Summary of Reminders: 
+##Reminders: 
 1. Remember, you can always check which branch you are in by typing `git branch` or `git branch -a` to see all the branches that exist. 
 2. Remember to `git pull` occasionally to get the new commits and branches others have pushed up.
 3. Remember to `git merge staging` occasionally if you're working inside a branch that you intend to merge back into staging. Make sure you're in this branch when you type `git merge staging`. 
