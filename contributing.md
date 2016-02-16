@@ -1,47 +1,61 @@
-## How to contribute as a collaborator on this codebase:
-- Add your name on the google doc [http://bit.ly/codebuddies-hangouts-platform-v2-googledoc](http://bit.ly/codebuddies-hangouts-platform-v2-googledoc) if your name is not listed, and you want to be added as a collaborator. 
-- Say hello on the [#codebuddies-meta channel in the Slack](https://codebuddiesmeet.slack.com/messages/codebuddies-meta/)
--  [Install Meteor](https://www.meteor.com/install) and Node: [https://docs.npmjs.com/cli/install](https://docs.npmjs.com/cli/install)
--  Clone this repo to your computer by typing in the command line:
-
-  `git clone https://github.com/codebuddiesdotorg/cb-v2-scratch.git`
-- Look at some of the [open issues](https://github.com/codebuddiesdotorg/cb-v2-scratch/issues) and pick one to work on.
-
-- Type `npm run meteor:dev` in your terminal to start up the app in your `localhost:3000`.
-
-- To work on a new feature, create a new branch to work on and switch to that branch by typing:
-
-  `git checkout -b [name_of_your_new_branch]`
-
-- Name the branch something like `fix/xxx` or `feature/xxx` where `xxx` is a short description of the changes or feature you are attempting to add. For example `feature/hangout-now` would be a branch for creating the hangout "now" feature.
-
-- Push your new branch to the repo by typing:
-
-  `git push origin [name_of_your_new_branch]`
-
-- Type `git checkout [branchname]` to work on one of the existing branches. You can type `git branch -a` to see the list of all local and remote branches. For example, to check out the `feature/active-users` branch, you would type `git checkout feature/active-users` in your command line.
-
-A note on merge conflicts: occasionally you'll want to merge the latest from master into your branch by typing `git merge master` while you are in the branch. Sometimes when you do so, you'll run into merge conflicts. To resolve a merge conflict, edit the file in the code (getting rid of the `>>>> HEAD` and `======` and `<<<<<MASTER` lines, save it, type `git add [filename where the merge conflict occurred]`, and then `git commit -m "COMMENT"`. 
-
-A second note for beginners: if you forget to add the comment when you `git commit`, you'll be redirected to the VIM editor while you're in the terminal. Hit the `escape` key on your keyboard and then type `:wq` and `enter` on your keyboard to succcesfully conclude the merge conflict.
-
-##Merging to staging
-All branches should be merged to staging for occasional deployment and testing at [http://cbv2-staging2.meteor.com](http://cbv2-staging2.meteor.com).
-
-To merge a branch into `staging`, type `git merge [name_of_branch]` while you are in the `staging` branch. 
-
-Remember, you can always check which branch you are in by typing `git branch` or `git branch -a` to see all the branches that exist. 
-
-- Remember to `git pull` occasionally to get the new commits and branches others have pushed up.
-
-- Remember to `git merge staging` occasionally if you're working inside a branch that you intend to merge back into staging. Make sure you're in this branch when you type `git merge staging`. 
-
-- Type `npm run meteor:dev` to run this app. Your terminal will tell you to open up a new browser window and go to http://localhost:3000. 
-
-- Browse through the list of issues to see what features are up for grabs. If you decide to start working on an issue, add a comment to that issue thread. 
-
-- Remember to join the `#codebuddies-meta` channel on the CodeBuddies Slack (go to [http://codebuddiesmeet.herokuapp.com](http://codebuddiesmeet.herokuapp.com) if you need an invitation to the Slack) to discuss updates to this project and to ask questions.
-
-
 ##Mockup of what we're building (designed by @adachiu):
 ![very rough mockup of hangouts v2.0](http://codebuddies.org/images/landingpage3.png)
+
+## How to contribute as a collaborator on this codebase:
+1. Add your name on the google doc [http://bit.ly/codebuddies-hangouts-platform-v2-googledoc](http://bit.ly/codebuddies-hangouts-platform-v2-googledoc) if your name is not listed, and you want to be added as a collaborator. 
+2. Say hello on the [#codebuddies-meta channel in the Slack](https://codebuddiesmeet.slack.com/messages/codebuddies-meta/). One of us will add you as a collaborator to the repo, so that you'll be able to commit and push/pull to the app! You can also ask `@linda` for a code walkthrough of the app.
+3. [Install Meteor](https://www.meteor.com/install) and Node: [https://docs.npmjs.com/cli/install](https://docs.npmjs.com/cli/install) if you don't already have them installed. 
+4. Clone this repo to your computer by typing in the command line:
+  `git clone https://github.com/codebuddiesdotorg/cb-v2-scratch.git`
+5. Type `npm run meteor:dev` in your terminal to start up the app in your browser (`localhost:3000`).
+6. Look at some of the [open issues](https://github.com/codebuddiesdotorg/cb-v2-scratch/issues) and identify one that sparks your interest. If you have any questions about it, you can leave a comment in there, or ask in the (#codebuddies-meta Slack channel)[https://codebuddiesmeet.slack.com/messages/codebuddies-meta].
+
+If you see a bug in the app or have a feature request, feel free to (create a new issue)[https://github.com/codebuddiesdotorg/cb-v2-scratch/issues/new] on the Github repo!
+
+### I've picked out an issue I want to work on and left a comment on the issue to tell everyone that I'm working on it. Now what?
+1. To work on a new feature, you need to create a new branch for the issue. You can do it by typing:
+
+  `git checkout -b NAME_OF_NEW_BRANCH`
+
+So for example, if you wanted to work on issue #29 (https://github.com/codebuddiesdotorg/cb-v2-scratch/issues/29)[https://github.com/codebuddiesdotorg/cb-v2-scratch/issues/29], you should type:
+
+  `git checkout -b fix/issue-29-limit-140-characters`
+
+How you name your branch doesn't really matter as long as you put the issue number in there, so that other people can figure out what you're working on. Putting the number of the issue in your branch name helps prevent duplicate branches.
+
+All right. After we've created our branch, the next step is to push our new branch to the repo by typing:
+
+  `git push origin NAME_OF_NEW_BRANCH`
+
+2. Note: As you're working, it's always a good idea to check which branch you're in by typing `git branch`. When you first `git clone` the repo, you'll only see a single branch, but you can discover other branches you can check out by typing `git branch -a`. 
+
+For example, to check out the `feature/active-users` branch, you would type `git checkout feature/active-users` in your command line.
+
+3. Our staging site is located at (http://cbv2-staging2.meteor.com/)[http://cbv2-staging2.meteor.com/]. There is also a branch named `staging`.
+
+While you're working, you should try to merge in the commits to staging occasionally while you are in your branch. You can do this by typing:
+
+`git merge staging`. 
+
+Again, type this while you are in your branch. 
+
+When you are ready to merge your branch back into the main app, [send a message to @linda on Slack](https://codebuddiesmeet.slack.com/messages/@linda/), and she will merge your changes into staging. Because everyone has commit privileges on this app, this is our alternative to using pull requests.
+
+@anbuselvan is working on integrating javascript; automated testing will be available soon in the `dev/testing` branch. 
+
+
+4. If you are unfamiliar with how to resolve a merge conflict in git, you should read this: [https://githowto.com/resolving_conflicts](https://githowto.com/resolving_conflicts). 
+
+A note on VIM for beginners: if you forget to include the commit message when you `git commit`, you'll be redirected to the VIM editor while you're in the terminal. Hit the `escape` key on your keyboard and then type `:wq` and `enter` on your keyboard to succcesfully finish the commit.
+
+
+##Summary of Reminders: 
+1. Remember, you can always check which branch you are in by typing `git branch` or `git branch -a` to see all the branches that exist. 
+2. Remember to `git pull` occasionally to get the new commits and branches others have pushed up.
+3. Remember to `git merge staging` occasionally if you're working inside a branch that you intend to merge back into staging. Make sure you're in this branch when you type `git merge staging`. 
+4. Type `npm run meteor:dev` to run this app. Your terminal will tell you to open up a new browser window at http://localhost:3000. 
+5. Remember to leave a comment on the issue if you decide to start working on an issue, so that others know.
+6. Remember to join the `#codebuddies-meta` channel on the CodeBuddies Slack (go to [http://codebuddiesmeet.herokuapp.com](http://codebuddiesmeet.herokuapp.com) if you need an invitation to the Slack) to discuss updates to this project and to ask questions. We'll be there!
+
+
+
