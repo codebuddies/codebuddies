@@ -14,7 +14,7 @@ If you see a bug in the app or have a feature request, feel free to (create a ne
 
 ### I've picked out an issue I want to work on and left a comment on the issue to tell everyone that I'm working on it. Now what?
 
-1. To work on a new feature, you need to create a new branch for the issue. You can do it by typing:
+- To work on a new feature, you need to create a new branch for the issue. You can do it by typing:
 
   `git checkout -b NAME_OF_NEW_BRANCH`
 
@@ -29,12 +29,12 @@ All right. After we've created our branch, the next step is to push our new bran
   `git push origin NAME_OF_NEW_BRANCH`
 
 
-2. Note: As you're working, it's always a good idea to check which branch you're in by typing `git branch`. When you first `git clone` the repo, you'll only see a single branch, but you can discover other branches you can check out by typing `git branch -a`. 
+- Note: As you're working, it's always a good idea to check which branch you're in by typing `git branch`. When you first `git clone` the repo, you'll only see a single branch, but you can discover other branches you can check out by typing `git branch -a`. 
 
 For example, to check out the `feature/active-users` branch, you would type `git checkout feature/active-users` in your command line.
 
 
-3. Our staging site is located at (http://cbv2-staging2.meteor.com/)[http://cbv2-staging2.meteor.com/]. There is also a branch named `staging`.
+- Our staging site is located at (http://cbv2-staging2.meteor.com/)[http://cbv2-staging2.meteor.com/]. There is also a branch named `staging`.
 
 While you're working, you should try to merge in the commits to staging occasionally while you are in your branch. You can do this by typing:
 
@@ -47,7 +47,7 @@ When you are ready to merge your branch back into the main app, [send a message 
 @anbuselvan is working on integrating javascript; automated testing will be available soon in the `dev/testing` branch. 
 
 
-4. If you are unfamiliar with how to resolve a merge conflict in git, you should read this: [https://githowto.com/resolving_conflicts](https://githowto.com/resolving_conflicts). 
+- If you are unfamiliar with how to resolve a merge conflict in git, you should read this: [https://githowto.com/resolving_conflicts](https://githowto.com/resolving_conflicts). 
 
 A note on VIM for beginners: if you forget to include the commit message when you `git commit`, you'll be redirected to the VIM editor while you're in the terminal. Hit the `escape` key on your keyboard and then type `:wq` and `enter` on your keyboard to succcesfully finish the commit.
 
