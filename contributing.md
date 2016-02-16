@@ -32,12 +32,13 @@ All right. After we've created our branch, the next step is to push our new bran
 
 Now we can make commits to our branch (`git commit -am "commit message"`) and `git pull` to get other people's changes to the branch, and `git push` our own commits to the branch. 
 
-- Note: As you're working, it's always a good idea to check which branch you're in by typing `git branch`. When you first `git clone` the repo, you'll only see a single branch, but you can discover other branches you can check out by typing `git branch -a`. 
+### What should I remember while I'm working on my branch?
+
+- As you're working, it's always a good idea to check which branch you're in by typing `git branch`. When you first `git clone` the repo, you'll only see a single branch, but you can discover other branches you can check out by typing `git branch -a`. 
 
 For example, to check out the `feature/active-users` branch, you would type `git checkout feature/active-users` in your command line.
 
-
-- Our staging site is located at (http://cbv2-staging2.meteor.com/)[http://cbv2-staging2.meteor.com/]. There is also a branch named `staging`.
+#####Our staging site is located at (http://cbv2-staging2.meteor.com/)[http://cbv2-staging2.meteor.com/]. There is also a branch named `staging`.
 
 While you're working, you should try to merge in the commits to staging occasionally while you are in your branch. You can do this by typing:
 
@@ -45,14 +46,28 @@ While you're working, you should try to merge in the commits to staging occasion
 
 Again, type this while you are in your branch. 
 
+### What do I do when I'm ready to merge my fix or feature back into the main app?
 When you are ready to merge your branch back into the main app, [send a message to @linda on Slack](https://codebuddiesmeet.slack.com/messages/@linda/), and she will merge your changes into staging. Because everyone has commit privileges on this app, this is our alternative to using pull requests.
 
 @anbuselvan is working on integrating javascript; automated testing will be available soon in the `dev/testing` branch. 
 
+### What are merge conflicts, and how do I resolve them?
+Merge conflicts come up when there is a conflict between code that you've written and code that other people have `git push`ed into your branch.
 
-- If you are unfamiliar with how to resolve a merge conflict in git, you should read this: [https://githowto.com/resolving_conflicts](https://githowto.com/resolving_conflicts). 
+Conflicts might also come up when you type `git merge staging` to merge in the changes from staging into your branch.
 
-A note on VIM for beginners: if you forget to include the commit message when you `git commit`, you'll be redirected to the VIM editor while you're in the terminal. Hit the `escape` key on your keyboard and then type `:wq` and `enter` on your keyboard to succcesfully finish the commit.
+If you see a conflict, don't panic!
+
+If you are unfamiliar with how to resolve a merge conflict in git, you should read this: [https://githowto.com/resolving_conflicts](https://githowto.com/resolving_conflicts). 
+
+In summary, the steps are:
+1. open up the file(s) with the conflict.
+2. Be sure to remove all traces of >>>>> , ======, and <<<<<< from the file.
+3. If you're unsure about a merge conflict, or would like to pair to solve it with someone else, ask in the #codebuddies-meta channel on Slack.
+4. Save the file after you've cleared up the conflict.
+5. `git add [filename]`.
+6. `git commit -m "message" [filename]`.
+7. You're done! Now you can continue to `git push` and `git pull` and `git merge staging` while you're inside your branch.
 
 
 ##Reminders: 
