@@ -61,12 +61,19 @@ If you see a conflict, don't panic!
 If you are unfamiliar with how to resolve a merge conflict in git, you should read this: [https://githowto.com/resolving_conflicts](https://githowto.com/resolving_conflicts). 
 
 In summary, the steps are:
+
 1. open up the file(s) with the conflict.
+
 2. Be sure to remove all traces of >>>>> , ======, and <<<<<< from the file.
+
 3. If you're unsure about a merge conflict, or would like to pair to solve it with someone else, ask in the #codebuddies-meta channel on Slack.
+
 4. Save the file after you've cleared up the conflict.
+
 5. `git add [filename]`.
+
 6. `git commit -m "message" [filename]`.
+
 7. You're done! Now you can continue to `git push` and `git pull` and `git merge staging` while you're inside your branch.
 
 
