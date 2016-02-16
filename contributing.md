@@ -1,7 +1,7 @@
 ##Mockup of what we're building (designed by @adachiu):
 ![very rough mockup of hangouts v2.0](http://codebuddies.org/images/landingpage3.png)
 
-## How to contribute as a collaborator on this codebase:
+## The first 6 steps to take if you want to contribute to this open-sourced project:
 1. Add your name on the google doc [http://bit.ly/codebuddies-hangouts-platform-v2-googledoc](http://bit.ly/codebuddies-hangouts-platform-v2-googledoc) if your name is not listed, and you want to be added as a collaborator. 
 2. Say hello on the [#codebuddies-meta channel in the Slack](https://codebuddiesmeet.slack.com/messages/codebuddies-meta/). One of us will add you as a collaborator to the repo, so that you'll be able to commit and push/pull to the app! You can also ask `@linda` for a code walkthrough of the app.
 3. [Install Meteor](https://www.meteor.com/install) and Node: [https://docs.npmjs.com/cli/install](https://docs.npmjs.com/cli/install) if you don't already have them installed. 
