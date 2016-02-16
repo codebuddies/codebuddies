@@ -13,6 +13,7 @@
 If you see a bug in the app or have a feature request, feel free to (create a new issue)[https://github.com/codebuddiesdotorg/cb-v2-scratch/issues/new] on the Github repo!
 
 ### I've picked out an issue I want to work on and left a comment on the issue to tell everyone that I'm working on it. Now what?
+
 1. To work on a new feature, you need to create a new branch for the issue. You can do it by typing:
 
   `git checkout -b NAME_OF_NEW_BRANCH`
@@ -42,7 +43,6 @@ Again, type this while you are in your branch.
 When you are ready to merge your branch back into the main app, [send a message to @linda on Slack](https://codebuddiesmeet.slack.com/messages/@linda/), and she will merge your changes into staging. Because everyone has commit privileges on this app, this is our alternative to using pull requests.
 
 @anbuselvan is working on integrating javascript; automated testing will be available soon in the `dev/testing` branch. 
-
 
 4. If you are unfamiliar with how to resolve a merge conflict in git, you should read this: [https://githowto.com/resolving_conflicts](https://githowto.com/resolving_conflicts). 
 
