@@ -25,6 +25,9 @@ List your codebuddiesmeet Slack handle and your github username below if you’d
 
 Add your name on the google doc [http://bit.ly/codebuddies-hangouts-platform-v2-googledoc](http://bit.ly/codebuddies-hangouts-platform-v2-googledoc) if your name is not listed, and you want to be added as a collaborator. 
 
+##How do I contribute to this project?
+Read [the docs](contributing.md)! :)
+
 
 ##What is CodeBuddies?
 We're an international community of independent code learners who support each other on Slack, schedule hangouts to learn with each other at http://hangouts.codebuddies.org, and contribute to an anonymous weekly shout-out newsletter at http://codebuddies.org/weekly. Learning with each other helps us learn faster. We’ve also teamed up with The Odin Project member volunteers on a Facebook group: https://www.facebook.com/groups/TOPSTUDYGROUP/. We strive to create a safe space for anyone interested in code to talk about the learning process. The project is free and open-sourced on Github.
