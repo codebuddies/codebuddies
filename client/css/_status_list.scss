@@ -38,7 +38,7 @@
     .status {
       padding-left: 10px;
       display: inline-block;
-      @include font-face(400, 13px, normal, $cta-blue);
+      @include font-face(400, 13px, normal, #000);
     }
 
     .status-date {
