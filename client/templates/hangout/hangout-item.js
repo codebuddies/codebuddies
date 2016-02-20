@@ -27,11 +27,11 @@ Template.hangoutItem.helpers({
   isJoined: function() {
     return this.users.indexOf(Meteor.userId()) != -1;
   },
-  
+
   isHost:  function () {
     return this.user_id === Meteor.userId();
   },
-  
+
   getIsDone: function(hangout) {
     var currentDate = new Date();
     var hangoutDate = new Date(hangout.end);
@@ -82,8 +82,8 @@ Template.hangoutItem.events({
       });
     }
   },
-  
-  'click #delete-hangout': function () {
+
+  'click #delete-hangout': function (event, template) {
     sweetAlert({
       title: TAPi18n.__("delete_hangout_confirm"),
       text: TAPi18n.__("delete_hangout_text"),
@@ -94,24 +94,24 @@ Template.hangoutItem.events({
       closeOnConfirm: false,
       closeOnCancel: false,
       type: 'warning'
-      
+
     },
-    function(isConfirm) { 
-      if(isConfirm) { 
+    function(isConfirm) {
+      if(isConfirm) {
         // if user confirmed/selected yes, let's call the delete hangout method on the server
-        Meteor.call('deleteHangout', this._id, Meteor.userId(), function(error, result) {
+        Meteor.call('deleteHangout', template.data._id, function(error, result) {
           if (result) {
             swal("Deleted!", "Your hangout has been successfully deleted!", "success");
-          } else { 
+          } else {
             swal("Oops something went wrong!",  "Try again", "error");
           }
         });
-        
+
       } else {
         swal("Cancelled!", "Your hangout is safe!", "error");
       }
       }
-  
+
     );
   }
 });
