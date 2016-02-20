@@ -101,7 +101,7 @@ Template.hangoutItem.events({
         // if user confirmed/selected yes, let's call the delete hangout method on the server
         Meteor.call('deleteHangout', template.data._id, function(error, result) {
           if (result) {
-            swal("Deleted!", "Your hangout has been successfully deleted!", "success");
+            swal("Poof!", "Your hangout has been successfully deleted!", "success");
           } else {
             swal("Oops something went wrong!",  "Try again", "error");
           }
