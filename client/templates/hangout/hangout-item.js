@@ -83,7 +83,7 @@ Template.hangoutItem.events({
     }
   },
 
-  'click #delete-hangout': function (event, template) {
+  'click #delete-hangout': function (e, tpl) {
     sweetAlert({
       title: TAPi18n.__("delete_hangout_confirm"),
       text: TAPi18n.__("delete_hangout_text"),
@@ -92,14 +92,13 @@ Template.hangoutItem.events({
       confirmButtonText: TAPi18n.__("yes_delete_hangout"),
       confirmButtonColor: "#d9534f",
       closeOnConfirm: false,
-      closeOnCancel: false,
+      closeOnCancel: true,
       type: 'warning'
-
     },
     function(isConfirm) {
       if(isConfirm) {
         // if user confirmed/selected yes, let's call the delete hangout method on the server
-        Meteor.call('deleteHangout', template.data._id, function(error, result) {
+        Meteor.call('deleteHangout', tpl.data._id, function(error, result) {
           if (result) {
             swal("Poof!", "Your hangout has been successfully deleted!", "success");
           } else {
@@ -107,8 +106,6 @@ Template.hangoutItem.events({
           }
         });
 
-      } else {
-        swal("Cancelled!", "Your hangout is safe!", "error");
       }
       }
 

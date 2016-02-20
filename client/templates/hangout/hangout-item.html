@@ -3,7 +3,7 @@
     <div class="col-md-10">
       <label class="name"><span>{{getIsDone this}}</span><a href="/hangout/{{_id}}">{{topic}}</a></label>
       {{#if isHost}}
-     <button id="delete-hangout" class="btn btn-xs btn-danger">delete hangout</button>
+     <button id="delete-hangout" class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i> delete</button>
       {{/if}}
       <ul class="status">
         <li><i class="fa {{getType type}}"></i></li>
