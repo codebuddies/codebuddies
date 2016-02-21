@@ -83,7 +83,7 @@ Template.hangoutItem.events({
     }
   },
 
-  'click #delete-hangout': function (e, tpl) {
+  'click .delete-hangout': function (e, tpl) {
     sweetAlert({
       title: TAPi18n.__("delete_hangout_confirm"),
       text: TAPi18n.__("delete_hangout_text"),
