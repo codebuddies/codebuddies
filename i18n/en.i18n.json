@@ -33,6 +33,8 @@
   "load_more": "Load more...",
   "load_page": "Load page __start__/__total__",
   "ok": "OK",
+  "yes_delete_hangout": "Yes delete it!",
+  "no_delete_hangout": "No, I was just kidding",
 
   // hangout
   "what_is_a_hangout": "What is a hangout?",
@@ -51,6 +53,8 @@
   "you_are_awesome": "You are awesome!",
   "looking_forward_to_see_you": "Looking forward to see you.",
   "remove_owner_from_hangout": "Hey! You can't remove yourself from your hangout.",
+  "delete_hangout_confirm": "Are you sure?",
+  "delete_hangout_text": "Deleted hangouts cannot be recovered so make sure!",
 
   // create hangout modal - popup messages
   "hangout_created_title": "Hangout Created Successfully",
