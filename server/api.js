@@ -37,8 +37,8 @@ Meteor.methods({
       user_id: data.user_id,
       topic: data.topic,
       description: data.description,
-      start: data.start,
-      end: data.end,
+      start: new Date(data.start),
+      end: new Date(data.end),
       type: data.type,
       users: [ data.user_id ],
       timestamp: new Date()

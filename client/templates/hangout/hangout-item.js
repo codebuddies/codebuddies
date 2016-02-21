@@ -10,18 +10,27 @@ Template.hangoutItem.helpers({
   },
   getDate: function(hangout) {
     var user = ReactiveMethod.call('getUserName', hangout.user_id);
+    var tz = TimezonePicker.detectedZone();
+    //console.log('getDate tz: ' + tz);
+    //console.log('getDate hangout.start: '+ hangout.start);
+    //console.log('getDate hangout.end: '+ hangout.end);
+    //console.log('getDate this.timestamp' + this.timestamp);
+    //console.log('getDate this.end' + this.end)
     return 'host ' +
             user +
             ' | ' +
-            moment(new Date(hangout.start)).format('MMMM Do YYYY, h:mm a') +
+            moment(new Date(hangout.start)).tz(tz).format('MMMM Do YYYY, h:mm a z') +
             ' - ' +
-            moment(new Date(hangout.end)).format('h:mm a') +
+            moment(new Date(hangout.end)).tz(tz).format('h:mm a z') +
             ' | ' +
             hangout.users.length +
             ' joined';
   },
   isInProgress: function(hangout) {
     var date = new Date();
+    //console.log('isInProgress date: ' + date);
+    //console.log('isInProgress new Date hangout.start: ' + hangout.start );
+    //console.log('isInProgress new Date hangout.end: ' + hangout.end );
     return (date >= (new Date(hangout.start)) && date <= (new Date(hangout.end)));
   },
   isJoined: function() {
@@ -34,6 +43,7 @@ Template.hangoutItem.helpers({
 
   getIsDone: function(hangout) {
     var currentDate = new Date();
+    //console.log('getIsDone currentDate:' + currentDate);
     var hangoutDate = new Date(hangout.end);
     if (hangoutDate < currentDate) {
       var daysDiff = Math.round((currentDate - hangoutDate) / (1000 * 60 * 60 * 24));

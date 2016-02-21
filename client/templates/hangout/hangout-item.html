@@ -1,7 +1,7 @@
 <template name="hangoutItem">
   <div class="row hangout-item">
     <div class="col-md-10">
-      <label class="name"><span>{{getIsDone this}}</span><a href="/hangout/{{_id}}">{{topic}}</a>
+      <label class="name"><span>{{getIsDone this}}</span><a href="/hangout/{{_id}}" class="hangout-topic">{{topic}}</a>
         {{#if isHost}}
          <span class="delete-hangout"><i class="fa fa-trash-o"></i></span>
         {{/if}}
