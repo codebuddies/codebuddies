@@ -8,6 +8,9 @@
     padding-left: 10px;
     margin: 15px 0;
 
+    .hangout-topic {
+      @include font-face(400, 17px, normal, $cta-blue);
+    }
     .status {
       list-style: none;
       display: table;
