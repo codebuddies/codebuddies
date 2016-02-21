@@ -1,5 +1,5 @@
 ##Mockup of what we're building (designed by @adachiu):
-![very rough mockup of hangouts v2.0](http://codebuddies.org/images/landingpage3.png)
+![screenshot of what we're building](http://codebuddies.org/images/cbv7-mockup.jpg)
 
 ## The first 6 steps to take if you want to contribute to this open-sourced project:
 1. Add your name on the google doc [bit.ly/codebuddies-hangouts-platform-v2-googledoc](http://bit.ly/codebuddies-hangouts-platform-v2-googledoc) if your name is not listed, and you want to be added as a collaborator. 

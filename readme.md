@@ -4,14 +4,14 @@
 #FAQ
 
 ##What is CodeBuddies?
-We're a community of independent code learners who help each other on [Slack](http://codebuddiesmeet.slack.com], [schedule hangouts](http://hangouts.codebuddies.org) to learn with each other, contribute to a periodic [anonymous crowdsourced newsletter](http://tinyletter.com/codebuddies) where anyone can share a personal project or leave a shout out, and post on [Facebook](https://www.facebook.com/groups/TOPSTUDYGROUP/). We come from all over the world; there are members living in the United States, Japan, Sweden, the United Kingdom, Russia, Australia, Canada, India, and more.
+We're a community of independent code learners who help each other on [Slack](http://codebuddiesmeet.slack.com), [schedule hangouts](http://hangouts.codebuddies.org) to learn with each other, contribute to a periodic [anonymous crowdsourced newsletter](http://tinyletter.com/codebuddies) where anyone can share a personal project or leave a shout out, and post on [Facebook](https://www.facebook.com/groups/TOPSTUDYGROUP/). We come from all over the world; there are members living in the United States, Japan, Sweden, the United Kingdom, Russia, Australia, Canada, India, and more.
 
 Learning with each other helps us learn faster. We strive to create a safe space for anyone interested in code to talk about the learning process. The project is free and open-sourced on Github.
 
 ##What are you trying to build here?
 
-![screenshot](http://codebuddies.org/images/cbv7-mockup.jpg)
-Credit: [Ada Chiu](https://github.com/adachiu)
+![screenshot of what we're building](http://codebuddies.org/images/cbv7-mockup.jpg)
+Credit: [Ada Chiu](https://github.com/adachiu); please feel free to play around and look for bug on our [staging site](http://cbv2-staging2.meteor.com).
 
 ##Why are you building this site?
 Our community spends a lot of time helping each other on [our public Slack](http://codebuddiesmeet.slack.com) (P.S. You can get an invite [here](http://codebuddiesmeet.herokuapp.com) if you want to join), but it's hard to schedule google hangout study times via Slack, and it's also hard to know who else is online and available for joining a hangout to work on something together. The platform we're building will help solve those issues.
