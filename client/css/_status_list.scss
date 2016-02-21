@@ -34,15 +34,25 @@
 
     }
 
+    span.username {
+      @include font-face(700, 13px, italic, $warm-grey);
+    }
 
     .status {
       padding-left: 10px;
       display: inline-block;
-      @include font-face(400, 13px, normal, #000);
+      @include font-face(400, 13px, normal, $primary-grey);
     }
 
     .status-date {
-      @include font-face(400, 11px, italic, $warm-grey);
+      @include font-face(600, 13px, italic, $warm-grey);
+    }
+
+    .message {
+      color: $warm-grey;
+      &:hover {
+        color: $cta-blue;
+      }
     }
 
   }
