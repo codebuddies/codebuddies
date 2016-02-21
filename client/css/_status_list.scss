@@ -1,8 +1,8 @@
 .status-list  {
 
-  background-color: $bg-white;
+  background-color: $bg-lightgrey;
   min-height: 50px;
-  border-radius: 4px;
+  @include border-radius(0px 0px 4px 4px);
   padding: 20px;
 
   .title {
