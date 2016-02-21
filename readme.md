@@ -17,7 +17,7 @@ Credit: [Ada Chiu](https://github.com/adachiu); please feel free to play around 
 Our community spends a lot of time helping each other on [our public Slack](http://codebuddiesmeet.slack.com) (P.S. You can get an invite [here](http://codebuddiesmeet.herokuapp.com) if you want to join), but it's hard to schedule google hangout study times via Slack, and it's also hard to know who else is online and available for joining a hangout to work on something together. The platform we're building will help solve those issues.
 
 ##How do I contribute to this project?
-Read [contributing.md](contributing.md)! :)
+PLEASE GO TO ***[contributing.md](contributing.md)*** and follow the first six instructions listed there!!!
 
 And here are the volunteers so far:
 
