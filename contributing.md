@@ -2,15 +2,15 @@
 ![very rough mockup of hangouts v2.0](http://codebuddies.org/images/landingpage3.png)
 
 ## The first 6 steps to take if you want to contribute to this open-sourced project:
-1. Add your name on the google doc [http://bit.ly/codebuddies-hangouts-platform-v2-googledoc](http://bit.ly/codebuddies-hangouts-platform-v2-googledoc) if your name is not listed, and you want to be added as a collaborator. 
+1. Add your name on the google doc [bit.ly/codebuddies-hangouts-platform-v2-googledoc](http://bit.ly/codebuddies-hangouts-platform-v2-googledoc) if your name is not listed, and you want to be added as a collaborator. 
 2. Say hello on the [#codebuddies-meta channel in the Slack](https://codebuddiesmeet.slack.com/messages/codebuddies-meta/). One of us will add you as a collaborator to the repo, so that you'll be able to commit and push/pull to the app! You can also ask `@linda` for a code walkthrough of the app.
-3. [Install Meteor](https://www.meteor.com/install) and Node: [https://docs.npmjs.com/cli/install](https://docs.npmjs.com/cli/install) if you don't already have them installed. 
+3. [Install Meteor](https://www.meteor.com/install) and Node: [docs.npmjs.com/cli/install](https://docs.npmjs.com/cli/install) if you don't already have them installed. 
 4. Clone this repo to your computer by typing in the command line:
   `git clone https://github.com/codebuddiesdotorg/cb-v2-scratch.git`
 5. Type `npm run meteor:dev` in your terminal to start up the app in your browser (`localhost:3000`).
-6. Look at some of the [open issues](https://github.com/codebuddiesdotorg/cb-v2-scratch/issues) and identify one that sparks your interest. If you have any questions about it, you can leave a comment in there, or ask in the (#codebuddies-meta Slack channel)[https://codebuddiesmeet.slack.com/messages/codebuddies-meta].
+6. Look at some of the [open issues](https://github.com/codebuddiesdotorg/cb-v2-scratch/issues) and identify one that sparks your interest. If you have any questions about it, you can leave a comment in there, or ask in the [#codebuddies-meta Slack channel](https://codebuddiesmeet.slack.com/messages/codebuddies-meta).
 
-If you see a bug in the app or have a feature request, feel free to (create a new issue)[https://github.com/codebuddiesdotorg/cb-v2-scratch/issues/new] on the Github repo!
+If you see a bug in the app or have a feature request, feel free to [create a new issue](https://github.com/codebuddiesdotorg/cb-v2-scratch/issues/new) on the Github repo!
 
 ### I've picked out an issue I want to work on and left a comment on the issue to tell everyone that I'm working on it. Now what?
 
@@ -18,7 +18,7 @@ If you see a bug in the app or have a feature request, feel free to (create a ne
 
   `git checkout -b NAME_OF_NEW_BRANCH`
 
-So for example, if you wanted to work on issue #29 (https://github.com/codebuddiesdotorg/cb-v2-scratch/issues/29)[https://github.com/codebuddiesdotorg/cb-v2-scratch/issues/29], you should type:
+So for example, if you wanted to work on issue #29 [github.com/codebuddiesdotorg/cb-v2-scratch/issues/29](https://github.com/codebuddiesdotorg/cb-v2-scratch/issues/29), you should type:
 
   `git checkout -b fix/issue-29-limit-140-characters`
 
@@ -38,7 +38,7 @@ Now we can make commits to our branch (`git commit -am "commit message"`) and `g
 
 For example, to check out the `feature/active-users` branch, you would type `git checkout feature/active-users` in your command line.
 
-#####Our staging site is located at (http://cbv2-staging2.meteor.com/)[http://cbv2-staging2.meteor.com/]. There is also a branch named `staging`.
+#####Our staging site is located at [http://cbv2-staging2.meteor.com/](http://cbv2-staging2.meteor.com/). There is also a branch named `staging`.
 
 While you're working, you should try to merge in the commits to staging occasionally while you are in your branch. You can do this by typing:
 
@@ -88,7 +88,7 @@ In summary, the steps are:
 
 5. Remember to leave a comment on the issue if you decide to start working on an issue, so that others know.
 
-6. Remember to join the `#codebuddies-meta` channel on the CodeBuddies Slack (go to [http://codebuddiesmeet.herokuapp.com](http://codebuddiesmeet.herokuapp.com) if you need an invitation to the Slack) to discuss updates to this project and to ask questions. We'll be there!
+6. Remember to join the `#codebuddies-meta` channel on the CodeBuddies Slack (go to [codebuddiesmeet.herokuapp.com](http://codebuddiesmeet.herokuapp.com) if you need an invitation to the Slack) to discuss updates to this project and to ask questions. We'll be there!
 
 
 

@@ -2,8 +2,25 @@
 #CodeBuddies Hangouts Platform v2.0 - from scratch
 
 #FAQ
-##Who are the volunteers helping with this project?
-List your codebuddiesmeet Slack handle and your github username below if you’d like to be involved.
+
+##What is CodeBuddies?
+We're a community of independent code learners who help each other on [Slack](http://codebuddiesmeet.slack.com], [schedule hangouts](http://hangouts.codebuddies.org) to learn with each other, contribute to a periodic [anonymous crowdsourced newsletter](http://tinyletter.com/codebuddies) where anyone can share a personal project or leave a shout out, and post on [Facebook](https://www.facebook.com/groups/TOPSTUDYGROUP/). We come from all over the world; there are members living in the United States, Japan, Sweden, the United Kingdom, Russia, Australia, Canada, India, and more.
+
+Learning with each other helps us learn faster. We strive to create a safe space for anyone interested in code to talk about the learning process. The project is free and open-sourced on Github.
+
+##What are you trying to build here?
+
+![screenshot](http://codebuddies.org/images/cbv7-mockup.jpg)
+Credit: [Ada Chiu](https://github.com/adachiu)
+
+##Why are you building this site?
+Our community spends a lot of time helping each other on [our public Slack](http://codebuddiesmeet.slack.com) (P.S. You can get an invite [here](http://codebuddiesmeet.herokuapp.com) if you want to join), but it's hard to schedule google hangout study times via Slack, and it's also hard to know who else is online and available for joining a hangout to work on something together. The platform we're building will help solve those issues.
+
+##How do I contribute to this project?
+Read [contributing.md](contributing.md)! :)
+
+And here are the volunteers so far:
+
 - @linda, https://github.com/lpatmo 
 - @sbe, https://github.com/sbe 
 - @abdulhannanali, https://github.com/abdulhannanali 
@@ -21,26 +38,18 @@ List your codebuddiesmeet Slack handle and your github username below if you’d
 - @selfspunwebs, https://github.com/anonRegions
 - @luxis https://github.com/Luxisapex
 - @sgtquezada https://github.com/sgtquezada
-- Add Your Name Here
+- Add Your Name Here If You Want To Help
 
-Add your name on the google doc [http://bit.ly/codebuddies-hangouts-platform-v2-googledoc](http://bit.ly/codebuddies-hangouts-platform-v2-googledoc) if your name is not listed, and you want to be added as a collaborator. 
-
-##How do I contribute to this project?
-Read [the docs](contributing.md)! :)
-
-
-##What is CodeBuddies?
-We're an international community of independent code learners who support each other on Slack, schedule hangouts to learn with each other at http://hangouts.codebuddies.org, and contribute to an anonymous weekly shout-out newsletter at http://codebuddies.org/weekly. Learning with each other helps us learn faster. We’ve also teamed up with The Odin Project member volunteers on a Facebook group: https://www.facebook.com/groups/TOPSTUDYGROUP/. We strive to create a safe space for anyone interested in code to talk about the learning process. The project is free and open-sourced on Github.
+Add your name on the google doc [http://bit.ly/codebuddies-hangouts-platform-v2-googledoc](http://bit.ly/codebuddies-hangouts-platform-v2-googledoc) if you'd like to be involved, and say hello in the [#codebuddies-meta](https://codebuddiesmeet.slack.com/messages/codebuddies-meta/) channel on Slack!
 
 ##Is CodeBuddies an organization?
 No. It's a free-spirited community of enterprising learners and amazing volunteers who enjoy sharing knowledge with each other. 
 
-##What are you trying to build here?
+##What are some priority issues you've got so far?
+
 P1 == Priority 1
 P2 == Priority 2
 P3 == Priority 3
-
-CodeBuddies Hangouts Platform v2.0 will be built using meteor and will feature:
 
 ### P1 Issues
 - [issue 5] (https://github.com/codebuddiesdotorg/cb-v2-scratch/issues/5) - ability to see who else is online when you load the frontpage (or hangout-page)
