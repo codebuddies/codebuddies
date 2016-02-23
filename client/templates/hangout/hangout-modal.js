@@ -28,6 +28,8 @@ Template.createHangoutModal.events({
     var start1 = $('#start-date-time').val();
     var end1 = $('#end-date-time').val();
     var type1 = $('input[name="hangout-type"]:checked').val();
+    console.log(start1);
+    console.log(new Date(start1));
 
     var data = {
       topic: topic1,
