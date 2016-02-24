@@ -19,9 +19,9 @@ Template.hangoutItem.helpers({
     return 'host ' +
             user +
             ' | ' +
-            moment(new Date(hangout.start)).tz(tz).format('MMMM Do YYYY, h:mm a z') +
+            moment(hangout.start).tz(tz).format('MMMM Do YYYY, h:mm a z') +
             ' - ' +
-            moment(new Date(hangout.end)).tz(tz).format('h:mm a z') +
+            moment(hangout.end).tz(tz).format('h:mm a z') +
             ' | ' +
             hangout.users.length +
             ' joined';
