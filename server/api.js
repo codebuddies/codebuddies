@@ -88,15 +88,6 @@ Meteor.methods({
     return true;
   },
 
-  // Needs work
-  userHasLikedItem: function(learningItemId, userId) {
-    // var findings = Learnings.find(
-    //   { _id: learningItemId, hasLiked: { $elemMatch: { userId }}}
-    // )
-    // console.log(findings);
-    return true;
-  },
-
   getHangout: function(hangoutId) {
     check(hangoutId, String);
     return Hangouts.findOne(hangoutId);

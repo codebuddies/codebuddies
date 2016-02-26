@@ -11,7 +11,7 @@ Template.learningItem.helpers({
 
 Template.learningItem.events({
   'click .btn-like': function(event, template) {
-  	if (!Meteor.userId()) {
+    if (!Meteor.userId()) {
       sweetAlert({
         title: TAPi18n.__("you_are_almost_there"),
         text: TAPi18n.__("login_update_status"),

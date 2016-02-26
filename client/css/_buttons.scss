@@ -90,14 +90,16 @@
   cursor: pointer;
 }
 
-.btn-like {
+.btn-learning {
   float: right;
-  background-color: $hangout-collab;
   color: white;
-}
 
-.btn-unlike {
-  float: right;
-  background-color: $hangout-silent;
-  color: white;
+  &.btn-like {
+    background-color: $hangout-collab;
+  }
+
+  &.btn-unlike {
+    background-color: $warm-grey;
+  }
+  
 }
