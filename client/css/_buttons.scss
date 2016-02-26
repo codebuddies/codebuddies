@@ -89,3 +89,15 @@
 #hangout-faq-popup {
   cursor: pointer;
 }
+
+.btn-like {
+  float: right;
+  background-color: $hangout-collab;
+  color: white;
+}
+
+.btn-unlike {
+  float: right;
+  background-color: $hangout-silent;
+  color: white;
+}

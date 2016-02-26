@@ -67,11 +67,27 @@ Meteor.methods({
     });
   },
 
-  incrementKudoCount: function(learningItemId) {
+  incrementKudoCount: function(learningItemId, userId) {
     Learnings.update(
       { _id: learningItemId },
       { $inc: { kudos: 1 } }
     )
+  },
+
+  decrementKudoCount: function(learningItemId, userId) {
+    Learnings.update(
+      { _id: learningItemId },
+      { $inc: { kudos: -1 } }
+    )
+  },
+
+  // Needs work
+  userHasLikedItem: function(learningItemId, userId) {
+    // var findings = Learnings.find(
+    //   { _id: learningItemId, hasLiked: { $elemMatch: { userId }}}
+    // )
+    // console.log(findings);
+    return true;
   },
 
   getHangout: function(hangoutId) {

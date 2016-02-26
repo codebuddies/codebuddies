@@ -1,10 +1,10 @@
 <template name="learningItem">
+  <button class="{{buttonStatus}} btn btn-xs btn-primary btn-outline">+1</button>	
   <div>
     <ul class="status-item">
+      <li><div class="kudo-holder"><label class="kudo-count">+{{kudos}}</label></div></li>
       <li><button class="btn btn-xs btn-success btn-outline">{{username}}</button></li>
       <li><label class="status">{{text}}&nbsp;&nbsp;<span class="status-date">{{livestamp timestamp}}</span></label></li>
-      <li>{{kudos}} Kudos</li>
-      <button class="btn btn-xs btn-primary btn-outline" id="like-btn">+1</button>
     </ul>
   </div>
 </template>
