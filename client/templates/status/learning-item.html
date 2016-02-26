@@ -1,5 +1,5 @@
 <template name="learningItem">
-  <button class="{{buttonStatus}} btn btn-xs btn-primary btn-outline">+1</button>	
+  <button class="btn-{{#if buttonStatus}}un{{/if}}like btn btn-xs btn-primary btn-outline">+1</button>
   <div>
     <ul class="status-item">
       <li><div class="kudo-holder"><label class="kudo-count">+{{kudos}}</label></div></li>

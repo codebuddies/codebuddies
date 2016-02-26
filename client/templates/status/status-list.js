@@ -3,7 +3,7 @@ Template.statusList.helpers({
     return Meteor.users.find({ "status.online": true }).count();
   },
   usersOnline:function(){
-    return Meteor.users.find({ "status.online": true })
+    return Meteor.users.find({ "status.online": true });
   },
   isWorking: function(type) {
     return type == 'working';

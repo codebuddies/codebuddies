@@ -70,15 +70,22 @@ Meteor.methods({
   incrementKudoCount: function(learningItemId, userId) {
     Learnings.update(
       { _id: learningItemId },
-      { $inc: { kudos: 1 } }
-    )
+      {
+        $inc: { kudos: 1 },
+        $push: { hasLiked: userId }
+      }
+    );
   },
 
   decrementKudoCount: function(learningItemId, userId) {
     Learnings.update(
       { _id: learningItemId },
-      { $inc: { kudos: -1 } }
-    )
+      {
+        $inc: { kudos: -1 },
+        $pull: { hasLiked: userId }
+      }
+    );
+    return true;
   },
 
   // Needs work
