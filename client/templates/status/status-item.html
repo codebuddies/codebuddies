@@ -2,13 +2,13 @@
   <div>
     <ul class="status-item">
       <li>
-      {{#if logged_in_using_codebuddies_team}}
-      	<a href="https://codebuddiesmeet.slack.com/messages/@{{user_info.name}}/" target="_blank"><button class="btn btn-xs {{hangoutStatus}} btn-outline">{{user_info.name}}</button></a>
-      {{else}}
-      	<button class="btn btn-xs {{hangoutStatus}} btn-outline">{{user_info.name}}</button>
-      {{/if}}
+       <span><i class="fa {{hangoutStatus}}"></i></span>
       </li>
-      <li><label class="status">{{statusMessage}}</label>&nbsp;&nbsp;<span class="status-date">{{livestamp statusDate}}</span></li>
+      <li><label class="status">{{statusMessage}}</label>&nbsp;&nbsp;<span class="username">{{user_info.name}}</span> <span class="status-date">{{livestamp statusDate}}</span>
+         {{#if logged_in_using_codebuddies_team}}
+        <a href="https://codebuddiesmeet.slack.com/messages/@{{user_info.name}}/" target="_blank" class="message"><i class="fa fa-comment"></i></a>
+         {{/if}}
+      </li>
     </ul>
   </div>
 </template>

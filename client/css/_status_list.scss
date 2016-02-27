@@ -1,8 +1,8 @@
 .status-list  {
 
-  background-color: $bg-white;
+  background-color: $bg-lightgrey;
   min-height: 50px;
-  border-radius: 4px;
+  @include border-radius(0px 0px 4px 4px);
   padding: 20px;
 
   .title {
@@ -33,15 +33,25 @@
 
     }
 
+    span.username {
+      @include font-face(700, 13px, italic, $warm-grey);
+    }
 
     .status {
       padding-left: 10px;
       display: inline-block;
-      @include font-face(400, 13px, normal, $cta-blue);
+      @include font-face(400, 13px, normal, $primary-grey);
     }
 
     .status-date {
-      @include font-face(400, 11px, italic, $warm-grey);
+      @include font-face(600, 13px, italic, $warm-grey);
+    }
+
+    .message {
+      color: $warm-grey;
+      &:hover {
+        color: $cta-blue;
+      }
     }
 
     .kudo-holder {
