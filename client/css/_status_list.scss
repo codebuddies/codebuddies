@@ -44,7 +44,7 @@
     }
 
     .status-date {
-      @include font-face(600, 13px, italic, $warm-grey);
+      @include font-face(400, 13px, italic, $warm-grey);
     }
 
     .message {
@@ -55,8 +55,6 @@
     }
 
     .kudo-holder {
-      padding: 0 10px;
-      width: 50px;
       text-align: left;
     }
 
