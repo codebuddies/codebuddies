@@ -90,6 +90,7 @@
   cursor: pointer;
 }
 
+
 .btn-learning {
   float: right;
   color: white;
@@ -102,4 +103,6 @@
     background-color: $warm-grey;
   }
   
+.delete-hangout:hover, .edit-hangout:hover {
+  cursor:pointer;
 }

@@ -45,6 +45,13 @@ Meteor.methods({
     });
     return true;
   },
+  
+  deleteHangout: function (hangoutId) {
+    check(hangoutId, String);
+    Hangouts.remove({_id: hangoutId});
+    return true;
+
+  },
 
   setUserStatus: function(currentStatus) {
     check(currentStatus, String);
