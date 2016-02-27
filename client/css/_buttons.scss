@@ -95,12 +95,12 @@
   float: right;
   color: white;
 
-  &.btn-like {
-    background-color: $hangout-collab;
+  &.btn-unlike {
+    color: $icon-silent;
   }
 
-  &.btn-unlike {
-    background-color: $warm-grey;
+  &.btn-like {
+    color: $warm-grey;
   }
 }
 .delete-hangout:hover, .edit-hangout:hover {
