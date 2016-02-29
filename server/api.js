@@ -33,6 +33,8 @@ Meteor.methods({
       end: Match.OneOf(String, Date),
       type: String
     }));
+    var user = Meteor.users.findOne({_id: data.user_id});
+    var user_email = user.user_info.profile.email;
     Hangouts.insert({
       user_id: data.user_id,
       topic: data.topic,
@@ -41,6 +43,7 @@ Meteor.methods({
       end: data.end,
       type: data.type,
       users: [ data.user_id ],
+      email_addresses: [ user_email],
       timestamp: new Date()
     });
     return true;
@@ -85,8 +88,10 @@ Meteor.methods({
   addUserToHangout: function(hangoutId, userId) {
     check(hangoutId, String);
     check(userId, String);
+    var user = Meteor.users.findOne({_id: userId});
+    var user_email = user.user_info.profile.email;
     Hangouts.update({ _id: hangoutId },
-      { $push: { users: userId } });
+      { $push: { users: userId, email_addresses: user_email }});
     return true;
   },
 
