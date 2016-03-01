@@ -18,7 +18,9 @@
         {{#if isJoined}}
           <button id="leave-hangout" class="btn btn-circle btn-success"><i class="fa fa-check-circle"></i></button>
         {{else}}
-          <button id="join-hangout" class="btn btn-cb2">{{_ "join"}}</button>
+          {{# unless getIsDone this}}
+            <button id="join-hangout" class="btn btn-cb2">{{_ "join"}}</button>
+          {{/unless}}
         {{/if}}
       {{/if}}
     </div>
