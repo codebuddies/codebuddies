@@ -34,7 +34,7 @@ All right. After we've created our branch, the next step is to push our new bran
 
 Now we can make commits to our branch (`git commit -am "commit message"`) and `git pull` to get other people's changes to the branch, and `git push` our own commits to the branch. 
 
-Finally, when you're finished working on the fix or feature, you need to merge it back into the `master` branch. This is what you do:
+Finally, when you're finished working on the fix or feature in your branch, you need to merge it back into the `master` branch. This is what you do:
 
 1. Type `git checkout master` to switch back to the master branch.
 2. Type `git pull` to get the latest updates in the master branch.
