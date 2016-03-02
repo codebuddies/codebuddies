@@ -23,6 +23,26 @@ Meteor.methods({
   getUserCount: function() {
     return Meteor.users.find().count();
   },
+  
+  emailHangoutUsers: function(hangoutId) {
+    var codeBuddiesMail = new Mailgun(MailgunOptions);
+    var hangout = Hangouts.findOne(hangoutId);
+    var hangout_topic = hangout.topic;
+    var emails = hangout.email_addresses.join(",");
+    var data = {
+      'to': emails,
+      'from': 'no-reply@codebuddies.org',
+      'html': '<html><head></head><body>Heads Up! Unfortunately, the hangout ' + hangout_topic + ' has been cancelled. </body></html>',
+      'subject': 'CodeBuddies Alert: Hangout - ' + hangout_topic + ' has been CANCELLED'
+    }
+    codeBuddiesMail.send(data, function(error, body) {
+      if (error) {
+        console.log("error from emailHangoutUsers: " + error);
+        return false;
+      }
+      return body;
+    });
+  },
 
   createHangout: function(data) {
     check(data, Match.ObjectIncluding({
@@ -51,9 +71,14 @@ Meteor.methods({
   
   deleteHangout: function (hangoutId) {
     check(hangoutId, String);
-    Hangouts.remove({_id: hangoutId});
-    return true;
-
+    Meteor.call('emailHangoutUsers', hangoutId, function (error, result){
+      console.log("error from deleteHangout call: " + error);
+        if (result) {
+         Hangouts.remove({_id: hangoutId});
+         return result;
+        }
+         return false;
+    });
   },
 
   setUserStatus: function(currentStatus) {

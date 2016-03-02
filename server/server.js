@@ -50,3 +50,9 @@ Accounts.onCreateUser(function(options, user) {
 
   return user;
 });
+
+// Mailgun SetUp & Function
+MailgunOptions = { 
+  apiKey: Meteor.settings.mailgun_api_key,
+  domain: Meteor.settings.mailgun_domain
+}
