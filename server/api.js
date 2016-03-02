@@ -23,25 +23,22 @@ Meteor.methods({
   getUserCount: function() {
     return Meteor.users.find().count();
   },
-  
+
   emailHangoutUsers: function(hangoutId) {
-    var codeBuddiesMail = new Mailgun(MailgunOptions);
     var hangout = Hangouts.findOne(hangoutId);
     var hangout_topic = hangout.topic;
     var emails = hangout.email_addresses.join(",");
     var data = {
-      'to': emails,
-      'from': 'no-reply@codebuddies.org',
-      'html': '<html><head></head><body>Heads Up! Unfortunately, the hangout ' + hangout_topic + ' has been cancelled. </body></html>',
-      'subject': 'CodeBuddies Alert: Hangout - ' + hangout_topic + ' has been CANCELLED'
+      to: emails,
+      from: 'no-reply@codebuddies.org',
+      html: '<html><head></head><body>Heads Up! Unfortunately, the hangout ' + hangout_topic + ' has been cancelled. </body></html>',
+      subject: 'CodeBuddies Alert: Hangout - ' + hangout_topic + ' has been CANCELLED'
     }
-    codeBuddiesMail.send(data, function(error, body) {
-      if (error) {
-        console.log("error from emailHangoutUsers: " + error);
-        return false;
-      }
-      return body;
-    });
+    // let other method calls from same client to star running.
+    // without needing to wait to send email
+    this.unblock();
+    
+    return Email.send(data);
   },
 
   createHangout: function(data) {
@@ -63,22 +60,23 @@ Meteor.methods({
       end: data.end,
       type: data.type,
       users: [ data.user_id ],
-      email_addresses: [ user_email],
+      email_addresses: [ user_email ],
       timestamp: new Date()
     });
     return true;
   },
-  
+
   deleteHangout: function (hangoutId) {
     check(hangoutId, String);
-    Meteor.call('emailHangoutUsers', hangoutId, function (error, result){
-      console.log("error from deleteHangout call: " + error);
-        if (result) {
-         Hangouts.remove({_id: hangoutId});
-         return result;
-        }
-         return false;
-    });
+    var result = Meteor.call('emailHangoutUsers', hangoutId);
+    console.log(result);
+      //   if (result) {
+      //    Hangouts.remove({_id: hangoutId});
+      //    return true;
+      //  } else {
+      //    console.log("error from deleteHangout call: " + error);
+      //    return false;
+      //  }
   },
 
   setUserStatus: function(currentStatus) {

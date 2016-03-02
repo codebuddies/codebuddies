@@ -11,6 +11,14 @@ Meteor.startup(function() {
     "loginStyle" : "popup"
   });
 
+  smtp = {
+    username: Meteor.settings.mailgun_username,
+    password: Meteor.settings.mailgun_password,
+    server: Meteor.settings.mailgun_host,
+    port: Meteor.settings.mailgun_port
+  }
+
+  process.env.MAIL_URL = 'smtp://' + encodeURIComponent(smtp.username) + ':' + encodeURIComponent(smtp.password) + '@' + encodeURIComponent(smtp.server) + ':' + smtp.port;
 });
 
 var loggingInUserInfo = function(user) {
@@ -50,9 +58,3 @@ Accounts.onCreateUser(function(options, user) {
 
   return user;
 });
-
-// Mailgun SetUp & Function
-MailgunOptions = { 
-  apiKey: Meteor.settings.mailgun_api_key,
-  domain: Meteor.settings.mailgun_domain
-}

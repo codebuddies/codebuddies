@@ -39,7 +39,6 @@ fastclick@1.0.7
 fortawesome:fontawesome@4.5.0
 fourseven:scss@3.4.1
 geojson-utils@1.0.4
-gfk:mailgun-api@1.1.0
 hot-code-push@1.0.0
 html-tools@1.0.5
 htmljs@1.0.5
