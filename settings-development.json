@@ -4,5 +4,6 @@
   "mailgun_username": "postmaster@sandbox2be14a81c3384728a7a9f3eee8500a28.mailgun.org",
   "mailgun_password": "0980133953c04009f17abbf972914167",
   "mailgun_host": "smtp.mailgun.org",
-  "mailgun_port": 25
+  "mailgun_port": 2525,
+  "email_from": "CodeBuddies-NoReply@codebuddies.org"
 }

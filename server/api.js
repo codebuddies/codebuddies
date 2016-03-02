@@ -25,20 +25,39 @@ Meteor.methods({
   },
 
   emailHangoutUsers: function(hangoutId) {
+    // ssr for email template rendering
+    SSR.compileTemplate('notifyEmail', Assets.getText('email-notify-users.html'));
+    
     var hangout = Hangouts.findOne(hangoutId);
     var hangout_topic = hangout.topic;
+    var hangout_start_time = hangout.start;
     var emails = hangout.email_addresses.join(",");
+    
+    var template_data = {
+      hangout_topic: hangout_topic,
+      participant: "Roberto",
+      hangout_start_time: hangout_start_time
+    };
+    
+   
     var data = {
       to: emails,
-      from: 'no-reply@codebuddies.org',
-      html: '<html><head></head><body>Heads Up! Unfortunately, the hangout ' + hangout_topic + ' has been cancelled. </body></html>',
+      from: Meteor.settings.email_from,
+      html: SSR.render('notifyEmail', template_data),
       subject: 'CodeBuddies Alert: Hangout - ' + hangout_topic + ' has been CANCELLED'
     }
     // let other method calls from same client to star running.
     // without needing to wait to send email
     this.unblock();
     
-    return Email.send(data);
+    try { 
+      Email.send(data);
+    } catch ( e ) {
+      //debug
+      console.log("Email.send() error: " + e.message);
+      return false;
+    }
+    return true;
   },
 
   createHangout: function(data) {
@@ -68,15 +87,14 @@ Meteor.methods({
 
   deleteHangout: function (hangoutId) {
     check(hangoutId, String);
-    var result = Meteor.call('emailHangoutUsers', hangoutId);
-    console.log(result);
-      //   if (result) {
-      //    Hangouts.remove({_id: hangoutId});
-      //    return true;
-      //  } else {
-      //    console.log("error from deleteHangout call: " + error);
-      //    return false;
-      //  }
+    var response = Meteor.call('emailHangoutUsers', hangoutId);
+      if (!response) {
+            throw new Meteor.Error("Error sending email!");
+        } else {
+          Hangouts.remove({_id: hangoutId});
+          return true;
+        }
+        
   },
 
   setUserStatus: function(currentStatus) {
