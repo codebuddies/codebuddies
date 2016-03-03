@@ -41,6 +41,7 @@
       padding-left: 10px;
       display: inline-block;
       @include font-face(400, 13px, normal, $primary-grey);
+      word-break: break-all;
     }
 
     .status-date {
