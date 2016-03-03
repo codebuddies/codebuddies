@@ -3,6 +3,7 @@
     <textarea id="{{type}}-text" rows="3" maxlength="140" placeholder="{{# if isWorking type}}{{_ 'working_on'}}{{else}}{{_ 'accomplished'}}{{/if}}"></textarea>
   </div>
   <div class="status-actions">
+    <span class="interest">I'm interested in:</span>
     {{#if isWorking type}}
     <button class="btn btn-circle btn-danger btn-outline btn-hangout-status" data-type="silent"><i class="fa fa-microphone-slash"></i></button>
     <button class="btn btn-circle btn-warning btn-outline btn-hangout-status" data-type="teaching"><i class="fa fa-user"></i></button>
