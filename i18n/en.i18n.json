@@ -55,7 +55,7 @@
   "looking_forward_to_see_you": "Looking forward to see you.",
   "remove_owner_from_hangout": "Hey! You can't remove yourself from your hangout.",
   "delete_hangout_confirm": "Are you sure?",
-  "delete_hangout_text": "Deleted hangouts cannot be recovered so make sure!",
+  "delete_hangout_text": "Note: All participants will be notified via email of cancellation",
 
   // create hangout modal - popup messages
   "hangout_created_title": "Hangout Created Successfully",

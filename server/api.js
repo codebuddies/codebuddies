@@ -24,6 +24,46 @@ Meteor.methods({
     return Meteor.users.find().count();
   },
 
+  emailHangoutUsers: function(hangoutId) {
+    // ssr for email template rendering
+    SSR.compileTemplate('notifyEmail', Assets.getText('email-hangout-alerts.html'));
+
+    var tz = "America/Los_Angeles";
+    var hangout = Hangouts.findOne(hangoutId);
+    var user_id = hangout.user_id;
+    var host = Meteor.users.findOne({_id: user_id}).user_info.name;
+    var hangout_topic = hangout.topic;
+    var hangout_start_time = hangout.start;
+    var emails = hangout.email_addresses.join(",");
+
+    var template_data = {
+      hangout_topic: hangout_topic,
+      host: host,
+      hangout_start_time: moment(hangout_start_time).tz(tz).format('MMMM Do YYYY, h:mm a z'),
+      logo: Meteor.absoluteUrl('images/cb2-180.png')
+    };
+
+
+    var data = {
+      to: emails,
+      from: Meteor.settings.email_from,
+      html: SSR.render('notifyEmail', template_data),
+      subject: 'CodeBuddies Alert: Hangout - ' + hangout_topic + ' has been CANCELLED'
+    }
+    // let other method calls from same client to star running.
+    // without needing to wait to send email
+    this.unblock();
+
+    try {
+      Email.send(data);
+    } catch ( e ) {
+      //debug
+      console.log("Email.send() error: " + e.message);
+      return false;
+    }
+    return true;
+  },
+
   createHangout: function(data) {
     check(data, Match.ObjectIncluding({
       user_id: String,
@@ -33,6 +73,8 @@ Meteor.methods({
       end: Match.OneOf(String, Date),
       type: String
     }));
+    var user = Meteor.users.findOne({_id: data.user_id});
+    var user_email = user.user_info.profile.email;
     Hangouts.insert({
       user_id: data.user_id,
       topic: data.topic,
@@ -41,15 +83,21 @@ Meteor.methods({
       end: data.end,
       type: data.type,
       users: [ data.user_id ],
+      email_addresses: [ user_email ],
       timestamp: new Date()
     });
     return true;
   },
-  
+
   deleteHangout: function (hangoutId) {
     check(hangoutId, String);
-    Hangouts.remove({_id: hangoutId});
-    return true;
+    var response = Meteor.call('emailHangoutUsers', hangoutId);
+      if (!response) {
+            throw new Meteor.Error("Error sending email!");
+        } else {
+          Hangouts.remove({_id: hangoutId});
+          return true;
+        }
 
   },
 
@@ -107,8 +155,10 @@ Meteor.methods({
   addUserToHangout: function(hangoutId, userId) {
     check(hangoutId, String);
     check(userId, String);
+    var user = Meteor.users.findOne({_id: userId});
+    var user_email = user.user_info.profile.email;
     Hangouts.update({ _id: hangoutId },
-      { $push: { users: userId } });
+      { $push: { users: userId, email_addresses: user_email }});
     return true;
   },
 
