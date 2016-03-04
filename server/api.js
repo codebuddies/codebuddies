@@ -27,22 +27,23 @@ Meteor.methods({
   emailHangoutUsers: function(hangoutId) {
     // ssr for email template rendering
     SSR.compileTemplate('notifyEmail', Assets.getText('email-hangout-alerts.html'));
-    
-    var tz = TimezonePicker.detectedZone();
+
+    var tz = "America/Los_Angeles";
     var hangout = Hangouts.findOne(hangoutId);
     var user_id = hangout.user_id;
     var host = Meteor.users.findOne({_id: user_id}).user_info.name;
     var hangout_topic = hangout.topic;
     var hangout_start_time = hangout.start;
     var emails = hangout.email_addresses.join(",");
-    
+
     var template_data = {
       hangout_topic: hangout_topic,
       host: host,
-      hangout_start_time: moment(hangout_start_time).tz(tz).format('MMMM Do YYYY, h:mm a z')
+      hangout_start_time: moment(hangout_start_time).tz(tz).format('MMMM Do YYYY, h:mm a z'),
+      logo: Meteor.absoluteUrl('images/cb2-180.png')
     };
-    
-   
+
+
     var data = {
       to: emails,
       from: Meteor.settings.email_from,
@@ -52,8 +53,8 @@ Meteor.methods({
     // let other method calls from same client to star running.
     // without needing to wait to send email
     this.unblock();
-    
-    try { 
+
+    try {
       Email.send(data);
     } catch ( e ) {
       //debug
@@ -97,7 +98,7 @@ Meteor.methods({
           Hangouts.remove({_id: hangoutId});
           return true;
         }
-        
+
   },
 
   setUserStatus: function(currentStatus) {
