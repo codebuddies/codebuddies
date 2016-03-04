@@ -26,17 +26,20 @@ Meteor.methods({
 
   emailHangoutUsers: function(hangoutId) {
     // ssr for email template rendering
-    SSR.compileTemplate('notifyEmail', Assets.getText('email-notify-users.html'));
+    SSR.compileTemplate('notifyEmail', Assets.getText('email-hangout-alerts.html'));
     
+    var tz = TimezonePicker.detectedZone();
     var hangout = Hangouts.findOne(hangoutId);
+    var user_id = hangout.user_id;
+    var host = Meteor.users.findOne({_id: user_id}).user_info.name;
     var hangout_topic = hangout.topic;
     var hangout_start_time = hangout.start;
     var emails = hangout.email_addresses.join(",");
     
     var template_data = {
       hangout_topic: hangout_topic,
-      participant: "Roberto",
-      hangout_start_time: hangout_start_time
+      host: host,
+      hangout_start_time: moment(hangout_start_time).tz(tz).format('MMMM Do YYYY, h:mm a z')
     };
     
    
