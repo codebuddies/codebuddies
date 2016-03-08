@@ -112,7 +112,7 @@ Template.hangoutItem.events({
           if (result) {
             swal("Poof!", "Your hangout has been successfully deleted!", "success");
           } else {
-            swal("Oops something went wrong!",  "Try again", "error");
+            swal("Oops something went wrong!", error.error +  "\n Try again", "error");
           }
         });
 
