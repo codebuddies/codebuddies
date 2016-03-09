@@ -93,12 +93,31 @@ Meteor.methods({
     check(hangoutId, String);
     var response = Meteor.call('emailHangoutUsers', hangoutId);
       if (!response) {
-            throw new Meteor.Error("Error sending email!");
-        } else {
+          throw new Meteor.Error("Error sending email!");
+      } else {
           Hangouts.remove({_id: hangoutId});
           return true;
-        }
-
+      }
+  },
+  editHangout: function(data, hangout_id) {
+    check(data, Match.ObjectIncluding({
+      topic: String,
+      description: String,
+      start: Match.OneOf(String, Date),
+      end: Match.OneOf(String, Date),
+      type: String
+    }));
+    console.log(data, hangout_id);
+    Meteor.hangouts.update({_id: hangout_id()}, 
+      {$set: 
+        {
+         topic: data.topic,
+         description: data.description,
+         start: data.start,
+         end: data.end,
+         type: data.type
+      }
+    });
   },
 
   setUserStatus: function(currentStatus) {

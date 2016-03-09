@@ -115,10 +115,27 @@ Template.hangoutItem.events({
             swal("Oops something went wrong!", error.error +  "\n Try again", "error");
           }
         });
-
       }
       }
+    ); //sweetAlert
+  },
+  'click .edit-hangout': function(e, hangout) {
+    //console.log(hangout.data.topic);
+    //pass in the right times like 03/09/2016 2:03 AM 
+    var start_time_reverted = moment(hangout.data.start).format('MM/DD/YYYY h:mm a');
+    var end_time_reverted = moment(hangout.data.end).format('MM/DD/YYYY h:mm a');
 
-    );
+    hangout_id = hangout.data._id;
+    console.log(hangout_id);
+
+    Modal.show('editHangoutModal');
+    $('#edit-hangout-modal #topic').val(hangout.data.topic);
+    $('#edit-hangout-modal #description').val(hangout.data.description);
+    $('#edit-hangout-modal input[value='+hangout.data.type+']').prop("checked", true);
+    $('#edit-hangout-modal #start-date-time').val(start_time_reverted);
+    $('#edit-hangout-modal #end-date-time').val(end_time_reverted);
+    //console.log(start_time_reverted);
+    //console.log(end_time_reverted);
+
   }
 });

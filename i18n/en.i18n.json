@@ -15,6 +15,7 @@
   "i_am_working_on": "I'm working on ...",
   "today_i_learned": "Today I learned ...",
   "start_a_hangout": "Start a Hangout",
+  "edit_a_hangout": "Edit your Hangout",
   "learning_message": "__count__ person is online learning",
   "learning_message_plural": "__count__ people are online learning",
   "accomplishment_message": "__count__ accomplishment",
@@ -41,6 +42,7 @@
   "what_is_a_hangout": "What is a hangout?",
   "loading_hangouts": "Loading hangouts... please wait.",
   "create_hangout_hint": "Your scheduled study session will appear on the home page immediately. After you propose a study session, you can always go back and edit the text. If you need styling, note that all text boxes accept markdown.",
+  "edit_hangout_hint": "Your hangout will be updated.",
   "silent_hangout": "Silent Hangout",
   "teaching_hangout": "Teaching Hangout",
   "collaboration_hangout": "Collaboration Hangout",
@@ -59,6 +61,7 @@
 
   // create hangout modal - popup messages
   "hangout_created_title": "Hangout Created Successfully",
+  "hangout_edited_title": "Hangout Edited Successfully",
   "hangout_created_message": "Pretty awesome hah!",
   "select_start_time": "Please select a start time",
   "select_end_time": "Please select an end time",
