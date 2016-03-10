@@ -11,7 +11,7 @@ Template.hangoutList.onCreated(function() {
       self.loadMore.set(true);
     }
     self.currentCount.set(self.pageSize);
-
+    var totalSizeStored = Session.set('totalSizeStored', self.hangoutsCount);
     var pageSize = self.pageSize;
     var totalSize = self.hangoutsCount;
     var currentSize = self.currentCount.get();
@@ -55,9 +55,10 @@ Template.hangoutList.events({
   'click #btn-load-more': function() {
     var template = Template.instance();
     var pageSize = template.pageSize;
-    var totalSize = template.totalSize;
+    var totalSize = Session.get('totalSizeStored');
     var currentSize = template.currentCount.get();
     var newSize = currentSize;
+
     if ((newSize + pageSize) < totalSize)
       newSize += pageSize;
     else {

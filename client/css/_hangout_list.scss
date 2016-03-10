@@ -53,8 +53,12 @@
   .btn-block {
     margin-top: 20px;
     border: none;
-    background: $bg-white;
+    background: $bg-lightgrey;
     @include font-face(700, 13px, bold, #000000);
+    &:hover {
+      color: #fff;
+      background: $cta-blue;
+    }
   }
 
 }
