@@ -95,11 +95,11 @@ Meteor.methods({
       if (!response) {
           throw new Meteor.Error("Error sending email!");
       } else {
-          Hangouts.remove({_id: hangoutId});
+          Hangouts.remove({_id: hangoutId()});
           return true;
       }
   },
-  editHangout: function(data, hangout_id) {
+  editHangout: function(data, hangoutId) {
     check(data, Match.ObjectIncluding({
       topic: String,
       description: String,
@@ -107,8 +107,8 @@ Meteor.methods({
       end: Match.OneOf(String, Date),
       type: String
     }));
-    console.log(data, hangout_id);
-    Meteor.hangouts.update({_id: hangout_id()}, 
+
+    Hangouts.update({_id: hangoutId}, 
       {$set: 
         {
          topic: data.topic,
@@ -118,6 +118,7 @@ Meteor.methods({
          type: data.type
       }
     });
+    return true;
   },
 
   setUserStatus: function(currentStatus) {

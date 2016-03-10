@@ -122,11 +122,11 @@ Template.hangoutItem.events({
   'click .edit-hangout': function(e, hangout) {
     //console.log(hangout.data.topic);
     //pass in the right times like 03/09/2016 2:03 AM 
-    var start_time_reverted = moment(hangout.data.start).format('MM/DD/YYYY h:mm a');
-    var end_time_reverted = moment(hangout.data.end).format('MM/DD/YYYY h:mm a');
+    var start_time_reverted = moment(hangout.data.start).format('MM/DD/YYYY h:mm A');
+    var end_time_reverted = moment(hangout.data.end).format('MM/DD/YYYY h:mm A');
 
-    hangout_id = hangout.data._id;
-    console.log(hangout_id);
+    //console.log(hangout.data._id);
+    Session.set('hangoutId', hangout.data._id);
 
     Modal.show('editHangoutModal');
     $('#edit-hangout-modal #topic').val(hangout.data.topic);
