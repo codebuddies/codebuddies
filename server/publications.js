@@ -3,7 +3,7 @@ Meteor.publish("userStatus", function() {
 });
 
 Meteor.publish("learnings", function(limit) {
-  return Learnings.find({}, {limit: limit});
+  return Learnings.find({}, {limit: limit, createdAt: 1});
 });
 
 Meteor.publish("hangouts", function() {
