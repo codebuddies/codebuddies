@@ -38,7 +38,13 @@ And here are the volunteers so far:
 - @selfspunwebs, https://github.com/anonRegions
 - @luxis https://github.com/Luxisapex
 - @sgtquezada https://github.com/sgtquezada
-- Add Your Name Here If You Want To Help
+- @daisukeoka, https://github.com/daisukeokaoss
+- @adanot, https://github.com/adanot
+- @sheldonbarnes, https://github.com/sheldonbarnes
+- @howdoicomputer https://github.com/howdoicomputer
+- @alex, http://github.com/nestevez7
+- @will, http://github.com/William-R-Wilson
+- Add Your Name on the Google Doc (link below) If You Want To Help, then read ***[contributing.md](contributing.md)***
 
 Add your name on the google doc [http://bit.ly/codebuddies-hangouts-platform-v2-googledoc](http://bit.ly/codebuddies-hangouts-platform-v2-googledoc) if you'd like to be involved, and say hello in the [#codebuddies-meta](https://codebuddiesmeet.slack.com/messages/codebuddies-meta/) channel on Slack!
 
