@@ -7,7 +7,7 @@ Meteor.publish("learnings", function(limit) {
 });
 
 Meteor.publish("ownLearnings", function(limit) {
-  return Learnings.find({owner: this.userId}, {limit: limit, createdAt: 1});
+  return Learnings.find({owner: this.userId}, {sort: {timestamp: -1}, limit: limit});
 });
 
 Meteor.publish("hangouts", function() {
@@ -15,10 +15,10 @@ Meteor.publish("hangouts", function() {
 });
 
 Meteor.publish("hangoutsCreated", function(limit) {
-  return Hangouts.find({user_id: this.userId}, {limit: limit, createdAt: 1});
+  return Hangouts.find({user_id: this.userId}, {sort: {timestamp: -1}, limit: limit});
 });
 
 Meteor.publish("hangoutsJoined", function(limit) {
-  return Hangouts.find({users:{$elemMatch:{$eq:this.userId}}}, {limit: limit, createdAt: 1});
+  return Hangouts.find({users:{$elemMatch:{$eq:this.userId}}}, {sort: {timestamp: -1}, limit: limit});
 });
 

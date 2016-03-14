@@ -28,7 +28,7 @@ Template.profileLearnings.onCreated(function () {
   });
 
    instance.ownLearnings = function() { 
-    return Learnings.find({}, {limit: instance.loaded.get(), sort: {createdAt: 1}});
+    return Learnings.find({}, {sort: {timestamp: -1}, limit: instance.loaded.get()});
   }
 
 });
