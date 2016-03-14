@@ -7,24 +7,23 @@ Template.profileLearnings.onCreated(function () {
   // initialize the reactive variables
   instance.loaded = new ReactiveVar(0);
   instance.limit = new ReactiveVar(5);
-
   // ...
    instance.autorun(function () {
 
     // get the limit
     var limit = instance.limit.get();
 
-    console.log("Asking for "+limit+" learnings...")
+    //console.log("Asking for "+limit+" learnings...")
 
     // subscribe to the posts publication
     var subscription = instance.subscribe('ownLearnings', limit);
 
     // if subscription is ready, set limit to newLimit
     if (subscription.ready()) {
-      console.log("> Received "+limit+" learnings. \n\n")
+      //console.log("> Received "+limit+" learnings. \n\n")
       instance.loaded.set(limit);
     } else {
-      console.log("> Subscription is not ready yet. \n\n");
+      //console.log("> Subscription is not ready yet. \n\n");
     }
   });
 
