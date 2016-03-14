@@ -13,3 +13,9 @@ Meteor.publish("ownLearnings", function(limit) {
 Meteor.publish("hangouts", function() {
   return Hangouts.find();
 });
+
+Meteor.publish("hangoutsCreated", function(limit) {
+  return Hangouts.find({user_id: this.userId}, {limit: limit, createdAt: 1});
+});
+
+

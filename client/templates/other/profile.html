@@ -11,19 +11,12 @@
             <div class="panel-body">
             <a href="https://codebuddiesmeet.slack.com/messages/@{{username}}" target="_blank" class="btn btn-cb2">Send {{username}} a message on Slack</a>
             <h3>Learnings and accomplishments log</h3>
-            <div class="status-list">
-              <div class="learnings">
-                {{#each learnings}}
-                    {{> learningItem}}
-                {{/each}}
-              {{#if Template.subscriptionsReady}}
-                {{#if hasMoreLearnings}}
-                    <button id="load-more-learnings" class="btn btn-default btn-block">Load more</button>
-                {{/if}}
-              {{/if}}
-              </div>
-            </div>
+              {{> profileLearnings}}
             <h3>Hangouts created</h3>
+              <div class="hangouts-created">
+
+
+              </div>
              
 
             <h3>Hangouts joined</h3>
