@@ -18,4 +18,7 @@ Meteor.publish("hangoutsCreated", function(limit) {
   return Hangouts.find({user_id: this.userId}, {limit: limit, createdAt: 1});
 });
 
+Meteor.publish("hangoutsJoined", function(limit) {
+  return Hangouts.find({users:{$elemMatch:{$eq:this.userId}}}, {limit: limit, createdAt: 1});
+});
 
