@@ -1,0 +1,14 @@
+ <template name="hangoutsCreated">
+          <ul id="hangouts">
+            <div class="row hangout-item">   
+                {{#each hangouts}}
+                    {{> hangoutItem}}
+                {{/each}}
+              {{#if Template.subscriptionsReady}}
+                {{#if hasMoreHangouts}}
+                    <button id="load-more-hangouts" class="btn btn-default btn-block">Load more</button>
+                {{/if}}
+              {{/if}}
+              </div>
+            </ul>
+</template>
