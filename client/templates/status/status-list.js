@@ -10,17 +10,17 @@ Template.statusList.onCreated(function () {
     // get the limit
     var limit = instance.limit.get();
 
-    console.log("Asking for "+limit+" learnings…")
+    //console.log("Asking for "+limit+" learnings…")
 
     // subscribe to the posts publication
     var subscription = instance.subscribe('learnings', limit);
 
     // if subscription is ready, set limit to newLimit
     if (subscription.ready()) {
-      console.log("> Received "+limit+" learnings. \n\n")
+      //console.log("> Received "+limit+" learnings. \n\n")
       instance.loaded.set(limit);
     } else {
-      console.log("> Subscription is not ready yet. \n\n");
+      //console.log("> Subscription is not ready yet. \n\n");
     }
   });
   instance.learnings = function() { 

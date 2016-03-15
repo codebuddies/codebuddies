@@ -121,3 +121,10 @@
       background: $cta-blue;
     }
   }
+
+.delete-hangout, .edit-hangout { 
+  @media (min-width: 480px) { 
+    border: none;
+    padding: 0;
+  }
+}
