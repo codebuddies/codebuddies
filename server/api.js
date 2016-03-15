@@ -95,7 +95,7 @@ Meteor.methods({
       if (!response) {
           throw new Meteor.Error("Error sending email!");
       } else {
-          Hangouts.remove({_id: hangoutId()});
+          Hangouts.remove({_id: hangoutId});
           return true;
       }
   },
@@ -108,8 +108,8 @@ Meteor.methods({
       type: String
     }));
 
-    Hangouts.update({_id: hangoutId}, 
-      {$set: 
+    Hangouts.update({_id: hangoutId},
+      {$set:
         {
          topic: data.topic,
          description: data.description,
