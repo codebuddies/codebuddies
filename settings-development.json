@@ -5,5 +5,6 @@
   "mailgun_password": "0980133953c04009f17abbf972914167",
   "mailgun_host": "smtp.mailgun.org",
   "mailgun_port": 2525,
-  "email_from": "CodeBuddies-NoReply@codebuddies.org"
+  "email_from": "CodeBuddies-NoReply@codebuddies.org",
+  "team_id":"T04AQ6GEY"
 }
