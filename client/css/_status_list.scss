@@ -33,6 +33,24 @@
 
     }
 
+    .edit-learning{
+      margin-left: 5px;
+    }
+
+    .edit-learning:hover {
+      cursor:pointer;
+    }
+
+
+
+    .delete-learning{
+      margin-left: 5px;
+    }
+
+    .delete-learning:hover{
+      cursor:pointer;
+    }
+
     span.username {
       @include font-face(700, 13px, italic, $warm-grey);
     }

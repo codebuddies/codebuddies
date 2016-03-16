@@ -108,8 +108,8 @@ Meteor.methods({
       type: String
     }));
 
-    Hangouts.update({_id: hangoutId}, 
-      {$set: 
+    Hangouts.update({_id: hangoutId},
+      {$set:
         {
          topic: data.topic,
          description: data.description,
@@ -140,6 +140,20 @@ Meteor.methods({
       timestamp: new Date(),
       kudos: 0
     });
+  },
+
+  deleteLearning: function(learningId) {
+    check(learningId, String);
+    Learnings.remove( { _id: learningId } );
+    return true;
+  },
+
+  editLearning: function(learning, learningId) {
+    check(learningId, String);
+    check(learning, String);
+    Learnings.update(
+      { _id: learningId }, {$set: {text: learning}}
+    );
   },
 
   incrementKudoCount: function(learningItemId, userId) {
