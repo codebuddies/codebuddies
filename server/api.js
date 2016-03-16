@@ -142,6 +142,20 @@ Meteor.methods({
     });
   },
 
+  deleteLearning: function(learningId) {
+    check(learningId, String);
+    Learnings.remove( { _id: learningId } );
+    return true;
+  },
+
+  editLearning: function(learning, learningId) {
+    check(learningId, String);
+    check(learning, String);
+    Learnings.update(
+      { _id: learningId }, {$set: {text: learning}}
+    );
+  },
+
   incrementKudoCount: function(learningItemId, userId) {
     Learnings.update(
       { _id: learningItemId },
