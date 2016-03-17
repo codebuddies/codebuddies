@@ -1,9 +1,10 @@
 .status-list  {
 
   background-color: $bg-lightgrey;
-  min-height: 50px;
+  max-height: 350px;
   @include border-radius(0px 0px 4px 4px);
   padding: 20px;
+  overflow-y: auto;
 
   .title {
     text-align: center;
@@ -58,7 +59,7 @@
     .status {
       padding-left: 10px;
       display: inline-block;
-      @include font-face(400, 13px, normal, $primary-grey);
+      @include font-face(400, 15px, normal, $primary-grey);
       word-break: break-all;
     }
 

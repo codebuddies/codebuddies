@@ -1,21 +1,18 @@
 <template name="learningItem">
-  <button class="btn-{{#if buttonStatus}}un{{/if}}like btn btn-learning btn-xs btn-outline"><i class="fa fa-heart"></i></button>
-
-  <div>
-
     <ul class="status-item">
-      <li><div class="kudo-holder"><label class="kudo-count">+{{kudos}}</label></div>  </li>
+      <li><div class="kudo-holder">
+        <label class="kudo-count">
+          <p><i class="fa fa-angle-up fa-2x btn-{{#if buttonStatus}}un{{/if}}like  btn-learning btn-xs"></i></p>
+          <p>+{{kudos}}</p>
+      </label></div>  </li>
       <li>
-        <label class="status">{{text}}&nbsp;&nbsp;
-          <span class="username">{{username}}</span>&nbsp;
-          <span class="status-date">{{livestamp timestamp}}</span>
-          {{#if isOwner}}
-            <span class="delete-learning"><i class="fa fa-trash-o"></i></span>
-            <span class="edit-learning"><i class="fa fa-pencil-square-o"></i></span>
-          {{/if}}
+        <label class="status">
+          <p>
+            {{text}}{{#if isOwner}} <span class="delete-learning"><i class="fa fa-trash-o"></i></span> <span class="edit-learning"><i class="fa fa-pencil-square-o"></i></span> {{/if}}
+          </p>
+          <p><span class="username">{{username}}</span> <span class="status-date">{{livestamp timestamp}}</span></p>
         </label>
       </li>
     </ul>
-
-  </div>
+    <hr>
 </template>
