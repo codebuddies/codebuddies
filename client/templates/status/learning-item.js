@@ -6,7 +6,12 @@ Template.learningItem.helpers({
       }
     }
     return false;
+  },
+
+  isOwner:  function () {
+    return this.owner === Meteor.userId();
   }
+
 });
 
 Template.learningItem.events({
@@ -53,16 +58,30 @@ Template.learningItem.events({
   },
 
   'click .delete-learning': function(event) {
-    if (!Meteor.userId()) {
-      sweetAlert({
-        title: TAPi18n.__("you_are_almost_there"),
-        text: TAPi18n.__("login_update_status"),
-        confirmButtonText: TAPi18n.__("ok"),
-        type: 'info'
-      });
-    } else {
-      Meteor.call('deleteLearning', this._id)//, Meteor.userId(), function(error, result) { });
+    var learningId = this._id;
+    sweetAlert({
+      title: TAPi18n.__("delete_learning_confirm"),
+      showCancelButton: true,
+      cancelButtonText: TAPi18n.__("no_delete_learning"),
+      confirmButtonText: TAPi18n.__("yes_delete_learning"),
+      confirmButtonColor: "#d9534f",
+      closeOnConfirm: false,
+      closeOnCancel: true,
+      type: 'warning'
+    },
+    function(isConfirm) {
+      if(isConfirm) {
+        Meteor.call('deleteLearning', learningId, function(error, result) {
+          if(result) {
+            swal("Poof!", "Your learning was deleted!");
+          }
+          else {
+            swal("Oops!  Something went wrong", error.error, + "\n Try again!", "error");
+          }
+        })
+      }
     }
-    console.log(this._id);
-  }
+  );
+}
+
 });
