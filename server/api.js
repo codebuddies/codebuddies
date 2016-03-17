@@ -95,7 +95,7 @@ Meteor.methods({
       if (!response) {
           throw new Meteor.Error("Error sending email!");
       } else {
-          Hangouts.remove({_id: hangoutId});
+          Hangouts.remove({_id: hangoutId, user_id: this.userId});
           return true;
       }
   },
@@ -108,7 +108,7 @@ Meteor.methods({
       type: String
     }));
 
-    Hangouts.update({_id: hangoutId},
+    Hangouts.update({_id: hangoutId, user_id: this.userId},
       {$set:
         {
          topic: data.topic,
@@ -144,7 +144,7 @@ Meteor.methods({
 
   deleteLearning: function(learningId) {
     check(learningId, String);
-    Learnings.remove( { _id: learningId } );
+    Learnings.remove( { _id: learningId, owner: userId } );
     return true;
   },
 
@@ -152,7 +152,7 @@ Meteor.methods({
     check(learningId, String);
     check(learning, String);
     Learnings.update(
-      { _id: learningId }, {$set: {text: learning}}
+      { _id: learningId, owner: userId }, {$set: {text: learning}}
     );
   },
 
