@@ -1,14 +1,17 @@
  <template name="profileLearnings">
-            <div class="status-list">
-              <div class="learnings">
-                {{#each learnings}}
-                    {{> learningItem}}
-                {{/each}}
-              {{#if Template.subscriptionsReady}}
-                {{#if hasMoreLearnings}}
-                    <button id="load-more-learnings" class="btn btn-default btn-block">Load more</button>
-                {{/if}}
-              {{/if}}
-              </div>
-            </div>
+  <div class="status-list">
+    <div id="learning-pagination">
+
+      {{#each learnings}}
+          {{> learningItem}}
+      {{/each}}
+
+      {{#unless hasMoreLearnings}}
+        <button class="btn btn-default btn-block" disabled="disabled">Loading</button>
+      {{else}}
+        <button id="go-to-top" class="btn btn-default btn-block">Top</button>
+      {{/unless}}
+
+    </div>
+  </div>
 </template>
