@@ -5,6 +5,7 @@ Template.hangoutsCreated.onRendered(function() {
 
            if(Hangouts.find().count() === instance.limit.get()){
              instance.limit.set(instance.limit.get() + 5);
+             instance.flag.set(false);
            }else {
              if(Hangouts.find().count() < instance.limit.get()){
                instance.flag.set(true);
@@ -29,6 +30,9 @@ Template.hangoutsCreated.onCreated(function () {
   });
 
    instance.hangoutsCreated = function() {
+     if(Hangouts.find().count() <  instance.limit.get()){
+       instance.flag.set(true);
+     }
     return Hangouts.find({}, {sort: {timestamp: -1}});
   }
 

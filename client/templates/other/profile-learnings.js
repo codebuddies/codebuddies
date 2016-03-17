@@ -2,7 +2,7 @@ Template.profileLearnings.onRendered(function() {
    var instance = this;
    $('#learning-pagination').bind('scroll', function(){
        if($('#learning-pagination').scrollTop() + $('#learning-pagination').innerHeight()>=$('#learning-pagination')[0].scrollHeight){
-          
+
            if(Learnings.find().count() === instance.limit.get()){
              instance.limit.set(instance.limit.get() + 5);
            }else {
@@ -31,6 +31,9 @@ Template.profileLearnings.onCreated(function () {
   });
 
    instance.ownLearnings = function() {
+     if(Learnings.find().count() <  instance.limit.get()){
+       instance.flag.set(true);
+     }
     return Learnings.find({},{sort: {timestamp: -1}});
   }
 

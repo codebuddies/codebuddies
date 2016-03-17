@@ -28,6 +28,9 @@ Template.hangoutsJoined.onCreated(function () {
   });
 
    instance.hangoutsJoined = function() {
+     if(Hangouts.find().count() <  instance.limit.get()){
+       instance.flag.set(true);
+     }
     return Hangouts.find({}, {sort: {timestamp: -1}});
   }
 

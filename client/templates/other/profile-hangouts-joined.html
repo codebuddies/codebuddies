@@ -2,7 +2,7 @@
     <ul id="hangouts">
       <div class="row hangout-item">
         <div id="hangout-joined-pagination">
-          
+
           {{#each hangouts}}
               {{> hangoutItem}}
           {{/each}}
@@ -10,7 +10,7 @@
           {{#unless hasMoreHangouts}}
             <button class="btn btn-default btn-block" disabled="disabled">Loading</button>
           {{else}}
-            <button id="go-to-top" class="btn btn-default btn-block">Top</button>
+            <button id="go-to-top" class="btn btn-default btn-block">No more Hangout</button>
           {{/unless}}
 
         </div>
