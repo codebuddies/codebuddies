@@ -13,7 +13,6 @@ Template.editHangoutModal.rendered = function() {
 
 };
 
-
 Template.editHangoutModal.events({
 	 'click #edit-hangout': function() {
 	    var topic1 = $('#topic').val();
