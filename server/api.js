@@ -99,6 +99,7 @@ Meteor.methods({
           return true;
       }
   },
+  
   editHangout: function(data, hangoutId) {
     check(data, Match.ObjectIncluding({
       topic: String,
