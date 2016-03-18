@@ -145,7 +145,7 @@ Meteor.methods({
 
   deleteLearning: function(learningId) {
     check(learningId, String);
-    Learnings.remove( { _id: learningId, owner: userId } );
+    Learnings.remove( { _id: learningId, owner: this.userId } );
     return true;
   },
 
@@ -153,8 +153,9 @@ Meteor.methods({
     check(learningId, String);
     check(learning, String);
     Learnings.update(
-      { _id: learningId, owner: userId }, {$set: {text: learning}}
+      { _id: learningId, owner: this.userId }, {$set: {text: learning}}
     );
+    return true;
   },
 
   incrementKudoCount: function(learningItemId, userId) {
