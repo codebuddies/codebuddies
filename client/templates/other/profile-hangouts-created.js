@@ -1,59 +1,57 @@
-Template.hangoutsCreated.onCreated(function () {
+Template.hangoutsCreated.onRendered(function() {
+   var instance = this;
+   $('#hangout-created-pagination').bind('scroll', function(){
+       if($('#hangout-created-pagination').scrollTop() + $('#hangout-created-pagination').innerHeight()>=$('#hangout-created-pagination')[0].scrollHeight){
 
-  // 1. Initialization
+           if(Hangouts.find().count() === instance.limit.get()){
+             instance.limit.set(instance.limit.get() + 5);
+             instance.flag.set(false);
+           }else {
+             if(Hangouts.find().count() < instance.limit.get()){
+               instance.flag.set(true);
+             }
+           }
+       }
+   });
+});
+Template.hangoutsCreated.onCreated(function () {
 
   var instance = this;
 
-  // initialize the reactive variables
-  instance.loaded = new ReactiveVar(0);
   instance.limit = new ReactiveVar(3);
+  instance.flag = new ReactiveVar(false);
 
-  // ...
-   instance.autorun(function () {
+  instance.autorun(function () {
 
-    // get the limit
     var limit = instance.limit.get();
 
-    //console.log("Asking for "+limit+" hangouts...")
-
-    // subscribe to the posts publication
     var subscription = instance.subscribe('hangoutsCreated', limit);
 
-    // if subscription is ready, set limit to newLimit
-    if (subscription.ready()) {
-      //console.log("> Received "+limit+" hangouts. \n\n")
-      instance.loaded.set(limit);
-    } else {
-      //console.log("> Subscription is not ready yet. \n\n");
-    }
   });
 
-   instance.hangoutsCreated = function() { 
-    return Hangouts.find({}, {sort: {timestamp: -1}, limit: instance.loaded.get()});
+   instance.hangoutsCreated = function() {
+     if(Hangouts.find().count() <  instance.limit.get()){
+       instance.flag.set(true);
+     }
+    return Hangouts.find({}, {sort: {timestamp: -1}});
   }
 
 });
 
 Template.hangoutsCreated.helpers({
-    // the posts cursor
+
   hangouts: function () {
     return Template.instance().hangoutsCreated();
   },
-  // are there more posts to show?
+
   hasMoreHangouts: function () {
-    return Template.instance().hangoutsCreated().count() >= Template.instance().limit.get();
+    return Template.instance().flag.get();
   }
 });
 
 Template.hangoutsCreated.events({
- 'click #load-more-hangouts': function (event, instance) {
-    event.preventDefault();
-
-    // get current value for limit, i.e. how many posts are currently displayed
-    var limit = instance.limit.get();
-
-    // increase limit by 5 and update it
-    limit += 3;
-    instance.limit.set(limit);
+  "click #go-to-top": function(event, template){
+    var pos = document.getElementById("hangout-created-pagination");
+    pos.scrollTop = - pos.scrollHeight;
   }
 });
