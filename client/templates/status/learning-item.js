@@ -57,7 +57,7 @@ Template.learningItem.events({
     }
   },
 
-  'click .delete-learning': function(event) {
+  'click .delete-learning': function(event, learningId) {
     var learningId = this._id;
     sweetAlert({
       title: TAPi18n.__("delete_learning_confirm"),
@@ -71,14 +71,14 @@ Template.learningItem.events({
     },
     function(isConfirm) {
       if(isConfirm) {
-        Meteor.call('deleteLearning', learningId, function(error, result) {
+        Meteor.call('deleteLearning', learningId, Meteor.userId(), function(error, result) {
           if(result) {
             swal("Poof!", "Your learning was deleted!");
           }
           else {
             swal("Oops!  Something went wrong", error.error, + "\n Try again!", "error");
           }
-        })
+        });
       }
     }
   );
