@@ -5,7 +5,16 @@
 
     <ul class="status-item">
       <li><div class="kudo-holder"><label class="kudo-count">+{{kudos}}</label></div>  </li>
-      <li><label class="status">{{text}}&nbsp;&nbsp;<span class="username">{{username}}</span>&nbsp;<span class="status-date">{{livestamp timestamp}}</span><span class="delete-learning"><i class="fa fa-trash-o"></i></span><span class="edit-learning"><i class="fa fa-pencil-square-o"></i></span></label></li>
+      <li>
+        <label class="status">{{text}}&nbsp;&nbsp;
+          <span class="username">{{username}}</span>&nbsp;
+          <span class="status-date">{{livestamp timestamp}}</span>
+          {{#if isOwner}}
+            <span class="delete-learning"><i class="fa fa-trash-o"></i></span>
+            <span class="edit-learning"><i class="fa fa-pencil-square-o"></i></span>
+          {{/if}}
+        </label>
+      </li>
     </ul>
 
   </div>

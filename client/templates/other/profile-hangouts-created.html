@@ -1,14 +1,19 @@
  <template name="hangoutsCreated">
-          <ul id="hangouts">
-            <div class="row hangout-item">   
-                {{#each hangouts}}
-                    {{> hangoutItem}}
-                {{/each}}
-              {{#if Template.subscriptionsReady}}
-                {{#if hasMoreHangouts}}
-                    <button id="load-more-hangouts" class="btn btn-default btn-block">Load more</button>
-                {{/if}}
-              {{/if}}
-              </div>
-            </ul>
+  <ul id="hangouts">
+    <div class="row hangout-item">
+      <div id="hangout-created-pagination">
+
+        {{#each hangouts}}
+          {{> hangoutItem}}
+        {{/each}}
+
+        {{#unless hasMoreHangouts}}
+          <button class="btn btn-default btn-block" disabled="disabled">Loading</button>
+        {{else}}
+          <button id="go-to-top" class="btn btn-default btn-block">No more hangout</button>
+        {{/unless}}
+
+      </div>
+    </div>
+  </ul>
 </template>
