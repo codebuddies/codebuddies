@@ -24,7 +24,7 @@ Template.learningItem.events({
         type: 'info'
       });
     } else {
-      Meteor.call('incrementKudoCount', this._id, Meteor.userId(), function(error, result) { });
+      Meteor.call('incrementKudoCount', this._id, function(error, result) { });
     }
   },
 
