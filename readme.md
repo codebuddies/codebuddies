@@ -37,7 +37,7 @@ And here are the volunteers so far:
 - @oliver84 https://github.com/Oliver84
 - @selfspunwebs, https://github.com/anonRegions
 - @luxis https://github.com/Luxisapex - contributed to various issues, including the "kudos" feature which lets users upvote learnings
-- @sgtquezada https://github.com/sgtquezada - contributed fixes for issues, including hangout deletion and email notification for cancelled hangouts, and improved thinking on process steps for how to collaborate on this app
+- @sergeant-q https://github.com/sergeant-q - contributed fixes for issues, including hangout deletion and email notification for cancelled hangouts, and improved thinking on process steps for how to collaborate on this app
 - @daisukeoka, https://github.com/daisukeokaoss
 - @adanot, https://github.com/adanot
 - @sheldonbarnes, https://github.com/sheldonbarnes - contributed fixes to issues, including textarea word limit
