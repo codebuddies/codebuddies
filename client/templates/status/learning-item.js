@@ -1,3 +1,12 @@
+Template.registerHelper("learningOwner", function(ownerid){
+  if(Meteor.userId() === ownerid){
+      return true;
+  }else {
+    console.log("learningOwner", false);
+      return false;
+  }
+
+});
 Template.learningItem.helpers({
   buttonStatus: function() {
     for(var index in Template.instance().data.hasLiked) {
