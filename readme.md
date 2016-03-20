@@ -22,14 +22,14 @@ PLEASE GO TO ***[contributing.md](contributing.md)*** and follow the first six i
 And here are the volunteers so far:
 
 - @linda, https://github.com/lpatmo - contributed to various issues
-- @sbe, https://github.com/sbe 
+- @sbe, https://github.com/sbe - contributed to discussion on features
 - @abdulhannanali, https://github.com/abdulhannanali - contributed to the start of a #todayilearned slackbot
-- @bethanyg, https://github.com/bethanyg 
+- @bethanyg, https://github.com/bethanyg - contributed good advice and discussion on features
 - @mattierae https://github.com/mattierae - contributed awesome balsamiq mockups
 - @adachiu https://github.com/adachiu - contributed awesome high-quality designs for almost every page of the app, lead the design and UX thinking
-- @wuworkshop https://github.com/wuworkshop - offered advice on issues (issue master)
+- @wuworkshop https://github.com/wuworkshop - contributed advice on a huge number of issues and helped organize the git process flow
 - @Richardh https://github.com/studentrik
-- @anbuselvan https://github.com/anbuselvan - contributed code for the foundations of the app, including hangout/learning creation.
+- @anbuselvan https://github.com/anbuselvan - contributed code for the foundations of the app (basically coded 50% of the app), including hangout/learning creation and Slack authentication.
 - @husam https://github.com/hudat
 - @ccr https://github.com/Iccr
 - @ghazi https://github.com/ghmoha
@@ -41,11 +41,12 @@ And here are the volunteers so far:
 - @daisukeoka, https://github.com/daisukeokaoss
 - @adanot, https://github.com/adanot
 - @sheldonbarnes, https://github.com/sheldonbarnes - contributed fixes to issues, including textarea word limit
-- @howdoicomputer https://github.com/howdoicomputer
+- @howdoicomputer, https://github.com/howdoicomputer
+- @mduca, https://github.com/mduca - contributed to discussions on features
 - @alex, http://github.com/nestevez7 - contributed to discussion on features
 - @will, http://github.com/William-R-Wilson - contributed fixes to issues, including ability to edit/trash learnings
-- @anon - contributed fixes to bugs, including security measures, re-touching of the kudos layout, and pagination
-- @olivia, http://github.com/foxiae - contributed to discussion on features
+- @anon user(s) - contributed fixes to bugs, including security measures, re-touching of the kudos layout, and scrolling pagination
+- @olivia, http://github.com/foxiae - contributed to discussions on features
 - Add Your Name on the Google Doc (link below) If You Want To Help, then read ***[contributing.md](contributing.md)***
 
 If you'd like to help contribute, add your name on the google doc at [http://bit.ly/codebuddies-hangouts-platform-v2-googledoc](http://bit.ly/codebuddies-hangouts-platform-v2-googledoc), say hello in the [#codebuddies-meta](https://codebuddiesmeet.slack.com/messages/codebuddies-meta/) channel on Slack, and be sure to read the "how do I contribute" instructions on [contributing.md](contributing.md)!
