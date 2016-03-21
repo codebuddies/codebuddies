@@ -1,0 +1,17 @@
+ <template name="profileLearnings">
+  <div class="status-list">
+    <div id="learning-pagination">
+
+      {{#each learnings}}
+          {{> learningItem}}
+      {{/each}}
+
+      {{#unless hasMoreLearnings}}
+        <button class="btn btn-default btn-block" disabled="disabled">Loading</button>
+      {{else}}
+        <button id="go-to-top" class="btn btn-default btn-block">Back to the top</button>
+      {{/unless}}
+
+    </div>
+  </div>
+</template>
