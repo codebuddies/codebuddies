@@ -75,7 +75,7 @@ Meteor.methods({
     }));
     var user = Meteor.users.findOne({_id: data.user_id});
     var user_email = user.user_info.profile.email;
-    Hangouts.insert({
+    var hangout_id = Hangouts.insert({
       user_id: data.user_id,
       topic: data.topic,
       description: data.description,
@@ -86,16 +86,14 @@ Meteor.methods({
       email_addresses: [ user_email ],
       timestamp: new Date()
     });
-    try {
-    slack.send({
-          username: 'CodeBuddies Alerts',
-          channel: '#cb2-test',
-          message: 'test from app',
-          icon_emoji: ':bell:'
-      });
-    } catch (e) {
-      console.log(e.message);
-    }
+    // create slack message to channel
+    var tz = "America/Los_Angeles";
+    var host = user.profile.name;
+    var hangout_url = Meteor.absoluteUrl('hangout'); // http://<ROOT_URL>/hangout/<hangout_id>
+    var start_time = moment(data.start).tz(tz).format('MMMM Do YYYY, h:mm a z');
+    var message = `Hey guys! A new hangout has been scheduled by <@${host}>, titled *${data.topic}*\n Starts on *${start_time}*!\n Visit ${hangout_url}/${hangout_id} for more info!`;
+    // must pass message and channel to slackNotify() defaults to #news if no channel is passed
+    slackNotify(message, '#cb2-test');
     return true;
   },
 
@@ -109,7 +107,7 @@ Meteor.methods({
           return true;
       }
   },
-  
+
   editHangout: function(data, hangoutId) {
     check(data, Match.ObjectIncluding({
       topic: String,
