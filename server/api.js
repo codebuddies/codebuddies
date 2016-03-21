@@ -89,11 +89,32 @@ Meteor.methods({
     // create slack message to channel
     var tz = "America/Los_Angeles";
     var host = user.profile.name;
+    var hangout_type = data.type;
+    var hangout_topic = data.topic;
+    var hangout_desc = data.description;
     var hangout_url = Meteor.absoluteUrl('hangout'); // http://<ROOT_URL>/hangout/<hangout_id>
     var start_time = moment(data.start).tz(tz).format('MMMM Do YYYY, h:mm a z');
-    var message = `Hey guys! A new hangout has been scheduled by <@${host}>, titled *${data.topic}*\n Starts on *${start_time}*!\n Visit ${hangout_url}/${hangout_id} for more info!`;
+    var data = {
+      attachments: [
+        {
+          fallback: 'A new hangout has been scheduled. Visit' + Meteor.absoluteUrl() + '',
+          color: '#1e90ff',
+          pretext: `A new ${hangout_type} Hangout has been scheduled by <@${host}>!`,
+          title: `${hangout_topic}`,
+          title_link: `${hangout_url}/${hangout_id}`,
+          text: `${hangout_desc}`,
+          fields: [
+            {
+              title: 'Date',
+              value: `${start_time}`
+            }
+            ]
+        }
+        ]
+    }
+    // var message = `Hey guys! A new hangout has been scheduled by <@${host}>, titled *${data.topic}*\n Starts on *${start_time}*!\n Visit ${hangout_url}/${hangout_id} for more info!`;
     // must pass message and channel to slackNotify() defaults to #news if no channel is passed
-    slackNotify(message, '#cb2-test');
+    hangoutAlert(data);
     return true;
   },
 
