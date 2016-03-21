@@ -86,6 +86,16 @@ Meteor.methods({
       email_addresses: [ user_email ],
       timestamp: new Date()
     });
+    try {
+    slack.send({
+          username: 'CodeBuddies Alerts',
+          channel: '#cb2-test',
+          message: 'test from app',
+          icon_emoji: ':bell:'
+      });
+    } catch (e) {
+      console.log(e.message);
+    }
     return true;
   },
 
