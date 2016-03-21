@@ -121,6 +121,30 @@ Meteor.methods({
     });
     return true;
   },
+  cloneHangout: function(data, hangoutId) {
+    check(data, Match.ObjectIncluding({
+      user_id: String,
+      topic: String,
+      description: String,
+      start: Match.OneOf(String, Date),
+      end: Match.OneOf(String, Date),
+      type: String
+    }));
+    var user = Meteor.users.findOne({_id: data.user_id});
+    var user_email = user.user_info.profile.email;
+    Hangouts.insert({
+      user_id: data.user_id,
+      topic: data.topic,
+      description: data.description,
+      start: data.start,
+      end: data.end,
+      type: data.type,
+      users: [ data.user_id ],
+      email_addresses: [ user_email ],
+      timestamp: new Date()
+    });
+    return true;
+  },
 
   setUserStatus: function(currentStatus) {
     check(currentStatus, String);
