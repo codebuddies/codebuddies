@@ -2,19 +2,18 @@ Template.registerHelper("learningOwner", function(ownerid){
   if(Meteor.userId() === ownerid){
       return true;
   }else {
-    console.log("learningOwner", false);
       return false;
   }
 
 });
 Template.learningItem.helpers({
   buttonStatus: function() {
-    for(var index in Template.instance().data.hasLiked) {
-      if(Template.instance().data.hasLiked[index] == Meteor.userId()) {
-        return true;
-      }
+    var userId = Meteor.userId();
+    if (userId && !_.include(this.hasLiked, userId)) {
+      return false;
+    } else {
+    return true;
     }
-    return false;
   },
 
   isOwner:  function () {
@@ -46,7 +45,7 @@ Template.learningItem.events({
         type: 'info'
       });
     } else {
-      Meteor.call('decrementKudoCount', this._id, Meteor.userId(), function(error, result) { });
+      Meteor.call('decrementKudoCount', this._id, function(error, result) { });
     }
   },
 
