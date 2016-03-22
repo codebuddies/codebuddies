@@ -7,5 +7,7 @@
   "mailgun_host": "smtp.mailgun.org",
   "mailgun_port": 2525,
   "email_from": "CodeBuddies-NoReply@codebuddies.org",
-  "team_id":"T04AQ6GEY"
+  "team_id":"T04AQ6GEY",
+  "slack_alert_channel": "#cb2-test",
+  "slack_alert_username": "CodeBuddies Alerts"
 }
