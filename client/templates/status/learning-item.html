@@ -2,7 +2,9 @@
     <ul class="status-item">
       <li><div class="kudo-holder">
         <label class="kudo-count">
-          <p><i class="fa fa-angle-up fa-2x btn-{{#if buttonStatus}}un{{/if}}like  btn-learning btn-xs"></i></p>
+          {{#unless learningOwner owner}}
+            <p><i class="fa fa-angle-up fa-2x btn-{{#if buttonStatus}}un{{/if}}like  btn-learning btn-xs"></i></p>
+          {{/unless}}
           <p>+{{kudos}}</p>
       </label></div>  </li>
       <li>

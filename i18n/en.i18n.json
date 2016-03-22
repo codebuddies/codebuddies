@@ -36,6 +36,7 @@
   "update": "Update",
   "join_hangouts" : "Join Hangouts",
   "create_a_hangout": "Create a Hangout",
+  "clone_a_hangout": "Create this hangout",
   "join": "Join",
   "join_in_session": "Join",
   "load_more": "Load more...",
@@ -49,7 +50,8 @@
   // hangout
   "what_is_a_hangout": "What is a hangout?",
   "loading_hangouts": "Loading hangouts... please wait.",
-  "create_hangout_hint": "Your scheduled study session will appear on the home page immediately. After you propose a study session, you can always go back and edit the text. If you need styling, note that all text boxes accept markdown.",
+  "create_hangout_hint": "Your scheduled study session will appear on the home page immediately. After you propose a study session, you can always go back and change the time, title, or description.",
+  "clone_hangout_hint": "Your scheduled study session will appear on the home page immediately. After you propose a study session, you can always go back and change the time, title, or description.",
   "edit_hangout_hint": "Your hangout will be updated.",
   "silent_hangout": "Silent Hangout",
   "teaching_hangout": "Teaching Hangout",

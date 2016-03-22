@@ -155,6 +155,28 @@ Meteor.methods({
     });
     return true;
   },
+  cloneHangout: function(data, hangoutId) {
+    check(data, Match.ObjectIncluding({
+      user_id: String,
+      topic: String,
+      description: String,
+      type: String
+    }));
+    var user = Meteor.users.findOne({_id: data.user_id});
+    var user_email = user.user_info.profile.email;
+    Hangouts.insert({
+      user_id: data.user_id,
+      topic: data.topic,
+      description: data.description,
+      start: data.start,
+      end: data.end,
+      type: data.type,
+      users: [ data.user_id ],
+      email_addresses: [ user_email ],
+      timestamp: new Date()
+    });
+    return true;
+  },
 
   setUserStatus: function(currentStatus) {
     check(currentStatus, String);
@@ -192,22 +214,22 @@ Meteor.methods({
     return true;
   },
 
-  incrementKudoCount: function(learningItemId, userId) {
+  incrementKudoCount: function(learningItemId) {
     Learnings.update(
       { _id: learningItemId },
       {
         $inc: { kudos: 1 },
-        $push: { hasLiked: userId }
+        $push: { hasLiked: this.userId }
       }
     );
   },
 
-  decrementKudoCount: function(learningItemId, userId) {
+  decrementKudoCount: function(learningItemId) {
     Learnings.update(
       { _id: learningItemId },
       {
         $inc: { kudos: -1 },
-        $pull: { hasLiked: userId }
+        $pull: { hasLiked: this.userId }
       }
     );
     return true;
