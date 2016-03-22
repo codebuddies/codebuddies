@@ -17,9 +17,10 @@
       </label>
       <ul class="status">
         <li><i class="fa {{getType type}}"></i></li>
-        <li><label>{{getDate this}} |  <a class="clone-hangout">
-          Copy
-        </a></label></li>
+        <li>
+          <label>{{getDate this}}  
+            {{#if currentUser}}| <a class="clone-hangout">Copy</a>{{/if}}
+          </label></li>
       </ul>
     </div>
     <div class="col-md-2 text-center">

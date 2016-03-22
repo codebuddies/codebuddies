@@ -126,8 +126,6 @@ Meteor.methods({
       user_id: String,
       topic: String,
       description: String,
-      start: Match.OneOf(String, Date),
-      end: Match.OneOf(String, Date),
       type: String
     }));
     var user = Meteor.users.findOne({_id: data.user_id});

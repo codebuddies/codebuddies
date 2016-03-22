@@ -1,8 +1,9 @@
 Template.cloneHangoutModal.rendered = function() {
   var start = this.$('#start-date-time-picker');
   var end = this.$('#end-date-time-picker');
-
-  //dateTo.setHours(dateTo.getHours()+1);
+  var dateFrom = new Date();
+  var dateTo = new Date();
+  dateTo.setHours(dateTo.getHours()+1);
   start.datetimepicker({
     ignoreReadonly: true
   });
@@ -10,6 +11,14 @@ Template.cloneHangoutModal.rendered = function() {
     ignoreReadonly: true,
     useCurrent: false
   });
+  start.on("dp.change", function (e) {
+    end.data("DateTimePicker").minDate(e.date);
+  });
+  end.on("dp.change", function (e) {
+    start.data("DateTimePicker").maxDate(e.date);
+  });
+  start.data("DateTimePicker").date(dateFrom);
+  end.data("DateTimePicker").date(dateTo);
 
 };
 
