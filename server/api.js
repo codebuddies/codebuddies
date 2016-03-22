@@ -75,7 +75,7 @@ Meteor.methods({
     }));
     var user = Meteor.users.findOne({_id: data.user_id});
     var user_email = user.user_info.profile.email;
-    Hangouts.insert({
+    var hangout_id = Hangouts.insert({
       user_id: data.user_id,
       topic: data.topic,
       description: data.description,
@@ -86,6 +86,40 @@ Meteor.methods({
       email_addresses: [ user_email ],
       timestamp: new Date()
     });
+    // create slack message to channel
+    var tz = "America/Los_Angeles";
+    var host = user.profile.name;
+    var hangout_type = data.type;
+    var hangout_topic = data.topic;
+    var hangout_desc = data.description;
+    var hangout_url = Meteor.absoluteUrl('hangout'); // http://<ROOT_URL>/hangout/<hangout_id>
+    var start_time = moment(data.start).tz(tz).format('MMMM Do YYYY, h:mm a z');
+    var data = {
+      attachments: [
+        {
+          fallback: 'A new hangout has been scheduled. Visit' + Meteor.absoluteUrl() + '',
+          color: '#1e90ff',
+          pretext: `A new *${hangout_type}* hangout has been scheduled by <@${host}>!`,
+          title: `${hangout_topic}`,
+          title_link: `${hangout_url}/${hangout_id}`,
+          mrkdwn_in: ['text', 'pretext', 'fields'],
+          fields: [
+            {
+              title: 'Description',
+              value: `_${hangout_desc}_`,
+              short: true
+            },
+            {
+              title: 'Date',
+              value: `${start_time}`,
+              short: true
+            }
+            ]
+        }
+        ]
+    }
+    // send Slack message to default channel (configured in Meteor settings)
+    hangoutAlert(data);
     return true;
   },
 
