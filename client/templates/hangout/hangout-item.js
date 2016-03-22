@@ -1,3 +1,12 @@
+
+Meteor.startup(function(){
+ $.getScript('https://apis.google.com/js/platform.js', function(){
+  // script has loaded
+    gapi.hangout.render('placeholder-div', { 'render': 'createhangout', 'widget_size': 72 });
+
+ });
+});
+
 Template.hangoutItem.helpers({
   getType: function(type) {
     if (type == 'silent') {

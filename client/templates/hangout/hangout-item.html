@@ -4,6 +4,7 @@
       <label class="name"><span>{{getIsDone this}}</span><a href="/hangout/{{_id}}" class="hangout-topic">
           {{#if isInProgress this}}
             <i class="fa fa-dot-circle-o fa text-danger faa-burst animated"></i> &nbsp;
+            <div id="placeholder-div"></div>
           {{/if}}
           {{topic}}</a>
         {{#if isHost}}
