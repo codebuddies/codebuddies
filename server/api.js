@@ -99,7 +99,7 @@ Meteor.methods({
           return true;
       }
   },
-  
+
   editHangout: function(data, hangoutId) {
     check(data, Match.ObjectIncluding({
       topic: String,
@@ -180,22 +180,22 @@ Meteor.methods({
     return true;
   },
 
-  incrementKudoCount: function(learningItemId, userId) {
+  incrementKudoCount: function(learningItemId) {
     Learnings.update(
       { _id: learningItemId },
       {
         $inc: { kudos: 1 },
-        $push: { hasLiked: userId }
+        $push: { hasLiked: this.userId }
       }
     );
   },
 
-  decrementKudoCount: function(learningItemId, userId) {
+  decrementKudoCount: function(learningItemId) {
     Learnings.update(
       { _id: learningItemId },
       {
         $inc: { kudos: -1 },
-        $pull: { hasLiked: userId }
+        $pull: { hasLiked: this.userId }
       }
     );
     return true;
