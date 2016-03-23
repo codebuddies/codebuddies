@@ -17,14 +17,30 @@
         <div class="panel panel-default">
           <div class="panel-body">
             <div class="heading">
-              <div class="title">{{_ "join_hangouts"}}</div>
-              <button id="create-hangout-popup" class="btn btn-cb2">{{_ "create_a_hangout"}}</button>
-              <span class="question"><a id="hangout-faq-popup">{{_ "what_is_a_hangout"}}</a></span>
+              <div class="title">{{_ "join_hangouts"}} <span class="question"><a id="hangout-faq-popup"><i class="fa fa-question-circle fa-2x"></i></a></span> </div>
+            </div><!--heading-->
+
+            <div class="row">
+              <div class="col-md-8">
+                  <input type="text" class="form-control" name="searchTerm" value="" placeholder="&#61447; Search">
+              </div>
+              <div class="col-md-4">
+                  <div class="btn btn-cb2" id="create-hangout-popup"> {{_ "create_a_hangout"}} </div>
+                  <!-- <button id="create-hangout-popup" class="btn btn-cb2">{{_ "create_a_hangout"}}</button> -->
+              </div>
+            </div><!-- inner row-->
+
+          </div>
+        </div><!-- panel-->
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="heading">
+            
             </div>
             {{> hangoutList}}
           </div>
-        </div>
-      </div>
+        </div><!-- panel-->
+      </div><!--col-md-6 col-md-offset-1-->
       <div class="col-md-4">
         <div class="full-width-tabs">
           <ul id="statusTabs" class="nav nav-tabs" role="tablist">
