@@ -22,7 +22,7 @@
 
             <div class="row">
               <div class="col-md-8">
-                  <input type="text" class="form-control" name="searchTerm" value="" placeholder="&#61447; Search">
+                  <input type="text" class="form-control searchTerm" name="searchTerm" placeholder="&#128269; Search" id="searchBox">
               </div>
               <div class="col-md-4">
                   <div class="btn btn-cb2" id="create-hangout-popup"> {{_ "create_a_hangout"}} </div>
@@ -35,9 +35,25 @@
         <div class="panel panel-default">
           <div class="panel-body">
             <div class="heading">
-            
+
             </div>
-            {{> hangoutList}}
+            {{#if searchMode}}
+              <div class="page-header"><h5>Results</h5></div>
+                {{#if searchResults.count}}
+                  <ul id="hangouts">
+                    {{#each searchResults}}
+                      {{> hangoutItem}}
+                    {{/each}}
+                  </ul>
+
+
+                {{else}}
+                  <p>No match Found...</p>
+                {{/if}}
+            {{else}}
+                  {{> hangoutList}}
+            {{/if}}
+
           </div>
         </div><!-- panel-->
       </div><!--col-md-6 col-md-offset-1-->
