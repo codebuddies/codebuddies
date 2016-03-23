@@ -1,11 +1,31 @@
 
-Meteor.startup(function(){
- $.getScript('https://apis.google.com/js/platform.js', function(){
-  // script has loaded
-    gapi.hangout.render('placeholder-div', { 'render': 'createhangout', 'widget_size': 72 });
 
- });
+Meteor.startup(function(){
+   $.getScript('https://apis.google.com/js/platform.js', function(){
+    // script has loaded
+      var active_hangouts = [];
+      $("div[id^='placeholder-div']").each(function(i,e) {
+          active_hangouts.push($(e).attr('id'));
+      });
+      active_hangouts.forEach(function(entry) {
+        gapi.hangout.render(entry, { 'render': 'createhangout', 'widget_size': 72 });
+      });
+
+   });
+
+ /*Use reactive-var to make sure inProgress hangouts change automatically*/
+    reactiveDate = {
+      nowMinutes: new ReactiveVar(new Date)
+    };
+
+    setInterval(function () {
+      reactiveDate.nowMinutes.set(new Date);
+    }, 60 * 1000); // every minute
 });
+
+Template.hangoutItem.created = function() {
+  this.isInProgress = new ReactiveVar();
+};
 
 Template.hangoutItem.helpers({
   getType: function(type) {
@@ -36,11 +56,24 @@ Template.hangoutItem.helpers({
             ' joined';
   },
   isInProgress: function(hangout) {
-    var date = new Date();
+    //var date = new Date();
     //console.log('isInProgress date: ' + date);
     //console.log('isInProgress new Date hangout.start: ' + hangout.start );
     //console.log('isInProgress new Date hangout.end: ' + hangout.end );
-    return (date >= (new Date(hangout.start)) && date <= (new Date(hangout.end)));
+    //return (date >= (new Date(hangout.start)) && date <= (new Date(hangout.end)));
+    // Tracker.autorun(function() {
+    //   $.getScript('https://apis.google.com/js/platform.js', function(){
+    //       // script has loaded
+    //         var active_hangouts = [];
+    //         $("div[id^='placeholder-div']").each(function(i,e) {
+    //             active_hangouts.push($(e).attr('id'));
+    //         });
+    //         active_hangouts.forEach(function(entry) {
+    //           gapi.hangout.render(entry, { 'render': 'createhangout', 'widget_size': 72 });
+    //         });
+    //   });
+    // });
+    return reactiveDate.nowMinutes.get() > hangout.start && reactiveDate.nowMinutes.get() < hangout.end;
   },
   isJoined: function() {
     return this.users.indexOf(Meteor.userId()) != -1;
