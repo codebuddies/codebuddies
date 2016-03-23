@@ -26,11 +26,7 @@ Meteor.publish("hangoutSearchResult", function(serchTerm) {
   check(serchTerm, String);
   if (_.isEmpty(serchTerm))
   {
-    console.log("serch term empty");
-
-  return this.ready();
+    return this.ready();
   }
-
-
   return Hangouts.search(serchTerm);
 });
