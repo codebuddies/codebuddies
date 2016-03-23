@@ -1,6 +1,9 @@
 Template.registerHelper('searchMode',function(){
     return Session.get("searchMode");
 });
+Template.registerHelper('hangoutSearchQuery',function(){
+    return Session.get("hangoutSearchQuery");
+});
 Template.home.rendered = function() {
    Meteor.call('getUserCount', function (err, result) {
       Session.set('userCount', result);

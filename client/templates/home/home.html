@@ -38,21 +38,28 @@
 
             </div>
             {{#if searchMode}}
-              <div class="page-header"><h5>Results</h5></div>
+              <div class="page-header"><h5>Showing result for '{{hangoutSearchQuery}}'</h5></div>
                 {{#if searchResults.count}}
+                
                   <ul id="hangouts">
                     {{#each searchResults}}
                       {{> hangoutItem}}
                     {{/each}}
                   </ul>
 
-
                 {{else}}
-                  <p>No match Found...</p>
-                {{/if}}
+
+                  <h4>Sorry, No Result were found</h4>
+                  <p>Check your spelling</p>
+                  <p>Try different words that mean the same thing</p>
+
+                {{/if}}<!--searchResults.count-->
+
             {{else}}
-                  {{> hangoutList}}
-            {{/if}}
+
+                {{> hangoutList}}
+
+            {{/if}}<!--searchMode-->
 
           </div>
         </div><!-- panel-->
