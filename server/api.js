@@ -71,24 +71,26 @@ Meteor.methods({
       description: String,
       start: Match.OneOf(String, Date),
       end: Match.OneOf(String, Date),
-      type: String
+      type: String,
+      username:String,
+      email:String
     }));
-    var user = Meteor.users.findOne({_id: data.user_id});
-    var user_email = user.user_info.profile.email;
+    
     var hangout_id = Hangouts.insert({
       user_id: data.user_id,
+      creator:data.username,
       topic: data.topic,
       description: data.description,
       start: data.start,
       end: data.end,
       type: data.type,
       users: [ data.user_id ],
-      email_addresses: [ user_email ],
+      email_addresses: [ data.email ],
       timestamp: new Date()
     });
     // create slack message to channel
     var tz = "America/Los_Angeles";
-    var host = user.profile.name;
+    var host = data.username;
     var hangout_type = data.type;
     var hangout_topic = data.topic;
     var hangout_desc = data.description;
