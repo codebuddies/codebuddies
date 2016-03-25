@@ -1,3 +1,9 @@
+Template.registerHelper('searchMode',function(){
+    return Session.get("searchMode");
+});
+Template.registerHelper('hangoutSearchQuery',function(){
+    return Session.get("hangoutSearchQuery");
+});
 Template.home.rendered = function() {
    Meteor.call('getUserCount', function (err, result) {
       Session.set('userCount', result);
@@ -32,5 +38,26 @@ Template.home.helpers({
       var totalUsers = Session.get('userCount');
       //console.log(totalUsers);
       return totalUsers;
+  },
+  searchResults: function() {
+    return Hangouts.search(Session.get('hangoutSearchQuery'));
+  },
+  booksSearchQuery: function() {
+    return Session.get('hangoutSearchQuery');
   }
 })
+
+Template.home.events({
+  "keyup #searchBox": function(event, template){
+    event.preventDefault();
+    //console.log(template.find(".searchTerm").value);
+    var term = template.find(".searchTerm").value;
+    if (_.isEmpty(term)){
+     Session.set('hangoutSearchQuery', ' ');
+     Session.set('searchMode',false);
+   }else{
+     Session.set('searchMode',true);
+     Session.set('hangoutSearchQuery', term);
+   }
+  }
+});
