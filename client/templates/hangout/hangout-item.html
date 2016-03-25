@@ -2,12 +2,11 @@
   <div class="row hangout-item">
     <div class="col-md-10">
       <label class="name"><span>{{getIsDone this}}</span><a href="/hangout/{{_id}}" class="hangout-topic">
+          <div id="placeholder-div-{{_id}}"></div> 
           {{#if isInProgress this}}
             <i class="fa fa-dot-circle-o fa text-danger faa-burst animated"></i> &nbsp;
-            {{#if isJoined}}
-              <div id="placeholder-div-{{_id}}"></div> &nbsp; 
-            {{/if}}
           {{/if}}
+              
           {{topic}}</a> 
         {{#if isHost}}
         <div class="btn btn-default delete-hangout">
