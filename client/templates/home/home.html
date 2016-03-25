@@ -20,8 +20,8 @@
               <div class="title">{{_ "join_hangouts"}} <span class="question"><a id="hangout-faq-popup"><i class="fa fa-question-circle fa-2x"></i></a></span> </div>
             </div><!--heading-->
 
-            <div class="row">
-              <div class="col-md-8">
+            <div class="row search-area">
+              <div class="col-md-7">
                   <input type="text" class="form-control searchTerm" name="searchTerm" placeholder="&#128269; Search" id="searchBox">
               </div>
               <div class="col-md-4">
@@ -30,15 +30,12 @@
               </div>
             </div><!-- inner row-->
 
-          </div>
-        </div><!-- panel-->
-        <div class="panel panel-default">
-          <div class="panel-body">
+      
             <div class="heading">
 
             </div>
             {{#if searchMode}}
-              <div class="page-header"><h5>Showing result for '{{hangoutSearchQuery}}'</h5></div>
+              <div class="page-header align-center"><h5>Showing results for '{{hangoutSearchQuery}}'</h5></div>
                 {{#if searchResults.count}}
                 
                   <ul id="hangouts">
@@ -49,9 +46,8 @@
 
                 {{else}}
 
-                  <h4>Sorry, No Result were found</h4>
-                  <p>Check your spelling</p>
-                  <p>Try different words that mean the same thing</p>
+                  <h4>Sorry, no results were found.</h4>
+                  <p>Please check your spelling, or try another search.</p>
 
                 {{/if}}<!--searchResults.count-->
 
