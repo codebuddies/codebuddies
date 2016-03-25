@@ -119,6 +119,7 @@ Meteor.methods({
         ]
     }
     // send Slack message to default channel (configured in Meteor settings)
+    /* global hangoutAlert from /lib/functions.js */
     hangoutAlert(data);
     return true;
   },
