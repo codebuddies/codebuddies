@@ -33,8 +33,18 @@
         text-decoration: underline;
       }
     }
-    
+
   }
+
+  .search-area {
+    padding: 30px;
+    background: $bg-lightgrey;
+    .searchTerm {
+      font-size: 16px;
+      height: 37px;
+    }
+  }
+
 
 
 

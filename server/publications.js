@@ -21,3 +21,12 @@ Meteor.publish("hangoutsCreated", function(limit) {
 Meteor.publish("hangoutsJoined", function(limit) {
   return Hangouts.find({users:{$elemMatch:{$eq:this.userId}}}, {sort: {timestamp: -1}, limit: limit});
 });
+
+Meteor.publish("hangoutSearchResult", function(serchTerm) {
+  check(serchTerm, String);
+  if (_.isEmpty(serchTerm))
+  {
+    return this.ready();
+  }
+  return Hangouts.search(serchTerm);
+});
