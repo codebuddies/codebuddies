@@ -19,6 +19,10 @@ Meteor.startup(function(){
     setInterval(function () {
       reactiveDate.nowMinutes.set(new Date);
     }, 60 * 1000); // every minute
+ /*Hangout Links*/
+
+  
+
 
 });
 
@@ -52,7 +56,36 @@ Template.hangoutItem.helpers({
             ' joined';
   },
   isInProgress: function(hangout) {
-    //console.log(hangout._id);
+
+        function return_unused_link() {
+            hangout_links = {
+              'http://codebuddies.org/hangout': 'unused',
+              'http://codebuddies.org/javascript-hangout': 'unused',
+              'http://codebuddies.org/python-hangout': 'unused',
+            }
+            //whether the button has a URL
+            //if it has a URL, flag it as "used"
+            // if button doesn't have a URL, then find the first URL in hangout_links
+            //that does not have a status of "used"
+            // turn the status to "used"
+            // change value back to unused when the button status becomes false.
+
+            for (var key in hangout_links) {
+                if (hangout_links[key] === 'unused') {
+                  console.log(key + ' yay');
+                  hangout_link = key;
+                  hangout_links[key] === 'used';
+                  console.log(key + ' afterwards');
+                  break;
+                } else {
+                continue;
+                } 
+            }
+          //var hangout_link = ._findkey(hangout_links, function(o) { return o === "unused"}; });
+          console.log(hangout_link);
+          return hangout_link;
+        } //function
+    
     //console.log(reactiveDate.nowMinutes.get()-60000);
     //console.log(hangout.start+10000 + 'hangout.start')
     if (reactiveDate.nowMinutes.get() > hangout.start && reactiveDate.nowMinutes.get() < hangout.end) {
@@ -60,6 +93,11 @@ Template.hangoutItem.helpers({
         //   e.addClass('show-hangout');
         // });
               //gapi.hangout.render("placeholder-div-"+hangout._id, { 'render': 'createhangout', 'widget_size': 72 });
+      
+      $("div[id^='hangout-']").each(function () {
+        this.attr('href', return_unused_link()).css('background','dodgerblue');
+        console.log(hangout._id);
+      });
       return true;
     } else {
       return false;

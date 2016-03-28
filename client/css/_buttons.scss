@@ -5,7 +5,9 @@
 }
 
 .btn-primary.btn-outline {
-  color: #428bca;
+  color: $cta-blue;
+  border-color: $cta-blue;
+  &:hover { background: $cta-blue;}
 }
 
 .btn-success.btn-outline {
