@@ -13,7 +13,7 @@
       </div>
 
     <div class="row">
-      <div class="col-md-6 col-md-offset-1">
+      <div class="col-md-7">
         <div class="panel panel-default">
           <div class="panel-body">
             <div class="heading">
@@ -30,14 +30,14 @@
               </div>
             </div><!-- inner row-->
 
-      
+
             <div class="heading">
 
             </div>
             {{#if searchMode}}
               <div class="page-header align-center"><h5>Showing results for '{{hangoutSearchQuery}}'</h5></div>
                 {{#if searchResults.count}}
-                
+
                   <ul id="hangouts">
                     {{#each searchResults}}
                       {{> hangoutItem}}
@@ -60,7 +60,7 @@
           </div>
         </div><!-- panel-->
       </div><!--col-md-6 col-md-offset-1-->
-      <div class="col-md-4">
+      <div class="col-md-5">
         <div class="full-width-tabs">
           <ul id="statusTabs" class="nav nav-tabs" role="tablist">
             <li class="active full-width-tab"><a data-id="A" href="#A"><span class="tab-title">{{_ "i_am_working_on"}}</span></a></li>
