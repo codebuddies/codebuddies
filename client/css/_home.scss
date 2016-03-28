@@ -69,7 +69,7 @@
       a {color: $bg-white; text-decoration: underline;}
     }
     .slack-note { 
-    @include breakpoint(medium) { margin-top: 70px; }
+    @include breakpoint(medium) { margin-top: 70px; max-width: 300px; }
       line-height: 16px;
       p {
         @include font-face(200, 12px, normal, $bg-white); line-height: 18px;
@@ -91,9 +91,11 @@
     h3 {
       @include font-face(600, 17px, bold, $primary-grey);
     }
+    em { font-size: 12px; }
     img { 
       width: 100%;
     }
+    .middle-bottom { top: 10%; h2 { margin-bottom: 50px;}}
   }
 
   .home-psst {
@@ -108,6 +110,8 @@
     background: $cta-blue;
     padding: 50px 0;
     @include font-face(400, 16px, normal, $bg-white);
+    a {color: $bg-white; text-decoration: underline;}
+    .fa {font-size: 20px;}
   }
 
 

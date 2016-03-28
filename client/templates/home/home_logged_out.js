@@ -4,4 +4,9 @@
     Modal.show('hangoutTips');
   });
 
+  $('.join-info').click(function() {
+    Modal.show('joinInfo');
+  });
+
+
 };
