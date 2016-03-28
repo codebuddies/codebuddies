@@ -1,6 +1,6 @@
 #home {
 
-  margin-top: 50px;
+  &.logged-in { margin-top: 50px; }
 
   .heading  {
 
@@ -46,12 +46,11 @@
   }
 
   .home-top {
-    position: relative;
-    top: -50px;
     padding: 50px 0 0 0;
     background: dodgerblue;
     h2 {
       @include font-face(600, 36px, bold, $bg-white);
+      @include breakpoint(medium) { max-width: 400px; }
     }
     p {
       @include font-face(200, 16px, normal, $bg-white);
@@ -80,8 +79,6 @@
   }
 
   .home-middle {
-    position: relative;
-    top: -50px;
     background: $bg-lightgrey;
     padding: 70px 0 0 0;
     h2 {
@@ -100,8 +97,6 @@
 
   .home-psst {
     background: $bg-white;
-    position: relative;
-    top: -50px;
     padding: 50px;
     @include font-face(400, 16px, normal, $primary-grey);
   }
@@ -112,6 +107,7 @@
     @include font-face(400, 16px, normal, $bg-white);
     a {color: $bg-white; text-decoration: underline;}
     .fa {font-size: 20px;}
+    .footer-icons {padding-top: 40px;}
   }
 
 

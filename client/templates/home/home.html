@@ -1,5 +1,5 @@
 <template name="home">
-<div id="home">
+<div id="home" class="{{#if currentUser}}logged-in{{/if}}">
   {{#unless currentUser}}
       {{> homeLoggedOut}}
   {{else}}
@@ -89,7 +89,7 @@
         <div class="row align-center">
             <p>Built by Cool People Around the World</p>
             <p>Our project is free and open-sourced. <a href="#">Help us keep this project alive!</a></p>
-            <p><a href="https://github.com/codebuddiesdotorg/cb-v2-scratch" target="_blank"><i class="fa fa-github"></i></a> <a href="https://codebuddiesmeet.slack.com" target="_blank"><i class="fa fa-slack"></i></a></p>
+            <p class="footer-icons"><a href="https://github.com/codebuddiesdotorg/cb-v2-scratch" target="_blank"><i class="fa fa-github"></i></a> <a href="https://codebuddiesmeet.slack.com" target="_blank"><i class="fa fa-slack"></i></a></p>
         </div>
       </div>
   </section>
