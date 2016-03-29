@@ -1,17 +1,9 @@
 <template name="home">
-  <div id="home" class="container">
-
-      <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-          <div id="jumbotron" class="not-logged-in">
-            <span class="subtitle">{{_ "jumbotron_subtitle" count=userCount}}</span>
-            {{#unless currentUser}}
-                <p>If you can't access the <a href="http://codebuddiesmeet.slack.com" target="_blank">CodeBuddies Slack chatroom</a>, get your invite at <script async defer src="https://codebuddiesmeet.herokuapp.com/slackin.js"></script>. Then, sign in to this app with Slack. </p>
-            {{/unless}}
-          </div>
-        </div>
-      </div>
-
+<div id="home" class="{{#if currentUser}}logged-in{{/if}}">
+  {{#unless currentUser}}
+      {{> homeLoggedOut}}
+  {{else}}
+  <div class="container">
     <div class="row">
       <div class="col-md-7">
         <div class="panel panel-default">
@@ -90,4 +82,16 @@
       </div>
     </div>
   </div>
+{{/unless}}
+
+  <section class="home-footer">
+      <div class="container">
+        <div class="row align-center">
+            <p>Built by Cool People Around the World</p>
+            <p>Our project is free and open-sourced. <a href="#">Help us keep this project alive!</a></p>
+            <p class="footer-icons"><a href="https://github.com/codebuddiesdotorg/cb-v2-scratch" target="_blank"><i class="fa fa-github"></i></a> <a href="https://codebuddiesmeet.slack.com" target="_blank"><i class="fa fa-slack"></i></a></p>
+        </div>
+      </div>
+  </section>
+</div>
 </template>

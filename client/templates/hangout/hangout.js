@@ -19,4 +19,7 @@ Template.hangout.helpers({
   isReady: function() {
     return Template.instance().isReady.get();
   },
+  isInProgress: function(hangout) {
+    return reactiveDate.nowMinutes.get() > hangout.start && reactiveDate.nowMinutes.get() < hangout.end;
+  },
 });

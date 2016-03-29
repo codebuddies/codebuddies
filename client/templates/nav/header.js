@@ -8,7 +8,7 @@ Template.header.helpers({
 });
 
 Template.header.events({
-  'click #signIn': function(event) {
+  'click .signIn': function(event) {
     var options = {
       requestPermissions: ['identify', 'users:read']
     };

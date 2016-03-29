@@ -1,0 +1,26 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'run', 'meteor:dev' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.40
+4 verbose run-script [ 'premeteor:dev', 'meteor:dev', 'postmeteor:dev' ]
+5 info premeteor:dev codebuddies-v2@1.0.0
+6 info meteor:dev codebuddies-v2@1.0.0
+7 verbose unsafe-perm in lifecycle true
+8 info codebuddies-v2@1.0.0 Failed to exec meteor:dev script
+9 error codebuddies-v2@1.0.0 meteor:dev: `meteor --settings settings-development.json`
+9 error Exit status 254
+10 error Failed at the codebuddies-v2@1.0.0 meteor:dev script.
+10 error This is most likely a problem with the codebuddies-v2 package,
+10 error not with npm itself.
+10 error Tell the author that this fails on your system:
+10 error     meteor --settings settings-development.json
+10 error You can get their info via:
+10 error     npm owner ls codebuddies-v2
+10 error There is likely additional logging output above.
+11 error System Darwin 15.0.0
+12 error command "node" "/usr/local/bin/npm" "run" "meteor:dev"
+13 error cwd /Users/lindapeng/Desktop/lindaprojects/cb-v2-scratch
+14 error node -v v0.10.40
+15 error npm -v 1.4.28
+16 error code ELIFECYCLE
+17 verbose exit [ 1, true ]
