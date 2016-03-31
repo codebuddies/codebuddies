@@ -1,3 +1,18 @@
+
+Meteor.startup(function(){
+  
+ /*Use reactive-var to make sure inProgress hangouts change automatically*/
+    reactiveDate = {
+      nowMinutes: new ReactiveVar(new Date)
+    };
+
+    setInterval(function () {
+      reactiveDate.nowMinutes.set(new Date);
+    }, 60 * 1000); // every minute
+ /*Hangout Links*/
+
+});
+
 Template.hangoutItem.helpers({
   getType: function(type) {
     if (type == 'silent') {
@@ -27,11 +42,11 @@ Template.hangoutItem.helpers({
             ' joined';
   },
   isInProgress: function(hangout) {
-    var date = new Date();
-    //console.log('isInProgress date: ' + date);
-    //console.log('isInProgress new Date hangout.start: ' + hangout.start );
-    //console.log('isInProgress new Date hangout.end: ' + hangout.end );
-    return (date >= (new Date(hangout.start)) && date <= (new Date(hangout.end)));
+
+    return reactiveDate.nowMinutes.get() > hangout.start && reactiveDate.nowMinutes.get() < hangout.end;
+
+    //return reactiveDate.nowMinutes.get() > hangout.start && reactiveDate.nowMinutes.get() < hangout.end;
+
   },
   isJoined: function() {
     return this.users.indexOf(Meteor.userId()) != -1;
