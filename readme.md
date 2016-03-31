@@ -2,66 +2,56 @@
 #CodeBuddies Hangouts Platform v2.0 - from scratch
 
 #FAQ
-##Who are the volunteers helping with this project?
-List your codebuddiesmeet Slack handle and your github username below if you’d like to be involved.
-- @linda, https://github.com/lpatmo 
-- @sbe, https://github.com/sbe 
-- @abdulhannanali, https://github.com/abdulhannanali 
-- @bethanyg, https://github.com/bethanyg 
-- @mattierae https://github.com/mattierae 
-- @adachiu https://github.com/adachiu 
-- @wuworkshop https://github.com/wuworkshop
+
+##What is CodeBuddies?
+We're a community of independent code learners who help each other on [Slack](http://codebuddiesmeet.slack.com), [schedule hangouts](http://hangouts.codebuddies.org) to learn with each other, contribute to a periodic [anonymous crowdsourced newsletter](http://tinyletter.com/codebuddies) where anyone can share a personal project or leave a shout out, and post on [Facebook](https://www.facebook.com/groups/TOPSTUDYGROUP/). We come from all over the world; there are members living in the United States, Japan, Sweden, the United Kingdom, Russia, Australia, Canada, India, and more.
+
+Learning with each other helps us learn faster. We strive to create a safe space for anyone interested in code to talk about the learning process. The project is free and open-sourced on Github, and this app is 100% community/volunteer-built.
+
+##What are you trying to build here?
+
+![screenshot of what we're building](http://codebuddies.org/images/cbv7-mockup.jpg)
+Credit: [Ada Chiu](https://github.com/adachiu); please feel free to play around and look for bug on our [staging site](http://cbv2-staging2.meteor.com).
+
+##Why are you building this site?
+Our community spends a lot of time helping each other on [our public Slack](http://codebuddiesmeet.slack.com) (P.S. You can get an invite [here](http://codebuddiesmeet.herokuapp.com) if you want to join), but it's hard to schedule google hangout study times via Slack, and it's also hard to know who else is online and available for joining a hangout to work on something together. The platform we're building solves those issues.
+
+##How do I contribute to this project?
+PLEASE GO TO ***[contributing.md](contributing.md)*** and follow the first six instructions listed there!!!
+
+And here are the volunteers so far:
+
+- @linda, https://github.com/lpatmo - contributed to various issues
+- @sbe, https://github.com/sbe - contributed to discussion on features
+- @abdulhannanali, https://github.com/abdulhannanali - contributed to the start of a #todayilearned slackbot
+- @bethanyg, https://github.com/bethanyg - contributed good advice and discussion on features
+- @mattierae https://github.com/mattierae - contributed awesome balsamiq mockups
+- @adachiu https://github.com/adachiu - contributed awesome high-quality designs for almost every page of the app, lead the design and UX thinking
+- @wuworkshop https://github.com/wuworkshop - contributed advice on a huge number of issues and helped organize the git process flow
 - @Richardh https://github.com/studentrik
-- @anbuselvan https://github.com/anbuselvan
+- @anbuselvan https://github.com/anbuselvan - contributed code for the foundations of the app (basically coded 50% of the app), including hangout/learning creation and Slack authentication.
 - @husam https://github.com/hudat
 - @ccr https://github.com/Iccr
 - @ghazi https://github.com/ghmoha
 - @mualth https://github.com/maudem
 - @oliver84 https://github.com/Oliver84
 - @selfspunwebs, https://github.com/anonRegions
-- @luxis https://github.com/Luxisapex
-- @sgtquezada https://github.com/sgtquezada
-- Add Your Name Here
+- @luxis https://github.com/Luxisapex - contributed to various issues, including the "kudos" feature which lets users upvote learnings
+- @sergeant-q https://github.com/sergeant-q - contributed fixes for issues, including hangout deletion and email notification for cancelled hangouts, and improved thinking on process steps for how to collaborate on this app
+- @daisukeoka, https://github.com/daisukeokaoss
+- @adanot, https://github.com/adanot
+- @sheldonbarnes, https://github.com/sheldonbarnes - contributed fixes to issues, including textarea word limit
+- @howdoicomputer, https://github.com/howdoicomputer
+- @mduca, https://github.com/mduca - contributed to discussions on features
+- @alex, http://github.com/nestevez7 - contributed to discussion on features
+- @will, http://github.com/William-R-Wilson - contributed fixes to issues, including ability to edit/trash learnings
+- @anon user(s) - contributed fixes to bugs, including security measures, re-touching of the kudos layout, and scrolling pagination
+- @olivia, http://github.com/foxiae - contributed to discussions on features
+- Add Your Name on the Google Doc (link below) If You Want To Help, then read ***[contributing.md](contributing.md)***
 
-Add your name on the google doc [http://bit.ly/codebuddies-hangouts-platform-v2-googledoc](http://bit.ly/codebuddies-hangouts-platform-v2-googledoc) if your name is not listed, and you want to be added as a collaborator. 
+If you'd like to help contribute, add your name on the google doc at [http://bit.ly/codebuddies-hangouts-platform-v2-googledoc](http://bit.ly/codebuddies-hangouts-platform-v2-googledoc), say hello in the [#codebuddies-meta](https://codebuddiesmeet.slack.com/messages/codebuddies-meta/) channel on Slack, and be sure to read the "how do I contribute" instructions on [contributing.md](contributing.md)!
 
-##How do I contribute to this project?
-Read [the docs](contributing.md)! :)
+P.S. We'll schedule hangouts to do code walkthroughs or code show and tells occasionally, and announce it in the #codebuddies-meta channel on Slack. The goal is to help everyone who wants to contribute to this app learn quickly through collaboration. The list of contributors above contains a good mix of full-time developers and as well as people contributing to an open-sourced project for the first time.
 
-
-##What is CodeBuddies?
-We're an international community of independent code learners who support each other on Slack, schedule hangouts to learn with each other at http://hangouts.codebuddies.org, and contribute to an anonymous weekly shout-out newsletter at http://codebuddies.org/weekly. Learning with each other helps us learn faster. We’ve also teamed up with The Odin Project member volunteers on a Facebook group: https://www.facebook.com/groups/TOPSTUDYGROUP/. We strive to create a safe space for anyone interested in code to talk about the learning process. The project is free and open-sourced on Github.
-
-##Is CodeBuddies an organization?
-No. It's a free-spirited community of enterprising learners and amazing volunteers who enjoy sharing knowledge with each other. 
-
-##What are you trying to build here?
-P1 == Priority 1
-P2 == Priority 2
-P3 == Priority 3
-
-CodeBuddies Hangouts Platform v2.0 will be built using meteor and will feature:
-
-### P1 Issues
-- [issue 5] (https://github.com/codebuddiesdotorg/cb-v2-scratch/issues/5) - ability to see who else is online when you load the frontpage (or hangout-page)
-- [issue 6] (https://github.com/codebuddiesdotorg/cb-v2-scratch/issues/6) - a spot for every person to fill in a “current status” to describe what they’re “currently working on”. This way, you’ll be able to see at a glance what everyone is working on.
-- [issue 7] (https://github.com/codebuddiesdotorg/cb-v2-scratch/issues/7) - create a new (google?) hangout with a click of a button.
-- [issue 8] (https://github.com/codebuddiesdotorg/cb-v2-scratch/issues/8) - ability to start a hangout “NOW” and not have to specify an end time
-- [issue 10] (https://github.com/codebuddiesdotorg/cb-v2-scratch/issues/10) - an explanation of the types of hangouts one can create:
-silent hangout / general study motivation hangout where video + mic is muted teaching hangout (hangout creator will be someone who wants to teach)
-talk through a chapter of a dense programming book or article
-pair program on a set of coding exercises
-work on TUTORIAL X at the same time and ask each other questions if they come up (mostly silent, but everyone working on the same material)
-Project (Like codequarters)
-- [issue 11] (https://github.com/codebuddiesdotorg/cb-v2-scratch/issues/11) - an embed of the slackin widget to let people sign up on the codebuddiesmeet slack
-- [issue 13] (https://github.com/codebuddiesdotorg/cb-v2-scratch/issues/13) - an explanation of the #100daysofcode challenge and #todayilearned hashtag (currently side projects in development by @abdulhannanali and @linda… if you guys want to help let us know in #codebuddies-meta!)
-- [issue 14] (https://github.com/codebuddiesdotorg/cb-v2-scratch/issues/14) - an explanation of how to use Slack -- e.g. recommend downloading the slack app so one can join other Slack communities as well without having to switch, short explanation of the 88 channels, highlights of some channels such as
-- [issue 12] (https://github.com/codebuddiesdotorg/cb-v2-scratch/issues/12) - An “about” page (or section of the home page?) explaining what the community is about, and some of the top contributors here -- i.e. people who’ve made pull requests, are volunteer moderators on the Slack, have lots of /prowd points, etc.
-
-### P2 Issues
-- [issue 15] (https://github.com/codebuddiesdotorg/cb-v2-scratch/issues/15) - ability to schedule start and end times for future hangouts (existing feature on hangouts.codebuddies.org)
-
-### P3 Issues
-- [issue 9] (https://github.com/codebuddiesdotorg/cb-v2-scratch/issues/9) - ability to see the # of people who’ve already joined each hangout.
 
 

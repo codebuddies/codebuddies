@@ -1,5 +1,13 @@
 {
   "slack_clientid": "4364220508.21046436577",
-  "slack_clientsecret": "cb8d1f895710a562c9c0bd8c72759c4b"
+  "slack_clientsecret": "cb8d1f895710a562c9c0bd8c72759c4b",
+  "slack": "https://hooks.slack.com/services/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",
+  "mailgun_username": "postmaster@sandbox2be14a81c3384728a7a9f3eee8500a28.mailgun.org",
+  "mailgun_password": "0980133953c04009f17abbf972914167",
+  "mailgun_host": "smtp.mailgun.org",
+  "mailgun_port": 2525,
+  "email_from": "CodeBuddies-NoReply@codebuddies.org",
+  "team_id":"T04AQ6GEY",
+  "slack_alert_channel": "#cb2-test",
+  "slack_alert_username": "CodeBuddies Alerts"
 }
-

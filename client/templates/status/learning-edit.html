@@ -1,0 +1,28 @@
+<template name="editLearningModal">
+  <div id="edit-learning-modal" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class = "row">
+              <button type="button" id="edit-learning-dismiss" class="btn btn-circle btn-outline btn-info pull-right" data-dismiss="modal"><i class="fa fa-times"></i></button>
+          </div>
+          <div class = "row">
+            <h4 class="modal-title text-center">Edit what you learned</h4>
+          </div>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-12">
+              <textarea id="topic" class="form-control" rows = "4" type="text"></textarea>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 text-center update-button">
+              <button id="update-learning" class="btn btn-cb2">Update</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

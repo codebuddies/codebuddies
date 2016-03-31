@@ -6,7 +6,7 @@
   @include font-face(700, 20px, bold, #000000);
 }
 
-#create-hangout-modal {
+#create-hangout-modal, #edit-hangout-modal, #clone-hangout-modal {
 
   .modal-dialog {
     width: 800px;

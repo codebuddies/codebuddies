@@ -1,6 +1,3 @@
-
-Meteor.startup(function(){
-  
  /*Use reactive-var to make sure inProgress hangouts change automatically*/
     reactiveDate = {
       nowMinutes: new ReactiveVar(new Date)
@@ -11,7 +8,9 @@ Meteor.startup(function(){
     }, 60 * 1000); // every minute
  /*Hangout Links*/
 
+
 });
+
 
 Template.hangoutItem.helpers({
   getType: function(type) {
@@ -34,9 +33,9 @@ Template.hangoutItem.helpers({
     return 'host ' +
             user +
             ' | ' +
-            moment(new Date(hangout.start)).tz(tz).format('MMMM Do YYYY, h:mm a z') +
+            moment(hangout.start).tz(tz).format('MMMM Do YYYY, h:mm a z') +
             ' - ' +
-            moment(new Date(hangout.end)).tz(tz).format('h:mm a z') +
+            moment(hangout.end).tz(tz).format('h:mm a z') +
             ' | ' +
             hangout.users.length +
             ' joined';
@@ -108,7 +107,7 @@ Template.hangoutItem.events({
     }
   },
 
-  'click .delete-hangout': function (e, tpl) {
+  'click .delete-hangout': function (event, template) {
     sweetAlert({
       title: TAPi18n.__("delete_hangout_confirm"),
       text: TAPi18n.__("delete_hangout_text"),
@@ -120,20 +119,60 @@ Template.hangoutItem.events({
       closeOnCancel: true,
       type: 'warning'
     },
-    function(isConfirm) {
-      if(isConfirm) {
+    function() {
         // if user confirmed/selected yes, let's call the delete hangout method on the server
-        Meteor.call('deleteHangout', tpl.data._id, function(error, result) {
+        Meteor.call('deleteHangout', template.data._id, function(error, result) {
           if (result) {
             swal("Poof!", "Your hangout has been successfully deleted!", "success");
           } else {
-            swal("Oops something went wrong!",  "Try again", "error");
+            swal("Oops something went wrong!", error.error +  "\n Try again", "error");
           }
         });
-
       }
-      }
+    ); //sweetAlert
+  },
+  'click .edit-hangout': function(e, hangout) {
+    //console.log(hangout.data.topic);
+    //pass in the right times like 03/09/2016 2:03 AM
+    var start_time_reverted = moment(hangout.data.start).format('MM/DD/YYYY h:mm A');
+    var end_time_reverted = moment(hangout.data.end).format('MM/DD/YYYY h:mm A');
 
-    );
+    console.log(hangout.data._id + ' this is an edited hangout id');
+    Session.set('hangoutId', hangout.data._id);
+
+    Modal.show('editHangoutModal');
+    $('#edit-hangout-modal #topic').val(hangout.data.topic);
+    $('#edit-hangout-modal #description').val(hangout.data.description);
+    $('#edit-hangout-modal input[value='+hangout.data.type+']').prop("checked", true);
+    $('#edit-hangout-modal #start-date-time').val(start_time_reverted);
+    $('#edit-hangout-modal #end-date-time').val(end_time_reverted);
+    //console.log(start_time_reverted);
+    //console.log(end_time_reverted);
+
+  },
+  'click .clone-hangout': function(e, hangout) {
+    if (!Meteor.userId()) {
+      sweetAlert({
+        title: TAPi18n.__("login_create_hangout_title"),
+        text: TAPi18n.__("login_create_hangout_message"),
+        confirmButtonText: TAPi18n.__("ok"),
+        type: 'info'
+      });
+    } else {
+      //var start_time_reverted = moment(hangout.data.start).format('MM/DD/YYYY h:mm A');
+      //var end_time_reverted = moment(hangout.data.end).format('MM/DD/YYYY h:mm A');
+
+      console.log(hangout.data._id + ' this is a cloned hangout id');
+      Session.set('hangoutId', hangout.data._id);
+
+      Modal.show('cloneHangoutModal');
+      $('#clone-hangout-modal #topic').val(hangout.data.topic);
+      $('#clone-hangout-modal #description').val(hangout.data.description);
+      $('#clone-hangout-modal input[value='+hangout.data.type+']').prop("checked", true);
+      //$('#clone-hangout-modal #start-date-time').val(start_time_reverted);
+      //$('#clone-hangout-modal #end-date-time').val(end_time_reverted);
+      //console.log(start_time_reverted);
+      //console.log(end_time_reverted);
+    }
   }
 });

@@ -28,12 +28,12 @@
               <img src="{{profileImage}}" class="img-circle"> {{profileName}} <span class="caret"></span>
             </a>
               <ul class="dropdown-menu" role="menu">
-                <li><a href="{{pathFor 'profile'}}"><i class="fa fa-user fa-fw"></i> {{_ "profile"}}</a></li>
+                <li><a href="/profile/{{username}}"><i class="fa fa-user fa-fw"></i> {{_ "profile"}}</a></li>
                 <li><a href="#" id="signOut"><i class="fa fa-sign-out fa-fw"></i> {{_ "sign_out"}}</a></li>
               </ul>
           </li>
           {{else}}
-          <li><a href="#" id="signIn"><button class="btn btn-slack"><img src="/images/slack-icon.png">&nbsp;&nbsp;{{_ "sign_in_with"}} <b>Slack</b></button></a></li>
+          <li><a href="#" class="signIn"><button class="btn btn-slack"><img src="/images/slack-icon.png">&nbsp;&nbsp;{{_ "sign_in_with"}} <b>Slack</b></button></a></li>
           {{/if}}
         </ul>
       </div>

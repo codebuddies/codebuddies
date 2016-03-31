@@ -1,0 +1,41 @@
+// NAMED MEDIA QUERIES ------------------------------------------ //
+
+// Define your breakpoint sizes; these are based on min-width MQ's
+// e.g. tiny is 0-499px
+$tiny: 0;
+$small: 500px;
+$medium: 1000px;
+$large: 1300px;
+
+
+// Breakpoint Mixin
+@mixin breakpoint($media) {
+    // if the media is 'tiny'
+    @if $media == tiny {
+        // define mediaquery with variable
+        @media only screen and (min-width: $tiny) {
+            // print content CSS
+            @content;
+        }
+    }
+
+    @else if $media == small {
+        // small and medium are 1px smaller than their previous variable
+        @media only screen and (min-width: $small - 1) {
+            @content;
+        }
+    }
+
+    @else if $media == medium {
+        @media only screen and (min-width: $medium - 1) {
+            @content;
+        }
+    }
+
+    @else if $media == large {
+        @media only screen and (min-width: $large) {
+            @content;
+        }
+    }
+
+}

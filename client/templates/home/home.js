@@ -16,8 +16,15 @@ Template.home.helpers({
       var totalUsers = Session.get('userCount');
       //console.log(totalUsers);
       return totalUsers;
+  },
+  searchResults: function() {
+    return Hangouts.search(Session.get('hangoutSearchQuery'));
+  },
+  booksSearchQuery: function() {
+    return Session.get('hangoutSearchQuery');
   }
 });
+
 
 Template.home.events({
   "keyup #searchBox": function(event, template){
@@ -63,4 +70,6 @@ Template.home.events({
   }
 
 });
+
+
 

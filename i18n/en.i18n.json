@@ -6,6 +6,10 @@
   //home
   "jumbotron_subtitle": "We're __count__ people who help each other by sharing knowledge",
 
+  //profile page
+  "send_profile_message": "Send __username__ a message",
+
+
   // other pages
   "about": "About",
   "faq": "FAQ",
@@ -15,6 +19,7 @@
   "i_am_working_on": "I'm working on ...",
   "today_i_learned": "Today I learned ...",
   "start_a_hangout": "Start a Hangout",
+  "edit_a_hangout": "Edit your Hangout",
   "learning_message": "__count__ person is online learning",
   "learning_message_plural": "__count__ people are online learning",
   "accomplishment_message": "__count__ accomplishment",
@@ -24,22 +29,30 @@
   "mastered_x_days_ago": "Mastered __days__ day ago",
   "mastered_x_days_ago_plural": "Mastered __days__ days ago",
   "mastered_today_time": "Mastered today __time__",
+  "delete_learning_confirm": "Are you sure you want to delete this learning?",
+
 
   // buttons
   "update": "Update",
   "join_hangouts" : "Join Hangouts",
   "create_a_hangout": "Create a Hangout",
+  "clone_a_hangout": "Create this hangout",
   "join": "Join",
+  "join_in_session": "Join",
   "load_more": "Load more...",
   "load_page": "Load page __start__/__total__",
   "ok": "OK",
   "yes_delete_hangout": "Yes delete it!",
   "no_delete_hangout": "No, I was just kidding",
+  "yes_delete_learning": "Yes please!",
+  "no_delete_learning": "No thanks!",
 
   // hangout
   "what_is_a_hangout": "What is a hangout?",
   "loading_hangouts": "Loading hangouts... please wait.",
-  "create_hangout_hint": "Your scheduled study session will appear on the home page immediately. After you propose a study session, you can always go back and edit the text. If you need styling, note that all text boxes accept markdown.",
+  "create_hangout_hint": "Your scheduled study session will appear on the home page immediately. After you propose a study session, you can always go back and change the time, title, or description.",
+  "clone_hangout_hint": "Your scheduled study session will appear on the home page immediately. After you propose a study session, you can always go back and change the time, title, or description.",
+  "edit_hangout_hint": "Your hangout will be updated.",
   "silent_hangout": "Silent Hangout",
   "teaching_hangout": "Teaching Hangout",
   "collaboration_hangout": "Collaboration Hangout",
@@ -54,10 +67,11 @@
   "looking_forward_to_see_you": "Looking forward to see you.",
   "remove_owner_from_hangout": "Hey! You can't remove yourself from your hangout.",
   "delete_hangout_confirm": "Are you sure?",
-  "delete_hangout_text": "Deleted hangouts cannot be recovered so make sure!",
+  "delete_hangout_text": "Note: All participants will be notified via email of cancellation",
 
   // create hangout modal - popup messages
   "hangout_created_title": "Hangout Created Successfully",
+  "hangout_edited_title": "Hangout Edited Successfully",
   "hangout_created_message": "Pretty awesome hah!",
   "select_start_time": "Please select a start time",
   "select_end_time": "Please select an end time",

@@ -1,9 +1,9 @@
 .status-list  {
 
   background-color: $bg-lightgrey;
-  min-height: 50px;
   @include border-radius(0px 0px 4px 4px);
   padding: 20px;
+  overflow-y: auto;
 
   .title {
     text-align: center;
@@ -13,7 +13,6 @@
 
   .status-item {
 
-    margin: 20px 0;
     list-style: none;
     display: table;
     padding: 0;
@@ -34,6 +33,24 @@
 
     }
 
+    .edit-learning{
+      margin-left: 5px;
+    }
+
+    .edit-learning:hover {
+      cursor:pointer;
+    }
+
+
+
+    .delete-learning{
+      margin-left: 5px;
+    }
+
+    .delete-learning:hover{
+      cursor:pointer;
+    }
+
     span.username {
       @include font-face(700, 13px, italic, $warm-grey);
     }
@@ -41,11 +58,12 @@
     .status {
       padding-left: 10px;
       display: inline-block;
-      @include font-face(400, 13px, normal, $primary-grey);
+      @include font-face(400, 15px, normal, $primary-grey);
+      word-break: break-all;
     }
 
     .status-date {
-      @include font-face(600, 13px, italic, $warm-grey);
+      @include font-face(400, 13px, italic, $warm-grey);
     }
 
     .message {
@@ -53,6 +71,14 @@
       &:hover {
         color: $cta-blue;
       }
+    }
+
+    .kudo-holder {
+      text-align: left;
+    }
+
+    .kudo-count {
+      @include font-face(400, 15px, normal, $kudo);
     }
 
   }

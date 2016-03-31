@@ -1,6 +1,6 @@
 #home {
 
-  margin-top: 50px;
+  &.logged-in { margin-top: 50px; }
 
   .heading  {
 
@@ -33,9 +33,82 @@
         text-decoration: underline;
       }
     }
-    
+
   }
 
+  .search-area {
+    padding: 30px;
+    background: $bg-lightgrey;
+    .searchTerm {
+      font-size: 16px;
+      height: 37px;
+    }
+  }
+
+  .home-top {
+    padding: 50px 0 0 0;
+    background: dodgerblue;
+    h2 {
+      @include font-face(600, 36px, bold, $bg-white);
+      @include breakpoint(medium) { max-width: 400px; }
+    }
+    p {
+      @include font-face(200, 16px, normal, $bg-white);
+      line-height: 27px;
+    }
+    img#slack-screenshot { 
+      width: 100%;
+    }
+    .intro { 
+      margin: 40px 0;
+      @include breakpoint(medium) { max-width: 350px; }
+    }
+    .footnote {
+      @include font-face(200, 12px, normal, $bg-white);
+      a {color: $bg-white; text-decoration: underline;}
+    }
+    .slack-note { 
+    @include breakpoint(medium) { margin-top: 70px; max-width: 300px; }
+      line-height: 16px;
+      p {
+        @include font-face(200, 12px, normal, $bg-white); line-height: 18px;
+        @include breakpoint(medium) { max-width: 350px; }
+      }
+      a {color: $bg-white; text-decoration: underline;}
+    }
+  }
+
+  .home-middle {
+    background: $bg-lightgrey;
+    padding: 70px 0 0 0;
+    h2 {
+      @include font-face(600, 36px, bold, $primary-grey);
+    }
+    p { @include font-face(400, 16px, normal, $primary-grey); line-height: 27px; letter-spacing: 0.2px; }
+    h3 {
+      @include font-face(600, 17px, bold, $primary-grey);
+    }
+    em { font-size: 12px; }
+    img { 
+      width: 100%;
+    }
+    .middle-bottom { top: 10%; h2 { margin-bottom: 50px;}}
+  }
+
+  .home-psst {
+    background: $bg-white;
+    padding: 50px;
+    @include font-face(400, 16px, normal, $primary-grey);
+  }
+
+  .home-footer {
+    background: $cta-blue;
+    padding: 50px 0;
+    @include font-face(400, 16px, normal, $bg-white);
+    a {color: $bg-white; text-decoration: underline;}
+    .fa {font-size: 20px;}
+    .footer-icons {padding-top: 40px;}
+  }
 
 
 }

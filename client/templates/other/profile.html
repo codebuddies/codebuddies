@@ -4,17 +4,42 @@
       <div class="col-md-10 col-md-offset-1">
         <div class="panel panel-default">
           <div class="panel-body">
-            <div class="heading">
-              <div class="title">{{_ "profile"}}</div>
-            </div>
-            <div class="panel-body">
-              <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Maecenas faucibus mollis interdum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+         
+           <div class="row">
+               <div class="col-md-6">
+                <h3>Learnings and Accomplishments Log</h3>
+                  {{> profileLearnings}}
+                </div>
+            
+                <div class="col-md-6">
+                     <div class="title"><h1> <img src="{{profileImage}}" class="img-circle">Welcome back, {{username}}! </h1> </div>
+                      {{profileName}}
 
-              <p>Donec sed odio dui. Curabitur blandit tempus porttitor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec ullamcorper nulla non metus auctor fringilla.</p>
+                      <a href="https://codebuddiesmeet.slack.com/messages/@{{username}}" target="_blank"><button class="btn btn-slack"><img src="/images/slack-icon.png">&nbsp;&nbsp;{{_ "send_profile_message" username=username}} on <b>Slack</b></button></a>
+                  
+                </div>
             </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                <h3>Hangouts Created</h3>
+                    {{> hangoutsCreated}}
+                </div>
+        
+
+                <div class="col-md-6">
+                <h3>Hangouts Joined</h3>
+                  {{> hangoutsJoined}}
+                </div>
+            </div>
+
           </div>
         </div>
       </div>
     </div>
   </div>
 </template>
+
+
+
+

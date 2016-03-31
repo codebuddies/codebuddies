@@ -2,7 +2,7 @@
 
   margin-top: 30px;
   padding: 0;
-
+  overflow-y: auto;
   .hangout-item {
 
     padding-left: 10px;
@@ -48,13 +48,6 @@
 
     }
 
-  }
-
-  .btn-block {
-    margin-top: 20px;
-    border: none;
-    background: $bg-white;
-    @include font-face(700, 13px, bold, #000000);
   }
 
 }

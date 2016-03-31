@@ -20,8 +20,6 @@ input:focus, textarea:focus {
   padding-right: 21px;
   padding-top: 12px;
 
-  .btn-circle {
-    margin-right: 30px;
-  }
+  span.interest {@include font-face(600, 13px, italic, $warm-grey);}
 
 }

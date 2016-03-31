@@ -5,7 +5,9 @@
 }
 
 .btn-primary.btn-outline {
-  color: #428bca;
+  color: $cta-blue;
+  border-color: $cta-blue;
+  &:hover { background: $cta-blue;}
 }
 
 .btn-success.btn-outline {
@@ -90,6 +92,42 @@
   cursor: pointer;
 }
 
+
+.btn-learning {
+  float: left;
+  margin-left: -4px;
+  color: white;
+
+  &.btn-unlike {
+    color: $cta-blue;
+  }
+
+  &.btn-like {
+    color: $cta-blue;
+  }
+}
 .delete-hangout:hover, .edit-hangout:hover {
   cursor:pointer;
+}
+
+.fa-comment {
+  color: $cta-blue;
+}
+
+.btn-block {
+    margin-top: 20px;
+    border: none;
+    background: $bg-lightgrey;
+    @include font-face(700, 13px, bold, #000000);
+    &:hover {
+      color: #fff;
+      background: $cta-blue;
+    }
+  }
+
+.delete-hangout, .edit-hangout {
+  @media (min-width: 480px) {
+    border: none;
+    padding: 0;
+  }
 }

@@ -10,6 +10,8 @@ Template.statusItem.helpers({
       return "fa-microphone-slash";
   },
   logged_in_using_codebuddies_team: function() {
-    return Meteor.user().profile.team_id === "T04AQ6GEY";
+    if (!(Meteor.loggingIn() || Meteor.userId())) {
+      return Meteor.user().profile.team_id === Meteor.settings.team_id;
+    }
   }
-});  
+});
