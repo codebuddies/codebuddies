@@ -1,3 +1,4 @@
+Meteor.startup(function () {
  /*Use reactive-var to make sure inProgress hangouts change automatically*/
     reactiveDate = {
       nowMinutes: new ReactiveVar(new Date)
