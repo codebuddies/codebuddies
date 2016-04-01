@@ -49,7 +49,6 @@ http@1.1.1
 id-map@1.0.4
 joshowens:timezone-picker@0.1.2
 jquery@1.11.4
-kevohagan:sweetalert@1.0.0
 lai:collection-extensions@0.1.4
 launch-screen@1.0.4
 less@2.5.1
@@ -82,6 +81,7 @@ oauth@1.1.6
 oauth2@1.1.5
 observe-sequence@1.0.7
 ordered-dict@1.0.4
+patrickml:swal@1.0.0
 peppelg:bootstrap-3-modal@1.0.4
 promise@0.5.1
 raix:eventemitter@0.1.3

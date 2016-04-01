@@ -1,13 +1,13 @@
-Meteor.startup(function () {
- /*Use reactive-var to make sure inProgress hangouts change automatically*/
-    reactiveDate = {
-      nowMinutes: new ReactiveVar(new Date)
-    };
+Meteor.startup(function() {
+  /*Use reactive-var to make sure inProgress hangouts change automatically*/
+  reactiveDate = {
+    nowMinutes: new ReactiveVar(new Date)
+  };
 
-    setInterval(function () {
-      reactiveDate.nowMinutes.set(new Date);
-    }, 60 * 1000); // every minute
- /*Hangout Links*/
+  setInterval(function() {
+    reactiveDate.nowMinutes.set(new Date);
+  }, 60 * 1000); // every minute
+  /*Hangout Links*/
 
 
 });
@@ -32,14 +32,14 @@ Template.hangoutItem.helpers({
     //console.log('getDate this.timestamp' + this.timestamp);
     //console.log('getDate this.end' + this.end)
     return 'host ' +
-            user +
-            ' | ' +
-            moment(hangout.start).tz(tz).format('MMMM Do YYYY, h:mm a z') +
-            ' - ' +
-            moment(hangout.end).tz(tz).format('h:mm a z') +
-            ' | ' +
-            hangout.users.length +
-            ' joined';
+      user +
+      ' | ' +
+      moment(hangout.start).tz(tz).format('MMMM Do YYYY, h:mm a z') +
+      ' - ' +
+      moment(hangout.end).tz(tz).format('h:mm a z') +
+      ' | ' +
+      hangout.users.length +
+      ' joined';
   },
   isInProgress: function(hangout) {
 
@@ -52,7 +52,7 @@ Template.hangoutItem.helpers({
     return this.users.indexOf(Meteor.userId()) != -1;
   },
 
-  isHost:  function () {
+  isHost: function() {
     return this.user_id === Meteor.userId();
   },
 
@@ -63,9 +63,13 @@ Template.hangoutItem.helpers({
     if (hangoutDate < currentDate) {
       var daysDiff = Math.round((currentDate - hangoutDate) / (1000 * 60 * 60 * 24));
       if (daysDiff == 0)
-        return TAPi18n.__("mastered_today_time", {time: moment(hangoutDate).fromNow()}) + ' - ';
+        return TAPi18n.__("mastered_today_time", {
+          time: moment(hangoutDate).fromNow()
+        }) + ' - ';
       else
-        return TAPi18n.__("mastered_x_days_ago", {days: daysDiff}) + ' - ';
+        return TAPi18n.__("mastered_x_days_ago", {
+          days: daysDiff
+        }) + ' - ';
     } else {
       return '';
     }
@@ -108,30 +112,31 @@ Template.hangoutItem.events({
     }
   },
 
-  'click .delete-hangout': function (event, template) {
+  'click .delete-hangout': function(event, template) {
     sweetAlert({
-      title: TAPi18n.__("delete_hangout_confirm"),
-      text: TAPi18n.__("delete_hangout_text"),
-      showCancelButton: true,
-      cancelButtonText: TAPi18n.__("no_delete_hangout"),
-      confirmButtonText: TAPi18n.__("yes_delete_hangout"),
-      confirmButtonColor: "#d9534f",
-      closeOnConfirm: false,
-      closeOnCancel: true,
-      type: 'warning'
-    },
-    function() {
+        type: 'warning',
+        title: TAPi18n.__("delete_hangout_confirm"),
+        text: TAPi18n.__("delete_hangout_text"),
+        cancelButtonText: TAPi18n.__("no_delete_hangout"),
+        confirmButtonText: TAPi18n.__("yes_delete_hangout"),
+        confirmButtonColor: "#d9534f",
+        showCancelButton: true,
+        closeOnConfirm: false,
+      },
+      function() {
+        // disable confirm button to avoid double (or quick) clicking on confirm event
+        swal.disableButtons();
         // if user confirmed/selected yes, let's call the delete hangout method on the server
         Meteor.call('deleteHangout', template.data._id, function(error, result) {
           if (result) {
             swal("Poof!", "Your hangout has been successfully deleted!", "success");
           } else {
-            swal("Oops something went wrong!", error.error +  "\n Try again", "error");
+            swal("Oops something went wrong!", error.error + "\n Try again", "error");
           }
         });
-      }
-    ); //sweetAlert
+      }); //sweetAlert
   },
+
   'click .edit-hangout': function(e, hangout) {
     //console.log(hangout.data.topic);
     //pass in the right times like 03/09/2016 2:03 AM
@@ -144,7 +149,7 @@ Template.hangoutItem.events({
     Modal.show('editHangoutModal');
     $('#edit-hangout-modal #topic').val(hangout.data.topic);
     $('#edit-hangout-modal #description').val(hangout.data.description);
-    $('#edit-hangout-modal input[value='+hangout.data.type+']').prop("checked", true);
+    $('#edit-hangout-modal input[value=' + hangout.data.type + ']').prop("checked", true);
     $('#edit-hangout-modal #start-date-time').val(start_time_reverted);
     $('#edit-hangout-modal #end-date-time').val(end_time_reverted);
     //console.log(start_time_reverted);
@@ -169,7 +174,7 @@ Template.hangoutItem.events({
       Modal.show('cloneHangoutModal');
       $('#clone-hangout-modal #topic').val(hangout.data.topic);
       $('#clone-hangout-modal #description').val(hangout.data.description);
-      $('#clone-hangout-modal input[value='+hangout.data.type+']').prop("checked", true);
+      $('#clone-hangout-modal input[value=' + hangout.data.type + ']').prop("checked", true);
       //$('#clone-hangout-modal #start-date-time').val(start_time_reverted);
       //$('#clone-hangout-modal #end-date-time').val(end_time_reverted);
       //console.log(start_time_reverted);
