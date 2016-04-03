@@ -19,5 +19,14 @@
 	}
 	.about-bottom {
 		background: $bg-lightgrey;
+		padding: 100px 0;
+		h3 { margin-top: 100px; }
+		#contributors {
+			margin: 40px 0;
+			img { 
+				margin: 0px 0px 40px 40px;
+				width: 100px;
+			}
+		}
 	}
 }
