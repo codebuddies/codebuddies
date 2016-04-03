@@ -36,7 +36,6 @@ reactive-var
 simple:reactive-method
 peppelg:bootstrap-3-modal
 tsega:bootstrap3-datetimepicker
-kevohagan:sweetalert
 natestrauser:connection-banner
 tap:i18n
 copleykj:livestamp
@@ -48,3 +47,6 @@ meteorhacks:ssr
 sacha:spin
 georgediab:slack-notify
 erasaur:meteor-lodash
+
+
+patrickml:swal
