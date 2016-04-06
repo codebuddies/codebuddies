@@ -6,47 +6,21 @@
      <div class="row">
 
         <div class="col-md-6">
+           <img src="{{profileImage}}" class="img-circle" alt="profile image"/>
           <h3>{{username}}</h3>
+          
         </div>
 
         <div class="col-md-6">
           <h3>"If at first you don't succeed try try again."</h3>
         </div>
 
+      </div><!--row-->
+      <div class="row">
+      {{hangoutsJoinedCount}}
+
       </div>
     </div> <!-- close container -->
-
-
-
-<!--            <div class="row">
-               <div class="col-md-6">
-                <h3>Learnings and Accomplishments Log</h3>
-                  {{> profileLearnings}}
-                </div>
-            
-                <div class="col-md-6">
-                     <div class="title"><h1> <img src="{{profileImage}}" class="img-circle">Welcome back, {{username}}! </h1> </div>
-                      {{profileName}}
-
-                      <a href="https://codebuddiesmeet.slack.com/messages/@{{username}}" target="_blank"><button class="btn btn-slack"><img src="/images/slack-icon.png">&nbsp;&nbsp;{{_ "send_profile_message" username=username}} on <b>Slack</b></button></a>
-                  
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-6">
-                <h3>Hangouts Created</h3>
-                    {{> hangoutsCreated}}
-                </div>
-        
-
-                <div class="col-md-6">
-                <h3>Hangouts Joined</h3>
-                  {{> hangoutsJoined}}
-                </div>
-            </div>
-
- -->
         </div> <!-- close profile-top -->
 </template>
 
