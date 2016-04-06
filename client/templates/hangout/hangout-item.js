@@ -1,27 +1,13 @@
-Meteor.startup(function(){
-    $.getScript('https://apis.google.com/js/platform.js', function(){
-   //  // script has loaded
-      var active_hangouts = [];
-      jQuery("div[id^='placeholder-div']").each(function(i,e) {
-          active_hangouts.push($(e).attr('id'));
-      });
-      active_hangouts.forEach(function(entry) {
-        gapi.hangout.render(entry, { 'render': 'createhangout', 'widget_size': 72 });
-      });
+Meteor.startup(function() {
+  /*Use reactive-var to make sure inProgress hangouts change automatically*/
+  reactiveDate = {
+    nowMinutes: new ReactiveVar(new Date)
+  };
 
-    });
-  
- /*Use reactive-var to make sure inProgress hangouts change automatically*/
-    reactiveDate = {
-      nowMinutes: new ReactiveVar(new Date)
-    };
-
-    setInterval(function () {
-      reactiveDate.nowMinutes.set(new Date);
-    }, 60 * 1000); // every minute
- /*Hangout Links*/
-
-  
+  setInterval(function() {
+    reactiveDate.nowMinutes.set(new Date);
+  }, 60 * 1000); // every minute
+  /*Hangout Links*/
 
 
 });
@@ -46,69 +32,27 @@ Template.hangoutItem.helpers({
     //console.log('getDate this.timestamp' + this.timestamp);
     //console.log('getDate this.end' + this.end)
     return 'host ' +
-            user +
-            ' | ' +
-            moment(hangout.start).tz(tz).format('MMMM Do YYYY, h:mm a z') +
-            ' - ' +
-            moment(hangout.end).tz(tz).format('h:mm a z') +
-            ' | ' +
-            hangout.users.length +
-            ' joined';
+      user +
+      ' | ' +
+      moment(hangout.start).tz(tz).format('MMMM Do YYYY, h:mm a z') +
+      ' - ' +
+      moment(hangout.end).tz(tz).format('h:mm a z') +
+      ' | ' +
+      hangout.users.length +
+      ' joined';
   },
   isInProgress: function(hangout) {
 
-        function return_unused_link() {
-            hangout_links = {
-              'http://codebuddies.org/hangout': 'unused',
-              'http://codebuddies.org/javascript-hangout': 'unused',
-              'http://codebuddies.org/python-hangout': 'unused',
-            }
-            //whether the button has a URL
-            //if it has a URL, flag it as "used"
-            // if button doesn't have a URL, then find the first URL in hangout_links
-            //that does not have a status of "used"
-            // turn the status to "used"
-            // change value back to unused when the button status becomes false.
+    return reactiveDate.nowMinutes.get() > hangout.start && reactiveDate.nowMinutes.get() < hangout.end;
 
-            for (var key in hangout_links) {
-                if (hangout_links[key] === 'unused') {
-                  console.log(key + ' yay');
-                  hangout_link = key;
-                  hangout_links[key] === 'used';
-                  console.log(key + ' afterwards');
-                  break;
-                } else {
-                continue;
-                } 
-            }
-          //var hangout_link = ._findkey(hangout_links, function(o) { return o === "unused"}; });
-          console.log(hangout_link);
-          return hangout_link;
-        } //function
-    
-    //console.log(reactiveDate.nowMinutes.get()-60000);
-    //console.log(hangout.start+10000 + 'hangout.start')
-    if (reactiveDate.nowMinutes.get() > hangout.start && reactiveDate.nowMinutes.get() < hangout.end) {
-        // jQuery("div[id^='placeholder-div-]").each(function(i,e) {
-        //   e.addClass('show-hangout');
-        // });
-              //gapi.hangout.render("placeholder-div-"+hangout._id, { 'render': 'createhangout', 'widget_size': 72 });
-      
-      $("div[id^='hangout-']").each(function () {
-        this.attr('href', return_unused_link()).css('background','dodgerblue');
-        console.log(hangout._id);
-      });
-      return true;
-    } else {
-      return false;
-    }
     //return reactiveDate.nowMinutes.get() > hangout.start && reactiveDate.nowMinutes.get() < hangout.end;
+
   },
   isJoined: function() {
     return this.users.indexOf(Meteor.userId()) != -1;
   },
 
-  isHost:  function () {
+  isHost: function() {
     return this.user_id === Meteor.userId();
   },
 
@@ -119,9 +63,13 @@ Template.hangoutItem.helpers({
     if (hangoutDate < currentDate) {
       var daysDiff = Math.round((currentDate - hangoutDate) / (1000 * 60 * 60 * 24));
       if (daysDiff == 0)
-        return TAPi18n.__("mastered_today_time", {time: moment(hangoutDate).fromNow()}) + ' - ';
+        return TAPi18n.__("mastered_today_time", {
+          time: moment(hangoutDate).fromNow()
+        }) + ' - ';
       else
-        return TAPi18n.__("mastered_x_days_ago", {days: daysDiff}) + ' - ';
+        return TAPi18n.__("mastered_x_days_ago", {
+          days: daysDiff
+        }) + ' - ';
     } else {
       return '';
     }
@@ -164,30 +112,31 @@ Template.hangoutItem.events({
     }
   },
 
-  'click .delete-hangout': function (event, template) {
+  'click .delete-hangout': function(event, template) {
     sweetAlert({
-      title: TAPi18n.__("delete_hangout_confirm"),
-      text: TAPi18n.__("delete_hangout_text"),
-      showCancelButton: true,
-      cancelButtonText: TAPi18n.__("no_delete_hangout"),
-      confirmButtonText: TAPi18n.__("yes_delete_hangout"),
-      confirmButtonColor: "#d9534f",
-      closeOnConfirm: false,
-      closeOnCancel: true,
-      type: 'warning'
-    },
-    function() {
+        type: 'warning',
+        title: TAPi18n.__("delete_hangout_confirm"),
+        text: TAPi18n.__("delete_hangout_text"),
+        cancelButtonText: TAPi18n.__("no_delete_hangout"),
+        confirmButtonText: TAPi18n.__("yes_delete_hangout"),
+        confirmButtonColor: "#d9534f",
+        showCancelButton: true,
+        closeOnConfirm: false,
+      },
+      function() {
+        // disable confirm button to avoid double (or quick) clicking on confirm event
+        swal.disableButtons();
         // if user confirmed/selected yes, let's call the delete hangout method on the server
         Meteor.call('deleteHangout', template.data._id, function(error, result) {
           if (result) {
             swal("Poof!", "Your hangout has been successfully deleted!", "success");
           } else {
-            swal("Oops something went wrong!", error.error +  "\n Try again", "error");
+            swal("Oops something went wrong!", error.error + "\n Try again", "error");
           }
         });
-      }
-    ); //sweetAlert
+      }); //sweetAlert
   },
+
   'click .edit-hangout': function(e, hangout) {
     //console.log(hangout.data.topic);
     //pass in the right times like 03/09/2016 2:03 AM
@@ -200,7 +149,7 @@ Template.hangoutItem.events({
     Modal.show('editHangoutModal');
     $('#edit-hangout-modal #topic').val(hangout.data.topic);
     $('#edit-hangout-modal #description').val(hangout.data.description);
-    $('#edit-hangout-modal input[value='+hangout.data.type+']').prop("checked", true);
+    $('#edit-hangout-modal input[value=' + hangout.data.type + ']').prop("checked", true);
     $('#edit-hangout-modal #start-date-time').val(start_time_reverted);
     $('#edit-hangout-modal #end-date-time').val(end_time_reverted);
     //console.log(start_time_reverted);
@@ -225,7 +174,7 @@ Template.hangoutItem.events({
       Modal.show('cloneHangoutModal');
       $('#clone-hangout-modal #topic').val(hangout.data.topic);
       $('#clone-hangout-modal #description').val(hangout.data.description);
-      $('#clone-hangout-modal input[value='+hangout.data.type+']').prop("checked", true);
+      $('#clone-hangout-modal input[value=' + hangout.data.type + ']').prop("checked", true);
       //$('#clone-hangout-modal #start-date-time').val(start_time_reverted);
       //$('#clone-hangout-modal #end-date-time').val(end_time_reverted);
       //console.log(start_time_reverted);

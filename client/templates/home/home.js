@@ -4,33 +4,11 @@ Template.registerHelper('searchMode',function(){
 Template.registerHelper('hangoutSearchQuery',function(){
     return Session.get("hangoutSearchQuery");
 });
+
 Template.home.rendered = function() {
    Meteor.call('getUserCount', function (err, result) {
       Session.set('userCount', result);
     });
-  $('#statusTabs a').click(function (e) {
-    e.preventDefault();
-    $(this).tab('show');
-    var id = $(this).attr('data-id');
-    $('[href=#' + id + id + ']').tab('show');
-  });
-
-  $('#create-hangout-popup').click(function() {
-    if (!Meteor.userId()) {
-      sweetAlert({
-        title: TAPi18n.__("login_create_hangout_title"),
-        text: TAPi18n.__("login_create_hangout_message"),
-        confirmButtonText: TAPi18n.__("ok"),
-        type: 'info'
-      });
-    } else {
-      Modal.show('createHangoutModal');
-    }
-  });
-
-  $('#hangout-faq-popup').click(function() {
-    Modal.show('hangoutFAQModal');
-  })
 };
 
 Template.home.helpers({
@@ -45,7 +23,8 @@ Template.home.helpers({
   booksSearchQuery: function() {
     return Session.get('hangoutSearchQuery');
   }
-})
+});
+
 
 Template.home.events({
   "keyup #searchBox": function(event, template){
@@ -59,5 +38,38 @@ Template.home.events({
      Session.set('searchMode',true);
      Session.set('hangoutSearchQuery', term);
    }
+  },
+  "click #create-hangout-popup": function() {
+    if (!Meteor.userId()) {
+      sweetAlert({
+        title: TAPi18n.__("login_create_hangout_title"),
+        text: TAPi18n.__("login_create_hangout_message"),
+        confirmButtonText: TAPi18n.__("ok"),
+        type: 'info'
+      });
+    } else {
+      Modal.show('createHangoutModal');
+    }
+  },
+  "click #hangout-faq-popup": function() {
+    Modal.show('hangoutFAQModal');
+  },
+  "click #statusTabs li.full-width-tab": function(e) {
+    e.preventDefault();
+    console.log(e.target);
+    $(e.target).tab('show');
+    var id = $(e.target).attr('data-id');
+    $('[href=#' + id + id + ']').tab('show');
+  },
+  "click #statusTabs a": function(e) {
+    e.preventDefault();
+    console.log(e.target);
+    $(e.target).parent('a').tab('show');
+    var id = $(e.target).parent('a').attr('data-id');
+    $('[href=#' + id + id + ']').tab('show');
   }
+
 });
+
+
+

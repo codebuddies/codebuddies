@@ -2,14 +2,14 @@
   <div class="row hangout-item">
     <div class="col-md-10">
       <label class="name"><span>{{getIsDone this}}</span><a href="/hangout/{{_id}}" class="hangout-topic">
-          
+
           {{#if isInProgress this}}
             <!--<div id="placeholder-div-{{_id}}"></div>-->
             <i class="fa fa-dot-circle-o fa text-danger faa-burst animated"></i> &nbsp;
-            <button class="btn btn-default join-hangout" id="hangout-{{_id}}" href="">Join the hangout</button>
+            <!-- <button class="btn btn-default join-hangout" id="hangout-{{_id}}" href="">Join the hangout</button> -->
           {{/if}}
-              
-          {{topic}}</a> 
+
+          {{topic}}</a>
         {{#if isHost}}
         <div class="btn btn-default delete-hangout">
           <i class="fa fa-trash-o"></i>
@@ -22,7 +22,7 @@
       <ul class="status">
         <li><i class="fa {{getType type}}"></i></li>
         <li>
-          <label>{{getDate this}}  
+          <label>{{getDate this}}
             {{#if currentUser}}| <a class="clone-hangout">Copy</a>{{/if}}
           </label></li>
       </ul>
