@@ -1,0 +1,8 @@
+  .footer {
+    background: $cta-blue;
+    padding: 50px 0;
+    @include font-face(400, 16px, normal, $bg-white);
+    a {color: $bg-white; text-decoration: underline;}
+    .fa {font-size: 20px;}
+    .footer-icons {padding-top: 40px;}
+  }
