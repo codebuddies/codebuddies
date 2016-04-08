@@ -25,5 +25,17 @@
 .profile-top{
 	background: $cta-blue;
 	padding: 60px 0;
+	color: $bg-white;
+}
+
+.profile-hangouts-completed {
+	background: $bg-lightgrey;
+	padding: 35px 100px;
+	h2 { color: $cta-blue; }
+}
+
+.profile-learnings {
+	background: $bg-white;
+	padding: 35px 100px;
 }
 

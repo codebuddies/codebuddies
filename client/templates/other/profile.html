@@ -1,14 +1,16 @@
 <template name="profile">
 
-    <div class="profile-top">
+  <section class="profile-top">
      <div class="container">
-
      <div class="row">
 
         <div class="col-md-6">
-           <img src="{{profileImage}}" class="img-circle" alt="profile image"/>
-          <h3>{{username}}</h3>
-          
+           <div class="col-md-3">
+            <img src="{{profileImage}}" class="img-circle" alt="profile image"/>
+           </div>
+           <div class="col-md-3">
+            <h3>{{username}}</h3>
+           </div>
         </div>
 
         <div class="col-md-6">
@@ -16,12 +18,27 @@
         </div>
 
       </div><!--row-->
-      <div class="row">
-      {{hangoutsJoinedCount}}
 
-      </div>
     </div> <!-- close container -->
-        </div> <!-- close profile-top -->
+  </section> <!-- close profile-top -->
+  <section class="profile-middle">
+     
+     <div class="row">
+
+        <div class="col-md-6 profile-hangouts-completed">
+           <h2 class="align-center">{{hangoutsJoinedCount}} <br />
+           Hangouts Completed</h2>
+        </div>
+
+        <div class="col-md-6 profile-learnings">
+           test
+        </div>
+
+    </div><!--row-->
+
+    
+  </section> <!-- close profile-top -->
+
 </template>
 
 
