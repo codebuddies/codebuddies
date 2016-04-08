@@ -51,6 +51,8 @@ http@1.1.1
 id-map@1.0.4
 joshowens:timezone-picker@0.1.2
 jquery@1.11.4
+jsx@0.1.6
+kadira:dochead@1.1.0
 lai:collection-extensions@0.1.4
 launch-screen@1.0.4
 less@2.5.1

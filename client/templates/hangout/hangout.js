@@ -1,4 +1,6 @@
 Template.hangout.onCreated(function() {
+  var title = "Code Buddies | Hangout";
+  DocHead.setTitle(title);
   var self = this;
   self.hangout = new ReactiveVar();
   self.isReady = new ReactiveVar(false);
