@@ -1,12 +1,12 @@
 #hangouts {
 
-  margin-top: 30px;
   padding: 0;
   overflow-y: auto;
   .hangout-item {
-
-    padding-left: 10px;
-    margin: 15px 0;
+    overflow: auto;
+    .completed { color: $kudo; text-align: center;}
+    border-top: 1px solid $divider;
+    padding: 20px 0;
 
     .hangout-topic {
       @include font-face(400, 17px, normal, $cta-blue);

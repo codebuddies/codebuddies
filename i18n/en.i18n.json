@@ -26,9 +26,9 @@
   "accomplishment_message_plural": "__count__ accomplishments",
   "working_on": "working on HTML5 ...",
   "accomplished": "What did you learn or accomplish?",
-  "mastered_x_days_ago": "Mastered __days__ day ago",
-  "mastered_x_days_ago_plural": "Mastered __days__ days ago",
-  "mastered_today_time": "Mastered today __time__",
+  "mastered_x_days_ago": "COMPLETED __days__ days ago",
+  "mastered_x_days_ago_plural": "COMPLETED __days__ days ago",
+  "mastered_today_time": "COMPLETED today __time__",
   "delete_learning_confirm": "Are you sure you want to delete this learning?",
 
 

@@ -37,7 +37,6 @@ Template.hangoutsJoined.onCreated(function () {
 });
 
 Template.hangoutsJoined.helpers({
-
   hangouts: function () {
     return Template.instance().hangoutsJoined();
   },

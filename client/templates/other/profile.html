@@ -1,5 +1,5 @@
 <template name="profile">
-
+<div id="profile">
   <section class="profile-top">
      <div class="container">
      <div class="row">
@@ -26,19 +26,29 @@
      <div class="row">
 
         <div class="col-md-6 profile-hangouts-completed">
-           <h2 class="align-center">{{hangoutsJoinedCount}} <br />
-           Hangouts Completed</h2>
+          <div class="box">
+            <h2 class="align-center">{{hangoutsJoinedCount}}</h2>
+            <h3>Hangouts Completed</h3>
+          </div>
+
+          {{> hangoutsJoined }}
+
         </div>
 
         <div class="col-md-6 profile-learnings">
-           test
+          <div class="box">
+            <h3>#TodayILearned or Accomplished</h3>
+          </div>
+
+           {{> profileLearnings }}
+
         </div>
 
     </div><!--row-->
 
     
   </section> <!-- close profile-top -->
-
+</div>
 </template>
 
 

@@ -65,11 +65,11 @@ Template.hangoutItem.helpers({
       if (daysDiff == 0)
         return TAPi18n.__("mastered_today_time", {
           time: moment(hangoutDate).fromNow()
-        }) + ' - ';
+        });
       else
         return TAPi18n.__("mastered_x_days_ago", {
           days: daysDiff
-        }) + ' - ';
+        });
     } else {
       return '';
     }
