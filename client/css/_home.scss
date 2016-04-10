@@ -88,7 +88,7 @@
     h3 {
       @include font-face(600, 17px, bold, $primary-grey);
     }
-    em { font-size: 12px; }
+    span.off-on { font-size: 13px; }
     img { 
       width: 100%;
     }
