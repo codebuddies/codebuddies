@@ -1,3 +1,8 @@
+Template.profile.onCreated(function(){
+  var username = FlowRouter.getParam('name');
+  var title = username + " | Profile";
+  DocHead.setTitle(title);
+});
 
 
 Template.profile.helpers({
@@ -8,4 +13,3 @@ Template.profile.helpers({
     return ReactiveMethod.call('getUserName', Meteor.userId());
   }
 });
-
