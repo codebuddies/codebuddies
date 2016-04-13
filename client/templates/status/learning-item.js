@@ -18,6 +18,9 @@ Template.learningItem.helpers({
 
   isOwner:  function () {
     return this.owner === Meteor.userId();
+  },
+  learningTime: function() {
+    return moment(this.timestamp).format("dddd, MMM DD, YYYY");
   }
 
 });

@@ -131,3 +131,5 @@
     padding: 0;
   }
 }
+
+#btn-load-more, #load-more-learnings { margin: 10px 0; color: $cta-blue; &:hover { color: $bg-white; } }

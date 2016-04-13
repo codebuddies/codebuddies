@@ -1,21 +1,21 @@
 .status-list  {
-
+  padding: 0 20px;
   background-color: $bg-lightgrey;
   @include border-radius(0px 0px 4px 4px);
-  padding: 20px;
   overflow-y: auto;
 
   .title {
     text-align: center;
-    padding: 10px 0 15px 0;
+    padding: 10px 0;
     @include font-face(700, 16px, bold, #000000);
   }
 
   .status-item {
-
+    margin: 0px;
     list-style: none;
-    display: table;
-    padding: 0;
+    padding: 20px 0;
+    border-top: 1px solid $divider;
+    overflow: auto;
 
     li {
       display: table-cell;
@@ -78,7 +78,7 @@
     }
 
     .kudo-count {
-      @include font-face(400, 15px, normal, $kudo);
+      @include font-face(400, 15px, normal, $primary-grey);
     }
 
   }

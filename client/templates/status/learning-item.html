@@ -1,5 +1,7 @@
 <template name="learningItem">
     <ul class="status-item">
+       <p> <span class="status-date">{{learningTime}} by</span> 
+       <a href="profile/{{username}}"><span class="username">{{username}}</span></a>  </p>
       <li><div class="kudo-holder">
         <label class="kudo-count">
           {{#unless learningOwner owner}}
@@ -12,9 +14,8 @@
           <p>
             {{text}}{{#if isOwner}} <span class="delete-learning"><i class="fa fa-trash-o"></i></span> <span class="edit-learning"><i class="fa fa-pencil-square-o"></i></span> {{/if}}
           </p>
-          <p><span class="username">{{username}}</span> <span class="status-date">{{livestamp timestamp}}</span></p>
+    
         </label>
       </li>
     </ul>
-    <hr>
 </template>
