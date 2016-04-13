@@ -4,6 +4,13 @@ Template.profile.rendered = function() {
 	});
 };
 
+Template.profile.onCreated(function(){
+  var username = FlowRouter.getParam('name');
+  var title = username + " | Profile";
+  DocHead.setTitle(title);
+});
+
+
 Template.profile.helpers({
   profileImage: function() {
     return ReactiveMethod.call('userProfileImage', Meteor.userId());
@@ -16,4 +23,3 @@ Template.profile.helpers({
   	return totalHangoutsJoined;
   }
 });
-
