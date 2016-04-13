@@ -10,7 +10,6 @@ Template.profile.onCreated(function(){
   DocHead.setTitle(title);
 });
 
-
 Template.profile.helpers({
   profileImage: function() {
     return ReactiveMethod.call('userProfileImage', Meteor.userId());

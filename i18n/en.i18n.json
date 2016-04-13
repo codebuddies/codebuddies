@@ -75,6 +75,6 @@
   "hangout_created_message": "Pretty awesome hah!",
   "select_start_time": "Please select a start time",
   "select_end_time": "Please select an end time",
-  "enter_topic": "Please fill the hangout topic",
-  "enter_description": "Please fill the hangout description"
+  "enter_topic": "Please fill in the hangout topic",
+  "enter_description": "Please fill in the hangout description"
 }
