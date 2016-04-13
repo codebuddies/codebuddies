@@ -92,7 +92,7 @@ Template.createHangoutModal.events({
           type: 'success',
           closeOnConfirm: true
         });
-      }
+      } 
     });
   }
 });

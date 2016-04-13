@@ -4,7 +4,7 @@ Meteor.methods({
     check(userId, String);
     if (userId != '') {
       var user = Meteor.users.findOne({_id: userId});
-      return user.user_info.profile.image_48;
+      return user.user_info.profile.image_192;
     } else {
       return '';
     }
