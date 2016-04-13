@@ -50,3 +50,4 @@ erasaur:meteor-lodash
 
 
 patrickml:swal
+percolate:synced-cron@=1.3.0
