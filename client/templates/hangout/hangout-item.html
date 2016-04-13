@@ -1,8 +1,12 @@
 <template name="hangoutItem">
-  <div class="row hangout-item">
-    <div class="col-md-10">
-      <label class="name"><span>{{getIsDone this}}</span><a href="/hangout/{{_id}}" class="hangout-topic">
-
+  <div class="hangout-item">
+    <div class="col-md-12">
+      <div class="col-md-3 completed">
+        <span>{{getIsDone this}}</span>
+      </div>
+      <div class="col-md-7">
+        <label class="name">
+          <a href="/hangout/{{_id}}" class="hangout-topic">
           {{#if isInProgress this}}
             <!--<div id="placeholder-div-{{_id}}"></div>-->
             <i class="fa fa-dot-circle-o fa text-danger faa-burst animated"></i> &nbsp;
@@ -46,5 +50,6 @@
         {{/if}}
       {{/if}}
     </div>
+  </div>
   </div>
 </template>
