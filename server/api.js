@@ -183,6 +183,7 @@ Meteor.methods({
       type: data.type,
       users: [ data.user_id ],
       email_addresses: [ user_email ],
+      reminder_sent: false,
       timestamp: new Date()
     });
     return true;
