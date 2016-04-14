@@ -14,7 +14,7 @@
                 {{/if}}
               {{else}}
                 {{#if isJoined}}
-                  <button id="leave-hangout" class="btn btn-success">Leave</button>
+                  <button id="leave-hangout" class="btn btn-success">{{_ "leave"}}</button>
                 {{else}}
                   {{# unless getIsDone this}}
                     <button id="join-hangout" class="btn btn-cb2">{{_ "join"}}</button>

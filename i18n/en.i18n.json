@@ -38,6 +38,7 @@
   "create_a_hangout": "Create a Hangout",
   "clone_a_hangout": "Create this hangout",
   "join": "Join",
+  "leave": "Joined",
   "join_in_session": "Join",
   "load_more": "Load more...",
   "load_page": "Load page __start__/__total__",
