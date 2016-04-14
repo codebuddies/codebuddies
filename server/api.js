@@ -75,7 +75,7 @@ Meteor.methods({
       username:String,
       email:String
     }));
-    
+
     var hangout_id = Hangouts.insert({
       user_id: data.user_id,
       creator:data.username,
@@ -86,6 +86,7 @@ Meteor.methods({
       type: data.type,
       users: [ data.user_id ],
       email_addresses: [ data.email ],
+      reminder_sent: false,
       timestamp: new Date()
     });
     // create slack message to channel
