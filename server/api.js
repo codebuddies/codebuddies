@@ -166,6 +166,7 @@ Meteor.methods({
     check(data, Match.ObjectIncluding({
       user_id: String,
       topic: String,
+      username: String,
       description: String,
       type: String
     }));
@@ -173,6 +174,7 @@ Meteor.methods({
     var user_email = user.user_info.profile.email;
     Hangouts.insert({
       user_id: data.user_id,
+      creator:data.username,
       topic: data.topic,
       description: data.description,
       start: data.start,
