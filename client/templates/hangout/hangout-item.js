@@ -48,6 +48,9 @@ Template.hangoutItem.helpers({
     //return reactiveDate.nowMinutes.get() > hangout.start && reactiveDate.nowMinutes.get() < hangout.end;
 
   },
+  completed: function(hangout) {
+        return reactiveDate.nowMinutes.get() > hangout.end;
+  },
   isJoined: function() {
     return this.users.indexOf(Meteor.userId()) != -1;
   },

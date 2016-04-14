@@ -2,9 +2,30 @@
   <div class="hangout-item">
     <div class="col-md-12">
       <div class="col-md-3 completed">
-        <span>{{getIsDone this}}</span>
+      {{# unless completed this }}
+        
+              {{#if isInProgress this}}
+                {{#if isJoined}}
+                  <button id="leave-hangout" class="btn btn-success">In Progress</button>
+                {{else}}
+                  {{# unless getIsDone this}}
+                    <button id="join-hangout" class="btn btn-cb2">{{_ "join_in_session"}}</button>
+                  {{/unless}}
+                {{/if}}
+              {{else}}
+                {{#if isJoined}}
+                  <button id="leave-hangout" class="btn btn-success">Leave</button>
+                {{else}}
+                  {{# unless getIsDone this}}
+                    <button id="join-hangout" class="btn btn-cb2">{{_ "join"}}</button>
+                  {{/unless}}
+                {{/if}}
+              {{/if}}
+      {{else}}
+          <span>{{getIsDone this}}</span>
+      {{/unless}}
       </div>
-      <div class="col-md-7">
+      <div class="col-md-9">
         <label class="name">
           <a href="/hangout/{{_id}}" class="hangout-topic">
           {{#if isInProgress this}}
@@ -31,25 +52,7 @@
           </label></li>
       </ul>
     </div>
-    <div class="col-md-2 text-center">
-      {{#if isInProgress this}}
-        {{#if isJoined}}
-          <button id="leave-hangout" class="btn btn-circle btn-success"><i class="fa fa-check-circle"></i></button>
-        {{else}}
-          {{# unless getIsDone this}}
-            <button id="join-hangout" class="btn btn-cb2">{{_ "join_in_session"}}</button>
-          {{/unless}}
-        {{/if}}
-      {{else}}
-        {{#if isJoined}}
-          <button id="leave-hangout" class="btn btn-circle btn-success"><i class="fa fa-check-circle"></i></button>
-        {{else}}
-          {{# unless getIsDone this}}
-            <button id="join-hangout" class="btn btn-cb2">{{_ "join"}}</button>
-          {{/unless}}
-        {{/if}}
-      {{/if}}
-    </div>
+
   </div>
   </div>
 </template>
