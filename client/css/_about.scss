@@ -1,5 +1,5 @@
 #about {
-	p {
+	p, li {
 	  @include font-face(400, 16px, normal, $primary-grey);
 	  line-height: 27px;
 	}

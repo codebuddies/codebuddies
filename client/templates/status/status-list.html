@@ -1,6 +1,7 @@
 <template name="statusList">
   <div class="status-list">
-    {{# if isWorking type}}
+    {{# if isWorking type}} 
+
       <div class="title">{{_ "learning_message" count=usersOnlineCount}}</div>
       {{#each usersOnline}}
         {{> statusItem}}

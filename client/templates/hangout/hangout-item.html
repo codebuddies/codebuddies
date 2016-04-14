@@ -3,15 +3,16 @@
     <div class="col-md-12">
       <div class="col-md-3 completed">
         <span>{{getIsDone this}}</span>
+        {{#if isInProgress this}}
+            <!--<div id="placeholder-div-{{_id}}"></div>-->
+            <i class="fa fa-dot-circle-o fa text-danger faa-burst animated"></i> &nbsp;
+            
+        {{/if}}
       </div>
       <div class="col-md-7">
         <label class="name">
           <a href="/hangout/{{_id}}" class="hangout-topic">
-          {{#if isInProgress this}}
-            <!--<div id="placeholder-div-{{_id}}"></div>-->
-            <i class="fa fa-dot-circle-o fa text-danger faa-burst animated"></i> &nbsp;
-            <!-- <button class="btn btn-default join-hangout" id="hangout-{{_id}}" href="">Join the hangout</button> -->
-          {{/if}}
+          
 
           {{topic}}</a>
         {{#if isHost}}
@@ -26,7 +27,7 @@
       <ul class="status">
         <li><i class="fa {{getType type}}"></i></li>
         <li>
-          <label>{{getDate this}}
+          <label>host <a href="/profile/{{host this}}">{{host this}}</a> {{getDate this}}
             {{#if currentUser}}| <a class="clone-hangout">Copy</a>{{/if}}
           </label></li>
       </ul>
