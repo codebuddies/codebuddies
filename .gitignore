@@ -2,5 +2,4 @@ settings-production.json
 push.sh
 node_modules
 settings-keys.json
-
 .DS_Store

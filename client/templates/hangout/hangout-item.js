@@ -23,25 +23,32 @@ Template.hangoutItem.helpers({
       return 'fa-users text-success-color';
     }
   },
-  getDate: function(hangout) {
+  host: function(hangout) {
     var user = ReactiveMethod.call('getUserName', hangout.user_id);
+    return user;
+  },
+  getDate: function(hangout) {
     var tz = TimezonePicker.detectedZone();
     //console.log('getDate tz: ' + tz);
     //console.log('getDate hangout.start: '+ hangout.start);
     //console.log('getDate hangout.end: '+ hangout.end);
     //console.log('getDate this.timestamp' + this.timestamp);
     //console.log('getDate this.end' + this.end)
-    return 'host ' +
-      user +
-      ' | ' +
+    return ' | ' +
       moment(hangout.start).tz(tz).format('MMMM Do YYYY, h:mm a z') +
       ' - ' +
-      moment(hangout.end).tz(tz).format('h:mm a z') +
+      moment(hangout.end).tz(tz).format('MMMM Do h:mm a z') +
       ' | ' +
       hangout.users.length +
       ' joined';
   },
   isInProgress: function(hangout) {
+
+    var hangout_links = {
+      'http://codebuddies.org/javascript-hangout': 'free',
+      'http://codebuddies.org/meteor-hangout': 'free',
+      'http://codebuddies.org/python-hangout': 'free'
+    }
 
     return reactiveDate.nowMinutes.get() > hangout.start && reactiveDate.nowMinutes.get() < hangout.end;
 
