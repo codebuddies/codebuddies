@@ -24,6 +24,10 @@ Meteor.methods({
     return Meteor.users.find().count();
   },
 
+  getHangoutsJoinedCount: function() {
+    return Hangouts.find({users:{$elemMatch:{$eq:this.userId}}}).count();
+  },
+
   emailHangoutUsers: function(hangoutId) {
     // ssr for email template rendering
     SSR.compileTemplate('notifyEmail', Assets.getText('email-hangout-alerts.html'));
