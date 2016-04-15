@@ -39,6 +39,7 @@ Template.cloneHangoutModal.events({
       start: new Date(start1),
       end: new Date(end1),
       type: type1,
+      username:Meteor.user().profile.name,
       user_id: Meteor.userId()
     };
     console.log(data.start);

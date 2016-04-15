@@ -1,4 +1,6 @@
 Meteor.startup(function() {
+ // fire off cron jobs
+  SyncedCron.start();
 
   Accounts.loginServiceConfiguration.remove({
     service : 'slack'
