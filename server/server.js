@@ -19,6 +19,28 @@ Meteor.startup(function() {
   }
 
   process.env.MAIL_URL = 'smtp://' + encodeURIComponent(smtp.username) + ':' + encodeURIComponent(smtp.password) + '@' + encodeURIComponent(smtp.server) + ':' + smtp.port;
+
+  if(Meteor.users.find().count()===0){
+
+      var password = Random.secret([9]);
+      var id = Accounts.createUser({
+        username : "root",
+        email : Meteor.settings.root_email,
+        password : password
+      })
+      if(id){
+        Roles.addUsersToRoles(id, 'admin');
+        Email.send({
+          to: Meteor.settings.root_email,
+          from: Meteor.settings.email_from,
+          subject: "With great power comes great responsibility",
+          text: password
+        });
+      }
+
+    }
+
+
 });
 
 var loggingInUserInfo = function(user) {
@@ -41,20 +63,25 @@ var getUserIdentity = function(user) {
 }
 
 Accounts.onCreateUser(function(options, user) {
-  var identity = getUserIdentity(user);
-  var user_info = loggingInUserInfo(user);
-  var profile_info = {
-    name: identity.user,
-    url: identity.url,
-    team: identity.team,
-    user_id: identity.user_id,
-    team_id: identity.team_id
+
+  if (options.profile){
+    var identity = getUserIdentity(user);
+    var user_info = loggingInUserInfo(user);
+    var profile_info = {
+      name: identity.user,
+      url: identity.url,
+      team: identity.team,
+      user_id: identity.user_id,
+      team_id: identity.team_id
+    }
+    user.statusMessage = '';
+    user.statusDate = '';
+    user.statusHangout = '';
+    user.user_info = user_info.user;
+    user.profile = profile_info;
+
+    return user;
   }
-  user.statusMessage = '';
-  user.statusDate = '';
-  user.statusHangout = '';
-  user.user_info = user_info.user;
-  user.profile = profile_info;
 
   return user;
 });
