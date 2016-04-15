@@ -76,5 +76,9 @@
   "select_start_time": "Please select a start time",
   "select_end_time": "Please select an end time",
   "enter_topic": "Please fill in the hangout topic",
-  "enter_description": "Please fill in the hangout description"
+  "enter_description": "Please fill in the hangout description",
+
+  // admin header
+  "manage_user" : "Manage user",
+  "notification" : "Notification"
 }

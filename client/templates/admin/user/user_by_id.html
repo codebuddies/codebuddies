@@ -1,0 +1,23 @@
+<template name="userById">
+  <ol class="breadcrumb">
+    <li><a href="{{pathFor 'dashboard'}}">Dashboard</a></li>
+    <li><a href="{{pathFor 'manage user'}}">Manage User</a></li>
+    <li class="active">JohnX</li>
+  </ol>
+  <div class="col-md-12">
+    <div class="col-md-2">
+      <img src="http://placehold.it/150x150">
+    </div>
+    <div class="col-md-10">
+
+      <h5>Name : John Doe</h5>
+      <h5>Username  : JohnX</h5>
+      <h5>Email : johndoe@example.com</h5>
+      <h5>Moderator : <input type="checkbox" name="name" value=""></h5>
+
+      <div class="btn btn-danger"> Block</div>
+      <div class="btn btn-primary"> Save</div>
+    </div>
+  </div>
+
+</template>

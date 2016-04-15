@@ -1,0 +1,28 @@
+<template name="manageUser">
+  <br>
+  <br>
+  <ol class="breadcrumb">
+    <li><a href="{{pathFor 'dashboard'}}">Dashboard</a></li>
+    <li class="active">Manage User</li>
+    <!-- <li><a href="#">Manage User</a></li> -->
+  </ol>
+  <div class="col-md-12">
+    <ul class="nav nav-tabs">
+      <li role="presentation"><a href="{{pathFor 'moderator'}}">Moderator</a></li>
+      <li role="presentation"><a href="{{pathFor 'user'}}">User</a></li>
+      <form class="navbar-form navbar-right" role="search">
+         <div class="form-group">
+           <input type="text" class="form-control" placeholder="JohnX">
+         </div>
+       </form>
+    </ul>
+  </div>
+  <div class="col-md-12">
+    <div class="page-header">
+      <h5>Showing results for 'JohnX'</h5>
+    </div>
+
+    <a href="/admin/user/232"><p>John Doe</p></a>
+  </div>
+
+</template>

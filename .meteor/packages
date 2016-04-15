@@ -17,7 +17,6 @@ ecmascript              # Enable ECMAScript2015+ syntax in app code
 
 twbs:bootstrap
 mizzao:user-status
-accounts-ui
 accounts-password
 fourseven:scss
 seba:minifiers-autoprefixer
@@ -54,3 +53,4 @@ gadicohen:sitemaps
 kadira:dochead
 alanning:roles
 random
+ian:accounts-ui-bootstrap-3

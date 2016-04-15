@@ -1,0 +1,4 @@
+Template.adminLayout.onCreated(function(){
+  var title = "Admin area | CodeBuddies ";
+  DocHead.setTitle(title);
+});
