@@ -65,7 +65,16 @@ Template.hangoutItem.helpers({
   isHost: function() {
     return this.user_id === Meteor.userId();
   },
+  upcomingTime: function(hangout) {
+    var startDate = new Date(hangout.start);
+    var currentDate = new Date();
+    if (startDate > currentDate) {
+          return TAPi18n.__("upcoming_time", {
+          time: moment(startDate).fromNow()
+        });
+    }
 
+  },
   getIsDone: function(hangout) {
     var currentDate = new Date();
     //console.log('getIsDone currentDate:' + currentDate);

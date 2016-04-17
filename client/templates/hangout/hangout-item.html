@@ -1,13 +1,13 @@
 <template name="hangoutItem">
   <div class="hangout-item">
     <div class="col-md-12">
-      <div class="col-md-3 completed">
+      <div class="col-md-3">
 
       {{# unless completed this }}
         
               {{#if isInProgress this}}
                 {{#if isJoined}}
-                  <button class="btn btn-success">Launch Hangout</button>
+                  <button class="btn btn-cb2 btn-success">Launch</button>
                 {{else}}
                   {{# unless getIsDone this}}
                     <button id="join-hangout" class="btn btn-cb2">{{_ "join_in_session"}}</button>
@@ -15,7 +15,8 @@
                 {{/if}}
               {{else}}
                 {{#if isJoined}}
-                  <button id="leave-hangout" class="btn btn-success">{{_ "leave"}}</button>
+                  <p class="upcoming">{{upcomingTime this}}</p>
+                  <a id="leave-hangout" class="align-center">{{_ "leave"}}</a>
                 {{else}}
                   {{# unless getIsDone this}}
                     <button id="join-hangout" class="btn btn-cb2">{{_ "join"}}</button>
@@ -23,7 +24,7 @@
                 {{/if}}
               {{/if}}
       {{else}}
-          <span>{{getIsDone this}}</span>
+          <p class="completed">{{getIsDone this}}</p>
       {{/unless}}
 
       </div>

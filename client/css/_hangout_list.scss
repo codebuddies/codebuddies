@@ -4,13 +4,16 @@
   overflow-y: auto;
   .hangout-item {
     overflow: auto;
-    .completed { color: $kudo; text-align: center;}
+    p.completed { color: $kudo; text-align: center;}
     border-top: 1px solid $divider;
     padding: 20px 0;
 
     .hangout-topic {
       @include font-face(400, 17px, normal, $cta-blue);
     }
+    #leave-hangout { text-decoration: underline; text-align: center; display: block;
+        @include font-face(400, 12px, normal, $cta-blue);}
+    p.upcoming { text-transform: uppercase; color: $cta-blue; text-align: center; }
     .status {
       list-style: none;
       display: table;
