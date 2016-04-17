@@ -2,22 +2,44 @@
   <ol class="breadcrumb">
     <li><a href="{{pathFor 'dashboard'}}">Dashboard</a></li>
     <li><a href="{{pathFor 'manage user'}}">Manage User</a></li>
-    <li class="active">JohnX</li>
+    <li class="active">{{#each getUser}} {{user_info.name}} {{/each}}</li>
   </ol>
   <div class="col-md-12">
-    <div class="col-md-2">
-      <img src="http://placehold.it/150x150">
-    </div>
-    <div class="col-md-10">
+    {{#if getUser.count}}
+      {{#each getUser}}
 
-      <h5>Name : John Doe</h5>
-      <h5>Username  : JohnX</h5>
-      <h5>Email : johndoe@example.com</h5>
-      <h5>Moderator : <input type="checkbox" name="name" value=""></h5>
+        <div class="col-md-2">
+          <img src="{{user_info.profile.image_192}}" alt="avtar" height="150" width="150" />
+        </div>
+        <div class="col-md-10">
+            <h5> Name : {{#if user_info.real_name}} {{user_info.real_name}} {{else}} <i>Not-specified</i>{{/if}}</h5>
+            <h5> Username : {{user_info.name}}</h5>
+            <h5> Email : {{user_info.profile.email}}</h5>
+            <form class="form-horizontal">
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Status :</label>
+                <div class="col-md-10">
+                  <select class="form-control" id="authorization">
+                    <option value="user" {{selected roles.[0]  "user"}}>user</option>
+                    <option value="moderator" {{selected roles.[0]  "moderator"}}>moderator</option>
+                    <option value="volunteer" {{selected roles.[0]  "volunteer"}}>volunteer</option>
+                    <option value="inactive" {{selected roles.[0]  "inactive"}}>inactive</option>
+                  </select>
+                </div>
+            </div>
+          </form>
 
-      <div class="btn btn-danger"> Block</div>
-      <div class="btn btn-primary"> Save</div>
-    </div>
+            <!-- <h5> Moderator : <input type="checkbox" name="role" value="moderator">
+                 Volunteer : <input type="checkbox" name="role" value="volunteer">
+                 Block : <input type="checkbox" name="role" value="inactive"> </h5> -->
+
+          <!-- <div class="btn btn-primary save"> Save</div> -->
+        </div>
+
+      {{/each}}
+    {{else}}
+      <h4>Sorry, something went wrong</h4>
+    {{/if}}
   </div>
 
 </template>

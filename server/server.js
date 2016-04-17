@@ -63,6 +63,8 @@ var getUserIdentity = function(user) {
 }
 
 Accounts.onCreateUser(function(options, user) {
+  //setting user role on first sign in
+  Roles.setRolesOnUserObj(user, ['user']);
 
   if (options.profile){
     var identity = getUserIdentity(user);

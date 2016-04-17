@@ -8,21 +8,47 @@
   </ol>
   <div class="col-md-12">
     <ul class="nav nav-tabs">
-      <li role="presentation"><a href="{{pathFor 'moderator'}}">Moderator</a></li>
-      <li role="presentation"><a href="{{pathFor 'user'}}">User</a></li>
+      <li role="presentation"><a href="/admin/users/moderator">Moderator</a></li>
+      <li role="presentation"><a href="/admin/users/volunteer">Volunteer</a></li>
+      <li role="presentation"><a href="/admin/users/inactive">Inactive</a></li>
       <form class="navbar-form navbar-right" role="search">
          <div class="form-group">
-           <input type="text" class="form-control" placeholder="JohnX">
+           <input type="text" class="form-control searchTerm" name="searchTerm" placeholder="&#128269; Search" id="searchBox">
          </div>
        </form>
     </ul>
   </div>
   <div class="col-md-12">
-    <div class="page-header">
-      <h5>Showing results for 'JohnX'</h5>
-    </div>
+    {{#if searchMode}}
+      <div class="page-header">
+        <h5>Showing results for '{{userSearchQuery}}'</h5>
+      </div>
+      {{#if searchResults.count}}
+        {{#each searchResults}}
 
-    <a href="/admin/user/232"><p>John Doe</p></a>
+          <a href="user/{{_id}}">
+            <div class="panel panel-default">
+              <div class="panel-body">
+
+                <div class="col-md-2">
+                  <img src="{{user_info.profile.image_72}}" alt="avtar" />
+                </div>
+                <div class="col-md-10">
+                  Name : {{#if user_info.real_name}} {{user_info.real_name}} {{else}} <i>Not-specified</i>{{/if}}<br>
+                  Username : {{user_info.name}} <br>
+                  Email : {{user_info.profile.email}} <br>
+                </div>
+
+              </div><!-- panel-body -->
+            </div><!-- panel panel-default -->
+          </a>
+
+        {{/each}}
+      {{else}}
+        <h4>Sorry, no results were found.</h4>
+        <p>Please check your spelling, or try another search.</p>
+      {{/if}}<!--searchResults.count-->
+    {{/if}}<!--searchMode-->
   </div>
 
 </template>

@@ -3,7 +3,11 @@
   <div class="panel panel-default">
     <div class="panel-body">
       <div class="container">
-        {{>Template.dynamic template=content}}
+        {{#if Template.subscriptionsReady}}
+          {{>Template.dynamic template=content}}
+        {{else}}
+          {{> loading}}
+        {{/if}}
       </div>
     </div>
   </div>
