@@ -1,14 +1,20 @@
 <template name="allNotification">
 
   <div class="page-header">
-    <h3>Manage User</h3>
+    <h3>Notifications</h3>
   </div>
 
   {{#if Template.subscriptionsReady}}
-    {{#each notifications}}
-      <p><i class="fa {{icon}}" aria-hidden="true"></i> <a href="#"> {{actorUsername}} </a>  {{action}} <a href="#"> {{subjectUsername}} </a> <i>{{matter}}</i> {{dispDate createdAt}} </p>
-    {{/each}}
-    <!-- {{>Template.dynamic template=content}} -->
+
+    {{#if notifications.count}}
+      {{#each notifications}}
+        <p><i class="fa {{icon}}" aria-hidden="true"></i> {{#unless isActorAdmin 'actorId'}} {{actorUsername}} {{else}} <a href="/admin/user/{{actorId}}"> {{actorUsername}}  </a>  {{/unless}} {{action}} <a href="/admin/user/{{subjectId}}"> {{subjectUsername}} </a> <i>{{matter}}</i> {{dispDate createdAt}} </p>
+      {{/each}}
+      <!-- {{>Template.dynamic template=content}} -->
+    {{else}}
+      <h4>There is no notification</h4>
+    {{/if}}
+
   {{else}}
     {{> loading}}
   {{/if}}

@@ -1,9 +1,7 @@
 Template.registerHelper('selected', function(key, value) {
   return key == value ? 'selected' : '';
 });
-Template.registerHelper("currentUser", function(argument){
-  
-});
+
 Template.userById.helpers({
   getUser:function(){
     var userId = FlowRouter.getParam('userId');

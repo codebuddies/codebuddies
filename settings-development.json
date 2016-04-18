@@ -10,5 +10,5 @@
   "team_id":"T04AQ6GEY",
   "slack_alert_channel": "#cb2-test",
   "slack_alert_username": "CodeBuddies Alerts",
-  "root_email":"distalx@gmail.com"
+  "root_email":"root@example.com"
 }
