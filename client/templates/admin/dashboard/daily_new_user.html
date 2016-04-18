@@ -1,0 +1,13 @@
+<template name="dailyNewUser">
+ <div class="page-header">
+  <h3>Daily New User</h3>
+ </div>
+
+ {{#if users.count}}
+   {{#each users}}
+      {{> singleUser}}
+   {{/each}}
+ {{else}}
+  <h4>There is no new signups today.</h4>
+ {{/if}}
+</template>

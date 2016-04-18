@@ -88,4 +88,16 @@ Meteor.methods({
     }
     Notifications.insert(notification);
   },
+  monthlyActiveUsersCount: function () {
+    return Meteor.users.find({'status.lastLogin.date':{$gt: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000)}}).count();
+  },
+  dailyNewUsersCount: function () {
+    return Meteor.users.find({'createdAt':{$gt: new Date(Date.now() - 1* 24 * 60 * 60 * 1000)}}).count();
+  },
+  onlineUserCount: function () {
+    return Meteor.users.find({ "status.online": true }).count();
+  },
+  blockedUserCount: function () {
+    return Meteor.users.find({'roles':'inactive'}).count();
+  },
 })

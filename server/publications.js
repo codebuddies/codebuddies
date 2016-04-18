@@ -33,7 +33,7 @@ Meteor.publish("hangoutSearchResult", function(serchTerm) {
 Meteor.publish("allUsers", function () {
   var user = Meteor.users.findOne({_id:this.userId});
   if (Roles.userIsInRole(user, ["admin"])) {
-    return Meteor.users.find({}, {fields: {emails: 1, profile: 1, roles: 1, user_info: 1}});
+    return Meteor.users.find({}, {fields: {'createdAt':1, emails: 1, profile: 1, roles: 1, user_info: 1, status: 1}});
   }
 
   return this.ready();

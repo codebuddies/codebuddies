@@ -79,7 +79,7 @@ Meteor.methods({
       username:String,
       email:String
     }));
-    
+
     var hangout_id = Hangouts.insert({
       user_id: data.user_id,
       creator:data.username,
