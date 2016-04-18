@@ -5,7 +5,15 @@ Template.registerHelper('selected', function(key, value) {
 Template.userById.helpers({
   getUser:function(){
     var userId = FlowRouter.getParam('userId');
-    return Meteor.users.find({_id:userId});
+
+    if (Roles.userIsInRole(userId, ['admin'])) {
+      return ;
+    } else {
+      return Meteor.users.find({_id:userId});
+    }
+
+
+
   },
 });
 
