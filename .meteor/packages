@@ -26,8 +26,6 @@ fortawesome:fontawesome
 momentjs:moment
 accounts-base
 accounts-oauth
-meteorhacks:flow-router
-meteorhacks:flow-layout
 arillo:flow-router-helpers
 http
 acemtp:accounts-slack
@@ -54,3 +52,5 @@ kadira:dochead
 alanning:roles
 random
 ian:accounts-ui-bootstrap-3
+kadira:flow-router
+kadira:blaze-layout
