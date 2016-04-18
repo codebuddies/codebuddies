@@ -1,43 +1,46 @@
 <template name="usersByRole">
-  <br>
-  <br>
-  <ol class="breadcrumb">
-    <li><a href="{{pathFor 'dashboard'}}">Dashboard</a></li>
-    <li><a href="{{pathFor 'manage user'}}">Manage User</a></li>
-    <li class="active"></li>
-  </ol>
-  <div class="col-md-12">
+  <div class="page-header">
+    <h3>{{currentRole}}</h3>
+  </div>
+
+  <div class="container">
+    <p> <a href="{{pathFor 'manage user'}}"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</a> </p>
     <ul class="nav nav-tabs">
       <li role="presentation"><a href="/admin/users/moderator">Moderator</a></li>
       <li role="presentation"><a href="/admin/users/volunteer">Volunteer</a></li>
       <li role="presentation"><a href="/admin/users/inactive">Inactive</a></li>
     </ul>
-  </div>
+
   <br>
   <br>
   <br>
   <div class="row">
-    {{#each users}}
+    {{#if users.count}}
+      {{#each users}}
 
-      <a href="user/{{_id}}">
-        <div class="panel panel-default">
-          <div class="panel-body">
+        <a href="user/{{_id}}">
+          <div class="panel panel-default">
+            <div class="panel-body">
 
-            <div class="col-md-2">
-              <img src="{{user_info.profile.image_72}}" alt="avtar" />
-            </div>
-            <div class="col-md-10">
-              Name : {{#if user_info.real_name}} {{user_info.real_name}} {{else}} <i>Not-specified</i>{{/if}}<br>
-              Username : {{user_info.name}} <br>
-              Email : {{user_info.profile.email}} <br>
-            </div>
+              <div class="col-md-2">
+                <img src="{{user_info.profile.image_72}}" alt="avtar" />
+              </div>
+              <div class="col-md-10">
+                Name : {{#if user_info.real_name}} {{user_info.real_name}} {{else}} <i>Not-specified</i>{{/if}}<br>
+                Username : {{user_info.name}} <br>
+                Email : {{user_info.profile.email}} <br>
+              </div>
 
-          </div><!-- panel-body -->
-        </div><!-- panel panel-default -->
-      </a>
+            </div><!-- panel-body -->
+          </div><!-- panel panel-default -->
+        </a>
 
-    {{/each}}
+      {{/each}}
+    {{else}}
+      <h4>There are no {{currentRole}} user.</h4>
+    {{/if}}
 
+  </div>
   </div>
 
 

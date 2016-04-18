@@ -35,14 +35,14 @@ Meteor.publish("allUsers", function () {
   if (Roles.userIsInRole(user, ["admin"])) {
     return Meteor.users.find({}, {fields: {emails: 1, profile: 1, roles: 1, user_info: 1}});
   }
-  this.stop();
-  return;
+
+  return this.ready();
 });
 Meteor.publish("allNotifications", function () {
   var user = Meteor.users.findOne({_id:this.userId});
-  if (Roles.userIsInRole(user, ["admin","manage-users"])) {
+  if (Roles.userIsInRole(user, ["admin"])) {
     return Notifications.find({},{sort: {date_created: -1}});
   }
-  this.stop();
-  return;
+
+  return this.ready();
 });

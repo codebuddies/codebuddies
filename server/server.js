@@ -64,9 +64,11 @@ var getUserIdentity = function(user) {
 
 Accounts.onCreateUser(function(options, user) {
   //setting user role on first sign in
+  if(Meteor.users.find().count()!==0)
   Roles.setRolesOnUserObj(user, ['user']);
 
   if (options.profile){
+    Roles.setRolesOnUserObj(user, ['user']);
     var identity = getUserIdentity(user);
     var user_info = loggingInUserInfo(user);
     var profile_info = {

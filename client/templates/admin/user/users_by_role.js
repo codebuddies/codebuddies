@@ -1,3 +1,6 @@
+Template.registerHelper("currentRole", function(){
+  return FlowRouter.getParam('role');
+});
 Template.usersByRole.helpers({
   users:function(){
     return Meteor.users.find({roles:FlowRouter.getParam('role')});
