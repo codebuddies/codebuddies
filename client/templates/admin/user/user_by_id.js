@@ -22,7 +22,6 @@ Template.userById.events({
     var currentAuthorization = template.find('#authorization').value;
     var pastAuthorization =  this.roles[0];
     Meteor.call("updateRoles",this._id,this.user_info.name,currentAuthorization,pastAuthorization);
-
-
+    swal("Done!", "Updated "+ this.user_info.name +"'s access right ", "success")
   },
 });
