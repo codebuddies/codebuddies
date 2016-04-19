@@ -8,7 +8,7 @@
 
     {{#if notifications.count}}
       {{#each notifications}}
-        <p><i class="fa {{icon}}" aria-hidden="true"></i> {{#unless isActorAdmin 'actorId'}} {{actorUsername}} {{else}} <a href="{{pathFor 'user by id'}}/{{actorId}}"> {{actorUsername}}  </a>  {{/unless}} {{action}} <a href="{{pathFor 'user by id'}}/{{subjectId}}"> {{subjectUsername}} </a> <i>{{matter}}</i> {{dispDate createdAt}} </p>
+        <p class="alert {{#if hasBeenSeen}}  {{else}} markAsRead alert-info{{/if}}"><i class="fa {{icon}}" aria-hidden="true"> </i> {{#if isActorAdmin actorId}} {{actorUsername}} {{else}} <a href="{{pathFor 'user by id'}}/{{actorId}}"> {{actorUsername}}  </a>  {{/if}} {{action}} <a href="{{pathFor 'user by id'}}/{{subjectId}}"> {{subjectUsername}} </a> <i>{{matter}}</i> {{dispDate createdAt}} </p>
       {{/each}}
       <!-- {{>Template.dynamic template=content}} -->
     {{else}}

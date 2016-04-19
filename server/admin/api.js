@@ -75,7 +75,7 @@ Meteor.methods({
     var incident = IMPF(actor.username, subjectUsername , current, past);
     var notification = {
       actorId : actor._id,
-      actorUsername : actor.username,
+      actorUsername : actor.username || actor.user_info.name,
       subjectId : subjectId,
       subjectUsername : subjectUsername,
       createdAt : new Date(),
@@ -87,6 +87,16 @@ Meteor.methods({
       icon : incident.icon,
     }
     Notifications.insert(notification);
+  },
+  markAsRead:function(notificationId){
+
+      Notifications.update(
+        { _id: notificationId },
+        {
+          $push: { read: this.userId }
+        }
+      );
+
   },
   monthlyActiveUsersCount: function () {
     return Meteor.users.find({'status.lastLogin.date':{$gt: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000)}}).count();

@@ -3,9 +3,9 @@ Template.registerHelper('selected', function(key, value) {
 });
 
 Template.registerHelper('isUpdateable', function(userId, role) {
-  console.log("role",role);
+  var loggedInUserId = Meteor.userId();
 
-  return ((userId == Meteor.userId() || role === 'moderator') ? true : false);
+  return ((userId == loggedInUserId || (role === 'moderator' && (!Roles.userIsInRole( loggedInUserId, ['admin'])))) ? true : false);
 });
 
 Template.userById.helpers({
