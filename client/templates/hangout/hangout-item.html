@@ -36,25 +36,44 @@
           <a href="/hangout/{{_id}}" class="hangout-topic">
           
 
-          {{topic}}</a>
+          {{topic}}</a> 
         
       </label>
-      <ul class="status">
-        <li><i class="fa {{getType type}}"></i></li>
-        <li>
-          <label>host <a href="/profile/{{host this}}">{{host this}}</a> {{getDate this}}
-            {{#if currentUser}}|
-              <a class="clone-hangout">Duplicate</a> |
-              {{#if isHost}}
-                 <a class="edit-hangout">
-                  Edit
-                </a> |
+
+      <div class="dropdown" style="float: right;">
+  <span class="more-options dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="float: right;">
+    <i class="fa fa-ellipsis-h"></i>
+  </span>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+    {{#if currentUser}}
+             <li> 
+                <a class="clone-hangout">Duplicate</a>
+              </li>
+          {{#if isHost}}
+              <li>   
+                <a class="edit-hangout">
+                    Edit
+                </a>
+              </li>
+              <li>    
                 <a class="delete-hangout">
                   <i class="fa fa-trash"></i>
-                 </a> 
-              {{/if}}
-              
-            {{/if}}
+                 </a>
+              </li>
+          {{/if}}        
+      {{/if}}
+      <li> 
+                <a class="flag">Flag</a>
+              </li>
+   </ul>
+</div>
+
+
+      <ul class="status">
+        <li><label><i class="fa {{getType type}}"></i>
+          host <a href="/profile/{{host this}}">{{host this}}</a>
+          <br /><i class="fa fa-clock-o fa-lg"></i> {{getDate this}}
+            
           </label></li>
       </ul>
     </div>

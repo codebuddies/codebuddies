@@ -33,3 +33,9 @@ a:hover {
 .page-header {
   border-bottom: none; /*remove bootstrap divider in search*/
 }
+
+#post { 
+  ul { list-style: none; }
+  margin-top: 30px;
+  .btn-cb2 { position: relative; top: 30px;}
+}
