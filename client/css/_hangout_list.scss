@@ -13,7 +13,7 @@
     }
     #leave-hangout { text-decoration: underline; text-align: center; display: block;
         @include font-face(400, 12px, normal, $cta-blue);}
-    p.upcoming { text-transform: uppercase; color: $cta-blue; text-align: center; }
+    p.upcoming { text-transform: uppercase; color: $kudo; text-align: center; }
     .status {
       list-style: none;
       display: table;
