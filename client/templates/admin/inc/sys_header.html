@@ -1,4 +1,4 @@
-<template name="adminHeader">
+<template name="sysHeader">
   {{> connectionBanner}}
   <nav class="navbar navbar-default navbar-static-top" role="navigation">
     <div class="container">
@@ -19,8 +19,9 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="cb2-navbar-collapse">
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="{{pathFor 'manage user'}}">{{_ "manage_user"}}</a></li>
-          <li><a href="{{pathFor 'notifications'}}">{{_ "notification"}}</a></li>
+          <li><a href="{{pathFor 'stats'}}"><i class="fa fa-line-chart" aria-hidden="true"></i></a></li>
+          <li><a href="{{pathFor 'manage user'}}"><i class="fa fa-cogs" aria-hidden="true"></i></a></li>
+          <li><a href="{{pathFor 'notifications'}}"><i class="fa fa-bell" aria-hidden="true"></i></a></li>
           {{> loginButtons align="right"}}
         </ul>
       </div>

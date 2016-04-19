@@ -59,7 +59,7 @@ var IMPF = function (actor,subject,current,past){
 Meteor.methods({
   updateRoles: function (subjectId, subjectUsername, current, past) {
     var actor = Meteor.user()
-    if (!actor || !Roles.userIsInRole(actor, 'admin')) {
+    if (!actor || !Roles.userIsInRole(actor, ['admin','moderator'])) {
       throw new Meteor.Error(403, "Access denied")
     }
 

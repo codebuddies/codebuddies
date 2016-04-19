@@ -5,9 +5,9 @@
 
   <div class="col-md-12">
     <ul class="nav nav-tabs">
-      <li role="presentation"><a href="/admin/users/moderator">Moderator</a></li>
-      <li role="presentation"><a href="/admin/users/volunteer">Volunteer</a></li>
-      <li role="presentation"><a href="/admin/users/inactive">Inactive</a></li>
+      <li role="presentation"><a href="{{pathFor 'user by role'}}/moderator">Moderator</a></li>
+      <li role="presentation"><a href="{{pathFor 'user by role'}}/volunteer">Volunteer</a></li>
+      <li role="presentation"><a href="{{pathFor 'user by role'}}/inactive">Inactive</a></li>
       <form class="navbar-form navbar-right" role="search">
          <div class="form-group">
            <input type="text" class="form-control searchTerm" name="searchTerm" placeholder="&#128269; Search" id="searchBox">
@@ -23,7 +23,7 @@
       {{#if searchResults.count}}
         {{#each searchResults}}
 
-          <a href="user/{{_id}}">
+          <a href="{{pathFor 'user by id'}}/{{_id}}">
             <div class="panel panel-default">
               <div class="panel-body">
 

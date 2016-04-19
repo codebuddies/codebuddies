@@ -32,7 +32,7 @@ Meteor.publish("hangoutSearchResult", function(serchTerm) {
 });
 Meteor.publish("allUsers", function () {
   var user = Meteor.users.findOne({_id:this.userId});
-  if (Roles.userIsInRole(user, ["admin"])) {
+  if (Roles.userIsInRole(user, ["admin","moderator"])) {
     return Meteor.users.find({}, {fields: {'createdAt':1, emails: 1, profile: 1, roles: 1, user_info: 1, status: 1}});
   }
 
@@ -40,8 +40,8 @@ Meteor.publish("allUsers", function () {
 });
 Meteor.publish("allNotifications", function () {
   var user = Meteor.users.findOne({_id:this.userId});
-  if (Roles.userIsInRole(user, ["admin"])) {
-    return Notifications.find({},{sort: {date_created: -1}});
+  if (Roles.userIsInRole(user, ["admin","moderator"])) {
+    return Notifications.find({},{sort: {createdAt: -1}});
   }
 
   return this.ready();

@@ -22,16 +22,27 @@
               <script async defer src="https://codebuddiesmeet.herokuapp.com/slackin.js"></script>
             </a>
           </li>
+          {{#if isInRole 'moderator'}}
+            <li><a href="{{pathFor 'stats'}}"><i class="fa fa-line-chart" aria-hidden="true"></i></a></li>
+            <li><a href="{{pathFor 'manage user'}}"><i class="fa fa-cogs" aria-hidden="true"></i></a></li>
+            <li><a href="{{pathFor 'notifications'}}"><i class="fa fa-bell" aria-hidden="true"></i></a></li>
+          {{/if}}
           {{#if currentUser}}
-          <li id="user-drop-down" class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-              <img src="{{profileImage}}" class="img-circle"> {{profileName}} <span class="caret"></span>
-            </a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="/profile/{{username}}"><i class="fa fa-user fa-fw"></i> {{_ "profile"}}</a></li>
-                <li><a href="#" id="signOut"><i class="fa fa-sign-out fa-fw"></i> {{_ "sign_out"}}</a></li>
-              </ul>
-          </li>
+
+            {{#if isInRole 'admin'}}
+              {{> loginButtons align="right"}}
+            {{else}}
+              <li id="user-drop-down" class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                  <img src="{{profileImage}}" class="img-circle"> {{profileName}} <span class="caret"></span>
+                </a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="/profile/{{username}}"><i class="fa fa-user fa-fw"></i> {{_ "profile"}}</a></li>
+                    <li><a href="#" id="signOut"><i class="fa fa-sign-out fa-fw"></i> {{_ "sign_out"}}</a></li>
+                  </ul>
+              </li>
+            {{/if}}
+
           {{else}}
           <li><a href="#" class="signIn"><button class="btn btn-slack"><img src="/images/slack-icon.png">&nbsp;&nbsp;{{_ "sign_in_with"}} <b>Slack</b></button></a></li>
           {{/if}}

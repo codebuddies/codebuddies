@@ -2,22 +2,36 @@ Meteor.methods({
 
   userProfileImage: function(userId) {
     check(userId, String);
-    if (userId != '') {
-      var user = Meteor.users.findOne({_id: userId});
-      return user.user_info.profile.image_192;
+    var loggedInUserId = Meteor.userId()
+    if (!Roles.userIsInRole(loggedInUserId, ['admin'])) {
+      if (userId != '') {
+        var user = Meteor.users.findOne({_id: userId});
+        return user.user_info.profile.image_192;
+      } else {
+        return '';
+      }
     } else {
-      return '';
+      return ;
     }
+
   },
 
   getUserName: function(userId) {
     check(userId, String);
-    if (userId != '') {
-      var user = Meteor.users.findOne({_id: userId});
-      return user.user_info.name;
+    var loggedInUserId = Meteor.userId()
+
+    if (!Roles.userIsInRole(loggedInUserId, ['admin'])) {
+      if (userId != '') {
+        var user = Meteor.users.findOne({_id: userId});
+        return user.user_info.name;
+      } else {
+        return 'unknown';
+      }
     } else {
-      return 'unknown';
+      return ;
     }
+
+
   },
 
   getUserCount: function() {

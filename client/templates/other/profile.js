@@ -1,4 +1,4 @@
-Template.profile.rendered = function() { 
+Template.profile.rendered = function() {
 	Meteor.call('getHangoutsJoinedCount', function(err, result){
 		Session.set('hangoutsJoinedCount', result);
 	});

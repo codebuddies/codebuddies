@@ -2,6 +2,12 @@ Template.registerHelper('selected', function(key, value) {
   return key == value ? 'selected' : '';
 });
 
+Template.registerHelper('isUpdateable', function(userId, role) {
+  console.log("role",role);
+
+  return ((userId == Meteor.userId() || role === 'moderator') ? true : false);
+});
+
 Template.userById.helpers({
   getUser:function(){
     var userId = FlowRouter.getParam('userId');
