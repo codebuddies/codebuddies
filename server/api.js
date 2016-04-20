@@ -39,7 +39,7 @@ Meteor.methods({
   },
 
   getHangoutsJoinedCount: function() {
-    return Hangouts.find({users:{$elemMatch:{$eq:this.userId}}}).count();
+    return Hangouts.find({users:{$elemMatch:{$eq:this.userId}},'visibility':{$ne:false}}).count();
   },
 
   emailHangoutUsers: function(hangoutId) {
@@ -144,14 +144,44 @@ Meteor.methods({
     return true;
   },
 
-  deleteHangout: function (hangoutId) {
-    check(hangoutId, String);
-    var response = Meteor.call('emailHangoutUsers', hangoutId);
+  deleteHangout: function (data) {
+    check(data.hangoutId, String);
+    check(data.hostId, String);
+    check(data.hostUsername, String);
+
+    var response = Meteor.call('emailHangoutUsers', data.hangoutId);
       if (!response) {
           throw new Meteor.Error("Error sending email!");
       } else {
-          Hangouts.remove({_id: hangoutId, user_id: this.userId});
-          return true;
+          var actor = Meteor.user()
+          if (actor._id === data.hostId) {
+
+            Hangouts.remove({_id: data.hangoutId, user_id: actor._id});
+            return true;
+
+          }else{
+            Hangouts.update({_id: data.hangoutId},
+              {$set:
+                {
+                 visibility:false
+              }
+            });
+
+            var notification = {
+              actorId : actor._id,
+              actorUsername : actor.username || actor.user_info.name,
+              subjectId : data.hangoutId,
+              subjectUsername : data.hostUsername,
+              hangoutId : data.hangoutId,
+              createdAt : new Date(),
+              read:[actor._id],
+              action : "deleted ",
+              icon : "fa-times",
+              type : "hangout delete",
+            }
+            Notifications.insert(notification);
+            return true;
+          }
       }
   },
 
@@ -295,7 +325,16 @@ Meteor.methods({
 
   getHangout: function(hangoutId) {
     check(hangoutId, String);
-    return Hangouts.findOne(hangoutId);
+    if (Roles.userIsInRole(this.userId, ['admin','moderator'])) {
+
+      return Hangouts.findOne({_id:hangoutId});
+
+    } else {
+
+      return Hangouts.findOne({_id:hangoutId,'visibility': { $ne: false } });
+
+    }
+
   },
 
   getHangoutsCount: function() {

@@ -128,7 +128,13 @@ Template.hangoutItem.events({
     }
   },
 
-  'click .delete-hangout': function(event, template) {
+  'click .delete-hangout': function(e, hangout) {
+    var data = {
+        hangoutId:hangout.data._id,
+        hostId:hangout.data.user_id,
+        hostUsername: hangout.data.creator,
+      };
+
     sweetAlert({
         type: 'warning',
         title: TAPi18n.__("delete_hangout_confirm"),
@@ -143,7 +149,7 @@ Template.hangoutItem.events({
         // disable confirm button to avoid double (or quick) clicking on confirm event
         swal.disableButtons();
         // if user confirmed/selected yes, let's call the delete hangout method on the server
-        Meteor.call('deleteHangout', template.data._id, function(error, result) {
+        Meteor.call('deleteHangout', data, function(error, result) {
           if (result) {
             swal("Poof!", "Your hangout has been successfully deleted!", "success");
           } else {
