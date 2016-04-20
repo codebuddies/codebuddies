@@ -155,26 +155,63 @@ Meteor.methods({
       }
   },
 
-  editHangout: function(data, hangoutId) {
+  editHangout: function(data) {
     check(data, Match.ObjectIncluding({
       topic: String,
       description: String,
       start: Match.OneOf(String, Date),
       end: Match.OneOf(String, Date),
-      type: String
+      type: String,
+      //hangoutId, String,
+      //hostId, String,
+      //hostUsername, String
     }));
 
-    Hangouts.update({_id: hangoutId, user_id: this.userId},
-      {$set:
-        {
-         topic: data.topic,
-         description: data.description,
-         start: data.start,
-         end: data.end,
-         type: data.type
+
+    var actor = Meteor.user()
+    if (actor._id === data.hostId) {
+
+      Hangouts.update({_id: data.hangoutId, user_id: actor._id},
+        {$set:
+          {
+           topic: data.topic,
+           description: data.description,
+           start: data.start,
+           end: data.end,
+           type: data.type
+        }
+      });
+      return true;
+
+    }else{
+      Hangouts.update({_id: data.hangoutId},
+        {$set:
+          {
+           topic: data.topic,
+           description: data.description,
+           start: data.start,
+           end: data.end,
+           type: data.type
+        }
+      });
+
+      var notification = {
+        actorId : actor._id,
+        actorUsername : actor.username || actor.user_info.name,
+        subjectId : data.hangoutId,
+        subjectUsername : data.hostUsername,
+        hangoutId : data.hangoutId,
+        createdAt : new Date(),
+        read:[actor._id],
+        action : "edited",
+        icon : "fa-pencil-square-o",
+        type : "hangout edit",
       }
-    });
-    return true;
+      Notifications.insert(notification);
+      return true;
+    }
+
+
   },
   cloneHangout: function(data, hangoutId) {
     check(data, Match.ObjectIncluding({

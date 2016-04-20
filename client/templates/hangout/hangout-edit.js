@@ -26,13 +26,14 @@ Template.editHangoutModal.events({
       	description: desc1,
       	start: new Date(start1),
       	end: new Date(end1),
-      	type: type1
+      	type: type1,
+        hangoutId:Session.get("hangoutId"),
+        hostId:Session.get("hostId"),
+        hostUsername : Session.get("hostUsername"),
       };
-      //console.log(data);
-      var hangoutId = Session.get('hangoutId');
-      console.log(hangoutId + ' second');
 
-      Meteor.call('editHangout', data, hangoutId, function(err, result) {
+
+      Meteor.call('editHangout', data, function(err, result) {
         console.log(result);
         if (result) {
           Modal.hide();

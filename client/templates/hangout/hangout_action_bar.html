@@ -1,0 +1,29 @@
+<template name="hangoutActionBar">
+
+  <div class="dropdown pull-right">
+    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+        {{#unless hangoutOwner user_id}}<li class="report-hangout"><a href="#">Report</a></li>{{/unless}}
+        <li class="clone-hangout"><a href="#">Duplicate</a></li>
+        {{#if hangoutOwner user_id}}
+          <li class="edit-hangout"><a href="#">Edit</a></li>
+          <li class="delete-hangout"><a href="#">Delete</a></li>
+          {{else}}
+
+          {{#if isInRole 'admin,moderator,volunteer'}}
+            <li role="separator" class="divider"></li>
+            <li class="edit-hangout"><a href="#">Edit</a></li>
+          {{/if}}
+          {{#if isInRole 'admin,moderator'}}
+            <li role="separator" class="divider"></li>
+            <li class="delete-hangout"><a href="#">Delete</a></li>
+          {{/if}}
+
+        {{/if}}
+
+    </ul>
+  </div>
+
+</template>

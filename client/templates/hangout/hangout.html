@@ -8,12 +8,16 @@
               <div class="panel-heading">
                 <h4>
                     {{#if isInProgress this}}
-                      <div id="placeholder-div-{{_id}}"></div> &nbsp; 
+                      <div id="placeholder-div-{{_id}}"></div> &nbsp;
                       <i class="fa fa-dot-circle-o fa text-danger faa-burst animated"></i> &nbsp;
                     {{/if}}
 
                     {{topic}}
+
+                    {{> hangoutActionBar}}
+
                 </h4>
+
               </div>
               <div class="panel-body">
                 {{description}}

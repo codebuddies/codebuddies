@@ -67,7 +67,6 @@ Meteor.methods({
       Meteor.users.update({ _id: subjectId }, {$set: { "services.resume.loginTokens" : [] }});
       Roles.setUserRoles(subjectId, current);
     }else{
-      console.log("message");
 
       Roles.setUserRoles(subjectId, current);
     }

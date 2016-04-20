@@ -161,6 +161,8 @@ Template.hangoutItem.events({
 
     console.log(hangout.data._id + ' this is an edited hangout id');
     Session.set('hangoutId', hangout.data._id);
+    Session.set('hostId', hangout.data.user_id);
+    Session.set('hostUsername', hangout.data.creator);
 
     Modal.show('editHangoutModal');
     $('#edit-hangout-modal #topic').val(hangout.data.topic);
