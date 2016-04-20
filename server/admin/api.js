@@ -85,6 +85,7 @@ Meteor.methods({
       action : incident.action,
       matter : incident.matter,
       icon : incident.icon,
+      type : "role update",
     }
     Notifications.insert(notification);
   },

@@ -12,6 +12,15 @@ Meteor.startup(function() {
 
 });
 
+Template.registerHelper("hangoutOwner", function(ownerid){
+  if(Meteor.userId() === ownerid){
+      return true;
+  }else {
+      return false;
+  }
+
+});
+
 
 Template.hangoutItem.helpers({
   getType: function(type) {
@@ -186,6 +195,24 @@ Template.hangoutItem.events({
       //$('#clone-hangout-modal #end-date-time').val(end_time_reverted);
       //console.log(start_time_reverted);
       //console.log(end_time_reverted);
+    }
+  },
+  'click .report-hangout': function(e, hangout) {
+    if (!Meteor.userId()) {
+      sweetAlert({
+        title: TAPi18n.__("login_create_hangout_title"),
+        text: TAPi18n.__("login_create_hangout_message"),
+        confirmButtonText: TAPi18n.__("ok"),
+        type: 'info'
+      });
+    } else {
+
+      Session.set('hangoutId', hangout.data._id);
+      Session.set('hostId', hangout.data.user_id);
+      Session.set('hostUsername', hangout.data.creator);
+
+      Modal.show('reportHangoutModal');
+
     }
   }
 });

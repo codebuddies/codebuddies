@@ -6,13 +6,13 @@
         {{#if isInProgress this}}
             <!--<div id="placeholder-div-{{_id}}"></div>-->
             <i class="fa fa-dot-circle-o fa text-danger faa-burst animated"></i> &nbsp;
-            
+
         {{/if}}
       </div>
       <div class="col-md-7">
         <label class="name">
           <a href="/hangout/{{_id}}" class="hangout-topic">
-          
+
 
           {{topic}}</a>
         {{#if isHost}}
@@ -29,6 +29,7 @@
         <li>
           <label>host <a href="/profile/{{host this}}">{{host this}}</a> {{getDate this}}
             {{#if currentUser}}| <a class="clone-hangout">Copy</a>{{/if}}
+            {{#unless hangoutOwner user_id}}| <a class="report-hangout">Report</a>{{/unless}}
           </label></li>
       </ul>
     </div>

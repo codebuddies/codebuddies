@@ -12,7 +12,8 @@ Template.allNotification.onCreated(function(){
 
 Template.allNotification.helpers({
   notifications:function(){
-    return Notifications.find();
+    //return Notifications.find();
+    return Notifications.find({},{sort: {createdAt: -1}});
   },
   hasBeenSeen:function(){
     var userId = Meteor.userId();

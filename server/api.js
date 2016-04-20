@@ -281,6 +281,38 @@ Meteor.methods({
     Hangouts.update({ _id: hangoutId },
       { $pull: { users: userId } });
     return true;
+  },
+
+  reportHangout : function(report){
+
+
+    check(report.category, String);
+    check(report.hangoutId, String);
+    check(report.hostId, String);
+    check(report.hostUsername, String);
+    check(report.reporterId, String);
+    var actor = Meteor.user();
+    if(report.reporterId !== actor._id){
+      throw new Meteor.Error(500, "You are trying do something fishy.")
+    }
+
+    var matter = " as " + report.category + ".";
+    var notification = {
+      actorId : actor._id,
+      actorUsername : actor.username || actor.user_info.name,
+      subjectId : report.hostId,
+      subjectUsername : report.hostUsername,
+      hangoutId : report.hangoutId,
+      createdAt : new Date(),
+      read:[actor._id],
+      action : 'reported',
+      matter : matter,
+      icon : 'fa-exclamation-circle',
+      type : 'reported hangout'
+    }
+
+    Notifications.insert(notification);
+    return true;
   }
 
 });
