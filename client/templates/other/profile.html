@@ -5,12 +5,14 @@
      <div class="row">
 
         <div class="col-md-6">
+          {{#with userInfo}}
            <div class="col-md-3">
-            <img src="{{user.user_info.profile.image_192}}" class="img-circle" alt="profile image"/>
+            <img src="{{#if user_info.profile.image_192 }} {{user_info.profile.image_192}} {{else}} {{profile.gravatar}} {{/if}}" class="img-circle" alt="profile image"/>
            </div>
            <div class="col-md-9">
-            <h3>{{user.user_info.name}}</h3>
+            <h3>{{#if user_info.name}}{{user_info.name}}{{else}}{{profile.name}}{{/if}}</h3>
            </div>
+           {{/with}}
         </div>
 
         <div class="col-md-6">

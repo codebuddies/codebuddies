@@ -24,7 +24,7 @@ Meteor.startup(function() {
 
       var password = Random.secret([9]);
       var id = Accounts.createUser({
-        username : "root",
+        username : Meteor.settings.root_username,
         email : Meteor.settings.root_email,
         password : password
       })
@@ -63,6 +63,7 @@ var getUserIdentity = function(user) {
 }
 
 Accounts.onCreateUser(function(options, user) {
+  console.log("user",user);
   //setting user role on first sign in
   if(Meteor.users.find().count()!==0)
   Roles.setRolesOnUserObj(user, ['user']);
@@ -85,7 +86,19 @@ Accounts.onCreateUser(function(options, user) {
     user.profile = profile_info;
 
     return user;
+  }else if(Meteor.settings.root_username === user.username &&  Meteor.settings.root_email === user.emails[0].address ){
+    var profile_info = {
+      name:user.username,
+      gravatar : Meteor.settings.root_gravatar,
+    }
+    var user_info = {
+      profile:{email:options.email}
+    }
+    user.user_info = user_info;
+    user.statusMessage = '';
+    user.statusDate = '';
+    user.statusHangout = '';
+    user.profile = profile_info;
+    return user;
   }
-
-  return user;
 });

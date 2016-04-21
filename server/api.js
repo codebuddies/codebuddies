@@ -5,7 +5,7 @@ Meteor.methods({
 
     if (userId != '') {
       var user = Meteor.users.findOne({_id: userId});
-      return user.user_info.profile.image_192 || "/images/logo.png";
+      return user.user_info.profile.image_192 || user.profile.gravatar;
     } else {
       return '';
     }
@@ -14,15 +14,16 @@ Meteor.methods({
 
   getUserDetails : function(userId){
     check(userId, String);
-    return Meteor.users.findOne({_id:userId});
+    return Meteor.users.findOne({_id:userId},{fields: { emails: 1, profile: 1, roles: 1, user_info: 1}});
   },
 
   getUserCount: function() {
     return Meteor.users.find().count();
   },
 
-  getHangoutsJoinedCount: function() {
-    return Hangouts.find({users:{$elemMatch:{$eq:this.userId}},'visibility':{$ne:false}}).count();
+  getHangoutsJoinedCount: function(userId) {
+    check(userId, String);
+    return Hangouts.find({users:{$elemMatch:{$eq:userId}},'visibility':{$ne:false}}).count();
   },
 
   emailHangoutUsers: function(hangoutId) {
@@ -233,11 +234,13 @@ Meteor.methods({
       description: String,
       type: String
     }));
+
     var user = Meteor.users.findOne({_id: data.user_id});
     var user_email = user.user_info.profile.email;
     Hangouts.insert({
       user_id: data.user_id,
       topic: data.topic,
+      creator: user.profile.name,
       description: data.description,
       start: data.start,
       end: data.end,
