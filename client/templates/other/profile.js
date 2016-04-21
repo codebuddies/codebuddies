@@ -11,11 +11,8 @@ Template.profile.onCreated(function(){
 });
 
 Template.profile.helpers({
-  profileImage: function() {
-    return ReactiveMethod.call('userProfileImage', Meteor.userId());
-  },
-  username: function() {
-    return ReactiveMethod.call('getUserName', Meteor.userId());
+  user: function() {
+		return ReactiveMethod.call('getUserDetails',FlowRouter.getParam('userId'));
   },
   hangoutsJoinedCount: function() {
   	var totalHangoutsJoined = Session.get('hangoutsJoinedCount');

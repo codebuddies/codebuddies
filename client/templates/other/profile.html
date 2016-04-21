@@ -6,15 +6,15 @@
 
         <div class="col-md-6">
            <div class="col-md-3">
-            <img src="{{profileImage}}" class="img-circle" alt="profile image"/>
+            <img src="{{user.user_info.profile.image_192}}" class="img-circle" alt="profile image"/>
            </div>
            <div class="col-md-9">
-            <h3>{{username}}</h3>
+            <h3>{{user.user_info.name}}</h3>
            </div>
         </div>
 
         <div class="col-md-6">
-          
+
         </div>
 
       </div><!--row-->
@@ -22,7 +22,7 @@
     </div> <!-- close container -->
   </section> <!-- close profile-top -->
   <section class="profile-middle">
-     
+
      <div class="row">
 
         <div class="col-md-6 profile-hangouts-completed">
@@ -46,11 +46,7 @@
 
     </div><!--row-->
 
-    
+
   </section> <!-- close profile-top -->
 </div>
 </template>
-
-
-
-

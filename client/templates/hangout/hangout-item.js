@@ -32,10 +32,6 @@ Template.hangoutItem.helpers({
       return 'fa-users text-success-color';
     }
   },
-  host: function(hangout) {
-    var user = ReactiveMethod.call('getUserName', hangout.user_id);
-    return user;
-  },
   getDate: function(hangout) {
     var tz = TimezonePicker.detectedZone();
     //console.log('getDate tz: ' + tz);

@@ -11,7 +11,7 @@
           <span class="icon-bar"></span>
         </button>
         {{#unless isInRole 'admin'}}
-          <a class="navbar-brand" href="{{pathFor 'admin'}}"><img width="35" src="/images/logo.png"> CodeBuddies 2.0 Beta</a>
+          <a class="navbar-brand" href="{{pathFor 'dashboard'}}"><img width="35" src="/images/logo.png"> CodeBuddies 2.0 Beta</a>
         {{else}}
           <a class="navbar-brand" href="{{pathFor 'dashboard'}}"><img width="35" src="/images/logo.png"> CodeBuddies 2.0 Beta</a>
         {{/unless}}
@@ -19,9 +19,6 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="cb2-navbar-collapse">
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="{{pathFor 'stats'}}"><i class="fa fa-line-chart" aria-hidden="true"></i></a></li>
-          <li><a href="{{pathFor 'manage user'}}"><i class="fa fa-cogs" aria-hidden="true"></i></a></li>
-          <li><a href="{{pathFor 'notifications'}}"><i class="fa fa-bell" aria-hidden="true"></i></a></li>
           {{> loginButtons align="right"}}
         </ul>
       </div>

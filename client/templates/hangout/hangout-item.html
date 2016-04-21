@@ -20,7 +20,7 @@
 
 
           {{topic}}</a>
-        {{#if isHost}}
+        {{#if hangoutOwner user_id}}
         <div class="btn btn-default delete-hangout">
           <i class="fa fa-trash-o"></i>
         </div>
@@ -32,7 +32,7 @@
       <ul class="status">
         <li><i class="fa {{getType type}}"></i></li>
         <li>
-          <label>host <a href="/profile/{{host this}}">{{host this}}</a> {{getDate this}}
+          <label>host <a href="/profile/{{creator}}/{{user_id}}">{{creator}}</a> {{getDate this}}
             {{#if currentUser}}| <a class="clone-hangout">Copy</a>{{/if}}
             {{#unless hangoutOwner user_id}}| <a class="report-hangout">Report</a>{{/unless}}
           </label></li>
