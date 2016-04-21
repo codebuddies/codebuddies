@@ -47,10 +47,10 @@ Meteor.publish("allUsers", function () {
 
   return this.ready();
 });
-Meteor.publish("allNotifications", function () {
+Meteor.publish("allNotifications", function (limit) {
 
   if (Roles.userIsInRole(this.userId, ["admin","moderator"])) {
-    return Notifications.find({},{sort: {createdAt: -1}});
+    return Notifications.find({},{sort: {createdAt: -1}},{limit:limit});
   }
 
   return this.ready();

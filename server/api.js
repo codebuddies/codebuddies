@@ -375,6 +375,10 @@ Meteor.methods({
 
     Notifications.insert(notification);
     return true;
+  },
+
+  notificationCount : function(){
+    return Notifications.find({'read':{$ne:this.userId}}).count();
   }
 
 });

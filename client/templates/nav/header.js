@@ -1,14 +1,9 @@
-Template.header.onCreated(function(){
-  this.subscribe("allNotifications");
-});
-
-
 Template.header.helpers({
   user: function() {
     return Meteor.user();
   },
   notificationCount:function(){
-      return Notifications.find({'read':{$ne:Meteor.userId()}}).count();
+    return ReactiveMethod.call('notificationCount');
   }
 });
 
