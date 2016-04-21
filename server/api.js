@@ -88,6 +88,7 @@ Meteor.methods({
       type: data.type,
       users: [ data.user_id ],
       email_addresses: [ data.email ],
+      reminder_sent: false,
       timestamp: new Date()
     });
     // create slack message to channel
@@ -231,14 +232,16 @@ Meteor.methods({
     check(data, Match.ObjectIncluding({
       user_id: String,
       topic: String,
+      username: String,
       description: String,
       type: String
     }));
 
     var user = Meteor.users.findOne({_id: data.user_id});
     var user_email = user.user_info.profile.email;
-    Hangouts.insert({
+    var hangout_id = Hangouts.insert({
       user_id: data.user_id,
+      creator:data.username,
       topic: data.topic,
       creator: user.profile.name,
       description: data.description,
@@ -247,8 +250,44 @@ Meteor.methods({
       type: data.type,
       users: [ data.user_id ],
       email_addresses: [ user_email ],
+      reminder_sent: false,
       timestamp: new Date()
     });
+     // create slack message to channel
+    var tz = "America/Los_Angeles";
+    var host = data.username;
+    var hangout_type = data.type;
+    var hangout_topic = data.topic;
+    var hangout_desc = data.description;
+    var hangout_url = Meteor.absoluteUrl('hangout'); // http://<ROOT_URL>/hangout/<hangout_id>
+    var start_time = moment(data.start).tz(tz).format('MMMM Do YYYY, h:mm a z');
+      var data = {
+      attachments: [
+        {
+          fallback: 'A new hangout has been scheduled. Visit' + Meteor.absoluteUrl() + '',
+          color: '#1e90ff',
+          pretext: `A new *${hangout_type}* hangout has been scheduled by <@${host}>!`,
+          title: `${hangout_topic}`,
+          title_link: `${hangout_url}/${hangout_id}`,
+          mrkdwn_in: ['text', 'pretext', 'fields'],
+          fields: [
+            {
+              title: 'Description',
+              value: `_${hangout_desc}_`,
+              short: true
+            },
+            {
+              title: 'Date',
+              value: `${start_time}`,
+              short: true
+            }
+            ]
+        }
+        ]
+    }
+    // send Slack message to default channel (configured in Meteor settings)
+    /* global hangoutAlert from /lib/functions.js */
+    hangoutAlert(data);
     return true;
   },
 
