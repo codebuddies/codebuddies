@@ -170,7 +170,7 @@ Meteor.methods({
             var notification = {
               actorId : actor._id,
               actorUsername : actor.username || actor.user_info.name,
-              subjectId : data.hangoutId,
+              subjectId : data.hostId,
               subjectUsername : data.hostUsername,
               hangoutId : data.hangoutId,
               createdAt : new Date(),
@@ -228,7 +228,7 @@ Meteor.methods({
       var notification = {
         actorId : actor._id,
         actorUsername : actor.username || actor.user_info.name,
-        subjectId : data.hangoutId,
+        subjectId : data.hostId,
         subjectUsername : data.hostUsername,
         hangoutId : data.hangoutId,
         createdAt : new Date(),
