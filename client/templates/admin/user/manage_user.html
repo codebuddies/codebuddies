@@ -1,12 +1,12 @@
 <template name="manageUser">
   <div class="page-header">
-    <h3>Manage User</h3>
+    <h3>Manage Users</h3>
   </div>
 
   <div class="col-md-12">
     <ul class="nav nav-tabs">
-      <li role="presentation"><a href="{{pathFor 'user by role'}}/moderator">Moderator</a></li>
-      <li role="presentation"><a href="{{pathFor 'user by role'}}/volunteer">Volunteer</a></li>
+      <li role="presentation"><a href="{{pathFor 'user by role'}}/moderator">Moderators</a></li>
+      <li role="presentation"><a href="{{pathFor 'user by role'}}/volunteer">Volunteers</a></li>
       <li role="presentation"><a href="{{pathFor 'user by role'}}/inactive">Inactive</a></li>
       <form class="navbar-form navbar-right" role="search">
          <div class="form-group">
@@ -28,7 +28,7 @@
               <div class="panel-body">
 
                 <div class="col-md-2">
-                  <img src="{{user_info.profile.image_72}}" alt="avtar" />
+                  <img src="{{user_info.profile.image_72}}" alt="avatar" />
                 </div>
                 <div class="col-md-10">
                   Name : {{#if user_info.real_name}} {{user_info.real_name}} {{else}} <i>Not-specified</i>{{/if}}<br>
