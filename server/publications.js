@@ -55,3 +55,6 @@ Meteor.publish("allNotifications", function (limit) {
 
   return this.ready();
 });
+Meteor.publish(null, function(argument){
+  return Meteor.users.find({_id:this.userId},{fields:{user_info:1}});
+});
