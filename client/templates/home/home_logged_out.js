@@ -15,5 +15,20 @@ Template.homeLoggedOut.onCreated(function(){
     Modal.show('joinInfo');
   });
 
+  $(function() {
+  		$('.hangout-details').hide();
+		$('.hangout-card').hover(function() {
+     		 $('.hangout-details').show();
+     		 $('.hangout-image').hide();
+     		 $(this).addClass('shadow-effect');
+  		}, function(){
+      		$('.hangout-details').hide();
+     		 $('.hangout-image').show();
+     		 $(this).removeClass('shadow-effect');
+ 		 });
+   });
+
 
 };
+
+

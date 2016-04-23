@@ -2,22 +2,25 @@
 <div class="section home-top">
 	<div class="container">
 	  <div class="row">
-        <div class="col-md-5">
-        	<h2>Need help or want to chat about code?</h2>
-        	<p class="intro">Our community spends a lot of time helping each other 
-        	on our <strong>Slack chatroom</strong>!</p>
+        <div class="col-md-12">
 
-        	<a href="http://codebuddiesmeet.slack.com" target="_blank"><button class="btn btn-slack">Enter the <img src="/images/slack-icon.png"><b>Slack</b> chatroom</button></a>
-        	<p class="footnote">If you don't have a CodeBuddies Slack account, <a href="http://codebuddiesmeet.herokuapp.com" target="_blank">sign up here.</a></p>
+          <div id="intro">
+        	<h2>Learn and chat about code!</h2>
+        	<p class="intro">CodeBuddies is a community of code learners who help each other through conversations on <strong>Slack</strong> and scheduled <strong>Google Hangouts</strong>.</p>
+            <div id="join-slack">
+              <input type="text" placeholder="Your email address" class="form-control">
+              <button class="btn btn-slack-join">Join <img src="/images/slack-icon.png"> {{_ "slack_title"}}</button>
+            </div>
 
-        	<div class="slack-note">
-        		<p>Don't know what Slack is? You're missing out, buddy!
-        		Don't worry, we've got you covered. <a href="https://get.slack.help/hc/en-us/articles/218080037-Getting-started-for-new-users" target="_blank">Learn more here.</a></p>
-        	</div>
+
+
+          </div>
+
+          <img src="/images/slack-window.png" id="slack-screenshot">
+
+       
        </div>
-       <div class="col-md-7">
-       		<img src="http://codebuddies.org/images/slack-window.png" id="slack-screenshot">
-       </div>
+      
       </div>
     </div>
 </div>
@@ -27,20 +30,39 @@
 	<div class="container">
 	  <div class="row">
         <div class="col-md-6 col-centered align-center">
-        	<h2>We also have study hangouts</h2>
+        	<h2>Community-organized hangouts</h2>
 				<p>We've discovered that joining a pre-scheduled (or spontaneously scheduled) screen-sharing Google Hangout is a fun way to learn a programming or web development skill quicker.</p>
         </div>
       </div>
      <div class="row" style="margin: 40px 0;">
        <div class="col-md-4 align-center">
+        <div id="card-silent" class="hangout-card">
        		<h3><i class="fa fa-microphone-slash text-danger-color type"></i> Silent Hangout</h3>
+
+          <img src="/images/illustration-silent.png" class="hangout-image">
+          <div class="hangout-details">
+            <i class="fa fa-microphone-slash"></i>
+            <table>
+            <tr>
+              <td class="left">Video</td>
+              <td>OFF</td>
+            </tr>
+            <tr>
+              <td class="left">Microphone</td>
+              <td>OFF</td>
+            </tr>
+            <tr>
+              <td class="left">Screenshare</td>
+              <td>ON</td>
+            </tr>
+
+            </table>
+          </div>
        		<p>Create a silent hangout to motivate yourself to get through a tutorial with others who are learning from the same tutorial, or create one for a fun silent coworking experience.
-       		<br />
-       		<i class="mdi mdi-camcorder-off text-danger-color"></i>
-       		<i class="fa fa-microphone-slash text-danger-color type"></i>
-       		<br />
-       		<span class="off-on">Video <strong>OFF</strong>, microphone <strong>OFF</strong>, screensharing optional.</span>
+       		
+       	
        		</p>
+        </div>
        </div>
        <div class="col-md-4 align-center">
        		<h3><i class="fa fa-user text-warning-color type"></i> Teaching Hangout</h3>

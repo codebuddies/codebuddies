@@ -5,7 +5,7 @@
 
   //home
   "jumbotron_subtitle": "We're __count__ people who help each other by sharing knowledge",
-
+  "slack_title": "Slack chatroom",
   //profile page
   "send_profile_message": "Send __username__ a message",
 
