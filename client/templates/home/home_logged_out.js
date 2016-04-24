@@ -26,9 +26,22 @@ Template.homeLoggedOut.onCreated(function(){
      		 $(this).find('.hangout-image').show();
      		 $(this).removeClass('shadow-effect');
  		 });
+
+    $('span.slack-text').text('Get Slack Invite');
    });
 
 
 };
+
+
+Template.homeLoggedOut.events({
+  'click .signIn': function(event) {
+    var options = {
+      requestPermissions: ['identify', 'users:read']
+    };
+    Meteor.loginWithSlack(options);
+  }
+});
+
 
 

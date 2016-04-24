@@ -56,24 +56,30 @@
       line-height: 27px;
     }
     img#slack-screenshot {
-      width: 79%;
       @include box-shadow(0px, 12px, 60px, rgba(0,0,0,0.8));
       @include border-top-radius(10px);
-      display: block;
+    }
+    .slack-window {
+      width: 79%;
       margin: 0 auto;
+    }
+    .slack-invite {
+      color: white;
+      font-size: 11px;
     }
     #intro {
       text-align: center;
-      max-width: 500px;
+      max-width: 530px;
       margin: 0 auto;
       margin-bottom: 40px;
-      input { width: 224px;}
-      #join-slack {
+      .join-slack {
         overflow: auto;
-        width: 430px;
+        width: 440px;
         margin: 0 auto;
         input { float: left;}
         button { float: right;}
+        p { @include font-face(200, 13px, normal, $bg-white); line-height: 1.9;}
+        a { text-decoration: underline; color: #fff;}
       }
     }
     .intro {
@@ -185,9 +191,20 @@
     background: $bg-lightgrey;
     h3 {@include font-face(700, 18px, bold, $primary-grey);}
     p { padding: 20px 0;}
+    padding-bottom: 100px;
   }
   .home-ask { 
-
+    h2 { text-align: center;}
+     .join-slack {
+        text-align: center;
+        overflow: auto;
+        width: 440px;
+        margin: 50px auto;
+        input { float: left;}
+        button { float: right;}
+        p { @include font-face(200, 13px, normal, $bg-white); line-height: 1.9;}
+        a { text-decoration: underline; color: #fff;}
+      }
   }
 
 

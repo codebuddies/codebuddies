@@ -6,18 +6,22 @@
 
           <div id="intro">
         	<h2>Learn and chat about code!</h2>
-        	<p class="intro">CodeBuddies is a community of code learners who help each other through conversations on <strong>Slack</strong> and scheduled <strong>Google Hangouts</strong>.</p>
-            <div id="join-slack">
-              <input type="text" placeholder="Your email address" class="form-control">
-              <button class="btn btn-slack-join">Join <img src="/images/slack-icon.png"> {{_ "slack_title"}}</button>
+        	<p class="intro">CodeBuddies is a community of <strong>1400+</strong> code learners who help each other through conversations on <strong>Slack</strong> and scheduled <strong>Google Hangouts</strong>.</p>
+            <div class="join-slack">
+              <div class="slack-invite">
+              <script async defer src="https://codebuddiesmeet.herokuapp.com/slackin.js?large"></script>
+              </div>
+              <p>Already have an account with us? <a href="#" class="signIn">Sign in.</a>
+              <br />Select <strong>CodeBuddies</strong> or sign into the team <strong>codebuddiesmeet</strong>.slack.com</p>
             </div>
 
 
 
           </div>
 
+          <div class="slack-window">
           <img src="/images/slack-window.png" id="slack-screenshot">
-
+          </div>
 
        </div>
 
@@ -149,7 +153,7 @@
           <p>CodeBuddies welcomes code learners from all levels. Our friendly and inclusive community is always happy to help each other learn.</p>
 
           <h3>What is the CodeBuddies Slack chatroom?</h3>
-          <p>The CodeBuddies Slack chatroom has 80+ channels and each channel has conversations about a specific topic (e.g. #html-css, #javascript, #interview-practice, #ruby-on-rails, #python, #personal-projects)</p>
+          <p>The CodeBuddies Slack chatroom has 80+ channels and each channel has conversations about a specific topic (e.g. #javascript, #interview-practice, #advice)</p>
 
           <h3>Is this free?</h3>
           <p>Yep.</p>
@@ -164,6 +168,7 @@
 
           <h3>How long are the hangouts?</h3>
           <p>As a hangout host, you get to set the duration of your hangout.</p>
+          <br />
 
 
           <h3>Why should I join CodeBuddies?</h3>
@@ -172,19 +177,23 @@
         </div>
     </div>
    </div>
+   </div>
 
    <div class="section home-ask">
   <div class="container">
     <div class="row">
         <div class="col-md-12">
             <h2>Start learning with us now!</h2>
-            <div id="join-slack">
-              <input type="text" placeholder="Your email address" class="form-control">
-              <button class="btn btn-slack-join">Join <img src="/images/slack-icon.png"> {{_ "slack_title"}}</button>
+            <div class="join-slack">
+              <div class="slack-invite">
+              <script async defer src="https://codebuddiesmeet.herokuapp.com/slackin.js?large"></script>
+              </div>
+              <p>Already have an account with us? <a href="#" class="signIn">Sign in.</a>
+              <br />Select <strong>CodeBuddies</strong> or sign into the team <strong>codebuddiesmeet</strong>.slack.com</p>
             </div>
         </div>
         </div>
         </div>
         </div>
-</div>
+
 </template>

@@ -17,11 +17,7 @@
         <ul class="nav navbar-nav navbar-right">
           <li><a href="{{pathFor 'about'}}">{{_ "about"}} <span class="sr-only">(current)</span></a></li>
           <li><a href="{{pathFor 'faq'}}">{{_ "faq"}}</a></li>
-          <li>
-            <a href="#" onclick="return false">
-              <script async defer src="https://codebuddiesmeet.herokuapp.com/slackin.js"></script>
-            </a>
-          </li>
+     
           {{#if currentUser}}
           <li id="user-drop-down" class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
