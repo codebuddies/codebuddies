@@ -3,16 +3,13 @@
   &.logged-in { margin-top: 50px; }
 
   .heading  {
-
     @include font-face(700, 32px, bold, $primary-grey);
     text-align: center;
 
     .title {
       margin: 10px 0 20px 0;
     }
-
   }
-
   .question {
     @include font-face(400, 13px, italic, $warm-grey);
     margin-top: -5px;
@@ -152,9 +149,18 @@
   }
 
   .home-psst {
-    background: $bg-white;
+    background: $bg-lightgrey;
     padding: 50px;
     @include font-face(400, 16px, normal, $primary-grey);
+    p { line-height: 27px;}
+    #intro {
+      h3 {@include font-face(600, 24px, bold, $primary-grey);}
+      text-align: center;
+      max-width: 550px;
+      margin: 0 auto;
+      margin-bottom: 40px;
+    }
+
   }
 
 
