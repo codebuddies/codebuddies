@@ -34,8 +34,7 @@ Template.hangoutItem.helpers({
     //console.log('getDate hangout.end: '+ hangout.end);
     //console.log('getDate this.timestamp' + this.timestamp);
     //console.log('getDate this.end' + this.end)
-    return ' | ' +
-      moment(hangout.start).tz(tz).format('MMMM Do YYYY, h:mm a z') +
+    return moment(hangout.start).tz(tz).format('MMMM Do YYYY, h:mm a z') +
       ' - ' +
       moment(hangout.end).tz(tz).format('MMMM Do h:mm a z') +
       ' | ' +
@@ -55,6 +54,9 @@ Template.hangoutItem.helpers({
     //return reactiveDate.nowMinutes.get() > hangout.start && reactiveDate.nowMinutes.get() < hangout.end;
 
   },
+  completed: function(hangout) {
+        return reactiveDate.nowMinutes.get() > hangout.end;
+  },
   isJoined: function() {
     return this.users.indexOf(Meteor.userId()) != -1;
   },
@@ -62,7 +64,16 @@ Template.hangoutItem.helpers({
   isHost: function() {
     return this.user_id === Meteor.userId();
   },
+  upcomingTime: function(hangout) {
+    var startDate = new Date(hangout.start);
+    var currentDate = new Date();
+    if (startDate > currentDate) {
+          return TAPi18n.__("upcoming_time", {
+          time: moment(startDate).fromNow()
+        });
+    }
 
+  },
   getIsDone: function(hangout) {
     var currentDate = new Date();
     //console.log('getIsDone currentDate:' + currentDate);
