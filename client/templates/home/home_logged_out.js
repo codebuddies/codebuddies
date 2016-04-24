@@ -18,12 +18,12 @@ Template.homeLoggedOut.onCreated(function(){
   $(function() {
   		$('.hangout-details').hide();
 		$('.hangout-card').hover(function() {
-     		 $('.hangout-details').show();
-     		 $('.hangout-image').hide();
+     		 $(this).find('.hangout-details').show();
+     		 $(this).find('.hangout-image').hide();
      		 $(this).addClass('shadow-effect');
   		}, function(){
-      		$('.hangout-details').hide();
-     		 $('.hangout-image').show();
+      		$(this).find('.hangout-details').hide();
+     		 $(this).find('.hangout-image').show();
      		 $(this).removeClass('shadow-effect');
  		 });
    });
