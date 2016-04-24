@@ -1,4 +1,6 @@
 #home {
+  
+  p { line-height: 27px; color: $primary-grey; }
 
   &.logged-in { margin-top: 50px; }
 
@@ -42,7 +44,7 @@
     }
   }
 
-  .home-top {
+  .home-top, .home-ask {
     padding: 50px 0 0 0;
     background: dodgerblue;
     overflow: hidden;
@@ -112,7 +114,7 @@
       position: relative;
       @include border-radius(10px);
       h3 {
-        @include font-face(600, 20px, bold, $primary-grey);
+        @include font-face(700, 20px, bold, $primary-grey);
         margin: 40px 0 0 0;
       }
       p {
@@ -162,7 +164,7 @@
 
   .home-psst {
     background: $bg-lightgrey;
-    padding: 50px;
+    padding: 50px 50px 0px 50px;
     @include font-face(400, 16px, normal, $primary-grey);
     p { line-height: 27px;}
     #intro {
@@ -173,6 +175,14 @@
       margin-bottom: 40px;
     }
 
+  }
+  .home-faq {
+    background: $bg-white;
+    text-align: left;
+    h2 { text-align: center; margin: 100px 0;}
+    background: $bg-lightgrey;
+    h3 {@include font-face(700, 18px, bold, $primary-grey);}
+    p { padding: 20px 0;}
   }
 
 
