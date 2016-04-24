@@ -1,11 +1,14 @@
 <template name="hangout">
-  <div id="about" class="container">
+  <div id="post" class="container">
     <div class="row">
       <div class="col-md-10 col-md-offset-1">
-        {{#if isReady}}
+        {{#if hangout}}
           {{#with hangout}}
             <div class="panel panel-default">
               <div class="panel-heading">
+              <div class="row">
+
+              <div class="col-md-12">
                 <h4>
                     {{#if equals visibility false}}
                       <span class="label label-pill label-danger">DELETED</span>
@@ -23,18 +26,61 @@
 
                 </h4>
 
+                <p class="status">
+                  <label><i class="fa {{getType type}}"></i>
+                  host <a href="/profile/{{creator}}/{{user_id}}">{{creator}}</a>
+                    <br /><i class="fa fa-clock-o fa-lg"></i> {{getDate this}}
+
+                   </label>
+                 </p>
+              </div> <!--col-md-12-->
+            </div><!--row-->
+            </div><!--panel-heading-->
+
+            <div class="panel-body">
+              <div class="col-md-2">
+
+                {{# unless completed this }}
+
+                  {{#if isInProgress this}}
+                    {{#if isJoined}}
+                      <button class="btn btn-success">Launch</button>
+                    {{else}}
+                      {{# unless getIsDone this}}
+                        <button id="join-hangout" class="btn btn-cb2">{{_ "join_in_session"}}</button>
+                      {{/unless}}
+                    {{/if}}
+                  {{else}}
+                    {{#if isJoined}}
+                      <p class="upcoming">{{upcomingTime this}}</p>
+                      <a id="leave-hangout" class="align-center">{{_ "leave"}}</a>
+                    {{else}}
+                      {{# unless getIsDone this}}
+                        <button id="join-hangout" class="btn btn-cb2">{{_ "join"}}</button>
+                      {{/unless}}
+                    {{/if}}
+                  {{/if}}
+
+                {{else}}
+                    <p class="completed">{{getIsDone this}}</p>
+                {{/unless}}
               </div>
-              <div class="panel-body">
-                {{description}}
+              <div class="col-md-10">
+                  {{description}}
               </div>
-              <div class="panel-footer">
-                {{#each users}}
-                  {{> hangoutUser this}}
-                {{/each}}
-              </div>
+
             </div>
+
+            <div class="panel-footer">
+              {{#each users}}
+                {{> hangoutUser this}}
+              {{/each}}
+            </div>
+          </div> <!--panel panel-default-->
             {{else}}
+
                 {{> hangoutNotFound}}
+
           {{/with}}
         {{else}}
           {{> loading}}

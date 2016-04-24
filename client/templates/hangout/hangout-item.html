@@ -1,62 +1,62 @@
 <template name="hangoutItem">
   <div class="hangout-item">
-    <div class="col-md-12">
-      <div class="col-md-3 completed">
-        <span>{{getIsDone this}}</span>
+    <div class="row">
+
+      <div class="col-md-12">
+        <label class="name">
+        {{#if isInProgress this}}
+          &nbsp; &nbsp;<i class="fa fa-dot-circle-o fa text-danger faa-burst animated"></i> &nbsp;
+        {{/if}}
+          <a href="/hangout/{{_id}}" class="hangout-topic"> {{topic}}</a>
+        </label>
+        {{> hangoutActionBar}}
+      </div>
+
+      <div class="col-md-2">
 
         {{#if equals visibility false}}
           <span class="label label-pill label-danger">DELETED</span>
         {{else}}
-          {{#if isInProgress this}}
-              <!--<div id="placeholder-div-{{_id}}"></div>-->
-              <i class="fa fa-dot-circle-o fa text-danger faa-burst animated"></i> &nbsp;
 
-          {{/if}}
-        {{/if}}
-      </div>
-      <div class="col-md-7">
-        <label class="name">
-          <a href="/hangout/{{_id}}" class="hangout-topic">
+          {{# unless completed this }}
 
+            {{#if isInProgress this}}
 
-          {{topic}}</a>
-        {{#if hangoutOwner user_id}}
-        <div class="btn btn-default delete-hangout">
-          <i class="fa fa-trash-o"></i>
-        </div>
-        <div class="btn btn-default edit-hangout">
-          <i class="fa fa-pencil-square-o"></i>
-        </div>
-        {{/if}}
-      </label>
-      <ul class="status">
-        <li><i class="fa {{getType type}}"></i></li>
-        <li>
-          <label>host <a href="/profile/{{creator}}/{{user_id}}">{{creator}}</a> {{getDate this}}
-            {{#if currentUser}}| <a class="clone-hangout">Copy</a>{{/if}}
-            {{#unless hangoutOwner user_id}}| <a class="report-hangout">Report</a>{{/unless}}
-          </label></li>
-      </ul>
-    </div>
-    <div class="col-md-2 text-center">
-      {{#if isInProgress this}}
-        {{#if isJoined}}
-          <button id="leave-hangout" class="btn btn-circle btn-success"><i class="fa fa-check-circle"></i></button>
-        {{else}}
-          {{# unless getIsDone this}}
-            <button id="join-hangout" class="btn btn-cb2">{{_ "join_in_session"}}</button>
+              {{#if isJoined}}
+                <button class="btn btn-cb2 btn-success">Launch</button>
+              {{else}}
+                {{# unless getIsDone this}}
+                  <button id="join-hangout" class="btn btn-cb2">{{_ "join_in_session"}}</button>
+                {{/unless}}
+              {{/if}}
+
+            {{else}}
+
+              {{#if isJoined}}
+                <p class="upcoming">{{upcomingTime this}}</p>
+                <a id="leave-hangout" class="align-center">{{_ "leave"}}</a>
+              {{else}}
+
+                {{# unless getIsDone this}}
+                  <button id="join-hangout" class="btn btn-cb2">{{_ "join"}}</button>
+                {{/unless}}
+
+              {{/if}}
+
+            {{/if}}
+          {{else}}
+            <p class="completed">{{getIsDone this}}</p>
           {{/unless}}
-        {{/if}}
-      {{else}}
-        {{#if isJoined}}
-          <button id="leave-hangout" class="btn btn-circle btn-success"><i class="fa fa-check-circle"></i></button>
-        {{else}}
-          {{# unless getIsDone this}}
-            <button id="join-hangout" class="btn btn-cb2">{{_ "join"}}</button>
-          {{/unless}}
-        {{/if}}
-      {{/if}}
+
+        {{/if}} <!-- if equals visibility false -->
+
     </div>
+
+    <div class="col-md-10">
+      <p class="status"><label><i class="fa {{getType type}}"></i> Host <a href="/profile/{{creator}}/{{user_id}}">{{creator}}</a></label></p>
+      <p class="status"><label><i class="fa fa-clock-o fa-lg"></i> {{getDate this}} </label></p>
+    </div>
+
   </div>
   </div>
 </template>

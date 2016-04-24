@@ -77,14 +77,17 @@
   height: 36px;
   background-color: $cta-blue;
   @include font-face(700, 16px, bold, $bg-white);
-
+  display: block;
+  margin: 0 auto;
   &:hover {
-    color: #66B3FF;
+    color: #bg-white;
   }
 
   &:focus {
     color: $bg-white;
   }
+  
+  &.btn-success {background: #5cb85c;}
 
 }
 
