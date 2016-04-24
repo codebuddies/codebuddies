@@ -56,7 +56,7 @@
       @include font-face(200, 16px, normal, $bg-white);
       line-height: 27px;
     }
-    img#slack-screenshot { 
+    img#slack-screenshot {
       width: 100%;
       @include box-shadow(0px, 12px, 60px, rgba(0,0,0,0.8));
       @include border-top-radius(10px);
@@ -75,14 +75,14 @@
         button { float: right;}
       }
     }
-    .intro { 
+    .intro {
       margin: 40px 0;
     }
     .footnote {
       @include font-face(200, 12px, normal, $bg-white);
       a {color: $bg-white; text-decoration: underline;}
     }
-    .slack-note { 
+    .slack-note {
     @include breakpoint(medium) { margin-top: 70px; max-width: 300px; }
       line-height: 16px;
       p {
@@ -108,18 +108,18 @@
     .middle-bottom { top: 10%; h2 { margin-bottom: 50px;}}
 
     .shadow-effect {
-      @include box-shadow(0px, 12px, 60px, rgba(0,0,0,0.8));
+      @include box-shadow(0px, 12px, 60px, rgba(0,0,0,0.5));
       border: 2px solid #fff !important;
     }
     %hangout-cards {
       position: relative;
       @include border-radius(10px);
-      h3 { 
+      h3 {
         @include font-face(600, 20px, bold, $primary-grey);
         margin: 40px 0 0 0;
       }
-      p { 
-        padding: 40px 20px;
+      p {
+        padding: 40px 30px;
         @include font-face(400, 13px, normal, $primary-grey);
         line-height: 27px;
         position: absolute;
@@ -134,7 +134,7 @@
         table {
           float: right;
           td.left { font-weight: bold; text-align: left; text-transform: uppercase;}
-          td { 
+          td {
             text-align: right;
             @include font-face(400, 13px, normal, $primary-grey);
             padding: 0px 4px 4px 4px;
@@ -148,6 +148,18 @@
       border: 2px solid $hangout-silent;
       h3 { color: $hangout-silent; }
       table td.left { color: $hangout-silent;}
+    }
+    #card-teach {
+      @extend %hangout-cards;
+      border: 2px solid $hangout-teaching;
+      h3 {color: $hangout-teaching}
+      table td.left { color: $hangout-teaching}
+    }
+    #card-collaborate {
+      @extend %hangout-cards;
+      border: 2px solid $hangout-collab;
+      h3 {color: $hangout-collab}
+      table td.left { color: $hangout-collab}
     }
   }
 
