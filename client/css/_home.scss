@@ -78,7 +78,7 @@
         margin: 0 auto;
         input { float: left;}
         button { float: right;}
-        p { @include font-face(200, 13px, normal, $bg-white); line-height: 1.9;}
+        p { @include font-face(200, 13px, normal, $bg-white); line-height: 1.9; margin-top: 10px;}
         a { text-decoration: underline; color: #fff;}
       }
     }
@@ -102,11 +102,11 @@
 
   .home-middle {
     background: $bg-white;
-    padding: 120px 0 100px 0;
+    padding: 120px 0 60px 0;
     h2 {
       @include font-face(700, 24px, bold, $primary-grey);
     }
-    p { @include font-face(400, 16px, normal, $primary-grey); line-height: 27px; letter-spacing: 0.2px; }
+    p { @include font-face(400, 16px, normal, $primary-grey); line-height: 27px; letter-spacing: 0.2px; margin-top: 40px;}
     h3 {
       @include font-face(600, 17px, bold, $primary-grey);
     }
@@ -174,7 +174,7 @@
     background: $bg-lightgrey;
     padding: 120px 0 50px 0;
     @include font-face(400, 16px, normal, $primary-grey);
-    p { line-height: 27px;}
+    p { line-height: 27px; margin-top: 40px;}
     #intro {
       h3 {@include font-face(600, 24px, bold, $primary-grey);}
       text-align: center;
@@ -193,7 +193,7 @@
     p { padding: 20px 0;}
     padding-bottom: 100px;
   }
-  .home-ask { 
+  .home-ask {
     padding: 60px 0;
     h2 { text-align: center;}
      .join-slack {
@@ -204,7 +204,7 @@
         margin-top: 50px;
         input { float: left;}
         button { float: right;}
-        p { @include font-face(200, 13px, normal, $bg-white); line-height: 1.9;}
+        p { @include font-face(200, 13px, normal, $bg-white); line-height: 1.9; margin-top: 10px;}
         a { text-decoration: underline; color: #fff;}
       }
   }
