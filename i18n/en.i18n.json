@@ -8,6 +8,7 @@
   "slack_title": "Slack chatroom",
   //profile page
   "send_profile_message": "Send __username__ a message",
+  "chat": "Chat",
 
 
   // other pages
