@@ -56,14 +56,15 @@
       line-height: 27px;
     }
     img#slack-screenshot {
-      width: 100%;
+      max-width: 904px;
+      margin-top: 50px;
       @include box-shadow(0px, 12px, 60px, rgba(0,0,0,0.8));
       @include border-top-radius(10px);
     }
     #intro {
       text-align: center;
       max-width: 500px;
-      margin: 0 auto;
+      margin: 50px auto;
       margin-bottom: 40px;
       input { width: 224px;}
       #join-slack {
@@ -91,6 +92,7 @@
       a {color: $bg-white; text-decoration: underline;}
     }
   }
+
 
   .home-middle {
     background: $bg-white;
