@@ -194,12 +194,14 @@
     padding-bottom: 100px;
   }
   .home-ask { 
+    padding: 60px 0;
     h2 { text-align: center;}
      .join-slack {
         text-align: center;
         overflow: auto;
         width: 440px;
-        margin: 50px auto;
+        margin: 0 auto;
+        margin-top: 50px;
         input { float: left;}
         button { float: right;}
         p { @include font-face(200, 13px, normal, $bg-white); line-height: 1.9;}
