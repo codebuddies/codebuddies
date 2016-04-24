@@ -1,5 +1,5 @@
 #home {
-  
+
   p { line-height: 27px; color: $primary-grey; }
 
   &.logged-in { margin-top: 50px; }
@@ -96,7 +96,7 @@
 
   .home-middle {
     background: $bg-white;
-    padding: 120px 0 0 0;
+    padding: 120px 0 100px 0;
     h2 {
       @include font-face(700, 24px, bold, $primary-grey);
     }
@@ -166,7 +166,7 @@
 
   .home-psst {
     background: $bg-lightgrey;
-    padding: 50px 50px 0px 50px;
+    padding: 120px 0 50px 0;
     @include font-face(400, 16px, normal, $primary-grey);
     p { line-height: 27px;}
     #intro {
@@ -186,7 +186,7 @@
     h3 {@include font-face(700, 18px, bold, $primary-grey);}
     p { padding: 20px 0;}
   }
-  .home-ask { 
+  .home-ask {
 
   }
 
