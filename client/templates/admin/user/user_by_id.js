@@ -27,7 +27,15 @@ Template.userById.events({
   "change #authorization": function(event, template){
     var currentAuthorization = template.find('#authorization').value;
     var pastAuthorization =  this.roles[0];
-    Meteor.call("updateRoles",this._id,this.user_info.name,currentAuthorization,pastAuthorization);
-    swal("Done!", "Updated "+ this.user_info.name +"'s access right ", "success")
+    var userId = this._id;
+    var username = this.user_info.name;
+    Meteor.call("updateRoles",this._id,this.user_info.name,currentAuthorization,pastAuthorization, function(error, result) {
+      if (result) {
+        swal("Done!", "Updated "+ username +"'s access right ", "success")
+      }else{
+        swal("Oops something went wrong!", error + "\n Try again", "error");  
+      }
+
+    });
   },
 });

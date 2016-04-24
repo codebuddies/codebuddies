@@ -87,6 +87,8 @@ Meteor.methods({
       type : "role update",
     }
     Notifications.insert(notification);
+
+    return true;
   },
   markAsRead:function(notificationId){
 
