@@ -1,11 +1,39 @@
 <template name="hangout">
-  <div id="about" class="container">
+  <div id="post" class="container">
     <div class="row">
       <div class="col-md-10 col-md-offset-1">
         {{#if isReady}}
           {{#with hangout}}
             <div class="panel panel-default">
               <div class="panel-heading">
+              <div class="row">
+              <div class="col-md-2">
+
+               {{# unless completed this }}
+        
+                      {{#if isInProgress this}}
+                        {{#if isJoined}}
+                          <button class="btn btn-cb2 btn-success">Launch</button>
+                        {{else}}
+                          {{# unless getIsDone this}}
+                            <button id="join-hangout" class="btn btn-cb2">{{_ "join_in_session"}}</button>
+                          {{/unless}}
+                        {{/if}}
+                      {{else}}
+                        {{#if isJoined}}
+                          <p class="upcoming">{{upcomingTime this}}</p>
+                          <a id="leave-hangout" class="align-center">{{_ "leave"}}</a>
+                        {{else}}
+                          {{# unless getIsDone this}}
+                            <button id="join-hangout" class="btn btn-cb2">{{_ "join"}}</button>
+                          {{/unless}}
+                        {{/if}}
+                      {{/if}}
+              {{else}}
+                  <p class="completed">{{getIsDone this}}</p>
+              {{/unless}}
+                </div>
+              <div class="col-md-8">
                 <h4>
                     {{#if isInProgress this}}
                       <div id="placeholder-div-{{_id}}"></div> &nbsp; 
@@ -14,6 +42,16 @@
 
                     {{topic}}
                 </h4>
+
+                      <ul class="status">
+                        <li><label><i class="fa {{getType type}}"></i>
+                        host <a href="/profile/{{host this}}">{{host this}}</a>
+                          <br /><i class="fa fa-clock-o fa-lg"></i> {{getDate this}}
+            
+                         </label></li>
+                       </ul>
+              </div>
+              </div>
               </div>
               <div class="panel-body">
                 {{description}}
