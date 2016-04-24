@@ -14,11 +14,11 @@
 
           {{#if isInRole 'admin,moderator,volunteer'}}
             <li role="separator" class="divider"></li>
-            <li class="edit-hangout"><a href="#">Edit</a></li>
+            <li class="edit-hangout"><a href="#">Edit <span class="label label-info">M</span> </a></li>
           {{/if}}
           {{#if isInRole 'admin,moderator'}}
             <li role="separator" class="divider"></li>
-            <li class="delete-hangout"><a href="#">Delete</a></li>
+            <li class="delete-hangout"><a href="#">Delete <span class="label label-info">M</span> </a></li>
           {{/if}}
 
         {{/if}}
