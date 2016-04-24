@@ -1,5 +1,5 @@
 #home {
-  
+
   p { line-height: 27px; color: $primary-grey; }
 
   &.logged-in { margin-top: 50px; }
@@ -45,7 +45,7 @@
   }
 
   .home-top, .home-ask {
-    padding: 50px 0 0 0;
+    padding: 120px 0 0 0;
     background: dodgerblue;
     overflow: hidden;
     h2 {
@@ -71,8 +71,14 @@
       text-align: center;
       max-width: 530px;
       margin: 0 auto;
+<<<<<<< HEAD
       margin-bottom: 40px;
       .join-slack {
+=======
+      margin-bottom: 80px;
+      input { width: 224px;}
+      #join-slack {
+>>>>>>> da09860c79046c980d88451279968e954cd6d309
         overflow: auto;
         width: 440px;
         margin: 0 auto;
@@ -102,7 +108,7 @@
 
   .home-middle {
     background: $bg-white;
-    padding: 120px 0 0 0;
+    padding: 120px 0 100px 0;
     h2 {
       @include font-face(700, 24px, bold, $primary-grey);
     }
@@ -172,7 +178,7 @@
 
   .home-psst {
     background: $bg-lightgrey;
-    padding: 50px 50px 0px 50px;
+    padding: 120px 0 50px 0;
     @include font-face(400, 16px, normal, $primary-grey);
     p { line-height: 27px;}
     #intro {
