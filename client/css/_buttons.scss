@@ -58,7 +58,7 @@
     padding: 10px 16px;
     font-size: 24px;
     line-height: 1.33;
-    border-radius: 35px;
+    @include border-radius(35px);
   }
 }
 
@@ -67,9 +67,16 @@
   padding: 0 20px 0 20px;
   margin-top: -8px;
   background-color: $bg-white;
-  border: 1px solid #c7cacd;
+  border: 2px solid $cta-blue;
   border-radius: 6px;
   @include font-face(400, 16px, normal, #000000);
+}
+
+.btn-slack-join { 
+    background-color: $bg-white;
+    height: 36px;
+    @include border-radius(6px);
+    @include font-face(400, 16px, normal, $primary-grey);
 }
 
 .btn-cb2 {
@@ -136,3 +143,6 @@
 }
 
 #btn-load-more, #load-more-learnings { margin: 10px 0; color: $cta-blue; &:hover { color: $bg-white; } }
+
+
+
