@@ -4,9 +4,3 @@ Template.about.onCreated(function(){
   DocHead.setTitle(title);
   DocHead.addMeta(metaInfo);
 });
-
-Template.about.rendered = function() {
-  $('#hangout-faq-popup').click(function() {
-    Modal.show('hangoutFAQModal');
-  })
-};

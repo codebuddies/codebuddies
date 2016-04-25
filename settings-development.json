@@ -10,5 +10,8 @@
   "team_id":"T04AQ6GEY",
   "slack_alert_channel": "#cb2-test",
   "slack_alert_username": "CodeBuddies Alerts",
-  "hangout_reminder_interval": "every 1 hour"
+  "hangout_reminder_interval": "every 1 hour",
+  "root_email":"root@example.com",
+  "root_username":"root",
+  "root_gravatar":"http://www.gravatar.com/avatar/"
 }

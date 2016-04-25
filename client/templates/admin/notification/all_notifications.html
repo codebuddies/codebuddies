@@ -1,0 +1,41 @@
+<template name="allNotification">
+  <div id="notification">
+
+
+
+  <div class="page-header">
+    <h3>Notifications</h3>
+  </div>
+
+  {{#if Template.subscriptionsReady}}
+    <div id="flux">
+
+
+    {{#if notifications.count}}
+      {{#each notifications}}
+        {{#if equals type 'reported hangout'}}
+          <p class="alert {{#if hasBeenSeen}}  {{else}} markAsRead alert-info{{/if}}"><i class="fa {{icon}}" aria-hidden="true"> </i> {{#if isActorAdmin actorId}} {{actorUsername}} {{else}} <a href="{{pathFor 'user by id'}}/{{actorId}}"> {{actorUsername}}  </a>  {{/if}} {{action}} <a href="{{pathFor 'user by id'}}/{{subjectId}}"> {{subjectUsername}}'s </a> <a href="{{pathFor 'hangout'}}/{{hangoutId}}"> hangout </a><i> {{matter}}</i> {{dispDate createdAt}} </p>
+        {{/if}}
+        {{#if equals type 'hangout edit'}}
+          <p class="alert {{#if hasBeenSeen}}  {{else}} markAsRead alert-info{{/if}}"><i class="fa {{icon}}" aria-hidden="true"> </i> {{#if isActorAdmin actorId}} {{actorUsername}} {{else}} <a href="{{pathFor 'user by id'}}/{{actorId}}"> {{actorUsername}}  </a>  {{/if}} {{action}} <a href="{{pathFor 'user by id'}}/{{subjectId}}"> {{subjectUsername}}'s </a> <a href="{{pathFor 'hangout'}}/{{hangoutId}}"> hangout </a><i>. </i> {{dispDate createdAt}} </p>
+        {{/if}}
+        {{#if equals type 'hangout delete'}}
+          <p class="alert {{#if hasBeenSeen}}  {{else}} markAsRead alert-info{{/if}}"><i class="fa {{icon}}" aria-hidden="true"> </i> {{#if isActorAdmin actorId}} {{actorUsername}} {{else}} <a href="{{pathFor 'user by id'}}/{{actorId}}"> {{actorUsername}}  </a>  {{/if}} {{action}} <a href="{{pathFor 'user by id'}}/{{subjectId}}"> {{subjectUsername}}'s </a> <a href="{{pathFor 'hangout'}}/{{hangoutId}}"> hangout </a><i>. </i> {{dispDate createdAt}} </p>
+        {{/if}}
+        {{#if equals type 'role update'}}
+          <p class="alert {{#if hasBeenSeen}}  {{else}} markAsRead alert-info{{/if}}"><i class="fa {{icon}}" aria-hidden="true"> </i> {{#if isActorAdmin actorId}} {{actorUsername}} {{else}} <a href="{{pathFor 'user by id'}}/{{actorId}}"> {{actorUsername}}  </a>  {{/if}} {{action}} <a href="{{pathFor 'user by id'}}/{{subjectId}}"> {{subjectUsername}} </a> <i>{{matter}}</i> {{dispDate createdAt}} </p>
+        {{/if}}
+
+      {{/each}}
+
+    {{else}}
+      <h4>There are no notifications.</h4>
+    {{/if}}<!--notifications.count-->
+  </div>
+  {{else}}
+    {{> loading}}
+  {{/if}}<!--Template.subscriptionsReady-->
+
+
+  </div>
+</template>

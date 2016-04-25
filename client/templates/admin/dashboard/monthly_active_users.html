@@ -1,0 +1,14 @@
+<template name="monthlyActiveUsers">
+  <div class="page-header">
+   <h3>Monthly Active Users</h3>
+  </div>
+
+  {{#if users.count}}
+    {{#each users}}
+       {{> singleUser}}
+    {{/each}}
+  {{else}}
+   <h4>There was no activity in the last 30 days.</h4>
+  {{/if}}
+
+</template>

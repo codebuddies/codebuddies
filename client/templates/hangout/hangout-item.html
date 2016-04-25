@@ -1,81 +1,60 @@
 <template name="hangoutItem">
   <div class="hangout-item">
-    <div class="col-md-12">
-      <div class="col-md-3">
+    <div class="row">
 
-      {{# unless completed this }}
-        
-              {{#if isInProgress this}}
-                {{#if isJoined}}
-                  <button class="btn btn-cb2 btn-success">Launch</button>
-                {{else}}
-                  {{# unless getIsDone this}}
-                    <button id="join-hangout" class="btn btn-cb2">{{_ "join_in_session"}}</button>
-                  {{/unless}}
-                {{/if}}
-              {{else}}
-                {{#if isJoined}}
-                  <p class="upcoming">{{upcomingTime this}}</p>
-                  <a id="leave-hangout" class="align-center">{{_ "leave"}}</a>
-                {{else}}
-                  {{# unless getIsDone this}}
-                    <button id="join-hangout" class="btn btn-cb2">{{_ "join"}}</button>
-                  {{/unless}}
-                {{/if}}
-              {{/if}}
-      {{else}}
-          <p class="completed">{{getIsDone this}}</p>
-      {{/unless}}
-
-      </div>
-      <div class="col-md-9">
+      <div class="col-md-12">
         <label class="name">
         {{#if isInProgress this}}
-          <i class="fa fa-dot-circle-o fa text-danger faa-burst animated"></i> &nbsp;
+          &nbsp; &nbsp;<i class="fa fa-dot-circle-o fa text-danger faa-burst animated"></i> &nbsp;
         {{/if}}
-          <a href="/hangout/{{_id}}" class="hangout-topic">
-          
+          <a href="/hangout/{{_id}}" class="hangout-topic"> {{topic}}</a>
+        </label>
+        {{> hangoutActionBar}}
+      </div>
 
-          {{topic}}</a> 
-        
-      </label>
+      <div class="col-md-2">
 
-      <div class="dropdown" style="float: right;">
-  <span class="more-options dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="float: right;">
-    <i class="fa fa-ellipsis-h"></i>
-  </span>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-    {{#if currentUser}}
-             <li> 
-                <a class="clone-hangout">Duplicate</a>
-              </li>
-          {{#if isHost}}
-              <li>   
-                <a class="edit-hangout">
-                    Edit
-                </a>
-              </li>
-              <li>    
-                <a class="delete-hangout">
-                  <i class="fa fa-trash"></i>
-                 </a>
-              </li>
-          {{/if}}        
-      {{/if}}
-      <li> 
-                <a class="flag">Flag</a>
-              </li>
-   </ul>
-</div>
+        {{#if equals visibility false}}
+          <span class="label label-pill label-danger">DELETED</span>
+        {{else}}
 
+          {{# unless completed this }}
 
-      <ul class="status">
-        <li><label><i class="fa {{getType type}}"></i>
-          host <a href="/profile/{{host this}}">{{host this}}</a>
-          <br /><i class="fa fa-clock-o fa-lg"></i> {{getDate this}}
-            
-          </label></li>
-      </ul>
+            {{#if isInProgress this}}
+
+              {{#if isJoined}}
+                <button class="btn btn-cb2 btn-success">Launch</button>
+              {{else}}
+                {{# unless getIsDone this}}
+                  <button id="join-hangout" class="btn btn-cb2">{{_ "join_in_session"}}</button>
+                {{/unless}}
+              {{/if}}
+
+            {{else}}
+
+              {{#if isJoined}}
+                <p class="upcoming">{{upcomingTime this}}</p>
+                <a id="leave-hangout" class="align-center">{{_ "leave"}}</a>
+              {{else}}
+
+                {{# unless getIsDone this}}
+                  <button id="join-hangout" class="btn btn-cb2">{{_ "join"}}</button>
+                {{/unless}}
+
+              {{/if}}
+
+            {{/if}}
+          {{else}}
+            <p class="completed">{{getIsDone this}}</p>
+          {{/unless}}
+
+        {{/if}} <!-- if equals visibility false -->
+
+    </div>
+
+    <div class="col-md-10">
+      <p class="status"><label><i class="fa {{getType type}}"></i> Host <a href="/profile/{{creator}}/{{user_id}}">{{creator}}</a></label></p>
+      <p class="status"><label><i class="fa fa-clock-o fa-lg"></i> {{getDate this}} </label></p>
     </div>
 
   </div>

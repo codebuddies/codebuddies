@@ -30,10 +30,6 @@ Template.hangout.helpers({
       return 'fa-users text-success-color';
     }
   },
-  host: function(hangout) {
-    var user = ReactiveMethod.call('getUserName', hangout.user_id);
-    return user;
-  },
   getDate: function(hangout) {
     var tz = TimezonePicker.detectedZone();
     //console.log('getDate tz: ' + tz);
@@ -67,10 +63,7 @@ Template.hangout.helpers({
   isJoined: function() {
     return this.users.indexOf(Meteor.userId()) != -1;
   },
-
-  isHost: function() {
-    return this.user_id === Meteor.userId();
-  },
+  
   upcomingTime: function(hangout) {
     var startDate = new Date(hangout.start);
     var currentDate = new Date();

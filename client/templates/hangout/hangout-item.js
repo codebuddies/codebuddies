@@ -12,6 +12,15 @@ Meteor.startup(function() {
 
 });
 
+Template.registerHelper("hangoutOwner", function(ownerid){
+  if(Meteor.userId() === ownerid){
+      return true;
+  }else {
+      return false;
+  }
+
+});
+
 
 Template.hangoutItem.helpers({
   getType: function(type) {
@@ -22,10 +31,6 @@ Template.hangoutItem.helpers({
     } else if (type == 'collaboration') {
       return 'fa-users text-success-color';
     }
-  },
-  host: function(hangout) {
-    var user = ReactiveMethod.call('getUserName', hangout.user_id);
-    return user;
   },
   getDate: function(hangout) {
     var tz = TimezonePicker.detectedZone();
@@ -61,9 +66,6 @@ Template.hangoutItem.helpers({
     return this.users.indexOf(Meteor.userId()) != -1;
   },
 
-  isHost: function() {
-    return this.user_id === Meteor.userId();
-  },
   upcomingTime: function(hangout) {
     var startDate = new Date(hangout.start);
     var currentDate = new Date();
@@ -130,7 +132,13 @@ Template.hangoutItem.events({
     }
   },
 
-  'click .delete-hangout': function(event, template) {
+  'click .delete-hangout': function(e, hangout) {
+    var data = {
+        hangoutId:hangout.data._id,
+        hostId:hangout.data.user_id,
+        hostUsername: hangout.data.creator,
+      };
+
     sweetAlert({
         type: 'warning',
         title: TAPi18n.__("delete_hangout_confirm"),
@@ -145,7 +153,7 @@ Template.hangoutItem.events({
         // disable confirm button to avoid double (or quick) clicking on confirm event
         swal.disableButtons();
         // if user confirmed/selected yes, let's call the delete hangout method on the server
-        Meteor.call('deleteHangout', template.data._id, function(error, result) {
+        Meteor.call('deleteHangout', data, function(error, result) {
           if (result) {
             swal("Poof!", "Your hangout has been successfully deleted!", "success");
           } else {
@@ -163,6 +171,8 @@ Template.hangoutItem.events({
 
     console.log(hangout.data._id + ' this is an edited hangout id');
     Session.set('hangoutId', hangout.data._id);
+    Session.set('hostId', hangout.data.user_id);
+    Session.set('hostUsername', hangout.data.creator);
 
     Modal.show('editHangoutModal');
     $('#edit-hangout-modal #topic').val(hangout.data.topic);
@@ -197,6 +207,24 @@ Template.hangoutItem.events({
       //$('#clone-hangout-modal #end-date-time').val(end_time_reverted);
       //console.log(start_time_reverted);
       //console.log(end_time_reverted);
+    }
+  },
+  'click .report-hangout': function(e, hangout) {
+    if (!Meteor.userId()) {
+      sweetAlert({
+        title: TAPi18n.__("login_create_hangout_title"),
+        text: TAPi18n.__("login_create_hangout_message"),
+        confirmButtonText: TAPi18n.__("ok"),
+        type: 'info'
+      });
+    } else {
+
+      Session.set('hangoutId', hangout.data._id);
+      Session.set('hostId', hangout.data.user_id);
+      Session.set('hostUsername', hangout.data.creator);
+
+      Modal.show('reportHangoutModal');
+
     }
   }
 });
