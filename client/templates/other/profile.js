@@ -1,9 +1,3 @@
-Template.profile.rendered = function() { 
-	Meteor.call('getHangoutsJoinedCount', function(err, result){
-		Session.set('hangoutsJoinedCount', result);
-	});
-};
-
 Template.profile.onCreated(function(){
   var username = FlowRouter.getParam('name');
   var title = username + " | Profile";
@@ -11,14 +5,12 @@ Template.profile.onCreated(function(){
 });
 
 Template.profile.helpers({
-  profileImage: function() {
-    return ReactiveMethod.call('userProfileImage', Meteor.userId());
-  },
-  username: function() {
-    return ReactiveMethod.call('getUserName', Meteor.userId());
+  userInfo: function() {
+		var userId = FlowRouter.getParam('userId');
+		return ReactiveMethod.call('getUserDetails',userId);
   },
   hangoutsJoinedCount: function() {
-  	var totalHangoutsJoined = Session.get('hangoutsJoinedCount');
-  	return totalHangoutsJoined;
+		var userId = FlowRouter.getParam('userId');
+  	return ReactiveMethod.call('getHangoutsJoinedCount',userId)
   }
 });

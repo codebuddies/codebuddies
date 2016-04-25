@@ -1,0 +1,63 @@
+<template name="userById">
+
+  <div class="page-header">
+    <h3>{{#if getUser}} {{#each getUser}} {{user_info.name}} {{/each}} {{/if}} </h3>
+  </div>
+
+  <div class="container">
+    <p> <a href="{{pathFor 'manage user'}}"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</a> </p>
+    {{#if getUser.count}}
+      {{#each getUser}}
+
+        <div class="col-md-2">
+          <img src="{{user_info.profile.image_192}}" alt="avtar" height="150" width="150" />
+        </div>
+        <div class="col-md-10">
+          <form class="form-horizontal">
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Name :</label>
+              <div class="col-md-10">
+                {{#if user_info.real_name}} {{user_info.real_name}} {{else}} <i>Not-specified</i>{{/if}}
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Username :</label>
+              <div class="col-md-10">
+                {{user_info.name}}
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Email :</label>
+              <div class="col-md-10">
+                {{user_info.profile.email}}
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Status :</label>
+              <div class="col-md-10">
+                {{#if isUpdateable _id roles.[0]}}
+                  {{roles.[0]}}
+                {{else}}
+                  <select class="form-control" id="authorization">
+                    <option value="user" {{selected roles.[0]  "user"}}>user</option>
+                    <option value="moderator" {{selected roles.[0]  "moderator"}}>moderator</option>
+                    <option value="volunteer" {{selected roles.[0]  "volunteer"}}>volunteer</option>
+                    <option value="inactive" {{selected roles.[0]  "inactive"}}>inactive</option>
+                  </select>
+                {{/if}}
+
+              </div>
+            </div>
+          </form>
+
+        </div>
+
+      {{/each}}
+    {{else}}
+      <h4>Sorry, something went wrong</h4>
+    {{/if}}
+  </div>
+
+</template>

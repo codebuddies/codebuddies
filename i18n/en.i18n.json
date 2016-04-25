@@ -79,5 +79,20 @@
   "select_start_time": "Please select a start time",
   "select_end_time": "Please select an end time",
   "enter_topic": "Please fill in the hangout topic",
-  "enter_description": "Please fill in the hangout description"
+  "enter_description": "Please fill in the hangout description",
+
+  // report hangout modal - popup message
+  "report_this_hangout":"Report This hangout",
+  "report hangout category spam" : "Spam",
+  "report hangout category abusive": "Abusive",
+  "report hangout category inappropriate" : "Inappropriate",
+  "report hangout category offensive" : "Offensive",
+  "report_a_hangout" : "Report",
+  "report_hangout_message" : "We'll review the Hangout and remove anything that doesn't follow the Code Buddies Standards. We may also warn or disable the person responsible.",
+  "hangout_has_been_reported" : "Reported Successfully.",
+  "hangout_reported_message" : "We appreciate your assistance in maintaining the quality of this community.",
+
+  // admin header
+  "manage_user" : "Manage user",
+  "notification" : "Notification"
 }

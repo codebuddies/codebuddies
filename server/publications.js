@@ -11,15 +11,24 @@ Meteor.publish("ownLearnings", function(limit) {
 });
 
 Meteor.publish("hangouts", function() {
-  return Hangouts.find();
+  if (Roles.userIsInRole(this.userId, ['admin','moderator'])) {
+
+    return Hangouts.find();
+
+  } else {
+
+    return Hangouts.find({'visibility':{$ne:false}});
+
+  }
+
 });
 
 Meteor.publish("hangoutsCreated", function(limit) {
-  return Hangouts.find({user_id: this.userId}, {sort: {timestamp: -1}, limit: limit});
+  return Hangouts.find({user_id: this.userId,'visibility':{$ne:false}}, {sort: {timestamp: -1}, limit: limit});
 });
 
 Meteor.publish("hangoutsJoined", function(limit) {
-  return Hangouts.find({users:{$elemMatch:{$eq:this.userId}}}, {sort: {timestamp: -1}, limit: limit});
+  return Hangouts.find({users:{$elemMatch:{$eq:this.userId}},'visibility':{$ne:false}}, {sort: {timestamp: -1}, limit: limit});
 });
 
 Meteor.publish("hangoutSearchResult", function(serchTerm) {
@@ -29,4 +38,23 @@ Meteor.publish("hangoutSearchResult", function(serchTerm) {
     return this.ready();
   }
   return Hangouts.search(serchTerm);
+});
+Meteor.publish("allUsers", function () {
+
+  if (Roles.userIsInRole(this.userId, ["admin","moderator"])) {
+    return Meteor.users.find({}, {fields: {'createdAt':1, emails: 1, profile: 1, roles: 1, user_info: 1, status: 1}});
+  }
+
+  return this.ready();
+});
+Meteor.publish("allNotifications", function (limit) {
+
+  if (Roles.userIsInRole(this.userId, ["admin","moderator"])) {
+    return Notifications.find({},{sort: {createdAt: -1}},{limit:limit});
+  }
+
+  return this.ready();
+});
+Meteor.publish(null, function(argument){
+  return Meteor.users.find({_id:this.userId},{fields:{user_info:1}});
 });

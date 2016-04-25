@@ -17,7 +17,6 @@ ecmascript              # Enable ECMAScript2015+ syntax in app code
 
 twbs:bootstrap
 mizzao:user-status
-accounts-ui
 accounts-password
 fourseven:scss
 seba:minifiers-autoprefixer
@@ -27,8 +26,6 @@ fortawesome:fontawesome
 momentjs:moment
 accounts-base
 accounts-oauth
-meteorhacks:flow-router
-meteorhacks:flow-layout
 arillo:flow-router-helpers
 http
 acemtp:accounts-slack
@@ -51,4 +48,8 @@ patrickml:swal
 percolate:synced-cron@=1.3.0
 gadicohen:sitemaps
 kadira:dochead
-
+alanning:roles
+random
+kadira:flow-router
+kadira:blaze-layout
+ian:accounts-ui-bootstrap-3

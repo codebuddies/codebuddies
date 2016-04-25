@@ -2,30 +2,28 @@ Meteor.methods({
 
   userProfileImage: function(userId) {
     check(userId, String);
+
     if (userId != '') {
       var user = Meteor.users.findOne({_id: userId});
-      return user.user_info.profile.image_192;
+      return user.user_info.profile.image_192 || user.profile.gravatar;
     } else {
       return '';
     }
+
   },
 
-  getUserName: function(userId) {
+  getUserDetails : function(userId){
     check(userId, String);
-    if (userId != '') {
-      var user = Meteor.users.findOne({_id: userId});
-      return user.user_info.name;
-    } else {
-      return 'unknown';
-    }
+    return Meteor.users.findOne({_id:userId},{fields: { emails: 1, profile: 1, roles: 1, user_info: 1}});
   },
 
   getUserCount: function() {
     return Meteor.users.find().count();
   },
 
-  getHangoutsJoinedCount: function() {
-    return Hangouts.find({users:{$elemMatch:{$eq:this.userId}}}).count();
+  getHangoutsJoinedCount: function(userId) {
+    check(userId, String);
+    return Hangouts.find({users:{$elemMatch:{$eq:userId}},'visibility':{$ne:false}}).count();
   },
 
   emailHangoutUsers: function(hangoutId) {
@@ -131,37 +129,104 @@ Meteor.methods({
     return true;
   },
 
-  deleteHangout: function (hangoutId) {
-    check(hangoutId, String);
-    var response = Meteor.call('emailHangoutUsers', hangoutId);
+  deleteHangout: function (data) {
+    check(data.hangoutId, String);
+    check(data.hostId, String);
+    check(data.hostUsername, String);
+
+    var response = Meteor.call('emailHangoutUsers', data.hangoutId);
       if (!response) {
           throw new Meteor.Error("Error sending email!");
       } else {
-          Hangouts.remove({_id: hangoutId, user_id: this.userId});
-          return true;
+          var actor = Meteor.user()
+          if (actor._id === data.hostId) {
+
+            Hangouts.remove({_id: data.hangoutId, user_id: actor._id});
+            return true;
+
+          }else{
+            Hangouts.update({_id: data.hangoutId},
+              {$set:
+                {
+                 visibility:false
+              }
+            });
+
+            var notification = {
+              actorId : actor._id,
+              actorUsername : actor.username || actor.user_info.name,
+              subjectId : data.hostId,
+              subjectUsername : data.hostUsername,
+              hangoutId : data.hangoutId,
+              createdAt : new Date(),
+              read:[actor._id],
+              action : "deleted ",
+              icon : "fa-times",
+              type : "hangout delete",
+            }
+            Notifications.insert(notification);
+            return true;
+          }
       }
   },
 
-  editHangout: function(data, hangoutId) {
+  editHangout: function(data) {
     check(data, Match.ObjectIncluding({
       topic: String,
       description: String,
       start: Match.OneOf(String, Date),
       end: Match.OneOf(String, Date),
-      type: String
+      type: String,
+      //hangoutId, String,
+      //hostId, String,
+      //hostUsername, String
     }));
 
-    Hangouts.update({_id: hangoutId, user_id: this.userId},
-      {$set:
-        {
-         topic: data.topic,
-         description: data.description,
-         start: data.start,
-         end: data.end,
-         type: data.type
+
+    var actor = Meteor.user()
+    if (actor._id === data.hostId) {
+
+      Hangouts.update({_id: data.hangoutId, user_id: actor._id},
+        {$set:
+          {
+           topic: data.topic,
+           description: data.description,
+           start: data.start,
+           end: data.end,
+           type: data.type
+        }
+      });
+      return true;
+
+    }else{
+      Hangouts.update({_id: data.hangoutId},
+        {$set:
+          {
+           topic: data.topic,
+           description: data.description,
+           start: data.start,
+           end: data.end,
+           type: data.type
+        }
+      });
+
+      var notification = {
+        actorId : actor._id,
+        actorUsername : actor.username || actor.user_info.name,
+        subjectId : data.hostId,
+        subjectUsername : data.hostUsername,
+        hangoutId : data.hangoutId,
+        createdAt : new Date(),
+        read:[actor._id],
+        action : "edited",
+        icon : "fa-pencil-square-o",
+        type : "hangout edit",
       }
-    });
-    return true;
+      Notifications.insert(notification);
+      return true;
+    }
+
+
   },
   cloneHangout: function(data, hangoutId) {
     check(data, Match.ObjectIncluding({
@@ -171,12 +236,14 @@ Meteor.methods({
       description: String,
       type: String
     }));
+
     var user = Meteor.users.findOne({_id: data.user_id});
     var user_email = user.user_info.profile.email;
     var hangout_id = Hangouts.insert({
       user_id: data.user_id,
       creator:data.username,
       topic: data.topic,
+      creator: user.profile.name,
       description: data.description,
       start: data.start,
       end: data.end,
@@ -283,7 +350,16 @@ Meteor.methods({
 
   getHangout: function(hangoutId) {
     check(hangoutId, String);
-    return Hangouts.findOne(hangoutId);
+    if (Roles.userIsInRole(this.userId, ['admin','moderator'])) {
+
+      return Hangouts.findOne({_id:hangoutId});
+
+    } else {
+
+      return Hangouts.findOne({_id:hangoutId,'visibility': { $ne: false } });
+
+    }
+
   },
 
   getHangoutsCount: function() {
@@ -306,6 +382,42 @@ Meteor.methods({
     Hangouts.update({ _id: hangoutId },
       { $pull: { users: userId } });
     return true;
+  },
+
+  reportHangout : function(report){
+
+
+    check(report.category, String);
+    check(report.hangoutId, String);
+    check(report.hostId, String);
+    check(report.hostUsername, String);
+    check(report.reporterId, String);
+    var actor = Meteor.user();
+    if(report.reporterId !== actor._id){
+      throw new Meteor.Error(500, "You are trying do something fishy.")
+    }
+
+    var matter = " as " + report.category + ".";
+    var notification = {
+      actorId : actor._id,
+      actorUsername : actor.username || actor.user_info.name,
+      subjectId : report.hostId,
+      subjectUsername : report.hostUsername,
+      hangoutId : report.hangoutId,
+      createdAt : new Date(),
+      read:[actor._id],
+      action : 'reported',
+      matter : matter,
+      icon : 'fa-exclamation-circle',
+      type : 'reported hangout'
+    }
+
+    Notifications.insert(notification);
+    return true;
+  },
+
+  notificationCount : function(){
+    return Notifications.find({'read':{$ne:this.userId}}).count();
   }
 
 });

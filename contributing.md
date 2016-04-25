@@ -2,10 +2,16 @@
 1. How do I start up the app?
 ```meteor --settings settings-development.json```
 
+##How do I start up the app locally and log in as an admin?
+1. add your email and username to ```settings-development.json```.
+2. ```meteor reset && meteor --settings settings-development.json```.
+3. you will receive your password in your email .
+4. admin login ```http://localhost:3000/admin```.
+
 ## The first 6 steps to take if you want to contribute to this open-sourced project:
-1. Add your name on the google doc [bit.ly/codebuddies-hangouts-platform-v2-googledoc](http://bit.ly/codebuddies-hangouts-platform-v2-googledoc) if your name is not listed, and you want to be added as a collaborator. 
+1. Add your name on the google doc [bit.ly/codebuddies-hangouts-platform-v2-googledoc](http://bit.ly/codebuddies-hangouts-platform-v2-googledoc) if your name is not listed, and you want to be added as a collaborator.
 2. Say hello on the [#codebuddies-meta channel in the Slack](https://codebuddiesmeet.slack.com/messages/codebuddies-meta/). One of us will add you as a collaborator to the repo, so that you'll be able to commit and push/pull to the app! You can also ask `@linda` for a code walkthrough of the app.
-3. [Install Meteor](https://www.meteor.com/install) and Node: [docs.npmjs.com/cli/install](https://docs.npmjs.com/cli/install) if you don't already have them installed. 
+3. [Install Meteor](https://www.meteor.com/install) and Node: [docs.npmjs.com/cli/install](https://docs.npmjs.com/cli/install) if you don't already have them installed.
 4. Clone this repo to your computer by typing in the command line:
   `git clone https://github.com/codebuddiesdotorg/cb-v2-scratch.git`
 5. Type `meteor --settings settings-development.json` in your terminal to start up the app in your browser (`localhost:3000`). (`npm run meteor:dev` can also run the app, but will likely [use up your CPU[(https://github.com/meteor/meteor/issues/4314).)
@@ -32,7 +38,7 @@ All right. After we've created our branch, the next step is to push our new bran
 
   `git push origin NAME_OF_NEW_BRANCH`
 
-Now we can make commits to our branch (`git commit -am "commit message"`) and `git pull` to get other people's changes to the branch, and `git push` our own commits to the branch. 
+Now we can make commits to our branch (`git commit -am "commit message"`) and `git pull` to get other people's changes to the branch, and `git push` our own commits to the branch.
 
 Finally, when you're finished working on the fix or feature in your branch, you need to merge it back into the `master` branch. This is what you do:
 
@@ -44,22 +50,22 @@ Finally, when you're finished working on the fix or feature in your branch, you 
 
 ### What should I remember while I'm working on my branch?
 
-- As you're working, it's always a good idea to check which branch you're in by typing `git branch`. When you first `git clone` the repo, you'll only see a single branch, but you can discover other branches you can check out by typing `git branch -a`. 
+- As you're working, it's always a good idea to check which branch you're in by typing `git branch`. When you first `git clone` the repo, you'll only see a single branch, but you can discover other branches you can check out by typing `git branch -a`.
 
 For example, to check out the `feature/active-users` branch, you would type `git checkout feature/active-users` in your command line.
 
-#####Our staging site is located at [http://cbv2-staging2.meteor.com/](http://cbv2-staging2.meteor.com/). 
+#####Our staging site is located at [http://cbv2-staging2.meteor.com/](http://cbv2-staging2.meteor.com/).
 
 While you're working, you should try to merge in the latest from `master` occasionally while you are in your branch. You can do this by typing:
 
-`git merge master`. 
+`git merge master`.
 
-Again, type this while you are in your branch. 
+Again, type this while you are in your branch.
 
 ### What do I do when I'm ready to merge my fix or feature back into the main app?
 When you are ready to merge your branch back into the main app, type `git checkout master`, `git pull`, and then `git merge BRANCHNAME`.
 
-@anbuselvan is working on integrating javascript; automated testing will be available soon in the `dev/testing` branch. 
+@anbuselvan is working on integrating javascript; automated testing will be available soon in the `dev/testing` branch.
 
 ### What are merge conflicts, and how do I resolve them?
 Merge conflicts come up when there is a conflict between code that you've written and code that other people have `git push`ed into your branch.
@@ -68,7 +74,7 @@ Conflicts might also come up when you type `git merge staging` to merge in the c
 
 If you see a conflict, don't panic!
 
-If you are unfamiliar with how to resolve a merge conflict in git, you should read this: [https://githowto.com/resolving_conflicts](https://githowto.com/resolving_conflicts). 
+If you are unfamiliar with how to resolve a merge conflict in git, you should read this: [https://githowto.com/resolving_conflicts](https://githowto.com/resolving_conflicts).
 
 In summary, the steps are:
 
@@ -87,18 +93,15 @@ In summary, the steps are:
 7. You're done! Now you can continue to `git push` and `git pull` and `git merge staging` while you're inside your branch.
 
 
-##Reminders: 
-1. Remember, you can always check which branch you are in by typing `git branch` or `git branch -a` to see all the branches that exist. 
+##Reminders:
+1. Remember, you can always check which branch you are in by typing `git branch` or `git branch -a` to see all the branches that exist.
 
 2. Remember to `git pull` occasionally to get the new commits and branches others have pushed up.
 
-3. To minimize large messes of merge conflicts, you can `git merge master` occasionally if you're working inside a branch that you intend to merge back into `master`. Make sure you're in this branch when you type `git merge master`. 
+3. To minimize large messes of merge conflicts, you can `git merge master` occasionally if you're working inside a branch that you intend to merge back into `master`. Make sure you're in this branch when you type `git merge master`.
 
-4. Type `npm run meteor:dev` to run this app. Your terminal will tell you to open up a new browser window at http://localhost:3000. 
+4. Type `npm run meteor:dev` to run this app. Your terminal will tell you to open up a new browser window at http://localhost:3000.
 
 5. Remember to leave a comment on the issue if you decide to start working on an issue, so that others know.
 
 6. Remember to join the `#codebuddies-meta` channel on the CodeBuddies Slack (go to [codebuddiesmeet.herokuapp.com](http://codebuddiesmeet.herokuapp.com) if you need an invitation to the Slack) to discuss updates to this project and to ask questions. We'll be there!
-
-
-

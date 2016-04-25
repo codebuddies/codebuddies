@@ -1,9 +1,9 @@
 Template.header.helpers({
-  profileImage: function() {
-    return ReactiveMethod.call('userProfileImage', Meteor.userId());
+  user: function() {
+    return Meteor.user();
   },
-  username: function() {
-    return ReactiveMethod.call('getUserName', Meteor.userId());
+  notificationCount:function(){
+    return ReactiveMethod.call('notificationCount');
   }
 });
 
