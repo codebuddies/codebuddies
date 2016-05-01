@@ -418,6 +418,11 @@ Meteor.methods({
 
   notificationCount : function(){
     return Notifications.find({'read':{$ne:this.userId}}).count();
-  }
+  },
+
+  incHangoutViewCount : function(hangoutId){
+    check(hangoutId, String);
+    Hangouts.update({_id:hangoutId}, {$inc:{views:1}});
+  },
 
 });
