@@ -366,21 +366,27 @@ Meteor.methods({
     return {hangoutsCount: Hangouts.find({}).count()};
   },
 
-  addUserToHangout: function(hangoutId, userId) {
+  addUserToHangout: function(hangoutId, createorId, userId) {
     check(hangoutId, String);
+    check(createorId, String);
     check(userId, String);
     var user = Meteor.users.findOne({_id: userId});
     var user_email = user.user_info.profile.email;
     Hangouts.update({ _id: hangoutId },
       { $push: { users: userId, email_addresses: user_email }});
+      var date = new Date();
+    Attendees.upsert({hangoutId : hangoutId, createorId : createorId, seen : false} ,{$set:{date:date}, $inc:{count:1}});
     return true;
   },
 
-  removeUserFromHangout: function(hangoutId, userId) {
+  removeUserFromHangout: function(hangoutId, createorId, userId) {
     check(hangoutId, String);
+    check(createorId, String);
     check(userId, String);
     Hangouts.update({ _id: hangoutId },
       { $pull: { users: userId } });
+      var date = new Date();
+    Attendees.update({hangoutId : hangoutId, createorId : createorId, seen : false} ,{$set : {date:date}, $inc:{count:-1} });
     return true;
   },
 
@@ -419,10 +425,19 @@ Meteor.methods({
   notificationCount : function(){
     return Notifications.find({'read':{$ne:this.userId}}).count();
   },
+  userNotificationCount : function(){
+    return Attendees.find({'seen':false}).count();
+  },
 
   incHangoutViewCount : function(hangoutId){
     check(hangoutId, String);
     Hangouts.update({_id:hangoutId}, {$inc:{views:1}});
   },
+  markItRead:function(rsvpId){
+
+      Attendees.update({ _id: rsvpId },{$set:{seen:true}});
+
+  },
+
 
 });
