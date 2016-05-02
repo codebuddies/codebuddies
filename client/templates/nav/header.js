@@ -4,6 +4,9 @@ Template.header.helpers({
   },
   notificationCount:function(){
     return ReactiveMethod.call('notificationCount');
+  },
+  userNotificationCount:function(){
+    return ReactiveMethod.call('userNotificationCount');
   }
 });
 

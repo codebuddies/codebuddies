@@ -58,3 +58,6 @@ Meteor.publish("allNotifications", function (limit) {
 Meteor.publish(null, function(argument){
   return Meteor.users.find({_id:this.userId},{fields:{user_info:1}});
 });
+Meteor.publish("attendees", function(limit){
+  return Attendees.find({createorId:this.userId},{sort: {date: -1}},{limit:limit});
+});

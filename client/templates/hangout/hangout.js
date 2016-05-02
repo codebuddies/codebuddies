@@ -63,7 +63,7 @@ Template.hangout.helpers({
   isJoined: function() {
     return this.users.indexOf(Meteor.userId()) != -1;
   },
-  
+
   upcomingTime: function(hangout) {
     var startDate = new Date(hangout.start);
     var currentDate = new Date();

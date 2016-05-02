@@ -4,10 +4,8 @@
       <li>
        <span><i class="fa {{hangoutStatus}}"></i></span>
       </li>
-      <li><label class="status">{{statusMessage}}</label>&nbsp;&nbsp;<a href="/profile/{{user_info.name}}"><span class="username">{{user_info.name}}</span></a> <a href="https://codebuddiesmeet.slack.com/messages/@{{user_info.name}}/" target="_blank" class="message"><i class="fa fa-envelope-o"></i></a> - <span class="status-date">{{livestamp statusDate}}</span>
-         
-        
-         
+      <li>
+        <label class="status">{{statusMessage}}</label>&nbsp;&nbsp;<a href="/profile/{{#if user_info.name}}{{user_info.name}}{{else}}{{profile.name}}{{/if}}/{{_id}}"><span class="username">{{#if user_info.name}}{{user_info.name}}{{else}}{{profile.name}}{{/if}}</span></a> <a href="https://codebuddiesmeet.slack.com/messages/@{{user_info.name}}/" target="_blank" class="message"><i class="fa fa-envelope-o"></i></a> - <span class="status-date">{{livestamp statusDate}}</span>
       </li>
     </ul>
   </div>

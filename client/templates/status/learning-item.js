@@ -17,7 +17,7 @@ Template.learningItem.helpers({
   },
 
   isOwner:  function () {
-    return this.owner === Meteor.userId();
+    return this.userId === Meteor.userId();
   },
   learningTime: function() {
     return moment(this.timestamp).format("dddd, MMM DD, YYYY");
@@ -62,9 +62,8 @@ Template.learningItem.events({
       });
     } else {
       Session.set('learningId', this._id);
-      console.log("id: " + this._id + " " + this.text);
       Modal.show('editLearningModal');
-      $('#edit-learning-modal #topic').val(this.text);
+      $('#edit-learning-modal #title').val(this.title);
     }
   },
 

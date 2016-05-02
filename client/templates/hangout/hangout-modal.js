@@ -24,7 +24,7 @@ Template.createHangoutModal.rendered = function() {
 Template.createHangoutModal.events({
   'click #create-hangout': function(e) {
     var topic1 = $('#topic').val();
-    var desc1 = $('#description').val();
+    var desc1 = $('#description').val().replace(/\r?\n/g, '<br />');
     var start1 = $('#start-date-time').val();
     var end1 = $('#end-date-time').val();
     var type1 = $('input[name="hangout-type"]:checked').val();
@@ -92,7 +92,7 @@ Template.createHangoutModal.events({
           type: 'success',
           closeOnConfirm: true
         });
-      } 
+      }
     });
   }
 });

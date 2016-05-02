@@ -1,10 +1,12 @@
 Template.editLearningModal.events({
   'click #update-learning': function() {
-    var learning = $('#topic').val();
+    var title = $('#title').val();
     var learningId = Session.get('learningId');
-    console.log("about to update " + learningId + "with " + learning);
-    Meteor.call('editLearning', learning, learningId, function(err, result) {
-        console.log(result + ' this is the result');
+    var data = {
+      title:title,
+      learningId:learningId
+    }
+    Meteor.call('editLearning', data, function(err, result) {
         if (result) {
           Modal.hide();
           sweetAlert({

@@ -30,7 +30,7 @@
                   <label><i class="fa {{getType type}}"></i>
                   host <a href="/profile/{{creator}}/{{user_id}}">{{creator}}</a>
                     <br /><i class="fa fa-clock-o fa-lg"></i> {{getDate this}}
-
+                        | <i class="fa fa-eye" aria-hidden="true" data-toggle="tooltip" title="Views"> {{views}} </i>
                    </label>
                  </p>
               </div> <!--col-md-12-->
@@ -66,7 +66,7 @@
                 {{/unless}}
               </div>
               <div class="col-md-10">
-                  {{description}}
+                  {{{description}}}
               </div>
 
             </div>
