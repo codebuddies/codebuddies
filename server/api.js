@@ -301,12 +301,15 @@ Meteor.methods({
     Meteor.users.update({_id: Meteor.userId()}, {$set: {statusHangout: hangoutStatus}});
   },
 
-  addLearning: function(learningStatus) {
-    check(learningStatus, String);
+  addLearning: function(data) {
+    check(data.title, String);
+    check(data.user_id, String);
+    check(data.username, String);
+
     Learnings.insert({
-      text: learningStatus,
-      owner: Meteor.userId(),
-      username: Meteor.user().username || Meteor.user().profile.name,
+      title: data.title,
+      userId: data.user_id,
+      username: data.username,
       timestamp: new Date(),
       kudos: 0
     });
@@ -314,15 +317,15 @@ Meteor.methods({
 
   deleteLearning: function(learningId) {
     check(learningId, String);
-    Learnings.remove( { _id: learningId, owner: this.userId } );
+    Learnings.remove( { _id: learningId, userId: this.userId } );
     return true;
   },
 
-  editLearning: function(learning, learningId) {
-    check(learningId, String);
-    check(learning, String);
+  editLearning: function(data) {
+    check(data.learningId, String);
+    check(data.title, String);
     Learnings.update(
-      { _id: learningId, owner: this.userId }, {$set: {text: learning}}
+      { _id: data.learningId, userId: this.userId }, {$set: {title: data.title}}
     );
     return true;
   },
