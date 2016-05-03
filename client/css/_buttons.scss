@@ -72,7 +72,7 @@
   @include font-face(400, 16px, normal, #000000);
 }
 
-.btn-slack-join { 
+.btn-slack-join {
     background-color: $bg-white;
     height: 36px;
     @include border-radius(6px);
@@ -93,7 +93,26 @@
   &:focus {
     color: $bg-white;
   }
-  
+
+  &.btn-success {background: #5cb85c;}
+
+}
+
+.btn-cb3 {
+
+  height: 36px;
+  background-color: $cta-blue;
+  @include font-face(700, 16px, bold, $bg-white);
+  display: block;
+  margin: 0 auto;
+  &:hover {
+    color: #bg-white;
+  }
+
+  &:focus {
+    color: $bg-white;
+  }
+
   &.btn-success {background: #5cb85c;}
 
 }
@@ -143,6 +162,3 @@
 }
 
 #btn-load-more, #load-more-learnings { margin: 10px 0; color: $cta-blue; &:hover { color: $bg-white; } }
-
-
-
