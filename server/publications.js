@@ -7,7 +7,7 @@ Meteor.publish("learnings", function(limit) {
 });
 
 Meteor.publish("ownLearnings", function(limit) {
-  return Learnings.find({owner: this.userId}, {sort: {timestamp: -1}, limit: limit});
+  return Learnings.find({userId: this.userId}, {sort: {timestamp: -1}, limit: limit});
 });
 
 Meteor.publish("hangouts", function() {
