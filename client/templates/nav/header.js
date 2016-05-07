@@ -1,3 +1,6 @@
+Template.header.onRendered(function(){
+  this.subscribe('attendees', 10);
+})
 Template.header.helpers({
   user: function() {
     return Meteor.user();
@@ -6,7 +9,7 @@ Template.header.helpers({
     return ReactiveMethod.call('notificationCount');
   },
   userNotificationCount:function(){
-    return ReactiveMethod.call('userNotificationCount');
+    return Attendees.find({createorId:Meteor.userId(),'seen':false}).count();
   }
 });
 

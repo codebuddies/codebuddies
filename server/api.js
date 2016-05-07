@@ -428,9 +428,6 @@ Meteor.methods({
   notificationCount : function(){
     return Notifications.find({'read':{$ne:this.userId}}).count();
   },
-  userNotificationCount : function(){
-    return Attendees.find({'seen':false}).count();
-  },
 
   incHangoutViewCount : function(hangoutId){
     check(hangoutId, String);

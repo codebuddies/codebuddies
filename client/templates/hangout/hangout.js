@@ -93,3 +93,39 @@ Template.hangout.helpers({
     }
   }
 });
+Template.hangout.events({
+  'click #join-hangout': function() {
+    if (!Meteor.userId()) {
+      sweetAlert({
+        title: TAPi18n.__("you_are_almost_there"),
+        text: TAPi18n.__("login_join_hangout"),
+        confirmButtonText: TAPi18n.__("ok"),
+        type: 'info'
+      });
+    } else {
+      Meteor.call('addUserToHangout', this._id,this.user_id, Meteor.userId(), function(error, result) {
+        if (result) {
+          sweetAlert({
+            title: TAPi18n.__("you_are_awesome"),
+            text: TAPi18n.__("looking_forward_to_see_you"),
+            confirmButtonText: TAPi18n.__("ok"),
+            type: 'info'
+          });
+        }
+      });
+    }
+  },
+  'click #leave-hangout': function() {
+    if (this.user_id == Meteor.userId()) {
+      sweetAlert({
+        title: TAPi18n.__("remove_owner_from_hangout"),
+        confirmButtonText: TAPi18n.__("ok"),
+        type: 'warning'
+      });
+    } else {
+      Meteor.call('removeUserFromHangout', this._id, this.user_id, Meteor.userId(), function(error, result) {
+        if (result) console.log('removed');
+      });
+    }
+  },  
+});
