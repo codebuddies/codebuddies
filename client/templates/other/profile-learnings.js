@@ -1,58 +1,59 @@
-Template.profileLearnings.onRendered(function() {
-   var instance = this;
-   $('#learning-pagination').bind('scroll', function(){
-       if($('#learning-pagination').scrollTop() + $('#learning-pagination').innerHeight()>=$('#learning-pagination')[0].scrollHeight){
-
-           if(Learnings.find().count() === instance.limit.get()){
-             instance.limit.set(instance.limit.get() + 5);
-           }else {
-             if(Learnings.find().count() < instance.limit.get()){
-               instance.flag.set(true);
-             }
-           }
-       }
-   });
-});
-
-
-
 Template.profileLearnings.onCreated(function () {
 
+  // 1. Initialization
+
   var instance = this;
-  instance.limit = new ReactiveVar(6);
-  instance.flag = new ReactiveVar(false);
 
-  instance.autorun(function () {
+  // initialize the reactive variables
+  instance.loaded = new ReactiveVar(0);
+  instance.limit = new ReactiveVar(5);
 
+  // ...
+   instance.autorun(function () {
+
+    // get the limit
     var limit = instance.limit.get();
 
+    console.log("Asking for "+limit+" learnings...")
+
+    // subscribe to the posts publication
     var subscription = instance.subscribe('ownLearnings', limit);
 
+    // if subscription is ready, set limit to newLimit
+    if (subscription.ready()) {
+      console.log("> Received "+limit+" learnings. \n\n")
+      instance.loaded.set(limit);
+    } else {
+      console.log("> Subscription is not ready yet. \n\n");
+    }
   });
 
-   instance.ownLearnings = function() {
-     if(Learnings.find().count() <  instance.limit.get()){
-       instance.flag.set(true);
-     }
-    return Learnings.find({},{sort: {timestamp: -1}});
+   instance.ownLearnings = function() { 
+    return Learnings.find({}, {limit: instance.loaded.get(), sort: {createdAt: 1}});
   }
 
 });
 
 Template.profileLearnings.helpers({
-
+    // the posts cursor
   learnings: function () {
     return Template.instance().ownLearnings();
   },
-
+  // are there more posts to show?
   hasMoreLearnings: function () {
-    return Template.instance().flag.get();
+    return Template.instance().ownLearnings().count() >= Template.instance().limit.get();
   }
 });
 
 Template.profileLearnings.events({
-  "click #go-to-top": function(event, template){
-    var pos = document.getElementById("learning-pagination");
-    pos.scrollTop = - pos.scrollHeight;
+ 'click #load-more-learnings': function (event, instance) {
+    event.preventDefault();
+
+    // get current value for limit, i.e. how many posts are currently displayed
+    var limit = instance.limit.get();
+
+    // increase limit by 5 and update it
+    limit += 5;
+    instance.limit.set(limit);
   }
 });

@@ -26,11 +26,11 @@ Template.allNotification.onCreated(function() {
        $('#flux').bind('scroll', function(){
            if($('#flux').scrollTop() + $('#flux').innerHeight()>=$('#flux')[0].scrollHeight){
 
-             if(Posts.find().count() === instance.limit.get()){
+             if(Notifications.find().count() === instance.limit.get()){
                instance.limit.set(instance.limit.get() + 5);
                $('body').addClass('stop-scrolling')
              }else {
-               if(Posts.find().count() < instance.limit.get()){
+               if(Notifications.find().count() < instance.limit.get()){
                  instance.flag.set(true);
                }
              }

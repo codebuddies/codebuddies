@@ -1,10 +1,10 @@
 <template name="learningItem">
     <ul class="status-item">
-       <p> <span class="status-date">{{learningTime}} by</span> 
-       <a href="profile/{{username}}"><span class="username">{{username}}</span></a>  </p>
+       <p> <span class="status-date">{{learningTime}} by</span>
+       <a href="profile/{{username}}/{{userId}}"><span class="username">{{username}}</span></a>  </p>
       <li><div class="kudo-holder">
         <label class="kudo-count">
-          {{#unless learningOwner owner}}
+          {{#unless learningOwner userId}}
             <p><i class="fa fa-angle-up fa-2x btn-{{#if buttonStatus}}un{{/if}}like  btn-learning btn-xs"></i></p>
           {{/unless}}
           <p>+{{kudos}}</p>
@@ -12,9 +12,9 @@
       <li>
         <label class="status">
           <p>
-            {{text}}{{#if isOwner}} <span class="delete-learning"><i class="fa fa-trash-o"></i></span> <span class="edit-learning"><i class="fa fa-pencil-square-o"></i></span> {{/if}}
+            {{title}}{{#if isOwner}} <span class="delete-learning"><i class="fa fa-trash-o"></i></span> <span class="edit-learning"><i class="fa fa-pencil-square-o"></i></span> {{/if}}
           </p>
-    
+
         </label>
       </li>
     </ul>
