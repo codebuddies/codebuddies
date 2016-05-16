@@ -106,7 +106,7 @@ Template.hangoutItem.events({
         type: 'info'
       });
     } else {
-      Meteor.call('addUserToHangout', this._id, Meteor.userId(), function(error, result) {
+      Meteor.call('addUserToHangout', this._id,this.user_id, Meteor.userId(), function(error, result) {
         if (result) {
           sweetAlert({
             title: TAPi18n.__("you_are_awesome"),
@@ -126,7 +126,7 @@ Template.hangoutItem.events({
         type: 'warning'
       });
     } else {
-      Meteor.call('removeUserFromHangout', this._id, Meteor.userId(), function(error, result) {
+      Meteor.call('removeUserFromHangout', this._id, this.user_id, Meteor.userId(), function(error, result) {
         if (result) console.log('removed');
       });
     }

@@ -29,7 +29,12 @@ Template.updateStatus.events({
       });
     } else {
       var learningStatus = $('#learned-text').val();
-      Meteor.call("addLearning", learningStatus, function(error, result) { });
+      var data = {
+        user_id: Meteor.userId(),
+        username:Meteor.user().profile.name,
+        title:learningStatus,
+      }
+      Meteor.call("addLearning", data, function(error, result) { });
       $('#learned-text').val('');
     }
   },

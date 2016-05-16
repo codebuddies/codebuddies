@@ -1,6 +1,6 @@
 Template.hangoutList.onCreated(function() {
   var self = this;
-  self.pageSize = 8;
+  self.pageSize = 5;
   self.currentCount = new ReactiveVar(this.pageSize);
   self.loadMore = new ReactiveVar(false);
   self.hangoutsCount = 0;

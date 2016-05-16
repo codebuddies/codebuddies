@@ -7,7 +7,7 @@ Meteor.publish("learnings", function(limit) {
 });
 
 Meteor.publish("ownLearnings", function(limit) {
-  return Learnings.find({owner: this.userId}, {sort: {timestamp: -1}, limit: limit});
+  return Learnings.find({userId: this.userId}, {sort: {timestamp: -1}, limit: limit});
 });
 
 Meteor.publish("hangouts", function() {
@@ -57,4 +57,7 @@ Meteor.publish("allNotifications", function (limit) {
 });
 Meteor.publish(null, function(argument){
   return Meteor.users.find({_id:this.userId},{fields:{user_info:1}});
+});
+Meteor.publish("attendees", function(limit){
+  return Attendees.find({createorId:this.userId},{sort: {date: -1}},{limit:limit});
 });
