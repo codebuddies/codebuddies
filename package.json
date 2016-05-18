@@ -4,5 +4,8 @@
   "scripts": {
     "meteor:dev": "meteor --settings settings-development.json",
     "meteor:prod": "meteor --setings settings-production.json"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.1"
   }
 }
