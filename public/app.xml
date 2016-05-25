@@ -74,7 +74,6 @@
             $.ajax({
               type: "POST",
               url: callbackUrl,
-              success: successFunc,
               dataType: 'json',
               data: {
                       "hangoutUrl": hangoutUrl,
