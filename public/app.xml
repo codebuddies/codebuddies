@@ -69,7 +69,7 @@
         function registerHangout() {
           var hangoutUrl = gapi.hangout.getHangoutUrl();
           var startData = gapi.hangout.getStartData();
-          var callbackUrl = 'http://cbv2-staging.herokuapp.com/hangout/'+startData;
+          var callbackUrl = 'https://cbv2-staging.herokuapp.com/hangout/'+startData;
 
             $.ajax({
               type: "PUT",
