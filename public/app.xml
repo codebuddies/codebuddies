@@ -72,7 +72,7 @@
           var callbackUrl = 'https://cbv2-staging.herokuapp.com/hangout/'+startData;
 
             $.ajax({
-              type: "PUT",
+              type: "POST",
               url: callbackUrl,
               success: successFunc,
               dataType: 'json',
