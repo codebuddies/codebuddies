@@ -66,22 +66,15 @@
       } // Wait for gadget to load. 
 
 
-        function registerHangout() {
-          var hangoutUrl = gapi.hangout.getHangoutUrl();
-          var startData = gapi.hangout.getStartData();
-          var callbackUrl = 'https://cbv2-staging.herokuapp.com/hangout/'+startData;
-
-            $.ajax({
-              type: "POST",
-              url: callbackUrl,
-              dataType: 'json',
-              data: {
-                      "hangoutUrl": hangoutUrl,
-                      "startData": startData
-                     }
-            });
-        }
-
+        /*POST*/
+        var hangoutUrl = gapi.hangout.getHangoutUrl();
+        var startData = gapi.hangout.getStartData();
+        var callbackUrl = 'https://cbv2-staging.herokuapp.com/hangout/'+startData;
+          
+        var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
+        xmlhttp.open("PUT", callbackUrl);
+        xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        xmlhttp.send(JSON.stringify({"hangoutUrl": hangoutUrl, "startData": startData}));
 
         gadgets.util.registerOnLoadHandler(init); 
 
