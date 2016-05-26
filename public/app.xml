@@ -60,21 +60,24 @@
            if (eventObj.isApiReady) { 
             document.getElementById('showParticipants') .style.visibility = 'visible';
            } 
+
+           /*POST*/
+            var hangoutUrl = gapi.hangout.getHangoutUrl();
+            var postID = gapi.hangout.getStartData();
+            console.log(postID);
+            var callbackUrl = 'https://cbv2-staging.herokuapp.com/hangout/'+postID;
+              
+            var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
+            xmlhttp.open("PUT", callbackUrl);
+            xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+            xmlhttp.send(JSON.stringify({"hangoutUrl": hangoutUrl, "postID": postID}));
+  
           }); 
         
       } // Wait for gadget to load. 
 
 
-        /*POST*/
-        var hangoutUrl = gapi.hangout.getHangoutUrl();
-        var postID = gapi.hangout.getStartData();
-        console.log(postID);
-        var callbackUrl = 'https://cbv2-staging.herokuapp.com/hangout/'+postID;
-          
-        var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
-        xmlhttp.open("PUT", callbackUrl);
-        xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-        xmlhttp.send(JSON.stringify({"hangoutUrl": hangoutUrl, "postID": postID}));
+        
 
         gadgets.util.registerOnLoadHandler(init); 
 
