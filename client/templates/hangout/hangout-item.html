@@ -20,7 +20,7 @@
                 {{#if hangoutOwner user_id}}
                   <div class="google-hangout">
                       <div class="g-hangout" data-render="createhangout"
-                      data-initial_apps="[{ app_id : '999356798349', start_data: {{_id}}, 'app_type' : 'LOCAL_APP' }]" widget_size="72"></div>
+                      data-initial_apps="[{ app_id : '999356798349', start_data: {{_id}}, 'app_type' : 'LOCAL_APP' }]" data-widget_size="72"></div>
                   </div>
                 {{/if}}
           {{/unless}}
@@ -35,10 +35,16 @@
             {{#if isInProgress this}}
 
               {{#if isJoined}}
-                <a class="btn btn-cb2 btn-grey {{#if url}}btn-success{{/if}}" href="{{url}}" target="_blank">{{_ "join"}}</a>
-                {{#unless hangoutOwner user_id}}
-                  You need to wait for the host to start the hangout.
-                {{/unless}}
+                {{#if url}}
+                  <a class="btn btn-cb2 btn-grey btn-success" href="{{url}}" target="_blank">{{_ "join"}}</a>
+                {{else}}
+                  {{#unless hangoutOwner user_id}}
+                      <a class="btn btn-cb2 btn-grey" target="_blank">{{_ "join"}}</a>           
+                        <p class="status">You need to wait for the host to start the hangout.</p>
+                      {{/unless}}
+                {{/if}}
+
+   
 
               {{else}}
                 {{# unless getIsDone this}}
