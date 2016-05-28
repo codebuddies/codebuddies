@@ -9,17 +9,22 @@
         {{/if}}
           <a href="/hangout/{{_id}}" class="hangout-topic"> {{topic}} </a>
 
-        <div class="google-hangout">
-            <div class="g-hangout" data-render="createhangout"
-            data-initial_apps="[{ app_id : '999356798349', start_data: {{_id}}, 'app_type' : 'LOCAL_APP' }]"></div>
-        </div>
+
         </label>
         {{> hangoutActionBar}}
       </div>
 
-      <div class="col-md-2">
-
-
+      <div class="col-md-3">
+       {{# unless completed this }}
+          {{# unless url }}
+                {{#if hangoutOwner user_id}}
+                  <div class="google-hangout">
+                      <div class="g-hangout" data-render="createhangout"
+                      data-initial_apps="[{ app_id : '999356798349', start_data: {{_id}}, 'app_type' : 'LOCAL_APP' }]" widget_size="72"></div>
+                  </div>
+                {{/if}}
+          {{/unless}}
+         {{/unless}}
 
         {{#if equals visibility false}}
           <span class="label label-pill label-danger">DELETED</span>
@@ -30,8 +35,10 @@
             {{#if isInProgress this}}
 
               {{#if isJoined}}
-               URL: {{#if url}} {{url}} {{/if}}
-                <button class="btn btn-cb2 btn-success">Launch</button>
+                <a class="btn btn-cb2 btn-grey {{#if url}}btn-success{{/if}}" href="{{url}}" target="_blank">{{_ "join"}}</a>
+                {{#unless hangoutOwner user_id}}
+                  You need to wait for the host to start the hangout.
+                {{/unless}}
 
               {{else}}
                 {{# unless getIsDone this}}
@@ -47,7 +54,7 @@
               {{else}}
 
                 {{# unless getIsDone this}}
-                  <button id="join-hangout" class="btn btn-cb2">{{_ "join"}}</button>
+                  <button id="join-hangout" class="btn btn-cb2">{{_ "rsvp"}}</button>
                 {{/unless}}
 
               {{/if}}
@@ -61,7 +68,7 @@
 
     </div>
 
-    <div class="col-md-10">
+    <div class="col-md-9">
       <p class="status"><label><i class="fa {{getType type}}"></i> Host <a href="/profile/{{creator}}/{{user_id}}">{{creator}}</a></label></p>
       <p class="status"><label><i class="fa fa-clock-o fa-lg"></i> {{getDate this}}  {{#if views}} | <i class="fa fa-eye" aria-hidden="true" data-toggle="tooltip" title="Views" > {{views}} </i> {{/if}}</label> </p>
     </div>
