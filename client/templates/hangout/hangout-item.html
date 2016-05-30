@@ -7,12 +7,24 @@
         {{#if isInProgress this}}
           &nbsp; &nbsp;<i class="fa fa-dot-circle-o fa text-danger faa-burst animated"></i> &nbsp;
         {{/if}}
-          <a href="/hangout/{{_id}}" class="hangout-topic"> {{topic}}</a>
+          <a href="/hangout/{{_id}}" class="hangout-topic"> {{topic}} </a>
+
+
         </label>
         {{> hangoutActionBar}}
       </div>
 
-      <div class="col-md-2">
+      <div class="col-md-3">
+       {{# unless completed this }}
+          {{# unless url }}
+                {{#if hangoutOwner user_id}}
+                  <div class="google-hangout">
+                      <div class="g-hangout" data-render="createhangout"
+                      data-initial_apps="[{ app_id : '999356798349', start_data: {{_id}}, 'app_type' : 'LOCAL_APP' }]" data-widget_size="72"></div>
+                  </div>
+                {{/if}}
+          {{/unless}}
+         {{/unless}}
 
         {{#if equals visibility false}}
           <span class="label label-pill label-danger">DELETED</span>
@@ -23,7 +35,17 @@
             {{#if isInProgress this}}
 
               {{#if isJoined}}
-                <button class="btn btn-cb2 btn-success">Launch</button>
+                {{#if url}}
+                  <a class="btn btn-cb2 btn-grey btn-success" href="{{url}}" target="_blank">{{_ "join"}}</a>
+                {{else}}
+                  {{#unless hangoutOwner user_id}}
+                      <a class="btn btn-cb2 btn-grey" target="_blank">{{_ "join"}}</a>           
+                        <p class="status">You need to wait for the host to start the hangout.</p>
+                      {{/unless}}
+                {{/if}}
+
+   
+
               {{else}}
                 {{# unless getIsDone this}}
                   <button id="join-hangout" class="btn btn-cb2">{{_ "join_in_session"}}</button>
@@ -38,7 +60,7 @@
               {{else}}
 
                 {{# unless getIsDone this}}
-                  <button id="join-hangout" class="btn btn-cb2">{{_ "join"}}</button>
+                  <button id="join-hangout" class="btn btn-cb2">{{_ "rsvp"}}</button>
                 {{/unless}}
 
               {{/if}}
@@ -52,7 +74,7 @@
 
     </div>
 
-    <div class="col-md-10">
+    <div class="col-md-9">
       <p class="status"><label><i class="fa {{getType type}}"></i> Host <a href="/profile/{{creator}}/{{user_id}}">{{creator}}</a></label></p>
       <p class="status"><label><i class="fa fa-clock-o fa-lg"></i> {{getDate this}}  {{#if views}} | <i class="fa fa-eye" aria-hidden="true" data-toggle="tooltip" title="Views" > {{views}} </i> {{/if}}</label> </p>
     </div>

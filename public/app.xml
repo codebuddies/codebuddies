@@ -1,0 +1,88 @@
+
+<Module>
+<!--
+ Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *  
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License
+-->
+<ModulePrefs title="Hangout Starter">
+<Require feature="rpc"/>
+<Require feature="views"/>
+<Require feature="locked-domain"/>
+</ModulePrefs>
+<Content type="html">
+<![CDATA[
+<html>
+  <style type="text/css">
+  <!-- .button { border-radius: 3px; -moz-border-radius: 3px; background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd)); background: -moz-linear-gradient(top, #fff, #ddd); border: 1px solid #bbb; } .button:active { background: -webkit-gradient(linear, left top, left bottom, from(#aaa), to(#333)); background: -moz-linear-gradient(bottom, #ddd, #aaa); } --> 
+</style> 
+
+  <body> 
+    <script src="//plus.google.com/hangouts/_/api/v1/hangout.js"></script> 
+
+    <h3>Simple Hangout App</h3> <p> <input class="button" type="button" value="Show participants!" id="showParticipants" style="visibility:hidden;" onClick="showParticipants()"/> </p> <div id="participantsDiv"></div> 
+
+    <hr> 
+
+      <p><a href="http://developers.google.com/+/hangouts/getting-started">Read the docs</a> to learn more about developing hangouts!</a></p> 
+
+      <script>
+       function showParticipants() { 
+       var participants = gapi.hangout.getParticipants(); 
+       var hangout_link = gapi.hangout.getHangoutUrl();
+       var start_data = gapi.hangout.getStartData();
+       var retVal = '<p>Participants: </p><ul>'; 
+       for (var index in participants) { 
+          var participant = participants[index]; 
+          if (!participant.person) { 
+            retVal += '<li>A participant not running this app</li>'; 
+          } 
+        retVal += '<li>' + participant.person.displayName + '</li>';
+          }
+
+        retVal += '</ul>' + '<p>This is the hangout link: ' + hangout_link + ' and this is the post ID:' + start_data + '</p>'; 
+
+          var div = document.getElementById('participantsDiv'); 
+
+          div.innerHTML = retVal; 
+      }
+
+      function init() { // When API is ready... 
+        gapi.hangout.onApiReady.add( function(eventObj) {
+           if (eventObj.isApiReady) { 
+            document.getElementById('showParticipants') .style.visibility = 'visible';
+           } 
+
+           /*POST*/
+            var hangoutUrl = gapi.hangout.getHangoutUrl();
+            var postID = gapi.hangout.getStartData();
+            console.log(postID);
+            var callbackUrl = 'https://cbv2-staging.herokuapp.com/hangout/'+postID;
+              
+            var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
+            xmlhttp.open("PUT", callbackUrl);
+            xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+            xmlhttp.send(JSON.stringify({"hangoutUrl": hangoutUrl, "postID": postID}));
+  
+          }); 
+        
+      } // Wait for gadget to load. 
+
+
+        
+
+        gadgets.util.registerOnLoadHandler(init); 
+
+     </script> 
+   </body>
+]]>
+</Content>
+</Module>
