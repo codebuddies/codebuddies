@@ -13,6 +13,12 @@ Template.hangout.onCreated(function() {
   });
 });
 
+Template.hangout.rendered = function() {
+
+  $('head').append('<script src="https://apis.google.com/js/platform.js" async defer></script>');
+
+}
+
 Template.hangout.helpers({
   hangout: function() {
     if (Template.instance().isReady.get())
@@ -37,7 +43,7 @@ Template.hangout.helpers({
     //console.log('getDate hangout.end: '+ hangout.end);
     //console.log('getDate this.timestamp' + this.timestamp);
     //console.log('getDate this.end' + this.end)
-    return moment(hangout.start).tz(tz).format('MMMM Do YYYY, h:mm a z') +
+    return moment(hangout.start).tz(tz).format('ddd MMMM Do YYYY, h:mm a z') +
       ' - ' +
       moment(hangout.end).tz(tz).format('MMMM Do h:mm a z') +
       ' | ' +
