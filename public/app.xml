@@ -65,7 +65,7 @@
             var hangoutUrl = gapi.hangout.getHangoutUrl();
             var postID = gapi.hangout.getStartData();
             console.log(postID);
-            var callbackUrl = 'https://cbv2-staging.herokuapp.com/receive/hangoutapp/'+postID;
+            var callbackUrl = 'https://cbv2-staging.herokuapp.com/hangout/'+postID;
               
             var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
             xmlhttp.open("PUT", callbackUrl);
