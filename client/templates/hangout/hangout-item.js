@@ -44,7 +44,7 @@ Template.hangoutItem.helpers({
     //console.log('getDate hangout.end: '+ hangout.end);
     //console.log('getDate this.timestamp' + this.timestamp);
     //console.log('getDate this.end' + this.end)
-    return moment(hangout.start).tz(tz).format('MMMM Do YYYY, h:mm a z') +
+    return moment(hangout.start).tz(tz).format('ddd MMMM Do YYYY, h:mm a z') +
       ' - ' +
       moment(hangout.end).tz(tz).format('MMMM Do h:mm a z') +
       ' | ' +
