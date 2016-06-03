@@ -2,7 +2,7 @@ var bodyParser = require('body-parser');
 
 Picker.middleware(bodyParser.json());
 
-Picker.route('/hangout/:_id', function(params, req, res) {
+Picker.route('/callback/hangout/:_id', function(params, req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'PUT');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');

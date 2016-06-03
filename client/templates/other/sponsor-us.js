@@ -1,0 +1,3 @@
+Template.sponsorUs.onCreated(function(){
+
+});
