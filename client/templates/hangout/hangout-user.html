@@ -1,3 +1,5 @@
 <template name="hangoutUser">
-  <img class="img-circle" src="{{profileImage this}}"> 
+  {{#with profileImage this}}
+    <a href="{{pathFor 'profile'}}/{{username}}/{{userId}}"><img class="img-circle" src="{{avatar}}"></a>
+  {{/with}}
 </template>
