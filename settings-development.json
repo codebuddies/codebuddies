@@ -1,6 +1,6 @@
 {
-  "slack_clientid": "4364220508.21046436577",
-  "slack_clientsecret": "cb8d1f895710a562c9c0bd8c72759c4b",
+  "slack_clientid": "4364220508.48645474518",
+  "slack_clientsecret": "80e9b9691b06238ae6c0a173d739d752",
   "slack": "https://hooks.slack.com/services/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",
   "mailgun_username": "postmaster@sandbox2be14a81c3384728a7a9f3eee8500a28.mailgun.org",
   "mailgun_password": "0980133953c04009f17abbf972914167",
