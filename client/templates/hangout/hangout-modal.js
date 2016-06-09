@@ -2,6 +2,8 @@ Template.createHangoutModal.rendered = function() {
   var start = this.$('#start-date-time-picker');
   var end = this.$('#end-date-time-picker');
 
+  $('#d1,#d2,#d3').hide();
+
   start.datetimepicker({
     ignoreReadonly: true,
     widgetPositioning: { horizontal: 'auto', vertical: 'bottom'},
@@ -25,6 +27,24 @@ Template.createHangoutModal.rendered = function() {
     end.data("DateTimePicker").date(minEndDate);
     //setting end date & time minLimit
     end.data("DateTimePicker").minDate(minEndDate);
+  });
+
+  $('#sId').hover(function(){
+    $('#d1').show();
+  },function(){
+    $('#d1').hide();
+  });
+
+  $('#tId').hover(function(){
+    $('#d2').show();
+  },function(){
+    $('#d2').hide();
+  });
+
+  $('#cId').hover(function(){
+    $('#d3').show();
+  },function(){
+    $('#d3').hide();
   });
 
 };
