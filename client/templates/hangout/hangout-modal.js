@@ -47,6 +47,8 @@ Template.createHangoutModal.rendered = function() {
     $('#d3').hide();
   });
 
+
+
 };
 
 Template.createHangoutModal.events({
