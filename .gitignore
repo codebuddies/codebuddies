@@ -3,3 +3,5 @@ push.sh
 node_modules
 settings-keys.json
 .DS_Store
+mup.json
+settings.json
