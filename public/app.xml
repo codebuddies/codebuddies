@@ -28,7 +28,7 @@
   <body>
     <script src="//plus.google.com/hangouts/_/api/v1/hangout.js"></script>
 
-    <h3>Simple Hangout App</h3> <p> <input class="button" type="button" value="Show participants!" id="showParticipants" style="visibility:hidden;" onClick="showParticipants()"/> </p> <div id="participantsDiv"></div>
+    <h3>CodeBuddies Hangout App</h3> <p> <input class="button" type="button" value="Show participants!" id="showParticipants" style="visibility:hidden;" onClick="showParticipants()"/> </p> <div id="participantsDiv"></div>
 
     <hr>
 
