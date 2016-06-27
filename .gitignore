@@ -5,3 +5,4 @@ settings-keys.json
 .DS_Store
 mup.json
 settings.json
+cert.pem
