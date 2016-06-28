@@ -6,6 +6,6 @@
     "meteor:prod": "meteor --setings settings-production.json"
   },
   "dependencies": {
-    "body-parser": "^1.15.1"
+    "body-parser": "^1.15.2"
   }
 }
