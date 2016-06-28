@@ -5,3 +5,5 @@ settings-keys.json
 .DS_Store
 mup.json
 settings.json
+fullchain.pem
+privkey.pem
