@@ -133,5 +133,5 @@ Template.hangout.events({
         if (result) console.log('removed');
       });
     }
-  },  
+  },
 });
