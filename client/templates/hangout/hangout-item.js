@@ -12,6 +12,12 @@ Meteor.startup(function() {
 
 });
 
+Template.hangoutItem.rendered =function() {
+
+  $('head').append('<script src="https://apis.google.com/js/platform.js" async defer></script>');
+
+};
+
 Template.registerHelper("hangoutOwner", function(ownerid){
   if(Meteor.userId() === ownerid){
       return true;
@@ -21,11 +27,7 @@ Template.registerHelper("hangoutOwner", function(ownerid){
 
 });
 
-Template.hangoutItem.rendered = function() {
 
-  $('head').append('<script src="https://apis.google.com/js/platform.js" async defer></script>');
-
-}
 
 Template.hangoutItem.helpers({
   getType: function(type) {
