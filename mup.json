@@ -29,7 +29,7 @@
   // ROOT_URL must be set to your correct domain (https or http)
   "env": {
     "PORT": 80,
-    "ROOT_URL": "https://www.codebuddies.org",
+    "ROOT_URL": "https://codebuddies.org",
     "MONGO_URL": "mongodb://codebuddies:cbmeet@ds015995.mlab.com:15995/codebuddies-production",
     "METEOR_ENV": "production"
   },
