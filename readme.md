@@ -29,7 +29,7 @@ And here are the volunteers so far:
 - @adachiu https://github.com/adachiu - contributed awesome high-quality designs for almost every page of the app, lead the design and UX thinking
 - @wuworkshop https://github.com/wuworkshop - contributed advice on a huge number of issues and helped organize the git process flow
 - @Richardh https://github.com/studentrik
-- @anbuselvan https://github.com/anbuselvan - contributed code for the foundations of the app (basically coded 50% of the app), including hangout/learning creation and Slack authentication.
+- @anbuselvan https://github.com/anbuselvan - contributed code for the foundations of the app, including hangout/learning creation and Slack authentication.
 - @husam https://github.com/hudat
 - @ccr https://github.com/Iccr
 - @ghazi https://github.com/ghmoha
