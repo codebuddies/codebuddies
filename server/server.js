@@ -101,6 +101,7 @@ Accounts.onCreateUser(function(options, user) {
     user.statusDate = '';
     user.statusHangout = '';
     user.profile = profile_info;
+
     return user;
   }
 });
