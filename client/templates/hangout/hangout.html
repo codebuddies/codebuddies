@@ -87,7 +87,7 @@
 
                 <p class="status">
                   <label><i class="fa {{getType type}}"></i>
-                  host <a href="/profile/{{creator}}/{{user_id}}">{{creator}}</a>
+                  Host <a href="{{pathFor 'profile' name=host.name userId=host.id}}">{{host.name}}</a>
                     <br /><i class="fa fa-calendar fa-lg"></i> {{getDate this}}
                         | <i class="fa fa-eye" aria-hidden="true" data-toggle="tooltip" title="Views"> {{views}} </i>
                    </label>
@@ -108,7 +108,7 @@
 
               <a href="{{pathFor 'profile' name=host.name userId=host.id}}"><img class="img-circle" src="{{host.avatar}}"></a>
               {{#each attendees}}
-                <a href="{{pathFor 'profile' name=attendees.name userId=attendees.id}}"><img class="img-circle" src="{{attendees.avatar}}"></a>
+                <a href="{{pathFor 'profile' name=name userId=id}}"><img class="img-circle" src="{{avatar}}"></a>
               {{/each}}
             </div>
           </div> <!--panel panel-default-->
