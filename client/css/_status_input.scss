@@ -14,12 +14,16 @@ input:focus, textarea:focus {
 
   width: 100%;
   background-color: $bg-white;
-  height: 60px;
+  height: 80px;
   margin-top: -5px;
   padding-left: 21px;
   padding-right: 21px;
   padding-top: 12px;
 
-  span.interest {@include font-face(600, 13px, italic, $warm-grey);}
+  span.interest {
+    @include font-face(600, 13px, italic, $warm-grey);
+    @include breakpoint(tiny) { display: block; }
+    @include breakpoint(xsmall) { display: block; }
+  }
 
 }

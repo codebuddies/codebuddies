@@ -1,13 +1,26 @@
-  .footer {
-  	overflow: auto;
-    background: $bg-white;
-    padding: 20px 0;
-    @include font-face(400, 13px, normal, $primary-grey);
-    a {color: $cta-blue; text-decoration: underline;}
-    .fa {font-size: 20px; color: $cta-blue; padding-left: 10px;}
-    .footer-icons {padding-top: 40px;}
-    p.logo { float: left; padding: 20px 160px;}
-    span.note { display: block; font-size: 12px;}
-    bottom: 0px;
-    width: 100%;
+#footer {
+  position: relative;
+  background: $bg-white;
+  padding: 20px 0;
+  @include font-face(400, 13px, normal, $primary-grey);
+  a {color: $cta-blue; text-decoration: underline;}
+  .fa {font-size: 20px; color: $cta-blue; padding-left: 10px;}
+  .footer-icons {
+    @include breakpoint(tiny) { display: block; }
+    @include breakpoint(xsmall) { display: block; }
   }
+  span.note { display: block; font-size: 12px;}
+  width: 100%;
+  min-height: 95px;
+  .footer-details{
+    float:right;
+    @include breakpoint(tiny) { float: none; }
+    @include breakpoint(xsmall) { float: none; }
+    .help {
+      @include breakpoint(tiny) { display: block; }
+      @include breakpoint(xsmall) { display: block; }
+    }
+  }
+  @include breakpoint(tiny) { text-align: center !important; }
+  @include breakpoint(xsmall) { text-align: center !important; }
+}
