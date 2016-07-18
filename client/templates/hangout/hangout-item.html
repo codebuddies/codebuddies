@@ -17,7 +17,7 @@
       <div class="col-md-3">
        {{# unless completed this }}
           {{# unless url }}
-                {{#if hangoutOwner user_id}}
+                {{#if hangoutOwner host.id}}
                   <div class="google-hangout">
                       <div class="g-hangout" data-render="createhangout"
                       data-initial_apps="[{ app_id : '999356798349', start_data: {{_id}}, 'app_type' : 'LOCAL_APP' }]" data-widget_size="72"></div>
@@ -38,13 +38,13 @@
                 {{#if url}}
                   <a class="btn btn-cb2 btn-grey btn-success" href="{{url}}" target="_blank">{{_ "join"}}</a>
                 {{else}}
-                  {{#unless hangoutOwner user_id}}
-                      <a class="btn btn-cb2 btn-grey" target="_blank">{{_ "join"}}</a>           
+                  {{#unless hangoutOwner host.id}}
+                      <a class="btn btn-cb2 btn-grey" target="_blank">{{_ "join"}}</a>
                         <p class="status">You need to wait for the host to start the hangout.</p>
                       {{/unless}}
                 {{/if}}
 
-   
+
 
               {{else}}
                 {{# unless getIsDone this}}
@@ -75,7 +75,7 @@
     </div>
 
     <div class="col-md-9">
-      <p class="status"><label><i class="fa {{getType type}}"></i> Host <a href="/profile/{{creator}}/{{user_id}}">{{creator}}</a></label></p>
+      <p class="status"><label><i class="fa {{getType type}}"></i> Host <a href="{{pathFor 'profile' name=host.name userId=host.id}}">{{host.name}}</a></label></p>
       <p class="status"><label><i class="fa fa-calendar fa-lg"></i> {{getDate this}}  {{#if views}} | <i class="fa fa-eye" aria-hidden="true" data-toggle="tooltip" title="Views" > {{views}} </i> {{/if}}</label> </p>
     </div>
 

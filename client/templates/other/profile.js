@@ -7,6 +7,7 @@ Template.profile.onCreated(function(){
 Template.profile.helpers({
   userInfo: function() {
 		var userId = FlowRouter.getParam('userId');
+    console.log(ReactiveMethod.call('getUserDetails',userId));
 		return ReactiveMethod.call('getUserDetails',userId);
   },
   hangoutsJoinedCount: function() {

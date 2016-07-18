@@ -25,27 +25,28 @@ Template.cloneHangoutModal.rendered = function() {
 
 Template.cloneHangoutModal.events({
   'click #clone-hangout': function(e) {
-    var topic1 = $('#topic').val();
-    var desc1 = $('#description').val();
-    var start1 = $('#start-date-time').val();
-    var end1 = $('#end-date-time').val();
-    var type1 = $('input[name="hangout-type"]:checked').val();
-    console.log(start1);
-    //console.log(new Date(start1));
 
-    var data = {
-      topic: topic1,
-      description: desc1,
-      start: new Date(start1),
-      end: new Date(end1),
-      type: type1,
-      username:Meteor.user().profile.name,
-      user_id: Meteor.userId()
+    const topic = $('#topic').val();
+    const description = $('#description').val().replace(/\r?\n/g, '<br />');
+    const start = $('#start-date-time').val();
+    const end = $('#end-date-time').val();
+    const type = $('input[name="hangout-type"]:checked').val();
+    console.log(start);
+
+
+    const data = {
+      topic: topic,
+      slug: topic.replace(/\s+/g, '-').toLowerCase(),
+      description: description,
+      start: new Date(start),
+      end: new Date(end),
+      type: type
     };
+
     console.log(data.start);
     console.log(data.end);
 
-    if ($.trim(start1) == '') {
+    if ($.trim(start) == '') {
       sweetAlert({
         title: TAPi18n.__("select_start_time"),
         confirmButtonText: TAPi18n.__("ok"),
@@ -54,7 +55,7 @@ Template.cloneHangoutModal.events({
       return;
     }
 
-    if ($.trim(end1) == '') {
+    if ($.trim(end) == '') {
       sweetAlert({
         title: TAPi18n.__("select_end_time"),
         confirmButtonText: TAPi18n.__("ok"),
@@ -63,7 +64,7 @@ Template.cloneHangoutModal.events({
       return;
     }
 
-    if ($.trim(topic1) == '') {
+    if ($.trim(topic) == '') {
       $('#topic').focus();
       sweetAlert({
         title: TAPi18n.__("enter_topic"),
@@ -73,7 +74,7 @@ Template.cloneHangoutModal.events({
       return;
     }
 
-    if ($.trim(desc1) == '') {
+    if ($.trim(description) == '') {
       $('#description').focus();
       sweetAlert({
         title: TAPi18n.__("enter_description"),
@@ -83,7 +84,7 @@ Template.cloneHangoutModal.events({
       return;
     }
 
-    Meteor.call('cloneHangout', data, function(err, result) {
+    Meteor.call('createHangout', data, function(err, result) {
       if (result) {
         Modal.hide();
         sweetAlert({

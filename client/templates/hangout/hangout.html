@@ -33,12 +33,12 @@
                   <a class="btn btn-cb2 btn-grey btn-success" href="{{url}}" target="_blank">{{_ "join"}}</a>
                 {{else}}
                   {{#unless hangoutOwner user_id}}
-                      <a class="btn btn-cb2 btn-grey" target="_blank">{{_ "join"}}</a>           
+                      <a class="btn btn-cb2 btn-grey" target="_blank">{{_ "join"}}</a>
                         <p class="status">You need to wait for the host to start the hangout.</p>
                       {{/unless}}
                 {{/if}}
 
-   
+
 
               {{else}}
                 {{# unless getIsDone this}}
@@ -97,7 +97,7 @@
             </div><!--panel-heading-->
 
             <div class="panel-body">
-             
+
               <div class="col-md-12">
                   {{{description}}}
               </div>
@@ -105,8 +105,10 @@
             </div>
 
             <div class="panel-footer">
-              {{#each users}}
-                {{> hangoutUser this}}
+
+              <a href="{{pathFor 'profile' name=host.name userId=host.id}}"><img class="img-circle" src="{{host.avatar}}"></a>
+              {{#each attendees}}
+                <a href="{{pathFor 'profile' name=attendees.name userId=attendees.id}}"><img class="img-circle" src="{{attendees.avatar}}"></a>
               {{/each}}
             </div>
           </div> <!--panel panel-default-->

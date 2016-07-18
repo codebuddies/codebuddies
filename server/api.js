@@ -8,8 +8,8 @@ Meteor.methods({
 
       return {
         userId : user._id,
-        username : user.profile.name,
-        avatar : user.user_info.profile.image_192 || user.profile.gravatar
+        username : user.username,
+        avatar : user.profile.avatar.image_192 || user.profile.avater.default,
       }
     } else {
       return '';
@@ -19,7 +19,7 @@ Meteor.methods({
 
   getUserDetails : function(userId){
     check(userId, String);
-    return Meteor.users.findOne({_id:userId},{fields: { emails: 1, profile: 1, roles: 1, user_info: 1}});
+    return Meteor.users.findOne({_id:userId},{fields: { emails: 0, services: 0, roles: 0}});
   },
 
   getUserCount: function() {
@@ -37,10 +37,14 @@ Meteor.methods({
 
     var tz = "America/Los_Angeles";
     var hangout = Hangouts.findOne(hangoutId);
-    var user_id = hangout.user_id;
-    var host = Meteor.users.findOne({_id: user_id}).user_info.name;
+    var user_id = hangout.host.id;
+    var host = hangout.host.name;
     var hangout_topic = hangout.topic;
     var hangout_start_time = hangout.start;
+
+    if(hangout.attendees.length === 0)
+    return true;
+
     var emails = hangout.email_addresses.join(",");
 
     var template_data = {
@@ -73,32 +77,43 @@ Meteor.methods({
 
   createHangout: function(data) {
     check(data, Match.ObjectIncluding({
-      user_id: String,
       topic: String,
+      slug: String,
       description: String,
       start: Match.OneOf(String, Date),
       end: Match.OneOf(String, Date),
       type: String,
-      username:String,
-      email:String
     }));
 
-    var hangout_id = Hangouts.insert({
-      user_id: data.user_id,
-      creator:data.username,
+    const loggedInUser = Meteor.user();
+    if (!this.userId) {
+      throw new Meteor.Error('Hangout.methods.createHangout.not-logged-in', 'Must be logged in to create new hangout.');
+    }
+    const hangout = {
       topic: data.topic,
+      slug: data.slug,
       description: data.description,
       start: data.start,
       end: data.end,
       type: data.type,
-      users: [ data.user_id ],
-      email_addresses: [ data.email ],
-      reminder_sent: false,
-      timestamp: new Date()
-    });
+      host:{
+        id: loggedInUser._id,
+        name: loggedInUser.username,
+        avatar: loggedInUser.profile.avatar.default,
+      },
+      attendees:[],
+      users:[loggedInUser._id],
+      is_reminder_sent: false,
+      views: 0,
+      visibility: true,
+      created_at: new Date()
+    }
+
+    const hangout_id = Hangouts.insert(hangout);
+
     // create slack message to channel
     var tz = "America/Los_Angeles";
-    var host = data.username;
+    var host = loggedInUser.username;
     var hangout_type = data.type;
     var hangout_topic = data.topic;
     var hangout_desc = data.description;
@@ -135,21 +150,31 @@ Meteor.methods({
   },
 
   deleteHangout: function (data) {
-    check(data.hangoutId, String);
-    check(data.hostId, String);
-    check(data.hostUsername, String);
+    check(data, {
+      hangoutId: String,
+      hostId: String,
+      hostUsername: String
+    });
 
-    var response = Meteor.call('emailHangoutUsers', data.hangoutId);
+    if (!this.userId) {
+      throw new Meteor.Error('Hangout.methods.deleteHangout.not-logged-in', 'Must be logged in to delete hangout.');
+    }
+
+    const response = Meteor.call('emailHangoutUsers', data.hangoutId);
       if (!response) {
           throw new Meteor.Error("Error sending email!");
       } else {
-          var actor = Meteor.user()
+          const actor = Meteor.user()
           if (actor._id === data.hostId) {
 
-            Hangouts.remove({_id: data.hangoutId, user_id: actor._id});
+            Hangouts.update({_id: data.hangoutId},{$set:{ visibility: false}});
             return true;
 
           }else{
+            if(!Roles.userIsInRole(this.userId,['admin','moderator'])){
+              throw new Meteor.Error('Hangout.methods.deleteHangout.accessDenied', 'Cannot delete hangout, Access denied');
+            }
+
             Hangouts.update({_id: data.hangoutId},
               {$set:
                 {
@@ -159,7 +184,7 @@ Meteor.methods({
 
             var notification = {
               actorId : actor._id,
-              actorUsername : actor.username || actor.user_info.name,
+              actorUsername : actor.username,
               subjectId : data.hostId,
               subjectUsername : data.hostUsername,
               hangoutId : data.hangoutId,
@@ -176,38 +201,30 @@ Meteor.methods({
   },
 
   editHangout: function(data) {
+    console.log(data);
     check(data, Match.ObjectIncluding({
       topic: String,
+      slug: String,
       description: String,
       start: Match.OneOf(String, Date),
       end: Match.OneOf(String, Date),
       type: String,
       //hangoutId, String,
-      //hostId, String,
-      //hostUsername, String
     }));
 
+    const loggedInUser = Meteor.user();
+    if (!this.userId) {
+      throw new Meteor.Error('Hangout.methods.editHangout.not-logged-in', 'Must be logged in to edit hangout.');
+    }
+    const hangout = Hangouts.findOne({_id: data.hangoutId});
 
-    var actor = Meteor.user()
-    if (actor._id === data.hostId) {
+    if(hangout.host.id === loggedInUser._id){
 
-      Hangouts.update({_id: data.hangoutId, user_id: actor._id},
-        {$set:
-          {
-           topic: data.topic,
-           description: data.description,
-           start: data.start,
-           end: data.end,
-           type: data.type
-        }
-      });
-      return true;
-
-    }else{
       Hangouts.update({_id: data.hangoutId},
         {$set:
           {
            topic: data.topic,
+           slug: data.slug,
            description: data.description,
            start: data.start,
            end: data.end,
@@ -215,85 +232,108 @@ Meteor.methods({
         }
       });
 
-      var notification = {
-        actorId : actor._id,
-        actorUsername : actor.username || actor.user_info.name,
-        subjectId : data.hostId,
-        subjectUsername : data.hostUsername,
-        hangoutId : data.hangoutId,
+      return true;
+
+    }else if(Roles.userIsInRole(loggedInUser._id,['admin','moderator'])){
+
+      Hangouts.update({_id: data.hangoutId},
+        {$set:
+          {
+           topic: data.topic,
+           slug: data.slug,
+           description: data.description,
+           start: data.start,
+           end: data.end,
+           type: data.type
+        }
+      });
+
+      const notification = {
+        actorId : loggedInUser._id,
+        actorUsername : loggedInUser.username,
+        subjectId : hangout.host.id,
+        subjectUsername : hangout.host.name,
+        hangoutId : hangout._id,
         createdAt : new Date(),
-        read:[actor._id],
+        read:[loggedInUser._id],
         action : "edited",
         icon : "fa-pencil-square-o",
         type : "hangout edit",
       }
       Notifications.insert(notification);
+
       return true;
+
+
+    }else{
+      throw new Meteor.Error('Hangouts.methods.editHangout.accessDenied','Cannot update hangout, Access denied');
     }
 
 
   },
   cloneHangout: function(data, hangoutId) {
-    check(data, Match.ObjectIncluding({
-      user_id: String,
-      topic: String,
-      username: String,
-      description: String,
-      type: String
-    }));
-
-    var user = Meteor.users.findOne({_id: data.user_id});
-    var user_email = user.user_info.profile.email;
-    var hangout_id = Hangouts.insert({
-      user_id: data.user_id,
-      creator:data.username,
-      topic: data.topic,
-      creator: user.profile.name,
-      description: data.description,
-      start: data.start,
-      end: data.end,
-      type: data.type,
-      users: [ data.user_id ],
-      email_addresses: [ user_email ],
-      reminder_sent: false,
-      timestamp: new Date()
-    });
-     // create slack message to channel
-    var tz = "America/Los_Angeles";
-    var host = data.username;
-    var hangout_type = data.type;
-    var hangout_topic = data.topic;
-    var hangout_desc = data.description;
-    var hangout_url = Meteor.absoluteUrl('hangout'); // http://<ROOT_URL>/hangout/<hangout_id>
-    var start_time = moment(data.start).tz(tz).format('MMMM Do YYYY, h:mm a z');
-      var data = {
-      attachments: [
-        {
-          fallback: 'A new hangout has been scheduled. Visit' + Meteor.absoluteUrl() + '',
-          color: '#1e90ff',
-          pretext: `A new *${hangout_type}* hangout has been scheduled by <@${host}>!`,
-          title: `${hangout_topic}`,
-          title_link: `${hangout_url}/${hangout_id}`,
-          mrkdwn_in: ['text', 'pretext', 'fields'],
-          fields: [
-            {
-              title: 'Description',
-              value: `_${hangout_desc}_`,
-              short: true
-            },
-            {
-              title: 'Date',
-              value: `${start_time}`,
-              short: true
-            }
-            ]
-        }
-        ]
-    }
-    // send Slack message to default channel (configured in Meteor settings)
-    /* global hangoutAlert from /lib/functions.js */
-    hangoutAlert(data);
-    return true;
+    // check(data, Match.ObjectIncluding({
+    //   user_id: String,
+    //   topic: String,
+    //   username: String,
+    //   description: String,
+    //   type: String
+    // }));
+    //
+    // var user = Meteor.users.findOne({_id: data.user_id});
+    // var user_email = user.user_info.profile.email;
+    // var hangout_id = Hangouts.insert({
+    //   user_id: data.user_id,
+    //   creator:data.username,
+    //   topic: data.topic,
+    //   creator: user.profile.name,
+    //   description: data.description,
+    //   start: data.start,
+    //   end: data.end,
+    //   type: data.type,
+    //   users: [ data.user_id ],
+    //   email_addresses: [ user_email ],
+    //   reminder_sent: false,
+    //   timestamp: new Date()
+    // });
+    //
+    //
+    //  // create slack message to channel
+    // var tz = "America/Los_Angeles";
+    // var host = data.username;
+    // var hangout_type = data.type;
+    // var hangout_topic = data.topic;
+    // var hangout_desc = data.description;
+    // var hangout_url = Meteor.absoluteUrl('hangout'); // http://<ROOT_URL>/hangout/<hangout_id>
+    // var start_time = moment(data.start).tz(tz).format('MMMM Do YYYY, h:mm a z');
+    //   var data = {
+    //   attachments: [
+    //     {
+    //       fallback: 'A new hangout has been scheduled. Visit' + Meteor.absoluteUrl() + '',
+    //       color: '#1e90ff',
+    //       pretext: `A new *${hangout_type}* hangout has been scheduled by <@${host}>!`,
+    //       title: `${hangout_topic}`,
+    //       title_link: `${hangout_url}/${hangout_id}`,
+    //       mrkdwn_in: ['text', 'pretext', 'fields'],
+    //       fields: [
+    //         {
+    //           title: 'Description',
+    //           value: `_${hangout_desc}_`,
+    //           short: true
+    //         },
+    //         {
+    //           title: 'Date',
+    //           value: `${start_time}`,
+    //           short: true
+    //         }
+    //         ]
+    //     }
+    //     ]
+    // }
+    // // send Slack message to default channel (configured in Meteor settings)
+    // /* global hangoutAlert from /lib/functions.js */
+    // hangoutAlert(data);
+    // return true;
   },
 
   setUserStatus: function(currentStatus) {
@@ -374,39 +414,65 @@ Meteor.methods({
     return {hangoutsCount: Hangouts.find({}).count()};
   },
 
-  addUserToHangout: function(hangoutId, createorId, userId) {
-    check(hangoutId, String);
-    check(createorId, String);
-    check(userId, String);
-    var user = Meteor.users.findOne({_id: userId});
-    var user_email = user.user_info.profile.email;
-    Hangouts.update({ _id: hangoutId },
-      { $push: { users: userId, email_addresses: user_email }});
+  addUserToHangout: function(data) {
+    check(data,{
+      hangoutId: String,
+      hostId: String
+    });
+
+    const loggedInUser = Meteor.user();
+    if (!this.userId) {
+      throw new Meteor.Error('Hangout.methods.addUserToHangout.not-logged-in', 'Must be logged in to RSVP.');
+    }
+
+    const attendee = {
+      id: loggedInUser._id,
+      name: loggedInUser.username,
+      avatar: loggedInUser.profile.avatar.default,
+    }
+
+    //var user = Meteor.users.findOne({_id: userId});
+    //var user_email = loggedInUser.email;
+    Hangouts.update({ _id: data.hangoutId },
+                    { $addToSet: { attendees: attendee, users: loggedInUser._id, email_addresses: loggedInUser.email }});
       var date = new Date();
-    Attendees.upsert({hangoutId : hangoutId, createorId : createorId, seen : false} ,{$set:{date:date}, $inc:{count:1}});
+    Attendees.upsert({hangoutId : data.hangoutId, createorId : data.hostId, seen : false} ,{$set:{date:date}, $inc:{count:1}});
     return true;
   },
 
-  removeUserFromHangout: function(hangoutId, createorId, userId) {
-    check(hangoutId, String);
-    check(createorId, String);
-    check(userId, String);
-    Hangouts.update({ _id: hangoutId },
-      { $pull: { users: userId } });
+  removeUserFromHangout: function(data) {
+    check(data,{
+      hangoutId: String,
+      hostId: String
+    });
+
+    const loggedInUser = Meteor.user();
+    if (!this.userId) {
+      throw new Meteor.Error('Hangout.methods.removeUserFromHangout.not-logged-in', 'Must be logged in to RSVP.');
+    }
+
+    const attendee = {
+      id: loggedInUser._id,
+      name: loggedInUser.username,
+      avatar: loggedInUser.profile.avatar.default,
+    }
+
+    Hangouts.update({ _id: data.hangoutId },
+                    { $pull: { attendees: attendee, users: loggedInUser._id, email_addresses: loggedInUser.email} });
       var date = new Date();
-    Attendees.update({hangoutId : hangoutId, createorId : createorId, seen : false} ,{$set : {date:date}, $inc:{count:-1} });
+    Attendees.update({hangoutId : data.hangoutId, createorId : data.hostId, seen : false} ,{$set : {date:date}, $inc:{count:-1} });
     return true;
   },
 
   reportHangout : function(report){
+    check(report, {
+      category: String,
+      hangoutId: String,
+      reporterId: String
+    });
 
-
-    check(report.category, String);
-    check(report.hangoutId, String);
-    check(report.hostId, String);
-    check(report.hostUsername, String);
-    check(report.reporterId, String);
-    var actor = Meteor.user();
+    const actor = Meteor.user();
+    const host = Hangouts.findOne({_id:report.hangoutId}).host;
     if(report.reporterId !== actor._id){
       throw new Meteor.Error(500, "You are trying do something fishy.")
     }
@@ -414,9 +480,9 @@ Meteor.methods({
     var matter = " as " + report.category + ".";
     var notification = {
       actorId : actor._id,
-      actorUsername : actor.username || actor.user_info.name,
-      subjectId : report.hostId,
-      subjectUsername : report.hostUsername,
+      actorUsername : actor.username ,
+      subjectId : host.id,
+      subjectUsername : host.name,
       hangoutId : report.hangoutId,
       createdAt : new Date(),
       read:[actor._id],

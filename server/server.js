@@ -64,43 +64,53 @@ var getUserIdentity = function(user) {
   return response.data.ok && response.data;
 }
 
-Accounts.onCreateUser(function(options, user) {
-  console.log("user",user);
-  //setting user role on first sign in
-  if(Meteor.users.find().count()!==0)
-  Roles.setRolesOnUserObj(user, ['user']);
+let filterForSlackLogins = (user) => {
+    const username = user.name;
+    const profile = {
+      time_zone: user.tz,
+      time_zone_label: user.tz_label,
+      time_zone_offset: user.tz_offset,
+      firstname: user.profile.first_name,
+      lastname: user.profile.last_name,
+      avatar: {
+        default: user.profile.image_72,
+        image_192: user.profile.image_192,
+        image_512: user.profile.image_512
+      }
+    }
+    const email = user.profile.email;
 
-  if (options.profile){
+    return filterdFields = {
+      username: username,
+      profile: profile,
+      email : email
+    }
+}
+
+Accounts.onCreateUser(function(options, user) {
+
+  if (user.services.slack){
     Roles.setRolesOnUserObj(user, ['user']);
     var identity = getUserIdentity(user);
     var user_info = loggingInUserInfo(user);
-    var profile_info = {
-      name: identity.user,
-      url: identity.url,
-      team: identity.team,
-      user_id: identity.user_id,
-      team_id: identity.team_id
-    }
-    user.statusMessage = '';
-    user.statusDate = '';
-    user.statusHangout = '';
-    user.user_info = user_info.user;
-    user.profile = profile_info;
+    const pickField = filterForSlackLogins(user_info.user)
 
-    return user;
-  }else if(Meteor.settings.root_username === user.username &&  Meteor.settings.root_email === user.emails[0].address ){
-    var profile_info = {
-      name:user.username,
-      gravatar : Meteor.settings.root_gravatar,
-    }
-    var user_info = {
-      profile:{email:options.email}
-    }
-    user.user_info = user_info;
-    user.statusMessage = '';
-    user.statusDate = '';
-    user.statusHangout = '';
-    user.profile = profile_info;
+    user.username = pickField.username;
+    user.profile = pickField.profile;
+    user.email = pickField.email;
     return user;
   }
+
+  if(user.services.password){
+    const profile = {
+      avatar:{
+        default : Meteor.settings.root_gravatar
+      }
+    }
+    user.username = user.username;
+    user.profile = profile;
+    user.email = options.email;
+    return user;
+  }
+
 });

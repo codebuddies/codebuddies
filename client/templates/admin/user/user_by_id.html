@@ -1,7 +1,7 @@
 <template name="userById">
 
   <div class="page-header">
-    <h3>{{#if getUser}} {{#each getUser}} {{user_info.name}} {{/each}} {{/if}} </h3>
+    <h3>{{#if getUser}} {{#each getUser}} {{username}} {{/each}} {{/if}} </h3>
   </div>
 
   <div class="container">
@@ -10,27 +10,27 @@
       {{#each getUser}}
 
         <div class="col-md-2">
-          <img src="{{user_info.profile.image_192}}" alt="avtar" height="150" width="150" />
+          <img src="{{profile.avatar.image_192}}" alt="avtar" height="150" width="150" />
         </div>
         <div class="col-md-10">
           <form class="form-horizontal">
             <div class="form-group">
               <label class="col-sm-2 control-label">Name :</label>
               <div class="col-md-10">
-                {{#if user_info.real_name}} {{user_info.real_name}} {{else}} <i>Not-specified</i>{{/if}}
+                {{#if profile.firstname}} {{profile.firstname}} {{profile.lastname}} {{else}} <i>Not-specified</i>{{/if}}
               </div>
             </div>
             <div class="form-group">
               <label class="col-sm-2 control-label">Username :</label>
               <div class="col-md-10">
-                {{user_info.name}}
+                {{username}}
               </div>
             </div>
 
             <div class="form-group">
               <label class="col-sm-2 control-label">Email :</label>
               <div class="col-md-10">
-                {{user_info.profile.email}}
+                {{email}}
               </div>
             </div>
 

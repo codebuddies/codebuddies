@@ -7,10 +7,10 @@
         <div class="col-md-6">
           {{#with userInfo}}
            <div class="col-md-3">
-            <img src="{{#if user_info.profile.image_192 }} {{user_info.profile.image_192}} {{else}} {{profile.gravatar}} {{/if}}" class="img-circle" alt="profile image"/>
+            <img src="{{#if profile.avatar.image_192 }} {{profile.avatar.image_192}} {{else}} {{profile.avatar.default}} {{/if}}" class="img-circle" alt="profile image"/>
            </div>
            <div class="col-md-9">
-            <h3>{{#if user_info.name}}{{user_info.name}}{{else}}{{profile.name}}{{/if}}</h3>
+            <h3>{{username}}</h3>
            </div>
            {{/with}}
         </div>

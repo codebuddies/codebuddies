@@ -74,7 +74,7 @@ Meteor.methods({
     var incident = IMPF(actor.username, subjectUsername , current, past);
     var notification = {
       actorId : actor._id,
-      actorUsername : actor.username || actor.user_info.name,
+      actorUsername : actor.username,
       subjectId : subjectId,
       subjectUsername : subjectUsername,
       createdAt : new Date(),

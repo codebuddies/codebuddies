@@ -21,10 +21,8 @@ Template.hangoutActionBar.events({
         type: 'info'
       });
     } else {
-
-      Session.set('hangoutId', hangout.data._id);
-      Session.set('hostId', hangout.data.user_id);
-      Session.set('hostUsername', hangout.data.creator);
+      const hangoutId = hangout.data._id;
+      Session.set('hangoutId', hangoutId);
 
       Modal.show('reportHangoutModal');
 
@@ -64,8 +62,8 @@ Template.hangoutActionBar.events({
     console.log(hangout.data._id + ' this is an edited hangout id');
 
     Session.set('hangoutId', hangout.data._id);
-    Session.set('hostId', hangout.data.user_id);
-    Session.set('hostUsername', hangout.data.creator);
+    // Session.set('hostId', hangout.data.user_id);
+    // Session.set('hostUsername', hangout.data.creator);
 
     Modal.show('editHangoutModal');
     $('#edit-hangout-modal #topic').val(hangout.data.topic);
@@ -78,11 +76,13 @@ Template.hangoutActionBar.events({
 
   },
   'click .delete-hangout': function(e, hangout) {
-    var data = {
-        hangoutId:hangout.data._id,
-        hostId:hangout.data.user_id,
-        hostUsername: hangout.data.creator,
-      };
+
+    const data = {
+      hangoutId: this._id,
+      hostId: this.host.id,
+      hostUsername: this.host.name,
+    }
+
 
     sweetAlert({
         type: 'warning',

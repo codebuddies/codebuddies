@@ -31,7 +31,7 @@ Template.updateStatus.events({
       var learningStatus = $('#learned-text').val();
       var data = {
         user_id: Meteor.userId(),
-        username:Meteor.user().profile.name,
+        username:Meteor.user().username,
         title:learningStatus,
       }
       Meteor.call("addLearning", data, function(error, result) { });
