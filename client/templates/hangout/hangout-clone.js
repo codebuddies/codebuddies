@@ -1,24 +1,31 @@
 Template.cloneHangoutModal.rendered = function() {
   var start = this.$('#start-date-time-picker');
   var end = this.$('#end-date-time-picker');
-  var dateFrom = new Date();
-  var dateTo = new Date();
-  dateTo.setHours(dateTo.getHours()+1);
+
   start.datetimepicker({
-    ignoreReadonly: true
+    ignoreReadonly: true,
+    widgetPositioning: { horizontal: 'auto', vertical: 'bottom'},
+    minDate: new Date()
   });
+
   end.datetimepicker({
     ignoreReadonly: true,
-    useCurrent: false
+    widgetPositioning: { horizontal: 'auto', vertical: 'bottom'},
+    minDate: new Date(Date.now() + 60*60*1000) // 60*60*1000 = 1 hour interval
   });
   start.on("dp.change", function (e) {
-    end.data("DateTimePicker").minDate(e.date);
+    //current start date & time
+    var minEndDate = new Date(e.date.valueOf());
+    // min time duration of hangout in hours
+    var interval = 1
+    //min end date & time = current start date & time + interval
+    minEndDate.setHours(minEndDate.getHours() + interval);
+    //setting end date & time
+    end.data("DateTimePicker").date(minEndDate);
+    //setting end date & time minLimit
+    end.data("DateTimePicker").minDate(minEndDate);
+
   });
-  end.on("dp.change", function (e) {
-    start.data("DateTimePicker").maxDate(e.date);
-  });
-  start.data("DateTimePicker").date(dateFrom);
-  end.data("DateTimePicker").date(dateTo);
 
 };
 

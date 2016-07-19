@@ -13,7 +13,7 @@ Template.createHangoutModal.rendered = function() {
   end.datetimepicker({
     ignoreReadonly: true,
     widgetPositioning: { horizontal: 'auto', vertical: 'bottom'},
-    minDate: new Date()
+    minDate: new Date(Date.now() + 60*60*1000) // 60*60*1000 = 1 hour interval
   });
 
   start.on("dp.change", function (e) {
