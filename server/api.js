@@ -19,7 +19,7 @@ Meteor.methods({
 
   getUserDetails : function(userId){
     check(userId, String);
-    return Meteor.users.findOne({_id:userId},{fields: { emails: 0, services: 0, roles: 0}});
+    return Meteor.users.findOne({_id:userId},{fields: { emails: 0, services: 0, roles: 0, email: 0}});
   },
 
   getUserCount: function() {
@@ -436,7 +436,7 @@ Meteor.methods({
     Hangouts.update({ _id: data.hangoutId },
                     { $addToSet: { attendees: attendee, users: loggedInUser._id, email_addresses: loggedInUser.email }});
       var date = new Date();
-    Attendees.upsert({hangoutId : data.hangoutId, createorId : data.hostId, seen : false} ,{$set:{date:date}, $inc:{count:1}});
+    RSVPnotifications.upsert({hangoutId : data.hangoutId, createorId : data.hostId, seen : false} ,{$set:{date:date}, $inc:{count:1}});
     return true;
   },
 
@@ -460,7 +460,7 @@ Meteor.methods({
     Hangouts.update({ _id: data.hangoutId },
                     { $pull: { attendees: attendee, users: loggedInUser._id, email_addresses: loggedInUser.email} });
       var date = new Date();
-    Attendees.update({hangoutId : data.hangoutId, createorId : data.hostId, seen : false} ,{$set : {date:date}, $inc:{count:-1} });
+    RSVPnotifications.update({hangoutId : data.hangoutId, createorId : data.hostId, seen : false} ,{$set : {date:date}, $inc:{count:-1} });
     return true;
   },
 
@@ -506,7 +506,7 @@ Meteor.methods({
   },
   markItRead:function(rsvpId){
 
-      Attendees.update({ _id: rsvpId },{$set:{seen:true}});
+      RSVPnotifications.update({ _id: rsvpId },{$set:{seen:true}});
 
   },
 

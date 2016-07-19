@@ -11,7 +11,7 @@
   "slack_alert_channel": "#cb2-test",
   "slack_alert_username": "CodeBuddies Alerts",
   "hangout_reminder_interval": "every 1 hour",
-  "root_email":"distalx@gmail.com",
+  "root_email":"codebuddiesdotorg@gmail.com",
   "root_username":"root",
   "root_gravatar":"http://www.gravatar.com/avatar/"
 }

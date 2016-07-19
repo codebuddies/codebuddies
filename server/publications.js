@@ -13,11 +13,23 @@ Meteor.publish("ownLearnings", function(limit) {
 Meteor.publish("hangouts", function() {
   if (Roles.userIsInRole(this.userId, ['admin','moderator'])) {
 
-    return Hangouts.find();
+    return Hangouts.find({}, {fields:{'email_addresses': 0 }});
 
   } else {
 
-    return Hangouts.find({'visibility':{$ne:false}});
+    return Hangouts.find({'visibility':{$ne:false}}, {fields:{'email_addresses': 0 }});
+
+  }
+
+});
+Meteor.publish("hangoutById", function(hangoutId) {
+  if (Roles.userIsInRole(this.userId, ['admin','moderator'])) {
+
+    return Hangouts.find({_id: hangoutId}, {fields:{'email_addresses': 0 }});
+
+  } else {
+
+    return Hangouts.find({_id: hangoutId, 'visibility':{$ne:false}}, {fields:{'email_addresses': 0 }} );
 
   }
 
@@ -59,5 +71,5 @@ Meteor.publish("allNotifications", function (limit) {
 //   return Meteor.users.find({_id:this.userId},{fields:{user_info:1}});
 // });
 Meteor.publish("attendees", function(limit){
-  return Attendees.find({createorId:this.userId},{sort: {date: -1}},{limit:limit});
+  return RSVPnotifications.find({createorId:this.userId},{sort: {date: -1}},{limit:limit});
 });
