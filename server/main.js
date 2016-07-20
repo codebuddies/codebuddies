@@ -56,14 +56,6 @@ var loggingInUserInfo = function(user) {
   return response.data.ok && response.data;
 };
 
-var getUserIdentity = function(user) {
-  var response = HTTP.get("https://slack.com/api/auth.test",
-    {params:
-      {token: user.services.slack.accessToken}
-    });
-  return response.data.ok && response.data;
-}
-
 let filterForSlackLogins = (user) => {
     const username = user.name;
     const profile = {
@@ -91,8 +83,7 @@ Accounts.onCreateUser(function(options, user) {
 
   if (user.services.slack){
     Roles.setRolesOnUserObj(user, ['user']);
-    var identity = getUserIdentity(user);
-    var user_info = loggingInUserInfo(user);
+    const user_info = loggingInUserInfo(user);
     const pickField = filterForSlackLogins(user_info.user)
 
     user.username = pickField.username;
@@ -107,6 +98,7 @@ Accounts.onCreateUser(function(options, user) {
         default : Meteor.settings.root_gravatar
       }
     }
+
     user.username = user.username;
     user.profile = profile;
     user.email = options.email;

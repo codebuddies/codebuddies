@@ -1,34 +1,23 @@
 <template name="footer">
 
-  <nav class="navbar navbar-default navbar-static-top footer" role="navigation">
+  <div id="footer">
     <div class="container">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#cb2-navbar-collapse" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="{{pathFor 'home'}}"><img src="/images/logo.png"></a>
+      <div class="row">
+        <div class="col-md-12">
+          <a class="logo" href="{{pathFor 'home'}}"><img src="/images/logo.png"></a>
+          <div class="footer-details">
+            <em>Built by Cool People Around the World</em>
+            <span class="footer-icons">
+              <a href="https://github.com/codebuddiesdotorg/cb-v2-scratch" target="_blank"><i class="fa fa-github"></i></a>
+              <a href="https://codebuddiesmeet.slack.com" target="_blank"><i class="fa fa-slack"></i></a>
+              <a href="https://twitter.com/codebuddiesmeet" target="_blank"><i class="fa fa-twitter"></i></a>
+              <a href="https://www.facebook.com/groups/TOPSTUDYGROUP/" target="_blank"><i class="fa fa-facebook"></i></a>
+            </span>
+            <span class="note">Our project is free and open-sourced. <span class="help"><a href="/sponsor">Help us keep this project alive!</a></span></span>
+          </div>
+        </div>
       </div>
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="cb2-navbar-collapse">
-        <ul class="nav navbar-nav navbar-right">
-                    <div class="footer-details">
-
-              <em>Built by Cool People Around the World</em>
-
-               <a href="https://github.com/codebuddiesdotorg/cb-v2-scratch" target="_blank"><i class="fa fa-github"></i></a>
-               <a href="https://codebuddiesmeet.slack.com" target="_blank"><i class="fa fa-slack"></i></a>
-               <a href="https://twitter.com/codebuddiesmeet" target="_blank"><i class="fa fa-twitter"></i></a>
-               <a href="https://www.facebook.com/groups/TOPSTUDYGROUP/" target="_blank"><i class="fa fa-facebook"></i></a>
-               <span class="note">Our project is free and open-sourced. <a href="/sponsor">Help us keep this project alive!</a></span>
-            </div>
-        </ul>
-      </div>
-      <!-- /.navbar-collapse -->
     </div>
-    <!-- /.container-fluid -->
-  </nav>
+  </div>
+
 </template>
