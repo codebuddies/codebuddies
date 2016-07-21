@@ -1,0 +1,78 @@
+<template name="createHangoutModal">
+  <div id="create-hangout-modal" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title text-center">{{_ "start_a_hangout"}}</h4>
+          <button type="button" class="btn btn-circle btn-outline btn-info pull-right" data-dismiss="modal"><i class="fa fa-times"></i></button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-7">
+              <div id="date-group" class="row">
+                <div class="col-md-6">
+                  <div class="input-group date" id="start-date-time-picker">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+                    <input id="start-date-time" class="form-control" type="text" placeholder="Start Time" readonly>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="input-group date" id="end-date-time-picker">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+                    <input id="end-date-time" class="form-control" type="text" placeholder="End Time" readonly>
+                  </div>
+                </div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="col-md-12">
+                  <input id="topic" class="form-control" type="text" placeholder="Study Session Topic">
+                </div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="col-md-12">
+                  <textarea id="description" rows="4" class="form-control" type="text" placeholder="What do you hope to cover or master? Are there any prerequisites you require of participants?"></textarea>
+                </div>
+              </div>
+            </div>
+            <div id="hangout-options" class="col-md-5 text-left">
+              <div class="btn-group btn-group-vertical" data-toggle="buttons">
+                <label class="btn active" id="sId">
+                  <input  type="radio" name='hangout-type' value="silent" checked><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i> <span>  <i class="fa fa-microphone-slash text-danger-color type"></i><span class="title">{{_ "silent_hangout"}}</span></span>
+                </label>
+                <label class="btn" id="tId">
+                  <input  type="radio" name='hangout-type' value="teaching"><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i><span> <i class="fa fa-user text-warning-color type"></i><span class="title">{{_ "teaching_hangout"}}</span></span>
+                </label>
+                <label class="btn" id="cId">
+                  <input  type="radio" name='hangout-type' value="collaboration"><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i><span> <i class="fa fa-users text-success-color type"></i><span class="title">{{_ "collaboration_hangout"}}</span></span>
+                </label>
+              </div>
+              <div class="descriptionHide" id="d1">
+                <span>Create a silent hangout to motivate yourself to get through a tutorial with others who are learning from the same tutorial, or create one for a fun silent coworking experience.</span>
+              </div>
+              <div class="descriptionHide" id="d2">
+                <span>Create a teaching hangout to practice teaching a concept or to walk participants through a codebase. This is your chance to share what you know!</span>
+              </div>
+              <div class="descriptionHide" id="d3">
+                <span>Create a collaboration hangout to pair program on a coding exercise, talk through a chapter of a tutorial, or work on an open-sourced project together.</span>
+              </div>
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <button id="create-hangout" class="btn btn-cb2">{{_ "create_a_hangout"}}</button>
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <span class="message">{{_ "create_hangout_hint"}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

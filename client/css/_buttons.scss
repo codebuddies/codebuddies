@@ -1,0 +1,168 @@
+.btn-outline {
+  background-color: transparent;
+  color: inherit;
+  transition: all .5s;
+}
+
+.btn-primary.btn-outline {
+  color: $cta-blue;
+  border-color: $cta-blue;
+  &:hover { background: $cta-blue;}
+}
+
+.btn-success.btn-outline {
+  color: #5cb85c;
+}
+
+.btn-info.btn-outline {
+  color: #5bc0de;
+}
+
+.btn-warning.btn-outline {
+  color: #f0ad4e;
+}
+
+.btn-danger.btn-outline {
+  color: #d9534f;
+}
+
+.btn-primary.btn-outline:hover,
+.btn-success.btn-outline:hover,
+.btn-info.btn-outline:hover,
+.btn-warning.btn-outline:hover,
+.btn-danger.btn-outline:hover {
+  color: #fff;
+}
+
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 12px;
+  line-height: 1.428571429;
+  border-radius: 15px;
+
+  &.btn-lg {
+    width: 50px;
+    height: 50px;
+    padding: 10px 16px;
+    font-size: 18px;
+    line-height: 1.33;
+    border-radius: 25px;
+  }
+
+  &.btn-xl {
+    width: 70px;
+    height: 70px;
+    padding: 10px 16px;
+    font-size: 24px;
+    line-height: 1.33;
+    @include border-radius(35px);
+  }
+}
+
+.btn-slack {
+  height: 36px;
+  padding: 0 20px 0 20px;
+  margin-top: -8px;
+  background-color: $bg-white;
+  border: 2px solid $cta-blue;
+  border-radius: 6px;
+  @include font-face(400, 16px, normal, #000000);
+}
+
+.btn-slack-join {
+    background-color: $bg-white;
+    height: 36px;
+    @include border-radius(6px);
+    @include font-face(400, 16px, normal, $primary-grey);
+}
+
+.btn-cb2 {
+
+  height: 36px;
+  background-color: $cta-blue;
+  @include font-face(700, 16px, bold, $bg-white);
+  display: block;
+  margin: 0 auto;
+  &:hover {
+    color: $bg-white;
+  }
+
+  &:focus {
+    color: $bg-white;
+  }
+
+  &.btn-success {background: #5cb85c;}
+
+}
+
+.btn-cb3 {
+
+  height: 36px;
+  background-color: $cta-blue;
+  @include font-face(700, 16px, bold, $bg-white);
+  display: block;
+  margin: 0 auto;
+  &:hover {
+    color: #bg-white;
+  }
+
+  &:focus {
+    color: $bg-white;
+  }
+
+  &.btn-success {background: #5cb85c;}
+
+}
+
+#hangout-faq-popup {
+  cursor: pointer;
+}
+
+
+.btn-learning {
+  float: left;
+  margin-left: -4px;
+  color: white;
+
+  &.btn-unlike {
+    color: $cta-blue;
+  }
+
+  &.btn-like {
+    color: $cta-blue;
+  }
+}
+.delete-hangout:hover, .edit-hangout:hover {
+  cursor:pointer;
+}
+
+.fa-comment {
+  color: $cta-blue;
+}
+
+.btn-block {
+    margin-top: 20px;
+    border: none;
+    background: $bg-lightgrey;
+    @include font-face(700, 13px, bold, #000000);
+    &:hover {
+      color: #fff;
+      background: $cta-blue;
+    }
+  }
+
+.delete-hangout, .edit-hangout {
+  @media (min-width: 480px) {
+    border: none;
+    padding: 0;
+  }
+}
+
+#btn-load-more, #load-more-learnings { margin: 10px 0; color: $cta-blue; &:hover { color: $bg-white; } }
+
+.btn-grey {
+  background: $warm-grey;
+}

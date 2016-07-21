@@ -1,0 +1,226 @@
+#home {
+
+  padding-bottom: 120px;
+
+  p { line-height: 27px; color: $primary-grey; }
+
+  &.logged-in { margin-top: 50px; }
+
+  .heading  {
+    @include font-face(700, 32px, bold, $primary-grey);
+    text-align: center;
+
+    .title {
+      margin: 10px 0 20px 0;
+    }
+  }
+  .question {
+    @include font-face(400, 13px, italic, $warm-grey);
+    margin-top: -5px;
+  }
+
+  #jumbotron {
+    text-align: center;
+    padding-bottom: 20px;
+    @include font-face(700, 22px, bold, $bg-white);
+    .subtitle {
+      display: block;
+    }
+    p {
+      margin-top: 10px;
+      @include font-face(400, 12px, bold, $bg-white);
+      a {
+        @include font-face(400, 12px, bold, $bg-white);
+        text-decoration: underline;
+      }
+    }
+
+  }
+
+  .search-area {
+    padding: 30px;
+    background: $bg-lightgrey;
+    .searchTerm {
+      font-size: 16px;
+      height: 37px;
+    }
+  }
+
+  .home-top, .home-ask {
+    padding: 120px 0 0 0;
+    background: dodgerblue;
+    overflow: hidden;
+    h2 {
+      @include font-face(600, 36px, bold, $bg-white);
+    }
+    p {
+      @include font-face(200, 16px, normal, $bg-white);
+      line-height: 27px;
+    }
+    img#slack-screenshot {
+      @include box-shadow(0px, 12px, 60px, rgba(0,0,0,0.8));
+      @include border-top-radius(10px);
+    }
+    .slack-window {
+      width: 79%;
+      margin: 0 auto;
+    }
+    .slack-invite {
+      color: white;
+      font-size: 11px;
+    }
+    #intro {
+      text-align: center;
+      max-width: 530px;
+      margin: 0 auto;
+      margin-bottom: 40px;
+      .join-slack {
+        overflow: auto;
+        width: 440px;
+        margin: 0 auto;
+        input { float: left;}
+        button { float: right;}
+        p { @include font-face(200, 13px, normal, $bg-white); line-height: 1.9; margin-top: 10px;}
+        a { text-decoration: underline; color: #fff;}
+      }
+    }
+    .intro {
+      margin: 40px 0;
+    }
+    .footnote {
+      @include font-face(200, 12px, normal, $bg-white);
+      a {color: $bg-white; text-decoration: underline;}
+    }
+    .slack-note {
+    @include breakpoint(medium) { margin-top: 70px; max-width: 300px; }
+      line-height: 16px;
+      p {
+        @include font-face(200, 12px, normal, $bg-white); line-height: 18px;
+        @include breakpoint(medium) { max-width: 350px; }
+      }
+      a {color: $bg-white; text-decoration: underline;}
+    }
+  }
+
+  .home-middle {
+    background: $bg-white;
+    padding: 120px 0 60px 0;
+    h2 {
+      @include font-face(700, 24px, bold, $primary-grey);
+    }
+    p { @include font-face(400, 16px, normal, $primary-grey); line-height: 27px; letter-spacing: 0.2px; margin-top: 40px;}
+    h3 {
+      @include font-face(600, 17px, bold, $primary-grey);
+    }
+    span.off-on { font-size: 13px; }
+
+    .middle-bottom { top: 10%; h2 { margin-bottom: 50px;}}
+
+    .shadow-effect {
+      @include box-shadow(0px, 12px, 60px, rgba(0,0,0,0.5));
+      border: 2px solid #fff !important;
+    }
+    %hangout-cards {
+      position: relative;
+      @include border-radius(10px);
+      h3 {
+        @include font-face(700, 20px, bold, $primary-grey);
+        margin: 40px 0 0 0;
+      }
+      p {
+        padding: 40px 30px;
+        @include font-face(400, 13px, normal, $primary-grey);
+        line-height: 27px;
+        position: absolute;
+        bottom: 0px;
+      }
+      img { margin-top: 50px;}
+      height: 444px;
+      .hangout-details {
+        overflow: auto;
+        padding: 80px 40px;
+        i { font-size: 70px; float: left;}
+        table {
+          float: right;
+          td.left { font-weight: bold; text-align: left; text-transform: uppercase;}
+          td {
+            text-align: right;
+            @include font-face(400, 13px, normal, $primary-grey);
+            padding: 0px 4px 4px 4px;
+          }
+          width: 150px;
+        }
+      }
+    }
+    #card-silent {
+      @extend %hangout-cards;
+      border: 2px solid $hangout-silent;
+      h3 { color: $hangout-silent; }
+      table td.left { color: $hangout-silent;}
+    }
+    #card-teach {
+      @extend %hangout-cards;
+      border: 2px solid $hangout-teaching;
+      h3 {color: $hangout-teaching}
+      table td.left { color: $hangout-teaching}
+    }
+    #card-collaborate {
+      @extend %hangout-cards;
+      border: 2px solid $hangout-collab;
+      h3 {color: $hangout-collab}
+      table td.left { color: $hangout-collab}
+    }
+  }
+
+  .home-psst {
+    background: $bg-lightgrey;
+    background-image: url(images/code-logos.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 120px 0 50px 0;
+    @include font-face(400, 16px, normal, $primary-grey);
+    p { line-height: 27px; margin-top: 40px;}
+    #intro {
+      h3 {@include font-face(600, 24px, bold, $primary-grey);}
+      text-align: center;
+      max-width: 550px;
+      margin: 0 auto;
+      margin-bottom: 60px;
+    }
+    img#hangout-join {
+      @include box-shadow(0px, 12px, 60px, rgba(0,0,0,0.5));
+      @include border-radius(10px);
+    }
+    .hangout-example {
+      width: 50%;
+      margin: 0 auto;
+    }
+  }
+
+  .home-faq {
+    background: $bg-white;
+    text-align: left;
+    h2 { text-align: center; margin: 100px 0;}
+    background: $bg-lightgrey;
+    h3 {@include font-face(700, 18px, bold, $primary-grey);}
+    p { padding: 20px 0;}
+    padding-bottom: 100px;
+  }
+  .home-ask {
+    padding: 60px 0;
+    h2 { text-align: center;}
+     .join-slack {
+        text-align: center;
+        overflow: auto;
+        width: 440px;
+        margin: 0 auto;
+        margin-top: 50px;
+        input { float: left;}
+        button { float: right;}
+        p { @include font-face(200, 13px, normal, $bg-white); line-height: 1.9; margin-top: 10px;}
+        a { text-decoration: underline; color: #fff;}
+      }
+  }
+
+
+}

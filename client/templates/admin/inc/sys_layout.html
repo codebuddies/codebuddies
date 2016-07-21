@@ -1,0 +1,15 @@
+<template name="sysLayout">
+  {{> Template.dynamic template=top}}
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="container">
+        {{#if Template.subscriptionsReady}}
+            {{> Template.dynamic template=main}}
+        {{else}}
+          {{> loading}}
+        {{/if}}
+      </div>
+    </div>
+  </div>
+  {{> Template.dynamic template=footer}}
+</template>

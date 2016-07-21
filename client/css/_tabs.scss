@@ -1,0 +1,47 @@
+.full-width-tab {
+  width:100%;
+}
+
+.full-width-tabs {
+
+  ul.nav.nav-tabs {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  ul.nav.nav-tabs > li {
+    float: none;
+    display: table-cell;
+  }
+
+  ul.nav.nav-tabs > li > a {
+    text-align: center;
+    background-color: $bg-white;
+    margin: 0;
+    @include font-face(400, 16px, normal, $inactive);
+  }
+
+  ul.nav.nav-tabs > li.active > a {
+    margin: 0;
+    @include font-face(700, 16px, bold, $primary-grey);
+  }
+
+  ul.nav.nav-tabs > li > a:hover {
+    text-align: center;
+    background-color: $bg-white;
+  }
+
+}
+
+.tab-content {
+
+  &.status-fields {
+    margin: 0 0 0 0;
+  }
+
+  &.status-data {
+    margin: 0px;
+  }
+
+}

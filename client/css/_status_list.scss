@@ -1,0 +1,86 @@
+.status-list  {
+  padding: 0 20px;
+  background-color: $bg-lightgrey;
+  @include border-radius(0px 0px 4px 4px);
+  overflow-y: auto;
+
+  .title {
+    text-align: center;
+    padding: 10px 0;
+    @include font-face(700, 16px, bold, #000000);
+  }
+
+  .status-item {
+    margin: 0px;
+    list-style: none;
+    padding: 20px 0;
+    border-top: 1px solid $divider;
+    overflow: auto;
+
+    li {
+      display: table-cell;
+      vertical-align: top;
+    }
+
+    .btn {
+
+      display: inline-block;
+      @include font-face(400, 13px, normal, #000000);
+
+      &:hover {
+        color: $bg-white;
+      }
+
+    }
+
+    .edit-learning{
+      margin-left: 5px;
+    }
+
+    .edit-learning:hover {
+      cursor:pointer;
+    }
+
+
+
+    .delete-learning{
+      margin-left: 5px;
+    }
+
+    .delete-learning:hover{
+      cursor:pointer;
+    }
+
+    span.username {
+      @include font-face(700, 13px, italic, $warm-grey);
+    }
+
+    .status {
+      padding-left: 10px;
+      display: inline-block;
+      @include font-face(400, 15px, normal, $primary-grey);
+      word-break: break-all;
+    }
+
+    .status-date {
+      @include font-face(400, 13px, italic, $warm-grey);
+    }
+
+    .message {
+      color: $warm-grey;
+      &:hover {
+        color: $cta-blue;
+      }
+    }
+
+    .kudo-holder {
+      text-align: left;
+    }
+
+    .kudo-count {
+      @include font-face(400, 15px, normal, $primary-grey);
+    }
+
+  }
+
+}

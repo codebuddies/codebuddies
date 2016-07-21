@@ -1,0 +1,60 @@
+body {
+  padding: 0;
+  background: url(/images/pattern.png) left top repeat;
+  #profile { background: #fff;}
+}
+
+html, body {
+  height: 100%;
+}
+
+#__blaze-root{
+  height: 100%;
+}
+
+#wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -95px;
+}
+
+.auto-height {
+  overflow: auto;
+}
+
+#connection-lost-banner{
+  text-align: center;
+}
+
+a:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.__slackin {
+  z-index: 9999999;
+}
+
+.align-center {
+	text-align: center;
+}
+
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+
+.img-circle {
+  width: 100px;
+}
+
+.page-header {
+  border-bottom: none; /*remove bootstrap divider in search*/
+}
+
+#post {
+  ul { list-style: none; }
+  margin-top: 30px;
+  .btn-cb2 { position: relative; top: 30px;}
+}

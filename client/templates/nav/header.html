@@ -1,0 +1,64 @@
+<template name="header">
+  {{> connectionBanner}}
+  <nav class="navbar navbar-default navbar-static-top" role="navigation">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#cb2-navbar-collapse" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="{{pathFor 'home'}}"><img src="/images/logo.png"></a>
+      </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="cb2-navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="{{pathFor 'about'}}">{{_ "about"}} <span class="sr-only">(current)</span></a></li>
+          <li><a href="{{pathFor 'faq'}}">{{_ "faq"}}</a></li>
+          {{#if currentUser}}
+          {{#unless isInRole 'admin'}}
+            <li><a href="https://codebuddiesmeet.slack.com/messages/general" target="_blank"><i class="fa fa-slack" aria-hidden="true"></i> </a></li>
+          {{/unless}}
+          <li><a href="{{pathFor 'user notification'}}"><i class="fa fa-bell" aria-hidden="true"></i> {{#if userNotificationCount}}<small><span class="badge">{{userNotificationCount}}</span></small>{{/if}} </a></li>
+          {{/if}}
+          {{#if isInRole 'moderator,admin'}}
+            <li id="user-drop-down" class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                <i class="fa fa-cogs" aria-hidden="true"></i>
+              </a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="{{pathFor 'stats'}}">Statistics</a></li>
+                  <li><a href="{{pathFor 'manage user'}}">Manage Users</a></li>
+                  <li><a href="{{pathFor 'notifications'}}">Notifications {{#if notificationCount}}<small><span class="badge">{{notificationCount}}</span></small>{{/if}}</a></li>
+                </ul>
+            </li>
+
+          {{/if}}
+          {{#if currentUser}}
+
+            {{#if isInRole 'admin'}}
+              {{> loginButtons align="right"}}
+            {{else}}
+
+              <li id="user-drop-down" class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                  <img src="{{user.profile.avatar.default}}" class="img-circle"> {{user.username}} <span class="caret"></span>
+                </a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="/profile/{{user.username}}/{{user._id}}"><i class="fa fa-user fa-fw"></i> {{_ "profile"}}</a></li>
+                    <li><a href="#" id="signOut"><i class="fa fa-sign-out fa-fw"></i> {{_ "sign_out"}}</a></li>
+                  </ul>
+              </li>
+            {{/if}}
+          {{else}}
+          <li><a href="#" class="signIn"><button class="btn btn-slack"><img src="/images/slack-icon.png">&nbsp;&nbsp;{{_ "sign_in_with"}} <b>Slack</b></button></a></li>
+          {{/if}}
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+</template>

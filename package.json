@@ -1,0 +1,12 @@
+{
+  "name": "codebuddies-v2",
+  "version": "1.0.0",
+  "scripts": {
+    "meteor:dev": "meteor --settings settings-development.json",
+    "meteor:prod": "meteor --setings settings-production.json"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "md5": "^2.1.0"
+  }
+}

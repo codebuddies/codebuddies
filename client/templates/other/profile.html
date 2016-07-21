@@ -1,0 +1,54 @@
+<template name="profile">
+<div id="profile">
+  <section class="profile-top">
+     <div class="container">
+     <div class="row">
+
+        <div class="col-md-6">
+          {{#with userInfo}}
+           <div class="col-md-3">
+            <img src="{{#if profile.avatar.image_192 }} {{profile.avatar.image_192}} {{else}} {{profile.avatar.default}} {{/if}}" class="img-circle" alt="profile image"/>
+           </div>
+           <div class="col-md-9">
+            <h3>{{username}}</h3>
+           </div>
+           {{/with}}
+        </div>
+
+        <div class="col-md-6">
+
+        </div>
+
+      </div><!--row-->
+
+    </div> <!-- close container -->
+  </section> <!-- close profile-top -->
+  <section class="profile-middle">
+
+     <div class="row">
+
+        <div class="col-md-6 profile-hangouts-completed">
+          <div class="box">
+            <h2 class="align-center">{{hangoutsJoinedCount}}</h2>
+            <h3>Hangouts Completed</h3>
+          </div>
+
+          {{> hangoutsJoined }}
+
+        </div>
+
+        <div class="col-md-6 profile-learnings">
+          <div class="box">
+            <h3>#TodayILearned or Accomplished</h3>
+          </div>
+
+           {{> profileLearnings }}
+
+        </div>
+
+    </div><!--row-->
+
+
+  </section> <!-- close profile-top -->
+</div>
+</template>

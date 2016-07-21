@@ -1,0 +1,18 @@
+<template name="singleUser">
+  <a href="/admin/user/{{_id}}">
+    <div class="panel panel-default">
+      <div class="panel-body">
+
+        <div class="col-md-2">
+          <img src="{{profile.avatar.default}}" alt="avtar" />
+        </div>
+        <div class="col-md-10">
+          Name : {{#if profile.firstname}} {{profile.firstname}} {{profile.lastname}} {{else}} <i>Not-specified</i>{{/if}}<br>
+          Username : {{username}} <br>
+          Email : {{email}} <br>
+        </div>
+
+      </div><!-- panel-body -->
+    </div><!-- panel panel-default -->
+  </a>
+</template>

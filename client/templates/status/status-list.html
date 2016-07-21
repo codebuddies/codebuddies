@@ -1,0 +1,21 @@
+<template name="statusList">
+  <div class="status-list">
+    {{# if isWorking type}} 
+
+      <div class="title">{{_ "learning_message" count=usersOnlineCount}}</div>
+      {{#each usersOnline}}
+        {{> statusItem}}
+      {{/each}}
+    {{else}}
+      <div class="title">{{_ "accomplishment_message" count=learnedUsersCount}}</div>
+      {{#each learnings}}
+        {{> learningItem}}
+      {{/each}}
+      {{#if Template.subscriptionsReady}}
+        {{#if hasMoreLearnings}}
+          <button id="load-more-learnings" class="btn btn-default btn-block">Load more</button>
+        {{/if}}
+      {{/if}}
+    {{/if}}
+  </div>
+</template>
