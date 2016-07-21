@@ -1,7 +1,7 @@
 <template name="learningItem">
     <ul class="status-item">
        <p> <span class="status-date">{{learningTime}} by</span>
-       <a href="profile/{{username}}/{{userId}}"><span class="username">{{username}}</span></a>  </p>
+       <a href="{{pathFor 'profile' name=username userId=userId}}"><span class="username">{{username}}</span></a>  </p>
       <li><div class="kudo-holder">
         <label class="kudo-count">
           {{#unless learningOwner userId}}

@@ -20,7 +20,7 @@ Template.learningItem.helpers({
     return this.userId === Meteor.userId();
   },
   learningTime: function() {
-    return moment(this.timestamp).format("dddd, MMM DD, YYYY");
+    return moment(this.created_at).format("dddd, MMM DD, YYYY");
   }
 
 });

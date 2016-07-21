@@ -14,9 +14,7 @@ Template.reportHangoutModal.events({
   'click #report-hangout': function(e) {
 
     var report = {
-      hangoutId:Session.get("hangoutId"),
-      hostId:Session.get("hostId"),
-      hostUsername : Session.get("hostUsername"),
+      hangoutId: Session.get("hangoutId"),
       category: $('input[name="report-category"]:checked').val(),
       reporterId: Meteor.userId()
     };

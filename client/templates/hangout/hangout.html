@@ -2,7 +2,7 @@
   <div id="post" class="container">
     <div class="row">
       <div class="col-md-10 col-md-offset-1">
-        {{#if hangout}}
+        {{#if Template.subscriptionsReady}}
           {{#with hangout}}
             <div class="panel panel-default">
               <div class="panel-heading">
@@ -11,7 +11,7 @@
 
           {{# unless completed this }}
           {{# unless url }}
-                {{#if hangoutOwner user_id}}
+                {{#if hangoutOwner host.id}}
                   <div class="google-hangout">
                       <div class="g-hangout" data-render="createhangout"
                       data-initial_apps="[{ app_id : '999356798349', start_data: {{_id}}, 'app_type' : 'LOCAL_APP' }]" data-widget_size="72"></div>
@@ -33,12 +33,12 @@
                   <a class="btn btn-cb2 btn-grey btn-success" href="{{url}}" target="_blank">{{_ "join"}}</a>
                 {{else}}
                   {{#unless hangoutOwner user_id}}
-                      <a class="btn btn-cb2 btn-grey" target="_blank">{{_ "join"}}</a>           
+                      <a class="btn btn-cb2 btn-grey" target="_blank">{{_ "join"}}</a>
                         <p class="status">You need to wait for the host to start the hangout.</p>
                       {{/unless}}
                 {{/if}}
 
-   
+
 
               {{else}}
                 {{# unless getIsDone this}}
@@ -87,7 +87,7 @@
 
                 <p class="status">
                   <label><i class="fa {{getType type}}"></i>
-                  host <a href="/profile/{{creator}}/{{user_id}}">{{creator}}</a>
+                  host <a href="{{pathFor 'profile' name=host.name userId=host.id}}">{{host.name}}</a>
                     <br /><i class="fa fa-calendar fa-lg"></i> {{getDate this}}
                         | <i class="fa fa-eye" aria-hidden="true" data-toggle="tooltip" title="Views"> {{views}} </i>
                    </label>
@@ -97,7 +97,7 @@
             </div><!--panel-heading-->
 
             <div class="panel-body">
-             
+
               <div class="col-md-12">
                   {{{description}}}
               </div>
@@ -105,8 +105,10 @@
             </div>
 
             <div class="panel-footer">
-              {{#each users}}
-                {{> hangoutUser this}}
+
+              <a href="{{pathFor 'profile' name=host.name userId=host.id}}"><img class="img-circle" src="{{host.avatar}}"></a>
+              {{#each attendees}}
+                <a href="{{pathFor 'profile' name=name userId=id}}"><img class="img-circle" src="{{avatar}}"></a>
               {{/each}}
             </div>
           </div> <!--panel panel-default-->

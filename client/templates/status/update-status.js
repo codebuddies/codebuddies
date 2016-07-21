@@ -15,6 +15,17 @@ Template.updateStatus.events({
       });
     } else {
       var currentStatus = $('#working-text').val();
+
+      if ($.trim(currentStatus) == '') {
+        $('#topic').focus();
+        sweetAlert({
+          title: TAPi18n.__("Working can't be empty"),
+          confirmButtonText: TAPi18n.__("ok"),
+          type: 'error'
+        });
+        return;
+      }
+
       Meteor.call('setUserStatus', currentStatus, function(error, result) { });
       $('#working-text').val('');
     }
@@ -29,9 +40,19 @@ Template.updateStatus.events({
       });
     } else {
       var learningStatus = $('#learned-text').val();
+
+      if ($.trim(learningStatus) == '') {
+        $('#topic').focus();
+        sweetAlert({
+          title: TAPi18n.__("Accomplishment can't be empty"),
+          confirmButtonText: TAPi18n.__("ok"),
+          type: 'error'
+        });
+        return;
+      }
       var data = {
         user_id: Meteor.userId(),
-        username:Meteor.user().profile.name,
+        username:Meteor.user().username,
         title:learningStatus,
       }
       Meteor.call("addLearning", data, function(error, result) { });

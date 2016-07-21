@@ -9,7 +9,7 @@ Template.header.helpers({
     return ReactiveMethod.call('notificationCount');
   },
   userNotificationCount:function(){
-    return Attendees.find({createorId:Meteor.userId(),'seen':false}).count();
+    return RSVPnotifications.find({createorId:Meteor.userId(),'seen':false}).count();
   }
 });
 

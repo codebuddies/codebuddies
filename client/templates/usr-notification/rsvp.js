@@ -16,7 +16,7 @@ Template.rsvp.onCreated(function() {
     });
 
     instance.dispNotifications = function() {
-      return Attendees.find({},{sort: {date: -1}});
+      return RSVPnotifications.find({},{sort: {date: -1}});
     }
   });
 
@@ -26,11 +26,11 @@ Template.rsvp.onCreated(function() {
        $('#flux').bind('scroll', function(){
            if($('#flux').scrollTop() + $('#flux').innerHeight()>=$('#flux')[0].scrollHeight){
 
-             if(Attendees.find().count() === instance.limit.get()){
+             if(RSVPnotifications.find().count() === instance.limit.get()){
                instance.limit.set(instance.limit.get() + 5);
                $('body').addClass('stop-scrolling')
              }else {
-               if(Attendees.find({},{sort: {date: -1}}).count() < instance.limit.get()){
+               if(RSVPnotifications.find({},{sort: {date: -1}}).count() < instance.limit.get()){
                  instance.flag.set(true);
                }
              }

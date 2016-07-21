@@ -1,16 +1,8 @@
 Template.hangout.onCreated(function() {
   var title = "CodeBuddies | Hangout";
   DocHead.setTitle(title);
-  var self = this;
-  self.hangout = new ReactiveVar();
-  self.isReady = new ReactiveVar(false);
 
-  var hangoutId = FlowRouter.getParam('hangoutId');
-  self.autorun(function() {
-    var result = ReactiveMethod.call('getHangout', hangoutId);
-    self.hangout.set(result);
-    self.isReady.set(true);
-  });
+  this.subscribe("hangoutById", FlowRouter.getParam('hangoutId'));
 });
 
 Template.hangout.rendered = function() {
@@ -21,11 +13,7 @@ Template.hangout.rendered = function() {
 
 Template.hangout.helpers({
   hangout: function() {
-    if (Template.instance().isReady.get())
-      return Template.instance().hangout.get();
-  },
-  isReady: function() {
-    return Template.instance().isReady.get();
+      return Hangouts.findOne({_id: FlowRouter.getParam('hangoutId')});
   },
   getType: function(type) {
     if (type == 'silent') {
@@ -109,7 +97,13 @@ Template.hangout.events({
         type: 'info'
       });
     } else {
-      Meteor.call('addUserToHangout', this._id,this.user_id, Meteor.userId(), function(error, result) {
+
+      const data = {
+        hangoutId: this._id,
+        hostId: this.host.id,
+      }
+
+      Meteor.call('addUserToHangout', data, function(error, result) {
         if (result) {
           sweetAlert({
             title: TAPi18n.__("you_are_awesome"),
@@ -129,7 +123,13 @@ Template.hangout.events({
         type: 'warning'
       });
     } else {
-      Meteor.call('removeUserFromHangout', this._id, this.user_id, Meteor.userId(), function(error, result) {
+
+      const data = {
+        hangoutId: this._id,
+        hostId: this.host.id,
+      }
+
+      Meteor.call('removeUserFromHangout', data, function(error, result) {
         if (result) console.log('removed');
       });
     }

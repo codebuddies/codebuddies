@@ -11,12 +11,6 @@ Template.registerHelper('hangoutSearchQuery',function(){
     return Session.get("hangoutSearchQuery");
 });
 
-Template.home.rendered = function() {
-   Meteor.call('getUserCount', function (err, result) {
-      Session.set('userCount', result);
-    });
-};
-
 Template.home.helpers({
   userCount: function() {
       var totalUsers = Session.get('userCount');

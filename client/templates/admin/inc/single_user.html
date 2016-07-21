@@ -4,12 +4,12 @@
       <div class="panel-body">
 
         <div class="col-md-2">
-          <img src="{{user_info.profile.image_72}}" alt="avtar" />
+          <img src="{{profile.avatar.default}}" alt="avtar" />
         </div>
         <div class="col-md-10">
-          Name : {{#if user_info.real_name}} {{user_info.real_name}} {{else}} <i>Not-specified</i>{{/if}}<br>
-          Username : {{user_info.name}} <br>
-          Email : {{user_info.profile.email}} <br>
+          Name : {{#if profile.firstname}} {{profile.firstname}} {{profile.lastname}} {{else}} <i>Not-specified</i>{{/if}}<br>
+          Username : {{username}} <br>
+          Email : {{email}} <br>
         </div>
 
       </div><!-- panel-body -->

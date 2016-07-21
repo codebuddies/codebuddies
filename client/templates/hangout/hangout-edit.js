@@ -15,24 +15,22 @@ Template.editHangoutModal.rendered = function() {
 
 Template.editHangoutModal.events({
 	 'click #edit-hangout': function() {
-	    var topic1 = $('#topic').val();
-    	var desc1 = $('#description').val();
-    	var start1 = $('#start-date-time').val();
-    	var end1 = $('#end-date-time').val();
-    	var type1 = $('input[name="hangout-type"]:checked').val();
+     const topic = $('#topic').val();
+     const description = $('#description').val().replace(/\r?\n/g, '<br />');
+     const start = $('#start-date-time').val();
+     const end = $('#end-date-time').val();
+     const type = $('input[name="hangout-type"]:checked').val();
 
-	  var data = {
-      	topic: topic1,
-      	description: desc1,
-      	start: new Date(start1),
-      	end: new Date(end1),
-      	type: type1,
-        hangoutId:Session.get("hangoutId"),
-        hostId:Session.get("hostId"),
-        hostUsername : Session.get("hostUsername"),
-      };
-
-
+     const data = {
+       topic: topic,
+       slug: topic.replace(/\s+/g, '-').toLowerCase(),
+       description: description,
+       start: new Date(start),
+       end: new Date(end),
+       type: type,
+       hangoutId:Session.get("hangoutId"),
+     };
+     
       Meteor.call('editHangout', data, function(err, result) {
         console.log(result);
         if (result) {

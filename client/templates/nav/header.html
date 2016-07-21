@@ -44,10 +44,10 @@
 
               <li id="user-drop-down" class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                  <img src="{{user.user_info.profile.image_48}}" class="img-circle"> {{user.user_info.name}} <span class="caret"></span>
+                  <img src="{{user.profile.avatar.default}}" class="img-circle"> {{user.username}} <span class="caret"></span>
                 </a>
                   <ul class="dropdown-menu" role="menu">
-                    <li><a href="/profile/{{user.user_info.name}}/{{user._id}}"><i class="fa fa-user fa-fw"></i> {{_ "profile"}}</a></li>
+                    <li><a href="/profile/{{user.username}}/{{user._id}}"><i class="fa fa-user fa-fw"></i> {{_ "profile"}}</a></li>
                     <li><a href="#" id="signOut"><i class="fa fa-sign-out fa-fw"></i> {{_ "sign_out"}}</a></li>
                   </ul>
               </li>

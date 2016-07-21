@@ -13,7 +13,7 @@ Template.createHangoutModal.rendered = function() {
   end.datetimepicker({
     ignoreReadonly: true,
     widgetPositioning: { horizontal: 'auto', vertical: 'bottom'},
-    minDate: new Date()
+    minDate: new Date(Date.now() + 60*60*1000) // 60*60*1000 = 1 hour interval
   });
 
   start.on("dp.change", function (e) {
@@ -53,28 +53,24 @@ Template.createHangoutModal.rendered = function() {
 
 Template.createHangoutModal.events({
   'click #create-hangout': function(e) {
-    var topic1 = $('#topic').val();
-    var desc1 = $('#description').val().replace(/\r?\n/g, '<br />');
-    var start1 = $('#start-date-time').val();
-    var end1 = $('#end-date-time').val();
-    var type1 = $('input[name="hangout-type"]:checked').val();
-    console.log(start1);
-    //console.log(new Date(start1));
+    const topic = $('#topic').val();
+    const description = $('#description').val().replace(/\r?\n/g, '<br />');
+    const start = $('#start-date-time').val();
+    const end = $('#end-date-time').val();
+    const type = $('input[name="hangout-type"]:checked').val();
+    console.log(start);
 
-    var data = {
-      topic: topic1,
-      description: desc1,
-      start: new Date(start1),
-      end: new Date(end1),
-      type: type1,
-      user_id: Meteor.userId(),
-      username:Meteor.user().profile.name,
-      email:Meteor.user().user_info.profile.email
+
+    const data = {
+      topic: topic,
+      slug: topic.replace(/\s+/g, '-').toLowerCase(),
+      description: description,
+      start: new Date(start),
+      end: new Date(end),
+      type: type
     };
-    console.log(data.start);
-    console.log(data.end);
 
-    if ($.trim(start1) == '') {
+    if ($.trim(start) == '') {
       sweetAlert({
         title: TAPi18n.__("select_start_time"),
         confirmButtonText: TAPi18n.__("ok"),
@@ -83,7 +79,7 @@ Template.createHangoutModal.events({
       return;
     }
 
-    if ($.trim(end1) == '') {
+    if ($.trim(end) == '') {
       sweetAlert({
         title: TAPi18n.__("select_end_time"),
         confirmButtonText: TAPi18n.__("ok"),
@@ -92,7 +88,7 @@ Template.createHangoutModal.events({
       return;
     }
 
-    if ($.trim(topic1) == '') {
+    if ($.trim(topic) == '') {
       $('#topic').focus();
       sweetAlert({
         title: TAPi18n.__("enter_topic"),
@@ -102,7 +98,7 @@ Template.createHangoutModal.events({
       return;
     }
 
-    if ($.trim(desc1) == '') {
+    if ($.trim(description) == '') {
       $('#description').focus();
       sweetAlert({
         title: TAPi18n.__("enter_description"),

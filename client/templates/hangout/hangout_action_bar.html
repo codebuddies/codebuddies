@@ -5,9 +5,9 @@
       <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
     </button>
     <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-        {{#unless hangoutOwner user_id}}<li class="report-hangout"><a href="#">Report</a></li>{{/unless}}
+        {{#unless hangoutOwner host.id}}<li class="report-hangout"><a href="#">Report</a></li>{{/unless}}
         <li class="clone-hangout"><a href="#">Duplicate</a></li>
-        {{#if hangoutOwner user_id}}
+        {{#if hangoutOwner host.id}}
           <li class="edit-hangout"><a href="#">Edit</a></li>
           <li class="delete-hangout"><a href="#">Delete</a></li>
           {{else}}
