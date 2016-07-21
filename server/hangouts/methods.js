@@ -127,7 +127,7 @@ Meteor.methods({
       start: Match.OneOf(String, Date),
       end: Match.OneOf(String, Date),
       type: String,
-      hangoutId, String,
+      //hangoutId, String,
     }));
 
     const loggedInUser = Meteor.user();
