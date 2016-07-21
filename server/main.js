@@ -1,3 +1,5 @@
+import md5 from 'md5';
+
 Meteor.startup(function() {
  // fire off cron jobs
   SyncedCron.start();
@@ -79,6 +81,15 @@ let filterForSlackLogins = (user) => {
     }
 }
 
+let generateGravatarURL = (email) => {
+  const gravatarHash = md5(email.toLowerCase());
+  return{
+    default : Meteor.settings.root_gravatar + gravatarHash + '?size=72',
+    image_192 : Meteor.settings.root_gravatar + gravatarHash + '?size=192',
+    image_512 : Meteor.settings.root_gravatar + gravatarHash + '?size=512'
+  }
+}
+
 Accounts.onCreateUser(function(options, user) {
 
   if (user.services.slack){
@@ -93,10 +104,9 @@ Accounts.onCreateUser(function(options, user) {
   }
 
   if(user.services.password){
+    const avatar = generateGravatarURL(options.email);
     const profile = {
-      avatar:{
-        default : Meteor.settings.root_gravatar
-      }
+      avatar:avatar
     }
 
     user.username = user.username;
