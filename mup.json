@@ -6,7 +6,7 @@
       "username": "cb-stage",
       // or pem file (ssh based authentication)
       // WARNING: Keys protected by a passphrase are not supported
-      "pem": "~/.ssh/id_rsa_cb_do"
+      "pem": "~/.ssh/id_rsa"
       // Also, for non-standard ssh port use this
       //"sshOptions": { "port" : 49154 },
       // server specific environment variables
@@ -30,7 +30,7 @@
   "env": {
     "PORT": 80,
     "ROOT_URL": "https://codebuddies.org",
-    "MONGO_URL": "mongodb://cb:cbmeet12@ds011912.mlab.com:11912/heroku_qrn6fq86",
+    "MONGO_URL": "mongodb://cb:cbmeet12@ds015995.mlab.com:15995/codebuddies-production",
     "METEOR_ENV": "production"
   },
   "ssl": {
