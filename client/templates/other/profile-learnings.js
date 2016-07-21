@@ -28,8 +28,8 @@ Template.profileLearnings.onCreated(function () {
     }
   });
 
-   instance.ownLearnings = function() { 
-    return Learnings.find({}, {limit: instance.loaded.get(), sort: {createdAt: 1}});
+   instance.ownLearnings = function() {
+    return Learnings.find({}, {limit: instance.loaded.get(), sort: {created_at: -1}});
   }
 
 });

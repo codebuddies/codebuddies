@@ -1,8 +1,26 @@
 body {
   padding: 0;
   background: url(/images/pattern.png) left top repeat;
-  min-height: 800px;
   #profile { background: #fff;}
+}
+
+html, body {
+  height: 100%;
+}
+
+#__blaze-root{
+  height: 100%;
+}
+
+#wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -95px;
+}
+
+.auto-height {
+  overflow: auto;
 }
 
 #connection-lost-banner{
@@ -35,7 +53,7 @@ a:hover {
   border-bottom: none; /*remove bootstrap divider in search*/
 }
 
-#post { 
+#post {
   ul { list-style: none; }
   margin-top: 30px;
   .btn-cb2 { position: relative; top: 30px;}

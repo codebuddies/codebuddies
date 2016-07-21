@@ -1,5 +1,5 @@
-var IMPF = function (actor,subject,current,past){
-      var incident = {};
+let IMPF = function (actor,subject,current,past){
+      let incident = {};
       if(current === "inactive"){
         if(past === "user"){
           incident.action = "blocked";
@@ -58,7 +58,7 @@ var IMPF = function (actor,subject,current,past){
 
 Meteor.methods({
   updateRoles: function (subjectId, subjectUsername, current, past) {
-    var actor = Meteor.user()
+    const actor = Meteor.user()
     if (!actor || !Roles.userIsInRole(actor, ['admin','moderator'])) {
       throw new Meteor.Error(403, "Access denied")
     }
@@ -71,8 +71,8 @@ Meteor.methods({
       Roles.setUserRoles(subjectId, current);
     }
 
-    var incident = IMPF(actor.username, subjectUsername , current, past);
-    var notification = {
+    const incident = IMPF(actor.username, subjectUsername , current, past);
+    const notification = {
       actorId : actor._id,
       actorUsername : actor.username,
       subjectId : subjectId,
@@ -112,4 +112,7 @@ Meteor.methods({
   blockedUserCount: function () {
     return Meteor.users.find({'roles':'inactive'}).count();
   },
+  notificationCount : function(){
+    return Notifications.find({'read':{$ne:this.userId}}).count();
+  }
 })
