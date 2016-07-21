@@ -126,9 +126,10 @@ Meteor.methods({
       description: String,
       start: Match.OneOf(String, Date),
       end: Match.OneOf(String, Date),
-      type: String,
-      hangoutId, String,
+      type: String
     }));
+
+    check(data.hangoutId, String);
 
     const loggedInUser = Meteor.user();
     if (!this.userId) {
