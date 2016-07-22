@@ -1,34 +1,4 @@
 import md5 from 'md5';
-import mcapi from 'mailchimp-api'
-
-if(Meteor.settings.app_mode == 'LIVE'){
-  mc = new mcapi.Mailchimp(Meteor.settings.private.mailChimpKey);
-
-  let addUserToMailingList = (email, merge_vars) => {
-    mc.lists.subscribe({id:Meteor.settings.private.mailChimpListId,
-                        email:{email:email},
-                        merge_vars: merge_vars,
-                        double_optin:true,
-                        update_existing: true
-                        },
-    function(data) {
-
-      // console.log("User subscribed successfully! Look for the confirmation email.");
-      // console.log("data", data);
-
-     },
-     function(error) {
-      //  if (error.error) {
-      //    console.log(error.code + ": " + error.error);
-       //
-      //  } else {
-      //    console.log("There was an error subscribing that user");
-      //  }
-
-     });
-
-  }
-}
 
 
 Meteor.startup(function() {
@@ -129,7 +99,7 @@ Accounts.onCreateUser(function(options, user) {
     const user_info = loggingInUserInfo(user);
     const pickField = filterForSlackLogins(user_info.user)
 
-    if(Meteor.settings.app_mode == 'LIVE'){
+    if(Meteor.settings.isModeProduction){
       const email = pickField.email;
       const merge_vars = {
           "FNAME": pickField.profile.firstname,

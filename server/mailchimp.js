@@ -1,0 +1,31 @@
+import mcapi from 'mailchimp-api';
+
+if(Meteor.settings.isModeProduction){
+
+  mc = new mcapi.Mailchimp(Meteor.settings.private.mailchimp.apiKey);
+
+    addUserToMailingList = (email, merge_vars) => {
+    mc.lists.subscribe({id:Meteor.settings.private.mailchimp.listId,
+                        email:{email:email},
+                        merge_vars: merge_vars,
+                        double_optin:true,
+                        update_existing: true
+                        },
+    function(data) {
+
+      // console.log("User subscribed successfully! Look for the confirmation email.");
+      // console.log("data", data);
+
+     },
+     function(error) {
+      //  if (error.error) {
+      //    console.log(error.code + ": " + error.error);
+       //
+      //  } else {
+      //    console.log("There was an error subscribing that user");
+      //  }
+
+     });
+
+  }
+}
