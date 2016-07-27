@@ -13,7 +13,7 @@ Meteor.methods({
     if(hangout.attendees.length === 0)
     return true;
 
-    const emails = hangout.email_addresses.join(",");
+    let emails = hangout.email_addresses.join(",");
 
     const template_data = {
       hangout_topic: hangout_topic,

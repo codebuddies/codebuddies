@@ -1,6 +1,8 @@
 [![Stories in Ready](https://badge.waffle.io/codebuddiesdotorg/cb-v2-scratch.png?label=ready&title=Ready)](https://waffle.io/codebuddiesdotorg/cb-v2-scratch)
 #CodeBuddies Hangouts Platform v2.0 - from scratch
 
+[![Join the chat at https://gitter.im/codebuddiesdotorg/cb-v2-scratch](https://badges.gitter.im/codebuddiesdotorg/cb-v2-scratch.svg)](https://gitter.im/codebuddiesdotorg/cb-v2-scratch?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 #FAQ
 
 ##What is CodeBuddies?
