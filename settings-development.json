@@ -1,15 +1,15 @@
 {
-  "private": {
+ "private": {
     "mailchimp": {
-      "apiKey": "mailchimp-api-key",
-      "listId": "mailchimp-list-id"
+      "apiKey": "ae48644b1a3bc761012de68fc968e921-us9",
+      "listId": "8c233d5fe7"
     },
     "kadira": {
-      "appId": "kadira-app-id",
-      "appSecret": "kadira-app-secret"
+      "appId": "PvichzKrxh27zoyQH",
+      "appSecret": "0e320880-8b59-4628-a3f6-038b2f04ac3e"
     }
   },
-  "isModeProduction": false,
+  "isModeProduction": true,
   "slack_clientid": "4364220508.48656557590",
   "slack_clientsecret": "33e0c6dda98e994f194efdc9b6d35c46",
   "slack": "https://hooks.slack.com/services/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",
