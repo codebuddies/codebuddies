@@ -3,6 +3,10 @@
 	  @include font-face(400, 16px, normal, $primary-grey);
 	  line-height: 27px;
 	}
+	.flags img { 
+		width: 51px;
+		@include border-radius(3px);
+	}
 	.about-top {
 		background: $bg-lightgrey;
 		padding: 100px 0;
