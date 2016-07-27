@@ -1,5 +1,6 @@
 import md5 from 'md5';
 
+
 Meteor.startup(function() {
  // fire off cron jobs
   SyncedCron.start();
@@ -90,12 +91,27 @@ let generateGravatarURL = (email) => {
   }
 }
 
+
 Accounts.onCreateUser(function(options, user) {
 
   if (user.services.slack){
     Roles.setRolesOnUserObj(user, ['user']);
     const user_info = loggingInUserInfo(user);
     const pickField = filterForSlackLogins(user_info.user)
+
+    if(Meteor.settings.isModeProduction){
+      const email = pickField.email;
+      const merge_vars = {
+          "FNAME": pickField.profile.firstname,
+          "LNAME": pickField.profile.lastname,
+          "TZ": pickField.profile.time_zone,
+          "TZ_LABEL": pickField.profile.time_zone_label,
+          "TZ_OFFSET": pickField.profile.time_zone_offset,
+          "USERNAME": pickField.username
+      }
+
+      addUserToMailingList(email,merge_vars);
+    }
 
     user.username = pickField.username;
     user.profile = pickField.profile;

@@ -63,6 +63,8 @@ localstorage@1.0.9
 logging@1.0.12
 meteor@1.1.14
 meteor-base@1.0.4
+meteorhacks:kadira@2.30.0
+meteorhacks:meteorx@1.4.1
 meteorhacks:picker@1.0.3
 meteorhacks:ssr@2.2.0
 meteorspark:util@0.2.0
@@ -79,6 +81,7 @@ modules-runtime@0.6.3
 momentjs:moment@2.13.1
 mongo@1.1.7
 mongo-id@1.0.4
+mongo-livedata@1.0.12
 mrt:moment@2.8.1
 mrt:moment-timezone@0.2.1
 msavin:mongol@1.6.2
