@@ -291,3 +291,20 @@ Meteor.methods({
     Hangouts.update({_id:hangoutId}, {$inc:{views:1}});
   },
 });
+
+
+Meteor.methods({
+  removeHangouts:function(userId){
+    check(userId, String);
+
+    if (this.userId !== userId) {
+      throw new Meteor.Error('Hangout.methods.removeHangouts.not-logged-in', 'Must be logged in to Remove Hangouts.');
+    }
+
+    return Hangouts.update({'host.id': userId},
+                           {$set: {visibility: false}},
+                           {multi: true});
+
+
+  }
+});

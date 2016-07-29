@@ -1,0 +1,67 @@
+<template name="deleteMyAccountModal">
+    <div class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h4 class="modal-title">Reason for leaving</h4>
+                </div>
+
+                <div class="modal-body">
+
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="reasonForDeletingAccount"  value="I don't find CodeBuddies useful.">
+                      I don't find CodeBuddies useful.
+                    </label>
+                  </div>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="reasonForDeletingAccount"  value="I don't understand how to use CodeBuddies.">
+                      I don't understand how to use CodeBuddies.
+                    </label>
+                  </div>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="reasonForDeletingAccount"  value="I spend too much time using CodeBuddies.">
+                      I spend too much time using CodeBuddies.
+                    </label>
+                  </div>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="reasonForDeletingAccount"  value="I don't feel safe on CodeBuddies.">
+                      I don't feel safe on CodeBuddies.
+                    </label>
+                  </div>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="reasonForDeletingAccount"  value="I have a privacy concern.">
+                      I have a privacy concern.
+                    </label>
+                  </div>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="reasonForDeletingAccount"  value="I get too many emails, invitations, and requests from CodeBuddies.">
+                      I get too many emails, invitations, and requests from CodeBuddies.
+                    </label>
+                  </div>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="reasonForDeletingAccount"  value="other">
+                      Other, please explain further:
+                    </label>
+                  </div>
+
+                  <textarea class="form-control" col="6" row="3" id="detail"></textarea>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" id="delete">Delete</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</template>
