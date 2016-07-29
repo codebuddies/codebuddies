@@ -24,7 +24,7 @@ Meteor.publish("hangoutById", function(hangoutId) {
 
 Meteor.publish("hangoutsCreated", function(limit) {
 
-  return Hangouts.find({user_id: this.userId,'visibility':{$ne:false}},
+  return Hangouts.find({'host.id': this.userId,'visibility':{$ne:false}},
                        {sort: {timestamp: -1}, limit: limit});
 });
 
