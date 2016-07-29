@@ -4,5 +4,5 @@ Meteor.publish("allNotifications", function (limit) {
     return Notifications.find({},{sort: {createdAt: -1}},{limit:limit});
   }
 
-  return this.ready();
+  this.ready();
 });

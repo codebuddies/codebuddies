@@ -1,10 +1,15 @@
 Meteor.publish("hangouts", function() {
 
-  if (Roles.userIsInRole(this.userId, ['admin','moderator'])) {
-    return Hangouts.find({}, {fields:{'email_addresses': 0 }});
+  if(this.userId) {
+    if (Roles.userIsInRole(this.userId, ['admin','moderator'])) {
+      return Hangouts.find({}, {fields:{'email_addresses': 0 }});
+    } else {
+      return Hangouts.find({'visibility':{$ne:false}}, {fields:{'email_addresses': 0 }});
+    }
   } else {
-    return Hangouts.find({'visibility':{$ne:false}}, {fields:{'email_addresses': 0 }});
+   this.ready();
   }
+
 
 });
 
@@ -24,21 +29,31 @@ Meteor.publish("hangoutById", function(hangoutId) {
 
 Meteor.publish("hangoutsCreated", function(limit) {
 
-  return Hangouts.find({'host.id': this.userId,'visibility':{$ne:false}},
-                       {sort: {timestamp: -1}, limit: limit});
+  if(this.userId) {
+    return Hangouts.find({'host.id': this.userId,'visibility':{$ne:false}},
+                         {sort: {timestamp: -1}, limit: limit});
+  } else {
+   this.ready();
+  }
+
 });
 
 Meteor.publish("hangoutsJoined", function(limit) {
 
-  return Hangouts.find({users:{ $elemMatch:{ $eq: this.userId}},'visibility':{ $ne: false}},
-                       {sort: {timestamp: -1}, limit: limit});
+  if(this.userId) {
+    return Hangouts.find({users:{ $elemMatch:{ $eq: this.userId}},'visibility':{ $ne: false}},
+                         {sort: {timestamp: -1}, limit: limit});
+  } else {
+   this.ready();
+  }
+
 });
 
 Meteor.publish("hangoutSearchResult", function(serchTerm) {
 
   check(serchTerm, String);
   if (_.isEmpty(serchTerm)){
-    return this.ready();
+    this.ready();
   }
   return Hangouts.search(serchTerm);
 });
