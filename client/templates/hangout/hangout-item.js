@@ -149,60 +149,6 @@ Template.hangoutItem.events({
       });
     }
   },
-
-  'click .delete-hangout': function(e, hangout) {
-    //console.log(hangout);
-    // var data = {
-    //     hangoutId:hangout.data._id,
-    //     hostId:hangout.data.user_id,
-    //     hostUsername: hangout.data.creator,
-    //   };
-    //
-    // sweetAlert({
-    //     type: 'warning',
-    //     title: TAPi18n.__("delete_hangout_confirm"),
-    //     text: TAPi18n.__("delete_hangout_text"),
-    //     cancelButtonText: TAPi18n.__("no_delete_hangout"),
-    //     confirmButtonText: TAPi18n.__("yes_delete_hangout"),
-    //     confirmButtonColor: "#d9534f",
-    //     showCancelButton: true,
-    //     closeOnConfirm: false,
-    //   },
-    //   function() {
-    //     // disable confirm button to avoid double (or quick) clicking on confirm event
-    //     swal.disableButtons();
-    //     // if user confirmed/selected yes, let's call the delete hangout method on the server
-    //     Meteor.call('deleteHangout', data, function(error, result) {
-    //       if (result) {
-    //         swal("Poof!", "Your hangout has been successfully deleted!", "success");
-    //       } else {
-    //         swal("Oops something went wrong!", error.error + "\n Try again", "error");
-    //       }
-    //     });
-    //   }); //sweetAlert
-  },
-
-  'click .edit-hangout': function(e, hangout) {
-    // //console.log(hangout.data.topic);
-    // //pass in the right times like 03/09/2016 2:03 AM
-    // var start_time_reverted = moment(hangout.data.start).format('MM/DD/YYYY h:mm A');
-    // var end_time_reverted = moment(hangout.data.end).format('MM/DD/YYYY h:mm A');
-    //
-    // console.log(hangout.data._id + ' this is an edited hangout id');
-    // Session.set('hangoutId', hangout.data._id);
-    // Session.set('hostId', hangout.data.user_id);
-    // Session.set('hostUsername', hangout.data.creator);
-    //
-    // Modal.show('editHangoutModal');
-    // $('#edit-hangout-modal #topic').val(hangout.data.topic);
-    // $('#edit-hangout-modal #description').val(hangout.data.description);
-    // $('#edit-hangout-modal input[value=' + hangout.data.type + ']').prop("checked", true);
-    // $('#edit-hangout-modal #start-date-time').val(start_time_reverted);
-    // $('#edit-hangout-modal #end-date-time').val(end_time_reverted);
-    // //console.log(start_time_reverted);
-    // //console.log(end_time_reverted);
-
-  },
   'click .clone-hangout': function(e, hangout) {
     if (!Meteor.userId()) {
       sweetAlert({
