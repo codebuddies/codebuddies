@@ -27,16 +27,6 @@ Meteor.publish("hangoutById", function(hangoutId) {
 
 });
 
-Meteor.publish("hangoutsCreated", function(limit) {
-
-  if(this.userId) {
-    return Hangouts.find({'host.id': this.userId,'visibility':{$ne:false}},
-                         {sort: {timestamp: -1}, limit: limit});
-  } else {
-   this.ready();
-  }
-
-});
 
 Meteor.publish("hangoutsJoined", function(limit) {
 
