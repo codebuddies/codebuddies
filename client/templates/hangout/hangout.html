@@ -32,9 +32,8 @@
                 {{#if url}}
                   <a class="btn btn-cb2 btn-grey btn-success" href="{{url}}" target="_blank">{{_ "join"}}</a>
                 {{else}}
-                  {{#unless hangoutOwner user_id}}
-                      <a class="btn btn-cb2 btn-grey" target="_blank">{{_ "join"}}</a>
-                        <p class="status">You need to wait for the host to start the hangout.</p>
+                  {{#unless hangoutOwner host.id}}
+                        <p class="status">Please wait for the host to start the hangout.</p>
                       {{/unless}}
                 {{/if}}
 
