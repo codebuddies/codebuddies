@@ -2,12 +2,6 @@
 1. How do I start up the app?
 ```meteor --settings settings-development.json```
 
-##How do I start up the app locally and log in as an admin?
-1. add your email and username to ```settings-development.json```.
-2. ```meteor reset && meteor --settings settings-development.json```.
-3. you will receive your password in your email .
-4. admin login ```http://localhost:3000/admin```.
-
 ## The first 6 steps to take if you want to contribute to this open-sourced project:
 1. Add your name on the google doc [bit.ly/codebuddies-hangouts-platform-v2-googledoc](http://bit.ly/codebuddies-hangouts-platform-v2-googledoc) if your name is not listed, and you want to be added as a collaborator.
 2. Say hello on the [#codebuddies-meta channel in the Slack](https://codebuddiesmeet.slack.com/messages/codebuddies-meta/). One of us will add you as a collaborator to the repo, so that you'll be able to commit and push/pull to the app! You can also ask `@linda` for a code walkthrough of the app.
@@ -40,13 +34,11 @@ All right. After we've created our branch, the next step is to push our new bran
 
 Now we can make commits to our branch (`git commit -am "commit message"`) and `git pull` to get other people's changes to the branch, and `git push` our own commits to the branch.
 
-Finally, when you're finished working on the fix or feature in your branch, you need to merge it back into the `master` branch. This is what you do:
+Finally, when you're finished working on the fix or feature in your branch, you'll need to submit a pull request!
 
-1. Type `git checkout master` to switch back to the master branch.
-2. Type `git pull` to get the latest updates in the master branch.
-3. Type `git merge BRANCHNAME` to merge your BRANCHNAME into the master branch.
+Click on the "pull request" button by going to https://github.com/codebuddiesdotorg/cb-v2-scratch/pulls and clicking on "new pull request." Next, select your branch, and submit.
 
-@linda (or someone else) will occasionally move the contents of `master` into `staging` and deploy it to [http://cbv2-staging2.meteor.com](http://cbv2-staging2.meteor.com).
+One of the github maintainers (@linda or someone else) will look over your pull request and accept it.
 
 ### What should I remember while I'm working on my branch?
 
@@ -54,7 +46,7 @@ Finally, when you're finished working on the fix or feature in your branch, you 
 
 For example, to check out the `feature/active-users` branch, you would type `git checkout feature/active-users` in your command line.
 
-#####Our staging site is located at [http://cbv2-staging2.meteor.com/](http://cbv2-staging2.meteor.com/).
+#####Our staging site is located at [http://cbv2-staging.herokuapp.com](http://cbv2-staging.herokuapp.com/).
 
 While you're working, you should try to merge in the latest from `master` occasionally while you are in your branch. You can do this by typing:
 
@@ -91,6 +83,12 @@ In summary, the steps are:
 6. `git commit -m "message" [filename]`.
 
 7. You're done! Now you can continue to `git push` and `git pull` and `git merge staging` while you're inside your branch.
+
+##How do I start up the app locally and log in as an admin?
+1. add your email and username to ```settings-development.json```.
+2. ```meteor reset && meteor --settings settings-development.json```.
+3. you will receive your password in your email .
+4. admin login ```http://localhost:3000/admin```.
 
 
 ##Reminders:
