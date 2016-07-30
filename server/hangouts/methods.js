@@ -26,11 +26,13 @@ Meteor.methods({
         avatar: loggedInUser.profile.avatar.default,
       },
       attendees:[],
+      email_addresses: [loggedInUser.email],
       users:[loggedInUser._id],
-      is_reminder_sent: false,
+      day_reminder_sent: false,
+      hourly_reminder_sent: false,
       views: 0,
       visibility: true,
-      created_at: new Date()
+      created_at: new Date(),
     }
 
     const hangout_id = Hangouts.insert(hangout);
