@@ -13,7 +13,7 @@ Meteor.methods({
     if (!this.userId) {
       throw new Meteor.Error('Hangout.methods.createHangout.not-logged-in', 'Must be logged in to create new hangout.');
     }
-    const hangout = {
+    var hangout = {
       topic: data.topic,
       slug: data.slug,
       description: data.description,
@@ -36,42 +36,9 @@ Meteor.methods({
     }
 
     const hangout_id = Hangouts.insert(hangout);
-
-    // create slack message to channel
-    const tz = "America/Los_Angeles";
-    const host = loggedInUser.username;
-    const hangout_type = data.type;
-    const hangout_topic = data.topic;
-    const hangout_desc = data.description;
-    const hangout_url = Meteor.absoluteUrl('hangout'); // http://<ROOT_URL>/hangout/<hangout_id>
-    const start_time = moment(data.start).tz(tz).format('MMMM Do YYYY, h:mm a z');
-    const alert = {
-      attachments: [
-        {
-          fallback: 'A new hangout has been scheduled. Visit' + Meteor.absoluteUrl() + '',
-          color: '#1e90ff',
-          pretext: `A new *${hangout_type}* hangout has been scheduled by <@${host}>!`,
-          title: `${hangout_topic}`,
-          title_link: `${hangout_url}/${hangout_id}`,
-          mrkdwn_in: ['text', 'pretext', 'fields'],
-          fields: [
-            {
-              title: 'Description',
-              value: `_${hangout_desc}_`,
-              short: true
-            },
-            {
-              title: 'Date',
-              value: `${start_time}`,
-              short: true
-            }
-            ]
-        }
-        ]
-    }
-    // send Slack message to default channel (configured in Meteor settings)
-    /* global hangoutAlert from /lib/functions.js */
-    hangoutAlert(alert);
+    hangout._id = hangout_id;
+    
+    slackNotification(hangout, "NEW");
     return true;
   },
   deleteHangout: function (data) {
@@ -85,7 +52,10 @@ Meteor.methods({
       throw new Meteor.Error('Hangout.methods.deleteHangout.not-logged-in', 'Must be logged in to delete hangout.');
     }
 
-    const response = Meteor.call('emailHangoutUsers', data.hangoutId);
+    const hangout = Hangouts.findOne(data.hangoutId);
+    const response = emailNotification(hangout,"DELETED");
+    console.log("response", response);
+
       if (!response) {
           throw new Meteor.Error("Error sending email!");
       } else {
@@ -120,6 +90,8 @@ Meteor.methods({
           return true;
         }
       }
+
+
   },
   editHangout: function(data) {
     check(data, Match.ObjectIncluding({

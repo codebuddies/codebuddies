@@ -1,45 +1,57 @@
-Meteor.methods({
-  emailHangoutUsers: function(hangoutId) {
-    // ssr for email template rendering
-    SSR.compileTemplate('notifyEmail', Assets.getText('email-hangout-alerts.html'));
+emailNotification = function(hangout, type){
+  let emails = hangout.email_addresses.join(",");
+  const tz = "America/Los_Angeles";
+  let template_data;
+  let data;
+  switch (type) {
+    case "REMINDER":
+        SSR.compileTemplate('notifyEmail', Assets.getText('email-hangout-reminder.html'));
+        template_data = {
+          hangout_topic: hangout.topic,
+          host: hangout.host.name,
+          hangout_start_time: moment(hangout.start).tz(tz).format('MMMM Do YYYY, h:mm a z'),
+          logo: Meteor.absoluteUrl('images/cb2-180.png'),
+          hangout_url: Meteor.absoluteUrl("hangout/" + hangout._id)
+        };
 
-    const tz = "America/Los_Angeles";
-    const hangout = Hangouts.findOne(hangoutId);
-    const user_id = hangout.host.id;
-    const host = hangout.host.name;
-    const hangout_topic = hangout.topic;
-    const hangout_start_time = hangout.start;
+         data = {
+          to: emails,
+          from: Meteor.settings.email_from,
+          html: SSR.render('notifyEmail', template_data),
+          subject: 'CodeBuddies Alert: Hangout Reminder - ' + hangout.topic + ' is scheduled to start within 24 hours!'
+        }
+        console.log("data" , data);
+        try{
+          Email.send(data);
+        }catch(e){
+          throw new Meteor.Error('Hangout.hangoutReminder.emailNotification', 'Cannot send emeil notification');
+        }
 
-    if(hangout.attendees.length === 0)
-    return true;
+      break;
+    case "DELETED":
+        SSR.compileTemplate('notifyEmail', Assets.getText('email-hangout-alerts.html'));
+        let emails = hangout.email_addresses.join(",");
+        template_data = {
+          hangout_topic: hangout.topic,
+          host: hangout.host.name,
+          hangout_start_time: moment(hangout.start).tz(tz).format('MMMM Do YYYY, h:mm a z'),
+          logo: Meteor.absoluteUrl('images/cb2-180.png')
+        };
 
-    let emails = hangout.email_addresses.join(",");
+        data = {
+          to: emails,
+          from: Meteor.settings.email_from,
+          html: SSR.render('notifyEmail', template_data),
+          subject: 'CodeBuddies Alert: Hangout - ' + hangout.topic + ' has been CANCELLED'
+        }
 
-    const template_data = {
-      hangout_topic: hangout_topic,
-      host: host,
-      hangout_start_time: moment(hangout_start_time).tz(tz).format('MMMM Do YYYY, h:mm a z'),
-      logo: Meteor.absoluteUrl('images/cb2-180.png')
-    };
+        try {
+        Email.send(data);
+        } catch ( e ) {
+        return false;
+        }
 
-
-    const data = {
-      to: emails,
-      from: Meteor.settings.email_from,
-      html: SSR.render('notifyEmail', template_data),
-      subject: 'CodeBuddies Alert: Hangout - ' + hangout_topic + ' has been CANCELLED'
-    }
-    // let other method calls from same client to star running.
-    // without needing to wait to send email
-    this.unblock();
-
-    try {
-      Email.send(data);
-    } catch ( e ) {
-      //debug
-      //console.log("Email.send() error: " + e.message);
-      return false;
-    }
-    return true;
+      break;
+    default:
   }
-});
+}
