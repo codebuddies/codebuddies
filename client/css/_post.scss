@@ -1,6 +1,8 @@
 #post {
 	label { font-weight: 200; font-size: 16px;}
 	h2 { font-weight: 200; }
+	h2.completed, p.completed { color: $warm-grey; }
+	h2.completed { font-weight: 600;}
 	.col-md-2 { 
 		height: 120px; text-align: center;
 		p, button, div {

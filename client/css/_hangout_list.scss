@@ -13,6 +13,7 @@
     .hangout-topic {
       @include font-face(400, 17px, normal, $cta-blue);
     }
+    .hangout-topic.completed { color: $warm-grey; font-weight: 600;}
     #leave-hangout { text-decoration: underline; text-align: center; display: block;
         @include font-face(400, 12px, normal, $cta-blue);}
     p.upcoming { text-transform: uppercase; color: $kudo; text-align: left; line-height: 20px; font-size: 85%}
