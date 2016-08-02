@@ -37,7 +37,7 @@ Meteor.methods({
 
     const hangout_id = Hangouts.insert(hangout);
     hangout._id = hangout_id;
-    
+
     slackNotification(hangout, "NEW");
     return true;
   },
@@ -54,8 +54,7 @@ Meteor.methods({
 
     const hangout = Hangouts.findOne(data.hangoutId);
     const response = emailNotification(hangout,"DELETED");
-    console.log("response", response);
-
+    
       if (!response) {
           throw new Meteor.Error("Error sending email!");
       } else {
