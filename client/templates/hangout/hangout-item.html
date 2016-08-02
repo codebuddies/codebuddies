@@ -7,7 +7,7 @@
         {{#if isInProgress this}}
           &nbsp; &nbsp;<i class="fa fa-dot-circle-o fa text-danger faa-burst animated"></i> &nbsp;
         {{/if}}
-          <a href="/hangout/{{_id}}" class="hangout-topic"> {{topic}} </a>
+          <a href="/hangout/{{_id}}" class="hangout-topic {{# if completed this }}completed{{/if}}"> {{topic}} </a>
 
 
         </label>
