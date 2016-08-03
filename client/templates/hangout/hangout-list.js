@@ -32,7 +32,7 @@ Template.hangoutList.helpers({
     var template = Template.instance();
     if (!template.ready.get()) return null;
     var size = template.currentCount.get();
-    return Hangouts.find({},{ sort: { created_at: -1 }, limit: size});
+    return Hangouts.find({},{ sort: { start: -1 }, limit: size});
   },
   showLoadMore: function() {
     return Template.instance().loadMore.get();
