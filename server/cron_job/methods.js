@@ -6,7 +6,7 @@
  *
  */
 // if set to true, cron job will run every minute (production default is every 1 hour)
-const debug = false;
+const debug = true;
 
 hangoutReminder = function() {
   // only fetch hangouts with property of "is_reminder_sent: false"
@@ -19,6 +19,7 @@ hangoutReminder = function() {
     active_hangouts.forEach(function(hangout) {
 
     const time_diff = parseInt((hangout.start - new Date()) / (1000 * 60 * 60));
+    console.log("time_diff", time_diff);
 
       // 24 hours before hangout start time alert
       if (time_diff <= 24 && hangout.day_reminder_sent == false) {

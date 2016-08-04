@@ -8,13 +8,25 @@
  * @since 0.0.1
  */
 
+
+
 hangoutAlert = slack.extend({
     channel: Meteor.settings.slack_alert_channel,
-    icon_emoji: ':bell:',
+    //icon_emoji: ':bell:',
     username: Meteor.settings.slack_alert_username
 });
 
 slackNotification = function(hangout, type){
+
+  const emoji = giveMeKeyWord(hangout.topic) || ":cb:";
+  console.log("emoji", emoji);
+  hangoutAlert = slack.extend({
+      channel: Meteor.settings.slack_alert_channel,
+      icon_emoji: emoji,
+      username: Meteor.settings.slack_alert_username
+  });
+
+  console.log("emoji", emoji);
 
   let fallback, pretext;
 
@@ -32,6 +44,7 @@ slackNotification = function(hangout, type){
        fallback: fallback,
        color: '#1e90ff',
        pretext: pretext,
+       icon_emoji: emoji,
        title: `${hangout.topic}`,
        title_link: Meteor.absoluteUrl("hangout/" + hangout._id),
        mrkdwn_in: ['text', 'pretext', 'fields'],
