@@ -6,7 +6,7 @@
  *
  */
 // if set to true, cron job will run every minute (production default is every 1 hour)
-const debug = true;
+const debug = false;
 
 hangoutReminder = function() {
   // only fetch hangouts with property of "is_reminder_sent: false"
