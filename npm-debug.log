@@ -27,7 +27,7 @@
 14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:215:5)
 15 verbose pkgid codebuddies-v2@1.0.0
 16 verbose cwd /Users/sujil/Documents/opensource/cb-v2-scratch
-17 error Darwin 15.5.0
+17 error Darwin 15.6.0
 18 error argv "/Users/sujil/.nvm/versions/node/v6.2.1/bin/node" "/Users/sujil/.nvm/versions/node/v6.2.1/bin/npm" "run" "meteor:dev"
 19 error node v6.2.1
 20 error npm  v3.9.3
