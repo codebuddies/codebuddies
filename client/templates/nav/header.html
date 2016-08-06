@@ -17,11 +17,11 @@
         <ul class="nav navbar-nav navbar-right">
           <li><a href="{{pathFor 'about'}}">{{_ "about"}} <span class="sr-only">(current)</span></a></li>
           <li><a href="{{pathFor 'faq'}}">{{_ "faq"}}</a></li>
-          {{#if currentUser}}
           {{#unless isInRole 'admin'}}
-            <li><a href="https://codebuddiesmeet.slack.com/messages/general" target="_blank"><i class="fa fa-slack" aria-hidden="true"></i> </a></li>
-          {{/unless}}
-          <li><a href="{{pathFor 'user notification'}}"><i class="fa fa-bell" aria-hidden="true"></i> {{#if userNotificationCount}}<small><span class="badge">{{userNotificationCount}}</span></small>{{/if}} </a></li>
+             <li><a href="https://codebuddiesmeet.slack.com/messages/general" target="_blank"><i class="fa fa-slack" aria-hidden="true"></i> </a></li>
+           {{/unless}}
+          {{#if currentUser}}
+              <li><a href="{{pathFor 'user notification'}}"><i class="fa fa-bell" aria-hidden="true"></i> {{#if userNotificationCount}}<small><span class="badge">{{userNotificationCount}}</span></small>{{/if}} </a></li>
           {{/if}}
           {{#if isInRole 'moderator,admin'}}
             <li id="user-drop-down" class="dropdown">
