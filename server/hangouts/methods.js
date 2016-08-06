@@ -54,7 +54,7 @@ Meteor.methods({
 
     const hangout = Hangouts.findOne(data.hangoutId);
     const response = emailNotification(hangout,"DELETED");
-    
+
       if (!response) {
           throw new Meteor.Error("Error sending email!");
       } else {
