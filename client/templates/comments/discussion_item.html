@@ -9,7 +9,9 @@
         {{{text}}}
       </p>
       <p>
-        {{totalVotes upvotes.length downvotes.length}}
+        {{#if totalVotes upvotes.length downvotes.length}}
+          {{totalVotes upvotes.length downvotes.length}}
+        {{/if}}
         {{#unless isUserCommentAuthor authorId}}
 
             <i class="fa fa-angle-up fa-2x upVote" aria-hidden="true"></i>
