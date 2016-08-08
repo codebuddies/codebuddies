@@ -6,6 +6,7 @@ BrowserPolicy.content.allowFontDataUrl();
 BrowserPolicy.content.allowInlineScripts();
 BrowserPolicy.content.allowInlineStyles();
 BrowserPolicy.content.allowOriginForAll('http://*.materialdesignicons.com');
+BrowserPolicy.content.allowOriginForAll('http://*.google.com');
 var trusted = [
   '*.herokuapp.com',
   '*.gstatic.com',
