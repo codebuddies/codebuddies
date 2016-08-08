@@ -220,7 +220,7 @@ Template.commentBox.events({
        Session.set("replyToComment",replyToComment);
     }else {
         replyToComment.push(commentId);
-        var replyForm = '<form class="addNewReply"> <textarea id="commentReply" class="form-control" rows="3" cols="30"></textarea><br><button type="submit" class="btn btn-cb2 pull-right"> Reply</button></form>';
+        var replyForm = '<form class="addNewReply"><span class="pull-right cb-delete"><i class="fa fa-times replyToComment" aria-hidden="true"></i></span> <textarea id="commentReply" class="form-control" rows="3" cols="30"></textarea><br><button type="submit" class="btn btn-cb2 pull-right"> Reply</button></form>';
         // var textArea = "<textarea class='form-control' rows='3' cols='30' id='commentReply' />";
         $("#"+ commentId+"replyToCommentSection").append(replyForm);
         Session.set("replyToComment",replyToComment);
