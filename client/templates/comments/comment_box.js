@@ -88,6 +88,17 @@ Template.commentBox.events({
       return;
     };
 
+    if ($.trim($('#newMessage').val()) == '') {
+      sweetAlert({
+        title: TAPi18n.__("Comment can't be empty"),
+        // text: TAPi18n.__("login_create_hangout_message"),
+        confirmButtonText: TAPi18n.__("ok"),
+        type: 'info'
+      });
+
+      return;
+    };
+
 
        var comment = {
           discussionId : FlowRouter.getParam("hangoutId"),
@@ -218,6 +229,7 @@ Template.commentBox.events({
   },
 
   "submit .addNewReply": function(event, template){
+    event.preventDefault();
     if (!Meteor.userId()) {
       sweetAlert({
         title: TAPi18n.__("Login to reply"),
@@ -227,7 +239,18 @@ Template.commentBox.events({
       });
       return;
     };
-      event.preventDefault();
+
+    if ($.trim($('#newMessage').val()) == '') {
+      sweetAlert({
+        title: TAPi18n.__("Comment can't be empty"),
+        // text: TAPi18n.__("login_create_hangout_message"),
+        confirmButtonText: TAPi18n.__("ok"),
+        type: 'info'
+      });
+
+      return;
+    };
+
 
        var commentId = this._id;
        var parentSlug = this.slug;
