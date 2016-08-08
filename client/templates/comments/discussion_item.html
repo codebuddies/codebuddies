@@ -1,10 +1,10 @@
 <template name="discussionItem">
   <div class="row">
     <div class="col-md-2">
-      <img src="{{#if authorAvatar}}{{authorAvatar}}{{else}}/default-avatar.png{{/if}}"  height="80" width="80"/>
+      <a href="{{pathFor 'profile' name=host.name userId=host.id}}"><img src="{{#if authorAvatar}}{{authorAvatar}}{{else}}/default-avatar.png{{/if}}"  class="img-circle"/></a>
     </div>
     <div class="col-md-10">
-      <h4>{{authorName}} <small>{{cleanDateFormatCalendar posted}}</small> <span class="pull-right">{{#if isUserCommentAuthor authorId}}<i class="fa fa-times delete" aria-hidden="true"></i>{{/if}}</span></h4>
+      <h4>{{authorName}} <small>{{cleanDateFormatCalendar posted}}</small> <span class="pull-right cb-delete">{{#if isUserCommentAuthor authorId}}<i class="fa fa-times delete" aria-hidden="true"></i>{{/if}}</span></h4>
       <p>
         {{{text}}}
       </p>
