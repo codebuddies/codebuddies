@@ -1,7 +1,7 @@
 <template name="discussionItem">
   <div class="row">
     <div class="col-md-2">
-      <a href="{{pathFor 'profile' name=host.name userId=host.id}}"><img src="{{#if authorAvatar}}{{authorAvatar}}{{else}}/default-avatar.png{{/if}}"  class="img-circle"/></a>
+      <a href="{{pathFor 'profile' name=authorName userId=authorId}}"><img src="{{#if authorAvatar}}{{authorAvatar}}{{else}}/default-avatar.png{{/if}}"  class="img-circle"/></a>
     </div>
     <div class="col-md-10">
       <h4>{{authorName}} <small>{{cleanDateFormatCalendar posted}}</small> <span class="pull-right cb-delete">{{#if isUserCommentAuthor authorId}}<i class="fa fa-times delete" aria-hidden="true"></i>{{/if}}</span></h4>
@@ -10,13 +10,14 @@
       </p>
       <p>
         {{#if totalVotes upvotes.length downvotes.length}}
-          {{totalVotes upvotes.length downvotes.length}}
+          {{totalVotes upvotes.length downvotes.length}} &nbsp;&nbsp;
         {{/if}}
         {{#unless isUserCommentAuthor authorId}}
 
-            <i class="fa fa-angle-up fa-2x upVote" aria-hidden="true"></i>
-            <i class="fa fa-angle-down fa-2x downVote" aria-hidden="true"></i>
-
+            <i class="fa fa-angle-up  upVote" aria-hidden="true"></i>
+            <small>&nbsp; | &nbsp;</small>
+            <i class="fa fa-angle-down  downVote" aria-hidden="true"></i>
+            &nbsp;&nbsp;
             <span class="replyToComment"> Reply</span>
 
         {{/unless}}

@@ -1,5 +1,16 @@
 Meteor.methods({
   addComments:function(comment){
+    check(comment, {
+      discussionId : String,
+      slug: String,
+      authorId : String,
+      authorName : String,
+      authorAvatar: String,
+      text : String,
+      parent_id : Match.OneOf(String, null)
+    });
+
+
     if (!this.userId) {
       throw new Meteor.Error('Comments.methods.addComments.not-logged-in', 'Must be logged in to add new comment.');
     }
