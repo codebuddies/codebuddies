@@ -58,9 +58,14 @@ kadira:dochead@1.5.0
 kadira:flow-router@2.12.1
 lai:collection-extensions@0.1.4
 launch-screen@1.0.11
+less@2.6.0
 livedata@1.0.18
 localstorage@1.0.9
 logging@1.0.12
+matb33:bootstrap-base@10.0.0
+matb33:bootstrap-popovers@10.0.0
+matb33:bootstrap-tooltip@10.0.0
+matb33:bootstrap-transition-js@10.0.0
 meteor@1.1.14
 meteor-base@1.0.4
 meteorhacks:kadira@2.30.0

@@ -4,3 +4,9 @@ Template.about.onCreated(function(){
   DocHead.setTitle(title);
   DocHead.addMeta(metaInfo);
 });
+
+Template.about.onRendered(function(){
+	$(function() {
+	  $('a.user-popover').popover({ trigger: "click"});
+	 });
+});
