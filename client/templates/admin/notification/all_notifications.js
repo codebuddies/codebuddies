@@ -46,7 +46,7 @@ Template.allNotification.helpers({
   },
   hasBeenSeen:function(){
     var userId = Meteor.userId();
-    if (userId && !_.include(this.read, userId)) {
+    if (userId && !_.includes(this.read, userId)) {
       return false;
     } else {
     return true;

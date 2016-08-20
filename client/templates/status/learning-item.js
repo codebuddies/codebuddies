@@ -9,7 +9,7 @@ Template.registerHelper("learningOwner", function(ownerid){
 Template.learningItem.helpers({
   buttonStatus: function() {
     var userId = Meteor.userId();
-    if (userId && !_.include(this.hasLiked, userId)) {
+    if (userId && !_.includes(this.hasLiked, userId)) {
       return false;
     } else {
     return true;
