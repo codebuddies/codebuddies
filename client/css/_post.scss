@@ -13,5 +13,7 @@
   		}
 	}
 	a#leave-hangout { position: relative; top: 30px; }
-
+	textarea#newMessage { min-height: 100px;}
+	select#commentFilter { margin-bottom: 10px;}
+	span.cb-delete:hover { cursor: pointer;}
 }
