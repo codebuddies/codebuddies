@@ -213,7 +213,7 @@ Template.commentBox.events({
     var commentId = this._id;
     var replyToComment = Session.get("replyToComment");
 
-    if(_.includes(replyToComment, commentId)){
+    if(_.include(replyToComment, commentId)){
        $("#"+ commentId +"replyToCommentSection").empty();
        replyToComment = _.pull(replyToComment, commentId);
        console.log(replyToComment);
