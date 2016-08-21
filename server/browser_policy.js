@@ -15,6 +15,7 @@ var trusted = [
   '*.google.com',
   '*.gravatar.com',
   '*.slack.com',
+  '*.slack-edge.com',
   '*.wp.com'
 ];
 
