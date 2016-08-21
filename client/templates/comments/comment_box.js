@@ -1,4 +1,4 @@
-_ = lodash;
+import _ from 'meteor/erasaur:meteor-lodash';
 
 Template.commentBox.onCreated(function() {
   this.autorun(() => {
