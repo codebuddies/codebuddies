@@ -17,7 +17,8 @@ var trusted = [
   '*.gravatar.com',
   '*.slack.com',
   '*.slack-edge.com',
-  '*.wp.com'
+  '*.wp.com',
+  '*.githubusercontent.com'
 ];
 
 _.each(trusted, function(origin) {
