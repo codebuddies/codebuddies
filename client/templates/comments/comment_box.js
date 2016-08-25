@@ -1,4 +1,4 @@
-_ = lodash;
+import _ from 'meteor/erasaur:meteor-lodash';
 
 Template.commentBox.onCreated(function() {
   this.autorun(() => {
@@ -139,9 +139,9 @@ Template.commentBox.events({
     }
 
     //checking if user has already voted for same category
-    if (userId && !_.includes(this.upvotes, userId)) {
+    if (userId && !_.include(this.upvotes, userId)) {
       //checking if user has already voted for other category if true then switching
-      if (userId && _.includes(this.downvotes, userId)) {
+      if (userId && _.include(this.downvotes, userId)) {
 
         Meteor.call("voteSwitching", commentId, "downvote-to-upvote", function(error, result){ if(error){ console.log("error", error); }});
 
@@ -176,10 +176,10 @@ Template.commentBox.events({
     // }
 
     //checking if user has already voted for same category if false
-    if (userId && !_.includes(this.downvotes, userId)) {
+    if (userId && !_.include(this.downvotes, userId)) {
 
       //checking if user has already voted for other category if true then switching
-      if (userId && _.includes(this.upvotes, userId)) {
+      if (userId && _.include(this.upvotes, userId)) {
 
         Meteor.call("voteSwitching", commentId, "upvote-to-downvote", function(error, result){ if(error){ console.log("error", error); } });
 
@@ -213,7 +213,7 @@ Template.commentBox.events({
     var commentId = this._id;
     var replyToComment = Session.get("replyToComment");
 
-    if(_.includes(replyToComment, commentId)){
+    if(_.include(replyToComment, commentId)){
        $("#"+ commentId +"replyToCommentSection").empty();
        replyToComment = _.pull(replyToComment, commentId);
        console.log(replyToComment);
