@@ -12,7 +12,7 @@ Learning with each other helps us learn faster. We strive to create a safe space
 
 ##What are you trying to build here?
 
-![screenshot of what we're building](http://codebuddies.org/images/cbv7-mockup.jpg)
+![screenshot of what we're building](http://codebuddies.org/images/code-buddies-landing.png)
 Credit: [Ada Chiu](https://github.com/adachiu); please feel free to play around and look for bug on our [staging site](http://cbv2-staging2.meteor.com).
 
 ##Why are you building this site?
