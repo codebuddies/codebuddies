@@ -1,16 +1,4 @@
 
-Template.deleteMyAccountModal.helpers({
-  create: function(){
-
-  },
-  rendered: function(){
-
-  },
-  destroyed: function(){
-
-  },
-});
-
 Template.deleteMyAccountModal.events({
   "click #delete": function(event, template){
     event.preventDefault();
@@ -46,7 +34,7 @@ Template.deleteMyAccountModal.events({
       }
       if(result){
         Modal.hide();
-        FlowRouter.go('/');
+        FlowRouter.go('/goodbye');
       }
     });
 
