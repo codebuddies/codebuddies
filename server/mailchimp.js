@@ -27,5 +27,34 @@ if(Meteor.settings.isModeProduction){
 
      });
 
-  }
+  };
+
+
+
+  removeUserFromMailingList = (email) => {
+    mc.lists.unsubscribe({"id":Meteor.settings.private.mailchimp.listId,
+                          "email": {
+                              "email": email
+                          },
+                          "delete_member": true,
+                          "send_goodbye": true,
+                          "send_notify": true
+                        },
+                        function(data) {
+
+                          console.log("User unsubscribed successfully! confirmation email.");
+                          console.log("data", data);
+
+                         },
+                         function(error) {
+                           if (error.error) {
+                             console.log(error.code + ": " + error.error);
+
+                           } else {
+                             console.log("There was an error unsubscribing that user");
+                           }
+
+                         });
+  };
+
 }

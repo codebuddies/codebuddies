@@ -9,6 +9,9 @@ Template.registerHelper("userList", function(argument){
     case "active":
       return "monthlyActiveUsers";
       break;
+    case "archived":
+      return "archivedUsers";
+      break;
     default:
 
   }
