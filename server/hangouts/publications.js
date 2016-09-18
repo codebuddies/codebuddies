@@ -1,15 +1,15 @@
-Meteor.publish("hangouts", function() {
+Meteor.publish("hangouts", function(limit) {
+  check(limit, Number);
 
   if(this.userId) {
     if (Roles.userIsInRole(this.userId, ['admin','moderator'])) {
-      return Hangouts.find({}, {fields:{'email_addresses': 0 }});
+      return Hangouts.find({}, {fields:{'email_addresses': 0 }, 'limit':limit});
     } else {
-      return Hangouts.find({'visibility':{$ne:false}}, {fields:{'email_addresses': 0 }});
+      return Hangouts.find({'visibility':{$ne:false}}, {fields:{'email_addresses': 0 }, 'limit':limit});
     }
   } else {
    this.ready();
   }
-
 
 });
 
@@ -28,10 +28,12 @@ Meteor.publish("hangoutById", function(hangoutId) {
 });
 
 
-Meteor.publish("hangoutsJoined", function(limit) {
+Meteor.publish("hangoutsJoined", function(limit, userId) {
+  check(limit, Number);
+  check(userId, String);
 
   if(this.userId) {
-    return Hangouts.find({users:{ $elemMatch:{ $eq: this.userId}},'visibility':{ $ne: false}},
+    return Hangouts.find({users:{ $elemMatch:{ $eq: userId}},'visibility':{ $ne: false}},
                          {sort: {timestamp: -1}, limit: limit});
   } else {
    this.ready();
