@@ -1,4 +1,5 @@
 Template.createHangoutModal.rendered = function() {
+
   var start = this.$('#start-date-time-picker');
   var end = this.$('#end-date-time-picker');
 
@@ -47,6 +48,20 @@ Template.createHangoutModal.rendered = function() {
     $('#d3').hide();
   });
 
+  var Link = Quill.import('formats/link');
+  var quill = new Quill('#description', {
+  modules: {
+    toolbar: [
+      [{ header: [1, 2, false] }],
+      ['bold', 'italic', 'underline'],
+      ['image', 'code-block', 'link']
+    ]
+  },
+  placeholder: 'What do you hope to cover or master during this hangout?',
+  theme: 'snow' // or 'bubble'
+  });
+
+
 
 
 };
@@ -54,7 +69,7 @@ Template.createHangoutModal.rendered = function() {
 Template.createHangoutModal.events({
   'click #create-hangout': function(e) {
     const topic = $('#topic').val();
-    const description = $('#description').val().replace(/\r?\n/g, '<br />');
+    const description = $('#description').html().replace(/\r?\n/g, '<br />');
     const start = $('#start-date-time').val();
     const end = $('#end-date-time').val();
     const type = $('input[name="hangout-type"]:checked').val();
