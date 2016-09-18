@@ -20,10 +20,9 @@ Template.hangoutList.onRendered(function() {
     }
 
     instance.addMoreHangouts = function(){
-        console.log("loadmore called");
 
         if(Hangouts.find().count() === instance.limit.get()){
-             instance.limit.set(instance.limit.get() + 5);
+             instance.limit.set(instance.limit.get() + 8);
 
         }else{
            if(Hangouts.find().count() < instance.limit.get()){

@@ -17,15 +17,13 @@ Template.hangoutsJoined.onRendered(function() {
 
     instance.loadHangouts = function() {
       var userId = FlowRouter.getParam('userId');
-      console.log('userId', userId);
       return Hangouts.find();
     }
 
     instance.addMoreHangouts = function(){
-        console.log("loadmore called");
 
         if(Hangouts.find().count() === instance.limit.get()){
-             instance.limit.set(instance.limit.get() + 5);
+             instance.limit.set(instance.limit.get() + 8);
 
         }else{
            if(Hangouts.find().count() < instance.limit.get()){
