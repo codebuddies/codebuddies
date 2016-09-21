@@ -40,7 +40,8 @@ Template.hangoutItem.helpers({
     }
   },
   getDescriptionTruncated: function(hangout) {
-    return hangout.description;
+    let description_truncated = hangout.description.substr(0,201);
+    return description_truncated;
   },
   getDate: function(hangout) {
     var tz = TimezonePicker.detectedZone();
