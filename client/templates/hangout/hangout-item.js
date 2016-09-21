@@ -40,7 +40,7 @@ Template.hangoutItem.helpers({
     }
   },
   getDescriptionTruncated: function(hangout) {
-    let description_truncated = hangout.description.substr(0,201);
+    let description_truncated = hangout.description.substr(0,201) + '...';
     return description_truncated;
   },
   getDate: function(hangout) {
