@@ -31,6 +31,8 @@ Template.hangoutList.onRendered(function() {
        }
     }
 
+    
+
 });
 
 Template.hangoutList.helpers({
