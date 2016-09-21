@@ -39,6 +39,9 @@ Template.hangoutItem.helpers({
       return 'fa-users text-success-color';
     }
   },
+  getDescriptionTruncated: function(hangout) {
+    return hangout.description;
+  },
   getDate: function(hangout) {
     var tz = TimezonePicker.detectedZone();
     //console.log('getDate tz: ' + tz);
