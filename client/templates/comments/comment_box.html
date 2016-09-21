@@ -1,0 +1,40 @@
+<template name="commentBox">
+   <div class="row">
+    <div class="co-md-12">
+       <div class="col-md-3 col-md-offset-9">
+         <select id="commentFilter" class="form-control">
+           <option value="1">Recently Added</option>
+           <option value="2">Most Voted</option>
+           <option value="3">Popular</option>
+         </select>
+       </div>
+    </div>
+  </div>
+  <div class="row">
+      <div class="col-md-2">
+        <img src="{{#if currentUser.profile.avatar.default}}{{currentUser.profile.avatar.default}}{{else}}/default-avatar.png{{/if}}"  class="img-circle"/>
+      </div>
+      <div class="col-md-10">
+        <form class="addNewMessage">
+          <textarea id="newMessage" class="form-control" rows="3" cols="30"></textarea>
+
+          <button type="submit" class="btn btn-cb2 pull-right"> Reply</button>
+
+        </form>
+
+      </div>
+  </div>
+ 
+ <br />
+  <hr>
+
+  {{#if Template.subscriptionsReady}}
+    {{#each discussion}}
+      
+          {{> discussionItem}}
+       
+
+
+    {{/each}}
+  {{/if}}
+</template>

@@ -12,8 +12,8 @@ Learning with each other helps us learn faster. We strive to create a safe space
 
 ##What are you trying to build here?
 
-![screenshot of what we're building](http://codebuddies.org/images/cbv7-mockup.jpg)
-Credit: [Ada Chiu](https://github.com/adachiu); please feel free to play around and look for bug on our [staging site](http://cbv2-staging2.meteor.com).
+![screenshot of what we're building](http://codebuddies.org/images/code-buddies-landing.png)
+Credit: [Ada Chiu](https://github.com/adachiu).
 
 ##Why are you building this site?
 Our community spends a lot of time helping each other on [our public Slack](http://codebuddiesmeet.slack.com) (P.S. You can get an invite [here](http://codebuddiesmeet.herokuapp.com) if you want to join), but it's hard to schedule google hangout study times via Slack, and it's also hard to know who else is online and available for joining a hangout to work on something together. The platform we're building solves those issues.
