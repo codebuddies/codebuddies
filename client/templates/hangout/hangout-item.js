@@ -83,6 +83,10 @@ Template.hangoutItem.helpers({
     }
 
   },
+  getdescription:function(hangout){
+    return hangout.data.description;
+  },
+
   getIsDone: function(hangout) {
     var currentDate = new Date();
     //console.log('getIsDone currentDate:' + currentDate);
