@@ -1,0 +1,22 @@
+<template name="singleArchivedUsers">
+  <a href="#">
+    <div class="panel panel-default">
+      <div class="panel-body">
+
+        <div class="col-md-2">
+          <img src="{{user.profile.avatar.default}}" alt="avtar" />
+        </div>
+        <div class="col-md-10">
+          Name : {{#if user.profile.firstname}} {{user.profile.firstname}} {{user.profile.lastname}} {{else}} <i>Not-specified</i>{{/if}}<br>
+          Username : {{user.username}} <br>
+          Email : {{user.email}} <br>
+          Action : {{incident.action}} <br>
+          Reason : {{incident.matter}} <br>
+          Details : {{incident.detail}} <br>
+          Archived : {{cleanDateFormatCalendar archived_at}} <br>
+        </div>
+
+      </div><!-- panel-body -->
+    </div><!-- panel panel-default -->
+  </a>
+</template>

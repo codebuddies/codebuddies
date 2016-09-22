@@ -18,7 +18,10 @@ var trusted = [
   '*.slack.com',
   '*.slack-edge.com',
   '*.wp.com',
-  '*.quilljs.com'
+  '*.quilljs.com',
+  '*.githubusercontent.com',
+  '*.twimg.com',
+  '*.licdn.com'
 ];
 
 _.each(trusted, function(origin) {
