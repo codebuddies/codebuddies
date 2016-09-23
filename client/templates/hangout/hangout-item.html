@@ -76,6 +76,7 @@
     <div class="col-md-9">
       <p class="status"><label><i class="fa {{getType type}}"></i> Host <a href="{{pathFor 'profile' name=host.name userId=host.id}}">{{host.name}}</a></label></p>
       <p class="status"><label><i class="fa fa-calendar fa-lg"></i> {{getDate this}}  {{#if views}} | <i class="fa fa-eye" aria-hidden="true" data-toggle="tooltip" title="Views" > {{views}} </i> {{/if}}</label> </p>
+      <p>{{ getDescriptionTruncated this }}</p>
     </div>
 
   </div>

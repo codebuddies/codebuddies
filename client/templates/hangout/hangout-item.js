@@ -39,6 +39,10 @@ Template.hangoutItem.helpers({
       return 'fa-users text-success-color';
     }
   },
+  getDescriptionTruncated: function(hangout) {
+    let description_truncated = hangout.description.substr(0,201) + '...';
+    return description_truncated;
+  },
   getDate: function(hangout) {
     var tz = TimezonePicker.detectedZone();
     //console.log('getDate tz: ' + tz);
@@ -83,6 +87,10 @@ Template.hangoutItem.helpers({
     }
 
   },
+  getdescription:function(hangout){
+    return hangout.data.description;
+  },
+
   getIsDone: function(hangout) {
     var currentDate = new Date();
     //console.log('getIsDone currentDate:' + currentDate);
