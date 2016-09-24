@@ -74,7 +74,7 @@
           </div><!-- row-->
 
           <div class="row">
-             <div class="col-md-12">
+             <div class="col-md-12 hangout-status">
 
           {{# unless completed this }}
           {{# unless url }}
@@ -97,7 +97,7 @@
 
               {{#if isJoined}}
                 {{#if url}}
-                  <a class="btn btn-cb2 btn-grey btn-success" href="{{url}}" target="_blank">{{_ "join"}}</a>
+                    <a class="btn btn-cb2 btn-grey btn-success" href="{{url}}" target="_blank">{{_ "join_long"}}</a>
                 {{else}}
                   {{#unless hangoutOwner host.id}}
                         <p class="status">Please wait for the host to start the hangout.</p>
@@ -108,7 +108,7 @@
 
               {{else}}
                 {{# unless getIsDone this}}
-                  <button id="join-hangout" class="btn btn-cb2">{{_ "join_in_session"}}</button>
+                  <button id="join-hangout" class="btn btn-cb2 btn-success">{{_ "join_in_session"}}</button>
                 {{/unless}}
               {{/if}}
 
@@ -116,11 +116,11 @@
 
               {{#if isJoined}}
                 <p class="upcoming">{{upcomingTime this}}</p>
-                <a id="leave-hangout" class="align-center">{{_ "leave"}}</a>
+                <a id="leave-hangout" class="btn btn-cb2 btn-danger">{{_ "leave"}}</a>
               {{else}}
 
                 {{# unless getIsDone this}}
-                  <button id="join-hangout" class="btn btn-cb2">{{_ "rsvp"}}</button>
+                  <button id="join-hangout" class="btn btn-cb2 btn-success">{{_ "rsvp"}}</button>           
                 {{/unless}}
 
               {{/if}}
@@ -128,6 +128,9 @@
             {{/if}}
           {{else}}
             <p class="completed">{{getIsDone this}}</p>
+
+          <button id="join-hangout" class="btn btn-cb2 btn-success">{{_ "rsvp"}}</button>   
+              
           {{/unless}}
 
         {{/if}} <!-- if equals visibility false -->
