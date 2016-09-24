@@ -1,8 +1,3 @@
-Meteor.startup(function() {
-    $('head').append('<script src="https://cdn.quilljs.com/1.0.4/quill.js"></script>');
-    $('head').append('<link href="https://cdn.quilljs.com/1.0.4/quill.snow.css" rel="stylesheet">');
-});
-
 Template.hangout.onCreated(function() {
   var title = "CodeBuddies | Hangout";
   DocHead.setTitle(title);
