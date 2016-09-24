@@ -7,7 +7,57 @@
             <div class="panel panel-default">
               <div class="panel-heading">
               <div class="row">
-               <div class="col-md-2">
+             
+              <div class="col-md-12">
+                <h2 class="{{# if completed this }}completed{{/if}}">
+                    {{#if equals visibility false}}
+                      <span class="label label-pill label-danger">DELETED</span>
+                    {{else}}
+
+                      {{#if isInProgress this}}
+                        <div id="placeholder-div-{{_id}}"></div> &nbsp;
+                        <i class="fa fa-dot-circle-o fa text-danger faa-burst animated"></i> &nbsp;
+                      {{/if}}
+
+                    {{/if}}
+                    {{topic}}
+
+                    {{> hangoutActionBar}}
+
+                </h2>
+
+                <p class="status">
+                  <label><i class="fa {{getType type}}"></i>
+
+                  host <a href="{{pathFor 'profile' name=host.name userId=host.id}}">{{host.name}}</a>
+
+                    <br /><i class="fa fa-calendar fa-lg"></i> {{getDate this}}
+                        | <i class="fa fa-eye" aria-hidden="true" data-toggle="tooltip" title="Views"> {{views}} </i>
+                   </label>
+                 </p>
+              </div> <!--col-md-12-->
+            </div><!--panel-->
+          
+
+            <div class="panel-body">
+
+              <div class="col-md-12">
+                  {{{description}}}
+              </div>
+            </div>
+
+            <div class="panel-footer">
+
+              <a href="{{pathFor 'profile' name=host.name userId=host.id}}"><img class="img-circle" src="{{host.avatar}}"></a>
+              {{#each attendees}}
+                <a href="{{pathFor 'profile' name=name userId=id}}"><img class="img-circle" src="{{avatar}}"></a>
+              {{/each}}
+            </div>
+          </div> <!--panel panel-default-->
+          </div><!-- row-->
+
+          <div class="row">
+             <div class="col-md-12">
 
           {{# unless completed this }}
           {{# unless url }}
@@ -65,54 +115,7 @@
 
         {{/if}} <!-- if equals visibility false -->
               </div>
-
-              <div class="col-md-10">
-                <h2 class="{{# if completed this }}completed{{/if}}">
-                    {{#if equals visibility false}}
-                      <span class="label label-pill label-danger">DELETED</span>
-                    {{else}}
-
-                      {{#if isInProgress this}}
-                        <div id="placeholder-div-{{_id}}"></div> &nbsp;
-                        <i class="fa fa-dot-circle-o fa text-danger faa-burst animated"></i> &nbsp;
-                      {{/if}}
-
-                    {{/if}}
-                    {{topic}}
-
-                    {{> hangoutActionBar}}
-
-                </h2>
-
-                <p class="status">
-                  <label><i class="fa {{getType type}}"></i>
-
-                  host <a href="{{pathFor 'profile' name=host.name userId=host.id}}">{{host.name}}</a>
-
-                    <br /><i class="fa fa-calendar fa-lg"></i> {{getDate this}}
-                        | <i class="fa fa-eye" aria-hidden="true" data-toggle="tooltip" title="Views"> {{views}} </i>
-                   </label>
-                 </p>
-              </div> <!--col-md-12-->
-            </div><!--row-->
-            </div><!--panel-heading-->
-
-            <div class="panel-body">
-
-              <div class="col-md-12">
-                  {{{description}}}
-              </div>
-
-            </div>
-
-            <div class="panel-footer">
-
-              <a href="{{pathFor 'profile' name=host.name userId=host.id}}"><img class="img-circle" src="{{host.avatar}}"></a>
-              {{#each attendees}}
-                <a href="{{pathFor 'profile' name=name userId=id}}"><img class="img-circle" src="{{avatar}}"></a>
-              {{/each}}
-            </div>
-          </div> <!--panel panel-default-->
+          </div>
 
           <!--comment section-->
           <div class="panel panel-default">
