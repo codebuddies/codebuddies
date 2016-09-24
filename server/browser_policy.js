@@ -21,7 +21,7 @@ var trusted = [
   '*.quilljs.com',
   '*.githubusercontent.com',
   '*.twimg.com',
-  '*.licdn.com'
+  '*.licdn.com',
   '*.wp.com'
 ];
 
