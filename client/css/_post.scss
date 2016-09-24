@@ -3,21 +3,18 @@
 	h2 { font-weight: 200; }
 	h2.completed, p.completed, p.status { color: $warm-grey; }
 	h2.completed { font-weight: 600;}
+	h4 { font-weight: 400; margin: 0px; text-transform: uppercase; font-size: 14px; margin-bottom: 5px;}
 	.panel-default { margin: 10px 0px;}
 	.panel-body { font-size: 20px; font-weight: 200;}
+	.panel-footer .img-circle { width: 50px; }
 	textarea#newMessage { min-height: 100px; margin-bottom: 10px;}
 	select#commentFilter { margin-bottom: 10px;}
 	span.cb-delete:hover { cursor: pointer;}
-	ol{  padding-left:16px;
-	     li{
-			 font-size:16px;
-		 }
+	ol{
+		padding-left: 16px; 
+		font-weight: 200;
 	}
-	.remove-margin
-	{
-      margin:0px 2px ;
-	}
-
+	.hangout-status { text-align: center; }
 	.hangout-status p { 
 		background: dodgerblue;
 		text-align: center;

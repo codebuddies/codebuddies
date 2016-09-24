@@ -29,6 +29,7 @@
   "accomplished": "What did you learn or accomplish just now?",
   "upcoming_time": "Upcoming __time__",
   "mastered_x_days_ago": "COMPLETED",
+  "completed_long": "THIS HANGOUT HAS BEEN COMPLETED",
   //COMPLETED __days__ days ago, COMPLETED __days__ days ago, COMPLETED today __time__
   "mastered_x_days_ago_plural": "COMPLETED",
   "mastered_today_time": "COMPLETED",

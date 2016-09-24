@@ -6,9 +6,8 @@
           {{#with hangout}}
             <div class="panel panel-default">
               <div class="panel-heading">
-             <div class="container">
-              <div class="row">
-              <div class="col-md-12">
+                <div class="row">
+                <div class="col-md-12">
                 <h2 class="{{# if completed this }}completed{{/if}}">
                     {{#if equals visibility false}}
                       <span class="label label-pill label-danger">DELETED</span>
@@ -37,12 +36,12 @@
                  </p>
                   </div>
               </div> <!--col-md-12-->
-            </div><!--panel-->
+      
           
-
+            </div><!--panel-heading-->
             <div class="panel-body">
 
-              <div class="col-md-12">
+              <div>
                   {{{description}}}
               </div>
             </div>
@@ -50,31 +49,45 @@
             <div class="panel-footer">
 
                 <div class="row">
-               <div class="col-md-6 col-sm-6">
-                   <h4 class="lead remove-margin">Silent Hangout reminder </h4>
+                {{# unless completed this }}
+               <div class="col-md-9 col-sm-9">
+                   <h4>Hangout Reminders</h4>
                    <ol>
-                   <li>Click on the image button to launch the Google Hangout .</li>
-                   <li>You will immediately see a holding screen .Before u click on Join  ,make sure that your video camera 's are muted .</li>
-                   <li>Feel Free to mute the microphone too f this is a silent hangout .</li>
-                       </ol>
+                      {{#if hangoutOwner host.id}}
+                          {{#unless url}}
+                            <li>
+                              <strong>You are the host of this hangout! Click the green "Start" button below to start and enter the hangout.</strong>
+                            </li>
+                            <li>Other participants will only be able to join you after you've started and entered the google hangout.</li>
+                            <li>You can start the hangout early so that participants don't have to wait for you in order to join.</li>
+                          {{/unless}}
+                      {{else}}
+                            <li>
+                              Click the large button below to launch the Google Hangout.
+                            </li> 
+                             <li>You will immediately see a holding screen. Before you click on "join," click to mute your video camera.</li>
+                             <li>Feel free to mute the microphone too if this is a silent hangout.</li>
+                      {{/if}}
+                    </ol>
                </div>
-              <div class="col-md-6 col-sm-6">
-              <div class="pull-right">
+               {{/unless}}
+              <div class="col-md-3 col-sm-3 {{#unless completed this}} pull-right {{/unless}}">
+             
               <a href="{{pathFor 'profile' name=host.name userId=host.id}}"><img class="img-circle" src="{{host.avatar}}"></a>
                 {{#each attendees}}
                     <div class="container-fluid">
                 <a href="{{pathFor 'profile' name=name userId=id}}"><img class="img-circle" src="{{avatar}}"></a>
                     </div>
               {{/each}}
-            </div>
+    
               </div>
                 </div>
                   </div>
           </div> <!--panel panel-default-->
-          </div><!-- row-->
+
 
           <div class="row">
-             <div class="col-md-12 hangout-status">
+             <div class="hangout-status">
 
           {{# unless completed this }}
           {{# unless url }}
@@ -127,10 +140,7 @@
 
             {{/if}}
           {{else}}
-            <p class="completed">{{getIsDone this}}</p>
-
-          <button id="join-hangout" class="btn btn-cb2 btn-success">{{_ "rsvp"}}</button>   
-              
+            <p class="completed">{{getIsDone this}}</p>  
           {{/unless}}
 
         {{/if}} <!-- if equals visibility false -->
