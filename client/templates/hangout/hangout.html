@@ -1,13 +1,13 @@
 <template name="hangout">
-  <div id="post" class="container">
+  <div id="post" class="container-fluid">
     <div class="row">
       <div class="col-md-10 col-md-offset-1">
         {{#if Template.subscriptionsReady}}
           {{#with hangout}}
             <div class="panel panel-default">
               <div class="panel-heading">
+             <div class="container">
               <div class="row">
-             
               <div class="col-md-12">
                 <h2 class="{{# if completed this }}completed{{/if}}">
                     {{#if equals visibility false}}
@@ -35,6 +35,7 @@
                         | <i class="fa fa-eye" aria-hidden="true" data-toggle="tooltip" title="Views"> {{views}} </i>
                    </label>
                  </p>
+                  </div>
               </div> <!--col-md-12-->
             </div><!--panel-->
           
@@ -48,11 +49,27 @@
 
             <div class="panel-footer">
 
+                <div class="row">
+               <div class="col-md-6 col-sm-6">
+                   <h4 class="lead remove-margin">Silent Hangout reminder </h4>
+                   <ol>
+                   <li>Click on the image button to launch the Google Hangout .</li>
+                   <li>You will immediately see a holding screen .Before u click on Join  ,make sure that your video camera 's are muted .</li>
+                   <li>Feel Free to mute the microphone too f this is a silent hangout .</li>
+                       </ol>
+               </div>
+              <div class="col-md-6 col-sm-6">
+              <div class="pull-right">
               <a href="{{pathFor 'profile' name=host.name userId=host.id}}"><img class="img-circle" src="{{host.avatar}}"></a>
-              {{#each attendees}}
+                {{#each attendees}}
+                    <div class="container-fluid">
                 <a href="{{pathFor 'profile' name=name userId=id}}"><img class="img-circle" src="{{avatar}}"></a>
+                    </div>
               {{/each}}
             </div>
+              </div>
+                </div>
+                  </div>
           </div> <!--panel panel-default-->
           </div><!-- row-->
 

@@ -16,4 +16,14 @@
 	textarea#newMessage { min-height: 100px;}
 	select#commentFilter { margin-bottom: 10px;}
 	span.cb-delete:hover { cursor: pointer;}
+	ol{  padding-left:16px;
+	     li{
+			 font-size:16px;
+		 }
+	}
+	.remove-margin
+	{
+      margin:0px 2px ;
+	}
+
 }
