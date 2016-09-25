@@ -24,6 +24,12 @@ Template.hangout.helpers({
       return 'fa-users text-success-color';
     }
   },
+  getHostId: function(hangout) {
+    return hangout.host.id;
+  },
+  getHostName: function(hangout) {
+    return hangout.host.name;
+  },
   getDate: function(hangout) {
     var tz = TimezonePicker.detectedZone();
     //console.log('getDate tz: ' + tz);
@@ -116,7 +122,7 @@ Template.hangout.events({
     }
   },
   'click #leave-hangout': function() {
-    if (this.user_id == Meteor.userId()) {
+    if (this.host.id == Meteor.userId()) {
       sweetAlert({
         title: TAPi18n.__("remove_owner_from_hangout"),
         confirmButtonText: TAPi18n.__("ok"),

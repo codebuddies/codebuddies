@@ -22,7 +22,8 @@ var trusted = [
   '*.githubusercontent.com',
   '*.twimg.com',
   '*.licdn.com',
-  '*.wp.com'
+  '*.wp.com',
+  '*.codebuddies.org'
 ];
 
 _.each(trusted, function(origin) {
