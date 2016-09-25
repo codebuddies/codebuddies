@@ -39,6 +39,12 @@ Template.hangoutItem.helpers({
       return 'fa-users text-success-color';
     }
   },
+  getHostId: function(hangout) {
+    return hangout.host.id;
+  },
+  getHostName: function(hangout) {
+    return hangout.host.name;
+  },
   getDate: function(hangout) {
     var tz = TimezonePicker.detectedZone();
     //console.log('getDate tz: ' + tz);
@@ -54,12 +60,6 @@ Template.hangoutItem.helpers({
       ' joined';
   },
   isInProgress: function(hangout) {
-
-    var hangout_links = {
-      'http://codebuddies.org/javascript-hangout': 'free',
-      'http://codebuddies.org/meteor-hangout': 'free',
-      'http://codebuddies.org/python-hangout': 'free'
-    }
 
     return reactiveDate.nowMinutes.get() > hangout.start && reactiveDate.nowMinutes.get() < hangout.end;
 
@@ -131,7 +131,7 @@ Template.hangoutItem.events({
     }
   },
   'click #leave-hangout': function() {
-    if (this.user_id == Meteor.userId()) {
+    if (this.host.id == Meteor.userId()) {
       sweetAlert({
         title: TAPi18n.__("remove_owner_from_hangout"),
         confirmButtonText: TAPi18n.__("ok"),
@@ -185,7 +185,7 @@ Template.hangoutItem.events({
     } else {
 
       Session.set('hangoutId', hangout.data._id);
-      Session.set('hostId', hangout.data.user_id);
+      Session.set('hostId', hangout.data.host.id);
       Session.set('hostUsername', hangout.data.creator);
 
       Modal.show('reportHangoutModal');
