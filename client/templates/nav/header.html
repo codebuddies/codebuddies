@@ -17,6 +17,7 @@
         <ul class="nav navbar-nav navbar-right">
           <li><a href="{{pathFor 'about'}}">{{_ "about"}} <span class="sr-only">(current)</span></a></li>
           <li><a href="{{pathFor 'faq'}}">{{_ "faq"}}</a></li>
+          <li><a href="{{pathFor 'termsOfService'}}">{{_ "terms_of_service"}}</a></li>
           {{#unless isInRole 'admin'}}
              <li><a href="https://codebuddiesmeet.slack.com/messages/general" target="_blank"><i class="fa fa-slack" aria-hidden="true"></i> </a></li>
            {{/unless}}
