@@ -1,5 +1,7 @@
 .navbar {
 
+    margin-bottom: 0px;
+
   .container {
 
     .navbar-brand {
@@ -18,7 +20,8 @@
 }
 
 .navbar-default {
-
+  background-color: #ffffff;
+  
   .navbar-nav {
 
     li > a {

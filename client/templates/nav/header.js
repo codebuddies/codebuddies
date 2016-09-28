@@ -1,11 +1,20 @@
+Template.header.onRendered(function(){
+  this.subscribe('attendees', 10);
+})
 Template.header.helpers({
-  profileImage: function() {
-    return ReactiveMethod.call('userProfileImage', Meteor.userId());
+  user: function() {
+    return Meteor.user();
+  },
+  notificationCount:function(){
+    return ReactiveMethod.call('notificationCount');
+  },
+  userNotificationCount:function(){
+    return RSVPnotifications.find({createorId:Meteor.userId(),'seen':false}).count();
   }
 });
 
 Template.header.events({
-  'click #signIn': function(event) {
+  'click .signIn': function(event) {
     var options = {
       requestPermissions: ['identify', 'users:read']
     };

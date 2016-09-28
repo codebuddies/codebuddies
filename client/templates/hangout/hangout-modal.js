@@ -1,44 +1,76 @@
 Template.createHangoutModal.rendered = function() {
   var start = this.$('#start-date-time-picker');
   var end = this.$('#end-date-time-picker');
-  var dateFrom = new Date();
-  var dateTo = new Date();
-  dateTo.setHours(dateTo.getHours()+1);
+
+  $('#d1,#d2,#d3').hide();
+
   start.datetimepicker({
-    ignoreReadonly: true
+    ignoreReadonly: true,
+    widgetPositioning: { horizontal: 'auto', vertical: 'bottom'},
+    minDate: new Date()
   });
+
   end.datetimepicker({
     ignoreReadonly: true,
-    useCurrent: false
+    widgetPositioning: { horizontal: 'auto', vertical: 'bottom'},
+    minDate: new Date(Date.now() + 60*60*1000) // 60*60*1000 = 1 hour interval
   });
+
   start.on("dp.change", function (e) {
-    end.data("DateTimePicker").minDate(e.date);
+    //current start date & time
+    var minEndDate = new Date(e.date.valueOf());
+    // min time duration of hangout in hours
+    var interval = 1
+    //min end date & time = current start date & time + interval
+    minEndDate.setHours(minEndDate.getHours() + interval);
+    //setting end date & time
+    end.data("DateTimePicker").date(minEndDate);
+    //setting end date & time minLimit
+    end.data("DateTimePicker").minDate(minEndDate);
   });
-  end.on("dp.change", function (e) {
-    start.data("DateTimePicker").maxDate(e.date);
+
+  $('#sId').hover(function(){
+    $('#d1').show();
+  },function(){
+    $('#d1').hide();
   });
-  start.data("DateTimePicker").date(dateFrom);
-  end.data("DateTimePicker").date(dateTo);
+
+  $('#tId').hover(function(){
+    $('#d2').show();
+  },function(){
+    $('#d2').hide();
+  });
+
+  $('#cId').hover(function(){
+    $('#d3').show();
+  },function(){
+    $('#d3').hide();
+  });
+
+
+
 };
 
 Template.createHangoutModal.events({
   'click #create-hangout': function(e) {
-    var topic1 = $('#topic').val();
-    var desc1 = $('#description').val();
-    var start1 = $('#start-date-time').val();
-    var end1 = $('#end-date-time').val();
-    var type1 = $('input[name="hangout-type"]:checked').val();
+    const topic = $('#topic').val();
+    const description = $('#description').val().replace(/\r?\n/g, '<br />');
+    const start = $('#start-date-time').val();
+    const end = $('#end-date-time').val();
+    const type = $('input[name="hangout-type"]:checked').val();
+    console.log(start);
 
-    var data = {
-      topic: topic1,
-      description: desc1,
-      start: start1,
-      end: end1,
-      type: type1,
-      user_id: Meteor.userId()
+
+    const data = {
+      topic: topic,
+      slug: topic.replace(/\s+/g, '-').toLowerCase(),
+      description: description,
+      start: new Date(start),
+      end: new Date(end),
+      type: type
     };
 
-    if ($.trim(start1) == '') {
+    if ($.trim(start) == '') {
       sweetAlert({
         title: TAPi18n.__("select_start_time"),
         confirmButtonText: TAPi18n.__("ok"),
@@ -47,7 +79,7 @@ Template.createHangoutModal.events({
       return;
     }
 
-    if ($.trim(end1) == '') {
+    if ($.trim(end) == '') {
       sweetAlert({
         title: TAPi18n.__("select_end_time"),
         confirmButtonText: TAPi18n.__("ok"),
@@ -56,7 +88,7 @@ Template.createHangoutModal.events({
       return;
     }
 
-    if ($.trim(topic1) == '') {
+    if ($.trim(topic) == '') {
       $('#topic').focus();
       sweetAlert({
         title: TAPi18n.__("enter_topic"),
@@ -66,7 +98,7 @@ Template.createHangoutModal.events({
       return;
     }
 
-    if ($.trim(desc1) == '') {
+    if ($.trim(description) == '') {
       $('#description').focus();
       sweetAlert({
         title: TAPi18n.__("enter_description"),

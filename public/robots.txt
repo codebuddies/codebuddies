@@ -1,0 +1,13 @@
+User-agent: *
+Crawl-delay: 20
+Allow: /
+Disallow: /*sessionid
+Disallow: /*cp=
+Disallow: /*promoID=
+Disallow: /*ef_id
+
+User-agent: Googlebot
+Allow: /
+Disallow:
+
+Sitemap:  http://codebuddies.org/sitemap.xml

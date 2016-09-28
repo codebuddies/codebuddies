@@ -1,0 +1,36 @@
+#about {
+	p, li {
+	  @include font-face(400, 16px, normal, $primary-grey);
+	  line-height: 27px;
+	}
+	.flags img { 
+		width: 51px;
+		@include border-radius(3px);
+	}
+	.about-top {
+		background: $bg-lightgrey;
+		padding: 100px 0;
+		h2 { @include font-face(700, 32px, bold, $primary-grey); }
+	}
+
+	.about-middle {
+		background: $bg-white;
+		padding: 100px 0;
+		h2 { @include font-face(700, 32px, bold, $primary-grey); }
+		.flags { margin: 20px 0;}
+		img { margin: 10px;}
+
+	}
+	.about-bottom {
+		background: $bg-lightgrey;
+		padding: 100px 0;
+		h3 { margin-top: 100px; }
+		#contributors {
+			margin: 40px 0;
+			img { 
+				margin: 0px 0px 40px 40px;
+				width: 100px;
+			}
+		}
+	}
+}

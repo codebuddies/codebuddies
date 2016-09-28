@@ -4,5 +4,10 @@
   "scripts": {
     "meteor:dev": "meteor --settings settings-development.json",
     "meteor:prod": "meteor --setings settings-production.json"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "mailchimp-api": "^2.0.7",
+    "md5": "^2.1.0"
   }
 }

@@ -1,22 +1,83 @@
 <template name="hangoutItem">
-  <div class="row hangout-item">
-    <div class="col-md-10">
-      <label class="name"><span>{{getIsDone this}}</span><a href="/hangout/{{_id}}">{{topic}}</a></label>
-      <ul class="status">
-        <li><i class="fa {{getType type}}"></i></li>
-        <li><label>{{getDate this}}</label></li>
-      </ul>
-    </div>
-    <div class="col-md-2 text-center">
-      {{#if isInProgress this}}
-        <i class="fa fa-dot-circle-o fa text-danger faa-burst animated"></i>
-      {{else}}
-        {{# if isJoined}}
-          <button id="leave-hangout" class="btn btn-circle btn-success"><i class="fa fa-check-circle"></i></button>
-        {{else}}
-          <button id="join-hangout" class="btn btn-cb2">{{_ "join"}}</button>
+  <div class="hangout-item">
+    <div class="row">
+
+      <div class="col-md-12">
+        <label class="name">
+        {{#if isInProgress this}}
+          &nbsp; &nbsp;<i class="fa fa-dot-circle-o fa text-danger faa-burst animated"></i> &nbsp;
         {{/if}}
-      {{/if}}
+          <a href="/hangout/{{_id}}" class="hangout-topic {{# if completed this }}completed{{/if}}"> {{topic}} </a>
+
+
+        </label>
+        {{> hangoutActionBar}}
+      </div>
+
+      <div class="col-md-3">
+       {{# unless completed this }}
+          {{# unless url }}
+                {{#if hangoutOwner host.id}}
+                  <div class="google-hangout">
+                      <div class="g-hangout" data-render="createhangout"
+                      data-initial_apps="[{ app_id : '999356798349', start_data: {{_id}}, 'app_type' : 'LOCAL_APP' }]" data-widget_size="72"></div>
+                  </div>
+                {{/if}}
+          {{/unless}}
+         {{/unless}}
+
+        {{#if equals visibility false}}
+          <span class="label label-pill label-danger">DELETED</span>
+        {{else}}
+
+          {{# unless completed this }}
+
+            {{#if isInProgress this}}
+
+              {{#if isJoined}}
+                {{#if url}}
+                  <a class="btn btn-cb2 btn-grey btn-success" href="{{url}}" target="_blank">{{_ "join"}}</a>
+                {{else}}
+                  {{#unless hangoutOwner host.id}}
+                        <p class="status">Please wait for the host to start the hangout.</p>
+                      {{/unless}}
+                {{/if}}
+
+
+
+              {{else}}
+                {{# unless getIsDone this}}
+                  <button id="join-hangout" class="btn btn-cb2">{{_ "join_in_session"}}</button>
+                {{/unless}}
+              {{/if}}
+
+            {{else}}
+
+              {{#if isJoined}}
+                <p class="upcoming">{{upcomingTime this}}</p>
+                <a id="leave-hangout" class="align-center">{{_ "leave"}}</a>
+              {{else}}
+
+                {{# unless getIsDone this}}
+                  <button id="join-hangout" class="btn btn-cb2">{{_ "rsvp"}}</button>
+                {{/unless}}
+
+              {{/if}}
+
+            {{/if}}
+          {{else}}
+            <p class="completed">{{getIsDone this}}</p>
+          {{/unless}}
+
+        {{/if}} <!-- if equals visibility false -->
+
     </div>
+
+    <div class="col-md-9">
+      <p class="status"><label><i class="fa {{getType type}}"></i> Host <a href="{{pathFor 'profile' name=host.name userId=host.id}}">{{host.name}}</a></label></p>
+      <p class="status"><label><i class="fa fa-calendar fa-lg"></i> {{getDate this}}  {{#if views}} | <i class="fa fa-eye" aria-hidden="true" data-toggle="tooltip" title="Views" > {{views}} </i> {{/if}}</label> </p>
+    </div>
+
+  </div>
   </div>
 </template>

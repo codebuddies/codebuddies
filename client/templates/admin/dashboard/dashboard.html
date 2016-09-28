@@ -1,0 +1,49 @@
+<template name="dashboard">
+  <div class="page-header">
+    <h3>Dashboard</h3>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <a href="{{pathFor 'dashboard'}}/new">
+        <div class="panel panel-default">
+          <div class="panel-body text-center">
+            <h5>New Users</h5>
+            <h2>{{dailyNewUsersCount}}</h2>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="col-md-3">
+      <a href="{{pathFor 'dashboard'}}/active">
+        <div class="panel panel-default">
+          <div class="panel-body text-center">
+            <h5>Active Users</h5>
+            <h2>{{monthlyActiveUsersCount}}</h2>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="col-md-3">
+      <a href="{{pathFor 'dashboard'}}/online">
+        <div class="panel panel-default">
+          <div class="panel-body text-center">
+            <h5>Users Online</h5>
+            <h2>{{onlineUserCount}}</h2>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="col-md-3">
+      <a href="{{pathFor 'user by role'}}/inactive">
+        <div class="panel panel-default">
+          <div class="panel-body text-center">
+            <h5>Blocked</h5>
+            <h2>{{blockedUserCount}}</h2>
+          </div>
+        </div>
+      </a>
+    </div>
+
+  </div><!-- main row ends-->
+
+</template>

@@ -1,25 +1,31 @@
 #hangouts {
 
-  margin-top: 30px;
   padding: 0;
 
   .hangout-item {
+    p.completed { color: $kudo; text-align: left; line-height: 10px; font-size: 85%}
+    border-top: 1px solid $divider;
+    padding: 20px 0;
 
-    padding-left: 10px;
-    margin: 15px 0;
+    ul.dropdown-menu { top: 35px; left: -200px;}
+    span.dropdown-toggle:hover { cursor: pointer;}
 
+    .hangout-topic {
+      @include font-face(400, 17px, normal, $cta-blue);
+    }
+    .hangout-topic.completed { color: $warm-grey; font-weight: 600;}
+    #leave-hangout { text-decoration: underline; text-align: center; display: block;
+        @include font-face(400, 12px, normal, $cta-blue);}
+    p.upcoming { text-transform: uppercase; color: $kudo; text-align: left; line-height: 20px; font-size: 85%}
     .status {
       list-style: none;
       display: table;
       padding: 0;
+      margin: 0;
 
       li {
         display: table-cell;
         vertical-align: top;
-      }
-
-      i {
-        padding-right: 10px;
       }
 
       label {
@@ -45,13 +51,6 @@
 
     }
 
-  }
-
-  .btn-block {
-    margin-top: 20px;
-    border: none;
-    background: $bg-white;
-    @include font-face(700, 13px, bold, #000000);
   }
 
 }

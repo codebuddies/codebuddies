@@ -38,15 +38,24 @@
             </div>
             <div id="hangout-options" class="col-md-5 text-left">
               <div class="btn-group btn-group-vertical" data-toggle="buttons">
-                <label class="btn active">
-                  <input type="radio" name='hangout-type' value="silent" checked><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i> <span>  <i class="fa fa-microphone-slash text-danger-color type"></i><span class="title">{{_ "silent_hangout"}}</span></span>
+                <label class="btn active" id="sId">
+                  <input  type="radio" name='hangout-type' value="silent" checked><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i> <span>  <i class="fa fa-microphone-slash text-danger-color type"></i><span class="title">{{_ "silent_hangout"}}</span></span>
                 </label>
-                <label class="btn">
-                  <input type="radio" name='hangout-type' value="teaching"><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i><span> <i class="fa fa-user text-warning-color type"></i><span class="title">{{_ "teaching_hangout"}}</span></span>
+                <label class="btn" id="tId">
+                  <input  type="radio" name='hangout-type' value="teaching"><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i><span> <i class="fa fa-user text-warning-color type"></i><span class="title">{{_ "teaching_hangout"}}</span></span>
                 </label>
-                <label class="btn">
-                  <input type="radio" name='hangout-type' value="collaboration"><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i><span> <i class="fa fa-users text-success-color type"></i><span class="title">{{_ "collaboration_hangout"}}</span></span>
+                <label class="btn" id="cId">
+                  <input  type="radio" name='hangout-type' value="collaboration"><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i><span> <i class="fa fa-users text-success-color type"></i><span class="title">{{_ "collaboration_hangout"}}</span></span>
                 </label>
+              </div>
+              <div class="descriptionHide" id="d1">
+                <span>Create a silent hangout to motivate yourself to get through a tutorial with others who are learning from the same tutorial, or create one for a fun silent coworking experience.</span>
+              </div>
+              <div class="descriptionHide" id="d2">
+                <span>Create a teaching hangout to practice teaching a concept or to walk participants through a codebase. This is your chance to share what you know!</span>
+              </div>
+              <div class="descriptionHide" id="d3">
+                <span>Create a collaboration hangout to pair program on a coding exercise, talk through a chapter of a tutorial, or work on an open-sourced project together.</span>
               </div>
             </div>
           </div>

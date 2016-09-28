@@ -1,0 +1,19 @@
+#post {
+	label { font-weight: 200; font-size: 16px;}
+	h2 { font-weight: 200; }
+	h2.completed, p.completed { color: $warm-grey; }
+	h2.completed { font-weight: 600;}
+	.panel-body { font-size: 20px; font-weight: 200;}
+	.col-md-2 { 
+		height: 120px; text-align: center;
+		p, button, div {
+			position: relative;
+  			top: 50%;
+  			transform: translateY(-50%);
+  		}
+	}
+	a#leave-hangout { position: relative; top: 30px; }
+	textarea#newMessage { min-height: 100px;}
+	select#commentFilter { margin-bottom: 10px;}
+	span.cb-delete:hover { cursor: pointer;}
+}

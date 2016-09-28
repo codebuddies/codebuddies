@@ -1,20 +1,54 @@
 <template name="profile">
-  <div id="profile" class="container">
-    <div class="row">
-      <div class="col-md-10 col-md-offset-1">
-        <div class="panel panel-default">
-          <div class="panel-body">
-            <div class="heading">
-              <div class="title">{{_ "profile"}}</div>
-            </div>
-            <div class="panel-body">
-              <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Maecenas faucibus mollis interdum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+<div id="profile">
+  <section class="profile-top">
+     <div class="container">
+     <div class="row">
 
-              <p>Donec sed odio dui. Curabitur blandit tempus porttitor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec ullamcorper nulla non metus auctor fringilla.</p>
-            </div>
-          </div>
+        <div class="col-md-6">
+          {{#with userInfo}}
+           <div class="col-md-3">
+            <img src="{{#if profile.avatar.image_192 }} {{profile.avatar.image_192}} {{else}} {{profile.avatar.default}} {{/if}}" class="img-circle" alt="profile image"/>
+           </div>
+           <div class="col-md-9">
+            <h3>{{username}}</h3>
+           </div>
+           {{/with}}
         </div>
-      </div>
-    </div>
-  </div>
+
+        <div class="col-md-6">
+
+        </div>
+
+      </div><!--row-->
+
+    </div> <!-- close container -->
+  </section> <!-- close profile-top -->
+  <section class="profile-middle">
+
+     <div class="row">
+
+        <div class="col-md-6 profile-hangouts-completed">
+          <div class="box">
+            <h2 class="align-center">{{hangoutsJoinedCount}}</h2>
+            <h3>Hangouts Completed</h3>
+          </div>
+
+          {{> hangoutsJoined }}
+
+        </div>
+
+        <div class="col-md-6 profile-learnings">
+          <div class="box">
+            <h3>#TodayILearned or Accomplished</h3>
+          </div>
+
+           {{> profileLearnings }}
+
+        </div>
+
+    </div><!--row-->
+
+
+  </section> <!-- close profile-top -->
+</div>
 </template>

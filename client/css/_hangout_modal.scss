@@ -6,7 +6,7 @@
   @include font-face(700, 20px, bold, #000000);
 }
 
-#create-hangout-modal {
+#create-hangout-modal, #edit-hangout-modal, #clone-hangout-modal {
 
   .modal-dialog {
     width: 800px;
@@ -33,13 +33,21 @@
   }
 
   .btn-group-vertical {
-
-    margin-top: 20px;
-
-    label.btn {
-      margin: 10px 0;
+    label { padding: 0px; }
+  }
+  .descriptionHide { 
+    padding: 10px;
+    margin-top: 10px;
+    color: $kudo;
+    &#d1 {
+      border: 1px solid $hangout-silent;
     }
-
+    &#d2 {
+      border: 1px solid $hangout-teaching;
+    }
+    &#d3 {
+      border: 1px solid $hangout-collab;
+    }
   }
 
   .message {
