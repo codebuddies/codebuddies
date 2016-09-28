@@ -8,9 +8,10 @@ Meteor.publish("learnings", function(limit) {
 
 });
 
-Meteor.publish("ownLearnings", function(limit) {
+Meteor.publish("ownLearnings", function(limit, userId) {
+  check(userId, String);
   if(this.userId){
-    return Learnings.find({userId: this.userId},
+    return Learnings.find({userId: userId},
                           {sort: {created_at: -1}, limit: limit});
   }else{
     this.ready();
