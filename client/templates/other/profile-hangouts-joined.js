@@ -1,3 +1,7 @@
+import {_} from 'meteor/erasaur:meteor-lodash';
+
+console.log(_);
+
 Template.hangoutsJoined.onCreated(function() {
   var instance = this;
    instance.limit = new ReactiveVar(5);
@@ -17,7 +21,12 @@ Template.hangoutsJoined.onRendered(function() {
 
     instance.loadHangouts = function() {
       var userId = FlowRouter.getParam('userId');
-      return Hangouts.find();
+      var arr = Hangouts.find().fetch();
+//      var userHangouts = _.filter(arr, function(elem) {return elem.host.id == userId});
+//      return Hangouts.find({users:{$elemMatch:{$eq:userId}},'visibility':{$ne:false}}).count();
+      var userHangouts = _.filter(arr, function(elem) { return elem.users.includes(userId) });  //what about visibility?
+      console.log("hangouts joined: " + userHangouts);
+      return userHangouts;
     }
 
     instance.addMoreHangouts = function(){
