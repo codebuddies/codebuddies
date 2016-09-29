@@ -110,6 +110,9 @@ Template.updateStatus.events({
                   break;
                 default: break;
               }
+              $(".btn-hangout-status").each(function(index) {
+                $(this).css("background-color","");
+              });
               $(event.currentTarget).css("background-color",bgColor);
             }
     }
