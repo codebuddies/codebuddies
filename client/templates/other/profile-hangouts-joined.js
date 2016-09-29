@@ -22,10 +22,11 @@ Template.hangoutsJoined.onRendered(function() {
     instance.loadHangouts = function() {
       var userId = FlowRouter.getParam('userId');
       var arr = Hangouts.find().fetch();
-      var userHangouts = _.filter(arr, function(elem) {elem.host.id == userId});
-      // var userHangouts = Hangouts.find().fetch();
+//      var userHangouts = _.filter(arr, function(elem) {return elem.host.id == userId});
+//      return Hangouts.find({users:{$elemMatch:{$eq:userId}},'visibility':{$ne:false}}).count();
+      var userHangouts = _.filter(arr, function(elem) { return elem.users.includes(userId) });  //what about visibility?
       console.log("hangouts joined: " + userHangouts);
-      return Hangouts.find();
+      return userHangouts;
     }
 
     instance.addMoreHangouts = function(){
