@@ -20,6 +20,16 @@ Template.updateStatus.events({
             console.log("Sorry you can't type any more");
         }
     },
+    'keypress #learned-text': function(event) {
+        //Check value and if 140 characters have been typed, the user can't type anymore
+        if ($("#learned-text").val().length < 140) {
+            counterValue -= 1;
+            console.log(counterValue);
+            $('.learnedCharactersLeft').text(counterValue);
+        } else if ($("#learned-text").val().length == 140) {
+            console.log("Sorry you can't type any more");
+        }
+    },
 
     //Increment counter value if the user presses backspace
     'keyup #working-text': function(event) {
@@ -30,6 +40,16 @@ Template.updateStatus.events({
         if ($("#working-text").val().length == 0) {
             counterValue = 140;
             $('.charactersLeft').text(counterValue);
+        }
+    },
+    'keyup #learned-text': function(event) {
+        if (event.keyCode == 8) {
+            counterValue++;
+            $('.learnedCharactersLeft').text(counterValue);
+        }
+        if ($("#learned-text").val().length == 0) {
+            counterValue = 140;
+            $('.learnedCharactersLeft').text(counterValue);
         }
     },
 
