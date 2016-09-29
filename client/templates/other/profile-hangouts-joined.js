@@ -1,4 +1,4 @@
-import _ from 'meteor/erasaur:meteor-lodash';
+import {_} from 'meteor/erasaur:meteor-lodash';
 
 console.log(_);
 
@@ -22,9 +22,9 @@ Template.hangoutsJoined.onRendered(function() {
     instance.loadHangouts = function() {
       var userId = FlowRouter.getParam('userId');
       var arr = Hangouts.find().fetch();
-      // var userHangouts = _.filter(arr, function(elem) {elem.host.id == userId});
+      var userHangouts = _.filter(arr, function(elem) {elem.host.id == userId});
       // var userHangouts = Hangouts.find().fetch();
-      //console.log("hangouts joined: " + userHangouts);
+      console.log("hangouts joined: " + userHangouts);
       return Hangouts.find();
     }
 
