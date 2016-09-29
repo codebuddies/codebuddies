@@ -92,5 +92,25 @@ Template.updateStatus.events({
         var currentType = $(event.currentTarget).attr('data-type');
         if (currentType !== undefined)
             Meteor.call("setHangoutStatus", currentType, function(error, result) {});
+    },
+    'click .btn-hangout-status': function(event) {
+        var currentType = $(event.currentTarget).attr('data-type');
+            if (currentType !== undefined) {
+              Meteor.call("setHangoutStatus", currentType, function(error, result) {});
+              var bgColor;
+              switch (currentType) {
+                case "silent":
+                    bgColor = "#c9302c";
+                  break;
+                case "teaching":
+                    bgColor = "#ec971f";
+                  break;
+                case "collaboration":
+                    bgColor = "#449d44";
+                  break;
+                default: break;
+              }
+              $(event.currentTarget).css("background-color",bgColor);
+            }
     }
 });
