@@ -77,10 +77,12 @@ Template.updateStatus.events({
 
             Meteor.call('setUserStatus', currentStatus, function(error, result) {});
             $('#working-text').val('');
+			$('.charactersLeft').text(140);
         }
     },
     'click #update-learned-btn': function(event) {
         if (!Meteor.userId()) {
+			$('.learnedCharactersLeft').text(counterValue);
             sweetAlert({
                 title: TAPi18n.__("you_are_almost_there"),
                 text: TAPi18n.__("login_update_status"),
@@ -106,6 +108,7 @@ Template.updateStatus.events({
             }
             Meteor.call("addLearning", data, function(error, result) {});
             $('#learned-text').val('');
+			$('.learnedCharactersLeft').text(140);
         }
     },
     'click .btn-hangout-status': function(event) {
