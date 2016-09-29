@@ -82,7 +82,6 @@ Template.updateStatus.events({
     },
     'click #update-learned-btn': function(event) {
         if (!Meteor.userId()) {
-			$('.learnedCharactersLeft').text(counterValue);
             sweetAlert({
                 title: TAPi18n.__("you_are_almost_there"),
                 text: TAPi18n.__("login_update_status"),
