@@ -13,12 +13,6 @@ Meteor.publish("hangouts", function(limit) {
 
 });
 
-//Meteor.publish("hangoutsJoined", function(limit, userId){
-  //if(this.userId) {
-    //return Hangouts.find({users:userId}, 'limit':limit);
-  //}
-//});
-
 Meteor.publish("hangoutById", function(hangoutId) {
 
   if (Roles.userIsInRole(this.userId, ['admin','moderator'])) {
