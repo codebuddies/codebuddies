@@ -5,12 +5,15 @@
     <div class="status-actions">
         {{#if isWorking type}}
         <span class="interest">I'm interested in joining a :</span>
-        <button class="btn btn-circle btn-danger btn-outline btn-hangout-status" data-type="silent" title="Silent Hangout"><i class="fa fa-microphone-slash"></i></button>
-        <button class="btn btn-circle btn-warning btn-outline btn-hangout-status" data-type="teaching" title="Teaching Hangout"><i class="fa fa-user"></i></button>
-        <button class="btn btn-circle btn-success btn-outline btn-hangout-status" data-type="collaboration" title="Collaboration Hangout"><i class="fa fa-users"></i></button>
+        <button class="btn btn-circle btn-danger btn-outline btn-hangout-status btn-silent btn-tooltip" data-type="silent" title="Create a silent hangout to motivate yourself to get through a tutorial with others who are learning from the same tutorial, or create one for a fun silent coworking experience." data-placement="top" data-toggle="tooltip"><i class="fa fa-microphone-slash"></i></button>
+        <button class="btn btn-circle btn-warning btn-outline btn-hangout-status btn-tooltip" data-type="teaching" title="Create a teaching hangout to practice teaching a concept or to walk participants through a codebase. This is your chance to share what you know!" data-toggle="tooltip" data-placement="top"><i class="fa fa-user"></i></button>
+        <button class="btn btn-circle btn-success btn-outline btn-hangout-status btn-tooltip" data-type="collaboration" title="Create a collaboration hangout to pair program on a coding exercise, talk through a chapter of a tutorial, or work on an open-sourced project together." data-toggle="tooltip" data-placement="top"><i class="fa fa-users"></i></button>
         <!--Character counter for 140 character limit-->
         <span class="charactersLeft">{{characterCount}}</span>
         {{/if}}
         <button id="update-{{type}}-btn" class="btn btn-cb2 pull-right">{{_ "update"}}</button>
     </div>
+    <script>
+   $(function () { $("[data-toggle = 'tooltip']").tooltip(); });
+</script>
 </template>

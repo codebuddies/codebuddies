@@ -115,5 +115,5 @@ Template.updateStatus.events({
               });
               $(event.currentTarget).css("background-color",bgColor);
             }
-    }
+          }
 });

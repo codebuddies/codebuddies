@@ -165,3 +165,17 @@
 .btn-grey {
   background: $warm-grey;
 }
+
+.btn-tooltip + .tooltip > .tooltip-inner {
+  background: $bg-lightgrey;
+  color: #000;
+  text-align: left;
+  padding: 3px 5px;
+  -webkit-border-radius:5px;
+  -moz-border-radius:5px;
+  border-radius:5px;
+}
+
+.btn-tooltip + .tooltip > .tooltip-arrow {
+  border-bottom: #000;
+}
