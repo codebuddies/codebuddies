@@ -1,6 +1,7 @@
 //Initialize character counter value
 var workingCounterValue = 140;
 var learnedCounterValue = 140;
+var maxChars = 140;
 
 Template.updateStatus.helpers({
     isWorking: function(type) {
@@ -17,47 +18,18 @@ Template.updateStatus.helpers({
 
 Template.updateStatus.events({
     //Track text for character counting
-    'keypress #working-text': function(event) {
-        //Check value and if 140 characters have been typed, the user can't type anymore
-        if ($("#working-text").val().length < 140) {
-            workingCounterValue -= 1;
-            console.log(workingCounterValue);
-            $('.charactersLeft').text(workingCounterValue);
-        } else if ($("#working-text").val().length == 140) {
-            console.log("Sorry you can't type any more");
-        }
-    },
-    'keypress #learned-text': function(event) {
-        //Check value and if 140 characters have been typed, the user can't type anymore
-        if ($("#learned-text").val().length < 140) {
-            learnedCounterValue -= 1;
-            console.log(learnedCounterValue);
-            $('.learnedCharactersLeft').text(learnedCounterValue);
-        } else if ($("#learned-text").val().length == 140) {
-            console.log("Sorry you can't type any more");
-        }
-    },
-
-    //Increment counter value if the user presses backspace
     'keyup #working-text': function(event) {
-        if (event.keyCode == 8) {
-            counterValue++;
-            $('.charactersLeft').text(workingCounterValue);
-        }
-        if ($("#working-text").val().length == 0) {
-            workingCounterValue = 140;
-            $('.charactersLeft').text(workingCounterValue);
-        }
+        //Check value and if 140 characters have been typed, the user can't type anymore
+        var currentLength = $("#working-text").val().length;
+        workingCounterValue = maxChars - currentLength;
+        console.log(workingCounterValue);
+        $('.charactersLeft').text(workingCounterValue);
     },
     'keyup #learned-text': function(event) {
-        if (event.keyCode == 8) {
-            learnedCounterValue++;
-            $('.learnedCharactersLeft').text(learnedCounterValue);
-        }
-        if ($("#learned-text").val().length == 0) {
-            learnedCounterValue = 140;
-            $('.learnedCharactersLeft').text(learnedCounterValue);
-        }
+        //Check value and if 140 characters have been typed, the user can't type anymore
+        var currentLength = $("#learned-text").val().length;
+        learnedCounterValue = maxChars - currentLength;
+        $('.learnedCharactersLeft').text(learnedCounterValue);
     },
 
     //3 Buttons
