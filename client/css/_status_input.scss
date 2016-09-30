@@ -26,4 +26,10 @@ input:focus, textarea:focus {
     @include breakpoint(xsmall) { display: block; }
   }
 
+  span.charactersLeft {
+    margin-left: 90px;
+  }
+  span.learnedCharactersLeft {
+    margin-left: 300px;
+  }
 }

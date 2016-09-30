@@ -4,12 +4,15 @@
     </div>
     <div class="status-actions">
         {{#if isWorking type}}
-        <span class="interest">I'm interested in joining a :</span>
-        <button class="btn btn-circle btn-danger btn-outline btn-hangout-status" data-type="silent" title="Silent Hangout"><i class="fa fa-microphone-slash"></i></button>
-        <button class="btn btn-circle btn-warning btn-outline btn-hangout-status" data-type="teaching" title="Teaching Hangout"><i class="fa fa-user"></i></button>
-        <button class="btn btn-circle btn-success btn-outline btn-hangout-status" data-type="collaboration" title="Collaboration Hangout"><i class="fa fa-users"></i></button>
-        <!--Character counter for 140 character limit-->
+        <span class="interest">I'm interested in:</span>
+        <button class="btn btn-circle btn-danger btn-outline btn-hangout-status" data-type="silent"><i class="fa fa-microphone-slash"></i></button>
+        <button class="btn btn-circle btn-warning btn-outline btn-hangout-status" data-type="teaching"><i class="fa fa-user"></i></button>
+        <button class="btn btn-circle btn-success btn-outline btn-hangout-status" data-type="collaboration"><i class="fa fa-users"></i></button>
+        <!--Character counter for working 140 character limit-->
         <span class="charactersLeft">{{characterCount}}</span>
+		    {{else}}
+        <!--Character counter for learned 140 character limit-->
+        <span class="learnedCharactersLeft">{{learnedCharacterCount}}</span>
         {{/if}}
         <button id="update-{{type}}-btn" class="btn btn-cb2 pull-right">{{_ "update"}}</button>
     </div>
