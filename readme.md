@@ -27,18 +27,18 @@ And here are the volunteers so far:
 - @sbe, https://github.com/sbe - contributed to discussion on features
 - @abdulhannanali, https://github.com/abdulhannanali - contributed to the start of a #todayilearned slackbot
 - @bethanyg, https://github.com/bethanyg - contributed good advice and discussion on features
-- @mattierae https://github.com/mattierae - contributed awesome balsamiq mockups
-- @adachiu https://github.com/adachiu - contributed awesome high-quality designs for almost every page of the app, lead the design and UX thinking
-- @wuworkshop https://github.com/wuworkshop - contributed advice on a huge number of issues and helped organize the git process flow
-- @Richardh https://github.com/studentrik
-- @anbuselvan https://github.com/anbuselvan - contributed code for the foundations of the app, including hangout/learning creation and Slack authentication.
-- @husam https://github.com/hudat
-- @ccr https://github.com/Iccr
-- @ghazi https://github.com/ghmoha
-- @mualth https://github.com/maudem
-- @oliver84 https://github.com/Oliver84
+- @mattierae, https://github.com/mattierae - contributed awesome balsamiq mockups
+- @adachiu, https://github.com/adachiu - contributed awesome high-quality designs for almost every page of the app, lead the design and UX thinking
+- @wuworkshop, https://github.com/wuworkshop - contributed advice on a huge number of issues and helped organize the git process flow
+- @Richardh, https://github.com/studentrik
+- @anbuselvan, https://github.com/anbuselvan - contributed code for the foundations of the app, including hangout/learning creation and Slack authentication.
+- @husam, https://github.com/hudat
+- @ccr, https://github.com/Iccr
+- @ghazi, https://github.com/ghmoha
+- @mualth, https://github.com/maudem
+- @oliver84, https://github.com/Oliver84
 - @selfspunwebs, https://github.com/anonRegions
-- @luxis https://github.com/Luxisapex - contributed to various issues, including the "kudos" feature which lets users upvote learnings
+- @luxis, https://github.com/Luxisapex - contributed to various issues, including the "kudos" feature which lets users upvote learnings
 - @sergeant-q https://github.com/sergeant-q - contributed fixes for issues, including hangout deletion and email notification for cancelled hangouts, and improved thinking on process steps for how to collaborate on this app
 - @daisukeoka, https://github.com/daisukeokaoss
 - @adanot, https://github.com/adanot
