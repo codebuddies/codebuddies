@@ -1,11 +1,18 @@
 //Initialize character counter value
-var counterValue = 140;
+var workingCounterValue = 140;
+var learnedCounterValue = 140;
 
 Template.updateStatus.helpers({
     isWorking: function(type) {
         return type == 'working';
     },
-    characterCount: counterValue
+    characterCount: workingCounterValue
+});
+Template.updateStatus.helpers({
+    hasLearned: function(type) {
+        return type == 'learned';
+    },
+    learnedCharacterCount: learnedCounterValue
 });
 
 Template.updateStatus.events({
@@ -13,9 +20,9 @@ Template.updateStatus.events({
     'keypress #working-text': function(event) {
         //Check value and if 140 characters have been typed, the user can't type anymore
         if ($("#working-text").val().length < 140) {
-            counterValue -= 1;
-            console.log(counterValue);
-            $('.charactersLeft').text(counterValue);
+            workingCounterValue -= 1;
+            console.log(workingCounterValue);
+            $('.charactersLeft').text(workingCounterValue);
         } else if ($("#working-text").val().length == 140) {
             console.log("Sorry you can't type any more");
         }
@@ -23,9 +30,9 @@ Template.updateStatus.events({
     'keypress #learned-text': function(event) {
         //Check value and if 140 characters have been typed, the user can't type anymore
         if ($("#learned-text").val().length < 140) {
-            counterValue -= 1;
-            console.log(counterValue);
-            $('.learnedCharactersLeft').text(counterValue);
+            learnedCounterValue -= 1;
+            console.log(learnedCounterValue);
+            $('.learnedCharactersLeft').text(learnedCounterValue);
         } else if ($("#learned-text").val().length == 140) {
             console.log("Sorry you can't type any more");
         }
@@ -35,21 +42,21 @@ Template.updateStatus.events({
     'keyup #working-text': function(event) {
         if (event.keyCode == 8) {
             counterValue++;
-            $('.charactersLeft').text(counterValue);
+            $('.charactersLeft').text(workingCounterValue);
         }
         if ($("#working-text").val().length == 0) {
-            counterValue = 140;
-            $('.charactersLeft').text(counterValue);
+            workingCounterValue = 140;
+            $('.charactersLeft').text(workingCounterValue);
         }
     },
     'keyup #learned-text': function(event) {
         if (event.keyCode == 8) {
-            counterValue++;
-            $('.learnedCharactersLeft').text(counterValue);
+            learnedCounterValue++;
+            $('.learnedCharactersLeft').text(learnedCounterValue);
         }
         if ($("#learned-text").val().length == 0) {
-            counterValue = 140;
-            $('.learnedCharactersLeft').text(counterValue);
+            learnedCounterValue = 140;
+            $('.learnedCharactersLeft').text(learnedCounterValue);
         }
     },
 
