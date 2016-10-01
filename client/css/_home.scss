@@ -118,7 +118,6 @@
     }
     %hangout-cards {
       position: relative;
-      @include border-radius(10px);
       h3 {
         @include font-face(700, 20px, bold, $primary-grey);
         margin: 40px 0 0 0;
@@ -217,6 +216,10 @@
         a { text-decoration: underline; color: #fff;}
       }
   }
+
+  .nav-tabs > li > a { border-radius: 0px;}
+
+  .panel { margin: 0px; }
 
 
 }
