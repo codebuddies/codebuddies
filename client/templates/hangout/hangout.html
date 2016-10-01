@@ -94,7 +94,7 @@
           {{# unless completed this }}
           {{# unless url }}
                 {{#if hangoutOwner host.id}}
-                  <div class="google-hangout">
+                  <i class="fa fa-dot-circle-o fa text-danger faa-burst animated"></i>&nbsp; <div class="google-hangout">
                       <div class="g-hangout" data-render="createhangout"
                       data-initial_apps="[{ app_id : '999356798349', start_data: {{_id}}, 'app_type' : 'LOCAL_APP' }]" data-widget_size="72"></div>
                   </div>
@@ -123,7 +123,7 @@
 
               {{else}}
                 {{# unless getIsDone this}}
-                  <i class="fa fa-dot-circle-o fa text-danger faa-burst animated"></i>&nbsp; <button id="join-hangout" class="btn btn-cb2 btn-success">{{_ "join_in_session"}}</button>
+                   <button id="join-hangout" class="btn btn-cb2 btn-success">{{_ "join_in_session"}}</button>
                 {{/unless}}
               {{/if}}
 
