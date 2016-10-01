@@ -1,0 +1,15 @@
+<template name="archivedUsers">
+
+  <div class="page-header">
+   <h3>Archived Users</h3>
+  </div>
+
+  {{#if users.count}}
+    {{#each users}}
+       {{> singleArchivedUsers}}
+    {{/each}}
+  {{else}}
+   <h4>If you can see this, there is something wrong with the system.</h4>
+  {{/if}}
+
+</template>

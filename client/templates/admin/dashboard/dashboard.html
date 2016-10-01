@@ -2,9 +2,10 @@
   <div class="page-header">
     <h3>Dashboard</h3>
   </div>
+
   <div class="row">
     <div class="col-md-3">
-      <a href="{{pathFor 'dashboard'}}/new">
+      <a href="{{pathFor 'dashboard' sortUserAs='new'}}">
         <div class="panel panel-default">
           <div class="panel-body text-center">
             <h5>New Users</h5>
@@ -43,7 +44,18 @@
         </div>
       </a>
     </div>
+    <div class="col-md-3">
+      <a href="{{pathFor 'dashboard' sortUserAs='archived'}}">
+        <div class="panel panel-default">
+          <div class="panel-body text-center">
+            <h5>Archived</h5>
+            <h2>{{archivedUserCount}}</h2>
+          </div>
+        </div>
+      </a>
+    </div>
 
-  </div><!-- main row ends-->
+  </div><!-- inner row ends-->
+
 
 </template>

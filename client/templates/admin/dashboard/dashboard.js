@@ -12,9 +12,9 @@ Template.dashboard.helpers({
   blockedUserCount:function(){
       return ReactiveMethod.call('blockedUserCount');
   },
-
-
-
+  archivedUserCount:function(){
+    return ReactiveMethod.call('archivedUserCount');
+  }
 });
 
 Template.dashboard.events({
