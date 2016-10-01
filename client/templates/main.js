@@ -1,3 +1,11 @@
+if (Meteor.isClient) {
+  Meteor.startup(function () {
+    if(!Meteor.settings.public.isModeDebug){
+      console = console || {};
+      console.log = function(){};
+    }
+  });
+}
 Tracker.autorun(function() {
 
   if (Session.get('hangoutSearchQuery'))

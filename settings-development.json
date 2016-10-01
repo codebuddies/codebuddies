@@ -1,4 +1,7 @@
 {
+  "public":{
+    "isModeDebug": false
+  },
   "private": {
     "mailchimp": {
       "apiKey": "mailchimp-api-key",
