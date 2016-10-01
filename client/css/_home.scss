@@ -6,6 +6,17 @@
 
   &.logged-in { margin-top: 50px; }
 
+
+  .join-slack {
+    overflow: auto;
+    max-width: 440px;
+    margin: 0 auto;
+    input { float: left;}
+    button { float: right;}
+    p { @include font-face(200, 13px, normal, $bg-white); line-height: 1.9; margin-top: 10px; }
+    a { text-decoration: underline; color: #fff; white-space: nowrap; }
+  }
+
   .heading  {
     @include font-face(700, 32px, bold, $primary-grey);
     text-align: center;
@@ -74,15 +85,6 @@
       max-width: 530px;
       margin: 0 auto;
       margin-bottom: 40px;
-      .join-slack {
-        overflow: auto;
-        width: 440px;
-        margin: 0 auto;
-        input { float: left;}
-        button { float: right;}
-        p { @include font-face(200, 13px, normal, $bg-white); line-height: 1.9; margin-top: 10px;}
-        a { text-decoration: underline; color: #fff;}
-      }
     }
     .intro {
       margin: 40px 0;
@@ -92,7 +94,7 @@
       a {color: $bg-white; text-decoration: underline;}
     }
     .slack-note {
-    @include breakpoint(medium) { margin-top: 70px; max-width: 300px; }
+      @include breakpoint(medium) { margin-top: 70px; max-width: 300px; }
       line-height: 16px;
       p {
         @include font-face(200, 12px, normal, $bg-white); line-height: 18px;
@@ -208,18 +210,10 @@
   }
   .home-ask {
     padding: 60px 0;
-    h2 { text-align: center;}
-     .join-slack {
-        text-align: center;
-        overflow: auto;
-        width: 440px;
-        margin: 0 auto;
-        margin-top: 50px;
-        input { float: left;}
-        button { float: right;}
-        p { @include font-face(200, 13px, normal, $bg-white); line-height: 1.9; margin-top: 10px;}
-        a { text-decoration: underline; color: #fff;}
-      }
+    text-align: center;
+    .join-slack {
+      margin-top: 50px;
+    }
   }
 
 
