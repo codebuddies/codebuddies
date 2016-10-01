@@ -95,6 +95,8 @@ In summary, the steps are:
 3. you will receive your password in your email .
 4. admin login ```http://localhost:3000/admin```.
 
+Note: When you create a hangout in localhost:3000, a Slack notification will be sent to the #cb2-test channel. This emulates what happens when you create a hangout on codebuddies.org/; a Slack announcement about the hangout will appear in the #general channel.
+
 
 ##Reminders:
 1. Remember, you can always check which branch you are in by typing `git branch` or `git branch -a` to see all the branches that exist.
