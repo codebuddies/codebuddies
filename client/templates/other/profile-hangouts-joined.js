@@ -1,7 +1,5 @@
 import {_} from 'meteor/erasaur:meteor-lodash';
 
-console.log(_);
-
 Template.hangoutsJoined.onCreated(function() {
   var instance = this;
    instance.limit = new ReactiveVar(5);
@@ -10,7 +8,7 @@ Template.hangoutsJoined.onCreated(function() {
    instance.autorun(function () {
      var limit = instance.limit.get();
      var userId = FlowRouter.getParam('userId');
-     instance.subscribe('hangouts', limit, userId);
+     instance.subscribe('hangoutsJoined', limit, userId);
    });
 
 });
@@ -22,8 +20,7 @@ Template.hangoutsJoined.onRendered(function() {
     instance.loadHangouts = function() {
       var userId = FlowRouter.getParam('userId');
       var arr = Hangouts.find().fetch();
-      var userHangouts = _.filter(arr, function(elem) { return elem.users.includes(userId) && elem.visibility == true});  //what about visibility?
-      console.log("hangouts joined: " + userHangouts);
+      var userHangouts = _.filter(arr, function(elem) { return elem.users.includes(userId)});
       return userHangouts;
     }
 
