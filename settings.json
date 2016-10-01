@@ -1,5 +1,5 @@
-{
- "private": {
+{ 
+  "private": {
     "mailchimp": {
       "apiKey": "ae48644b1a3bc761012de68fc968e921-us9",
       "listId": "8c233d5fe7"
@@ -10,8 +10,8 @@
     }
   },
   "isModeProduction": true,
-  "slack_clientid": "4364220508.48656557590",
-  "slack_clientsecret": "33e0c6dda98e994f194efdc9b6d35c46",
+  "slack_clientid": "4364220508.57534567046",
+  "slack_clientsecret": "f00f72ffac24c9e6a175cf736c02cd7f",
   "slack": "https://hooks.slack.com/services/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",
   "mailgun_username": "postmaster@sandbox2be14a81c3384728a7a9f3eee8500a28.mailgun.org",
   "mailgun_password": "0980133953c04009f17abbf972914167",
@@ -19,10 +19,10 @@
   "mailgun_port": 2525,
   "email_from": "CodeBuddies-NoReply@codebuddies.org",
   "team_id":"T04AQ6GEY",
-  "slack_alert_channel": "#cb2-test",
+  "slack_alert_channel": "#general",
   "slack_alert_username": "CodeBuddies Alerts",
   "hangout_reminder_interval": "every 1 hour",
   "root_email":"codebuddiesdotorg@gmail.com",
-  "root_username":"CB",
+  "root_username":"root",
   "root_gravatar":"http://www.gravatar.com/avatar/"
 }
