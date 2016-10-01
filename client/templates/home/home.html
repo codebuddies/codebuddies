@@ -1,11 +1,11 @@
 <template name="home">
-<div id="home" class="{{#if currentUser}}logged-in{{/if}}">
+<div id="home" class="{{#if currentUser}}logged-in{{/if}} padding-none">
   {{#unless currentUser}}
       {{> homeLoggedOut}}
   {{else}}
-  <div class="container">
+  <div class="">
     <div class="row">
-      <div class="col-md-7">
+      <div class="col-md-8 padding-none">
         <div class="panel panel-default">
           <div class="panel-body">
             <div class="heading">
@@ -52,7 +52,7 @@
           </div>
         </div><!-- panel-->
       </div><!--col-md-6 col-md-offset-1-->
-      <div class="col-md-5">
+      <div class="col-md-4 padding-none">
         <div class="full-width-tabs">
           <ul id="statusTabs" class="nav nav-tabs" role="tablist">
             <li class="active full-width-tab"><a data-id="A" href="#A"><span class="tab-title">{{_ "i_am_working_on"}}</span></a></li>

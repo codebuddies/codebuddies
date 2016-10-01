@@ -1,10 +1,6 @@
 #home {
 
-  padding-bottom: 120px;
-
   p { line-height: 27px; color: $primary-grey; }
-
-  &.logged-in { margin-top: 50px; }
 
   .heading  {
     @include font-face(700, 32px, bold, $primary-grey);
