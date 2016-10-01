@@ -39,6 +39,9 @@ Template.hangoutItem.helpers({
       return 'fa-users text-success-color';
     }
   },
+  getDescriptionTruncated: function(hangout) {
+    return hangout.description;
+  },
   getHostId: function(hangout) {
     return hangout.host.id;
   },
@@ -83,6 +86,10 @@ Template.hangoutItem.helpers({
     }
 
   },
+  getdescription:function(hangout){
+    return hangout.data.description;
+  },
+
   getIsDone: function(hangout) {
     var currentDate = new Date();
     //console.log('getIsDone currentDate:' + currentDate);

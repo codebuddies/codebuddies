@@ -1,10 +1,5 @@
 #home {
-
-  padding-bottom: 120px;
-
   p { line-height: 27px; color: $primary-grey; }
-
-  &.logged-in { margin-top: 50px; }
 
   .heading  {
     @include font-face(700, 32px, bold, $primary-grey);
@@ -12,6 +7,7 @@
 
     .title {
       margin: 10px 0 20px 0;
+      color: white;
     }
   }
   .question {
@@ -39,16 +35,15 @@
 
   .search-area {
     padding: 30px;
-    background: $bg-lightgrey;
     .searchTerm {
       font-size: 16px;
       height: 37px;
+      width: 471px;
     }
   }
 
   .home-top, .home-ask {
     padding: 120px 0 0 0;
-    background: dodgerblue;
     overflow: hidden;
     h2 {
       @include font-face(600, 36px, bold, $bg-white);
@@ -122,7 +117,6 @@
     }
     %hangout-cards {
       position: relative;
-      @include border-radius(10px);
       h3 {
         @include font-face(700, 20px, bold, $primary-grey);
         margin: 40px 0 0 0;
@@ -221,6 +215,10 @@
         a { text-decoration: underline; color: #fff;}
       }
   }
+
+  .nav-tabs > li > a { border-radius: 0px;}
+
+  .panel { margin: 0px; background-color: $cta-blue;}
 
 
 }
