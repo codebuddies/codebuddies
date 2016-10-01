@@ -39,7 +39,7 @@
                   <a class="btn btn-cb2 btn-grey btn-success" href="{{url}}" target="_blank">{{_ "join"}}</a>
                 {{else}}
                   {{#unless hangoutOwner host.id}}
-                        <p class="status">Please wait for the host to start the hangout.</p>
+                        <p class="status">Please wait for <a href="https://codebuddiesmeet.slack.com/messages/{{getHostId this}}">@{{getHostName this}}</a> to start the hangout.</p>
                       {{/unless}}
                 {{/if}}
 

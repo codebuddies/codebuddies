@@ -1,20 +1,31 @@
- <template name="hangoutsJoined">
-     {{#if isReady}}
+<template name="hangoutsJoined">
+  {{#if Template.subscriptionsReady}}
     <ul id="hangouts">
+
       {{#each hangouts}}
         {{> hangoutItem}}
       {{/each}}
-      {{#if showLoadMore}}
-      <div>
-        <button id="btn-load-more" class="btn btn-default btn-block">{{loadMoreText}}</button>
-      </div>
-      {{/if}}
+
+
     </ul>
-  {{else}}
-    <div class="row" style="margin: 50px;">
-      <div class="col-sm-12 text-center">
-        <i class="fa fa-spinner fa-pulse"></i>&nbsp;{{_ "loading_hangouts"}}
+
+    {{#unless status}}
+
+      <div>
+        <button id="loadMore" class="btn btn-default btn-block">Load More</button>
       </div>
-    </div>
+
+    {{else}}
+
+      <div>
+        <button id="#" class="btn btn-default btn-block">There are no more hangouts</button>
+      </div>
+
+    {{/unless}}
+
+  {{else}}
+
+    {{> loading}}
+
   {{/if}}
 </template>

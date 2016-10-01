@@ -3,5 +3,6 @@ Template.sysLayout.onCreated(function(){
   DocHead.setTitle(title);
   var user = Meteor.userId();
   this.subscribe("allUsers");
+  this.subscribe("archivedUsers");
 
 });

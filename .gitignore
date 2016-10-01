@@ -7,3 +7,4 @@ fullchain.pem
 mup.json
 privkey.pem
 settings.json
+npm-debug.log
