@@ -1,20 +1,15 @@
 <template name="hangoutItem">
-  <div class="hangout-item">
-    <div class="row">
+  <div class="col-md-4">
 
-      <div class="col-md-12">
+      <div class="hangout-item">
         <label class="name">
         {{#if isInProgress this}}
           &nbsp; &nbsp;<i class="fa fa-dot-circle-o fa text-danger faa-burst animated"></i> &nbsp;
         {{/if}}
           <a href="/hangout/{{_id}}" class="hangout-topic {{# if completed this }}completed{{/if}}"> {{topic}} </a>
-
-
         </label>
         {{> hangoutActionBar}}
-      </div>
-
-      <div class="col-md-3">
+     
        {{# unless completed this }}
           {{# unless url }}
                 {{#if hangoutOwner host.id}}
@@ -71,14 +66,11 @@
 
         {{/if}} <!-- if equals visibility false -->
 
-    </div>
-
-    <div class="col-md-9">
       <p class="status"><label><i class="fa {{getType type}}"></i> Host <a href="{{pathFor 'profile' name=host.name userId=host.id}}">{{host.name}}</a></label></p>
       <p class="status"><label><i class="fa fa-calendar fa-lg"></i> {{getDate this}}  {{#if views}} | <i class="fa fa-eye" aria-hidden="true" data-toggle="tooltip" title="Views" > {{views}} </i> {{/if}}</label> </p>
-      <p>{{ getDescriptionTruncated this }}</p>
-    </div>
 
-  </div>
-  </div>
+
+
+      </div>
+  </div><!--hangout-item-->
 </template>

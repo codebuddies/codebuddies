@@ -3,9 +3,10 @@
   padding: 0;
 
   .hangout-item {
+    height: 180px;
     p.completed { color: $kudo; text-align: left; line-height: 10px; font-size: 85%}
-    border-top: 1px solid $divider;
     padding: 20px 0;
+    background: #fff;
 
     ul.dropdown-menu { top: 35px; left: -200px;}
     span.dropdown-toggle:hover { cursor: pointer;}
