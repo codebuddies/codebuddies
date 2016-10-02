@@ -112,7 +112,7 @@
 
               {{#if isJoined}}
                 {{#if url}}
-                    <i class="fa fa-dot-circle-o fa text-danger faa-burst animated"></i>&nbsp; <a class="btn btn-cb2 btn-grey btn-success" href="{{url}}" target="_blank">{{_ "join_long"}}</a>
+                    <a class="btn btn-cb2 btn-grey btn-success" href="{{url}}" target="_blank">{{_ "join_long"}}</a>
                 {{else}}
                   {{#unless hangoutOwner host.id}}
                          <p class="status"><i class="fa fa-dot-circle-o fa text-danger faa-burst animated"></i> &nbsp; Please wait for <a href="https://codebuddiesmeet.slack.com/messages/{{getHostId this}}">@{{getHostName this}}</a> to initiate the hangout.</p>
