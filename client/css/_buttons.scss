@@ -160,7 +160,29 @@
   }
 }
 
-#btn-load-more, #load-more-learnings { margin: 10px 0; color: $cta-blue; &:hover { color: $bg-white; } }
+.btn-CreateHangout {
+  width: 220px;
+  height: 36px;
+  background-color: #7ed321;
+  object-fit: contain;
+}
+
+.help-outline---Material-Icons {
+  width: 36px;
+  height: 24px;
+  object-fit: contain;
+  font-family: MaterialIcons;
+  font-size: 24px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: 0.3px;
+  text-align: center;
+  color: #ffffff;
+  //color: var(--bg-white);
+}
+
+#btn-load-more, #load-more-learnings { margin: 10px 0; color: $cta-blue; &:hover { color: $bg-white; } width: 500px;}
 
 .btn-grey {
   background: $warm-grey;
