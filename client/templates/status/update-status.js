@@ -117,3 +117,7 @@ Template.updateStatus.events({
             }
           }
 });
+
+Template.updateStatus.rendered = function() {
+  $('[data-toggle=tooltip]').tooltip()
+};
