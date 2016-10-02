@@ -23,7 +23,8 @@ Template.editHangoutModal.rendered = function() {
   theme: 'snow' // or 'bubble'
   });
 
-  var text = quill.getContents();
+  // debugger;
+  var text = {"ops":[{"insert":"this is some text done this really work??? "},{"attributes":{"link":"http://google.com"},"insert":"google"},{"insert":"\n"}]};
   quill.setContents(text);
 
 };

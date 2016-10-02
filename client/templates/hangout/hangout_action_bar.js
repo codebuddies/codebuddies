@@ -65,12 +65,12 @@ Template.hangoutActionBar.events({
     // Session.set('hostId', hangout.data.user_id);
     // Session.set('hostUsername', hangout.data.creator);
 
-    var editor_content = hangout.data.description;
-    console.log(typeof hangout.data.description);
-    var parsed = $.parseHTML(editor_content);
-    console.log(parsed);
-    var content = parsed.text();
-    console.log(content);
+    // var editor_content = hangout.data.description;
+    // console.log(typeof hangout.data.description);
+    // var parsed = $.parseHTML(editor_content);
+    // console.log(parsed);
+    // var content = parsed.text();
+    // console.log(content);
     //console.log(editor_content.html());
 
 

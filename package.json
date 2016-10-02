@@ -8,6 +8,7 @@
   "dependencies": {
     "body-parser": "^1.15.2",
     "mailchimp-api": "^2.0.7",
-    "md5": "^2.2.1"
+    "md5": "^2.2.1",
+    "quill": "^1.0.6"
   }
 }
