@@ -1,4 +1,4 @@
-import Quill from 'Quill';
+// import Quill from 'Quill';
 Template.createHangoutModal.rendered = function() {
 
   var start = this.$('#start-date-time-picker');
@@ -50,22 +50,22 @@ Template.createHangoutModal.rendered = function() {
   });
 
   // var Link = Quill.import('formats/link');
-  var quill = new Quill('#description', {
-  modules: {
-    toolbar: [
-      [{ header: [1, 2, false] }],
-      ['bold', 'italic', 'underline'],
-      ['image', 'code-block', 'link']
-    ]
-  },
-  placeholder: 'What do you hope to cover or master during this hangout?',
-  theme: 'snow' // or 'bubble'
-  });
+  // var quill = new Quill('#description', {
+  // modules: {
+  //   toolbar: [
+  //     [{ header: [1, 2, false] }],
+  //     ['bold', 'italic', 'underline'],
+  //     ['image', 'code-block', 'link']
+  //   ]
+  // },
+  // placeholder: 'What do you hope to cover or master during this hangout?',
+  // theme: 'snow' // or 'bubble'
+  // });
 
-  // DEBUG
-  window.luke = {
-    q: quill
-  };
+  // // DEBUG
+  // window.luke = {
+  //   q: quill
+  // };
 
 
 

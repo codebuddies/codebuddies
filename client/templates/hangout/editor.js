@@ -1,61 +1,47 @@
 import {_} from 'meteor/erasaur:meteor-lodash';
 import Quill from 'Quill';
-// Quill.import('formats/link');
-var Link = Quill.import('formats/link');
 
+const EDITOR_PREVIEW_STATE = 'PREVIEW';
 const EDITOR_CONFIG_VARIATIONS = {
   DEFAULT: {
     modules: {
       toolbar: [
-        [{
-          header: [1, 2, false] 
-        }],
         ['bold', 'italic', 'underline'],
-        ['image', 'code-block', 'link']
+        ['link']
       ]
     },
-    placeholder: '',
-    theme: 'snow' // or 'bubble'
-  },
-  PREVIEW: {
-    modules: {
-      toolbar: []
-    },
-    enable: false,
-    placeholder: '',
+    placeholder: 'What do you hope to cover or master during this hangout?',
     theme: 'snow'
-  },
+  }
 }
 
-console.log('Template.editor', Template.editor);
-
 Template.editor.onCreated(function onCreated() {
-  console.log('editor onCreated', arguments, this);
-  this.somevar = '"<p>this is some text <a href="http://google.com" target="_blank">google</a></p>"';
+  var instance = Template.instance();
+  instance.previewContentsAsHTML = new ReactiveVar();
 })
+
+const extractEditorTypeFrom = _.partialRight(_.get, 'type');
+const extractEditorContentFrom = _.partialRight(_.get, 'content');
 
 Template.editor.onRendered(function onRendered() {
+  var instance = Template.instance();
   
-  console.log('editor onRendered', arguments, this);
+  const editorConfig = _.get(EDITOR_CONFIG_VARIATIONS, extractEditorTypeFrom(instance.data), EDITOR_CONFIG_VARIATIONS.DEFAULT);
+  const quill = new Quill(instance.$('[data-editor-host]').get(0), editorConfig);
   
-  const editorConfig = _.get(EDITOR_CONFIG_VARIATIONS, this.data, EDITOR_CONFIG_VARIATIONS.DEFAULT);
-  console.log('starting editor with config', editorConfig);
-  console.log(this.$('[data-editor-host]'));
+  quill.setContents(extractEditorContentFrom(instance.data))
   
-  var quill = new Quill(this.$('[data-editor-host]').get(0), editorConfig);
-  quill.setContents({"ops":[{"insert":"this is some text "},{"attributes":{"link":"http://google.com"},"insert":"google"},{"insert":"\n"}]})
-  
-  
-  if (this.data === 'PREVIEW') {
-    debugger;
-    
-    // quill.container.parentElement.parentElement.replaceChild(quill.container.firstChild, quill.container.parentElement);
-    console.log(quill.container.parentElement)
+  if (extractEditorTypeFrom(instance.data) === EDITOR_PREVIEW_STATE) {
+    instance.previewContentsAsHTML.set(quill.container.firstChild.innerHTML);
+    instance.$('[data-editor-host]').parent().remove()
   }
-  
-  console.log('quill', quill);
 })
 
-Template.editor.onDestroyed(function onDestroyed() {
-  console.log('editor onDestroyed', arguments, this);
+Template.editor.helpers({
+  previewContents() {
+    return Template.instance().previewContentsAsHTML.get();
+  },
+  isPreview() {
+    return extractEditorTypeFrom(Template.instance().data) === EDITOR_PREVIEW_STATE;
+  }
 })

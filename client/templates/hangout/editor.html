@@ -1,7 +1,10 @@
 <template name="editor">
+  {{ #if isPreview }}
+    <div>
+      {{{ previewContents }}}
+    </div>
+  {{ /if }}
   <div>
-    <h1>EDITOR</h1>
     <div data-editor-host style="height: 150px"></div>
-    <div>=== {{{somevar}}}</div>
   </div>
 </template>
