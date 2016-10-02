@@ -56,7 +56,7 @@ Template.hangoutItem.helpers({
       ' - ' +
       moment(hangout.end).tz(tz).format('MMMM Do h:mm a z') +
       ' | ' +
-      hangout.attendees.length +
+      hangout.users.length +
       ' joined';
   },
   isInProgress: function(hangout) {
