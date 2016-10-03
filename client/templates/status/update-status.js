@@ -1,36 +1,35 @@
 //Initialize character counter value
-var counterValue = 140;
+var workingCounterValue = 140;
+var learnedCounterValue = 140;
+var maxChars = 140;
 
 Template.updateStatus.helpers({
     isWorking: function(type) {
         return type == 'working';
     },
-    characterCount: counterValue
+    characterCount: workingCounterValue
+});
+Template.updateStatus.helpers({
+    hasLearned: function(type) {
+        return type == 'learned';
+    },
+    learnedCharacterCount: learnedCounterValue
 });
 
 Template.updateStatus.events({
     //Track text for character counting
-    'keypress #working-text': function(event) {
-        //Check value and if 140 characters have been typed, the user can't type anymore
-        if ($("#working-text").val().length < 140) {
-            counterValue -= 1;
-            console.log(counterValue);
-            $('.charactersLeft').text(counterValue);
-        } else if ($("#working-text").val().length == 140) {
-            console.log("Sorry you can't type any more");
-        }
-    },
-
-    //Increment counter value if the user presses backspace
     'keyup #working-text': function(event) {
-        if (event.keyCode == 8) {
-            counterValue++;
-            $('.charactersLeft').text(counterValue);
-        }
-        if ($("#working-text").val().length == 0) {
-            counterValue = 140;
-            $('.charactersLeft').text(counterValue);
-        }
+        //Check value and if 140 characters have been typed, the user can't type anymore
+        var currentLength = $("#working-text").val().length;
+        workingCounterValue = maxChars - currentLength;
+        console.log(workingCounterValue);
+        $('.charactersLeft').text(workingCounterValue);
+    },
+    'keyup #learned-text': function(event) {
+        //Check value and if 140 characters have been typed, the user can't type anymore
+        var currentLength = $("#learned-text").val().length;
+        learnedCounterValue = maxChars - currentLength;
+        $('.learnedCharactersLeft').text(learnedCounterValue);
     },
 
     //3 Buttons
@@ -57,6 +56,7 @@ Template.updateStatus.events({
 
             Meteor.call('setUserStatus', currentStatus, function(error, result) {});
             $('#working-text').val('');
+			$('.charactersLeft').text(140);
         }
     },
     'click #update-learned-btn': function(event) {
@@ -86,6 +86,7 @@ Template.updateStatus.events({
             }
             Meteor.call("addLearning", data, function(error, result) {});
             $('#learned-text').val('');
+			$('.learnedCharactersLeft').text(140);
         }
     },
     'click .btn-hangout-status': function(event) {
