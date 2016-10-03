@@ -16,8 +16,8 @@ Template.profileLearnings.onCreated(function () {
 
     console.log("Asking for "+limit+" learnings...")
     var userId = FlowRouter.getParam('userId');
-    // subscribe to the posts publication
-    var subscription = instance.subscribe('ownLearnings', limit, userId);
+    // subscribe to the learningsByUserId publication
+    var subscription = instance.subscribe('learningsByUserId', limit, userId);
 
     // if subscription is ready, set limit to newLimit
     if (subscription.ready()) {
@@ -28,7 +28,7 @@ Template.profileLearnings.onCreated(function () {
     }
   });
 
-   instance.ownLearnings = function() {
+   instance.learningsForUser = function() {
     return Learnings.find({}, {limit: instance.loaded.get(), sort: {created_at: -1}});
   }
 
@@ -37,11 +37,11 @@ Template.profileLearnings.onCreated(function () {
 Template.profileLearnings.helpers({
     // the posts cursor
   learnings: function () {
-    return Template.instance().ownLearnings();
+    return Template.instance().learningsForUser();
   },
   // are there more posts to show?
   hasMoreLearnings: function () {
-    return Template.instance().ownLearnings().count() >= Template.instance().limit.get();
+    return Template.instance().learningsForUser().count() >= Template.instance().limit.get();
   }
 });
 
@@ -49,7 +49,7 @@ Template.profileLearnings.events({
  'click #load-more-learnings': function (event, instance) {
     event.preventDefault();
 
-    // get current value for limit, i.e. how many posts are currently displayed
+    // get current value for limit, i.e. how many learnings are currently displayed
     var limit = instance.limit.get();
 
     // increase limit by 5 and update it

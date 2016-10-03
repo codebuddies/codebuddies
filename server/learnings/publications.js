@@ -8,7 +8,7 @@ Meteor.publish("learnings", function(limit) {
 
 });
 
-Meteor.publish("ownLearnings", function(limit, userId) {
+Meteor.publish("learningsByUserId", function(limit, userId) {
   check(userId, String);
   if(this.userId){
     return Learnings.find({userId: userId},
