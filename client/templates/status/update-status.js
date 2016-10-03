@@ -116,5 +116,9 @@ Template.updateStatus.events({
               });
               $(event.currentTarget).css("background-color",bgColor);
             }
-    }
+          }
 });
+
+Template.updateStatus.rendered = function() {
+  $('[data-toggle=tooltip]').tooltip()
+};
