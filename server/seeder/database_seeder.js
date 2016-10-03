@@ -8,7 +8,7 @@ export const databaseSeeder = () => {
 
     for (let i = 0; i < 5; i++) {
 
-       const user = usersCollectionSeeder();
+       const user = userCollectionSeeder();
        for (let j = 0; j < 2; j++) {
          hangoutCollectionSeeder(user);
          learningCollectionSeeder(user);
@@ -17,5 +17,7 @@ export const databaseSeeder = () => {
     }
 
   }
+
+  console.log("database seeded");
 
 }

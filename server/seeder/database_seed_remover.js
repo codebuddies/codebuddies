@@ -6,4 +6,5 @@ export const databaseSeedRemover = () => {
   Hangouts.remove({'document_type':"SEED"});
   Learnings.remove({'document_type':"SEED"});
 
+  console.log("seed data removed");
 }

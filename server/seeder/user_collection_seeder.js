@@ -1,7 +1,7 @@
 import { Accounts } from 'meteor/accounts-base';
 import faker from 'faker';
 
-export const usersCollectionSeeder = ()=> {
+export const userCollectionSeeder = ()=> {
 
   const avatar = '/default-avatar.png';
   let user = {
