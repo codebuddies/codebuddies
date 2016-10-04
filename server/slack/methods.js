@@ -32,12 +32,12 @@ slackNotification = function(hangout, type){
        fallback: fallback,
        color: '#1e90ff',
        pretext: pretext,
-       title: `${hangout.topic}`,
+       title: `${hangout.topic.substr(0,101) + '...'}`,
        title_link: Meteor.absoluteUrl("hangout/" + hangout._id),
        mrkdwn_in: ['text', 'pretext', 'fields'],
        fields: [{
          title: 'Description',
-         value: `_ ${hangout.description} _`,
+         value: `_ ${hangout.description.substr(0,201) + '...'} _`,
          short: true
        },{
          title: 'Date',
