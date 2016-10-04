@@ -1,6 +1,6 @@
 #CodeBuddies Hangouts Platform v2.0 - from scratch
 
-[![Slack Status](https://slack.codebuddies.org/badge.svg)](https://codebuddies.org.com)
+[![Slack Status](https://codebuddiesmeet.herokuapp.com/badge.svg)](https://codebuddies.org.com)
 
 #FAQ
 
