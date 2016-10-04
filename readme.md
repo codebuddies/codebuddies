@@ -3,7 +3,8 @@
 #CodeBuddies Hangouts Platform v2.0 - from scratch
 
 [![Stories in Ready](https://badge.waffle.io/codebuddiesdotorg/cb-v2-scratch.png?label=ready&title=Ready)](https://waffle.io/codebuddiesdotorg/cb-v2-scratch)
-[![Join the chat at https://gitter.im/codebuddiesdotorg/cb-v2-scratch](https://badges.gitter.im/codebuddiesdotorg/cb-v2-scratch.svg)](https://gitter.im/codebuddiesdotorg/cb-v2-scratch?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Slack](https://img.shields.io/badge/Chat-on%20Slack-red.svg)](https://codebuddiesmeet.herokuapp.com/)
+[![Gitter](https://img.shields.io/badge/Chat-on%20Gitter-blue.svg)](https://gitter.im/codebuddiesdotorg/cb-v2-scratch)
 
 #FAQ
 
