@@ -22,6 +22,15 @@
 	background: $cta-blue;
 	padding: 60px 0;
 	color: $bg-white;
+	letter-spacing: 0.2px;
+	h3 { margin-top: 0; font-size: 20px; font-weight: 600; line-height: 1.6; }
+	p { font-size: 16px; margin-bottom: 15px; }
+	.profile-top-details { display: flex; align-items: center; }
+	.profile-quote { color: $light-blue; text-align: center; line-height: 100px;}
+	.social-icons {
+		a { text-decoration: none; color: $bg-white; }
+		i { font-size: 16.6px; line-height: 1.32; padding-right: 10px; }
+	}
 }
 
 .profile-hangouts-completed {
@@ -38,4 +47,3 @@
 	padding: 35px 80px;
 	h3 { @include font-face(600, 20px, normal, $warm-grey); text-align: center; }
 }
-
