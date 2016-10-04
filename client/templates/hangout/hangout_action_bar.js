@@ -1,10 +1,17 @@
+import QuillEditor from '../../libs/QuillEditor';
 
 Template.hangoutActionBar.helpers({
   create: function(){
 
   },
   rendered: function(){
-
+    var templateInstance = Template.instance();
+    debugger;
+    var editorHostElement = templateInstance.$('[data-editor-host]').get(0);
+    
+    templateInstance.editor = QuillEditor.createEditor({
+      container: editorHostElement
+    });
   },
   destroyed: function(){
 
@@ -43,9 +50,9 @@ Template.hangoutActionBar.events({
       console.log(hangout.data._id + ' this is a cloned hangout id');
       Session.set('hangoutId', hangout.data._id);
 
-      Modal.show('cloneHangoutModal');
+      Modal.show('cloneHangoutModal', {hangout});
       $('#clone-hangout-modal #topic').val(hangout.data.topic);
-      $('#clone-hangout-modal #description').val(hangout.data.description);
+      // $('#clone-hangout-modal #description').val(hangout.data.description);
       $('#clone-hangout-modal input[value=' + hangout.data.type + ']').prop("checked", true);
       //$('#clone-hangout-modal #start-date-time').val(start_time_reverted);
       //$('#clone-hangout-modal #end-date-time').val(end_time_reverted);
@@ -54,6 +61,7 @@ Template.hangoutActionBar.events({
     }
   },
   'click .edit-hangout': function(e, hangout) {
+    // var templateInstance = Template.instance();
     //console.log(hangout.data.topic);
     //pass in the right times like 03/09/2016 2:03 AM
     var start_time_reverted = moment(hangout.data.start).format('MM/DD/YYYY h:mm A');
@@ -74,9 +82,10 @@ Template.hangoutActionBar.events({
     //console.log(editor_content.html());
 
 
-    Modal.show('editHangoutModal');
+    Modal.show('editHangoutModal', {hangout});
     $('#edit-hangout-modal #topic').val(hangout.data.topic);
-    $('#edit-hangout-modal #description').val(hangout.data.description);
+    // $('#edit-hangout-modal #description').val(hangout.data.description);
+    // templateInstance.editor.setContents(hangout.data.description);
     $('#edit-hangout-modal input[value=' + hangout.data.type + ']').prop("checked", true);
     $('#edit-hangout-modal #start-date-time').val(start_time_reverted);
     $('#edit-hangout-modal #end-date-time').val(end_time_reverted);

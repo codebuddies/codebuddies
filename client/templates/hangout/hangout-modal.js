@@ -1,5 +1,9 @@
-// import Quill from 'Quill';
+import QuillEditor from '../../libs/QuillEditor';
+
 Template.createHangoutModal.rendered = function() {
+  
+  var templateInstance = Template.instance();
+  var editorHostElement = templateInstance.$('[data-editor-host]').get(0);
 
   var start = this.$('#start-date-time-picker');
   var end = this.$('#end-date-time-picker');
@@ -49,43 +53,20 @@ Template.createHangoutModal.rendered = function() {
     $('#d3').hide();
   });
 
-  // var Link = Quill.import('formats/link');
-  // var quill = new Quill('#description', {
-  // modules: {
-  //   toolbar: [
-  //     [{ header: [1, 2, false] }],
-  //     ['bold', 'italic', 'underline'],
-  //     ['image', 'code-block', 'link']
-  //   ]
-  // },
-  // placeholder: 'What do you hope to cover or master during this hangout?',
-  // theme: 'snow' // or 'bubble'
-  // });
-
-  // // DEBUG
-  // window.luke = {
-  //   q: quill
-  // };
-
-
-
+  templateInstance.editor = QuillEditor.createEditor({
+    container: editorHostElement
+  });
 };
 
 Template.createHangoutModal.events({
   'click #create-hangout': function(e) {
+    const templateInstance = Template.instance();
     const topic = $('#topic').val();
-    const description = $('#description').val().replace(/\r?\n/g, '<br />');
+    const description = templateInstance.editor.getContents();
     const start = $('#start-date-time').val();
     const end = $('#end-date-time').val();
     const type = $('input[name="hangout-type"]:checked').val();
-    console.log(start);
     
-    
-    console.log('description', description);
-    
-    return;
-
-
     const data = {
       topic: topic,
       slug: topic.replace(/\s+/g, '-').toLowerCase(),

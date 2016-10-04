@@ -3,7 +3,9 @@ Meteor.methods({
     check(data, Match.ObjectIncluding({
       topic: String,
       slug: String,
-      description: String,
+      description: Match.ObjectIncluding({
+        ops: Match.Any
+      }),
       start: Match.OneOf(String, Date),
       end: Match.OneOf(String, Date),
       type: String,
@@ -96,7 +98,9 @@ Meteor.methods({
     check(data, Match.ObjectIncluding({
       topic: String,
       slug: String,
-      description: String,
+      description: Match.ObjectIncluding({
+        ops: Match.Any
+      }),
       start: Match.OneOf(String, Date),
       end: Match.OneOf(String, Date),
       type: String

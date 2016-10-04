@@ -1,7 +1,7 @@
-import Quill from 'Quill';
+import QuillEditor from '../../libs/QuillEditor';
+
 Meteor.startup(function() {
     $('head').append('<link href="https://cdn.quilljs.com/1.0.3/quill.snow.css" rel="stylesheet">');
-    // $('head').append('<script src="https://cdn.quilljs.com/1.0.3/quill.js"></script>');
 });
 
 Template.hangout.onCreated(function() {
@@ -18,6 +18,9 @@ Template.hangout.rendered = function() {
 }
 
 Template.hangout.helpers({
+  formatDescription: ({description}) => {
+    return QuillEditor.generatePreview(description);
+  },
   hangout: function() {
       return Hangouts.findOne({_id: FlowRouter.getParam('hangoutId')});
   },

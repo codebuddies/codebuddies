@@ -1,4 +1,16 @@
+import QuillEditor from '../../libs/QuillEditor';
+
 Template.editHangoutModal.rendered = function() {
+  var templateInstance = Template.instance();
+  var editorHostElement = templateInstance.$('[data-editor-host]').get(0);
+  
+  templateInstance.editor = QuillEditor.createEditor({
+    container: editorHostElement
+  });
+  console.log('arguments', arguments, Template.instance(), editorHostElement);
+  
+  templateInstance.editor.setContents(templateInstance.data.hangout.data.description)
+
   var start = this.$('#start-date-time-picker');
   var end = this.$('#end-date-time-picker');
 
@@ -11,28 +23,13 @@ Template.editHangoutModal.rendered = function() {
     useCurrent: false
   });
 
-  var quill = new Quill('#description', {
-  modules: {
-    toolbar: [
-      [{ header: [1, 2, false] }],
-      ['bold', 'italic', 'underline'],
-      ['image', 'code-block', 'link']
-    ]
-  },
-  placeholder: '',
-  theme: 'snow' // or 'bubble'
-  });
-
-  // debugger;
-  var text = {"ops":[{"insert":"this is some text done this really work??? "},{"attributes":{"link":"http://google.com"},"insert":"google"},{"insert":"\n"}]};
-  quill.setContents(text);
-
 };
 
 Template.editHangoutModal.events({
 	 'click #edit-hangout': function() {
+     var templateInstance = Template.instance();
      const topic = $('#topic').val();
-     const description = $('#description').val().replace(/\r?\n/g, '<br />');
+     const description = templateInstance.editor.getContents();
      const start = $('#start-date-time').val();
      const end = $('#end-date-time').val();
      const type = $('input[name="hangout-type"]:checked').val();
