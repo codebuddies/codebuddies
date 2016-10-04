@@ -1,9 +1,9 @@
 import faker from 'faker';
 
-export const  hangoutCollectionSeeder = (user) =>{
+export const  hangoutCollectionSeeder = (user, dateTime) =>{
 
   let topic = faker.lorem.sentence();
-  let start = faker.date.future();
+  let start = dateTime;
   const end = start.setHours(start.getHours() + 1);
 
 
