@@ -1,17 +1,17 @@
 import { $ }  from 'meteor/jquery';
 import { chai } from 'meteor/practicalmeteor:chai';
-import QuillFactory from './QuillEditor';
+import QuillEditor from './QuillEditor';
 
 chai.should();
 
-describe('QuillFactory', () => {
+describe('QuillEditor', () => {
     
     it('should expose createEditor()', () => {
-        QuillFactory.createEditor.should.not.be.undefined;
+        QuillEditor.createEditor.should.not.be.undefined;
     });
     
     it('should expose generateHTMLForDeltas()', () => {
-        QuillFactory.generateHTMLForDeltas.should.not.be.undefined;
+        QuillEditor.generateHTMLForDeltas.should.not.be.undefined;
     });
     
     describe('createEditor', () => {
@@ -25,7 +25,7 @@ describe('QuillFactory', () => {
             
             container = $('<div>').get(0);
             hostElement.append(container);
-            editor = QuillFactory.createEditor({container});
+            editor = QuillEditor.createEditor({container});
         });
        
         afterEach(() => {
@@ -36,12 +36,12 @@ describe('QuillFactory', () => {
         
         it('should throw an Error if container is not specified', () => {
             chai.expect(() => {
-                QuillFactory.createEditor();
+                QuillEditor.createEditor();
             }).to.throw(Error);
         });
         
         it('should not return an undefined', () => {
-            editor = QuillFactory.createEditor({container});
+            editor = QuillEditor.createEditor({container});
             editor.should.not.be.undefined;
         });
         
@@ -66,7 +66,7 @@ describe('QuillFactory', () => {
         describe('setContents()', () => {
             it('should reflect the contents when setting with string', function() {
                 editor.setContents('hello 123');
-                QuillFactory.generateHTMLForDeltas(editor.getContents()).should.be.equal('<p>hello 123</p><p></p>')
+                QuillEditor.generateHTMLForDeltas(editor.getContents()).should.be.equal('<p>hello 123</p><p></p>')
             });
             
             it('should reflect the contents when setting with deltas', function() {
@@ -75,7 +75,7 @@ describe('QuillFactory', () => {
                         insert: 'hello 123'
                     }]
                 });
-                QuillFactory.generateHTMLForDeltas(editor.getContents()).should.be.equal('<p>hello 123</p><p></p>')
+                QuillEditor.generateHTMLForDeltas(editor.getContents()).should.be.equal('<p>hello 123</p><p></p>')
             });
         });
         
@@ -102,12 +102,12 @@ describe('QuillFactory', () => {
         expectedHTML = '<p>this is some text <a href="http://google.com">google</a></p><p></p>';
 
         it('should return html for a sequence of delta', () => {
-            var html = QuillFactory.generateHTMLForDeltas(delta);
+            var html = QuillEditor.generateHTMLForDeltas(delta);
             html.should.be.equal(expectedHTML);
         });
         
         it('should fallback if delta is a plain string', function() {
-            var html = QuillFactory.generateHTMLForDeltas('this is a string');
+            var html = QuillEditor.generateHTMLForDeltas('this is a string');
             html.should.be.equal('<p>this is a string</p>'); 
         });
     });
