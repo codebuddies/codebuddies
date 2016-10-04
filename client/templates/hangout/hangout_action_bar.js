@@ -5,13 +5,7 @@ Template.hangoutActionBar.helpers({
 
   },
   rendered: function(){
-    var templateInstance = Template.instance();
-    debugger;
-    var editorHostElement = templateInstance.$('[data-editor-host]').get(0);
     
-    templateInstance.editor = QuillEditor.createEditor({
-      container: editorHostElement
-    });
   },
   destroyed: function(){
 
@@ -61,7 +55,6 @@ Template.hangoutActionBar.events({
     }
   },
   'click .edit-hangout': function(e, hangout) {
-    // var templateInstance = Template.instance();
     //console.log(hangout.data.topic);
     //pass in the right times like 03/09/2016 2:03 AM
     var start_time_reverted = moment(hangout.data.start).format('MM/DD/YYYY h:mm A');

@@ -1,17 +1,7 @@
 import { _ } from 'meteor/erasaur:meteor-lodash';
 import Quill from 'Quill';
 import quillRender from 'quill-render';
-
-const QUILL_DEFAULT_OPTIONS = {
-  modules: {
-    toolbar: [
-      ['bold', 'italic', 'underline'],
-      ['link']
-    ]
-  },
-  placeholder: 'What do you hope to cover or master during this hangout?',
-  theme: 'snow'
-};
+import QuillEditorDefaultOptions from './QuillEditorDefaultOptions';
 
 const isQuillDataFormat = (possibleQuillFormat) => {
   return (!_.isUndefined(possibleQuillFormat.ops) && 
@@ -24,15 +14,37 @@ const normaliseToQuillFormat = (data) => {
   }];
 }
 
+/**
+ * Create an editor which attaches to a DOM container.
+ * 
+ * @param  {String|Element} options.container (Not optional)
+ *         CSS selector, or DOM element that will be used as Quill's container.
+ * @param  {Object} options.options (Optional)
+ *         Configuration options for Quill. If not specified default configuration
+ *         will be used.
+ */
 const createEditor = ({container, options}) => {
-  var editor;
+  
   if (_.isUndefined(container)) {
     throw new Error('container property missing');
   }
   
-  editor = new Quill(container, _.defaults(options, QUILL_DEFAULT_OPTIONS));
+  const editor = new Quill(container, _.defaults(options, QuillEditorDefaultOptions));
   
+  /**
+   * @return {Delta} the contents for the editor instance (Quill)
+   */
   const getContents = () => editor.getContents();
+  
+  /**
+   * Backward compatible function to set data inside the editor.
+   * 
+   * @param  {String|Delta} data
+   *         Sets the contents for this editor's instance. In the case where the 
+   *         data is in Quill format it will be used as is, otherwise the data 
+   *         will be converted to Quill format and assumes it is one continuous 
+   *         string.
+   */
   const setContents = (data) => {
     if (isQuillDataFormat(data)) {
       editor.setContents(data);
@@ -45,20 +57,25 @@ const createEditor = ({container, options}) => {
 
   return {
     getContents,
-    setContents,
-    editor
+    setContents
   }
 };
 
-const generatePreview = (content) => {
-  if (isQuillDataFormat(content)) {
-    return quillRender(content.ops);
+/**
+ * @param  {String|Delta} data
+ *         Deltas to render. In the case where the data is in Quill format it 
+ *         will be used as is, otherwise the data will be converted to Quill 
+ *         format and assumes it is one continuous string.
+ */
+const generateHTMLForDeltas = (data) => {
+  if (isQuillDataFormat(data)) {
+    return quillRender(data.ops);
   }
   
-  return quillRender(normaliseToQuillFormat(content));
+  return quillRender(normaliseToQuillFormat(data));
 };
 
 export default {
   createEditor,
-  generatePreview
+  generateHTMLForDeltas
 }

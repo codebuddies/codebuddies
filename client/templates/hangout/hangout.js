@@ -19,7 +19,7 @@ Template.hangout.rendered = function() {
 
 Template.hangout.helpers({
   formatDescription: ({description}) => {
-    return QuillEditor.generatePreview(description);
+    return QuillEditor.generateHTMLForDeltas(description);
   },
   hangout: function() {
       return Hangouts.findOne({_id: FlowRouter.getParam('hangoutId')});

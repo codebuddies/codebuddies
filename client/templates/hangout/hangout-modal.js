@@ -1,9 +1,12 @@
 import QuillEditor from '../../libs/QuillEditor';
 
 Template.createHangoutModal.rendered = function() {
-  
   var templateInstance = Template.instance();
   var editorHostElement = templateInstance.$('[data-editor-host]').get(0);
+  
+  templateInstance.editor = QuillEditor.createEditor({
+    container: editorHostElement
+  });
 
   var start = this.$('#start-date-time-picker');
   var end = this.$('#end-date-time-picker');
@@ -51,10 +54,6 @@ Template.createHangoutModal.rendered = function() {
     $('#d3').show();
   },function(){
     $('#d3').hide();
-  });
-
-  templateInstance.editor = QuillEditor.createEditor({
-    container: editorHostElement
   });
 };
 

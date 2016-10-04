@@ -7,7 +7,6 @@ Template.cloneHangoutModal.rendered = function() {
   templateInstance.editor = QuillEditor.createEditor({
     container: editorHostElement
   });
-  console.log('arguments', arguments, Template.instance(), editorHostElement);
   
   templateInstance.editor.setContents(templateInstance.data.hangout.data.description)
   

@@ -10,8 +10,8 @@ describe('QuillFactory', () => {
         QuillFactory.createEditor.should.not.be.undefined;
     });
     
-    it('should expose generatePreview()', () => {
-        QuillFactory.generatePreview.should.not.be.undefined;
+    it('should expose generateHTMLForDeltas()', () => {
+        QuillFactory.generateHTMLForDeltas.should.not.be.undefined;
     });
     
     describe('createEditor', () => {
@@ -66,7 +66,7 @@ describe('QuillFactory', () => {
         describe('setContents()', () => {
             it('should reflect the contents when setting with string', function() {
                 editor.setContents('hello 123');
-                QuillFactory.generatePreview(editor.getContents()).should.be.equal('<p>hello 123</p><p></p>')
+                QuillFactory.generateHTMLForDeltas(editor.getContents()).should.be.equal('<p>hello 123</p><p></p>')
             });
             
             it('should reflect the contents when setting with deltas', function() {
@@ -75,14 +75,14 @@ describe('QuillFactory', () => {
                         insert: 'hello 123'
                     }]
                 });
-                QuillFactory.generatePreview(editor.getContents()).should.be.equal('<p>hello 123</p><p></p>')
+                QuillFactory.generateHTMLForDeltas(editor.getContents()).should.be.equal('<p>hello 123</p><p></p>')
             });
         });
         
     });
     
-    describe('generatePreview', () => {
-        var ops = {
+    describe('generateHTMLForDeltas', () => {
+        var delta = {
             "ops" : [
                 {
                     "insert" : "this is some text "
@@ -101,13 +101,13 @@ describe('QuillFactory', () => {
         },
         expectedHTML = '<p>this is some text <a href="http://google.com">google</a></p><p></p>';
 
-        it('should return html for a sequence of ops', () => {
-            var html = QuillFactory.generatePreview(ops);
+        it('should return html for a sequence of delta', () => {
+            var html = QuillFactory.generateHTMLForDeltas(delta);
             html.should.be.equal(expectedHTML);
         });
         
-        it('should fallback if ops is a plain string', function() {
-            var html = QuillFactory.generatePreview('this is a string');
+        it('should fallback if delta is a plain string', function() {
+            var html = QuillFactory.generateHTMLForDeltas('this is a string');
             html.should.be.equal('<p>this is a string</p>'); 
         });
     });
