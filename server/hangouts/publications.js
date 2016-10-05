@@ -50,17 +50,34 @@ Meteor.publish("hangoutSearchResult", function(serchTerm) {
   return Hangouts.search(serchTerm);
 });
 
-Meteor.publish("hangoutBoard", function(limit) {
+Meteor.publish("hangoutBoard", function(limit, hangoutFilter) {
   check(limit, Number);
+  check(hangoutFilter, String);
 
-  // if(this.userId) {
-  //   if (Roles.userIsInRole(this.userId, ['admin','moderator'])) {
-  //     return Hangouts.find({}, {fields:{'email_addresses': 0 }, sort: { start: -1 }, 'limit':limit});
-  //   } else {
-  return Hangouts.find({'visibility':{$ne:false}}, {fields:{'email_addresses': 0 }, sort: { start: -1 }, 'limit':limit});
-  //   }
-  // } else {
-  //  this.ready();
-  // }
+  var query = new Object();
+  var sortOrder = new Object();
+  query.visibility = {$ne:false};
+  switch (hangoutFilter) {
+    case 'live':
+        query.start = {'$lte' : new Date()};
+        query.end = {'$gte' : new Date()};
+        sortOrder.sort = {'start' : -1}
+      break;
+    case 'upcoming':
+      query.start = {$gte : new Date()};
+      sortOrder.sort = {'start' : -1}
+      break;
+    default:
+
+  }
+  // console.log(query);
+  // console.log(sortOrder);
+
+
+  return Hangouts.find(query, sortOrder);
+
+
+  //return Hangouts.find(query, {fields:{'email_addresses': 0 }, sortOrder, 'limit':limit});
+
 
 });

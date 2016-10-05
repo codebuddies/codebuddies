@@ -5,15 +5,35 @@
     </div>
   </div>
 
+<div class="container hangout-board">
+  <div class="row hangout-filter-block">
+      <div class="col-md-3">
+        <!-- {{hangoutFilter}} -->
+        <select class="form-control" id="hangoutFilter">
+          <option value="live">Live</option>
+          <option value="upcoming">Upcoming</option>
+        </select>
+      </div>
+  </div>
+</div>
+
 {{#if Template.subscriptionsReady}}
   <div class="container">
     <div class="row">
       {{#each hangouts}}
         {{> hangoutCard}}
+
+      {{else}}
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <h5 class="text-center">There no hangout</h5>
+          </div>
+        </div>
       {{/each}}
     </div>
-
-    <div class="btn btn-block btn-primary"> Load More </div>
+    {{#if hangouts.length}}
+      <div class="btn btn-block btn-primary"> Load More </div>
+    {{/if}}
   </div>
 {{else}}
   {{> loading}}
