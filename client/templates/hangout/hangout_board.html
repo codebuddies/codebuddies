@@ -1,42 +1,64 @@
 <template name="hangoutBoard">
-  <div class="jumbotron">
-    <div class="page-header text-center">
-        <h3>What's Happening</h3>
+  <div class="jumbotron hangout-header-block">
+      <h3 class="text-center">What's Happening ?!!</h3>
+  </div>
+
+  <div class="container hangout-board">
+    <div class="row hangout-filter-block">
+        <div class="col-md-3">
+          <!-- {{hangoutFilter}} -->
+          <select class="form-control" id="hangoutFilter">
+            <option value="live">Live</option>
+            <option value="upcoming">Upcoming</option>
+          </select>
+        </div>
     </div>
-  </div>
+  </div> <!-- ./container hangout-board -->
 
-<div class="container hangout-board">
-  <div class="row hangout-filter-block">
-      <div class="col-md-3">
-        <!-- {{hangoutFilter}} -->
-        <select class="form-control" id="hangoutFilter">
-          <option value="live">Live</option>
-          <option value="upcoming">Upcoming</option>
-        </select>
-      </div>
-  </div>
-</div>
+  {{#if Template.subscriptionsReady}}
+    <div class="container hangout-board">
 
-{{#if Template.subscriptionsReady}}
-  <div class="container">
-    <div class="row">
-      {{#each hangouts}}
-        {{> hangoutCard}}
+      <div class="row">
+          {{#each hangouts}}
 
-      {{else}}
-        <div class="panel panel-default">
-          <div class="panel-body">
-            <h5 class="text-center">There no hangout</h5>
+            {{> hangoutCard}}
+
+          {{else}}
+
+            <div class="col-md-12">
+              <div class="jumbotron align-center">
+                <div class="container">
+                  <div class="row">
+                      <i class="fa fa-circle-o fa-5x"></i>
+                      <h5>There are no Hangouts here !</h5>
+                  </div>
+                 </div>
+              </div>
+            </div>
+
+          {{/each}}
+      </div> <!-- ./row -->
+
+      {{#if status}}
+
+        <div class="row">
+          <div class="col-md-12">
+              <h5 class="text-center well">EOP</h5>
           </div>
         </div>
-      {{/each}}
+
+      {{/if}}
+
+    </div> <!-- ./container hangout-board -->
+
+  {{else}}
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          {{> loading}}
+        </div>
+      </div>
     </div>
-    {{#if hangouts.length}}
-      <div class="btn btn-block btn-primary"> Load More </div>
-    {{/if}}
-  </div>
-{{else}}
-  {{> loading}}
-{{/if}}
+  {{/if}}
 
 </template>

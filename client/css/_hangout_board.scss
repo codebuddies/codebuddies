@@ -4,4 +4,14 @@
       margin-top: 10px;
       margin-bottom: 20px;
   }
+  
+}
+
+.hangout-header-block{
+  height: 100px;
+  @include font-face(400, 17px, normal, $cta-blue);
+}
+
+.stop-scrolling {
+
 }

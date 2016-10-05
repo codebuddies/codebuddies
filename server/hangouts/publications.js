@@ -55,29 +55,30 @@ Meteor.publish("hangoutBoard", function(limit, hangoutFilter) {
   check(hangoutFilter, String);
 
   var query = new Object();
-  var sortOrder = new Object();
   query.visibility = {$ne:false};
+
+
+  var projection = new Object();
+  projection.sort = {'start' : 1};
+  projection.fields = {"topic" : 1, 'host':1, "views" : 1, "users" : 1, "slug" : 1, "start":1, "end":1 ,'type':1};
+  projection.limit = limit;
+
+  var options = new Object();
+  options.reactive=false;
+
   switch (hangoutFilter) {
     case 'live':
-        query.start = {'$lte' : new Date()};
-        query.end = {'$gte' : new Date()};
-        sortOrder.sort = {'start' : -1}
+      query.start = {'$lte' : new Date()};
+      query.end = {'$gte' : new Date()};
+
       break;
     case 'upcoming':
       query.start = {$gte : new Date()};
-      sortOrder.sort = {'start' : -1}
+
       break;
     default:
-
   }
-  // console.log(query);
-  // console.log(sortOrder);
 
-
-  return Hangouts.find(query, sortOrder);
-
-
-  //return Hangouts.find(query, {fields:{'email_addresses': 0 }, sortOrder, 'limit':limit});
-
+  return Hangouts.find(query, projection, options);
 
 });
