@@ -33,29 +33,17 @@ Template.hangout.helpers({
   getDate: function(hangout) {
     var tz = TimezonePicker.detectedZone();
     var startEndDiffDays = (hangout.end - hangout.start)/(1000*60*60*24)
+    var startTime = moment(hangout.start).tz(tz).format('ddd MMMM Do YYYY, h:mm a z')
+    // If endtime is in 24 hours (95% of 24 hours), then show "To Be Announced". Else show the end time
+    var endTime = startEndDiffDays < 0.95 ? moment(hangout.end).tz(tz).format('MMMM Do h:mm a z'): 'To Be Announced '
+    var joinedUsers = hangout.users.length + ' joined'
     //console.log('getDate tz: ' + tz);
     //console.log('getDate hangout.start: '+ hangout.start);
     //console.log('getDate hangout.end: '+ hangout.end);
     //console.log('getDate this.timestamp' + this.timestamp);
     //console.log('getDate this.end' + this.end)
 
-    // Formates the date based on whether or not the difference of the start
-    // and end time is equal to or greater than 24 hours (95% of 24 hours...).
-    if (startEndDiffDays < 0.95 ){
-      return moment(hangout.start).tz(tz).format('ddd MMMM Do YYYY, h:mm a z') +
-        ' - ' +
-        moment(hangout.end).tz(tz).format('MMMM Do h:mm a z') +
-        ' | ' +
-        hangout.users.length +
-        ' joined';
-    } else {
-      return moment(hangout.start).tz(tz).format('ddd MMMM Do YYYY, h:mm a z') +
-        ' - ' +
-        'To Be Announced ' +
-        ' | ' +
-        hangout.users.length +
-        ' joined';
-    }
+    return `${startTime} - ${endTime} | ${joinedUsers}`
   },
   isInProgress: function(hangout) {
 
