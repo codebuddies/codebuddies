@@ -18,19 +18,49 @@
 	height: 350px;
 }
 
+#profileEditBio .form-group:not(.bio) {
+	width: 350px;
+}
+
+#profileEditBio button {
+	width: 100px;
+	margin-top: 10px;
+	margin-left: 15px;
+	float: right;
+}
+
 .profile-top{
 	background: $cta-blue;
 	padding: 60px 0;
 	color: $bg-white;
 	letter-spacing: 0.2px;
 	h3 { margin-top: 0; font-size: 20px; font-weight: 600; line-height: 1.6; }
-	p { font-size: 16px; margin-bottom: 15px; }
+	p { font-size: 16px; margin-bottom: 15px; opacity: .8; }
 	.profile-top-details { display: flex; align-items: center; }
-	.profile-quote { color: $light-blue; text-align: center; line-height: 100px;}
+	.profile-quote { color: $light-blue; line-height: 80px;}
 	.social-icons {
 		a { text-decoration: none; color: $bg-white; }
-		i { font-size: 16.6px; line-height: 1.32; padding-right: 10px; }
+		i { font-size: 18px; line-height: 1.32; padding-right: 10px; }
 	}
+	.form-control:not(:last-child) { margin-bottom: 15px; }
+}
+
+.editProfile {
+	display: inline-block;
+	text-decoration: none;
+	font-size: 10px;
+	color: $bg-white;
+	border: 1px solid $divider;
+	border-radius: 6px;
+	padding: 4px 8px;
+	margin-left: 15px;
+	i { margin-right: 5px; }
+}
+
+.online-now {
+	color: $hangout-collab;
+	font-size: 10px;
+	margin-left: 20px;
 }
 
 .profile-hangouts-completed {

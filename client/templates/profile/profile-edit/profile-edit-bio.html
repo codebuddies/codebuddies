@@ -1,0 +1,30 @@
+<template name="profileEditBio">
+  <div id="profileEditBio">
+
+    <div class="col-md-6">
+      <div class="col-md-3">
+        <img src="{{#if profile.avatar.image_192 }} {{profile.avatar.image_192}} {{else}} {{profile.avatar.default}} {{/if}}" class="img-circle" alt="profile image"/>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" class="form-control" name="username" value="{{username}}">
+        </div>
+        <div class="form-group">
+          <label for="website">Website</label>
+          <input type="text" class="form-control" name="website" value="sharynneazhar.com">
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group bio">
+        <label for="bio">Short Bio</label>
+        <textarea class="form-control" name="bio" value="Always ready to help those in need" rows="5"></textarea>
+      </div>
+      <button type="submit" name="button" class="btn btn-danger">Save</button>
+      <button id="cancelProfileEdit" type="submit" name="button" class="btn btn-white btn-outline">Cancel</button>
+    </div>
+
+
+  </div>
+</template>

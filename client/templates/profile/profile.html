@@ -1,0 +1,75 @@
+<template name="profile">
+<div id="profile">
+  <section class="profile-top">
+    <div class="container">
+      <div class="row">
+
+        {{#if editMode}}
+
+          {{#with userInfo}}
+            {{> profileEditBio}}
+          {{/with}}
+
+        {{else}}
+          <div class="col-md-6 profile-top-details">
+            {{#with userInfo}}
+              <div class="col-md-3">
+                <img src="{{#if profile.avatar.image_192 }} {{profile.avatar.image_192}} {{else}} {{profile.avatar.default}} {{/if}}" class="img-circle" alt="profile image"/>
+              </div>
+              <div class="col-md-9">
+                <h3>{{username}}
+                  {{#if currentUser}}
+                    <a href="#profileEdit" class="editProfile"><i class="fa fa-pencil" aria-hidden="true"></i>{{_ "Edit Profile"}}</a>
+                  {{else}}
+                    <a><i class="fa fa-circle online-now" aria-hidden="true"></i></a>
+                  {{/if}}
+                </h3>
+                <p>Always ready to help those in need.</p>
+                <div class="social-icons">
+                  <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                  <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                  <a href="#"><i class="fa fa-github" aria-hidden="true"></i></a>
+                  <a href="#"><i class="fa fa-slack" aria-hidden="true"></i></a>
+                </div>
+              </div>
+            {{/with}}
+          </div>
+
+          <div class="col-md-6 text-center">
+            <h3 class="profile-quote">
+              "Simplicity is the ultimate sophistication"
+            </h3>
+          </div>
+        {{/if}}
+
+      </div><!--row-->
+    </div> <!-- close container -->
+  </section> <!-- close profile-top -->
+  <section class="profile-middle">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-md-6 profile-hangouts-completed">
+          <div class="box">
+            <h2 class="align-center">{{hangoutsJoinedCount}}</h2>
+            <h3>Hangouts Completed</h3>
+          </div>
+
+          {{> hangoutsJoined }}
+
+        </div>
+
+        <div class="col-md-6 profile-learnings">
+          <div class="box">
+            <h3>#TodayILearned</h3>
+          </div>
+
+          {{> profileLearnings }}
+
+        </div>
+
+      </div><!--row-->
+    </div> <!-- close container -->
+  </section> <!-- close profile-top -->
+</div>
+</template>
