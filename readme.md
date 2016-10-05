@@ -6,6 +6,7 @@
 [![Slack](https://img.shields.io/badge/Chat-on%20Slack-red.svg)](https://codebuddiesmeet.herokuapp.com/)
 [![Gitter](https://img.shields.io/badge/Chat-on%20Gitter-blue.svg)](https://gitter.im/codebuddiesdotorg/cb-v2-scratch)
 
+
 #FAQ
 
 ##What is CodeBuddies?

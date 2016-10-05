@@ -1,5 +1,6 @@
 .full-width-tab {
-  width:100%;
+  width:50%;
+  padding-bottom:1px;
 }
 
 .full-width-tabs {
@@ -7,11 +8,9 @@
   ul.nav.nav-tabs {
     display: table;
     width: 100%;
-    table-layout: fixed;
   }
 
   ul.nav.nav-tabs > li {
-    float: none;
     display: table-cell;
   }
 
