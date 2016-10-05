@@ -1,0 +1,22 @@
+<template name="hangoutBoard">
+  <div class="jumbotron">
+    <div class="page-header text-center">
+        <h3>What's Happening</h3>
+    </div>
+  </div>
+
+{{#if Template.subscriptionsReady}}
+  <div class="container">
+    <div class="row">
+      {{#each hangouts}}
+        {{> hangoutCard}}
+      {{/each}}
+    </div>
+
+    <div class="btn btn-block btn-primary"> Load More </div>
+  </div>
+{{else}}
+  {{> loading}}
+{{/if}}
+
+</template>

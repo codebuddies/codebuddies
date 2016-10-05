@@ -1,0 +1,12 @@
+
+
+.hangout-card{
+
+  min-height: 150px;
+
+  .hangout-topic {
+    @include font-face(400, 17px, normal, $cta-blue);
+    text-align: justify;
+  }
+
+}
