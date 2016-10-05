@@ -1,5 +1,16 @@
+Template.hangoutBoard.onCreated(function(){
+  const title = "CodeBuddies | Learn and chat about code!";
+  const metaInfo = {
+    name: "description",
+    content: "CodeBuddies is a community of independent code learners who enjoy sharing knowledge and helping each other learn faster. We come from all over the world; there are members living in the United States, Japan, Sweden, the United Kingdom, Russia, Australia, Canada, India, and more. Everyone is welcome, independent of previous knowledge."
+  };
+
+  DocHead.setTitle(title);
+  DocHead.addMeta(metaInfo);
+});
+
 Template.hangoutBoard.onCreated(function() {
-   var instance = this;
+   let instance = this;
    instance.limit = new ReactiveVar(54);
    instance.flag = new ReactiveVar(false);
    instance.hangoutFilter = new ReactiveVar('live');
@@ -7,8 +18,8 @@ Template.hangoutBoard.onCreated(function() {
 
 
    instance.autorun(function () {
-     var limit = instance.limit.get();
-     var hangoutFilter = instance.hangoutFilter.get()
+     let limit = instance.limit.get();
+     let hangoutFilter = instance.hangoutFilter.get()
      instance.subscribe('hangoutBoard', limit, hangoutFilter);
    });
 
@@ -19,8 +30,8 @@ Template.hangoutBoard.onCreated(function() {
 });
 
 Template.hangoutBoard.onRendered(function() {
-    var instance = this;
-    var hangoutFilter = instance.hangoutFilter.get() || 'live';
+    let instance = this;
+    let hangoutFilter = instance.hangoutFilter.get() || 'live';
     instance.hangoutFilter.set(hangoutFilter);
 
     instance.scrollHandler = function(){
