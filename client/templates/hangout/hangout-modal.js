@@ -1,8 +1,15 @@
 Template.createHangoutModal.rendered = function() {
   var start = this.$('#start-date-time-picker');
   var end = this.$('#end-date-time-picker');
+  var set_end_block = this.$('#set-end-date-time-block')
+  var set_end = this.$('#set-end-date-time')
 
   $('#d1,#d2,#d3').hide();
+
+  set_end_block.on("click", function(e){
+    end.show();
+    set_end_block.hide();
+  })
 
   start.datetimepicker({
     ignoreReadonly: true,
@@ -56,9 +63,11 @@ Template.createHangoutModal.events({
     const topic = $('#topic').val();
     const description = $('#description').val().replace(/\r?\n/g, '<br />');
     const start = $('#start-date-time').val();
-    const end = $('#end-date-time').val();
+    // If date was not set, return 24 hours later. Else, return end date time
+    const end = $('#end-date-time-picker').attr("style") === "display:none" ? new Date(Date.now() + 60*60*1000*24) : $('#end-date-time').val();
     const type = $('input[name="hangout-type"]:checked').val();
     console.log(start);
+    console.log(end);
 
 
     const data = {
