@@ -7,16 +7,16 @@
 
         <h4>
           <small>
-              <i class="fa {{getType type}}"></i> Host : <a href="{{pathFor 'profile' name=host.name userId=host.id}}">{{host.name}}</a>
+              <i class="fa {{getHangoutTypeSign type}}"></i> Host : <a href="{{pathFor 'profile' name=host.name userId=host.id}}">{{host.name}}</a>
 
               <span class="pull-right">
-                {{users.length}} Joined |
-                {{#if views}} <i class="fa fa-eye" aria-hidden="true" data-toggle="tooltip" title="Views" > {{views}} </i> {{/if}}
+                {{users.length}} Joined
+                {{#if views}}| <i class="fa fa-eye" aria-hidden="true" data-toggle="tooltip" title="Views" > {{views}} </i> {{/if}}
               </span>
           </small>
         </h4>
 
-        <h4><small>{{getDate start}}</small></h4>
+        <h4><small>{{getHangoutStartDateTime start}}</small></h4>
 
       </div>
     </div>
