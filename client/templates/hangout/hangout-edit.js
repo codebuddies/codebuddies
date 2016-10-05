@@ -11,6 +11,21 @@ Template.editHangoutModal.rendered = function() {
     useCurrent: false
   });
 
+  var quill = new Quill('#description', {
+  modules: {
+    toolbar: [
+      [{ header: [1, 2, false] }],
+      ['bold', 'italic', 'underline'],
+      ['image', 'code-block', 'link']
+    ]
+  },
+  placeholder: '',
+  theme: 'snow' // or 'bubble'
+  });
+
+  var text = quill.getContents();
+  quill.setContents(text);
+
 };
 
 Template.editHangoutModal.events({

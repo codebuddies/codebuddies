@@ -27,6 +27,19 @@ Template.cloneHangoutModal.rendered = function() {
 
   });
 
+    var Link = Quill.import('formats/link');
+  var quill = new Quill('#description', {
+  modules: {
+    toolbar: [
+      [{ header: [1, 2, false] }],
+      ['bold', 'italic', 'underline'],
+      ['image', 'code-block', 'link']
+    ]
+  },
+  placeholder: '',
+  theme: 'snow' // or 'bubble'
+  });
+
 };
 
 
