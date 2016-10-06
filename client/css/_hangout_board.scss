@@ -1,5 +1,6 @@
 #hangout-board {
 	.hangout-card {
+		position: relative;
 		display: block;
 		background: #fff;
 		padding: 10px;
@@ -10,6 +11,14 @@
 			@include font-face(600, 16px, bold, $primary-grey);
 			line-height: 25px;
 		}
+		.hangout-details {
+			position: absolute;
+			bottom: 10px;
+		}
+		.hangout-date {
+			margin: 0px;
+		}
+		.details-extra { right: 10px;}
 	}
 	.hangout-card:hover {
 		box-shadow: none;
