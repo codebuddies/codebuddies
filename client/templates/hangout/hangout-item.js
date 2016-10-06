@@ -45,6 +45,10 @@ Template.hangoutItem.helpers({
   getHostName: function(hangout) {
     return hangout.host.name;
   },
+  getDescriptionTruncated: function(hangout) {
+      return hangout.description.substring(0,201)+"...";
+    },
+
   getDate: function(hangout) {
     var tz = TimezonePicker.detectedZone();
     //console.log('getDate tz: ' + tz);
