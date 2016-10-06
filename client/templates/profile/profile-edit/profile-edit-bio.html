@@ -11,15 +11,39 @@
           <input type="text" class="form-control" name="username" value="{{username}}">
         </div>
         <div class="form-group">
-          <label for="website">Website</label>
-          <input type="text" class="form-control" name="website" value="sharynneazhar.com">
+          <label for="location">Location</label>
+          <input type="text" class="form-control" name="location" value="{{location}}">
+        </div>
+        <div class="form-group">
+          <label for="bio">Short Bio</label>
+          <textarea class="form-control" name="bio" value="Always ready to help those in need" rows="3"></textarea>
         </div>
       </div>
     </div>
     <div class="col-md-6">
-      <div class="form-group bio">
-        <label for="bio">Short Bio</label>
-        <textarea class="form-control" name="bio" value="Always ready to help those in need" rows="5"></textarea>
+      <div class="col-md-6" style="padding-left: 0;">
+        <div class="form-group dynamic">
+          <label for="twitter">Twitter</label>
+          <input type="text" class="form-control" name="twitter" value="{{twiiter}}">
+        </div>
+        <div class="form-group dynamic">
+          <label for="GitHub">GitHub</label>
+          <input type="text" class="form-control" name="github" value="{{github}}">
+        </div>
+      </div>
+      <div class="col-md-6" style="padding-right: 0;">
+        <div class="form-group dynamic">
+          <label for="facebook">Facebook</label>
+          <input type="text" class="form-control" name="facebook" value="{{facebook}}">
+        </div>
+        <div class="form-group dynamic">
+          <label for="slack">Slack</label>
+          <input type="text" class="form-control" name="slack" value="{{slack}}">
+        </div>
+      </div>
+      <div class="form-group dynamic">
+        <label for="interests">Programming Interests</label>
+        <textarea class="form-control" name="interests" value="" rows="3" cols="50"></textarea>
       </div>
       <button type="submit" name="button" class="btn btn-danger">Save</button>
       <button id="cancelProfileEdit" type="submit" name="button" class="btn btn-white btn-outline">Cancel</button>

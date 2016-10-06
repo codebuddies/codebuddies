@@ -3,15 +3,12 @@
   <section class="profile-top">
     <div class="container">
       <div class="row">
-
         {{#if editMode}}
-
           {{#with userInfo}}
             {{> profileEditBio}}
           {{/with}}
-
         {{else}}
-          <div class="col-md-6 profile-top-details">
+          <div class="col-md-6 profile-top-left">
             {{#with userInfo}}
               <div class="col-md-3">
                 <img src="{{#if profile.avatar.image_192 }} {{profile.avatar.image_192}} {{else}} {{profile.avatar.default}} {{/if}}" class="img-circle" alt="profile image"/>
@@ -24,7 +21,7 @@
                     <a><i class="fa fa-circle online-now" aria-hidden="true"></i></a>
                   {{/if}}
                 </h3>
-                <p>Always ready to help those in need.</p>
+                <p><i class="fa fa-map-marker" aria-hidden="true"></i> Kansas City, MO</p>
                 <div class="social-icons">
                   <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
                   <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
@@ -34,14 +31,11 @@
               </div>
             {{/with}}
           </div>
-
-          <div class="col-md-6 text-center">
-            <h3 class="profile-quote">
-              "Simplicity is the ultimate sophistication"
-            </h3>
+          <div class="col-md-6 profile-top-right">
+            <p>Always ready to help those in need</p>
+            <p>Mobile/Web App Development</p>
           </div>
         {{/if}}
-
       </div><!--row-->
     </div> <!-- close container -->
   </section> <!-- close profile-top -->

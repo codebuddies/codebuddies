@@ -18,31 +18,43 @@
 	height: 350px;
 }
 
-#profileEditBio .form-group:not(.bio) {
+#profileEditBio .form-group:not(.dynamic) {
 	width: 350px;
 }
 
 #profileEditBio button {
 	width: 100px;
-	margin-top: 10px;
+	margin-top: 15px;
 	margin-left: 15px;
 	float: right;
 }
 
-.profile-top{
+.profile-top {
 	background: $cta-blue;
 	padding: 60px 0;
 	color: $bg-white;
 	letter-spacing: 0.2px;
 	h3 { margin-top: 0; font-size: 20px; font-weight: 600; line-height: 1.6; }
-	p { font-size: 16px; margin-bottom: 15px; opacity: .8; }
-	.profile-top-details { display: flex; align-items: center; }
-	.profile-quote { color: $light-blue; line-height: 80px;}
+	p { font-size: 16px; opacity: .8; }
+	.form-control:not(:last-child) { margin-bottom: 15px; }
 	.social-icons {
+		margin-top: 15px;
 		a { text-decoration: none; color: $bg-white; }
 		i { font-size: 18px; line-height: 1.32; padding-right: 10px; }
 	}
-	.form-control:not(:last-child) { margin-bottom: 15px; }
+}
+
+.profile-top-left {
+	display: flex;
+	align-items: center;
+	height: 100px;
+}
+
+.profile-top-right {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: 110px;
 }
 
 .editProfile {
