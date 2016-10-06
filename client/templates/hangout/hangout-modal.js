@@ -61,7 +61,8 @@ Template.createHangoutModal.events({
   'click #create-hangout': function(e) {
     const templateInstance = Template.instance();
     const topic = $('#topic').val();
-    const description = templateInstance.editor.getContents();
+    const description = QuillEditor.generatePlainTextFromDeltas(templateInstance.editor.getContents());
+    const description_in_quill_delta = templateInstance.editor.getContents();
     const start = $('#start-date-time').val();
     const end = $('#end-date-time').val();
     const type = $('input[name="hangout-type"]:checked').val();
@@ -70,6 +71,7 @@ Template.createHangoutModal.events({
       topic: topic,
       slug: topic.replace(/\s+/g, '-').toLowerCase(),
       description: description,
+      description_in_quill_delta: description_in_quill_delta,
       start: new Date(start),
       end: new Date(end),
       type: type

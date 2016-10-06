@@ -3,7 +3,8 @@ Meteor.methods({
     check(data, Match.ObjectIncluding({
       topic: String,
       slug: String,
-      description: Match.ObjectIncluding({
+      description: String,
+      description_in_quill_delta: Match.ObjectIncluding({
         ops: Match.Any
       }),
       start: Match.OneOf(String, Date),
@@ -19,6 +20,7 @@ Meteor.methods({
       topic: data.topic,
       slug: data.slug,
       description: data.description,
+      description_in_quill_delta: data.description_in_quill_delta,
       start: data.start,
       end: data.end,
       type: data.type,
@@ -98,7 +100,8 @@ Meteor.methods({
     check(data, Match.ObjectIncluding({
       topic: String,
       slug: String,
-      description: Match.ObjectIncluding({
+      description: String,
+      description_in_quill_delta: Match.ObjectIncluding({
         ops: Match.Any
       }),
       start: Match.OneOf(String, Date),
@@ -120,6 +123,7 @@ Meteor.methods({
                       {$set:{ topic: data.topic,
                               slug: data.slug,
                               description: data.description,
+                              description_in_quill_delta: data.description_in_quill_delta,
                               start: data.start,
                               end: data.end,
                               type: data.type } });
@@ -132,6 +136,7 @@ Meteor.methods({
                       {$set:{ topic: data.topic,
                               slug: data.slug,
                               description: data.description,
+                              description_in_quill_delta: data.description_in_quill_delta,
                               start: data.start,
                               end: data.end,
                               type: data.type }});

@@ -2,6 +2,7 @@ import { _ } from 'meteor/erasaur:meteor-lodash';
 import Quill from 'Quill';
 import quillRender from 'quill-render';
 import QuillEditorDefaultOptions from './QuillEditorDefaultOptions';
+import { fromString } from 'html-to-text';
 
 const isQuillDataFormat = (possibleQuillFormat) => {
   return (!_.isUndefined(possibleQuillFormat.ops) && 
@@ -75,7 +76,17 @@ const generateHTMLForDeltas = (data) => {
   return quillRender(normaliseToQuillFormat(data));
 };
 
+const generatePlainTextFromDeltas = (deltas) => {
+  if (!isQuillDataFormat(deltas)) {
+    throw new Error('expecting deltas as an argument');
+  }
+  return fromString(generateHTMLForDeltas(deltas), {
+    hideLinkHrefIfSameAsText: true
+  });
+}
+
 export default {
   createEditor,
-  generateHTMLForDeltas
+  generateHTMLForDeltas,
+  generatePlainTextFromDeltas
 }

@@ -14,6 +14,10 @@ describe('QuillEditor', () => {
         QuillEditor.generateHTMLForDeltas.should.not.be.undefined;
     });
     
+    it('should expose generatePlainTextFromDeltas()', () => {
+        QuillEditor.generatePlainTextFromDeltas.should.not.be.undefined;
+    });
+    
     describe('createEditor', () => {
         var hostElement,
             editor,
@@ -90,16 +94,16 @@ describe('QuillEditor', () => {
                 {
                     "attributes" :
                     {
-                        "link" : "http://google.com"
+                        "link" : "https://codebuddies.org/"
                     },
-                    "insert" : "google"
+                    "insert" : "https://codebuddies.org/"
                 },
                 {
                     "insert" : "\n"
                 }
             ]
         },
-        expectedHTML = '<p>this is some text <a href="http://google.com">google</a></p><p></p>';
+        expectedHTML = '<p>this is some text <a href="https://codebuddies.org/">https://codebuddies.org/</a></p><p></p>';
 
         it('should return html for a sequence of delta', () => {
             var html = QuillEditor.generateHTMLForDeltas(delta);
@@ -110,6 +114,38 @@ describe('QuillEditor', () => {
             var html = QuillEditor.generateHTMLForDeltas('this is a string');
             html.should.be.equal('<p>this is a string</p>'); 
         });
+    });
+    
+    describe('generatePlainTextFromDeltas', () => {
+        var delta = {
+            "ops" : [
+                {
+                    "insert" : "this is some text "
+                },
+                {
+                    "attributes" :
+                    {
+                        "link" : "https://codebuddies.org/"
+                    },
+                    "insert" : "https://codebuddies.org/"
+                },
+                {
+                    "insert" : "\n"
+                }
+            ]
+        },
+        expectedText = 'this is some text https://codebuddies.org/';
+        
+       it('should throw an error if argument is not a Delta object', function() {
+            chai.expect(() => {
+               QuillEditor.generatePlainTextFromDeltas('someString');
+            }).to.throw(Error);
+        }); 
+       
+       it('should return a plain string', function() {
+           var result = QuillEditor.generatePlainTextFromDeltas(delta);
+           result.should.be.equal(expectedText);
+       });
     });
    
 });

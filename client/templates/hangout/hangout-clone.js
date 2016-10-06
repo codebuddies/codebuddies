@@ -8,7 +8,8 @@ Template.cloneHangoutModal.rendered = function() {
     container: editorHostElement
   });
   
-  templateInstance.editor.setContents(templateInstance.data.hangout.data.description)
+  templateInstance.editor.setContents(templateInstance.data.hangout.data.description_in_quill_delta ||
+                                      templateInstance.data.hangout.data.description)
   
   var start = this.$('#start-date-time-picker');
   var end = this.$('#end-date-time-picker');
@@ -46,7 +47,8 @@ Template.cloneHangoutModal.events({
     var templateInstance = Template.instance();
 
     const topic = $('#topic').val();
-    const description = templateInstance.editor.getContents();
+    const description = QuillEditor.generatePlainTextFromDeltas(templateInstance.editor.getContents());
+    const description_in_quill_delta = templateInstance.editor.getContents();
     const start = $('#start-date-time').val();
     const end = $('#end-date-time').val();
     const type = $('input[name="hangout-type"]:checked').val();
@@ -57,6 +59,7 @@ Template.cloneHangoutModal.events({
       topic: topic,
       slug: topic.replace(/\s+/g, '-').toLowerCase(),
       description: description,
+      description_in_quill_delta: description_in_quill_delta,
       start: new Date(start),
       end: new Date(end),
       type: type

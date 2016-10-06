@@ -18,8 +18,12 @@ Template.hangout.rendered = function() {
 }
 
 Template.hangout.helpers({
-  formatDescription: ({description}) => {
-    return QuillEditor.generateHTMLForDeltas(description);
+  formatDescription: ({description_in_quill_delta, description}) => {
+    if (description_in_quill_delta) {
+      return QuillEditor.generateHTMLForDeltas(description_in_quill_delta);
+    } else {
+      return description;
+    }
   },
   hangout: function() {
       return Hangouts.findOne({_id: FlowRouter.getParam('hangoutId')});
