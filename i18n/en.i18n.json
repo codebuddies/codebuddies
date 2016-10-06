@@ -37,6 +37,7 @@
 
 
   // buttons
+  "save_changes": "Save changes",
   "update": "Update",
   "join_hangouts" : "Join Hangouts",
   "create_a_hangout": "Create a Hangout",
