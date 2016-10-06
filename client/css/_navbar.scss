@@ -8,6 +8,7 @@
 
       @include font-face(700, 24px, bold, #000000);
       margin-top: 4px;
+      width: 8em;
 
       img {
         display: inline-block;
@@ -21,7 +22,7 @@
 
 .navbar-default {
   background-color: #ffffff;
-  
+
   .navbar-nav {
 
     li > a {
