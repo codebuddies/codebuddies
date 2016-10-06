@@ -28,7 +28,13 @@
                 <p class="status">
                   <label><i class="fa {{getHangoutTypeSign type}}"></i>
 
-                  {{type}} hangout hosted by <a href="{{pathFor 'profile' name=host.name userId=host.id}}">{{host.name}}</a>
+                  {{type}} hangout hosted by
+
+                      {{#unless currentUser}}
+                        <a href="#" id='visitor'>{{host.name}}</a>
+                      {{else}}
+                        <a href="{{pathFor 'profile' name=host.name userId=host.id}}">{{host.name}}</a>
+                      {{/unless}}
 
                     <br />
                       {{getHangoutStartDateTime start}} - {{getHangoutEndDateTime end}} |

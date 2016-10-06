@@ -7,8 +7,12 @@
 
         <h4>
           <small>
-              <i class="fa {{getHangoutTypeSign type}}"></i> Host : <a href="{{pathFor 'profile' name=host.name userId=host.id}}">{{host.name}}</a>
-
+              <i class="fa {{getHangoutTypeSign type}}"></i> Host :
+                {{#unless currentUser}}
+                  <a href="#" id='visitor'>{{host.name}}</a>
+                {{else}}
+                  <a href="{{pathFor 'profile' name=host.name userId=host.id}}">{{host.name}}</a>
+                {{/unless}}
               <span class="pull-right">
                 {{users.length}} Joined
                 {{#if views}}| <i class="fa fa-eye" aria-hidden="true" data-toggle="tooltip" title="Views" > {{views}} </i> {{/if}}

@@ -99,5 +99,8 @@
 
   // admin header
   "manage_user" : "Manage user",
-  "notification" : "Notification"
+  "notification" : "Notification",
+
+  //visitor
+  "sign_in_to_continue" : "Please sign in to continue."
 }
