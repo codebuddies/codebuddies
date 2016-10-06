@@ -102,5 +102,6 @@
   "notification" : "Notification",
 
   //visitor
-  "sign_in_to_continue" : "Please sign in to continue."
+  "sign_in_to_continue" : "Please sign in to continue.",
+  "browse" : "Browse"
 }
