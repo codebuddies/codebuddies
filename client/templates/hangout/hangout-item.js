@@ -50,15 +50,17 @@ Template.hangoutItem.helpers({
     var startEndDiffDays = (hangout.end - hangout.start)/(1000*60*60*24)
     var startTime = moment(hangout.start).tz(tz).format('ddd MMMM Do YYYY, h:mm a z')
     // If endtime is in 24 hours (95% of 24 hours), then show "To Be Announced". Else show the end time
-    var endTime = startEndDiffDays < 0.95 ? moment(hangout.end).tz(tz).format('MMMM Do h:mm a z'): 'To Be Announced '
-    var joinedUsers = hangout.users.length + ' joined'
+    var endTime = moment(hangout.end).tz(tz).format('MMMM Do h:mm a z')
+    if (startEndDiffDays > 0.95){
+      endTime = 'To Be Announced '
+    }
     //console.log('getDate tz: ' + tz);
     //console.log('getDate hangout.start: '+ hangout.start);
     //console.log('getDate hangout.end: '+ hangout.end);
     //console.log('getDate this.timestamp' + this.timestamp);
     //console.log('getDate this.end' + this.end)
 
-    return `${startTime} - ${endTime} | ${joinedUsers}`
+    return `${startTime} - ${endTime} | ${hangout.users.length} joined`
   },
   isInProgress: function(hangout) {
 
