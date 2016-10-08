@@ -74,8 +74,10 @@
     </div>
 
     <div class="col-md-9">
+
       <p class="status"><label><i class="fa {{getHangoutTypeSign type}}"></i> Host <a href="{{pathFor 'profile' name=host.name userId=host.id}}">{{host.name}}</a></label></p>
       <p class="status"><label><i class="fa fa-calendar fa-lg"></i> {{getHangoutStartDateTime start}} - {{getHangoutEndDateTime end}} | {{users.length}} Joined  {{#if views}} | <i class="fa fa-eye" aria-hidden="true" data-toggle="tooltip" title="Views" > {{views}} </i> {{/if}}</label> </p>
+      <p class="overflowtext">{{ getDescriptionTruncated description }}</p>
     </div>
 
   </div>

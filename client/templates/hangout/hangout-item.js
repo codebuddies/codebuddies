@@ -30,6 +30,9 @@ Template.registerHelper("hangoutOwner", function(ownerid){
 
 
 Template.hangoutItem.helpers({
+  getDescriptionTruncated: function(description) {
+      return description.substring(0,201)+"...";
+    },
   isInProgress: function(hangout) {
 
     return reactiveDate.nowMinutes.get() > hangout.start && reactiveDate.nowMinutes.get() < hangout.end;
