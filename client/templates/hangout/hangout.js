@@ -69,10 +69,17 @@ Template.hangout.events({
     if (!Meteor.userId()) {
       sweetAlert({
         title: TAPi18n.__("you_are_almost_there"),
-        confirmButtonText: TAPi18n.__("ok"),
-        type: 'info',
-        html: "<a href='/'>Test this </a>"
-      });
+        text: TAPi18n.__("login_join_hangout"),
+        confirmButtonText: 'Sign into Slack',
+        type: 'info'
+      },
+      function(){
+        var options = {
+          requestPermissions: ['identify', 'users:read']
+        };
+        Meteor.loginWithSlack(options);
+      }
+    );
     } else {
 
       const data = {
