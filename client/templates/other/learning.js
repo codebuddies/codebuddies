@@ -1,3 +1,0 @@
-Template.sponsorUs.onCreated(function(){
-
-});
