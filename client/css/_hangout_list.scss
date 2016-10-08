@@ -4,6 +4,7 @@
 
   .hangout-item {
     height: 180px;
+    p.overflowtext { color: $warm-grey;}
     p.completed { color: $kudo; text-align: left; line-height: 10px; font-size: 85%}
     padding: 20px 0;
     background: #fff;

@@ -9,7 +9,6 @@ Meteor.startup(function() {
   }, 60 * 1000); // every minute
   /*Hangout Links*/
 
-
 });
 
 Template.hangoutItem.rendered =function() {
@@ -26,7 +25,6 @@ Template.registerHelper("hangoutOwner", function(ownerid){
   }
 
 });
-
 
 
 Template.hangoutItem.helpers({
