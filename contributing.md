@@ -99,6 +99,14 @@ In summary, the steps are:
 Note: When you create a hangout in localhost:3000, a Slack notification will be sent to the #cb2-test channel. This emulates what happens when you create a hangout on codebuddies.org/; a Slack announcement about the hangout will appear in the #general channel.
 
 
+###How do I seed the app with fake Posts/Hangouts
+When the app is run locally, there are no hangouts seeded by default. Hence to be able to see how things work out, some fake posts could be seeded to the app. To do this run the app with the following changes.
+
+1. Open the ```settings-development.json``` file in the root directory of app.
+2. Find the ```"seeder":false``` line inside the file and change it to ```"seeder":true```.
+3. Now start the app normally using ```meteor --settings settings-development.json```
+4. Now you can see that fake data is seeded to the app.
+
 ##Reminders:
 1. Remember, you can always check which branch you are in by typing `git branch` or `git branch -a` to see all the branches that exist.
 
