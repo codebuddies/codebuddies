@@ -38,7 +38,7 @@ Template.hangoutItem.helpers({
     }
   },
   getDescriptionTruncated: function(hangout) {
-    return hangout.description;
+    return hangout.description.substring(0,201)+"...";
   },
   getHostId: function(hangout) {
     return hangout.host.id;
@@ -84,10 +84,6 @@ Template.hangoutItem.helpers({
     }
 
   },
-  getdescription:function(hangout){
-    return hangout.data.description;
-  },
-
   getIsDone: function(hangout) {
     var currentDate = new Date();
     //console.log('getIsDone currentDate:' + currentDate);
@@ -105,6 +101,9 @@ Template.hangoutItem.helpers({
     } else {
       return '';
     }
+  },
+  truncate: function(topic){
+    return topic.truncate()
   }
 });
 

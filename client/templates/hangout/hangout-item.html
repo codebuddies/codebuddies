@@ -2,14 +2,32 @@
   <div class="col-md-4">
 
       <div class="hangout-item">
-        <label class="name">
+
+
+        <h4 class="hangout-date"><small><i class="fa fa-calendar"></i>  {{getHangoutStartDateTime start}}</small></h4>
         {{#if isInProgress this}}
           &nbsp; &nbsp;<i class="fa fa-dot-circle-o fa text-danger faa-burst animated"></i> &nbsp;
         {{/if}}
-          <a href="{{pathFor 'hangout' hangoutId=_id }}" class="hangout-topic {{# if completed this }}completed{{/if}}"> {{topic}} </a>
-        </label>
+        <a href="{{pathFor 'hangout' hangoutId=_id }}" class="hangout-topic {{# if completed this }}completed{{/if}}"> {{truncate topic}} </a>
+        <h4>
+          <small class="hangout-details">
+              <i class="fa {{getHangoutTypeSign type}}"></i> Host
+                {{#unless currentUser}}
+                  <a href="#" id='visitor'>{{host.name}}</a>
+                {{else}}
+                  <a href="{{pathFor 'profile' name=host.name userId=host.id}}">{{host.name}}</a>
+                {{/unless}}
+           </small>
+            <small class="hangout-details details-extra">
+                {{users.length}} Joined
+                {{#if views}}| <i class="fa fa-eye" aria-hidden="true" data-toggle="tooltip" title="Views" > {{views}} </i> {{/if}}
+            </small>
+         
+        </h4>
         {{> hangoutActionBar}}
      
+     
+
        {{# unless completed this }}
           {{# unless url }}
                 {{#if hangoutOwner host.id}}
@@ -69,10 +87,8 @@
     </div>
 
     <div class="col-md-9">
-
-      <p class="status"><label><i class="fa {{getHangoutTypeSign type}}"></i> Host <a href="{{pathFor 'profile' name=host.name userId=host.id}}">{{host.name}}</a></label></p>
-      <p class="status"><label><i class="fa fa-calendar fa-lg"></i> {{getHangoutStartDateTime start}} - {{getHangoutEndDateTime end}} | {{users.length}} Joined  {{#if views}} | <i class="fa fa-eye" aria-hidden="true" data-toggle="tooltip" title="Views" > {{views}} </i> {{/if}}</label> </p>
-      <p class="overflowtext">{{ getDescriptionTruncated description }}</p>
+     
+      <p class="overflowtext">{{ getDescriptionTruncated this }}</p>
     </div>
 
 
