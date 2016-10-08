@@ -1,7 +1,7 @@
 ##FAQ
 1. How do I start up the app?
   * `meteor npm install`
-  * `npm run meteor:dev`
+  * `meteor --settings settings-development.json`
 
 ## The first 6 steps to take if you want to contribute to this open-sourced project:
 1. Add your name on the google doc [bit.ly/codebuddies-hangouts-platform-v2-googledoc](http://bit.ly/codebuddies-hangouts-platform-v2-googledoc) if your name is not listed, and you want to be recognized as a collaborator.
