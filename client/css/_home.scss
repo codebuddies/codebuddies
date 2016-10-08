@@ -58,6 +58,7 @@
   .home-top, .home-ask {
     padding: 120px 0 0 0;
     overflow: hidden;
+    background: $cta-blue;
     h2 {
       @include font-face(600, 36px, bold, $bg-white);
     }
