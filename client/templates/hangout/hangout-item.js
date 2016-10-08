@@ -109,6 +109,9 @@ Template.hangoutItem.helpers({
 });
 
 Template.hangoutItem.events({
+  'mouseover .hangout-item': function() {
+    console.log('hovered');
+  },
   'click #join-hangout': function() {
     if (!Meteor.userId()) {
       sweetAlert({

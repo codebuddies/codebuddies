@@ -1,9 +1,6 @@
 #home {
   p { line-height: 27px; color: $primary-grey; }
 
-  &.logged-in { margin-top: 50px; }
-
-
   .join-slack {
     overflow: auto;
     max-width: 440px;
