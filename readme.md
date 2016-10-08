@@ -1,6 +1,6 @@
-![CodeBuddies logo](http://codebuddies.org/images/cb-readme.jpg)
+![CodeBuddies logo](https://github.com/codebuddiesdotorg/cb-v2-scratch/raw/master/public/images/cb-readme.jpg)
 
-#CodeBuddies Hangouts Platform v2.0 - from scratch
+# CodeBuddies Hangouts Platform v2.0 - from scratch
 
 [![Waffle.io](https://img.shields.io/waffle/label/codebuddiesdotorg/cb-v2-scratch/Ready.svg?label=Ready&title=Ready)](https://waffle.io/codebuddiesdotorg/cb-v2-scratch)
 [![Slack](https://img.shields.io/badge/Chat-on%20Slack-red.svg)](https://codebuddiesmeet.herokuapp.com/)
@@ -16,7 +16,7 @@ Learning with each other helps us learn faster. We strive to create a safe space
 
 ##What are you trying to build here?
 
-![screenshot of what we're building](http://codebuddies.org/images/cb-example.png)
+![screenshot of what we're building](https://github.com/codebuddiesdotorg/cb-v2-scratch/raw/master/public/images/cb-example.png)
 Credit: [Ada Chiu](https://github.com/adachiu).
 
 ##Why are you building this site?
