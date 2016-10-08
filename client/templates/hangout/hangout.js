@@ -69,9 +69,9 @@ Template.hangout.events({
     if (!Meteor.userId()) {
       sweetAlert({
         title: TAPi18n.__("you_are_almost_there"),
-        text: TAPi18n.__("login_join_hangout"),
         confirmButtonText: TAPi18n.__("ok"),
-        type: 'info'
+        type: 'info',
+        html: "<a href='/'>Test this </a>"
       });
     } else {
 
