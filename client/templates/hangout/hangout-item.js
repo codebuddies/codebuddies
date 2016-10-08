@@ -30,6 +30,42 @@ Template.registerHelper("hangoutOwner", function(ownerid){
 
 
 Template.hangoutItem.helpers({
+// <<<<<<< HEAD
+// =======
+//   getType: function(type) {
+//     if (type == 'silent') {
+//       return 'fa-microphone-slash text-danger-color';
+//     } else if (type == 'teaching') {
+//       return 'fa-user text-warning-color';
+//     } else if (type == 'collaboration') {
+//       return 'fa-users text-success-color';
+//     }
+//   },
+//   getHostId: function(hangout) {
+//     return hangout.host.id;
+//   },
+//   getHostName: function(hangout) {
+//     return hangout.host.name;
+//   },
+//   getDescriptionTruncated: function(hangout) {
+//       return hangout.description.substring(0,201)+"...";
+//     },
+//
+//   getDate: function(hangout) {
+//     var tz = TimezonePicker.detectedZone();
+//     //console.log('getDate tz: ' + tz);
+//     //console.log('getDate hangout.start: '+ hangout.start);
+//     //console.log('getDate hangout.end: '+ hangout.end);
+//     //console.log('getDate this.timestamp' + this.timestamp);
+//     //console.log('getDate this.end' + this.end)
+//     return moment(hangout.start).tz(tz).format('ddd MMMM Do YYYY, h:mm a z') +
+//       ' - ' +
+//       moment(hangout.end).tz(tz).format('MMMM Do h:mm a z') +
+//       ' | ' +
+//       hangout.users.length +
+//       ' joined';
+//   },
+// >>>>>>> c6424e35dd7d353a008034133eb346b5a1f87301
   isInProgress: function(hangout) {
 
     return reactiveDate.nowMinutes.get() > hangout.start && reactiveDate.nowMinutes.get() < hangout.end;
