@@ -22,8 +22,21 @@ input:focus, textarea:focus {
 
   span.interest {
     @include font-face(600, 13px, italic, $warm-grey);
-    @include breakpoint(tiny) { display: block; }
-    @include breakpoint(xsmall) { display: block; }
+    display: inline-block;
+    width: 100px;
   }
 
+  span.charactersLeft {
+    margin-left: 90px;
+    position: relative;
+    top: -20px;
+  }
+  span.learnedCharactersLeft {
+    margin-left: 300px;
+  }
+  #status-buttons { 
+    position: relative;
+    top: -10px;
+  }
+  button.btn-hangout-status { position: relative; top: -10px;}
 }

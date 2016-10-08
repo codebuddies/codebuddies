@@ -1,3 +1,5 @@
+import {_} from 'meteor/erasaur:meteor-lodash';
+
 Template.hangoutsJoined.onCreated(function() {
   var instance = this;
    instance.limit = new ReactiveVar(5);
@@ -6,7 +8,7 @@ Template.hangoutsJoined.onCreated(function() {
    instance.autorun(function () {
      var limit = instance.limit.get();
      var userId = FlowRouter.getParam('userId');
-     instance.subscribe('hangouts', limit, userId);
+     instance.subscribe('hangoutsJoined', limit, userId);
    });
 
 });
@@ -17,7 +19,9 @@ Template.hangoutsJoined.onRendered(function() {
 
     instance.loadHangouts = function() {
       var userId = FlowRouter.getParam('userId');
-      return Hangouts.find();
+      var arr = Hangouts.find().fetch();
+      var userHangouts = _.filter(arr, function(elem) { return elem.users.includes(userId)});
+      return userHangouts;
     }
 
     instance.addMoreHangouts = function(){

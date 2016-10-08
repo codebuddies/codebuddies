@@ -1,4 +1,7 @@
 {
+  "public":{
+    "isModeDebug": false
+  },
   "private": {
     "mailchimp": {
       "apiKey": "mailchimp-api-key",
@@ -10,6 +13,7 @@
     }
   },
   "isModeProduction": false,
+  "seeder":false,
   "slack_clientid": "4364220508.48656557590",
   "slack_clientsecret": "33e0c6dda98e994f194efdc9b6d35c46",
   "slack": "https://hooks.slack.com/services/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",

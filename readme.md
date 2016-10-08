@@ -1,7 +1,11 @@
-[![Stories in Ready](https://badge.waffle.io/codebuddiesdotorg/cb-v2-scratch.png?label=ready&title=Ready)](https://waffle.io/codebuddiesdotorg/cb-v2-scratch)
-#CodeBuddies Hangouts Platform v2.0 - from scratch
+![CodeBuddies logo](https://github.com/codebuddiesdotorg/cb-v2-scratch/raw/master/public/images/cb-readme.jpg)
 
-[![Join the chat at https://gitter.im/codebuddiesdotorg/cb-v2-scratch](https://badges.gitter.im/codebuddiesdotorg/cb-v2-scratch.svg)](https://gitter.im/codebuddiesdotorg/cb-v2-scratch?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+# CodeBuddies Hangouts Platform v2.0 - from scratch
+
+[![Waffle.io](https://img.shields.io/waffle/label/codebuddiesdotorg/cb-v2-scratch/Ready.svg?label=Ready&title=Ready)](https://waffle.io/codebuddiesdotorg/cb-v2-scratch)
+[![Slack](https://img.shields.io/badge/Chat-on%20Slack-red.svg)](https://codebuddiesmeet.herokuapp.com/)
+[![Gitter](https://img.shields.io/badge/Chat-on%20Gitter-blue.svg)](https://gitter.im/codebuddiesdotorg/cb-v2-scratch)
+
 
 #FAQ
 
@@ -12,7 +16,7 @@ Learning with each other helps us learn faster. We strive to create a safe space
 
 ##What are you trying to build here?
 
-![screenshot of what we're building](http://codebuddies.org/images/code-buddies-landing.png)
+![screenshot of what we're building](https://github.com/codebuddiesdotorg/cb-v2-scratch/raw/master/public/images/cb-example.png)
 Credit: [Ada Chiu](https://github.com/adachiu).
 
 ##Why are you building this site?
@@ -27,19 +31,19 @@ And here are the volunteers so far:
 - @sbe, https://github.com/sbe - contributed to discussion on features
 - @abdulhannanali, https://github.com/abdulhannanali - contributed to the start of a #todayilearned slackbot
 - @bethanyg, https://github.com/bethanyg - contributed good advice and discussion on features
-- @mattierae https://github.com/mattierae - contributed awesome balsamiq mockups
-- @adachiu https://github.com/adachiu - contributed awesome high-quality designs for almost every page of the app, lead the design and UX thinking
-- @wuworkshop https://github.com/wuworkshop - contributed advice on a huge number of issues and helped organize the git process flow
-- @Richardh https://github.com/studentrik
-- @anbuselvan https://github.com/anbuselvan - contributed code for the foundations of the app, including hangout/learning creation and Slack authentication.
-- @husam https://github.com/hudat
-- @ccr https://github.com/Iccr
-- @ghazi https://github.com/ghmoha
-- @mualth https://github.com/maudem
-- @oliver84 https://github.com/Oliver84
+- @mattierae, https://github.com/mattierae - contributed awesome balsamiq mockups
+- @adachiu, https://github.com/adachiu - contributed awesome high-quality designs for almost every page of the app, lead the design and UX thinking
+- @wuworkshop, https://github.com/wuworkshop - contributed advice on a huge number of issues and helped organize the git process flow
+- @Richardh, https://github.com/studentrik
+- @anbuselvan, https://github.com/anbuselvan - contributed code for the foundations of the app, including hangout/learning creation and Slack authentication.
+- @husam, https://github.com/hudat
+- @ccr, https://github.com/Iccr
+- @ghazi, https://github.com/ghmoha
+- @mualth, https://github.com/maudem
+- @oliver84, https://github.com/Oliver84
 - @selfspunwebs, https://github.com/anonRegions
-- @luxis https://github.com/Luxisapex - contributed to various issues, including the "kudos" feature which lets users upvote learnings
-- @sergeant-q https://github.com/sergeant-q - contributed fixes for issues, including hangout deletion and email notification for cancelled hangouts, and improved thinking on process steps for how to collaborate on this app
+- @luxis, https://github.com/Luxisapex - contributed to various issues, including the "kudos" feature which lets users upvote learnings
+- @sergeant-q, https://github.com/sergeant-q - contributed fixes for issues, including hangout deletion and email notification for cancelled hangouts, and improved thinking on process steps for how to collaborate on this app
 - @daisukeoka, https://github.com/daisukeokaoss
 - @adanot, https://github.com/adanot
 - @sheldonbarnes, https://github.com/sheldonbarnes - contributed fixes to issues, including textarea word limit
@@ -49,11 +53,12 @@ And here are the volunteers so far:
 - @will, http://github.com/William-R-Wilson - contributed fixes to issues, including ability to edit/trash learnings
 - @anon user(s) - contributed fixes to bugs, including security measures, re-touching of the kudos layout, and scrolling pagination
 - @olivia, http://github.com/foxiae - contributed to discussions on features
+- @abhiii5459, http://github.com/abhiii5459 - contributed to PR#239. Working on Fix#203 along with @linda.
 - Add Your Name on the Google Doc (link below) If You Want To Help, then read ***[contributing.md](contributing.md)***
 
 If you'd like to help contribute, add your name on the google doc at [http://bit.ly/codebuddies-hangouts-platform-v2-googledoc](http://bit.ly/codebuddies-hangouts-platform-v2-googledoc), say hello in the [#codebuddies-meta](https://codebuddiesmeet.slack.com/messages/codebuddies-meta/) channel on Slack, and be sure to read the "how do I contribute" instructions on [contributing.md](contributing.md)!
 
 P.S. We'll schedule hangouts to do code walkthroughs or code show and tells occasionally, and announce it in the #codebuddies-meta channel on Slack. The goal is to help everyone who wants to contribute to this app learn quickly through collaboration. The list of contributors above contains a good mix of full-time developers and as well as people contributing to an open-sourced project for the first time.
 
-
-
+##Support CodeBuddies by becoming a sponsor
+This project is hosted on DigitalOcean. You can help keep this project alive by becoming a [sponsor of the month!](https://codebuddies.org/sponsor)

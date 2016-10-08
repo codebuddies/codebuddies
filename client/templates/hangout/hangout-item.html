@@ -6,7 +6,7 @@
         {{#if isInProgress this}}
           &nbsp; &nbsp;<i class="fa fa-dot-circle-o fa text-danger faa-burst animated"></i> &nbsp;
         {{/if}}
-          <a href="/hangout/{{_id}}" class="hangout-topic {{# if completed this }}completed{{/if}}"> {{topic}} </a>
+          <a href="{{pathFor 'hangout' hangoutId=_id }}" class="hangout-topic {{# if completed this }}completed{{/if}}"> {{topic}} </a>
         </label>
         {{> hangoutActionBar}}
      
@@ -34,7 +34,7 @@
                   <a class="btn btn-cb2 btn-grey btn-success" href="{{url}}" target="_blank">{{_ "join"}}</a>
                 {{else}}
                   {{#unless hangoutOwner host.id}}
-                        <p class="status">Please wait for <a href="https://codebuddiesmeet.slack.com/messages/{{getHostId this}}">@{{getHostName this}}</a> to start the hangout.</p>
+                        <p class="status">Please wait for <a href="https://codebuddiesmeet.slack.com/messages/{{host.name}}">@{{host.name}}</a> to start the hangout.</p>
                       {{/unless}}
                 {{/if}}
 
@@ -66,8 +66,12 @@
 
         {{/if}} <!-- if equals visibility false -->
 
-      <p class="status"><label><i class="fa {{getType type}}"></i> Host <a href="{{pathFor 'profile' name=host.name userId=host.id}}">{{host.name}}</a></label></p>
-      <p class="status"><label><i class="fa fa-calendar fa-lg"></i> {{getDate this}}  {{#if views}} | <i class="fa fa-eye" aria-hidden="true" data-toggle="tooltip" title="Views" > {{views}} </i> {{/if}}</label> </p>
+    </div>
+
+    <div class="col-md-9">
+      <p class="status"><label><i class="fa {{getHangoutTypeSign type}}"></i> Host <a href="{{pathFor 'profile' name=host.name userId=host.id}}">{{host.name}}</a></label></p>
+      <p class="status"><label><i class="fa fa-calendar fa-lg"></i> {{getHangoutStartDateTime start}} - {{getHangoutEndDateTime end}} | {{users.length}} Joined  {{#if views}} | <i class="fa fa-eye" aria-hidden="true" data-toggle="tooltip" title="Views" > {{views}} </i> {{/if}}</label> </p>
+    </div>
 
 
 

@@ -16,7 +16,7 @@ Template.hangoutList.onRendered(function() {
 
     instance.loadHangouts = function() {
 
-      return Hangouts.find();
+      return Hangouts.find({}, {sort: {start: -1}});
     }
 
     instance.addMoreHangouts = function(){
