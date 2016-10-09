@@ -1,6 +1,6 @@
 {
   "public":{
-    "isModeDebug": false
+    "isModeDebug": true
   },
   "private": {
     "mailchimp": {

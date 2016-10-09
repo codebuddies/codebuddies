@@ -3,7 +3,7 @@
 }
 
 #create-hangout-modal h4 {
-  @include font-face(700, 20px, bold, #000000);
+  @include font-face(700, 20px, bold, $black);
 }
 
 #create-hangout-modal, #edit-hangout-modal, #clone-hangout-modal {

@@ -3,9 +3,9 @@ import faker from 'faker';
 export const  hangoutCollectionSeeder = (user, dateTime) =>{
 
   let topic = faker.lorem.sentence();
-  let start = dateTime;
-  const end = start.setHours(start.getHours() + 1);
-
+  const start = dateTime;
+  //1*1000*60*60 increment an hour
+  const end = new Date(dateTime.getTime() + (1*1000*60*60));
 
   const hangoutType = ['silent', 'teaching', 'collaboration'];
   const hangout = {
