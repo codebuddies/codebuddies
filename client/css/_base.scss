@@ -1,7 +1,7 @@
 body {
   padding: 0;
   background: url(/images/pattern.png) left top repeat;
-  #profile { background: #fff;}
+  #profile { background: $bg-white;}
 }
 
 html, body {
@@ -56,5 +56,4 @@ a:hover {
 #post {
   ul { list-style: none; }
   margin-top: 30px;
-  .btn-cb2 { position: relative; top: 30px;}
 }

@@ -1,45 +1,35 @@
-Meteor.methods({
-  emailHangoutUsers: function(hangoutId) {
-    // ssr for email template rendering
+emailNotification = function(hangout, type){
+  let emails = hangout.email_addresses.join(",");
+  let subject;
+  if(type === "REMINDER"){
+     SSR.compileTemplate('notifyEmail', Assets.getText('email-hangout-reminder.html'));
+     subject = 'CodeBuddies Alert: Hangout Reminder - ' + hangout.topic + ' is scheduled to start within 24 hours!';
+  }
+  if(type === "DELETED"){
     SSR.compileTemplate('notifyEmail', Assets.getText('email-hangout-alerts.html'));
+    subject = 'CodeBuddies Alert: Hangout - ' + hangout.topic + ' has been CANCELLED';
+  }
 
-    const tz = "America/Los_Angeles";
-    const hangout = Hangouts.findOne(hangoutId);
-    const user_id = hangout.host.id;
-    const host = hangout.host.name;
-    const hangout_topic = hangout.topic;
-    const hangout_start_time = hangout.start;
+  const template_data = {
+    hangout_topic: hangout.topic,
+    host: hangout.host.name,
+    hangout_start_time: moment.utc( hangout.start ).format('MMMM Do YYYY, h:mm a z'),
+    logo: Meteor.absoluteUrl('images/logo.svg'),
+    hangout_url: Meteor.absoluteUrl("hangout/" + hangout._id)
+  };
 
-    if(hangout.attendees.length === 0)
-    return true;
-
-    let emails = hangout.email_addresses.join(",");
-
-    const template_data = {
-      hangout_topic: hangout_topic,
-      host: host,
-      hangout_start_time: moment(hangout_start_time).tz(tz).format('MMMM Do YYYY, h:mm a z'),
-      logo: Meteor.absoluteUrl('images/cb2-180.png')
-    };
-
-
-    const data = {
-      to: emails,
-      from: Meteor.settings.email_from,
-      html: SSR.render('notifyEmail', template_data),
-      subject: 'CodeBuddies Alert: Hangout - ' + hangout_topic + ' has been CANCELLED'
-    }
-    // let other method calls from same client to star running.
-    // without needing to wait to send email
-    this.unblock();
+   const data = {
+    to: emails,
+    from: Meteor.settings.email_from,
+    html: SSR.render('notifyEmail', template_data),
+    subject: subject,
+  }
 
     try {
-      Email.send(data);
+     Email.send(data);
     } catch ( e ) {
-      //debug
-      //console.log("Email.send() error: " + e.message);
       return false;
+    } finally {
+      return true;
     }
-    return true;
-  }
-});
+}

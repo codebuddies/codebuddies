@@ -4,3 +4,22 @@ Template.about.onCreated(function(){
   DocHead.setTitle(title);
   DocHead.addMeta(metaInfo);
 });
+
+Template.about.onRendered(function(){
+	$(function() {
+
+	  //$('a.user-popover').popover({ trigger: "hover", html: "true" });
+	  $('a.user-popover').each(function () {
+        var $elem = $(this);
+        $elem.popover({
+            placement: 'top',
+            trigger: 'hover',
+            html: true,
+            container: $elem,
+            animation: false,
+            title: 'Name goes here',
+            content: 'This is the popover content. You should be able to mouse over HERE.'
+        });
+    });
+	 });
+});

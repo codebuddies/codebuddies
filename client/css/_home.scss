@@ -6,6 +6,17 @@
 
   &.logged-in { margin-top: 50px; }
 
+
+  .join-slack {
+    overflow: auto;
+    max-width: 440px;
+    margin: 0 auto;
+    input { float: left;}
+    button { float: right;}
+    p { @include font-face(200, 13px, normal, $bg-white); line-height: 1.9; margin-top: 10px; }
+    a { text-decoration: underline; color: $white; white-space: nowrap; }
+  }
+
   .heading  {
     @include font-face(700, 32px, bold, $primary-grey);
     text-align: center;
@@ -48,7 +59,7 @@
 
   .home-top, .home-ask {
     padding: 120px 0 0 0;
-    background: dodgerblue;
+    background: $dodgerblue;
     overflow: hidden;
     h2 {
       @include font-face(600, 36px, bold, $bg-white);
@@ -60,13 +71,13 @@
     img#slack-screenshot {
       @include box-shadow(0px, 12px, 60px, rgba(0,0,0,0.8));
       @include border-top-radius(10px);
+      margin: 0 auto;
     }
     .slack-window {
-      width: 79%;
       margin: 0 auto;
     }
     .slack-invite {
-      color: white;
+      color: $white;
       font-size: 11px;
     }
     #intro {
@@ -74,31 +85,22 @@
       max-width: 530px;
       margin: 0 auto;
       margin-bottom: 40px;
-      .join-slack {
-        overflow: auto;
-        width: 440px;
-        margin: 0 auto;
-        input { float: left;}
-        button { float: right;}
-        p { @include font-face(200, 13px, normal, $bg-white); line-height: 1.9; margin-top: 10px;}
-        a { text-decoration: underline; color: #fff;}
-      }
     }
     .intro {
       margin: 40px 0;
     }
     .footnote {
       @include font-face(200, 12px, normal, $bg-white);
-      a {color: $bg-white; text-decoration: underline;}
+      a {color: $white; text-decoration: underline;}
     }
     .slack-note {
-    @include breakpoint(medium) { margin-top: 70px; max-width: 300px; }
+      @include breakpoint(medium) { margin-top: 70px; max-width: 300px; }
       line-height: 16px;
       p {
         @include font-face(200, 12px, normal, $bg-white); line-height: 18px;
         @include breakpoint(medium) { max-width: 350px; }
       }
-      a {color: $bg-white; text-decoration: underline;}
+      a {color: $white; text-decoration: underline;}
     }
   }
 
@@ -134,7 +136,7 @@
         position: absolute;
         bottom: 0px;
       }
-      img { margin-top: 50px;}
+      img { margin-top: 50px; width: 80%;}
       height: 444px;
       .hangout-details {
         overflow: auto;
@@ -208,18 +210,10 @@
   }
   .home-ask {
     padding: 60px 0;
-    h2 { text-align: center;}
-     .join-slack {
-        text-align: center;
-        overflow: auto;
-        width: 440px;
-        margin: 0 auto;
-        margin-top: 50px;
-        input { float: left;}
-        button { float: right;}
-        p { @include font-face(200, 13px, normal, $bg-white); line-height: 1.9; margin-top: 10px;}
-        a { text-decoration: underline; color: #fff;}
-      }
+    text-align: center;
+    .join-slack {
+      margin-top: 50px;
+    }
   }
 
 

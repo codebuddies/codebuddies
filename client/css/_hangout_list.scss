@@ -3,6 +3,7 @@
   padding: 0;
 
   .hangout-item {
+    p.overflowtext { color: $warm-grey;}
     p.completed { color: $kudo; text-align: left; line-height: 10px; font-size: 85%}
     border-top: 1px solid $divider;
     padding: 20px 0;
@@ -13,6 +14,7 @@
     .hangout-topic {
       @include font-face(400, 17px, normal, $cta-blue);
     }
+    .hangout-topic.completed { color: $warm-grey; font-weight: 600;}
     #leave-hangout { text-decoration: underline; text-align: center; display: block;
         @include font-face(400, 12px, normal, $cta-blue);}
     p.upcoming { text-transform: uppercase; color: $kudo; text-align: left; line-height: 20px; font-size: 85%}
@@ -21,6 +23,9 @@
       display: table;
       padding: 0;
       margin: 0;
+      line-height: 1.2;
+      font-weight: 200;
+      color: $warm-grey;
 
       li {
         display: table-cell;

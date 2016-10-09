@@ -60,3 +60,21 @@ Meteor.methods({
     return true;
   }
 });
+
+
+Meteor.methods({
+  removeLearnings:function(userId){
+    check(userId, String);
+
+    if (this.userId !== userId) {
+      throw new Meteor.Error('Learnings.methods.removeLearnings.not-logged-in', 'Must be logged in to Remove Learnings.');
+    }
+
+    return Learnings.update({'hostId': userId},
+                           {$set: {visibility: false}},
+                           {multi: true});
+
+
+
+  }
+});

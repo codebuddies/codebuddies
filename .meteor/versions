@@ -16,6 +16,10 @@ blaze@2.1.7
 blaze-html-templates@1.0.4
 blaze-tools@1.0.8
 boilerplate-generator@1.0.8
+browser-policy@1.0.9
+browser-policy-common@1.0.9
+browser-policy-content@1.0.10
+browser-policy-framing@1.0.10
 caching-compiler@1.0.4
 caching-html-compiler@1.0.6
 callback-hook@1.0.8
@@ -58,9 +62,14 @@ kadira:dochead@1.5.0
 kadira:flow-router@2.12.1
 lai:collection-extensions@0.1.4
 launch-screen@1.0.11
+less@2.6.0
 livedata@1.0.18
 localstorage@1.0.9
 logging@1.0.12
+matb33:bootstrap-base@10.0.0
+matb33:bootstrap-popovers@10.0.0
+matb33:bootstrap-tooltip@10.0.0
+matb33:bootstrap-transition-js@10.0.0
 meteor@1.1.14
 meteor-base@1.0.4
 meteorhacks:kadira@2.30.0

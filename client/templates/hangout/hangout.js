@@ -15,29 +15,6 @@ Template.hangout.helpers({
   hangout: function() {
       return Hangouts.findOne({_id: FlowRouter.getParam('hangoutId')});
   },
-  getType: function(type) {
-    if (type == 'silent') {
-      return 'fa-microphone-slash text-danger-color';
-    } else if (type == 'teaching') {
-      return 'fa-user text-warning-color';
-    } else if (type == 'collaboration') {
-      return 'fa-users text-success-color';
-    }
-  },
-  getDate: function(hangout) {
-    var tz = TimezonePicker.detectedZone();
-    //console.log('getDate tz: ' + tz);
-    //console.log('getDate hangout.start: '+ hangout.start);
-    //console.log('getDate hangout.end: '+ hangout.end);
-    //console.log('getDate this.timestamp' + this.timestamp);
-    //console.log('getDate this.end' + this.end)
-    return moment(hangout.start).tz(tz).format('ddd MMMM Do YYYY, h:mm a z') +
-      ' - ' +
-      moment(hangout.end).tz(tz).format('MMMM Do h:mm a z') +
-      ' | ' +
-      hangout.users.length +
-      ' joined';
-  },
   isInProgress: function(hangout) {
 
     var hangout_links = {
@@ -116,7 +93,7 @@ Template.hangout.events({
     }
   },
   'click #leave-hangout': function() {
-    if (this.user_id == Meteor.userId()) {
+    if (this.host.id == Meteor.userId()) {
       sweetAlert({
         title: TAPi18n.__("remove_owner_from_hangout"),
         confirmButtonText: TAPi18n.__("ok"),
@@ -134,4 +111,12 @@ Template.hangout.events({
       });
     }
   },
+  "click #visitor": function(event, template){
+    event.preventDefault();
+    sweetAlert({
+      title: TAPi18n.__("sign_in_to_continue"),
+      confirmButtonText: TAPi18n.__("ok"),
+      type: 'info'
+    });
+  }
 });

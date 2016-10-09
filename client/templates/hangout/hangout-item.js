@@ -30,36 +30,10 @@ Template.registerHelper("hangoutOwner", function(ownerid){
 
 
 Template.hangoutItem.helpers({
-  getType: function(type) {
-    if (type == 'silent') {
-      return 'fa-microphone-slash text-danger-color';
-    } else if (type == 'teaching') {
-      return 'fa-user text-warning-color';
-    } else if (type == 'collaboration') {
-      return 'fa-users text-success-color';
-    }
-  },
-  getDate: function(hangout) {
-    var tz = TimezonePicker.detectedZone();
-    //console.log('getDate tz: ' + tz);
-    //console.log('getDate hangout.start: '+ hangout.start);
-    //console.log('getDate hangout.end: '+ hangout.end);
-    //console.log('getDate this.timestamp' + this.timestamp);
-    //console.log('getDate this.end' + this.end)
-    return moment(hangout.start).tz(tz).format('ddd MMMM Do YYYY, h:mm a z') +
-      ' - ' +
-      moment(hangout.end).tz(tz).format('MMMM Do h:mm a z') +
-      ' | ' +
-      hangout.attendees.length +
-      ' joined';
-  },
+  getDescriptionTruncated: function(description) {
+      return description.substring(0,201)+"...";
+    },
   isInProgress: function(hangout) {
-
-    var hangout_links = {
-      'http://codebuddies.org/javascript-hangout': 'free',
-      'http://codebuddies.org/meteor-hangout': 'free',
-      'http://codebuddies.org/python-hangout': 'free'
-    }
 
     return reactiveDate.nowMinutes.get() > hangout.start && reactiveDate.nowMinutes.get() < hangout.end;
 
@@ -131,7 +105,7 @@ Template.hangoutItem.events({
     }
   },
   'click #leave-hangout': function() {
-    if (this.user_id == Meteor.userId()) {
+    if (this.host.id == Meteor.userId()) {
       sweetAlert({
         title: TAPi18n.__("remove_owner_from_hangout"),
         confirmButtonText: TAPi18n.__("ok"),
@@ -185,7 +159,7 @@ Template.hangoutItem.events({
     } else {
 
       Session.set('hangoutId', hangout.data._id);
-      Session.set('hostId', hangout.data.user_id);
+      Session.set('hostId', hangout.data.host.id);
       Session.set('hostUsername', hangout.data.creator);
 
       Modal.show('reportHangoutModal');

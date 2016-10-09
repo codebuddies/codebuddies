@@ -1,28 +1,34 @@
 ##FAQ
 1. How do I start up the app?
-```meteor --settings settings-development.json```
+  * `meteor npm install`
+  * `meteor --settings settings-development.json`
 
 ## The first 6 steps to take if you want to contribute to this open-sourced project:
-1. Add your name on the google doc [bit.ly/codebuddies-hangouts-platform-v2-googledoc](http://bit.ly/codebuddies-hangouts-platform-v2-googledoc) if your name is not listed, and you want to be added as a collaborator.
-2. Say hello on the [#codebuddies-meta channel in the Slack](https://codebuddiesmeet.slack.com/messages/codebuddies-meta/). One of us will add you as a collaborator to the repo, so that you'll be able to commit and push/pull to the app! You can also ask `@linda` for a code walkthrough of the app.
+1. Add your name on the google doc [bit.ly/codebuddies-hangouts-platform-v2-googledoc](http://bit.ly/codebuddies-hangouts-platform-v2-googledoc) if your name is not listed, and you want to be recognized as a collaborator.
+2. Say hello on the [#codebuddies-meta channel in the Slack](https://codebuddiesmeet.slack.com/messages/codebuddies-meta/). Feel free to ask questions here, or to ask for someone to review your pull request.
 3. [Install Meteor](https://www.meteor.com/install) and Node: [docs.npmjs.com/cli/install](https://docs.npmjs.com/cli/install) if you don't already have them installed.
-4. Clone this repo to your computer by typing in the command line:
+4. Please star this repository! We need to reach 100 stars so that we can apply to the [Open Collective](https://opencollective.com/opensource/apply).
+5. Fork this repository! Once you have a copy of this repo on your own account, clone this repo to your computer by typing in something like:
   `git clone https://github.com/codebuddiesdotorg/cb-v2-scratch.git`
-5. Type `meteor --settings settings-development.json` in your terminal to start up the app in your browser (`localhost:3000`). (`npm run meteor:dev` can also run the app, but will likely [use up your CPU[(https://github.com/meteor/meteor/issues/4314).)
-6. Look at some of the [open issues](https://github.com/codebuddiesdotorg/cb-v2-scratch/issues) and identify one that sparks your interest. If you have any questions about it, you can leave a comment in there, or ask in the [#codebuddies-meta Slack channel](https://codebuddiesmeet.slack.com/messages/codebuddies-meta). Read below for more instructions about how to work with branches.
-7. Type `git branch -a` to see a list of all the branches besides `master`, the default branch you're in. Note that if you want to switch to a branch returned in the last, you would type `git checkout BRANCHNAME`. You can read more about how to create a new branch to work on an issue below.
+(Replace the URL with your own repository URL path.)
+6. Type `meteor npm install`, and then `meteor --settings settings-development.json` in your terminal to start up the app in your browser (`localhost:3000`). (`npm run meteor:dev` can also run the app, but will likely [use up your CPU](https://github.com/meteor/meteor/issues/4314).)
+7. Look at some of the [open issues](https://github.com/codebuddiesdotorg/cb-v2-scratch/issues) and identify one that sparks your interest. If you want to work on the issue, leave a comment on it saying that you're working on it!
+8. If you have any questions about the issue you're looking at, you can leave a comment in there, or ask in the [#codebuddies-meta Slack channel](https://codebuddiesmeet.slack.com/messages/codebuddies-meta). Read below for more instructions about how to work with branches.
+9. Type `git branch -a` to see a list of all the branches besides `master`, the default branch you're in. Note that if you want to switch to a branch returned in the last, you would type `git checkout BRANCHNAME`. You can read more about how to create a new branch to work on an issue below.
 
 If you see a bug in the app or have a feature request, feel free to [create a new issue](https://github.com/codebuddiesdotorg/cb-v2-scratch/issues/new) on the Github repo!
 
 ### I've picked out an issue I want to work on and left a comment on the issue to tell everyone that I'm working on it. Now what?
 
-- To work on a new feature, you need to *create* a new branch for the issue. You can do it by typing:
+- To work on a new feature, leave a comment on the issue saying that you're working on it. Then, you need to *create* a new branch for the issue. You can do it by typing:
 
   `git checkout -b NAME_OF_NEW_BRANCH`
 
 So for example, if you wanted to work on issue #29 [github.com/codebuddiesdotorg/cb-v2-scratch/issues/29](https://github.com/codebuddiesdotorg/cb-v2-scratch/issues/29), you should type:
 
   `git checkout -b fix/issue-29-limit-140-characters`
+
+Please remember to include the issue number in the name of the branch.
 
 ![screenshot of typing git checkout -b fix/issue-29-limit-140-characters](http://codebuddies.org/images/contributing-screenshot2.jpg)
 
@@ -90,6 +96,16 @@ In summary, the steps are:
 3. you will receive your password in your email .
 4. admin login ```http://localhost:3000/admin```.
 
+Note: When you create a hangout in localhost:3000, a Slack notification will be sent to the #cb2-test channel. This emulates what happens when you create a hangout on codebuddies.org/; a Slack announcement about the hangout will appear in the #general channel.
+
+
+###How do I seed the app with fake Posts/Hangouts
+When the app is run locally, there are no hangouts seeded by default. Hence to be able to see how things work out, some fake posts could be seeded to the app. To do this run the app with the following changes.
+
+1. Open the ```settings-development.json``` file in the root directory of app.
+2. Find the ```"seeder":false``` line inside the file and change it to ```"seeder":true```.
+3. Now start the app normally using ```meteor --settings settings-development.json```
+4. Now you can see that fake data is seeded to the app.
 
 ##Reminders:
 1. Remember, you can always check which branch you are in by typing `git branch` or `git branch -a` to see all the branches that exist.

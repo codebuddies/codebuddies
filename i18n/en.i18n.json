@@ -27,8 +27,9 @@
   "accomplishment_message_plural": "__count__ accomplishments",
   "working_on": "Please type what you're working on right now!",
   "accomplished": "What did you learn or accomplish just now?",
-  "upcoming_time": "Upcoming __time__",
+  "upcoming_time": "Starting __time__",
   "mastered_x_days_ago": "COMPLETED",
+  "completed_long": "THIS HANGOUT HAS BEEN COMPLETED",
   //COMPLETED __days__ days ago, COMPLETED __days__ days ago, COMPLETED today __time__
   "mastered_x_days_ago_plural": "COMPLETED",
   "mastered_today_time": "COMPLETED",
@@ -36,12 +37,15 @@
 
 
   // buttons
+  "save_changes": "Save changes",
   "update": "Update",
   "join_hangouts" : "Join Hangouts",
   "create_a_hangout": "Create a Hangout",
   "clone_a_hangout": "Create this hangout",
-  "join": "Join",
+  "join": "RSVP",
+  "join_long": "Launch the hangout",
   "rsvp": "RSVP",
+  "rsvp_long": "RSVP to this event",
   "leave": "Remove RSVP",
   "join_in_session": "Join",
   "load_more": "Load more...",
@@ -64,10 +68,10 @@
 
   // popup messages
   "you_are_almost_there": "You are almost there!",
-  "login_join_hangout": "Please login to join a hangout",
-  "login_update_status": "Please login to update your status",
+  "login_join_hangout": "Please sign in to join a hangout",
+  "login_update_status": "Please sign in to update your status",
   "login_create_hangout_title": "You are pretty awesome you know! Just one more step",
-  "login_create_hangout_message": "Please login to create a hangout",
+  "login_create_hangout_message": "Please sign in to create a hangout",
   "you_are_awesome": "You are awesome!",
   "looking_forward_to_see_you": "Looking forward to see you.",
   "remove_owner_from_hangout": "Hey! You can't remove yourself from your hangout.",
@@ -96,5 +100,9 @@
 
   // admin header
   "manage_user" : "Manage user",
-  "notification" : "Notification"
+  "notification" : "Notification",
+
+  //visitor
+  "sign_in_to_continue" : "Please sign in to continue.",
+  "browse" : "Browse"
 }
