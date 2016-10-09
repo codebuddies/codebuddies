@@ -1,5 +1,7 @@
 #footer {
-  position: relative;
+  position: absolute;
+  bottom: 0px;
+  @include breakpoint(xsmall) { position: relative;}
   background: $bg-white;
   padding: 20px 0;
   @include font-face(400, 13px, normal, $primary-grey);
