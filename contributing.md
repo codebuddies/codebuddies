@@ -7,7 +7,7 @@
 1. Add your name on the google doc [bit.ly/codebuddies-hangouts-platform-v2-googledoc](http://bit.ly/codebuddies-hangouts-platform-v2-googledoc) if your name is not listed, and you want to be recognized as a collaborator.
 2. Say hello on the [#codebuddies-meta channel in the Slack](https://codebuddiesmeet.slack.com/messages/codebuddies-meta/). Feel free to ask questions here, or to ask for someone to review your pull request.
 3. [Install Meteor](https://www.meteor.com/install) and Node: [docs.npmjs.com/cli/install](https://docs.npmjs.com/cli/install) if you don't already have them installed.
-4. Please star this repository! We need to reach 100 stars so that we can apply to the [Open Collective](https://opencollective.com/opensource/apply).
+4. Please star this repository! We need to reach 100 stars so that we can apply to the [Open Collective](https://opencollective.com/opensource/apply). [Edit - We're already there!]
 5. Fork this repository! Once you have a copy of this repo on your own account, clone this repo to your computer by typing in something like:
   `git clone https://github.com/codebuddiesdotorg/cb-v2-scratch.git`
 (Replace the URL with your own repository URL path.)
@@ -45,6 +45,10 @@ Finally, when you're finished working on the fix or feature in your branch, you'
 Click on the "pull request" button by going to https://github.com/codebuddiesdotorg/cb-v2-scratch/pulls and clicking on "new pull request." Next, select your branch, and submit.
 
 One of the github maintainers (@linda or someone else) will look over your pull request and accept it.
+
+Note 1 - If you've picked out an issue to work on, make sure you let people know that you're continuing working on it, if the fix happens to take 2 days or longer. An update every two dates by way of a comment on the issue will do. Doesn't necessarily have to be a fix. In case you're unable to continue on the issue for some reason, just let people know that as well so that someone else can claim it. If you do not update within a couple of days, it will be assumed that the issue is not being attended to and will be up for grabs.
+
+Note 2 - "Thou shalt not hijack a 'claimed' issue so long as the person who's claimed it has commented otherwise or one of the maintainers has added the unclaimed label onto it."
 
 ### What should I remember while I'm working on my branch?
 
