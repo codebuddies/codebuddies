@@ -27,6 +27,52 @@ slackNotification = function(hangout, type){
      pretext = `A new *${hangout.type}* hangout has been scheduled by <@${hangout.host.name}>!`;
   }
 
+  let date_start, now_value, now_formatted_time, difference, minutes;
+  date_start = moment.utc(hangout.start);
+  now_value = (moment.utc()); //.format('MMMM Do YYYY, h:mm a z');
+  now_formatted_time = (moment.utc()).format('MMMM Do YYYY, h:mm a z');
+  difference = (moment.duration(date_start.diff(now_value)));
+  minutes = difference.asMinutes();
+
+  if (minutes  >= 60){
+     var hours_whole = difference.asHours();
+     var hours = Math.floor(hours_whole);
+     var rem = Math.floor((minutes - hours*60));
+     var days_whole = difference.asDays();
+     var days = Math.floor(days_whole);
+     var rem_hours = Math.floor((hours_whole - days*24));
+
+     if(hours == 1){   //Singular
+         var time_left = hours +' hr & '+rem+' mins left';
+     }
+     else if(hours > 1 && hours < 24 ) {    //Plural
+         var time_left = hours +' hrs & '+rem+' mins left';
+     }
+
+     else if(hours >=24 && days == 1){
+         var time_left = days +' day, '+rem_hours+' hours & '+rem+' minutes left';
+     }
+     else if(hours >=24 && days > 1){
+       var time_left = days +' days, '+rem_hours+' hours & '+rem+' minutes left';
+     }
+  }
+
+  else if (minutes >=0 && minutes < 60){
+     var rem = Math.floor(minutes);
+
+     if((minutes >= 0 && minutes < 1))
+     {
+       var time_left = 'Hangout starts now!';
+     }
+     else {
+       var time_left = (rem+1)+' mins left';
+     }
+  }
+
+  else if(minutes<0){
+     var time_left = 'This hangout is over!';
+  }
+
   let data = {
      attachments: [{
        fallback: fallback,
@@ -41,12 +87,14 @@ slackNotification = function(hangout, type){
          short: true
        },{
          title: 'Date',
-         value: `${moment.utc(hangout.start).format('MMMM Do YYYY, h:mm a z')}`,
+         value: `${now_formatted_time + '\n ('+time_left+')'}`,
          short: true
        }]
     }]
   }//data
 
+  if(minutes > 0)
+  {
   hangoutAlert(data)
-
+  }
 }//slackNotification();
