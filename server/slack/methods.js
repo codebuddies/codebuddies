@@ -43,17 +43,17 @@ slackNotification = function(hangout, type){
      var rem_hours = Math.floor((hours_whole - days*24));
 
      if(hours == 1){   //Singular
-         var time_left = hours +' hr & '+rem+' mins left';
+         var time_left = 'Starts in '+hours +' hr & '+rem+' mins!';
      }
      else if(hours > 1 && hours < 24 ) {    //Plural
-         var time_left = hours +' hrs & '+rem+' mins left';
+         var time_left = 'Starts in '+hours +' hrs & '+rem+' mins!';
      }
 
      else if(hours >=24 && days == 1){
-         var time_left = days +' day, '+rem_hours+' hours & '+rem+' minutes left';
+         var time_left = 'Starts in '+days +' day, '+rem_hours+' hrs & '+rem+' mins!';
      }
      else if(hours >=24 && days > 1){
-       var time_left = days +' days, '+rem_hours+' hours & '+rem+' minutes left';
+       var time_left = 'Starts in '+days +' days, '+rem_hours+' hrs & '+rem+' mins!';
      }
   }
 
