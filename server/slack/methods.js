@@ -65,7 +65,7 @@ slackNotification = function(hangout, type){
        var time_left = 'Hangout starts now!';
      }
      else {
-       var time_left = (rem+1)+' mins left';
+       var time_left = 'Starts in '+(rem+1)+' mins!';
      }
   }
 
