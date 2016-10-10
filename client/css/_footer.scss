@@ -1,6 +1,8 @@
 #footer {
-  position: absolute;
-  bottom: 0px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  position: fixed;
   @include breakpoint(xsmall) { position: relative;}
   background: $bg-white;
   padding: 20px 0;
@@ -14,7 +16,7 @@
   }
   span.note { display: block; font-size: 12px;}
   width: 100%;
-  min-height: 95px;
+  min-height: 75px;
   .footer-details{
     float:right;
     @include breakpoint(tiny) { float: none; }
