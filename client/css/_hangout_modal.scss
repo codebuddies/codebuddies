@@ -23,6 +23,7 @@
 
   #description {
     resize: vertical;
+    height: 150px;
   }
 
   .input-group-addon {
@@ -53,5 +54,7 @@
   .message {
     @include font-face(400, 13px, normal, $warm-grey);
   }
+
+  textarea { width: 100%; padding: 10px; min-height: 150px;}
 
 }
