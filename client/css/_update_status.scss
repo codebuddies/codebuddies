@@ -1,0 +1,20 @@
+.silent-tooltip + .tooltip > .tooltip-inner {
+  background-color: $bg-lightgrey;
+  color: $black;
+  text-align: left;
+  border: 1px solid $hangout-silent;
+}
+
+.teach-tooltip + .tooltip > .tooltip-inner {
+  background-color: $bg-lightgrey;
+  color: $black;
+  text-align: left;
+  border: 1px solid $hangout-teaching;
+}
+
+.collab-tooltip + .tooltip > .tooltip-inner {
+  background-color: $bg-lightgrey;
+  color: $black;
+  text-align: left;
+  border: 1px solid $hangout-collab;
+}

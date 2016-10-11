@@ -1,41 +1,41 @@
 #profile {
-	.btn-slack {
-		margin: 0 auto;
-		display: block;
-	}
-	.box { border-top: 1px solid $divider; padding: 30px 0; }
+  .btn-slack {
+    margin: 0 auto;
+    display: block;
+  }
+  .box { border-top: 1px solid $divider; padding: 30px 0; }
 }
 
 #learning-pagination{
-	overflow-y: auto;
-	height: 350px;
+  overflow-y: auto;
+  height: 350px;
 }
 #hangout-created-pagination{
-	overflow-y: auto;
+  overflow-y: auto;
 }
 
 #hangout-joined-pagination{
-	height: 350px;
+  height: 350px;
 }
 
 .profile-top{
-	background: $cta-blue;
-	padding: 60px 0;
-	color: $bg-white;
+  background: $cta-blue;
+  padding: 60px 0;
+  color: $white;
 }
 
 .profile-hangouts-completed {
-	background: $bg-lightgrey;
-	padding: 35px 80px;
-	h2, h3 { color: $cta-blue; margin: 0px; }
-	h2 { font-size: 64px; line-height: 70px; font-weight: 200; }
-	h3 { text-align: center; font-size: 20px; font-weight: 600; letter-spacing: 0.2px; }
+  background: $bg-lightgrey;
+  padding: 35px 80px;
+  h2, h3 { color: $cta-blue; margin: 0px; }
+  h2 { font-size: 64px; line-height: 70px; font-weight: 200; }
+  h3 { text-align: center; font-size: 20px; font-weight: 600; letter-spacing: 0.2px; }
 }
 
 .profile-learnings {
-	.status-list { background: $bg-white; }
-	background: $bg-white;
-	padding: 35px 80px;
-	h3 { @include font-face(600, 20px, normal, $warm-grey); text-align: center; }
+  .status-list { background: $bg-white; }
+  background: $bg-white;
+  padding: 35px 80px;
+  h3 { @include font-face(600, 20px, normal, $warm-grey); text-align: center; }
 }
 

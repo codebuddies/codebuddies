@@ -10,13 +10,15 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="{{pathFor 'home'}}"><img src="/images/logo.png"></a>
+        <a class="navbar-brand" href="{{pathFor 'home'}}"><img src="/images/logo.svg"></a>
       </div>
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="cb2-navbar-collapse">
         <ul class="nav navbar-nav navbar-right">
           <li><a href="{{pathFor 'about'}}">{{_ "about"}} <span class="sr-only">(current)</span></a></li>
           <li><a href="{{pathFor 'faq'}}">{{_ "faq"}}</a></li>
+          <li><a href="{{pathFor 'browse'}}">{{_ "browse"}} <span class="sr-only">(current)</span></a></li>
+
           {{#unless isInRole 'admin'}}
              <li><a href="https://codebuddiesmeet.slack.com/messages/general" target="_blank"><i class="fa fa-slack" aria-hidden="true"></i> </a></li>
            {{/unless}}

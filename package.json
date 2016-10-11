@@ -14,5 +14,7 @@
     "quill": "^1.0.6",
     "quill-render": "^1.0.5"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "faker": "3.1.0"
+  }
 }
