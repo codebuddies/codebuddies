@@ -69,10 +69,6 @@ slackNotification = function(hangout, type){
      }
   }
 
-  else if(minutes<0){
-     var time_left = 'This hangout is over!';
-  }
-
   let data = {
      attachments: [{
        fallback: fallback,
