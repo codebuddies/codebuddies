@@ -44,9 +44,9 @@ Meteor.methods({
     const hangout_id = Hangouts.insert(hangout);
     hangout._id = hangout_id;
 
-    if(Meteor.settings.isModeProduction){
-      tweetHangout(hangout);
-    }
+    //tweet new hangout
+    tweetHangout(hangout);
+
 
     slackNotification(hangout, "NEW");
     return true;

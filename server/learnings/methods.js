@@ -19,9 +19,9 @@ Meteor.methods({
     }
     Learnings.insert(learning);
 
-    if(Meteor.settings.isModeProduction){
-      tweetLearning(learning);
-    }
+    //tweet user learning
+    tweetLearning(learning);
+
 
   },
 

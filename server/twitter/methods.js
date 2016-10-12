@@ -10,22 +10,33 @@ var client = new Twitter({
 
 export const tweetHangout = (hangout)=>{
 
-  const status = 'A hangout has been scheduled by ~'+ hangout.host.name +'. ' + Meteor.absoluteUrl('hangout/' + hangout._id) + ' #codebuddies';
-  client.post('statuses/update', {status: status},  function(error, tweet, response) {
-    if(error){
-      console.log("error",JSON.stringify(error));
-      //throw error;
-    }
-  });
+  if(Meteor.settings.isModeProduction){
+
+    const status = 'New hangout scheduled: '+ hangout.topic.truncate() +' ' + Meteor.absoluteUrl('hangout/' + hangout._id) + ' #codebuddies';
+
+    client.post('statuses/update', {status: status},  function(error, tweet, response) {
+      if(error){
+        // console.log("error",JSON.stringify(error));
+        //throw error;
+      }
+    });
+
+  }
+
 }
 
 export const tweetLearning = (learning)=>{
 
-  const status = learning.title + ' ~' + learning.username + ' #TodayILearned' ;
-  client.post('statuses/update', {status: status},  function(error, tweet, response) {
-    if(error){
-      console.log("error",JSON.stringify(error));
-      //throw error;
-    }
-  });
+  if(Meteor.settings.isModeProduction){
+
+    const status = learning.title.truncate(110) + ' ~' + learning.username + ' #TodayILearned' ;
+
+    client.post('statuses/update', {status: status},  function(error, tweet, response) {
+      if(error){
+        // console.log("error",JSON.stringify(error));
+        //throw error;
+      }
+    });
+
+  }
 }
