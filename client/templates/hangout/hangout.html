@@ -26,23 +26,34 @@
                 </h2>
 
                 <p class="status">
-                  <label><i class="fa {{getType type}}"></i>
+                  <label><i class="fa {{getHangoutTypeSign type}}"></i>
 
-                  {{type}} hangout hosted by <a href="{{pathFor 'profile' name=host.name userId=host.id}}">{{host.name}}</a>
+                  {{type}} hangout hosted by
 
-                    <br /><i class="fa fa-calendar fa-lg"></i> {{getDate this}}
-                        | <i class="fa fa-eye" aria-hidden="true" data-toggle="tooltip" title="Views"> {{views}} </i>
+                      {{#unless currentUser}}
+                        <a href="#" id='visitor'>{{host.name}}</a>
+                      {{else}}
+                        <a href="{{pathFor 'profile' name=host.name userId=host.id}}">{{host.name}}</a>
+                      {{/unless}}
+
+                    <br />
+                      {{getHangoutStartDateTime start}} - {{getHangoutEndDateTime end}} |
+                      {{users.length}} Joined
+                      {{#if views}}| <i class="fa fa-eye" aria-hidden="true" data-toggle="tooltip" title="Views" > </i> {{views}} {{/if}}
+
+                        <!-- <i class="fa fa-calendar fa-lg"></i> {{getDate this}}
+                        | <i class="fa fa-eye" aria-hidden="true" data-toggle="tooltip" title="Views"> {{views}} </i> -->
                    </label>
                  </p>
                   </div>
               </div> <!--col-md-12-->
-      
-          
+
+
             </div><!--panel-heading-->
             <div class="panel-body">
 
               <div>
-                  {{{description}}}
+                  {{{formatDescription this}}}
               </div>
             </div>
 
@@ -64,11 +75,11 @@
                       {{else}}
                             <li>
                               {{#unless url}}
-                                After <a href="https://codebuddiesmeet.slack.com/messages/{{getHostId this}}">@{{getHostName this}}</a> has initiated the hangout, you will be able to click on a button below to launch the Google Hangout.
+                                After <a href="https://codebuddiesmeet.slack.com/messages/{{host.name}}">@{{host.name}}</a> has initiated the hangout, you will be able to click on a button below to launch the Google Hangout.
                               {{ else }}
                                 At the time of the event, click the button below to launch the Google Hangout.
                               {{/unless}}
-                            </li> 
+                            </li>
                              <li>In the Google Hangout, click to mute your video camera. <img src="/images/icon-video-off.png" width="20" height="20"></li>
                              <li>Feel free to mute the microphone too if this is a silent hangout. <img src="/images/icon-mute.png" width="20" height="20"> </li>
                       {{/if}}
@@ -76,12 +87,12 @@
                </div>
                {{/unless}}
               <div class="col-md-3 col-sm-3 {{#unless completed this}} pull-right {{/unless}}">
-             
+
               <a href="{{pathFor 'profile' name=host.name userId=host.id}}"><img class="img-circle" src="{{host.avatar}}"></a>
                 {{#each attendees}}
                 <a href="{{pathFor 'profile' name=name userId=id}}"><img class="img-circle" src="{{avatar}}"></a>
                 {{/each}}
-    
+
               </div>
                 </div>
                   </div>
@@ -135,14 +146,14 @@
               {{else}}
 
                 {{# unless getIsDone this}}
-                  <button id="join-hangout" class="btn btn-cb2 btn-success">{{_ "rsvp_long"}}</button>           
+                  <button id="join-hangout" class="btn btn-cb2 btn-success">{{_ "rsvp_long"}}</button>
                 {{/unless}}
 
               {{/if}}
 
             {{/if}}
           {{else}}
-            <p class="completed">{{getIsDone this}}</p>  
+            <p class="completed">{{getIsDone this}}</p>
           {{/unless}}
 
         {{/if}} <!-- if equals visibility false -->

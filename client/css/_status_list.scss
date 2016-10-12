@@ -7,7 +7,7 @@
   .title {
     text-align: center;
     padding: 10px 0;
-    @include font-face(700, 16px, bold, #000000);
+    @include font-face(700, 16px, bold, $black);
   }
 
   .status-item {
@@ -25,10 +25,10 @@
     .btn {
 
       display: inline-block;
-      @include font-face(400, 13px, normal, #000000);
+      @include font-face(400, 13px, normal, $black);
 
       &:hover {
-        color: $bg-white;
+        color: $white;
       }
 
     }

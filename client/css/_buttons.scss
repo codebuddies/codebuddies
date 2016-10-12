@@ -11,19 +11,19 @@
 }
 
 .btn-success.btn-outline {
-  color: #5cb85c;
+  color: $success-green;
 }
 
 .btn-info.btn-outline {
-  color: #5bc0de;
+  color: $info-blue;
 }
 
 .btn-warning.btn-outline {
-  color: #f0ad4e;
+  color: $warning-orange;
 }
 
 .btn-danger.btn-outline {
-  color: #d9534f;
+  color: $danger-red;
 }
 
 .btn-white.btn-outline {
@@ -36,7 +36,7 @@
 .btn-info.btn-outline:hover,
 .btn-warning.btn-outline:hover,
 .btn-danger.btn-outline:hover {
-  color: #fff;
+  color: $white;
 }
 
 .btn-circle {
@@ -74,7 +74,7 @@
   background-color: $bg-white;
   border: 2px solid $cta-blue;
   border-radius: 6px;
-  @include font-face(400, 16px, normal, #000000);
+  @include font-face(400, 16px, normal, $black);
 }
 
 .btn-slack-join {
@@ -91,14 +91,14 @@
   display: block;
   margin: 0 auto;
   &:hover {
-    color: $bg-white;
+    color: $white;
   }
 
   &:focus {
-    color: $bg-white;
+    color: $white;
   }
 
-  &.btn-success {background: #5cb85c;}
+  &.btn-success {background: $success-green;}
 
 }
 
@@ -110,14 +110,14 @@
   display: block;
   margin: 0 auto;
   &:hover {
-    color: #bg-white;
+    color: $white;
   }
 
   &:focus {
-    color: $bg-white;
+    color: $white;
   }
 
-  &.btn-success {background: #5cb85c;}
+  &.btn-success {background: $success-green;}
 
 }
 
@@ -129,7 +129,7 @@
 .btn-learning {
   float: left;
   margin-left: -4px;
-  color: white;
+  color: $white;
 
   &.btn-unlike {
     color: $cta-blue;
@@ -151,9 +151,9 @@
     margin-top: 20px;
     border: none;
     background: $bg-lightgrey;
-    @include font-face(700, 13px, bold, #000000);
+    @include font-face(700, 13px, bold, $black);
     &:hover {
-      color: #fff;
+      color: $white;
       background: $cta-blue;
     }
   }
@@ -165,7 +165,7 @@
   }
 }
 
-#btn-load-more, #load-more-learnings { margin: 10px 0; color: $cta-blue; &:hover { color: $bg-white; } }
+#btn-load-more, #load-more-learnings { margin: 10px 0; color: $cta-blue; &:hover { color: $white; } }
 
 .btn-grey {
   background: $warm-grey;

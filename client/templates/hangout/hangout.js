@@ -1,3 +1,9 @@
+import QuillEditor from '../../libs/QuillEditor';
+
+Meteor.startup(function() {
+    $('head').append('<link href="https://cdn.quilljs.com/1.0.3/quill.snow.css" rel="stylesheet">');
+});
+
 Template.hangout.onCreated(function() {
   var title = "CodeBuddies | Hangout";
   DocHead.setTitle(title);
@@ -12,37 +18,15 @@ Template.hangout.rendered = function() {
 }
 
 Template.hangout.helpers({
-  hangout: function() {
-      return Hangouts.findOne({_id: FlowRouter.getParam('hangoutId')});
-  },
-  getType: function(type) {
-    if (type == 'silent') {
-      return 'fa-microphone-slash text-danger-color';
-    } else if (type == 'teaching') {
-      return 'fa-user text-warning-color';
-    } else if (type == 'collaboration') {
-      return 'fa-users text-success-color';
+  formatDescription: ({description_in_quill_delta, description}) => {
+    if (description_in_quill_delta) {
+      return QuillEditor.generateHTMLForDeltas(description_in_quill_delta);
+    } else {
+      return description;
     }
   },
-  getHostId: function(hangout) {
-    return hangout.host.id;
-  },
-  getHostName: function(hangout) {
-    return hangout.host.name;
-  },
-  getDate: function(hangout) {
-    var tz = TimezonePicker.detectedZone();
-    //console.log('getDate tz: ' + tz);
-    //console.log('getDate hangout.start: '+ hangout.start);
-    //console.log('getDate hangout.end: '+ hangout.end);
-    //console.log('getDate this.timestamp' + this.timestamp);
-    //console.log('getDate this.end' + this.end)
-    return moment(hangout.start).tz(tz).format('ddd MMMM Do YYYY, h:mm a z') +
-      ' - ' +
-      moment(hangout.end).tz(tz).format('MMMM Do h:mm a z') +
-      ' | ' +
-      hangout.users.length +
-      ' joined';
+  hangout: function() {
+      return Hangouts.findOne({_id: FlowRouter.getParam('hangoutId')});
   },
   isInProgress: function(hangout) {
 
@@ -140,4 +124,12 @@ Template.hangout.events({
       });
     }
   },
+  "click #visitor": function(event, template){
+    event.preventDefault();
+    sweetAlert({
+      title: TAPi18n.__("sign_in_to_continue"),
+      confirmButtonText: TAPi18n.__("ok"),
+      type: 'info'
+    });
+  }
 });
