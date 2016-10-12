@@ -8,7 +8,7 @@
               <div class="panel-heading">
                 <div class="row">
                 <div class="col-md-12">
-                <h2 class="{{# if completed this }}completed{{/if}}">
+                <h2 class="{{# if completed this }}completed{{/if}}" id="hangout-topic">
                     {{#if equals visibility false}}
                       <span class="label label-pill label-danger">DELETED</span>
                     {{else}}
@@ -19,7 +19,7 @@
                       {{/if}}
 
                     {{/if}}
-                    {{topic}}
+                      {{topic}}
 
                     {{> hangoutActionBar}}
 
@@ -30,7 +30,8 @@
 
                   {{type}} hangout hosted by <a href="{{pathFor 'profile' name=host.name userId=host.id}}">{{host.name}}</a>
 
-                    <br /><i class="fa fa-calendar fa-lg"></i> {{getDate this}}
+                    <br /><i class="fa fa-calendar fa-lg"></i>
+                    {{getDate this}}
                         | <i class="fa fa-eye" aria-hidden="true" data-toggle="tooltip" title="Views"> {{views}} </i>
                    </label>
                  </p>
@@ -41,7 +42,7 @@
             </div><!--panel-heading-->
             <div class="panel-body">
 
-              <div>
+              <div id="hangout-description">
                   {{{description}}}
               </div>
             </div>
@@ -101,6 +102,10 @@
                 {{/if}}
           {{/unless}}
          {{/unless}}
+
+         {{#if isInProgress this and isInRole 'moderator,admin'}}
+              <div id="end-hangout-button" class="btn btn-block btn-default">END HANGOUT</div>
+          {{/if}}
 
         {{#if equals visibility false}}
           <span class="label label-pill label-danger">DELETED</span>
