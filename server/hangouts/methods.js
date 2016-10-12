@@ -1,3 +1,5 @@
+import {tweetNewHangout} from '../twitter/methods.js';
+
 Meteor.methods({
   createHangout: function(data) {
     check(data, Match.ObjectIncluding({
@@ -41,6 +43,10 @@ Meteor.methods({
 
     const hangout_id = Hangouts.insert(hangout);
     hangout._id = hangout_id;
+
+    if(Meteor.settings.isModeProduction){
+      tweetNewHangout(hangout);
+    }
 
     slackNotification(hangout, "NEW");
     return true;
