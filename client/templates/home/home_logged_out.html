@@ -1,15 +1,15 @@
 <template name="homeLoggedOut">
-<div class="section home-top">
-	<div class="container">
-	  <div class="row">
+  <div class="section home-top">
+    <div class="container">
+      <div class="row">
         <div class="col-md-12">
 
           <div id="intro">
-        	   <h2>Learn and chat about code!</h2>
-        	   <p class="intro">CodeBuddies is a community of 1400+ code learners who help each other through conversations on <strong>Slack</strong> and scheduled <strong>Google Hangouts</strong>.</p>
+            <h2>Learn and chat about code!</h2>
+            <p class="intro">CodeBuddies is a community of 1400+ code learners who help each other through conversations on <strong>Slack</strong> and scheduled <strong>Google Hangouts</strong>.</p>
             <div class="join-slack">
               <div class="slack-invite">
-              <script async defer src="https://codebuddiesmeet.herokuapp.com/slackin.js?large"></script>
+                <script async defer src="https://codebuddiesmeet.herokuapp.com/slackin.js?large"></script>
               </div>
               <p>Already have an account with us? <a href="#" class="signIn">Sign in.</a>
               <br />Select <strong>CodeBuddies</strong> or sign into the <strong>codebuddiesmeet</strong>.slack.com team.</p>
@@ -23,128 +23,155 @@
                   </div>
               </div>
           </div>
-
-      </div>
-    </div>
-</div>
-
-
-<div class="section home-middle">
-	<div class="container">
-	  <div class="row">
-        <div class="col-md-6 col-centered align-center">
-        	<h2>Community-organized hangouts</h2>
-				<p>Joining a pre-scheduled screen-sharing Google Hangout is a fun way to learn a programming or web development skill quicker.</p>
-        </div>
-      </div>
-     <div class="row" style="margin: 40px 0;">
-       <div class="col-md-4 align-center">
-        <div id="card-silent" class="hangout-card">
-       		<h3><i class="fa fa-microphone-slash text-danger-color type"></i> Silent Hangout</h3>
-
-          <img src="/images/hangout-silent.svg" class="hangout-image">
-
-					<div class="hangout-details">
-            <i class="fa fa-microphone-slash"></i>
-            <table>
-            <tr>
-              <td class="left">Video</td>
-              <td>OFF</td>
-            </tr>
-            <tr>
-              <td class="left">Microphone</td>
-              <td>OFF</td>
-            </tr>
-            <tr>
-              <td class="left">Screenshare</td>
-              <td>ON</td>
-            </tr>
-
-            </table>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="slack-window">
+                <img src="/images/slack-window.png" class="img-responsive" id="slack-screenshot">
+              </div>
+            </div>
           </div>
-       		<p>Create a silent hangout to motivate yourself to get through a tutorial with others who are learning from the same tutorial, or create one for a fun silent coworking experience.
 
-
-       		</p>
         </div>
-       </div>
-       <div class="col-md-4 align-center">
-				 <div id="card-teach" class="hangout-card">
-       		<h3><i class="fa fa-user text-warning-color type"></i> Teaching Hangout</h3>
 
-					<img src="/images/hangout-teach.svg" class="hangout-image">
-
-					<div class="hangout-details">
-					<i class="fa fa-user"></i>
-					<table>
-					<tr>
-						<td class="left">Video</td>
-						<td>OFF</td>
-					</tr>
-					<tr>
-						<td class="left">Microphone</td>
-						<td>ON</td>
-					</tr>
-					<tr>
-						<td class="left">Screenshare</td>
-						<td>ON</td>
-					</tr>
-
-					</table>
-					</div>
-					<p>Create a teaching hangout to practice teaching a concept or to walk participants through a codebase. This is your chance to share what you know!</p>
-		 		</div>
-	 		</div>
-       <div class="col-md-4 align-center">
-				 <div id="card-collaborate" class="hangout-card">
-					<h3><i class="fa fa-users text-warning-color type"></i> Collaboration Hangout</h3>
-
-					<img src="/images/hangout-collaboration.svg" class="hangout-image">
-
-					<div class="hangout-details">
-					<i class="fa fa-users"></i>
-					<table>
-					<tr>
-						<td class="left">Video</td>
-						<td>OFF</td>
-					</tr>
-					<tr>
-						<td class="left">Microphone</td>
-						<td>ON</td>
-					</tr>
-					<tr>
-						<td class="left">Screenshare</td>
-						<td>ON</td>
-					</tr>
-
-					</table>
-					</div>
-					<p>Create a collaboration hangout to pair program on a coding exercise, talk through a chapter of a tutorial, or work on an open-sourced project together.</p>
-				</div>
       </div>
-
     </div>
-</div>
-</div>
+  </div>
 
-<div class="section home-psst align-center">
-	<div class="container">
-	  <div class="row">
-    <div id="intro">
-	  		<h3>Search for hangouts to join or create your own!</h3>
-        <p>On the CodeBuddies site, you can join scheduled hangouts, create hangouts, and log your learnings and accomplishments.</p>
+
+  <div class="section home-middle">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-centered align-center">
+          <h2>Community-organized hangouts</h2>
+          <p>Joining a pre-scheduled screen-sharing Google Hangout is a fun way to learn a programming or web development skill quicker.</p>
+        </div>
+      </div>
+      <div class="row" style="margin: 40px 0;">
+        <div class="col-md-4 align-center">
+          <div id="card-silent" class="hangout-card">
+            <h3><i class="fa fa-microphone-slash text-danger-color type"></i> Silent Hangout</h3>
+
+            <div class="hangout-image">
+              <div class="hangout-image-inner">
+                <img src="/images/hangout-silent.svg">
+              </div>
+            </div>
+
+            <div class="hangout-details">
+              <div class="hangout-details-inner">
+                <i class="fa fa-microphone-slash"></i>
+                <table>
+                  <tr>
+                    <td class="left">Video</td>
+                    <td>OFF</td>
+                  </tr>
+                  <tr>
+                    <td class="left">Microphone</td>
+                    <td>OFF</td>
+                  </tr>
+                  <tr>
+                    <td class="left">Screenshare</td>
+                    <td>ON</td>
+                  </tr>
+
+                </table>
+              </div>
+            </div>
+            <p>Create a silent hangout to motivate yourself to get through a tutorial with others who are learning from the same tutorial, or create one for a fun silent coworking experience.
+
+
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4 align-center">
+          <div id="card-teach" class="hangout-card">
+            <h3><i class="fa fa-user text-warning-color type"></i> Teaching Hangout</h3>
+
+            <div class="hangout-image">
+              <div class="hangout-image-inner">
+                <img src="/images/hangout-teach.svg">
+              </div>
+            </div>
+
+            <div class="hangout-details">
+              <div class="hangout-details-inner">
+                <i class="fa fa-user"></i>
+                <table>
+                  <tr>
+                    <td class="left">Video</td>
+                    <td>OFF</td>
+                  </tr>
+                  <tr>
+                    <td class="left">Microphone</td>
+                    <td>ON</td>
+                  </tr>
+                  <tr>
+                    <td class="left">Screenshare</td>
+                    <td>ON</td>
+                  </tr>
+
+                </table>
+              </div>
+            </div>
+            <p>Create a teaching hangout to practice teaching a concept or to walk participants through a codebase. This is your chance to share what you know!</p>
+          </div>
+        </div>
+        <div class="col-md-4 align-center">
+          <div id="card-collaborate" class="hangout-card">
+            <h3><i class="fa fa-users text-warning-color type"></i> Collaboration Hangout</h3>
+
+            <div class="hangout-image">
+              <div class="hangout-image-inner">
+                <img src="/images/hangout-collaboration.svg">
+              </div>
+            </div>
+
+            <div class="hangout-details">
+              <div class="hangout-details-inner">
+                <i class="fa fa-users"></i>
+                <table>
+                  <tr>
+                    <td class="left">Video</td>
+                    <td>OFF</td>
+                  </tr>
+                  <tr>
+                    <td class="left">Microphone</td>
+                    <td>ON</td>
+                  </tr>
+                  <tr>
+                    <td class="left">Screenshare</td>
+                    <td>ON</td>
+                  </tr>
+
+                </table>
+              </div>
+            </div>
+            <p>Create a collaboration hangout to pair program on a coding exercise, talk through a chapter of a tutorial, or work on an open-sourced project together.</p>
+          </div>
+        </div>
+
+      </div>
     </div>
-    <div class="hangout-example">
-        <img src="/images/join-hangouts.png" width="100%" id="hangout-join"/>
+  </div>
+
+  <div class="section home-psst align-center">
+    <div class="container">
+      <div class="row">
+        <div id="intro">
+          <h3>Search for hangouts to join or create your own!</h3>
+          <p>On the CodeBuddies site, you can join scheduled hangouts, create hangouts, and log your learnings and accomplishments.</p>
+        </div>
+        <div class="hangout-example">
+          <img src="/images/join-hangouts.png" width="100%" id="hangout-join"/>
+        </div>
+
+      </div>
     </div>
+  </div>
 
-	  </div>
-	 </div>
-</div>
-
-<div class="section home-faq align-center">
-  <div class="container">
-    <div class="row">
+  <div class="section home-faq align-center">
+    <div class="container">
+      <div class="row">
         <h2>FAQ</h2>
 
         <div class="col-md-5 col-md-offset-1">
@@ -174,25 +201,25 @@
           <p>CodeBuddies allows you to easily find out who is online and available to join a hangout to study/work on something together.</p>
 
         </div>
+      </div>
     </div>
-   </div>
-   </div>
+  </div>
 
-   <div class="section home-ask">
-  <div class="container">
-    <div class="row">
+  <div class="section home-ask">
+    <div class="container">
+      <div class="row">
         <div class="col-md-12">
-            <h2>Start learning with us now!</h2>
-            <div class="join-slack">
-              <div class="slack-invite">
+          <h2>Start learning with us now!</h2>
+          <div class="join-slack">
+            <div class="slack-invite">
               <script async defer src="https://codebuddiesmeet.herokuapp.com/slackin.js?large"></script>
-              </div>
-              <p>Already have an account with us? <a href="#" class="signIn">Sign in.</a>
-              <br />Select <strong>CodeBuddies</strong> or sign into the <strong>codebuddiesmeet</strong>.slack.com team.</p>
             </div>
+            <p>Already have an account with us? <a href="#" class="signIn">Sign in.</a>
+            <br />Select <strong>CodeBuddies</strong> or sign into the <strong>codebuddiesmeet</strong>.slack.com team.</p>
+          </div>
         </div>
-        </div>
-        </div>
-        </div>
+      </div>
+    </div>
+  </div>
 
 </template>

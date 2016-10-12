@@ -3,7 +3,7 @@
 }
 
 #create-hangout-modal h4 {
-  @include font-face(700, 20px, bold, #000000);
+  @include font-face(700, 20px, bold, $black);
 }
 
 #create-hangout-modal, #edit-hangout-modal, #clone-hangout-modal {
@@ -23,6 +23,7 @@
 
   #description {
     resize: vertical;
+    height: 150px;
   }
 
   .input-group-addon {
@@ -53,5 +54,7 @@
   .message {
     @include font-face(400, 13px, normal, $warm-grey);
   }
+
+  textarea { width: 100%; padding: 10px; min-height: 150px;}
 
 }

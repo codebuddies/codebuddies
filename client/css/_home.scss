@@ -8,7 +8,7 @@
     input { float: left;}
     button { float: right;}
     p { @include font-face(200, 13px, normal, $bg-white); line-height: 1.9; margin-top: 10px; }
-    a { text-decoration: underline; color: #fff; white-space: nowrap; }
+    a { text-decoration: underline; color: $white; white-space: nowrap; }
   }
 
   .heading  {
@@ -53,6 +53,7 @@
 
   .home-top, .home-ask {
     padding: 120px 0 0 0;
+    background: $dodgerblue;
     overflow: hidden;
     background: $cta-blue;
     h2 {
@@ -71,7 +72,7 @@
       margin: 0 auto;
     }
     .slack-invite {
-      color: white;
+      color: $white;
       font-size: 11px;
     }
     #intro {
@@ -85,7 +86,7 @@
     }
     .footnote {
       @include font-face(200, 12px, normal, $bg-white);
-      a {color: $bg-white; text-decoration: underline;}
+      a {color: $white; text-decoration: underline;}
     }
     .slack-note {
       @include breakpoint(medium) { margin-top: 70px; max-width: 300px; }
@@ -94,7 +95,7 @@
         @include font-face(200, 12px, normal, $bg-white); line-height: 18px;
         @include breakpoint(medium) { max-width: 350px; }
       }
-      a {color: $bg-white; text-decoration: underline;}
+      a {color: $white; text-decoration: underline;}
     }
   }
 
@@ -118,23 +119,39 @@
     }
     %hangout-cards {
       position: relative;
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-flow: column nowrap;
+      @include border-radius(10px);
       h3 {
         @include font-face(700, 20px, bold, $primary-grey);
         margin: 40px 0 0 0;
       }
       p {
-        padding: 40px 30px;
+        padding: 0px 30px 40px 30px;
         @include font-face(400, 13px, normal, $primary-grey);
         line-height: 27px;
-        position: absolute;
-        bottom: 0px;
+        margin: 0;
       }
-      img { margin-top: 50px; width: 80%;}
+      .hangout-image {
+        align-self: stretch;
+        max-height: 200px;
+        flex: 1 1 auto;
+      }
+      .hangout-image-inner {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 200px;
+      }
+      img { margin-top: 0px; padding: 30px 0; max-height: 200px; width: 80%;}
       height: 444px;
       .hangout-details {
         overflow: auto;
-        padding: 80px 40px;
-        i { font-size: 70px; float: left;}
+        padding: 5px 20px;
+        i { font-size: 70px; float: left; padding-right: 10px;}
         table {
           float: right;
           td.left { font-weight: bold; text-align: left; text-transform: uppercase;}
@@ -143,8 +160,12 @@
             @include font-face(400, 13px, normal, $primary-grey);
             padding: 0px 4px 4px 4px;
           }
-          width: 150px;
+          max-width: 150px;
         }
+      }
+      .hangout-details-inner {
+        display: flex;
+        flex-flow: row nowrap;
       }
     }
     #card-silent {
