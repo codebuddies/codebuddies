@@ -18,3 +18,14 @@ export const tweetHangout = (hangout)=>{
     }
   });
 }
+
+export const tweetLearning = (learning)=>{
+
+  const status = learning.title + ' ~' + learning.username + ' #TodayILearned' ;
+  client.post('statuses/update', {status: status},  function(error, tweet, response) {
+    if(error){
+      console.log("error",JSON.stringify(error));
+      //throw error;
+    }
+  });
+}

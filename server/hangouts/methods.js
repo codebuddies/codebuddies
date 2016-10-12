@@ -1,4 +1,4 @@
-import {tweetNewHangout} from '../twitter/methods.js';
+import {tweetHangout} from '../twitter/methods.js';
 
 Meteor.methods({
   createHangout: function(data) {
@@ -45,7 +45,7 @@ Meteor.methods({
     hangout._id = hangout_id;
 
     if(Meteor.settings.isModeProduction){
-      tweetNewHangout(hangout);
+      tweetHangout(hangout);
     }
 
     slackNotification(hangout, "NEW");
