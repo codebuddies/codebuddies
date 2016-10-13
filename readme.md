@@ -63,7 +63,7 @@ P.S. We'll schedule hangouts to do code walkthroughs or code show and tells occa
 <!-- This project is hosted on DigitalOcean. You can help keep this project alive by becoming a [sponsor of the month!](https://codebuddies.org/sponsor) -->
 
 You can help keep this project alive by [becoming a
-sponsor!](https://opencollective.com/codebuddies#sponsor)
+Sponsor!](https://opencollective.com/codebuddies#sponsor)
 
 <a href="https://opencollective.com/codebuddies/sponsor/0/website" target="_blank"><img src="https://opencollective.com/codebuddies/sponsor/0/avatar.svg"></a>
 <a href="https://opencollective.com/codebuddies/sponsor/1/website" target="_blank"><img src="https://opencollective.com/codebuddies/sponsor/1/avatar.svg"></a>
@@ -97,7 +97,7 @@ sponsor!](https://opencollective.com/codebuddies#sponsor)
 <a href="https://opencollective.com/codebuddies/sponsor/29/website" target="_blank"><img src="https://opencollective.com/codebuddies/sponsor/29/avatar.svg"></a>
 
 
-You can also support us with a monthly donation by [becoming a backer!](https://opencollective.com/codebuddies#backer)
+You can also support us with a monthly donation by [becoming a Backer!](https://opencollective.com/codebuddies#backer)
 
 <a href="https://opencollective.com/codebuddies/backer/0/website" target="_blank"><img src="https://opencollective.com/codebuddies/backer/0/avatar.svg"></a>
 <a href="https://opencollective.com/codebuddies/backer/1/website" target="_blank"><img src="https://opencollective.com/codebuddies/backer/1/avatar.svg"></a>
