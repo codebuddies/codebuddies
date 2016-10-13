@@ -58,5 +58,8 @@ If you'd like to help contribute, add your name on the google doc at [http://bit
 
 P.S. We'll schedule hangouts to do code walkthroughs or code show and tells occasionally, and announce it in the #codebuddies-meta channel on Slack. The goal is to help everyone who wants to contribute to this app learn quickly through collaboration. The list of contributors above contains a good mix of full-time developers and as well as people contributing to an open-sourced project for the first time.
 
-##Support CodeBuddies by becoming a sponsor
+##Support CodeBuddies by becoming a Sponsor
 This project is hosted on DigitalOcean. You can help keep this project alive by becoming a [sponsor of the month!](https://codebuddies.org/sponsor)
+
+##Support CodeBuddies by becoming a Backer
+Please support our organisation with monthly donation and help us promote our work.
