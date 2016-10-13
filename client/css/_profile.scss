@@ -18,15 +18,19 @@
   height: 350px;
 }
 
-#profileEditBio .form-group:not(.dynamic) {
+#profileEdit .form-group:not(.dynamic) {
 	width: 350px;
 }
 
-#profileEditBio button {
+#profileEdit button {
 	width: 100px;
 	margin-top: 15px;
 	margin-left: 15px;
 	float: right;
+}
+
+.form-group label {
+  width: 100%;
 }
 
 .profile-top {
@@ -36,11 +40,12 @@
 	letter-spacing: 0.2px;
 	h3 { margin-top: 0; font-size: 20px; font-weight: 600; line-height: 1.6; }
 	p { font-size: 16px; opacity: .8; }
+  .bio + a { text-decoration: none; color: $bg-white; opacity: .8; }
 	.form-control:not(:last-child) { margin-bottom: 15px; }
 	.social-icons {
 		margin-top: 15px;
 		a { text-decoration: none; color: $bg-white; }
-		i { font-size: 18px; line-height: 1.32; padding-right: 10px; }
+		i { font-size: 18px; line-height: 1.32; padding-right: 5px; }
 	}
 }
 
@@ -48,12 +53,14 @@
 	display: flex;
 	align-items: center;
 	height: 100px;
+  i { margin-right: 8px; }
 }
 
 .profile-top-right {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+  height: 110px;
 }
 
 .editProfile {

@@ -4,6 +4,22 @@ Meteor.methods({
     return Meteor.users.findOne({_id:userId},
                                 {fields: { emails: 0, services: 0, roles: 0, email: 0}});
   },
+
+  setUserProfile: function(profileInfo) {
+    var pattern = {
+      location: String,
+      bio: String,
+      website: String,
+      twitter: String,
+      github: String,
+      facebook: String,
+      linkedin: String
+    };
+    check(profileInfo, pattern);
+    Meteor.users.update({_id: Meteor.userId()},
+                        {$set: { profileInfo: profileInfo }});
+  },
+
   setUserStatus: function(currentStatus) {
     check(currentStatus, String);
     if (!this.userId) {
@@ -21,6 +37,7 @@ Meteor.methods({
     Meteor.users.update({_id: Meteor.userId()},
                         {$set: {statusHangout: hangoutStatus}});
   },
+
   getHangoutsJoinedCount: function(userId) {
     check(userId, String);
     return Hangouts.find({users:{$elemMatch:{$eq:userId}},'visibility':{$ne:false}}).count();

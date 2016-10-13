@@ -5,7 +5,7 @@
       <div class="row">
         {{#if editMode}}
           {{#with userInfo}}
-            {{> profileEditBio}}
+            {{> profileEdit}}
           {{/with}}
         {{else}}
           <div class="col-md-6 profile-top-left">
@@ -18,26 +18,36 @@
                   {{#if currentUser}}
                     <a href="#profileEdit" class="editProfile"><i class="fa fa-pencil" aria-hidden="true"></i>{{_ "Edit Profile"}}</a>
                   {{else}}
-                    <a><i class="fa fa-circle online-now" aria-hidden="true"></i></a>
+                    {{#if status.online}}
+                      <a><i class="fa fa-circle online-now" aria-hidden="true"></i></a>
+                    {{/if}}
                   {{/if}}
                 </h3>
-                <p><i class="fa fa-map-marker" aria-hidden="true"></i> Kansas City, MO</p>
+                <p>
+                  <i class="fa fa-map-marker" aria-hidden="true"></i>{{profileInfo.location}}
+                </p>
                 <div class="social-icons">
-                  <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                  <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                  <a href="#"><i class="fa fa-github" aria-hidden="true"></i></a>
-                  <a href="#"><i class="fa fa-slack" aria-hidden="true"></i></a>
+                  <a href="https://twitter.com/{{profileInfo.twitter}}" target="_blank">
+                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                  </a>
+                  <a href="https://www.facebook.com/{{profileInfo.facebook}}" target="_blank">
+                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                  </a>
+                  <a href="https://github.com/{{profileInfo.github}}" target="_blank">
+                    <i class="fa fa-github" aria-hidden="true"></i>
+                  </a>
+                  <a href="https://www.linkedin.com/in/{{profileInfo.linkedin}}" target="_blank">
+                    <i class="fa fa-linkedin" aria-hidden="true"></i>
+                  </a>
                 </div>
               </div>
             {{/with}}
           </div>
           <div class="col-md-6 profile-top-right">
-            <p class="bio">
-              Pellentesque eget. Maurizzle pellentesque nibh izzle turpis.
-            </p>
-            <p class="interests">
-              Lorizzle ipsizzle sheezy sit amizzle, dizzle adipiscing elit. Nullizzle daahng dawg velit, boofron volutpizzle, dang crackalackin, pimpin' vizzle, go to hizzle. Fizzle erizzle. Ma nizzle uhuh ... yih! dolor dapibizzle i saw beyonces tizzles and my pizzle went crizzle bling bling tempor.
-            </p>
+            <p class="bio">{{userInfo.profileInfo.bio}}</p>
+            <a href="{{userInfo.profileInfo.website}}" target="_blank">
+              {{userInfo.profileInfo.website}}
+            </a>
           </div>
         {{/if}}
       </div><!--row-->
