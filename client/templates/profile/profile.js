@@ -4,10 +4,6 @@ Template.profile.onCreated(function(){
   DocHead.setTitle(title);
 });
 
-Template.registerHelper('editMode',function(){
-    return Session.get("editMode");
-});
-
 Template.profile.helpers({
   userInfo: function() {
 		var userId = FlowRouter.getParam('userId');
@@ -17,6 +13,9 @@ Template.profile.helpers({
   hangoutsJoinedCount: function() {
 		var userId = FlowRouter.getParam('userId');
   	return ReactiveMethod.call('getHangoutsJoinedCount',userId)
+  },
+  editMode: function() {
+    return Session.get("editMode");
   }
 });
 
