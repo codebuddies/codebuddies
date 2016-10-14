@@ -15,7 +15,7 @@
               </div>
               <div class="col-md-9">
                 <h3>{{username}}
-                  {{#if currentUser}}
+                  {{#if isCurrentUserProfile currentUser}}
                     <a href="#profileEdit" class="editProfile"><i class="fa fa-pencil" aria-hidden="true"></i>{{_ "Edit Profile"}}</a>
                   {{else}}
                     {{#if status.online}}

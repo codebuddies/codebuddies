@@ -16,7 +16,10 @@ Template.profile.helpers({
   },
   editMode: function() {
     return Session.get("editMode");
-  }
+  },
+  isCurrentUserProfile: function(currentUser) {
+    return currentUser && currentUser._id == FlowRouter.getParam('userId');
+  },
 });
 
 Template.profile.events({
