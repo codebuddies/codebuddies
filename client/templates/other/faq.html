@@ -1,7 +1,7 @@
 <template name="faq">
-  <div id="about">
+  <div id="faq">
 
-  <div class="section about-top">
+  <div class="section faq-top">
       <div class="container">
         <div class="row">
             <div class="col-md-12 align-center">
@@ -11,22 +11,27 @@
     </div>
   </div>
 
-  <div class="section about-middle">
-      <div class="container">
+  <div class="section faq-middle">
+      <div class="container container-large">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-12">
 
               <h3>Where can I ask questions and chat with others in the community?</h3>
               <p>Our community spends a lot of time helping each other on our <a href="https://codebuddiesmeet.slack.com">Slack chatroom</a>. To join, you can get an invite by clicking on the button below and entering your email. </p>
               <p><script async defer src="https://codebuddiesmeet.herokuapp.com/slackin.js?large"></script></p>
+              <br>
               <h3>Why did you all work together to build this site?</h3>
               <p>Our community spends a lot of time helping each other on Slack, but it's hard to schedule study times in advance in a chatroom, and it's also hard to know who else is online possibly working on the same thing at the same time. This website solves those issues.</p>
+
+              <br>
+
               <h3>How do I use this website?</h3>
               <p>To login to this web site, you use the same Slack login that you use for the CodeBuddies Slack.</p>
               <p>After you log in, the first thing you should do is update your "currently working on" status message. Next, click on one of the icons to indicate whether you'd be interested in joining a silent hangout, a collaborative hangout, or a teaching hangout. The "learnings" tab lets you share accomplishments and vouch for others' accomplishments in a similar fashion.</p>
+              <br>
               <h3>Why the emphasis on hangouts? And why are there three types?</h3>
               <p>We've discovered that joining a hangout that we pre-schedule in advance (or sometimes spontaneously schedule) is a fun way to learn a programming or web development skill quicker. </p>
-              
+
              <p>There are three types of hangouts you can join or create as a way to learn together: </p>
              <ul>
              <li><i class="fa fa-microphone-slash text-danger-color type"></i><strong>silent</strong> hangout</li>
@@ -34,17 +39,19 @@
              <li><i class="fa fa-users text-success-color type"></i><strong>collaboration</strong> hangout
              </li>
              </ul>
-             
+
+             <br>
+
              <p>
               Unlike "regular" google hangouts, we usually turn off the video camera and the microphone by clicking on the <img src="/images/icon-video-off.png" width="25" height="25"> <img src="/images/icon-mute.png" width="25" height="25"> icons. </p>
              <p class="align-center">
               <img src="/images/screenshot-muted.jpg" width="65%">
              </p>
              <p>
-              You can think of a <i class="fa fa-microphone-slash text-danger-color type"></i><strong>silent</strong> hangout as a virtual coffeeshop for people who want to be productive. You can make the hangout topic generic enough that people are working on different things, or you can have the hangout be about working through the same tutorial or coding exercises at the same time. As a silent hangout host, you can decide to do a quick microphone-on check-in near the end of the session, but in general participants will expect the majority of the hangout to be silent. 
+              You can think of a <i class="fa fa-microphone-slash text-danger-color type"></i><strong>silent</strong> hangout as a virtual coffeeshop for people who want to be productive. You can make the hangout topic generic enough that people are working on different things, or you can have the hangout be about working through the same tutorial or coding exercises at the same time. As a silent hangout host, you can decide to do a quick microphone-on check-in near the end of the session, but in general participants will expect the majority of the hangout to be silent.
              </p>
              <p>
-              If you decide to create a <i class="fa fa-user text-warning-color type"></i><strong>teaching</strong> hangout, you'll have your microphone turned on, and you can use the hangout as a space to practice teaching a concept or to walk participants through a codebase. This is your chance to share what you know! 
+              If you decide to create a <i class="fa fa-user text-warning-color type"></i><strong>teaching</strong> hangout, you'll have your microphone turned on, and you can use the hangout as a space to practice teaching a concept or to walk participants through a codebase. This is your chance to share what you know!
              </p>
 
              <p>
@@ -53,9 +60,11 @@
              <p class="align-center">
                <img src="/images/screenshot-hangout-python.png" width="65%">
              </p>
-             <h4>General hangout tips</h4>
+
+             <br>
+
+             <h3>General hangout tips</h3>
              <ul>
-              
               <li>You can use the <a href="http://codebuddiesmeet.slack.com" target="_blank">CodeBuddies Slack</a> OR the Google Hangout chat box to chat and type questions.</li>
               <li>Screensharing is always optional, but some of us like to do it so that we don't get distracted by Facebook or YouTube during a <i class="fa fa-microphone-slash text-danger-color type"></i><strong>silent</strong> hangout, or so that we can more easily track where everyone is at and debug issues more easily during a <i class="fa fa-user text-warning-color type"></i><strong>teaching</strong> or <i class="fa fa-users text-success-color type"></i><strong>collaboration</strong> hangout.</li>
               <li>Google Hangouts lets multiple people screenshare with each other at the same time. You can click on a person's individual icon to see their screen.
@@ -63,14 +72,17 @@
                <li>Please note that the google hangouts are not recorded.</li>
              </ul>
 
-             <h4>Do you have a community code of conduct?</h4>
-             <p>Yes: <a href="https://github.com/codebuddiesdotorg/cb-v2-scratch/blob/master/CODE_OF_CONDUCT.md">https://github.com/codebuddiesdotorg/cb-v2-scratch/blob/master/CODE_OF_CONDUCT.md</a></p>
+             <br>
 
-         
-     
-          
+             <h3>Community Code of Conduct</h3>
+             <p>Please respect our code of conduct <a href="https://github.com/codebuddiesdotorg/cb-v2-scratch/blob/master/CODE_OF_CONDUCT.md"> here.</a></p>
+
+             <br>
+
+
+
             </div>
-            <div class="col-md-6">
+            <div class="col-md-12">
               <h3>Links</h3>
               <ul>
                 <li><a href="http://codebuddiesmeet.slack.com">Slack</a></li>
@@ -80,15 +92,17 @@
                 <li><a href="http://twitter.com/codebuddiesmeet">@codebuddiesmeet</a></li>
               </ul>
 
+              <br>
+
               <h3>Sponsors</h3>
               <p>This project is hosted on DigitalOcean. You can help keep this project alive by becoming a <a href="/sponsor">sponsor of the month</a>.</p>
 
             </div>
           </div>
         </div>
-      
+
       </div>
       </div>
-   
+
 
 </template>

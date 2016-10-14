@@ -1,0 +1,37 @@
+#faq {
+  p, li {
+    @include font-face(400, 16px, normal, $primary-grey);
+    line-height: 27px;
+  }
+  .flags img {
+    width: 51px;
+    @include border-radius(3px);
+  }
+  .faq-top {
+    background: $bg-lightgrey;
+    padding: 100px 0;
+    h2 { @include font-face(700, 32px, bold, $primary-grey); }
+  }
+
+  .faq-middle {
+    background: $bg-white;
+    padding: 100px 0;
+  }
+
+  .container-large {
+    width: 800px;
+  }
+
+  [data-toggle="popover"] {
+    display: inline-block;
+  }
+  a.user-popover {
+    .popover { margin-top: -10px;}
+    .popover:hover {
+      cursor: default;
+    }
+  }
+
+  h3.popover-title { margin-top: 0px;}
+  h3 { font-weight: 200;}
+}
