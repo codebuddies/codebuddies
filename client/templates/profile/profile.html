@@ -24,19 +24,19 @@
                   {{/if}}
                 </h3>
                 <p>
-                  <i class="fa fa-map-marker" aria-hidden="true"></i>{{profileInfo.location}}
+                  <i class="fa fa-map-marker" aria-hidden="true"></i>{{profile.location}}
                 </p>
                 <div class="social-icons">
-                  <a href="https://twitter.com/{{profileInfo.twitter}}" target="_blank">
+                  <a href="https://twitter.com/{{profile.social.twitter}}" target="_blank">
                     <i class="fa fa-twitter" aria-hidden="true"></i>
                   </a>
-                  <a href="https://www.facebook.com/{{profileInfo.facebook}}" target="_blank">
+                  <a href="https://www.facebook.com/{{profile.social.facebook}}" target="_blank">
                     <i class="fa fa-facebook" aria-hidden="true"></i>
                   </a>
-                  <a href="https://github.com/{{profileInfo.github}}" target="_blank">
+                  <a href="https://github.com/{{profile.social.github}}" target="_blank">
                     <i class="fa fa-github" aria-hidden="true"></i>
                   </a>
-                  <a href="https://www.linkedin.com/in/{{profileInfo.linkedin}}" target="_blank">
+                  <a href="https://www.linkedin.com/in/{{profile.social.linkedin}}" target="_blank">
                     <i class="fa fa-linkedin" aria-hidden="true"></i>
                   </a>
                 </div>
@@ -44,9 +44,9 @@
             {{/with}}
           </div>
           <div class="col-md-6 profile-top-right">
-            <p class="bio">{{userInfo.profileInfo.bio}}</p>
-            <a href="{{userInfo.profileInfo.website}}" target="_blank">
-              {{userInfo.profileInfo.website}}
+            <p class="bio">{{userInfo.profile.bio}}</p>
+            <a href="{{userInfo.profile.website}}" target="_blank">
+              {{userInfo.profile.website}}
             </a>
           </div>
         {{/if}}

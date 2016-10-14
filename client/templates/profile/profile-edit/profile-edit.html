@@ -11,7 +11,7 @@
         </div>
         <div class="form-group">
           <label for="location">Location</label>
-          <input type="text" class="form-control" name="location" value="{{profileInfo.location}}">
+          <input type="text" class="form-control" name="location" placeholder="San Francisco, CA" value="{{profile.location}}">
         </div>
         <div class="form-group">
           <label for="bio">Short Bio
@@ -19,7 +19,7 @@
               {{bioCharCount}} characters left
             </span>
           </label>
-          <textarea id="bio-text" class="form-control" name="bio" value="{{profileInfo.bio}}" rows="3" maxlength="140"></textarea>
+          <textarea id="bio-text" class="form-control" name="bio" value="{{profile.bio}}" rows="3" maxlength="140"></textarea>
         </div>
       </div>
     </div>
@@ -27,26 +27,26 @@
       <div class="col-md-6" style="padding-left: 0;">
         <div class="form-group dynamic">
           <label for="twitter">Twitter</label>
-          <input type="text" class="form-control" name="twitter" value="{{profileInfo.twitter}}">
+          <input type="text" class="form-control" name="twitter" placeholder="codebuddies" value="{{profile.social.twitter}}">
         </div>
         <div class="form-group dynamic">
           <label for="GitHub">GitHub</label>
-          <input type="text" class="form-control" name="github" value="{{profileInfo.github}}">
+          <input type="text" class="form-control" name="github" placeholder="codebuddiesdotorg" value="{{profile.social.github}}">
         </div>
       </div>
       <div class="col-md-6" style="padding-right: 0;">
         <div class="form-group dynamic">
           <label for="facebook">Facebook</label>
-          <input type="text" class="form-control" name="facebook" value="{{profileInfo.facebook}}">
+          <input type="text" class="form-control" name="facebook" placeholder="topstudygroup" value="{{profile.social.facebook}}">
         </div>
         <div class="form-group dynamic">
           <label for="slack">LinkedIn</label>
-          <input type="text" class="form-control" name="linkedin" value="{{profileInfo.linkedin}}">
+          <input type="text" class="form-control" name="linkedin" placeholder="codebuddies" value="{{profile.social.linkedin}}">
         </div>
       </div>
       <div class="form-group dynamic">
         <label for="website">Website</label>
-        <input type="text" class="form-control" name="website" value="{{profileInfo.website}}">
+        <input type="text" class="form-control" name="website" value="{{profile.website}}">
       </div>
       <button id="updateProfile" name="button" class="btn btn-danger">Save</button>
       <button id="cancelProfileEdit" name="button" class="btn btn-white btn-outline">Cancel</button>
