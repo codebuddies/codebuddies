@@ -3,14 +3,19 @@
     @include font-face(400, 16px, normal, $primary-grey);
     line-height: 27px;
   }
-  .flags img { 
+  .flags img {
     width: 51px;
     @include border-radius(3px);
   }
+
+  .flags-group {
+    padding: 50px 0;
+  }
+
   .about-top {
-    background: $bg-lightgrey;
     padding: 100px 0;
-    h2 { @include font-face(700, 32px, bold, $primary-grey); }
+    h2 { @include font-face(700, 32px, bold, $bg-white); }
+    background: linear-gradient(top, rgba(30,144,255,0.5) 0%, rgba(30,144,255,0.5) 0%, rgba(30,144,255,0.5) 0%, rgba(30,144,255,0.55) 18%, rgba(30,144,255,0.64) 46%, rgba(3,87,232,0.8) 100%), url(/images/language-logos.svg) center repeat;
   }
 
   .about-middle {
@@ -20,12 +25,13 @@
     .flags { margin: 20px 0;}
     img { margin: 10px;}
   }
+
   .about-bottom {
     background: $bg-lightgrey;
     padding: 100px 0;
     .contributors {
       margin: 40px 0;
-      img { 
+      img {
         margin: 0px 0px 40px 40px;
         width: 100px;
       }
