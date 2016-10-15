@@ -18,8 +18,14 @@
     padding: 100px 0;
   }
 
-  .container-large {
-    width: 800px;
+  .faq-hangout {
+    padding: 100px 0;
+    background: $bg-lightgrey;
+  }
+
+  .faq-bottom {
+    padding: 100px 0;
+    background: $bg-white;
   }
 
   [data-toggle="popover"] {
