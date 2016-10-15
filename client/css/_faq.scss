@@ -23,6 +23,11 @@
     background: $bg-lightgrey;
   }
 
+  .divider {
+    border-top: 1px solid $secondary-grey;
+    opacity: 0.2;
+  }
+
   .faq-bottom {
     padding: 100px 0;
     background: $bg-white;
