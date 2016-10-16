@@ -27,6 +27,11 @@
                   <p><i class="fa fa-map-marker" aria-hidden="true"></i>{{profile.location}}</p>
                 {{/if}}
                 <div class="social-icons">
+                  {{# if userInfo.username }}
+                    <a href="https://codebuddiesmeet.slack.com/messages/{{userInfo.username}}/" target="_blank">
+                      <i class="fa fa-slack" aria-hidden="true"></i>
+                    </a>
+                  {{/if}}
                   {{# if profile.social.twitter}}
                     <a href="https://twitter.com/{{profile.social.twitter}}" target="_blank">
                       <i class="fa fa-twitter" aria-hidden="true"></i>
