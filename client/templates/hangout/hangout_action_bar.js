@@ -1,10 +1,11 @@
+import QuillEditor from '../../libs/QuillEditor';
 
 Template.hangoutActionBar.helpers({
   create: function(){
 
   },
   rendered: function(){
-
+    
   },
   destroyed: function(){
 
@@ -43,9 +44,9 @@ Template.hangoutActionBar.events({
       console.log(hangout.data._id + ' this is a cloned hangout id');
       Session.set('hangoutId', hangout.data._id);
 
-      Modal.show('cloneHangoutModal');
+      Modal.show('cloneHangoutModal', {hangout});
       $('#clone-hangout-modal #topic').val(hangout.data.topic);
-      $('#clone-hangout-modal #description').val(hangout.data.description);
+      // $('#clone-hangout-modal #description').val(hangout.data.description);
       $('#clone-hangout-modal input[value=' + hangout.data.type + ']').prop("checked", true);
       //$('#clone-hangout-modal #start-date-time').val(start_time_reverted);
       //$('#clone-hangout-modal #end-date-time').val(end_time_reverted);
@@ -65,9 +66,19 @@ Template.hangoutActionBar.events({
     // Session.set('hostId', hangout.data.user_id);
     // Session.set('hostUsername', hangout.data.creator);
 
-    Modal.show('editHangoutModal');
+    // var editor_content = hangout.data.description;
+    // console.log(typeof hangout.data.description);
+    // var parsed = $.parseHTML(editor_content);
+    // console.log(parsed);
+    // var content = parsed.text();
+    // console.log(content);
+    //console.log(editor_content.html());
+
+
+    Modal.show('editHangoutModal', {hangout});
     $('#edit-hangout-modal #topic').val(hangout.data.topic);
-    $('#edit-hangout-modal #description').val(hangout.data.description);
+    // $('#edit-hangout-modal #description').val(hangout.data.description);
+    // templateInstance.editor.setContents(hangout.data.description);
     $('#edit-hangout-modal input[value=' + hangout.data.type + ']').prop("checked", true);
     $('#edit-hangout-modal #start-date-time').val(start_time_reverted);
     $('#edit-hangout-modal #end-date-time').val(end_time_reverted);

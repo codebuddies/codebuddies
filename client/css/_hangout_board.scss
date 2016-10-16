@@ -1,0 +1,57 @@
+#hangout-board {
+  .hangout-card {
+    position: relative;
+    display: block;
+    background: $bg-white;
+    padding: 10px;
+    height: 180px;
+    @include box-shadow(0px, 12px, 60px, rgba(0,0,0,0.5));
+    cursor: pointer;
+    .hangout-topic { 
+      @include font-face(600, 16px, bold, $primary-grey);
+      line-height: 25px;
+    }
+    .hangout-details {
+      position: absolute;
+      bottom: 10px;
+    }
+    .hangout-date {
+      margin: 0px;
+    }
+    .details-extra { right: 10px;}
+  }
+  .hangout-card:hover {
+    box-shadow: none;
+  }
+  .board-top {
+    background: $bg-lightgrey;
+    padding: 100px 0;
+    h2 { @include font-face(700, 32px, bold, $primary-grey); }
+  }
+  .board-middle {
+    background: $cta-blue;
+    padding: 20px 0;
+    h2 { @include font-face(700, 32px, bold, $primary-grey); }
+  }
+  .hangout-board{
+    h3 { margin: 0px;}
+
+    .hangout-filter-block{
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+    
+  }
+
+  .hangout-header-block{
+    height: 100px;
+    padding: 0px;
+
+    @include font-face(400, 17px, normal, $cta-blue);
+  }
+
+  .stop-scrolling {
+
+  }
+
+}

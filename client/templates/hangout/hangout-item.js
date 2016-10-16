@@ -27,46 +27,13 @@ Template.registerHelper("hangoutOwner", function(ownerid){
 
 });
 
-
-
 Template.hangoutItem.helpers({
-  getType: function(type) {
-    if (type == 'silent') {
-      return 'fa-microphone-slash text-danger-color';
-    } else if (type == 'teaching') {
-      return 'fa-user text-warning-color';
-    } else if (type == 'collaboration') {
-      return 'fa-users text-success-color';
-    }
-  },
-  getHostId: function(hangout) {
-    return hangout.host.id;
-  },
-  getHostName: function(hangout) {
-    return hangout.host.name;
-  },
-  getDate: function(hangout) {
-    var tz = TimezonePicker.detectedZone();
-    var startEndDiffDays = (hangout.end - hangout.start)/(1000*60*60*24)
-    var startTime = moment(hangout.start).tz(tz).format('ddd MMMM Do YYYY, h:mm a z')
-    // If endtime is in 24 hours (95% of 24 hours), then show "To Be Announced". Else show the end time
-    var endTime = moment(hangout.end).tz(tz).format('MMMM Do h:mm a z')
-    if (startEndDiffDays > 0.95){
-      endTime = 'To Be Announced '
-    }
-    //console.log('getDate tz: ' + tz);
-    //console.log('getDate hangout.start: '+ hangout.start);
-    //console.log('getDate hangout.end: '+ hangout.end);
-    //console.log('getDate this.timestamp' + this.timestamp);
-    //console.log('getDate this.end' + this.end)
-
-    return `${startTime} - ${endTime} | ${hangout.users.length} joined`
-  },
+  getDescriptionTruncated: function(description) {
+      return description.substring(0,201)+"...";
+    },
   isInProgress: function(hangout) {
 
     return reactiveDate.nowMinutes.get() > hangout.start && reactiveDate.nowMinutes.get() < hangout.end;
-
-    //return reactiveDate.nowMinutes.get() > hangout.start && reactiveDate.nowMinutes.get() < hangout.end;
 
   },
   completed: function(hangout) {
@@ -84,7 +51,6 @@ Template.hangoutItem.helpers({
           time: moment(startDate).fromNow()
         });
     }
-
   },
   getIsDone: function(hangout) {
     var currentDate = new Date();

@@ -1,3 +1,9 @@
+import QuillEditor from '../../libs/QuillEditor';
+
+Meteor.startup(function() {
+    $('head').append('<link href="https://cdn.quilljs.com/1.0.3/quill.snow.css" rel="stylesheet">');
+});
+
 Template.hangout.onCreated(function() {
   var title = "CodeBuddies | Hangout";
   DocHead.setTitle(title);
@@ -12,16 +18,11 @@ Template.hangout.rendered = function() {
 }
 
 Template.hangout.helpers({
-  hangout: function() {
-      return Hangouts.findOne({_id: FlowRouter.getParam('hangoutId')});
-  },
-  getType: function(type) {
-    if (type == 'silent') {
-      return 'fa-microphone-slash text-danger-color';
-    } else if (type == 'teaching') {
-      return 'fa-user text-warning-color';
-    } else if (type == 'collaboration') {
-      return 'fa-users text-success-color';
+  formatDescription: ({description_in_quill_delta, description}) => {
+    if (description_in_quill_delta) {
+      return QuillEditor.generateHTMLForDeltas(description_in_quill_delta);
+    } else {
+      return description;
     }
   },
   getHostId: function(hangout) {
@@ -30,22 +31,8 @@ Template.hangout.helpers({
   getHostName: function(hangout) {
     return hangout.host.name;
   },
-  getDate: function(hangout) {
-    var tz = TimezonePicker.detectedZone();
-    var startEndDiffDays = (hangout.end - hangout.start)/(1000*60*60*24)
-    var startTime = moment(hangout.start).tz(tz).format('ddd MMMM Do YYYY, h:mm a z')
-    // If endtime is in 24 hours (95% of 24 hours), then show "To Be Announced". Else show the end time
-    var endTime = moment(hangout.end).tz(tz).format('MMMM Do h:mm a z')
-    if (startEndDiffDays > 0.95){
-      endTime = 'To Be Announced '
-    }
-    //console.log('getDate tz: ' + tz);
-    //console.log('getDate hangout.start: '+ hangout.start);
-    //console.log('getDate hangout.end: '+ hangout.end);
-    //console.log('getDate this.timestamp' + this.timestamp);
-    //console.log('getDate this.end' + this.end)
-
-    return `${startTime} - ${endTime} | ${hangout.users.length} joined`
+  hangout: function() {
+      return Hangouts.findOne({_id: FlowRouter.getParam('hangoutId')});
   },
   isInProgress: function(hangout) {
 
@@ -140,11 +127,19 @@ Template.hangout.events({
       });
     }
   },
+  "click #visitor": function(event, template){
+    event.preventDefault();
+    sweetAlert({
+      title: TAPi18n.__("sign_in_to_continue"),
+      confirmButtonText: TAPi18n.__("ok"),
+      type: 'info'
+    });
+  },
   'click #end-hangout-button': function(){
     const topic = $('#hangout-topic').text().trim().split('\n')[0]
     const description = $('#hangout-description').text().trim()
     // Capturing the date in an array so that I can format it later
-    const start_parts = $('.status').text().trim().split('\n')[3].trim().split('|')[0].split('-')[0].trim().split(" ")
+    const start_parts = $('.status').text().trim().split('\n')[6].trim().split('|')[0].split('-')[0].trim().split(" ")
     const end = new Date(Date.now())
     const type = $('.status').text().trim().split(' ')[0]
 
@@ -164,6 +159,8 @@ Template.hangout.events({
      //alert(`${topic}-${description}-${start}-${end}-${type}`);
 
      Meteor.call('editHangout', data, function(err, result) {
+        alert(err)
+        alert(result)
         console.log(result);
         if (result) {
           sweetAlert({

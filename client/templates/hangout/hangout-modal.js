@@ -1,4 +1,13 @@
+import QuillEditor from '../../libs/QuillEditor';
+
 Template.createHangoutModal.rendered = function() {
+  var templateInstance = Template.instance();
+  var editorHostElement = templateInstance.$('[data-editor-host]').get(0);
+  
+  templateInstance.editor = QuillEditor.createEditor({
+    container: editorHostElement
+  });
+
   var start = this.$('#start-date-time-picker');
   var end = this.$('#end-date-time-picker');
   var set_end_block = this.$('#set-end-date-time-block')
@@ -53,27 +62,26 @@ Template.createHangoutModal.rendered = function() {
   },function(){
     $('#d3').hide();
   });
-
-
-
 };
 
 Template.createHangoutModal.events({
   'click #create-hangout': function(e) {
+    const templateInstance = Template.instance();
     const topic = $('#topic').val();
-    const description = $('#description').val().replace(/\r?\n/g, '<br />');
+    const description = QuillEditor.generatePlainTextFromDeltas(templateInstance.editor.getContents());
+    const description_in_quill_delta = templateInstance.editor.getContents();
     const start = $('#start-date-time').val();
     // If date was not set, return 24 hours later. Else, return end date time
     const end = $('#end-date-time-picker').attr("style") === "display:none" ? new Date(Date.now() + 60*60*1000*24) : $('#end-date-time').val();
     const type = $('input[name="hangout-type"]:checked').val();
-    console.log(start);
-    console.log(end);
 
+    alert(description_in_quill_delta)
 
     const data = {
       topic: topic,
       slug: topic.replace(/\s+/g, '-').toLowerCase(),
       description: description,
+      description_in_quill_delta: description_in_quill_delta,
       start: new Date(start),
       end: new Date(end),
       type: type
