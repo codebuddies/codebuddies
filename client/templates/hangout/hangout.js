@@ -1,3 +1,9 @@
+import QuillEditor from '../../libs/QuillEditor';
+
+Meteor.startup(function() {
+    $('head').append('<link href="https://cdn.quilljs.com/1.0.3/quill.snow.css" rel="stylesheet">');
+});
+
 Template.hangout.onCreated(function() {
   var title = "CodeBuddies | Hangout";
   DocHead.setTitle(title);
@@ -12,6 +18,13 @@ Template.hangout.rendered = function() {
 }
 
 Template.hangout.helpers({
+  formatDescription: ({description_in_quill_delta, description}) => {
+    if (description_in_quill_delta) {
+      return QuillEditor.generateHTMLForDeltas(description_in_quill_delta);
+    } else {
+      return description;
+    }
+  },
   hangout: function() {
       return Hangouts.findOne({_id: FlowRouter.getParam('hangoutId')});
   },

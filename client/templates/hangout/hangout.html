@@ -39,7 +39,7 @@
                     <br />
                       {{getHangoutStartDateTime start}} - {{getHangoutEndDateTime end}} |
                       {{users.length}} Joined
-                      {{#if views}}| <i class="fa fa-eye" aria-hidden="true" data-toggle="tooltip" title="Views" > {{views}} </i> {{/if}}
+                      {{#if views}}| <i class="fa fa-eye" aria-hidden="true" data-toggle="tooltip" title="Views" > </i> {{views}} {{/if}}
 
                         <!-- <i class="fa fa-calendar fa-lg"></i> {{getDate this}}
                         | <i class="fa fa-eye" aria-hidden="true" data-toggle="tooltip" title="Views"> {{views}} </i> -->
@@ -53,7 +53,7 @@
             <div class="panel-body">
 
               <div>
-                  {{{description}}}
+                  {{{formatDescription this}}}
               </div>
             </div>
 

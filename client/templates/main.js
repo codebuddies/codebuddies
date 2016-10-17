@@ -47,12 +47,3 @@ Template.registerHelper("getHangoutEndDateTime", function(date){
   const tz = TimezonePicker.detectedZone();
   return moment(date).tz(tz).format('MMMM Do h:mm a z')
 });
-
-String.prototype.truncate = function(){
-    var re = this.match(/^.{0,50}[\S]*/);
-    var l = re[0].length;
-    var re = re[0].replace(/\s$/,'');
-    if(l < this.length)
-        re = re + "...";
-    return re;
-}

@@ -6,7 +6,7 @@
 
     .navbar-brand {
 
-      @include font-face(700, 24px, bold, #000000);
+      @include font-face(700, 24px, bold, $black);
       margin-top: 4px;
       width: 8em;
 
@@ -21,7 +21,7 @@
 }
 
 .navbar-default {
-  background-color: #ffffff;
+  background-color: $white;
 
   .navbar-nav {
 

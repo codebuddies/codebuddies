@@ -1,9 +1,14 @@
+import {tweetHangout} from '../twitter/methods.js';
+
 Meteor.methods({
   createHangout: function(data) {
     check(data, Match.ObjectIncluding({
       topic: String,
       slug: String,
       description: String,
+      description_in_quill_delta: Match.ObjectIncluding({
+        ops: Match.Any
+      }),
       start: Match.OneOf(String, Date),
       end: Match.OneOf(String, Date),
       type: String,
@@ -17,6 +22,7 @@ Meteor.methods({
       topic: data.topic,
       slug: data.slug,
       description: data.description,
+      description_in_quill_delta: data.description_in_quill_delta,
       start: data.start,
       end: data.end,
       type: data.type,
@@ -37,6 +43,10 @@ Meteor.methods({
 
     const hangout_id = Hangouts.insert(hangout);
     hangout._id = hangout_id;
+
+    //tweet new hangout
+    tweetHangout(hangout);
+
 
     slackNotification(hangout, "NEW");
     return true;
@@ -97,6 +107,9 @@ Meteor.methods({
       topic: String,
       slug: String,
       description: String,
+      description_in_quill_delta: Match.ObjectIncluding({
+        ops: Match.Any
+      }),
       start: Match.OneOf(String, Date),
       end: Match.OneOf(String, Date),
       type: String
@@ -116,6 +129,7 @@ Meteor.methods({
                       {$set:{ topic: data.topic,
                               slug: data.slug,
                               description: data.description,
+                              description_in_quill_delta: data.description_in_quill_delta,
                               start: data.start,
                               end: data.end,
                               type: data.type } });
@@ -128,6 +142,7 @@ Meteor.methods({
                       {$set:{ topic: data.topic,
                               slug: data.slug,
                               description: data.description,
+                              description_in_quill_delta: data.description_in_quill_delta,
                               start: data.start,
                               end: data.end,
                               type: data.type }});
