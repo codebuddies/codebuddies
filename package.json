@@ -1,6 +1,7 @@
 {
   "name": "codebuddies-v2",
   "version": "1.0.0",
+  "license": "MIT",
   "scripts": {
     "meteor:dev": "meteor --settings settings-development.json",
     "meteor:prod": "meteor --setings settings-production.json",
