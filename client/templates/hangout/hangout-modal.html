@@ -18,7 +18,14 @@
                 </div>
                 <div class="col-md-6">
                   <div id="set-end-date-time-block">
-                    <p id="set-end-date-time">Set end time?</p>
+                    <select name="end-date-select" class="form-control" id="end-date-select"> 
+                        <option value="undefined">End manually</option>
+                        <option value="one">1 hour</option>
+                        <option value="one_five">1.5 hours</option>
+                        <option value="two">2 hours</option>
+                        <option value="three">3 hours</option>
+                        <option value="custom">Custom end time</option>
+                    </select>
                   </div>
                   <div class="input-group date" id="end-date-time-picker" style="display:none">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>

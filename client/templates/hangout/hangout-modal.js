@@ -15,10 +15,11 @@ Template.createHangoutModal.rendered = function() {
 
   $('#d1,#d2,#d3').hide();
 
-  set_end_block.on("click", function(e){
-    end.show();
-    set_end_block.hide();
-  })
+  // set_end_block.on("click", function(e){
+  //   end.show();
+  //   set_end_block.hide();
+  // })
+  end.show();
 
   start.datetimepicker({
     ignoreReadonly: true,
@@ -29,8 +30,39 @@ Template.createHangoutModal.rendered = function() {
   end.datetimepicker({
     ignoreReadonly: true,
     widgetPositioning: { horizontal: 'auto', vertical: 'bottom'},
-    minDate: new Date(Date.now() + 60*60*1000) // 60*60*1000 = 1 hour interval
+    minDate: new Date(Date.now() + 60*60*1000*24) // 60*60*1000*24 = 24 hour interval
   });
+
+
+  $('#end-date-select').on('change', function() {
+      console.log($('#start-date-time').val());
+      if($('option[value="undefined"]').is(':selected')){
+          //console.log('start time plus one hour is:',moment($('#start-date-time').val(), "L LT").add(1, 'hour').format("L LT"));
+          hour_24 = moment($('#start-date-time').val(), "L LT").add(24, 'hour').format("L LT")
+          $('#end-date-time').val(hour_24);
+      } else if ($('option[value="one"]').is(':selected')) {
+          const hour_1 = moment($('#start-date-time').val(), "L LT").add(1, 'hour').format("L LT");
+          $('#end-date-time').val(hour_1);
+      } else if ($('option[value="one_five"]').is(':selected')) {
+          const minutes_90 = moment($('#start-date-time').val(), "L LT").add(90, 'minutes').format("L LT");
+          $('#end-date-time').val(minutes_90);
+      } else if ($('option[value="two"]').is(':selected')) {
+          const hour_2 = moment($('#start-date-time').val(), "L LT").add(2  , 'hour').format("L LT");
+          $('#end-date-time').val(hour_2);
+      } else if ($('option[value="three"]').is(':selected')) {
+          const hour_3 = moment($('#start-date-time').val(), "L LT").add(3  , 'hour').format("L LT");
+          $('#end-date-time').val(hour_3);
+      } else if ($('option[value="custom"]').is(':selected')) {
+          $('#end-date-select').hide();
+      }
+
+  });
+  $('#start-date-time, .bootstrap-datetimepicker-widget > *').on('change', function() {
+    console.log('changed start date');
+    $('#end-date-select').trigger('change');
+  });
+
+  
 
   start.on("dp.change", function (e) {
     //current start date & time
@@ -75,7 +107,7 @@ Template.createHangoutModal.events({
     const end = $('#end-date-time-picker').attr("style") === "display:none" ? new Date(Date.now() + 60*60*1000*24) : $('#end-date-time').val();
     const type = $('input[name="hangout-type"]:checked').val();
 
-    alert(description_in_quill_delta)
+    //alert(description_in_quill_delta)
 
     const data = {
       topic: topic,
