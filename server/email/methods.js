@@ -25,6 +25,7 @@ emailNotification = function(hangout, type){
     subject: subject,
   }
 
+//this is a function that will throw an error if the email function does not send properly
     try {
      Email.send(data);
     } catch ( e ) {
