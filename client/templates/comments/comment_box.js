@@ -81,9 +81,16 @@ Template.commentBox.events({
       sweetAlert({
         title: TAPi18n.__("Login to comment"),
         // text: TAPi18n.__("login_create_hangout_message"),
-        confirmButtonText: TAPi18n.__("ok"),
+        confirmButtonText: TAPi18n.__("sign_in_with_slack"),
         type: 'info'
-      });
+      },
+      function(){
+        var options = {
+          requestPermissions: ['identify', 'users:read']
+        };
+        Meteor.loginWithSlack(options);
+      }
+    );
 
       return;
     };
@@ -125,9 +132,16 @@ Template.commentBox.events({
       sweetAlert({
         title: TAPi18n.__("Login to upvote"),
         // text: TAPi18n.__("login_create_hangout_message"),
-        confirmButtonText: TAPi18n.__("ok"),
+        confirmButtonText: TAPi18n.__("sign_in_with_slack"),
         type: 'info'
-      });
+      },
+      function(){
+        var options = {
+          requestPermissions: ['identify', 'users:read']
+        };
+        Meteor.loginWithSlack(options);
+      }
+    );
       return;
     };
     var userId = Meteor.userId();
@@ -162,8 +176,14 @@ Template.commentBox.events({
       sweetAlert({
         title: TAPi18n.__("Login to downvote"),
         // text: TAPi18n.__("login_create_hangout_message"),
-        confirmButtonText: TAPi18n.__("ok"),
+        confirmButtonText: TAPi18n.__("sign_in_with_slack"),
         type: 'info'
+      },
+      function(){
+        var options = {
+          requestPermissions: ['identify', 'users:read']
+        };
+        Meteor.loginWithSlack(options);
       });
       return;
     };
@@ -200,9 +220,16 @@ Template.commentBox.events({
       sweetAlert({
         title: TAPi18n.__("Login to comment"),
         // text: TAPi18n.__("login_create_hangout_message"),
-        confirmButtonText: TAPi18n.__("ok"),
+        confirmButtonText: TAPi18n.__("sign_in_with_slack"),
         type: 'info'
-      });
+      },
+      function(){
+        var options = {
+          requestPermissions: ['identify', 'users:read']
+        };
+        Meteor.loginWithSlack(options);
+      }
+    );
       return;
     };
     //checking user status
@@ -234,9 +261,16 @@ Template.commentBox.events({
       sweetAlert({
         title: TAPi18n.__("Login to reply"),
         // text: TAPi18n.__("login_create_hangout_message"),
-        confirmButtonText: TAPi18n.__("ok"),
+        confirmButtonText: TAPi18n.__("sign_in_with_slack"),
         type: 'info'
-      });
+      },
+      function(){
+        var options = {
+          requestPermissions: ['identify', 'users:read']
+        };
+        Meteor.loginWithSlack(options);
+      }
+    );
       return;
     };
 
@@ -284,9 +318,16 @@ Template.commentBox.events({
       sweetAlert({
         title: TAPi18n.__("Login to delete"),
         // text: TAPi18n.__("login_create_hangout_message"),
-        confirmButtonText: TAPi18n.__("ok"),
+        confirmButtonText: TAPi18n.__("sign_in_with_slack"),
         type: 'info'
-      });
+      },
+      function(){
+        var options = {
+          requestPermissions: ['identify', 'users:read']
+        };
+        Meteor.loginWithSlack(options);
+      }
+    );
       return;
     };
     var data = {

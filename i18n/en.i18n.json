@@ -2,6 +2,7 @@
   // general & menu
   "sign_out": "Sign Out",
   "sign_in_with": "Sign In with",
+  "sign_in_with_slack": "Sign into Slack",
 
   //home
   "jumbotron_subtitle": "We're __count__ people who help each other by sharing knowledge",

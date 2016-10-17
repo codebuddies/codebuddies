@@ -5,7 +5,7 @@ Template.hangoutActionBar.helpers({
 
   },
   rendered: function(){
-    
+
   },
   destroyed: function(){
 
@@ -18,8 +18,14 @@ Template.hangoutActionBar.events({
       sweetAlert({
         title: TAPi18n.__("login_create_hangout_title"),
         text: TAPi18n.__("login_create_hangout_message"),
-        confirmButtonText: TAPi18n.__("ok"),
+        confirmButtonText: TAPi18n.__("sign_in_with_slack"),
         type: 'info'
+      },
+      function(){
+        var options = {
+          requestPermissions: ['identify', 'users:read']
+        };
+        Meteor.loginWithSlack(options);
       });
     } else {
       const hangoutId = hangout.data._id;
@@ -34,8 +40,14 @@ Template.hangoutActionBar.events({
       sweetAlert({
         title: TAPi18n.__("login_create_hangout_title"),
         text: TAPi18n.__("login_create_hangout_message"),
-        confirmButtonText: TAPi18n.__("ok"),
+        confirmButtonText: TAPi18n.__("sign_in_with_slack"),
         type: 'info'
+      },
+      function(){
+        var options = {
+          requestPermissions: ['identify', 'users:read']
+        };
+        Meteor.loginWithSlack(options);
       });
     } else {
       //var start_time_reverted = moment(hangout.data.start).format('MM/DD/YYYY h:mm A');
