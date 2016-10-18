@@ -7,7 +7,6 @@ Meteor.methods({
 
   setUserProfile: function(profileInfo) {
     var pattern = {
-      location: String,
       bio: String,
       website: String,
       twitter: String,
@@ -21,7 +20,6 @@ Meteor.methods({
     }
     Meteor.users.update({_id: Meteor.userId()},
                         {$set: {
-                          'profile.location': profileInfo.location,
                           'profile.bio': profileInfo.bio,
                           'profile.website': profileInfo.website,
                           'profile.social.twitter': profileInfo.twitter,

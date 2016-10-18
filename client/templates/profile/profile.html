@@ -8,61 +8,51 @@
             {{> profileEdit}}
           {{/with}}
         {{else}}
-          <div class="col-md-6 profile-top-left">
+          {{#if isCurrentUserProfile currentUser}}
+            <a href="#profileEdit" class="btn-edit editProfile"><i class="fa fa-pencil" aria-hidden="true"></i>{{_ "Edit"}}</a>
+          {{/if}}
+          <div class="col-md-4 col-md-offset-4 text-center">
             {{#with userInfo}}
-              <div class="col-md-3">
-                <img src="{{#if profile.avatar.image_192 }} {{profile.avatar.image_192}} {{else}} {{profile.avatar.default}} {{/if}}" class="img-circle" alt="profile image"/>
-              </div>
-              <div class="col-md-9">
-                <h3>{{username}}
-                  {{#if isCurrentUserProfile currentUser}}
-                    <a href="#profileEdit" class="btn-edit editProfile"><i class="fa fa-pencil" aria-hidden="true"></i>{{_ "Edit Profile"}}</a>
-                  {{else}}
-                    {{#if status.online}}
-                      <a><i class="fa fa-circle online-now" aria-hidden="true"></i></a>
-                    {{/if}}
-                  {{/if}}
-                </h3>
-                {{# if profile.location}}
-                  <p><i class="fa fa-map-marker" aria-hidden="true"></i>{{profile.location}}</p>
+              <img src="{{#if profile.avatar.image_192 }} {{profile.avatar.image_192}} {{else}} {{profile.avatar.default}} {{/if}}" class="img-circle avatar" alt="profile image"/>
+              <h3 class="username">{{username}}
+                {{#if status.online}}
+                  <a><i class="fa fa-circle online-now" aria-hidden="true"></i></a>
                 {{/if}}
-                <div class="social-icons">
-                  {{# if userInfo.username }}
-                    <a href="https://codebuddiesmeet.slack.com/messages/{{userInfo.username}}/" target="_blank">
-                      <i class="fa fa-slack" aria-hidden="true"></i>
-                    </a>
-                  {{/if}}
-                  {{# if profile.social.twitter}}
-                    <a href="https://twitter.com/{{profile.social.twitter}}" target="_blank">
-                      <i class="fa fa-twitter" aria-hidden="true"></i>
-                    </a>
-                  {{/if}}
-                  {{# if profile.social.facebook}}
-                    <a href="https://www.facebook.com/{{profile.social.facebook}}" target="_blank">
-                      <i class="fa fa-facebook" aria-hidden="true"></i>
-                    </a>
-                  {{/if}}
-                  {{# if profile.social.github}}
-                    <a href="https://github.com/{{profile.social.github}}" target="_blank">
-                      <i class="fa fa-github" aria-hidden="true"></i>
-                    </a>
-                  {{/if}}
-                  {{# if profile.social.linkedin}}
-                    <a href="https://www.linkedin.com/in/{{profile.social.linkedin}}" target="_blank">
-                      <i class="fa fa-linkedin" aria-hidden="true"></i>
-                    </a>
-                  {{/if}}
-                  {{# if profile.website}}
-                    <a href="{{profile.website}}" target="_blank">
-                      <i class="fa fa-globe" aria-hidden="true"></i>
-                    </a>
-                  {{/if}}
-                </div>
+              </h3>
+              <p class="bio">{{profile.bio}}</p>
+              <div class="social-icons">
+                {{# if userInfo.username }}
+                  <a href="https://codebuddiesmeet.slack.com/messages/{{userInfo.username}}/" target="_blank">
+                    <i class="fa fa-slack" aria-hidden="true"></i>
+                  </a>
+                {{/if}}
+                {{# if profile.social.twitter}}
+                  <a href="https://twitter.com/{{profile.social.twitter}}" target="_blank">
+                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                  </a>
+                {{/if}}
+                {{# if profile.social.facebook}}
+                  <a href="https://www.facebook.com/{{profile.social.facebook}}" target="_blank">
+                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                  </a>
+                {{/if}}
+                {{# if profile.social.github}}
+                  <a href="https://github.com/{{profile.social.github}}" target="_blank">
+                    <i class="fa fa-github" aria-hidden="true"></i>
+                  </a>
+                {{/if}}
+                {{# if profile.social.linkedin}}
+                  <a href="https://www.linkedin.com/in/{{profile.social.linkedin}}" target="_blank">
+                    <i class="fa fa-linkedin" aria-hidden="true"></i>
+                  </a>
+                {{/if}}
+                {{# if profile.website}}
+                  <a href="{{profile.website}}" target="_blank">
+                    <i class="fa fa-globe" aria-hidden="true"></i>
+                  </a>
+                {{/if}}
               </div>
             {{/with}}
-          </div>
-          <div class="col-md-6 profile-top-right">
-            <p class="bio">{{userInfo.profile.bio}}</p>
           </div>
         {{/if}}
       </div><!--row-->

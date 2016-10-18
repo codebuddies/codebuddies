@@ -27,7 +27,7 @@
 }
 
 .btn-white.btn-outline {
-  border-color: #fff; 
+  border-color: #fff;
   color: #fff;
 }
 
@@ -40,15 +40,16 @@
 }
 
 .btn-edit {
-  display: inline-block;
+  float: right;
   text-decoration: none;
-  font-size: 10px;
+  font-family: $open-sans;
+  font-size: 13px;
   color: $bg-white;
   border: 1px solid $divider;
-  border-radius: 6px;
-  padding: 4px 8px;
-  margin-left: 15px;
-  i { margin-right: 5px; }
+  border-radius: 4px;
+  padding: 6px 12px;
+  margin-right: 35px;
+  i { margin-right: 8px; }
   &:hover { background: $white; color: $cta-blue}
 }
 

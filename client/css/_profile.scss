@@ -35,38 +35,25 @@
 
 .profile-top {
 	background: $cta-blue;
-	padding: 60px 0;
+	padding: 40px 0px;
 	color: $bg-white;
 	letter-spacing: 0.2px;
-	h3 { margin-top: 0; font-size: 20px; font-weight: 600; line-height: 1.6; }
-	p { font-size: 16px; opacity: .8; }
+  .username {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: .25px;
+    line-height: 1.6;
+  }
+  .online-now { color: $hangout-collab; font-size: 10px; margin-left: 15px }
+  .form-control:not(:last-child) { margin-bottom: 15px; }
+	.bio { font-size: 14px; line-height: 1.6; opacity: .8; }
   .bio + a { text-decoration: none; color: $bg-white; opacity: .8; }
-	.form-control:not(:last-child) { margin-bottom: 15px; }
-	.social-icons {
-		margin-top: 15px;
+	.social-icons { margin-top: 20px;
 		a { text-decoration: none; color: $bg-white; }
-		i { font-size: 18px; line-height: 1.32; padding-right: 5px; }
+		i { font-size: 24px; line-height: 1.32; padding-right: 18px; }
 	}
-}
-
-.profile-top-left {
-	display: flex;
-	align-items: center;
-	height: 100px;
-  i { margin-right: 8px; }
-}
-
-.profile-top-right {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-  height: 110px;
-}
-
-.online-now {
-	color: $hangout-collab;
-	font-size: 10px;
-	margin-left: 20px;
 }
 
 .profile-hangouts-completed {
