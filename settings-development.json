@@ -10,6 +10,12 @@
     "kadira": {
       "appId": "kadira-app-id",
       "appSecret": "kadira-app-secret"
+    },
+    "twitter": {
+      "consumer_key": "Consumer_Key",
+      "consumer_secret": "Consumer_Secret",
+      "access_token_key": "Access_Token",
+      "access_token_secret": "Access_Token_Secret"
     }
   },
   "isModeProduction": false,

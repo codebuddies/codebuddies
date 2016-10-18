@@ -1,3 +1,5 @@
+import {tweetLearning} from '../twitter/methods.js';
+
 Meteor.methods({
   addLearning: function(data) {
     check(data.title, String);
@@ -16,6 +18,11 @@ Meteor.methods({
       kudos: 0
     }
     Learnings.insert(learning);
+
+    //tweet user learning
+    tweetLearning(learning);
+
+
   },
 
   deleteLearning: function(learningId) {
