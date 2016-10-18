@@ -144,9 +144,8 @@ Template.hangout.events({
     sweetAlert({
         type: 'warning',
         title: TAPi18n.__("end_hangout_confirm"),
-        text: TAPi18n.__("end_hangout_text"),
-        cancelButtonText: TAPi18n.__("no_delete_hangout"),
-        confirmButtonText: TAPi18n.__("yes_delete_hangout"),
+        cancelButtonText: TAPi18n.__("no_end_hangout"),
+        confirmButtonText: TAPi18n.__("yes_end_hangout"),
         confirmButtonColor: "#d9534f",
         showCancelButton: true,
         closeOnConfirm: false,

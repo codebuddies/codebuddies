@@ -127,10 +127,10 @@
                     <a class="btn btn-cb2 btn-grey btn-success" href="{{url}}" target="_blank">{{_ "join_long"}}</a>
 
                     {{#if hangoutOwner host.id}}
-                        <div id="end-hangout" class="btn btn-cb2 btn-danger">END HANGOUT</div>
+                        <div id="end-hangout" class="btn btn-cb2 btn-danger">{{_ "end_hangout"}}</div>
                     {{else}}
                         {{#if isInRole 'admin,moderator,volunteer'}}
-                            <div id="end-hangout" class="btn btn-cb2 btn-danger">END HANGOUT</div>
+                            <div id="end-hangout" class="btn btn-cb2 btn-danger">{{_ 'end_hangout'}}</div>
                         {{/if}}
                     {{/if}}
 

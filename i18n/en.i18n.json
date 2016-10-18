@@ -56,6 +56,9 @@
   "yes_delete_learning": "Yes please!",
   "no_delete_learning": "No thanks!",
   "launch" : "Launch Hangout",
+  "yes_end_hangout": "Yes end it!",
+  "no_end_hangout": "No, I was just kidding",
+  "end_hangout": "END HANGOUT",
 
   // hangout
   "what_is_a_hangout": "What is a hangout?",
@@ -78,6 +81,8 @@
   "remove_owner_from_hangout": "Hey! You can't remove yourself from your hangout.",
   "delete_hangout_confirm": "Are you sure?",
   "delete_hangout_text": "Note: All participants will be notified via email of cancellation",
+  "end_hangout_confirm": "Are you sure?",
+
 
   // create hangout modal - popup messages
   "hangout_created_title": "Hangout Created Successfully",
