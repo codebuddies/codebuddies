@@ -135,47 +135,36 @@ Template.hangout.events({
       type: 'info'
     });
   },
-  'click #end-hangout-button': function(){
-    const topic = $('#hangout-topic').text().trim().split('\n')[0]
-    const description = $('#hangout-description').text().trim()
-    // Capturing the date in an array so that I can format it later
-    const start_parts = $('.status').text().trim().split('\n')[6].trim().split('|')[0].split('-')[0].trim().split(" ")
-    const end = new Date(Date.now())
-    const type = $('.status').text().trim().split(' ')[0]
-
-    // date: Weekday Month Day Year Time TimeZone
-    var start = `${start_parts[0]} ${start_parts[1].substring(0,3)} ${start_parts[2].substring(0, start_parts[2].length - 2)} ${start_parts[3].substring(0, start_parts[3].length - 1)} ${start_parts[4]} ${start_parts[5]} ${start_parts[6]}`
+  'click #end-hangout': function(){
 
     const data = {
-       topic: topic,
-       slug: topic.replace(/\s+/g, '-').toLowerCase(),
-       description: description,
-       start: new Date(start),
-       end: new Date(end),
-       type: type,
-       hangoutId:Session.get("hangoutId"),
-     };
-     // Used for debugging:
-     //alert(`${topic}-${description}-${start}-${end}-${type}`);
+      hangoutId: this._id,
+    }
 
-     Meteor.call('editHangout', data, function(err, result) {
-        alert(err)
-        alert(result)
-        console.log(result);
-        if (result) {
-          sweetAlert({
-            title: TAPi18n.__("hangout_edited_title"),
-            text: TAPi18n.__("hangout_created_message"),
-            confirmButtonText: TAPi18n.__("ok"),
-            type: 'success',
-            closeOnConfirm: true
-          });
-        } else {
-          //console.log(err.reason);
-          //console.log("there was an error");
-          //console.log(data);
-          //console.log(hangoutId);
-        }
-      });
+    sweetAlert({
+        type: 'warning',
+        title: TAPi18n.__("end_hangout_confirm"),
+        text: TAPi18n.__("end_hangout_text"),
+        cancelButtonText: TAPi18n.__("no_delete_hangout"),
+        confirmButtonText: TAPi18n.__("yes_delete_hangout"),
+        confirmButtonColor: "#d9534f",
+        showCancelButton: true,
+        closeOnConfirm: false,
+      },
+      function() {
+        // disable confirm button to avoid double (or quick) clicking on confirm event
+        swal.disableButtons();
+        // if user confirmed/selected yes, let's call the delete hangout method on the server
+
+        Meteor.call('endHangout', data, function(error, result) {
+          if (result) {
+            swal("Poof!", "Your hangout has been successfully ended!", "success");
+          } else {
+            swal("Oops something went wrong!", error.error + "\n Try again", "error");
+          }
+        });
+
+      }); //sweetAlert
+
   }
 });

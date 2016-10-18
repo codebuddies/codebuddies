@@ -106,12 +106,12 @@
                       data-initial_apps="[{ app_id : '999356798349', start_data: {{_id}}, 'app_type' : 'LOCAL_APP' }]" data-widget_size="72"></div>
                   </div>
                 {{/if}}
+          {{else}}
+
           {{/unless}}
          {{/unless}}
 
-         {{#if isInProgress this and isInRole 'moderator,admin'}}
-              <div id="end-hangout-button" class="btn btn-block btn-default">END HANGOUT</div>
-          {{/if}}
+
 
         {{#if equals visibility false}}
           <span class="label label-pill label-danger">DELETED</span>
@@ -123,11 +123,21 @@
 
               {{#if isJoined}}
                 {{#if url}}
+
                     <a class="btn btn-cb2 btn-grey btn-success" href="{{url}}" target="_blank">{{_ "join_long"}}</a>
+
+                    {{#if hangoutOwner host.id}}
+                        <div id="end-hangout" class="btn btn-cb2 btn-danger">END HANGOUT</div>
+                    {{else}}
+                        {{#if isInRole 'admin,moderator,volunteer'}}
+                            <div id="end-hangout" class="btn btn-cb2 btn-danger">END HANGOUT</div>
+                        {{/if}}
+                    {{/if}}
+
                 {{else}}
                   {{#unless hangoutOwner host.id}}
                          <p class="status"><i class="fa fa-dot-circle-o fa text-danger faa-burst animated"></i> &nbsp; Please wait for <a href="https://codebuddiesmeet.slack.com/messages/{{getHostId this}}">@{{getHostName this}}</a> to initiate the hangout.</p>
-                      {{/unless}}
+                  {{/unless}}
                 {{/if}}
 
 
