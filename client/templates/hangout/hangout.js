@@ -78,6 +78,17 @@ Template.hangout.helpers({
     } else {
       return '';
     }
+  },
+  wasEndTimeSet: function(hangout) {
+    const start = hangout.start
+    const end = hangout.end
+    const duration = (end - start) / (1000 * 60 * 60 * 24)
+
+    if (duration === 1){
+      return false
+    }else {
+      return true
+    }
   }
 });
 Template.hangout.events({

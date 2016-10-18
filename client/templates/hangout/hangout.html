@@ -36,7 +36,14 @@
                       {{/unless}}
 
                     <br />
-                      {{getHangoutStartDateTime start}} - {{getHangoutEndDateTime end}} |
+                      {{getHangoutStartDateTime start}} - 
+
+                      {{#if wasEndTimeSet this}}
+                        {{getHangoutEndDateTime end}}
+                      {{else}}
+                        To Be Announced
+                      {{/if}}
+                         |
                       {{users.length}} Joined
                       {{#if views}}| <i class="fa fa-eye" aria-hidden="true" data-toggle="tooltip" title="Views" > </i> {{views}} {{/if}}
                    </label>
