@@ -30,6 +30,7 @@ slackNotification = function(hangout, type){
   let date_start, now_value, now_formatted_time, difference, minutes;
   date_start = moment.utc(hangout.start);
   now_value = (moment.utc()); //.format('MMMM Do YYYY, h:mm a z');
+  hangout_formatted_time = (moment.utc(hangout.start)).format('MMMM Do YYYY, h:mm a z');
   now_formatted_time = (moment.utc()).format('MMMM Do YYYY, h:mm a z');
   difference = (moment.duration(date_start.diff(now_value)));
   minutes = difference.asMinutes();
@@ -83,7 +84,7 @@ slackNotification = function(hangout, type){
          short: true
        },{
          title: 'Date',
-         value: `${now_formatted_time + '\n ('+time_left+')'}`,
+         value: `${hangout_formatted_time + '\n ('+time_left+')'}`,
          short: true
        }]
     }]
