@@ -3,6 +3,8 @@ import QuillEditor from '../../libs/QuillEditor';
 Template.editHangoutModal.rendered = function() {
   var templateInstance = Template.instance();
   var editorHostElement = templateInstance.$('[data-editor-host]').get(0);
+  var start = this.$('#start-date-time-picker');
+
 
   templateInstance.editor = QuillEditor.createEditor({
     container: editorHostElement
@@ -11,17 +13,11 @@ Template.editHangoutModal.rendered = function() {
   templateInstance.editor.setContents(templateInstance.data.hangout.data.description_in_quill_delta ||
                                       templateInstance.data.hangout.data.description)
 
-  var start = this.$('#start-date-time-picker');
-  var end = this.$('#end-date-time-picker');
-
-  //dateTo.setHours(dateTo.getHours()+1);
+  //instructions for start date time picker
   start.datetimepicker({
     ignoreReadonly: true
   });
-  end.datetimepicker({
-    ignoreReadonly: true,
-    useCurrent: false
-  });
+
 
 };
 
@@ -33,9 +29,9 @@ Template.editHangoutModal.events({
      const description_in_quill_delta = templateInstance.editor.getContents();
      const start = $('#start-date-time').val();
      const startDate = new Date(start);
+     // If date was not set, return 24 hours later. Else, return end date time
      const duration = Number($('#end-date-time').val()) || 1440;
      const end = new Date(startDate.getTime() + (1000*60* duration));
-    //  const end = $('#end-date-time').val();
      const type = $('input[name="hangout-type"]:checked').val();
 
      const data = {
