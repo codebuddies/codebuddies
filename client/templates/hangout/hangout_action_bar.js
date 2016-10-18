@@ -5,7 +5,7 @@ Template.hangoutActionBar.helpers({
 
   },
   rendered: function(){
-    
+
   },
   destroyed: function(){
 
@@ -58,7 +58,9 @@ Template.hangoutActionBar.events({
     //console.log(hangout.data.topic);
     //pass in the right times like 03/09/2016 2:03 AM
     var start_time_reverted = moment(hangout.data.start).format('MM/DD/YYYY h:mm A');
-    var end_time_reverted = moment(hangout.data.end).format('MM/DD/YYYY h:mm A');
+    var hangoutDuration = hangout.data.duration
+
+    //var end_time_reverted = moment(hangout.data.end).format('MM/DD/YYYY h:mm A');
 
     console.log(hangout.data._id + ' this is an edited hangout id');
 
@@ -81,7 +83,7 @@ Template.hangoutActionBar.events({
     // templateInstance.editor.setContents(hangout.data.description);
     $('#edit-hangout-modal input[value=' + hangout.data.type + ']').prop("checked", true);
     $('#edit-hangout-modal #start-date-time').val(start_time_reverted);
-    $('#edit-hangout-modal #end-date-time').val(end_time_reverted);
+    $('#edit-hangout-modal #end-date-time').val(hangoutDuration);
     //console.log(start_time_reverted);
     //console.log(end_time_reverted);
 

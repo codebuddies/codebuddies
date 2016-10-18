@@ -11,6 +11,7 @@ Meteor.methods({
       }),
       start: Match.OneOf(String, Date),
       end: Match.OneOf(String, Date),
+      duration: Number,
       type: String,
     }));
 
@@ -25,6 +26,7 @@ Meteor.methods({
       description_in_quill_delta: data.description_in_quill_delta,
       start: data.start,
       end: data.end,
+      duration: data.duration,
       type: data.type,
       host:{
         id: loggedInUser._id,
@@ -112,6 +114,7 @@ Meteor.methods({
       }),
       start: Match.OneOf(String, Date),
       end: Match.OneOf(String, Date),
+      duration: Number,
       type: String
     }));
 
@@ -132,6 +135,7 @@ Meteor.methods({
                               description_in_quill_delta: data.description_in_quill_delta,
                               start: data.start,
                               end: data.end,
+                              duration: data.duration,
                               type: data.type } });
 
       return true;
@@ -145,6 +149,7 @@ Meteor.methods({
                               description_in_quill_delta: data.description_in_quill_delta,
                               start: data.start,
                               end: data.end,
+                              duration: data.duration,
                               type: data.type }});
 
       const notification = {
