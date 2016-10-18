@@ -2,6 +2,11 @@
 1. How do I start up the app?
   * `meteor npm install`
   * `meteor --settings settings-development.json`
+  
+If you have any problems getting the app to start, feel free to ask in the #troubleshooting channel on the CodeBuddies Slack. (Click [here](http://codebuddiesmeet.herokuapp.com) for an invite to the Slack channel if you're not already on it.) Please mention:
+- your operating system (e.g. Windows, MacOSX, Linux, etc.)
+- which version of meteor you have installed (You can type `meteor --version` in your terminal to check)
+- Whether or not you've run `meteor npm install` before you attempted to start the app.
 
 ## The first 6 steps to take if you want to contribute to this open-sourced project:
 1. Add your name on the google doc [bit.ly/codebuddies-hangouts-platform-v2-googledoc](http://bit.ly/codebuddies-hangouts-platform-v2-googledoc) if your name is not listed, and you want to be recognized as a collaborator.
