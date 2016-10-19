@@ -1,17 +1,5 @@
 import QuillEditor from '../../libs/QuillEditor';
 
-Template.hangoutActionBar.helpers({
-  create: function(){
-
-  },
-  rendered: function(){
-
-  },
-  destroyed: function(){
-
-  },
-});
-
 Template.hangoutActionBar.events({
   'click .report-hangout': function(e, hangout) {
     if (!Meteor.userId()) {

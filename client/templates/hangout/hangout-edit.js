@@ -47,7 +47,6 @@ Template.editHangoutModal.events({
      };
 
       Meteor.call('editHangout', data, function(err, result) {
-        //console.log(result);
         if (result) {
           Modal.hide();
           sweetAlert({
@@ -57,11 +56,6 @@ Template.editHangoutModal.events({
             type: 'success',
             closeOnConfirm: true
           });
-        } else {
-          //console.log(err.reason);
-          //console.log("there was an error");
-        	//console.log(data);
-          //console.log(hangoutId);
         }
       });
     }

@@ -1,17 +1,3 @@
-Meteor.startup(function() {
-  /*Use reactive-var to make sure inProgress hangouts change automatically*/
-  reactiveDate = {
-    nowMinutes: new ReactiveVar(new Date)
-  };
-
-  setInterval(function() {
-    reactiveDate.nowMinutes.set(new Date);
-  }, 60 * 1000); // every minute
-  /*Hangout Links*/
-
-
-});
-
 Template.hangoutItem.rendered =function() {
 
   $('head').append('<script src="https://apis.google.com/js/platform.js" async defer></script>');
@@ -30,57 +16,7 @@ Template.registerHelper("hangoutOwner", function(ownerid){
 Template.hangoutItem.helpers({
   getDescriptionTruncated: function(description) {
       return description.substring(0,201)+"...";
-    },
-  // isInProgress: function(hangout) {
-  //
-  //   return reactiveDate.nowMinutes.get() > hangout.start && reactiveDate.nowMinutes.get() < hangout.end;
-  //
-  // },
-  // completed: function(hangout) {
-  //       return reactiveDate.nowMinutes.get() > hangout.end;
-  // },
-  // isJoined: function() {
-  //   return this.users.indexOf(Meteor.userId()) != -1;
-  // },
-
-  // upcomingTime: function(hangout) {
-  //   var startDate = new Date(hangout.start);
-  //   var currentDate = new Date();
-  //   if (startDate > currentDate) {
-  //         return TAPi18n.__("upcoming_time", {
-  //         time: moment(startDate).fromNow()
-  //       });
-  //   }
-  // },
-  // getIsDone: function(hangout) {
-  //   var currentDate = new Date();
-  //   //console.log('getIsDone currentDate:' + currentDate);
-  //   var hangoutDate = new Date(hangout.end);
-  //   if (hangoutDate < currentDate) {
-  //     var daysDiff = Math.round((currentDate - hangoutDate) / (1000 * 60 * 60 * 24));
-  //     if (daysDiff == 0)
-  //       return TAPi18n.__("mastered_today_time", {
-  //         time: moment(hangoutDate).fromNow()
-  //       });
-  //     else
-  //       return TAPi18n.__("mastered_x_days_ago", {
-  //         days: daysDiff
-  //       });
-  //   } else {
-  //     return '';
-  //   }
-  // },
-  // wasEndTimeSet: function(hangout) {
-  //   const start = hangout.start
-  //   const end = hangout.end
-  //   const duration = (end - start) / (1000 * 60 * 60 * 24)
-  //
-  //   if (duration === 1){
-  //     return false
-  //   }else {
-  //     return true
-  //   }
-  // }
+  }
 });
 
 Template.hangoutItem.events({
