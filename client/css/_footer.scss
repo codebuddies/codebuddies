@@ -1,7 +1,11 @@
 #footer {
-  @include breakpoint(xsmall) { position: relative;}
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  min-height: 75px;
   background: $bg-white;
   padding: 20px 0;
+  @include breakpoint(xsmall) { position: relative;}
   @include font-face(400, 13px, normal, $primary-grey);
   a {color: $cta-blue; text-decoration: underline;}
   img {width: 12em;}
@@ -11,8 +15,6 @@
     @include breakpoint(xsmall) { display: block; }
   }
   span.note { display: block; font-size: 12px;}
-  width: 100%;
-  min-height: 75px;
   .footer-details{
     float:right;
     @include breakpoint(tiny) { float: none; }

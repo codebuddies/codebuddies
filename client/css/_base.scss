@@ -12,10 +12,9 @@ html, body {
 }
 
 #wrapper {
+  position: relative;
   min-height: 100%;
-  height: auto !important;
-  height: 100%;
-  margin: 0 auto -75px;
+  padding: 0 0 75px;
 }
 
 .auto-height {
