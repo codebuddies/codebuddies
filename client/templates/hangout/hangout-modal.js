@@ -73,14 +73,14 @@ Template.createHangoutModal.events({
       return;
     }
 
-    if ($.trim(end) == '') {
-      sweetAlert({
-        title: TAPi18n.__("select_end_time"),
-        confirmButtonText: TAPi18n.__("ok"),
-        type: 'error'
-      });
-      return;
-    }
+    // if ($.trim(end) == '') {
+    //   sweetAlert({
+    //     title: TAPi18n.__("select_end_time"),
+    //     confirmButtonText: TAPi18n.__("ok"),
+    //     type: 'error'
+    //   });
+    //   return;
+    // }
 
     if ($.trim(topic) == '') {
       $('#topic').focus();
