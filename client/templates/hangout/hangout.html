@@ -8,23 +8,27 @@
               <div class="panel-heading">
                 <div class="row">
                 <div class="col-md-12">
-                <h2 class="{{# if completed this }}completed{{/if}}" id="hangout-topic">
+                <!-- hangout topic and action bar -->
+                <h2 class="{{# if isHangoutCompleted end }}completed{{/if}}" id="hangout-topic">
                     {{#if equals visibility false}}
                       <span class="label label-pill label-danger">DELETED</span>
                     {{else}}
 
-                      {{#if isInProgress this}}
+                      {{#if isHangoutInProgress start end}}
                         <div id="placeholder-div-{{_id}}"></div> &nbsp;
                         <i class="fa fa-dot-circle-o fa text-danger faa-burst animated"></i> &nbsp;
                       {{/if}}
 
-                    {{/if}}
+                    {{/if}} <!-- ./if equals visibility false -->
+
                       {{topic}}
 
-                    {{> hangoutActionBar}}
+                      {{> hangoutActionBar}}
 
                 </h2>
+                <!-- ./hangout topic and action bar -->
 
+                <!-- hangout type host  and date time -->
                 <p class="status">
                   <label><i class="fa {{getHangoutTypeSign type}}"></i>
 
@@ -36,35 +40,36 @@
                       {{/unless}}
 
                     <br />
-                      {{getHangoutStartDateTime start}} - 
+                      {{getHangoutStartDateTime start}} -
 
-                      {{#if wasEndTimeSet this}}
-                        {{getHangoutEndDateTime end}}
-                      {{else}}
+                      {{#if isHangoutEndTimeTBA start end}}
                         To Be Announced
+                      {{else}}
+                        {{getHangoutEndDateTime end}}
                       {{/if}}
                          |
                       {{users.length}} Joined
                       {{#if views}}| <i class="fa fa-eye" aria-hidden="true" data-toggle="tooltip" title="Views" > </i> {{views}} {{/if}}
                    </label>
                  </p>
-                  </div>
-              </div> <!--col-md-12-->
+                 <!-- ./hangout type host  and date time -->
 
+                </div> <!--./col-md-12-->
+                </div> <!--./row-->
+              </div><!--panel-heading-->
 
-            </div><!--panel-heading-->
-            <div class="panel-body">
+              <div class="panel-body">
 
-              <div id="hangout-description">
-                  {{{formatDescription this}}}
-              </div>
-            </div>
+                <div id="hangout-description">
+                    {{{formatDescription this}}}
+                </div>
+              </div><!-- ./panel-body-->
 
-            <div class="panel-footer">
+              <div class="panel-footer">
 
                 <div class="row">
-                {{# unless completed this }}
-               <div class="col-md-9 col-sm-9">
+                {{# unless isHangoutCompleted end }}
+                  <div class="col-md-9 col-sm-9">
                    <h4>Hangout Reminders</h4>
                    <ol>
                       {{#if hangoutOwner host.id}}
@@ -83,29 +88,30 @@
                                 At the time of the event, click the button below to launch the Google Hangout.
                               {{/unless}}
                             </li>
-                             <li>In the Google Hangout, click to mute your video camera. <img src="/images/icon-video-off.png" width="20" height="20"></li>
-                             <li>Feel free to mute the microphone too if this is a silent hangout. <img src="/images/icon-mute.png" width="20" height="20"> </li>
+                            <li>In the Google Hangout, click to mute your video camera. <img src="/images/icon-video-off.png" width="20" height="20"></li>
+                            <li>Feel free to mute the microphone too if this is a silent hangout. <img src="/images/icon-mute.png" width="20" height="20"> </li>
                       {{/if}}
                     </ol>
-               </div>
-               {{/unless}}
-              <div class="col-md-3 col-sm-3 {{#unless completed this}} pull-right {{/unless}}">
-
-              <a href="{{pathFor 'profile' name=host.name userId=host.id}}"><img class="img-circle" src="{{host.avatar}}"></a>
-                {{#each attendees}}
-                <a href="{{pathFor 'profile' name=name userId=id}}"><img class="img-circle" src="{{avatar}}"></a>
-                {{/each}}
-
-              </div>
-                </div>
                   </div>
-          </div> <!--panel panel-default-->
+               {{/unless}} <!-- ./isHangoutCompleted -->
+                  <div class="col-md-3 col-sm-3 {{#unless isHangoutCompleted end}} pull-right {{/unless}}">
+
+                      <a href="{{pathFor 'profile' name=host.name userId=host.id}}"><img class="img-circle" src="{{host.avatar}}"></a>
+                      {{#each attendees}}
+                        <a href="{{pathFor 'profile' name=name userId=id}}"><img class="img-circle" src="{{avatar}}"></a>
+                      {{/each}}
+
+                  </div>
+                </div> <!-- ./row -->
+
+              </div><!-- ./panel-footer-->
+            </div> <!--panel panel-default-->
 
 
-          <div class="row">
+            <div class="row">
              <div class="hangout-status">
 
-          {{# unless completed this }}
+          {{# unless isHangoutCompleted end }}
           {{# unless url }}
                 {{#if hangoutOwner host.id}}
                   <i class="fa fa-dot-circle-o fa text-danger faa-burst animated"></i>&nbsp; <div class="google-hangout">
@@ -124,11 +130,11 @@
           <span class="label label-pill label-danger">DELETED</span>
         {{else}}
 
-          {{# unless completed this }}
+          {{# unless isHangoutCompleted end }}
 
-            {{#if isInProgress this}}
+            {{#if isHangoutInProgress start end}}
 
-              {{#if isJoined}}
+              {{#if isAttending users}}
                 {{#if url}}
 
                     <a class="btn btn-cb2 btn-grey btn-success" href="{{url}}" target="_blank">{{_ "join_long"}}</a>
@@ -143,26 +149,26 @@
 
                 {{else}}
                   {{#unless hangoutOwner host.id}}
-                         <p class="status"><i class="fa fa-dot-circle-o fa text-danger faa-burst animated"></i> &nbsp; Please wait for <a href="https://codebuddiesmeet.slack.com/messages/{{getHostId this}}">@{{getHostName this}}</a> to initiate the hangout.</p>
+                         <p class="status"><i class="fa fa-dot-circle-o fa text-danger faa-burst animated"></i> &nbsp; Please wait for <a href="https://codebuddiesmeet.slack.com/messages/{{host.name}}">@{{host.name}}</a> to initiate the hangout.</p>
                   {{/unless}}
                 {{/if}}
 
 
 
               {{else}}
-                {{# unless getIsDone this}}
+                {{# unless isHangoutCompleted end}}
                    <button id="join-hangout" class="btn btn-cb2 btn-success">{{_ "join_in_session"}}</button>
                 {{/unless}}
               {{/if}}
 
             {{else}}
 
-              {{#if isJoined}}
-                <p class="upcoming"><i class="fa fa-dot-circle-o fa text-danger faa-burst animated"></i>&nbsp;{{upcomingTime this}}</p>
+              {{#if isAttending users}}
+                <p class="upcoming"><i class="fa fa-dot-circle-o fa text-danger faa-burst animated"></i>&nbsp;{{upcomingTime start}}</p>
                 <a id="leave-hangout" class="btn btn-cb2 btn-danger">{{_ "leave"}}</a>
               {{else}}
 
-                {{# unless getIsDone this}}
+                {{# unless isHangoutCompleted end}}
                   <button id="join-hangout" class="btn btn-cb2 btn-success">{{_ "rsvp_long"}}</button>
                 {{/unless}}
 
@@ -170,7 +176,7 @@
 
             {{/if}}
           {{else}}
-            <p class="completed">{{getIsDone this}}</p>
+            <p class="completed"> COMPLETED </p>
           {{/unless}}
 
         {{/if}} <!-- if equals visibility false -->
