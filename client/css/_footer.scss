@@ -2,28 +2,45 @@
   position: absolute;
   bottom: 0;
   width: 100%;
-  min-height: 75px;
+//  min-height: 75px;
   background: $bg-white;
-  padding: 20px 0;
-  @include breakpoint(xsmall) { position: relative;}
+  padding: 50px 0;
+//  @include breakpoint(xsmall) { position: relative;}
   @include font-face(400, 13px, normal, $primary-grey);
-  a {color: $cta-blue; text-decoration: underline;}
+//  a {color: $cta-blue; text-decoration: underline;}
   img {width: 12em;}
-  .fa {font-size: 20px; color: $cta-blue; padding-left: 10px;}
+
+  a {
+    display: block;
+    padding-top: 10px;
+  }
+
+  .footer-section {
+    @include breakpoint(tiny) { margin: 20px 0; }
+    @include breakpoint(xsmall) { margin: 40px 0; }
+  }
+
+// column 2
+
+
+// column 3
+  .footer-social {
+    a {display: inline-block;}
+    .fa {font-size: 20px; color: $cta-blue; padding-right: 10px;}
+  }
+
   .footer-icons {
-    @include breakpoint(tiny) { display: block; }
-    @include breakpoint(xsmall) { display: block; }
-  }
-  span.note { display: block; font-size: 12px;}
-  .footer-details{
-    float:right;
-    @include breakpoint(tiny) { float: none; }
-    @include breakpoint(xsmall) { float: none; }
-    .help {
-      @include breakpoint(tiny) { display: block; }
-      @include breakpoint(xsmall) { display: block; }
+    @include breakpoint(tiny) {
+      text-align: center;
+      .fa {padding: 0 5px;}
     }
+    @include breakpoint(xsmall) {
+      text-align: center;
+      .fa {padding: 0 5px;}
+     }
   }
+
   @include breakpoint(tiny) { text-align: center !important; }
   @include breakpoint(xsmall) { text-align: center !important; }
+
 }

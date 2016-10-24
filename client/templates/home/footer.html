@@ -1,23 +1,36 @@
 <template name="footer">
 
   <div id="footer">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <a class="logo" href="{{pathFor 'home'}}"><img src="/images/logo.svg"></a>
-          <div class="footer-details">
-            <em>Built by Cool People Around the World</em>
-            <span class="footer-icons">
-              <a href="https://github.com/codebuddiesdotorg/cb-v2-scratch" target="_blank"><i class="fa fa-github"></i></a>
-              <a href="https://codebuddiesmeet.slack.com" target="_blank"><i class="fa fa-slack"></i></a>
-              <a href="https://twitter.com/codebuddiesmeet" target="_blank"><i class="fa fa-twitter"></i></a>
-              <a href="https://www.facebook.com/groups/TOPSTUDYGROUP/" target="_blank"><i class="fa fa-facebook"></i></a>
-            </span>
-            <span class="note">Our project is free and open-sourced. <span class="help"><a href="http://opencollective.com/codebuddies" target="_blank">Help us keep this project alive!</a> | <a href="/privacy">Privacy policy</a></span></span>
-            
+      <div class="container">
+
+        <div class="row">
+          <div class="col-md-6"> <!-- column 1 -->
+            <div class="footer-logo footer-section">
+              <a class="logo" href="{{pathFor 'home'}}"><img src="/images/logo.svg"></a>
+              <span class="note">Our project is free and open-sourced. <span><a href="http://opencollective.com/codebuddies" target="_blank">Help us keep this project alive!</a></span></span>
+            </div>
           </div>
-        </div>
-      </div>
+          <div class="col-md-3"> <!-- column 2 -->
+            <div class="footer-links footer-section">
+              <p><strong>ORGANIZATION</strong></p>
+                <a href="/about">About Us</a>
+                <a href="/faq">FAQ</a>
+                <a href="/privacy">Privacy policy</a>
+            </div>
+          </div>
+          <div class="col-md-3"> <!-- column 3 -->
+            <div class="footer-social footer-section">
+              <p><strong>CONNECT WITH US</strong></p>
+              <span class="footer-icons">
+                <a href="https://github.com/codebuddiesdotorg/cb-v2-scratch" target="_blank"><i class="fa fa-github"></i></a>
+                <a href="https://codebuddiesmeet.slack.com" target="_blank"><i class="fa fa-slack"></i></a>
+                <a href="https://twitter.com/codebuddiesmeet" target="_blank"><i class="fa fa-twitter"></i></a>
+                <a href="https://www.facebook.com/groups/TOPSTUDYGROUP/" target="_blank"><i class="fa fa-facebook"></i></a>
+              </span>
+            </div>
+          </div>
+        </div> <!-- ends row -->
+
     </div>
   </div>
 
