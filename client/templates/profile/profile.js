@@ -13,5 +13,20 @@ Template.profile.helpers({
   hangoutsJoinedCount: function() {
 		var userId = FlowRouter.getParam('userId');
   	return ReactiveMethod.call('getHangoutsJoinedCount',userId)
-  }
+  },
+  editMode: function() {
+    return Session.get("editMode");
+  },
+  isCurrentUserProfile: function(currentUser) {
+    return currentUser && currentUser._id == FlowRouter.getParam('userId');
+  },
+});
+
+Template.profile.events({
+  'click .editProfile': function() {
+    Session.set('editMode',true);
+  },
+  'click #cancelProfileEdit': function() {
+    Session.set('editMode',false);
+  },
 });

@@ -1,0 +1,88 @@
+<template name="profile">
+<div id="profile">
+  <section class="profile-top">
+    <div class="container">
+      <div class="row">
+        {{#if editMode}}
+          {{#with userInfo}}
+            {{> profileEdit}}
+          {{/with}}
+        {{else}}
+          {{#if isCurrentUserProfile currentUser}}
+            <a href="#profileEdit" class="btn-edit editProfile"><i class="fa fa-pencil" aria-hidden="true"></i>{{_ "Edit"}}</a>
+          {{/if}}
+          <div class="col-md-4 col-md-offset-4 text-center">
+            {{#with userInfo}}
+              <img src="{{#if profile.avatar.image_192 }} {{profile.avatar.image_192}} {{else}} {{profile.avatar.default}} {{/if}}" class="img-circle avatar" alt="profile image"/>
+              <h3 class="username">{{username}}
+                {{#if status.online}}
+                  <i class="fa fa-circle online-now" aria-hidden="true"></i>
+                {{/if}}
+              </h3>
+              <p class="bio">{{profile.bio}}</p>
+              <div class="social-icons">
+                {{# if userInfo.username }}
+                  <a href="https://codebuddiesmeet.slack.com/messages/{{userInfo.username}}/" target="_blank">
+                    <i class="fa fa-slack" aria-hidden="true"></i>
+                  </a>
+                {{/if}}
+                {{# if profile.social.twitter}}
+                  <a href="https://twitter.com/{{profile.social.twitter}}" target="_blank">
+                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                  </a>
+                {{/if}}
+                {{# if profile.social.facebook}}
+                  <a href="https://www.facebook.com/{{profile.social.facebook}}" target="_blank">
+                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                  </a>
+                {{/if}}
+                {{# if profile.social.github}}
+                  <a href="https://github.com/{{profile.social.github}}" target="_blank">
+                    <i class="fa fa-github" aria-hidden="true"></i>
+                  </a>
+                {{/if}}
+                {{# if profile.social.linkedin}}
+                  <a href="https://www.linkedin.com/in/{{profile.social.linkedin}}" target="_blank">
+                    <i class="fa fa-linkedin" aria-hidden="true"></i>
+                  </a>
+                {{/if}}
+                {{# if profile.website}}
+                  <a href="{{profile.website}}" target="_blank">
+                    <i class="fa fa-globe" aria-hidden="true"></i>
+                  </a>
+                {{/if}}
+              </div>
+            {{/with}}
+          </div>
+        {{/if}}
+      </div><!--row-->
+    </div> <!-- close container -->
+  </section> <!-- close profile-top -->
+  <section class="profile-middle">
+    <div>
+      <div class="row">
+
+        <div class="col-md-6 profile-hangouts-completed">
+          <div class="box">
+            <h2 class="align-center">{{hangoutsJoinedCount}}</h2>
+            <h3>Hangouts Completed</h3>
+          </div>
+
+          {{> hangoutsJoined }}
+
+        </div>
+
+        <div class="col-md-6 profile-learnings">
+          <div class="box">
+            <h3>#TodayILearned</h3>
+          </div>
+
+          {{> profileLearnings }}
+
+        </div>
+
+      </div><!--row-->
+    </div> <!-- close container -->
+  </section> <!-- close profile-top -->
+</div>
+</template>
