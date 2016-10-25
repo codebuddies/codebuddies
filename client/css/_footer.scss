@@ -6,8 +6,7 @@
   background: $bg-white;
   @include breakpoint(xsmall) { position: relative;}
   @include font-face(400, 13px, normal, $primary-grey);
-//  a {color: $cta-blue; text-decoration: underline;}
-  img {width: 12em; padding-bottom: 20px; }
+  img {width: 12em; padding: 20px 0; }
 
   .logo {
     margin-bottom: 20px;
@@ -34,6 +33,8 @@
   .footer-section {
     @include breakpoint(tiny) { margin: 40px 0; }
     @include breakpoint(xsmall) { margin: 40px 0; }
+    @include breakpoint(small) { margin: 40px 0; }
+    @include breakpoint(xmedium) { margin: 40px 0; }
   }
 
 // column 1
@@ -55,16 +56,36 @@
 
   .footer-icons {
     @include breakpoint(tiny) {
-      text-align: center;
       .fa {padding: 0 5px;}
     }
     @include breakpoint(xsmall) {
-      text-align: center;
       .fa {padding: 0 5px;}
+     }
+     @include breakpoint(small) {
+       .fa {padding: 0 5px;}
+     }
+     @include breakpoint(xmedium) {
+       .fa {padding: 0 5px;}
      }
   }
 
-  @include breakpoint(tiny) { text-align: center !important; }
-  @include breakpoint(xsmall) { text-align: center !important; }
+  @include breakpoint(tiny) {
+    padding: 0;
+    text-align: center !important;
+    img {padding: 0 0 20px; }
+  }
+  @include breakpoint(xsmall) {
+    padding: 0;
+    text-align: center !important;
+    img {padding: 0 0 20px; }
+  }
+  @include breakpoint(small) {
+    padding: 50px 0;
+    text-align: center !important;
+    img {padding: 20px 0; }
+  }
+  @include breakpoint(xmedium) {
+    text-align: center !important;
+  }
 
 }
