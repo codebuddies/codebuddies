@@ -30,11 +30,9 @@
 
                   {{type}} hangout hosted by
 
-                      {{#unless currentUser}}
-                        <a href="#" id='visitor'>{{host.name}}</a>
-                      {{else}}
-                        <a href="{{pathFor 'profile' name=host.name userId=host.id}}">{{host.name}}</a>
-                      {{/unless}}
+
+                    <a href="{{#if currentUser}} {{pathFor 'profile' name=host.name userId=host.id}} {{/if}}" class="{{#unless currentUser}} continue-popup {{/unless}}">{{host.name}}</a>
+
 
                     <br />
                       {{getHangoutStartDateTime start}} - {{getHangoutEndDateTime end}} |
@@ -88,9 +86,9 @@
                {{/unless}}
               <div class="col-md-3 col-sm-3 {{#unless completed this}} pull-right {{/unless}}">
 
-              <a href="{{pathFor 'profile' name=host.name userId=host.id}}"><img class="img-circle" src="{{host.avatar}}"></a>
+              <a href="{{#if currentUser}} {{pathFor 'profile' name=host.name userId=host.id}} {{/if}}" class="{{#unless currentUser}} continue-popup {{/unless}}"><img class="img-circle" src="{{host.avatar}}"></a>
                 {{#each attendees}}
-                <a href="{{pathFor 'profile' name=name userId=id}}"><img class="img-circle" src="{{avatar}}"></a>
+                <a href="{{#if currentUser}} {{pathFor 'profile' name=name userId=id}} {{/if}}" class="{{#unless currentUser}} continue-popup {{/unless}}" ><img class="img-circle" src="{{avatar}}"></a>
                 {{/each}}
 
               </div>

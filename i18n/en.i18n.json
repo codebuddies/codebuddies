@@ -79,6 +79,9 @@
   "remove_owner_from_hangout": "Hey! You can't remove yourself from your hangout.",
   "delete_hangout_confirm": "Are you sure?",
   "delete_hangout_text": "Note: All participants will be notified via email of cancellation",
+  "continue_popup_text":"By continuing, I agree that I am at least 13 years old and have read and agree to the terms of service and privacy policy.",
+  "not_now":"Not Now",
+  "continue_with_slack": "Continue with Slack",
 
   // create hangout modal - popup messages
   "hangout_created_title": "Hangout Created Successfully",

@@ -14,57 +14,70 @@ Template.hangoutActionBar.helpers({
 
 Template.hangoutActionBar.events({
   'click .report-hangout': function(e, hangout) {
-    if (!Meteor.userId()) {
-      sweetAlert({
-        title: TAPi18n.__("login_create_hangout_title"),
-        text: TAPi18n.__("login_create_hangout_message"),
-        confirmButtonText: TAPi18n.__("sign_in_with_slack"),
-        type: 'info'
-      },
-      function(){
-        var options = {
-          requestPermissions: ['identify', 'users:read']
-        };
-        Meteor.loginWithSlack(options);
-      });
-    } else {
+    if (Meteor.userId()) {
       const hangoutId = hangout.data._id;
       Session.set('hangoutId', hangoutId);
 
       Modal.show('reportHangoutModal');
-
     }
+    // if (!Meteor.userId()) {
+    //   sweetAlert({
+    //     title: TAPi18n.__("login_create_hangout_title"),
+    //     text: TAPi18n.__("login_create_hangout_message"),
+    //     confirmButtonText: TAPi18n.__("sign_in_with_slack"),
+    //     type: 'info'
+    //   },
+    //   function(){
+    //     var options = {
+    //       requestPermissions: ['identify', 'users:read']
+    //     };
+    //     Meteor.loginWithSlack(options);
+    //   });
+    // } else {
+    //   const hangoutId = hangout.data._id;
+    //   Session.set('hangoutId', hangoutId);
+    //
+    //   Modal.show('reportHangoutModal');
+    //
+    // }
   },
   'click .clone-hangout': function(e, hangout) {
-    if (!Meteor.userId()) {
-      sweetAlert({
-        title: TAPi18n.__("login_create_hangout_title"),
-        text: TAPi18n.__("login_create_hangout_message"),
-        confirmButtonText: TAPi18n.__("sign_in_with_slack"),
-        type: 'info'
-      },
-      function(){
-        var options = {
-          requestPermissions: ['identify', 'users:read']
-        };
-        Meteor.loginWithSlack(options);
-      });
-    } else {
-      //var start_time_reverted = moment(hangout.data.start).format('MM/DD/YYYY h:mm A');
-      //var end_time_reverted = moment(hangout.data.end).format('MM/DD/YYYY h:mm A');
-
-      console.log(hangout.data._id + ' this is a cloned hangout id');
+    if (Meteor.userId()) {
+      // console.log(hangout.data._id + ' this is a cloned hangout id');
       Session.set('hangoutId', hangout.data._id);
-
       Modal.show('cloneHangoutModal', {hangout});
       $('#clone-hangout-modal #topic').val(hangout.data.topic);
-      // $('#clone-hangout-modal #description').val(hangout.data.description);
       $('#clone-hangout-modal input[value=' + hangout.data.type + ']').prop("checked", true);
-      //$('#clone-hangout-modal #start-date-time').val(start_time_reverted);
-      //$('#clone-hangout-modal #end-date-time').val(end_time_reverted);
-      //console.log(start_time_reverted);
-      //console.log(end_time_reverted);
     }
+    // if (!Meteor.userId()) {
+    //   sweetAlert({
+    //     title: TAPi18n.__("login_create_hangout_title"),
+    //     text: TAPi18n.__("login_create_hangout_message"),
+    //     confirmButtonText: TAPi18n.__("sign_in_with_slack"),
+    //     type: 'info'
+    //   },
+    //   function(){
+    //     var options = {
+    //       requestPermissions: ['identify', 'users:read']
+    //     };
+    //     Meteor.loginWithSlack(options);
+    //   });
+    // } else {
+    //   //var start_time_reverted = moment(hangout.data.start).format('MM/DD/YYYY h:mm A');
+    //   //var end_time_reverted = moment(hangout.data.end).format('MM/DD/YYYY h:mm A');
+    //
+    //   console.log(hangout.data._id + ' this is a cloned hangout id');
+    //   Session.set('hangoutId', hangout.data._id);
+    //
+    //   Modal.show('cloneHangoutModal', {hangout});
+    //   $('#clone-hangout-modal #topic').val(hangout.data.topic);
+    //   // $('#clone-hangout-modal #description').val(hangout.data.description);
+    //   $('#clone-hangout-modal input[value=' + hangout.data.type + ']').prop("checked", true);
+    //   //$('#clone-hangout-modal #start-date-time').val(start_time_reverted);
+    //   //$('#clone-hangout-modal #end-date-time').val(end_time_reverted);
+    //   //console.log(start_time_reverted);
+    //   //console.log(end_time_reverted);
+    // }
   },
   'click .edit-hangout': function(e, hangout) {
     //console.log(hangout.data.topic);
