@@ -2,31 +2,55 @@
   position: absolute;
   bottom: 0;
   width: 100%;
-//  min-height: 75px;
-  background: $bg-white;
   padding: 50px 0;
-//  @include breakpoint(xsmall) { position: relative;}
+  background: $bg-white;
+  @include breakpoint(xsmall) { position: relative;}
   @include font-face(400, 13px, normal, $primary-grey);
 //  a {color: $cta-blue; text-decoration: underline;}
-  img {width: 12em;}
+  img {width: 12em; padding-bottom: 20px; }
+
+  .logo {
+    margin-bottom: 20px;
+  }
 
   a {
     display: block;
-    padding-top: 10px;
+    color: $secondary-grey;
+    text-decoration:none;
   }
 
+  a:hover   {color: $cta-blue; text-decoration:none}
+
+  .sponsor {
+    text-decoration: underline;
+  }
+
+  p {
+    margin-bottom: 20px;
+    color: $primary-grey;
+  }
+
+// all 3 columns
   .footer-section {
-    @include breakpoint(tiny) { margin: 20px 0; }
+    @include breakpoint(tiny) { margin: 40px 0; }
     @include breakpoint(xsmall) { margin: 40px 0; }
   }
 
-// column 2
+// column 1
+  .footer-logo {
+    a {display: inline-block; }
+    p {margin: 0; }
+  }
 
+// column 2
+  .footer-links {
+    a {padding-bottom: 10px; }
+  }
 
 // column 3
   .footer-social {
     a {display: inline-block;}
-    .fa {font-size: 20px; color: $cta-blue; padding-right: 10px;}
+    .fa {font-size: 20px; padding-right: 10px;}
   }
 
   .footer-icons {
