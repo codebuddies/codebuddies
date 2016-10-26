@@ -20,7 +20,7 @@
 
   .about-middle {
     background: $bg-white;
-    padding: 100px 0;
+    padding: 50px 0;
     h2 { @include font-face(700, 32px, bold, $primary-grey); }
     .flags { margin: 20px 0;}
     img { margin: 10px;}
