@@ -7,11 +7,8 @@
   background: $bg-lightgrey;
   @include breakpoint(xsmall) { position: relative;}
   @include font-face(400, 13px, normal, $secondary-grey);
-  img {width: 12em; padding: 20px 0; }
 
-  .logo {
-    margin-bottom: 20px;
-  }
+  img {width: 12em; padding: 20px 0; }
 
   a {
     display: block;
@@ -27,23 +24,27 @@
     color: $primary-grey;
   }
 
-// all 3 columns
-  .footer-section {
-    @include breakpoint(tiny) { margin: 40px 0; }
-    @include breakpoint(xsmall) { margin: 40px 0; }
-    @include breakpoint(small) { margin: 40px 0; }
-    @include breakpoint(xmedium) { margin: 40px 0; }
-  }
-
 // column 1
   .footer-logo {
+    padding: 40px 0;
     a {display: inline-block; }
     p {margin: 0; }
+    @include breakpoint(tiny) { margin: 20px 0; }
+    @include breakpoint(xsmall) { margin: 20px 0; }
+    @include breakpoint(small) { margin: 0; padding: 0 0 40px; }
+    @include breakpoint(xmedium) { margin: 0; padding: 0 0 40px; }
+    @include breakpoint(medium) { margin: 0; padding: 0 0 40px; }
+    @include breakpoint(large) { margin: 0; padding: 40px 0; }
   }
 
 // column 2
   .footer-links {
     a {padding-bottom: 10px; }
+
+    @include breakpoint(tiny) { margin: 20px 0; }
+    @include breakpoint(xsmall) { margin: 20px 0; }
+    @include breakpoint(small) { margin: 0 0 20px; }
+    @include breakpoint(xmedium) { margin: 0 0 20px; }
   }
 
 // column 3
@@ -82,17 +83,14 @@
   @include breakpoint(tiny) {
     padding: 0;
     text-align: center !important;
-    img {padding: 0 0 20px; }
   }
   @include breakpoint(xsmall) {
     padding: 0;
     text-align: center !important;
-    img {padding: 0 0 20px; }
   }
   @include breakpoint(small) {
     padding: 50px 0;
     text-align: center !important;
-    img {padding: 20px 0; }
   }
   @include breakpoint(xmedium) {
     text-align: center !important;
