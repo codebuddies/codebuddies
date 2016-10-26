@@ -12,6 +12,8 @@ We're a community of independent code learners who help each other on [Slack](ht
 
 Learning with each other helps us learn faster. We strive to create a safe space for anyone interested in code to talk about the learning process. The project is free and open-sourced on Github, and this app is 100% community/volunteer-built.
 
+Join us on Slack! You can get your invite by clicking on the Slack invite button and join the community by verifying your invitation through your e-mail!
+
 ##What are you trying to build here?
 
 ![screenshot of what we're building](https://github.com/codebuddiesdotorg/cb-v2-scratch/raw/master/public/images/cb-example.png)
