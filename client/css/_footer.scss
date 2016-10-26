@@ -1,12 +1,12 @@
 #footer {
   position: relative;
-  border-top: 1px solid $divider;
+//  border-top: 1px solid $divider;
   bottom: 0;
   width: 100%;
   padding: 50px 0;
-  background: $bg-white;
+  background: $bg-lightgrey;
   @include breakpoint(xsmall) { position: relative;}
-  @include font-face(400, 13px, normal, $primary-grey);
+  @include font-face(400, 13px, normal, $secondary-grey);
   img {width: 12em; padding: 20px 0; }
 
   .logo {
@@ -21,9 +21,6 @@
 
   a:hover   {color: $cta-blue; text-decoration:none}
 
-  .sponsor {
-    text-decoration: underline;
-  }
 
   p {
     margin-bottom: 20px;
@@ -70,6 +67,18 @@
      }
   }
 
+// bottom sponsor section
+  .footer-sponsor {
+    border-top: 1px solid $divider;
+    margin-top: 50px;
+    padding-top: 15px;
+
+    a {display: inline-block; }
+    p {color: $secondary-grey; }
+  }
+
+
+// media queries
   @include breakpoint(tiny) {
     padding: 0;
     text-align: center !important;
