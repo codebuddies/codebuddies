@@ -10,24 +10,24 @@
     color: $warm-grey;
     .img-circle { width: 50px; }
   }
-  
+
   textarea#newMessage { min-height: 100px; margin-bottom: 10px;}
   select#commentFilter { margin-bottom: 10px;}
   span.cb-delete:hover { cursor: pointer;}
   ol{
-    padding-left: 16px; 
+    padding-left: 16px;
     font-weight: 200;
   }
   .hangout-status { text-align: center; }
-  .hangout-status p { 
-    background: $dodgerblue;
+  .hangout-status p {
+    background: $bg-white;
     text-align: center;
     padding: 10px 0;
     font-size: 18px;
     @include border-radius(3px);
     margin: 0px;
     font-weight: 200;
-    color: $white;
+    color: $primary-grey;
     a {
       color: $white;
       text-decoration: underline;
