@@ -20,7 +20,7 @@ Join us on Slack! You can get your invite by clicking on the Slack invite button
 Credit: [Ada Chiu](https://github.com/adachiu).
 
 ##Why are you building this site?
-Our community spends a lot of time helping each other on [our public Slack](http://codebuddiesmeet.slack.com) (P.S. You can get an invite [here](http://codebuddiesmeet.herokuapp.com) if you want to join), but it's hard to schedule google hangout study times via Slack, and it's also hard to know who else is online and available for joining a hangout to work on something together. The platform we're building solves those issues.
+Our community spends a lot of time helping each other on [our public Slack](http://codebuddiesmeet.slack.com) (P.S. You can get an invite [here](http://codebuddiesmeet.herokuapp.com) if you want to join), but it's hard to schedule Google Hangout study times via Slack, and it's also hard to know who else is online and available for joining a Hangout to work on something together. The platform we're building solves those issues.
 
 ##How do I contribute to this project?
 PLEASE GO TO ***[contributing.md](contributing.md)*** and follow the first six instructions listed there!!!
@@ -57,7 +57,7 @@ And here are the volunteers so far:
 - @sharynneazhar, http://github.com/sharynneazhar - contributed to site fixes and enhancements, particularly the ability for users to edit their profile information
 - Add Your Name on the Google Doc (link below) If You Want To Help, then read ***[contributing.md](contributing.md)***
 
-If you'd like to help contribute, add your name on the google doc at [http://bit.ly/codebuddies-hangouts-platform-v2-googledoc](http://bit.ly/codebuddies-hangouts-platform-v2-googledoc), say hello in the [#codebuddies-meta](https://codebuddiesmeet.slack.com/messages/codebuddies-meta/) channel on Slack, and be sure to read the "how do I contribute" instructions on [contributing.md](contributing.md)!
+If you'd like to help contribute, add your name on the Google doc at [http://bit.ly/codebuddies-hangouts-platform-v2-googledoc](http://bit.ly/codebuddies-hangouts-platform-v2-googledoc), say hello in the [#codebuddies-meta](https://codebuddiesmeet.slack.com/messages/codebuddies-meta/) channel on Slack, and be sure to read the "how do I contribute" instructions on [contributing.md](contributing.md)!
 
 P.S. We'll schedule hangouts to do code walkthroughs or code show and tells occasionally, and announce it in the #codebuddies-meta channel on Slack. The goal is to help everyone who wants to contribute to this app learn quickly through collaboration. The list of contributors above contains a good mix of full-time developers and as well as people contributing to an open-sourced project for the first time.
 
