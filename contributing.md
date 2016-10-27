@@ -40,7 +40,7 @@ So for example, if you wanted to work on issue #29 [github.com/codebuddiesdotorg
 
   `git checkout -b fix/issue-29-limit-140-characters`
 
-Please remember to include the issue number in the name of the branch.
+Please remember to include the issue number in the name of the branch and reference you pull request.
 
 ![screenshot of typing git checkout -b fix/issue-29-limit-140-characters](http://codebuddies.org/images/contributing-screenshot2.jpg)
 
