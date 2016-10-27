@@ -66,6 +66,7 @@ P.S. We'll schedule hangouts to do code walkthroughs or code show and tells occa
 
 You can help keep this project alive by [becoming a
 Sponsor!](https://opencollective.com/codebuddies#sponsor)
+An observation is that running meteor --settings setting-development.json while on a Windows 10 machine just ends up halting, and the application (localhost:3000) never starts.
 
 <a href="https://opencollective.com/codebuddies/sponsor/0/website" target="_blank"><img src="https://opencollective.com/codebuddies/sponsor/0/avatar.svg"></a>
 <a href="https://opencollective.com/codebuddies/sponsor/1/website" target="_blank"><img src="https://opencollective.com/codebuddies/sponsor/1/avatar.svg"></a>
