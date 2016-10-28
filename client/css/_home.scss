@@ -200,6 +200,10 @@
     p { line-height: 27px; margin-top: 40px;}
     #intro {
       h3 {@include font-face(600, 24px, bold, $primary-grey);}
+      h3, p {
+        @include breakpoint(small) { padding: 0 20px; }
+        @include breakpoint(xsmall) { padding: 0 40px; }
+      }
       text-align: center;
       max-width: 550px;
       margin: 0 auto;
@@ -211,6 +215,8 @@
     }
     .hangout-example {
       width: 50%;
+      @include breakpoint(small) { width: 65%; }
+      @include breakpoint(xsmall) { width: 80%; }
       margin: 0 auto;
     }
   }
@@ -229,20 +235,6 @@
     text-align: center;
     .join-slack {
       margin-top: 50px;
-    }
-  }
-
-  @media only screen and (max-width: 695px) {
-    .home-psst {
-      h3, p { padding: 0 20px; }
-      .hangout-example { width: 65%; }
-    }
-  }
-
-  @media only screen and (max-width: 530px) {
-    .home-psst {
-      h3, p { padding: 0 40px; }
-      .hangout-example { width: 80%; }
     }
   }
 
