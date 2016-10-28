@@ -1,7 +1,6 @@
 #home {
   background: $cta-blue;
   padding-top: 50px;
-  padding-bottom: 120px;
 
   p { line-height: 27px; color: $primary-grey; }
 
@@ -56,7 +55,7 @@
   }
 
   .home-top, .home-ask {
-    padding: 120px 0 0 0;
+    padding: 60px 0 0 0;
     background: $dodgerblue;
     overflow: hidden;
     h2 {
@@ -233,5 +232,18 @@
     }
   }
 
+  @media only screen and (max-width: 695px) {
+    .home-psst {
+      h3, p { padding: 0 20px; }
+      .hangout-example { width: 65%; }
+    }
+  }
+
+  @media only screen and (max-width: 530px) {
+    .home-psst {
+      h3, p { padding: 0 20px; }
+      .hangout-example { width: 80%; }
+    }
+  }
 
 }
