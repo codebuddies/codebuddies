@@ -1,6 +1,5 @@
 body {
   padding: 0;
-  background: url(/images/pattern.png) left top repeat;
   #profile { background: $bg-white;}
 }
 
@@ -8,15 +7,22 @@ html, body {
   height: 100%;
 }
 
+h2 {
+  margin: 0 0 30px;
+}
+
+h3 {
+  margin: 60px 0 20px;
+}
+
 #__blaze-root{
   height: 100%;
 }
 
 #wrapper {
+  position: relative;
   min-height: 100%;
-  height: auto !important;
-  height: 100%;
-  margin: 0 auto -95px;
+  padding: 0 0;
 }
 
 .auto-height {

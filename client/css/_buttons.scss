@@ -26,12 +26,31 @@
   color: $danger-red;
 }
 
+.btn-white.btn-outline {
+  border-color: #fff;
+  color: #fff;
+}
+
 .btn-primary.btn-outline:hover,
 .btn-success.btn-outline:hover,
 .btn-info.btn-outline:hover,
 .btn-warning.btn-outline:hover,
 .btn-danger.btn-outline:hover {
   color: $white;
+}
+
+.btn-edit {
+  float: right;
+  text-decoration: none;
+  font-family: $open-sans;
+  font-size: 13px;
+  color: $bg-white;
+  border: 1px solid $divider;
+  border-radius: 4px;
+  padding: 6px 12px;
+  margin-right: 35px;
+  i { margin-right: 8px; }
+  &:hover { background: $white; color: $cta-blue}
 }
 
 .btn-circle {

@@ -4,6 +4,7 @@
     display: block;
   }
   .box { border-top: 1px solid $divider; padding: 30px 0; }
+  i.online-now { position: relative; bottom: 3px;}
 }
 
 #learning-pagination{
@@ -18,10 +19,42 @@
   height: 350px;
 }
 
-.profile-top{
-  background: $cta-blue;
-  padding: 60px 0;
-  color: $white;
+#profileEdit .form-group:not(.dynamic) {
+	width: 350px;
+}
+
+#profileEdit button {
+	width: 100px;
+	margin-top: 15px;
+	margin-left: 15px;
+	float: right;
+}
+
+.form-group label {
+  width: 100%;
+}
+
+.profile-top {
+	background: $cta-blue;
+	padding: 40px 0px;
+	color: $bg-white;
+	letter-spacing: 0.2px;
+  .username {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: .25px;
+    line-height: 1.6;
+  }
+  .online-now { color: $hangout-collab; font-size: 10px; margin-left: 15px }
+  .form-control:not(:last-child) { margin-bottom: 15px; }
+	.bio { font-size: 14px; line-height: 1.6; opacity: .8; }
+  .bio + a { text-decoration: none; color: $bg-white; opacity: .8; }
+	.social-icons { margin-top: 20px;
+		a { text-decoration: none; color: $bg-white; }
+		i { font-size: 24px; line-height: 1.32; padding: 0px 10px; }
+	}
 }
 
 .profile-hangouts-completed {
@@ -38,4 +71,3 @@
   padding: 35px 80px;
   h3 { @include font-face(600, 20px, normal, $warm-grey); text-align: center; }
 }
-

@@ -3,6 +3,11 @@
   * `meteor npm install`
   * `meteor --settings settings-development.json`
 
+If you have any problems getting the app to start, feel free to ask in the #troubleshooting channel on the CodeBuddies Slack. (Click [here](http://codebuddiesmeet.herokuapp.com) for an invite to the Slack channel if you're not already on it.) Please mention:
+- your operating system (e.g. Windows, MacOSX, Linux, etc.)
+- which version of meteor you have installed (You can type `meteor --version` in your terminal to check)
+- Whether or not you've run `meteor npm install` before you attempted to start the app.
+
 ## The first 6 steps to take if you want to contribute to this open-sourced project:
 1. Add your name on the google doc [bit.ly/codebuddies-hangouts-platform-v2-googledoc](http://bit.ly/codebuddies-hangouts-platform-v2-googledoc) if your name is not listed, and you want to be recognized as a collaborator.
 2. Say hello on the [#codebuddies-meta channel in the Slack](https://codebuddiesmeet.slack.com/messages/codebuddies-meta/). Feel free to ask questions here, or to ask for someone to review your pull request.
@@ -17,7 +22,7 @@ Now, whenever you want to sync with the owner repository. Do the following:
  * `git fetch upstream`
  * `git checkout master`
  * `git merge upstream/master`
- 
+
 7. Type `meteor npm install`, and then `meteor --settings settings-development.json` in your terminal to start up the app in your browser (`localhost:3000`). (`npm run meteor:dev` can also run the app, but will likely [use up your CPU](https://github.com/meteor/meteor/issues/4314).)
 8. Look at some of the [open issues](https://github.com/codebuddiesdotorg/cb-v2-scratch/issues) and identify one that sparks your interest. If you want to work on the issue, leave a comment on it saying that you're working on it!
 9. If you have any questions about the issue you're looking at, you can leave a comment in there, or ask in the [#codebuddies-meta Slack channel](https://codebuddiesmeet.slack.com/messages/codebuddies-meta). Read below for more instructions about how to work with branches.
