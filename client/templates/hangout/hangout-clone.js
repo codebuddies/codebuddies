@@ -3,21 +3,40 @@ import QuillEditor from '../../libs/QuillEditor';
 Template.cloneHangoutModal.rendered = function() {
   var templateInstance = Template.instance();
   var editorHostElement = templateInstance.$('[data-editor-host]').get(0);
-  var start = this.$('#start-date-time-picker');
-
+  
   templateInstance.editor = QuillEditor.createEditor({
     container: editorHostElement
   });
-
+  
   templateInstance.editor.setContents(templateInstance.data.hangout.data.description_in_quill_delta ||
                                       templateInstance.data.hangout.data.description)
+  
+  var start = this.$('#start-date-time-picker');
+  var end = this.$('#end-date-time-picker');
 
-
-  //instructions for start date time picker
   start.datetimepicker({
     ignoreReadonly: true,
     widgetPositioning: { horizontal: 'auto', vertical: 'bottom'},
     minDate: new Date()
+  });
+
+  end.datetimepicker({
+    ignoreReadonly: true,
+    widgetPositioning: { horizontal: 'auto', vertical: 'bottom'},
+    minDate: new Date(Date.now() + 60*60*1000) // 60*60*1000 = 1 hour interval
+  });
+  start.on("dp.change", function (e) {
+    //current start date & time
+    var minEndDate = new Date(e.date.valueOf());
+    // min time duration of hangout in hours
+    var interval = 1
+    //min end date & time = current start date & time + interval
+    minEndDate.setHours(minEndDate.getHours() + interval);
+    //setting end date & time
+    end.data("DateTimePicker").date(minEndDate);
+    //setting end date & time minLimit
+    end.data("DateTimePicker").minDate(minEndDate);
+
   });
 
 };
@@ -31,11 +50,9 @@ Template.cloneHangoutModal.events({
     const description = QuillEditor.generatePlainTextFromDeltas(templateInstance.editor.getContents());
     const description_in_quill_delta = templateInstance.editor.getContents();
     const start = $('#start-date-time').val();
-    const startDate = new Date(start);
-    // If date was not set, return 24 hours later. Else, return end date time
-    const duration = Number($('#end-date-time').val()) || 1440;
-    const end = new Date(startDate.getTime() + (1000*60* duration));
+    const end = $('#end-date-time').val();
     const type = $('input[name="hangout-type"]:checked').val();
+    console.log(start);
 
 
     const data = {
@@ -45,10 +62,11 @@ Template.cloneHangoutModal.events({
       description_in_quill_delta: description_in_quill_delta,
       start: new Date(start),
       end: new Date(end),
-      duration: duration,
       type: type
     };
 
+    console.log(data.start);
+    console.log(data.end);
 
     if ($.trim(start) == '') {
       sweetAlert({
@@ -59,6 +77,14 @@ Template.cloneHangoutModal.events({
       return;
     }
 
+    if ($.trim(end) == '') {
+      sweetAlert({
+        title: TAPi18n.__("select_end_time"),
+        confirmButtonText: TAPi18n.__("ok"),
+        type: 'error'
+      });
+      return;
+    }
 
     if ($.trim(topic) == '') {
       $('#topic').focus();

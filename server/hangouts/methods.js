@@ -11,7 +11,6 @@ Meteor.methods({
       }),
       start: Match.OneOf(String, Date),
       end: Match.OneOf(String, Date),
-      duration: Number,
       type: String,
     }));
 
@@ -26,7 +25,6 @@ Meteor.methods({
       description_in_quill_delta: data.description_in_quill_delta,
       start: data.start,
       end: data.end,
-      duration: data.duration,
       type: data.type,
       host:{
         id: loggedInUser._id,
@@ -114,7 +112,6 @@ Meteor.methods({
       }),
       start: Match.OneOf(String, Date),
       end: Match.OneOf(String, Date),
-      duration: Number,
       type: String
     }));
 
@@ -135,7 +132,6 @@ Meteor.methods({
                               description_in_quill_delta: data.description_in_quill_delta,
                               start: data.start,
                               end: data.end,
-                              duration: data.duration,
                               type: data.type } });
 
       return true;
@@ -149,7 +145,6 @@ Meteor.methods({
                               description_in_quill_delta: data.description_in_quill_delta,
                               start: data.start,
                               end: data.end,
-                              duration: data.duration,
                               type: data.type }});
 
       const notification = {
@@ -297,56 +292,6 @@ Meteor.methods({
     return Hangouts.update({'host.id': userId},
                            {$set: {visibility: false}},
                            {multi: true});
-
-
-  }
-});
-
-Meteor.methods({
-  endHangout:function(data){
-    check(data.hangoutId, String);
-
-    const loggedInUser = Meteor.user();
-    const date = new Date();
-    const end = date.setMinutes(date.getMinutes() - 1);
-    if (!this.userId) {
-      throw new Meteor.Error('Hangout.methods.endHangout.not-logged-in', 'Must be logged in to end hangout.');
-    }
-    const hangout = Hangouts.findOne({_id: data.hangoutId});
-
-    if(hangout.host.id === loggedInUser._id){
-
-      Hangouts.update({_id: data.hangoutId},
-                      {$set:{ end: end,
-                              url: "" } });
-
-      return true;
-
-    }else if(Roles.userIsInRole(loggedInUser._id,['admin','moderator'])){
-
-      Hangouts.update({_id: data.hangoutId},
-                      {$set:{ end: end,
-                              url: "" } });
-
-      const notification = {
-        actorId : loggedInUser._id,
-        actorUsername : loggedInUser.username,
-        subjectId : hangout.host.id,
-        subjectUsername : hangout.host.name,
-        hangoutId : hangout._id,
-        createdAt : new Date(),
-        read:[loggedInUser._id],
-        action : "ended",
-        icon : "fa-stop",
-        type : "hangout end",
-      }
-      Notifications.insert(notification);
-
-      return true;
-
-    }else{
-      throw new Meteor.Error('Hangouts.methods.endHangout.accessDenied','Cannot end hangout, Access denied');
-    }
 
 
   }
