@@ -33,10 +33,7 @@
       text-decoration: underline;
     }
   }
-  /*Note: Let's figure out a way to move the styles below to _buttons.scss so that we can reuse them*/
   .btn-cb2 { font-size: 18px; text-transform: uppercase; font-weight: 200; width: 300px;}
-  .btn-danger { background: $danger-red; } 
-
-  #end-hangout {margin-top: 5px;}
+  .btn-danger { background: $danger-red; }
 
 }

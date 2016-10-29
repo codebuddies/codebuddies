@@ -4,10 +4,10 @@
 
       <div class="col-md-12">
         <label class="name">
-        {{#if isHangoutInProgress start end}}
+        {{#if isInProgress this}}
           &nbsp; &nbsp;<i class="fa fa-dot-circle-o fa text-danger faa-burst animated"></i> &nbsp;
         {{/if}}
-          <a href="{{pathFor 'hangout' hangoutId=_id }}" class="hangout-topic {{# if isHangoutCompleted end }}completed{{/if}}"> {{topic}} </a>
+          <a href="{{pathFor 'hangout' hangoutId=_id }}" class="hangout-topic {{# if completed this }}completed{{/if}}"> {{topic}} </a>
 
 
         </label>
@@ -15,7 +15,7 @@
       </div>
 
       <div class="col-md-3">
-       {{# unless isHangoutCompleted end }}
+       {{# unless completed this }}
           {{# unless url }}
                 {{#if hangoutOwner host.id}}
                   <div class="google-hangout">
@@ -30,11 +30,11 @@
           <span class="label label-pill label-danger">DELETED</span>
         {{else}}
 
-          {{# unless isHangoutCompleted end }}
+          {{# unless completed this }}
 
-            {{#if isHangoutInProgress start end}}
+            {{#if isInProgress this}}
 
-              {{#if isAttending users}}
+              {{#if isJoined}}
                 {{#if url}}
                   <a class="btn btn-cb2 btn-grey btn-success" href="{{url}}" target="_blank">{{_ "launch"}}</a>
                 {{else}}
@@ -46,19 +46,19 @@
 
 
               {{else}}
-                {{# unless isHangoutCompleted end}}
+                {{# unless getIsDone this}}
                   <button id="join-hangout" class="btn btn-cb2">{{_ "join_in_session"}}</button>
                 {{/unless}}
               {{/if}}
 
             {{else}}
 
-              {{#if isAttending users}}
-                <p class="upcoming">{{upcomingTime start}}</p>
+              {{#if isJoined}}
+                <p class="upcoming">{{upcomingTime this}}</p>
                 <a id="leave-hangout" class="align-center">{{_ "leave"}}</a>
               {{else}}
 
-                {{# unless isHangoutCompleted end}}
+                {{# unless getIsDone this}}
                   <button id="join-hangout" class="btn btn-cb2">{{_ "rsvp"}}</button>
                 {{/unless}}
 
@@ -66,7 +66,7 @@
 
             {{/if}}
           {{else}}
-            <p class="completed">completed</p>
+            <p class="completed">{{getIsDone this}}</p>
           {{/unless}}
 
         {{/if}} <!-- if equals visibility false -->
@@ -76,15 +76,7 @@
     <div class="col-md-9">
 
       <p class="status"><label><i class="fa {{getHangoutTypeSign type}}"></i> Host <a href="{{pathFor 'profile' name=host.name userId=host.id}}">{{host.name}}</a></label></p>
-      <p class="status"><label><i class="fa fa-calendar fa-lg"></i> {{getHangoutStartDateTime start}} -
-
-        {{#if isHangoutEndTimeTBA start end}}
-          To Be Announced
-        {{else}}
-          {{getHangoutEndDateTime end}}
-        {{/if}}
-          |
-         {{users.length}} Joined  {{#if views}} | <i class="fa fa-eye" aria-hidden="true" data-toggle="tooltip" title="Views" > {{views}} </i> {{/if}}</label> </p>
+      <p class="status"><label><i class="fa fa-calendar fa-lg"></i> {{getHangoutStartDateTime start}} - {{getHangoutEndDateTime end}} | {{users.length}} Joined  {{#if views}} | <i class="fa fa-eye" aria-hidden="true" data-toggle="tooltip" title="Views" > {{views}} </i> {{/if}}</label> </p>
       <p class="overflowtext">{{ getDescriptionTruncated description }}</p>
     </div>
 
