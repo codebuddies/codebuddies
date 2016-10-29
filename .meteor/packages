@@ -4,30 +4,32 @@
 # 'meteor add' and 'meteor remove' will edit this file for you,
 # but you can also edit it by hand.
 
-meteor-base@1.0.4             # Packages every Meteor app needs to have
-mobile-experience@1.0.4       # Packages for a great mobile UX
-mongo@1.1.14                   # The database Meteor supports right now
+meteor-base             # Packages every Meteor app needs to have
+mobile-experience       # Packages for a great mobile UX
+mongo                   # The database Meteor supports right now
 blaze-html-templates    # Compile .html files into Meteor Blaze views
-session@1.1.7                 # Client-side reactive dictionary for your app
-jquery@1.11.10                  # Helpful client-side library
-tracker@1.1.1                 # Meteor's client-side reactive programming library
+session                 # Client-side reactive dictionary for your app
+jquery                  # Helpful client-side library
+tracker                 # Meteor's client-side reactive programming library
 
-es5-shim@4.6.15                # ECMAScript 5 compatibility for older browsers.
-ecmascript@0.5.9              # Enable ECMAScript2015+ syntax in app code
+es5-shim                # ECMAScript 5 compatibility for older browsers.
+ecmascript              # Enable ECMAScript2015+ syntax in app code
 
 twbs:bootstrap
 mizzao:user-status
+accounts-password
 fourseven:scss
 seba:minifiers-autoprefixer
-check@1.2.4
-ejson@1.0.13
+check
+ejson
 fortawesome:fontawesome
 momentjs:moment
-accounts-oauth@1.1.14
+accounts-base
+accounts-oauth
 arillo:flow-router-helpers
-http@1.2.10
+http
 acemtp:accounts-slack
-reactive-var@1.0.11
+reactive-var
 simple:reactive-method
 peppelg:bootstrap-3-modal
 tsega:bootstrap3-datetimepicker
@@ -37,7 +39,7 @@ copleykj:livestamp
 mrt:moment-timezone
 joshowens:timezone-picker
 msavin:mongol
-email@1.1.18
+email
 meteorhacks:ssr
 sacha:spin
 georgediab:slack-notify
@@ -47,17 +49,13 @@ percolate:synced-cron@=1.3.0
 gadicohen:sitemaps
 kadira:dochead
 alanning:roles
-random@1.0.10
+random
 kadira:flow-router
 kadira:blaze-layout
+ian:accounts-ui-bootstrap-3
 meteorhacks:picker
-force-ssl@1.0.13
+force-ssl
 meteorhacks:kadira
 matb33:bootstrap-popovers
-browser-policy@1.0.9
+browser-policy
 practicalmeteor:mocha
-shell-server
-stylus
-ian:accounts-ui-bootstrap-3
-accounts-password
-accounts-base
