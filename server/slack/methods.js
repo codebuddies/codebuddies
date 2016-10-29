@@ -111,7 +111,7 @@ slackNotification = function(hangout, type){
     }]
   }//data
 
-  if(minutes > 0)
+  if(minutes >= 0)
   {
   hangoutAlert(data)
   }
