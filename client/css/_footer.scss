@@ -75,7 +75,10 @@
     p {color: $secondary-grey; }
   }
 
-
+  a:hover {
+    color: #333;
+  }
+  
 // media queries
   @include breakpoint(tiny) {
     padding: 0;
