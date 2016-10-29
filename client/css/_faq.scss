@@ -10,7 +10,7 @@
   .faq-top {
     padding: 100px 0;
     h2 { @include font-face(700, 32px, bold, $bg-white); }
-    background: linear-gradient(top, rgba(30,144,255,0.5) 0%, rgba(30,144,255,0.5) 0%, rgba(30,144,255,0.5) 0%, rgba(30,144,255,0.55) 18%, rgba(30,144,255,0.64) 46%, rgba(3,87,232,0.8) 100%), url(/images/language-logos.svg) center repeat;
+    background: linear-gradient(to top, rgba(30,144,255,0.5) 0%, rgba(30,144,255,0.5) 0%, rgba(30,144,255,0.5) 0%, rgba(30,144,255,0.55) 18%, rgba(30,144,255,0.64) 46%, rgba(3,87,232,0.8) 100%), url(/images/language-logos.svg) center repeat;
   }
 
   .faq-middle {
