@@ -30,11 +30,6 @@
       margin-top: 4px;
     }
 
-    li > a:hover {
-      @include font-face(400, 18px, normal, $cta-blue);
-      margin-top: 4px;
-    }
-
     li > a > img {
       display: inline-block;
       width: 34px;
