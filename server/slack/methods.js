@@ -73,17 +73,35 @@ slackNotification = function(hangout, type){
      }
   }
 
+  let hangoutTitle, hangoutDescription;
+  hangoutTitle = hangout.topic;
+  hangoutDescription = hangout.description;
+
+  if(hangoutTitle.length > 101){
+    hangoutTitle = `${hangoutTitle.substr(0,101) + '...'}`;
+  }
+  else {
+    hangoutTitle.substr(0,101);
+  }
+
+  if(hangoutDescription.length > 201){
+    hangoutDescription = `${hangout.description.substr(0,201) + '...'}`;
+  }
+  else {
+    hangoutDescription = `_ ${hangoutDescription.substr(0,201)} _`;
+  }
+
   let data = {
      attachments: [{
        fallback: fallback,
        color: '#1e90ff',
        pretext: pretext,
-       title: `${hangout.topic.substr(0,101) + '...'}`,
+       title: hangoutTitle,
        title_link: Meteor.absoluteUrl("hangout/" + hangout._id),
        mrkdwn_in: ['text', 'pretext', 'fields'],
        fields: [{
          title: 'Description',
-         value: `_ ${hangout.description.substr(0,201) + '...'} _`,
+         value: hangoutDescription,
          short: true
        },{
          title: 'Date',
@@ -93,7 +111,7 @@ slackNotification = function(hangout, type){
     }]
   }//data
 
-  if(minutes >= 0)
+  if(minutes > 0)
   {
   hangoutAlert(data)
   }
