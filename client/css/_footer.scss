@@ -1,29 +1,96 @@
 #footer {
-  position: absolute;
+  position: relative;
+//  border-top: 1px solid $divider;
   bottom: 0;
   width: 100%;
-  min-height: 75px;
-  background: $bg-white;
-  padding: 20px 0;
+  padding: 50px 0;
+  background: $bg-lightgrey;
   @include breakpoint(xsmall) { position: relative;}
-  @include font-face(400, 13px, normal, $primary-grey);
-  a {color: $cta-blue; text-decoration: underline;}
-  img {width: 12em;}
-  .fa {font-size: 20px; color: $cta-blue; padding-left: 10px;}
+  @include font-face(400, 13px, normal, $secondary-grey);
+
+  img {width: 12em; padding: 20px 0; }
+
+  a {
+    display: block;
+    color: $secondary-grey;
+    text-decoration:none;
+  }
+
+  p {
+    margin-bottom: 20px;
+    color: $primary-grey;
+  }
+
+// column 1
+  .footer-logo {
+    padding: 40px 0;
+    a {display: inline-block; }
+    p {margin: 0; }
+    @include breakpoint(tiny) { margin: 20px 0; }
+    @include breakpoint(xsmall) { margin: 20px 0; }
+    @include breakpoint(small) { margin: 0; padding: 0 0 40px; }
+    @include breakpoint(xmedium) { margin: 0; padding: 0 0 40px; }
+    @include breakpoint(medium) { margin: 0; padding: 0 0 40px; }
+    @include breakpoint(large) { margin: 0; padding: 40px 0; }
+  }
+
+// column 2
+  .footer-links {
+    a {padding-bottom: 10px; }
+
+    @include breakpoint(tiny) { margin: 20px 0; }
+    @include breakpoint(xsmall) { margin: 20px 0; }
+    @include breakpoint(small) { margin: 0 0 20px; }
+    @include breakpoint(xmedium) { margin: 0 0 20px; }
+  }
+
+// column 3
+  .footer-social {
+    a {display: inline-block;}
+    .fa {font-size: 20px; padding-right: 10px;}
+  }
+
   .footer-icons {
-    @include breakpoint(tiny) { display: block; }
-    @include breakpoint(xsmall) { display: block; }
-  }
-  span.note { display: block; font-size: 12px;}
-  .footer-details{
-    float:right;
-    @include breakpoint(tiny) { float: none; }
-    @include breakpoint(xsmall) { float: none; }
-    .help {
-      @include breakpoint(tiny) { display: block; }
-      @include breakpoint(xsmall) { display: block; }
+    @include breakpoint(tiny) {
+      .fa {padding: 0 5px;}
     }
+    @include breakpoint(xsmall) {
+      .fa {padding: 0 5px;}
+     }
+     @include breakpoint(small) {
+       .fa {padding: 0 5px;}
+     }
+     @include breakpoint(xmedium) {
+       .fa {padding: 0 5px;}
+     }
   }
-  @include breakpoint(tiny) { text-align: center !important; }
-  @include breakpoint(xsmall) { text-align: center !important; }
+
+// bottom sponsor section
+  .footer-sponsor {
+    border-top: 1px solid $divider;
+    margin-top: 50px;
+    padding-top: 15px;
+
+    a {display: inline-block; }
+    p {color: $secondary-grey; }
+  }
+
+
+// media queries
+  @include breakpoint(tiny) {
+    padding: 0;
+    text-align: center !important;
+  }
+  @include breakpoint(xsmall) {
+    padding: 0;
+    text-align: center !important;
+  }
+  @include breakpoint(small) {
+    padding: 50px 0;
+    text-align: center !important;
+  }
+  @include breakpoint(xmedium) {
+    text-align: center !important;
+  }
+
 }

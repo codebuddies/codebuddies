@@ -1,3 +1,5 @@
+// import {_} from 'meteor/erasaur:meteor-lodash';
+
 if (Meteor.isClient) {
   Meteor.startup(function () {
     if(!Meteor.settings.public.isModeDebug){
@@ -53,4 +55,30 @@ Template.registerHelper("displaySlackSignInBtn", function(){
       requestPermissions: ['identify', 'users:read']
     };
     Meteor.loginWithSlack(options);
+});
+
+Template.registerHelper('isHangoutUpcoming', function(startDate) {
+  return startDate > new Date() ? true : false;
+});
+
+Template.registerHelper("isHangoutInProgress", function(startDate, endDate){
+  return (startDate <= new Date() && endDate >= new Date()) ? true : false;
+});
+
+Template.registerHelper('isHangoutCompleted', function(endDate) {
+  return endDate < new Date() ? true : false;
+});
+
+Template.registerHelper("isAttending", function(users){
+  return users.indexOf(Meteor.userId()) != -1;
+});
+
+Template.registerHelper("upcomingTime", function(start){
+  return start > new Date() ? TAPi18n.__("upcoming_time", { time: moment(start).fromNow() }) : "nan" ;
+});
+
+Template.registerHelper("isHangoutEndTimeTBA", function(start, end){
+  const duration = (end - start) / (1000 * 60 * 60 * 24)
+  return duration === 1 ?  true : false;
+
 });

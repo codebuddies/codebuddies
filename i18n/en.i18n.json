@@ -57,6 +57,9 @@
   "yes_delete_learning": "Yes please!",
   "no_delete_learning": "No thanks!",
   "launch" : "Launch Hangout",
+  "yes_end_hangout": "Yes end it!",
+  "no_end_hangout": "No, I was just kidding",
+  "end_hangout": "END HANGOUT",
 
   // hangout
   "what_is_a_hangout": "What is a hangout?",
@@ -82,13 +85,13 @@
   "continue_popup_text":"By continuing, I agree that I am at least 13 years old and have read and agree to the terms of service and privacy policy.",
   "not_now":"Not Now",
   "continue_with_slack": "Continue with Slack",
+  "end_hangout_confirm": "Are you sure?",
 
   // create hangout modal - popup messages
   "hangout_created_title": "Hangout Created Successfully",
   "hangout_edited_title": "Hangout Edited Successfully",
   "hangout_created_message": "Pretty awesome hah!",
   "select_start_time": "Please select a start time",
-  "select_end_time": "Please select an end time",
   "enter_topic": "Please fill in the hangout topic",
   "enter_description": "Please fill in the hangout description",
 

@@ -2,7 +2,7 @@
 1. How do I start up the app?
   * `meteor npm install`
   * `meteor --settings settings-development.json`
-  
+
 If you have any problems getting the app to start, feel free to ask in the #troubleshooting channel on the CodeBuddies Slack. (Click [here](http://codebuddiesmeet.herokuapp.com) for an invite to the Slack channel if you're not already on it.) Please mention:
 - your operating system (e.g. Windows, MacOSX, Linux, etc.)
 - which version of meteor you have installed (You can type `meteor --version` in your terminal to check)
@@ -22,7 +22,7 @@ Now, whenever you want to sync with the owner repository. Do the following:
  * `git fetch upstream`
  * `git checkout master`
  * `git merge upstream/master`
- 
+
 7. Type `meteor npm install`, and then `meteor --settings settings-development.json` in your terminal to start up the app in your browser (`localhost:3000`). (`npm run meteor:dev` can also run the app, but will likely [use up your CPU](https://github.com/meteor/meteor/issues/4314).)
 8. Look at some of the [open issues](https://github.com/codebuddiesdotorg/cb-v2-scratch/issues) and identify one that sparks your interest. If you want to work on the issue, leave a comment on it saying that you're working on it!
 9. If you have any questions about the issue you're looking at, you can leave a comment in there, or ask in the [#codebuddies-meta Slack channel](https://codebuddiesmeet.slack.com/messages/codebuddies-meta). Read below for more instructions about how to work with branches.

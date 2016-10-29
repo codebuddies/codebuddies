@@ -26,7 +26,7 @@
   .navbar-nav {
 
     li > a {
-      @include font-face(400, 18px, normal, $cta-blue);
+      @include font-face(400, 18px, normal, $secondary-grey);
       margin-top: 4px;
     }
 
