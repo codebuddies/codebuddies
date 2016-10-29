@@ -37,9 +37,6 @@ Template.hangoutItem.helpers({
       return 'fa-users text-success-color';
     }
   },
-  getDescriptionTruncated: function(hangout) {
-    return hangout.description.substring(0,201)+"...";
-  },
   getHostId: function(hangout) {
     return hangout.host.id;
   },
@@ -104,6 +101,9 @@ Template.hangoutItem.helpers({
   },
   truncate: function(topic){
     return topic.truncate()
+  },
+  getDescriptionTruncated: function(description) {
+      return description.substring(0,201)+"...";
   }
 });
 

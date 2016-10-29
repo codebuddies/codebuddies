@@ -34,7 +34,10 @@ slackNotification = function(hangout, type){
   now_formatted_time = (moment.utc()).format('MMMM Do YYYY, h:mm a z');
   difference = (moment.duration(date_start.diff(now_value)));
   minutes = difference.asMinutes();
-
+  if (minutes < 0) { // this is to protect from time being in the past (negative number)
+    minutes = Math.abs(minutes) + minutes;
+    // console.log("this was negative and changed it to: " + minutes);
+  }
   if (minutes  >= 60){
      var hours_whole = difference.asHours();
      var hours = Math.floor(hours_whole);
@@ -61,7 +64,7 @@ slackNotification = function(hangout, type){
   else if (minutes >=0 && minutes < 60){
      var rem = Math.floor(minutes);
 
-     if((minutes >= 0 && minutes < 1))
+     if(minutes >= 0 && minutes < 1)
      {
        var time_left = 'Hangout starts now!';
      }
@@ -90,7 +93,7 @@ slackNotification = function(hangout, type){
     }]
   }//data
 
-  if(minutes > 0)
+  if(minutes >= 0)
   {
   hangoutAlert(data)
   }

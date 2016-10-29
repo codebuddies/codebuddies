@@ -10,30 +10,33 @@
     color: $warm-grey;
     .img-circle { width: 50px; }
   }
-  
+
   textarea#newMessage { min-height: 100px; margin-bottom: 10px;}
   select#commentFilter { margin-bottom: 10px;}
   span.cb-delete:hover { cursor: pointer;}
   ol{
-    padding-left: 16px; 
+    padding-left: 16px;
     font-weight: 200;
   }
   .hangout-status { text-align: center; }
-  .hangout-status p { 
-    background: $dodgerblue;
+  .hangout-status p {
+    background: $bg-white;
     text-align: center;
     padding: 10px 0;
     font-size: 18px;
     @include border-radius(3px);
     margin: 0px;
     font-weight: 200;
-    color: $white;
+    color: $primary-grey;
     a {
       color: $white;
       text-decoration: underline;
     }
   }
+  /*Note: Let's figure out a way to move the styles below to _buttons.scss so that we can reuse them*/
   .btn-cb2 { font-size: 18px; text-transform: uppercase; font-weight: 200; width: 300px;}
-  .btn-danger { background: $danger-red; }
+  .btn-danger { background: $danger-red; } 
+
+  #end-hangout {margin-top: 5px;}
 
 }
