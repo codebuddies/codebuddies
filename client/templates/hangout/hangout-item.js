@@ -80,16 +80,16 @@ Template.hangoutItem.helpers({
     return this.users.indexOf(Meteor.userId()) != -1;
   },
 
-  upcomingTime: function(hangout) {
-    var startDate = new Date(hangout.start);
-    var currentDate = new Date();
-    if (startDate > currentDate) {
-          return TAPi18n.__("upcoming_time", {
-          time: moment(startDate).fromNow()
-        });
-    }
+  // upcomingTime: function(hangout) {
+  //   var startDate = new Date(hangout.start);
+  //   var currentDate = new Date();
+  //   if (startDate > currentDate) {
+  //         return TAPi18n.__("upcoming_time", {
+  //         time: moment(startDate).fromNow()
+  //       });
+  //   }
 
-  },
+  // },
   getIsDone: function(hangout) {
     var currentDate = new Date();
     //console.log('getIsDone currentDate:' + currentDate);

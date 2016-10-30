@@ -10,7 +10,7 @@
        @include font-face(400, 13px, normal, $primary-grey);
     }
     &.flipped {@include box-shadow(0px, 12px, 60px, rgba(0,0,0,0.5));}
-    p.completed { color: $kudo; text-align: left; line-height: 10px; font-size: 85%; text-transform: uppercase;}
+    .status-text { color: $kudo; text-align: left; font-size: 85%; text-transform: uppercase;}
     padding: 10px;
     background: #fff;
     margin: 10px 0px;
@@ -19,9 +19,10 @@
 
     .hangout-back { 
       display: none;
+      span.live { color: $black;}
       .hangout-expand { display: inline-block; }
       .google-hangout { position: relative; top: 6px;}
-      .ask { width: 90%; @include font-face(400, 12px, normal, $warm-grey); line-height: 1.2; }
+      .ask { display: inline-block; width: 90%; @include font-face(400, 12px, normal, $warm-grey); line-height: 1.2; }
       a.btn { display: inline-block;}
       #end-hangout {
         display: inline-block;

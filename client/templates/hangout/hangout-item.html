@@ -4,8 +4,9 @@
       <div class="hangout-item {{# if completed this }}completed{{/if}}">
           <div class="hangout-front">
               <p class="hangout-date">
+                
                 {{#if isInProgress this}}
-                  &nbsp;<i class="fa fa-dot-circle-o fa text-danger faa-burst animated"></i> &nbsp; LIVE
+                  &nbsp;<i class="fa fa-dot-circle-o fa text-danger faa-burst animated"></i> &nbsp; <span class="live">LIVE</span>
                 {{else}}
                     {{# if completed this }}
                       {{getHangoutEndDateTime end}}
@@ -13,6 +14,7 @@
                       {{getHangoutStartDateTime start}}
                    {{/if}}
                  {{/if}}
+
               </p>
               <h4 class="hangout-topic {{# if completed this }}completed{{/if}}">{{truncate topic}}</h4>
 
@@ -96,8 +98,8 @@
                     {{/if}}
                 {{else}}
                   {{#unless hangoutOwner host.id}}
-                        <p class="ask">Please ask <a href="https://codebuddiesmeet.slack.com/messages/{{host.name}}">@{{host.name}}</a> to start the hangout.</p>
-                      {{/unless}}
+                        <span class="ask">Please ask <a href="https://codebuddiesmeet.slack.com/messages/{{host.name}}">@{{host.name}}</a> to click to start the hangout.</span>
+                  {{/unless}}
                 {{/if}}
 
 
@@ -113,6 +115,8 @@
               {{#if isAttending users}}
                 {{#unless hangoutOwner host.id}}
                   <button id="leave-hangout" class="btn btn-cb2">{{_ "leave"}}</button>
+                {{else}}
+                  <span class="status-text">{{upcomingTime start}}</span>
                 {{/unless}}
               {{else}}
 
@@ -124,7 +128,7 @@
 
             {{/if}}
           {{else}}
-            <p class="completed">completed</p>
+            <span class="status-text">completed</span>
           {{/unless}}
 
         {{/if}} <!-- if equals visibility false -->
