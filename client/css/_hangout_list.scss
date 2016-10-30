@@ -1,23 +1,57 @@
 #hangouts {
 
   padding: 0;
+  overflow: auto;
 
   .hangout-item {
     height: 180px;
-    p.overflowtext { color: $warm-grey;}
-    p.completed { color: $kudo; text-align: left; line-height: 10px; font-size: 85%}
+    position: relative;
+    p.overflowtext { 
+       @include font-face(400, 13px, normal, $primary-grey);
+    }
+    &.flipped {@include box-shadow(0px, 12px, 60px, rgba(0,0,0,0.5));}
+    p.completed { color: $kudo; text-align: left; line-height: 10px; font-size: 85%; text-transform: uppercase;}
     padding: 10px;
     background: #fff;
+    margin: 10px 0px;
+    small { font-size: 12px; }
+    &.completed { background: $completed-grey;}
+
+    .hangout-back { 
+      display: none;
+      .hangout-expand { display: inline-block; }
+      .google-hangout { position: relative; top: 6px;}
+      .ask { width: 90%; @include font-face(400, 12px, normal, $warm-grey); line-height: 1.2; }
+      a.btn { display: inline-block;}
+      #end-hangout {
+        display: inline-block;
+        @include font-face(600, 14px, normal, #fff);
+        text-transform: uppercase;
+      }
+    }
 
     ul.dropdown-menu { top: 35px; left: -200px;}
     span.dropdown-toggle:hover { cursor: pointer;}
-    .hangout-date { margin: 0px;}
+    .hangout-date { 
+      margin: 0px;
+      @include font-face(600, 12px, normal, $warm-grey);
+      text-transform: uppercase;
+      line-height: 20px;
+    }
+    .hangout-details { 
+      position: absolute;
+      bottom: 10px;
+      &.details-extra {
+        right: 10px;
+      }
+    }
+
     .hangout-topic {
-      @include font-face(400, 17px, normal, $cta-blue);
+      @include font-face(600, 16px, normal, $primary-grey);
+      display: block;
+      margin-top: 10px;
     }
     .hangout-topic.completed { color: $warm-grey; font-weight: 600;}
-    #leave-hangout { text-decoration: underline; text-align: center; display: block;
-        @include font-face(400, 12px, normal, $cta-blue);}
     p.upcoming { text-transform: uppercase; color: $kudo; text-align: left; line-height: 20px; font-size: 85%}
     .status {
       list-style: none;

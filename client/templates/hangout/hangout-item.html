@@ -1,57 +1,70 @@
 <template name="hangoutItem">
   <div class="col-md-4">
 
-      <div class="hangout-item">
-
-
-       <p class="status"><label><i class="fa {{getHangoutTypeSign type}}"></i> Host <a href="{{pathFor 'profile' name=host.name userId=host.id}}">{{host.name}}</a></label></p>
-      <p class="status"><label><i class="fa fa-calendar fa-lg"></i> {{getHangoutStartDateTime start}} -
-
-        {{#if isHangoutEndTimeTBA start end}}
-          To Be Announced
-        {{else}}
-          {{getHangoutEndDateTime end}}
-        {{/if}}
-
-           </label> </p>
-           {{#if isInProgress this}}
-          &nbsp; &nbsp;<i class="fa fa-dot-circle-o fa text-danger faa-burst animated"></i> &nbsp;
-        {{/if}}
-           <a href="{{pathFor 'hangout' hangoutId=_id }}" class="hangout-topic {{# if completed this }}completed{{/if}}"> {{truncate topic}} </a>
-         <small class="hangout-details details-extra">
-                {{users.length}} Joined
-                {{#if views}}| <i class="fa fa-eye" aria-hidden="true" data-toggle="tooltip" title="Views" > {{views}} </i> {{/if}}
-
-          </small>
-      <p class="overflowtext">{{ getDescriptionTruncated description }}</p>
-
-
-       <!--  <h4 class="hangout-date"><small><i class="fa fa-calendar"></i>  {{getHangoutStartDateTime start}}</small></h4>
-        {{#if isInProgress this}}
-          &nbsp; &nbsp;<i class="fa fa-dot-circle-o fa text-danger faa-burst animated"></i> &nbsp;
-        {{/if}}
-        <a href="{{pathFor 'hangout' hangoutId=_id }}" class="hangout-topic {{# if completed this }}completed{{/if}}"> {{truncate topic}} </a>
-        <h4>
-          <small class="hangout-details">
-              <i class="fa {{getHangoutTypeSign type}}"></i> Host
-                {{#unless currentUser}}
-                  <a href="#" id='visitor'>{{host.name}}</a>
+      <div class="hangout-item {{# if completed this }}completed{{/if}}">
+          <div class="hangout-front">
+              <p class="hangout-date">
+                {{#if isInProgress this}}
+                  &nbsp;<i class="fa fa-dot-circle-o fa text-danger faa-burst animated"></i> &nbsp; LIVE
                 {{else}}
-                  <a href="{{pathFor 'profile' name=host.name userId=host.id}}">{{host.name}}</a>
-                {{/unless}}
-           </small>
-            <small class="hangout-details details-extra">
-                {{users.length}} Joined
-                {{#if views}}| <i class="fa fa-eye" aria-hidden="true" data-toggle="tooltip" title="Views" > {{views}} </i> {{/if}}
-            </small>
-         
-        </h4>
-        {{> hangoutActionBar}} -->
-     
-     
+                    {{# if completed this }}
+                      {{getHangoutEndDateTime end}}
+                    {{else}}
+                      {{getHangoutStartDateTime start}}
+                   {{/if}}
+                 {{/if}}
+              </p>
+              <h4 class="hangout-topic {{# if completed this }}completed{{/if}}">{{truncate topic}}</h4>
 
 
-       {{# unless isHangoutCompleted end }}
+              <p class="status">
+
+                <small class="hangout-details">
+                  <i class="fa {{getHangoutTypeSign type}}"></i> Host <a href="{{pathFor 'profile' name=host.name userId=host.id}}">{{host.name}}</a>
+                </small>
+                <small class="hangout-details details-extra">
+                      {{users.length}} Joined
+                      {{#if views}}| <i class="fa fa-eye" aria-hidden="true" data-toggle="tooltip" title="Views" > {{views}} </i> {{/if}}
+                </small>
+              </p>
+            </div>
+        <div class="hangout-back">
+            <p class="pull-right">
+              <a href="{{pathFor 'hangout' hangoutId=_id }}" class="hangout-expand"> <i class="fa fa-expand" aria-hidden="true"></i> </a>
+            </p>
+            <p class="hangout-date">
+            {{#if isInProgress this}}
+                  &nbsp;<i class="fa fa-dot-circle-o fa text-danger faa-burst animated"></i> &nbsp; 
+                  <span>
+                    LIVE until 
+                     {{#if isHangoutEndTimeTBA start end}}
+                          TBA
+                        {{else}}
+                          {{getHangoutEndDateTimeHour end}}
+                      {{/if}}
+                  </span>
+                {{else}}
+
+                  {{# if completed this }}
+                      {{getHangoutEndDateTime end}}
+                    {{else}}
+                      {{getHangoutStartDateTime start}} - 
+                        {{#if isHangoutEndTimeTBA start end}}
+                          TBA
+                        {{else}}
+                          {{getHangoutEndDateTimeHour end}}
+                        {{/if}}
+                   {{/if}}
+            {{/if}}
+                
+            </p>
+            <p class="overflowtext">
+              {{ getDescriptionTruncated description }}
+            </p>
+
+
+        <div class="hangout-details">
+          {{# unless isHangoutCompleted end }}
 
           {{# unless url }}
                 {{#if hangoutOwner host.id}}
@@ -74,9 +87,16 @@
               {{#if isAttending users}}
                 {{#if url}}
                   <a class="btn btn-cb2 btn-grey btn-success" href="{{url}}" target="_blank">{{_ "launch"}}</a>
+                  {{#if hangoutOwner host.id}}
+                        <div id="end-hangout" class="btn btn-danger">{{_ "end_hangout_short"}}</div>
+                    {{else}}
+                        {{#if isInRole 'admin,moderator,volunteer'}}
+                            <div id="end-hangout" class="btn btn-danger">{{_ 'end_hangout_short'}}</div>
+                        {{/if}}
+                    {{/if}}
                 {{else}}
                   {{#unless hangoutOwner host.id}}
-                        <p class="status">Please wait for <a href="https://codebuddiesmeet.slack.com/messages/{{host.name}}">@{{host.name}}</a> to start the hangout.</p>
+                        <p class="ask">Please ask <a href="https://codebuddiesmeet.slack.com/messages/{{host.name}}">@{{host.name}}</a> to start the hangout.</p>
                       {{/unless}}
                 {{/if}}
 
@@ -91,8 +111,9 @@
             {{else}}
 
               {{#if isAttending users}}
-                <p class="upcoming">{{upcomingTime start}}</p>
-                <a id="leave-hangout" class="align-center">{{_ "leave"}}</a>
+                {{#unless hangoutOwner host.id}}
+                  <button id="leave-hangout" class="btn btn-cb2">{{_ "leave"}}</button>
+                {{/unless}}
               {{else}}
 
                 {{# unless isHangoutCompleted end}}
@@ -107,7 +128,28 @@
           {{/unless}}
 
         {{/if}} <!-- if equals visibility false -->
+      </div>
+      <div class="hangout-details details-extra">
+        {{#unless hangoutOwner host.id}}
+       
+        <div class="report-hangout"><a href="#"><i class="fa fa-flag" aria-hidden="true"></i></a></div>
+      {{/unless}}
+        <div class="clone-hangout"><a href="#"><i class="fa fa-files-o" aria-hidden="true"></i> </a></div>
+        {{#if hangoutOwner host.id}}
+          <div class="edit-hangout"><a href="#"><i class="fa fa-pencil fa-fw"></i></a></div>
+          <div class="delete-hangout"><a href="#"><i class="fa fa-trash-o fa-fw"></i></a></div>
+          {{else}}
 
+          {{#if isInRole 'admin,moderator,volunteer'}}
+            <div class="edit-hangout"><a href="#">Edit <span class="label label-info">M</span> </a></div>
+          {{/if}}
+          {{#if isInRole 'admin,moderator'}}
+            <div class="delete-hangout"><a href="#">Delete <span class="label label-info">M</span> </a></div>
+          {{/if}}
+
+        {{/if}}
+      </div>
+        </div><!--hangout-back-->
     </div>
 
 

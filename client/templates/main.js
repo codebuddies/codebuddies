@@ -47,7 +47,12 @@ Template.registerHelper("getHangoutStartDateTime", function(date){
 
 Template.registerHelper("getHangoutEndDateTime", function(date){
   const tz = TimezonePicker.detectedZone();
-  return moment(date).tz(tz).format('MMMM Do h:mm a z')
+  return moment(date).tz(tz).format('ddd MMMM Do h:mm a z')
+});
+
+Template.registerHelper("getHangoutEndDateTimeHour", function(date){
+  const tz = TimezonePicker.detectedZone();
+  return moment(date).tz(tz).format('h:mm a z')
 });
 
 Template.registerHelper('isHangoutUpcoming', function(startDate) {

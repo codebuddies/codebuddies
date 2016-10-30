@@ -59,6 +59,7 @@
   "yes_end_hangout": "Yes end it!",
   "no_end_hangout": "No, I was just kidding",
   "end_hangout": "END HANGOUT",
+  "end_hangout_short": "End",
 
   // hangout
   "what_is_a_hangout": "What is a hangout?",
