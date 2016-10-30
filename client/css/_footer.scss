@@ -47,11 +47,6 @@
 // column 3
   .footer-social {
 
-      @include breakpoint(tiny) { margin: 20px 0; }
-      @include breakpoint(xsmall) { margin: 20px 0; }
-      @include breakpoint(small) { margin: 0 0 20px; }
-      @include breakpoint(xmedium) { margin: 0 0 20px; }
-
     a {display: inline-block;}
     .fa {font-size: 20px; padding-right: 10px;}
   }
@@ -75,8 +70,8 @@
   .footer-sponsor {
     @include breakpoint(tiny) { margin: 30px 0; }
     @include breakpoint(xsmall) { margin: 30px 0; }
-    @include breakpoint(small) { margin: 0 0 30px; }
-    @include breakpoint(xmedium) { margin: 0 0 30px; }
+    @include breakpoint(small) { margin: 30px 0 30px; }
+    @include breakpoint(xmedium) { margin: 30px 0 30px; }
 
     a {display: inline-block; }
     p > strong { color:$primary-grey;}
