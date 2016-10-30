@@ -18,7 +18,11 @@
 
   p {
     margin-bottom: 20px;
+    
+  }
+  .footer-title {
     color: $primary-grey;
+    text-transform: uppercase;
   }
 
 // column 1
@@ -46,6 +50,7 @@
 
 // column 3
   .footer-social {
+    margin: 0 0 20px;
     a {display: inline-block;}
     .fa {font-size: 20px; padding-right: 10px;}
   }
@@ -65,16 +70,11 @@
      }
   }
 
-// bottom sponsor section
+// column 4
   .footer-sponsor {
-    border-top: 1px solid $divider;
-    margin-top: 50px;
-    padding-top: 15px;
-
+    color: $secondary-grey;
     a {display: inline-block; }
-    p {color: $secondary-grey; }
   }
-
 
 // media queries
   @include breakpoint(tiny) {
