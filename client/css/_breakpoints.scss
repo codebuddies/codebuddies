@@ -9,40 +9,29 @@ $large: 1200px;
 
 // Breakpoint Mixin
 @mixin breakpoint($media) {
-    @if $media == tiny {
-        @media only screen and (max-width: $tiny) {
-            @content;
-        }
+  @if $media == tiny {
+    @media only screen and (max-width: $tiny) {
+      @content;
     }
-
-    @else if $media == xsmall {
-        @media only screen and (min-width: $tiny + 1) and (max-width: $xsmall) {
-            @content;
-        }
+  } @else if $media == xsmall {
+    @media only screen and (min-width: $tiny + 1) and (max-width: $xsmall) {
+      @content;
     }
-
-    @else if $media == small {
-        @media only screen and (min-width: $xsmall + 1) and (max-width: $small) {
-            @content;
-        }
+  } @else if $media == small {
+    @media only screen and (min-width: $xsmall + 1) and (max-width: $small) {
+      @content;
     }
-
-    @else if $media == xmedium {
-        @media only screen and (min-width: $small + 1) and (max-width: $medium) {
-            @content;
-        }
+  } @else if $media == xmedium {
+    @media only screen and (min-width: $small + 1) and (max-width: $medium) {
+      @content;
     }
-
-    @else if $media == medium {
-        @media only screen and (min-width: $medium + 1) and (min-width: $large) {
-            @content;
-        }
+  } @else if $media == medium {
+    @media only screen and (min-width: $medium + 1) and (min-width: $large) {
+      @content;
     }
-
-    @else if $media == large {
-        @media only screen and (min-width: $large + 1) {
-            @content;
-        }
+  } @else if $media == large {
+    @media only screen and (min-width: $large + 1) {
+      @content;
     }
-
+  }
 }
