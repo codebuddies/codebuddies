@@ -26,7 +26,7 @@
     opacity: 0;
   }
 
-  100% {
+  10% {
     opacity: 0;
   }
 }
@@ -41,8 +41,8 @@
 .faa-burst.animated.faa-fast,
 .faa-burst.animated-hover.faa-fast:hover,
 .faa-parent.animated-hover:hover > .faa-burst.faa-fast {
-  -webkit-animation: burst 1s infinite linear;
-  animation: burst 1s infinite linear;
+  -webkit-animation: burst 21s infinite linear;
+  animation: burst 11s infinite linear;
 }
 
 .faa-burst.animated.faa-slow,
