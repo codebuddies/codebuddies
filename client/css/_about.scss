@@ -41,7 +41,13 @@
     display: inline-block;
   }
   a.user-popover {
-    .popover { margin-top: -10px;}
+    padding-top: 10px;
+    .img-circle {
+        margin-top: 10px;
+    }
+    .popover {
+        margin-top: 10px;
+    }
     .popover:hover {
       cursor: default;
     }
