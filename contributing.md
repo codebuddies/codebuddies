@@ -1,55 +1,78 @@
-##FAQ
-1. How do I start up the app?
-  * `meteor npm install`
-  * `meteor --settings settings-development.json`
+# Table of Contents
+1. [Quick Steps on Contributing](#the-quick-steps-on-contributing)
+2. [More Detailed Steps on Contributing](#the-more-detailed-steps-on-contributing)
+3. [Common Questions](#common-questions)
+  1. [How do I start up the app?](#how-do-i-start-up-the-app)
+  2. [I've picked out an issue I want to work on and left a comment on the issue to tell everyone that I'm working on it. Now what?](#ive-picked-out-an-issue-i-want-to-work-on-and-left-a-comment-on-the-issue-to-tell-everyone-that-im-working-on-it-now-what)
+  3. [What should I remember while I'm working on my branch?](#what-should-i-remember-while-im-working-on-my-branch)
+  4. [How do I stage master/deploy?](#how-do-i-stage-masterdeploy)
+  4. [What do I do when I'm ready to merge my fix or feature back into the main app?](#what-do-i-do-when-im-ready-to-merge-my-fix-or-feature-back-into-the-main-app)
+  5. [What are merge conflicts, and how do I resolve them?](#what-are-merge-conflicts-and-how-do-i-resolve-them)
+  6. [How do I start up the app locally and log in as an admin?](#how-do-i-start-up-the-app-locally-and-log-in-as-an-admin)
+  7. [How do I seed the app with fake Posts/Hangouts?](#how-do-i-seed-the-app-with-fake-postshangouts)
+  8. [How do I add myself as a contributor?](#how-do-i-add-myself-as-a-contributor)
+4. [Helpful Reminders](#helpful-reminders)
 
-If you have any problems getting the app to start, feel free to ask in the #troubleshooting channel on the CodeBuddies Slack. (Click [here](http://codebuddiesmeet.herokuapp.com) for an invite to the Slack channel if you're not already on it.) Please mention:
-- your operating system (e.g. Windows, MacOSX, Linux, etc.)
-- which version of meteor you have installed (You can type `meteor --version` in your terminal to check)
-- Whether or not you've run `meteor npm install` before you attempted to start the app.
 
-## The Quick Steps on Contributing:
+# The Quick Steps on Contributing:
 1. Join the community!
 2. Install meteor and node!
 3. Fork and clone the repository.
 4. Install your development environment.
 5. Create a branch on the issue you want to work on.
-6. (Optional) Add yourself as a contributor to both the README.md and our About page.  
-7. Submit a Pull Request and associate it with the issue.
+6. Submit a Pull Request and associate it with the issue.
+7. (Optional) Add yourself as a contributor to both the README.md and our About page.  
 
 
-## The more detailed steps to take if you want to contribute to this open-sourced project:
-1. Say hello on the [#codebuddies-meta channel in the Slack](https://codebuddiesmeet.slack.com/messages/codebuddies-meta/). Feel free to ask questions here, or to ask for someone to review your pull request.
-2. [Install Meteor](https://www.meteor.com/install) and Node: [docs.npmjs.com/cli/install](https://docs.npmjs.com/cli/install) if you don't already have them installed.
-3. Please star this repository! We need to reach 100 stars so that we can apply to the [Open Collective](https://opencollective.com/opensource/apply). [Edit - We're already there!]
+# The More Detailed Steps on Contributing:
+1. Say hello on the [#codebuddies-meta](https://codebuddiesmeet.slack.com/messages/codebuddies-meta/) channel in the Slack. Feel free to ask questions here, or to ask for someone to review your pull request.
+2. [Install Meteor](https://www.meteor.com/install) if you don't already have it installed.
+3. Please star this repository! We need to reach 100 stars so that we can apply to the [Open Collective](https://opencollective.com/opensource/apply).
+  [Edit - We're already there! But still star this repo, so others can hear about what we're doing!]
 4. Fork this repository! Once you have a copy of this repo on your own account, clone this repo to your computer by typing in something like:
-  `git clone https://github.com/codebuddiesdotorg/cb-v2-scratch.git`
-(Replace the URL with your own repository URL path.)
-5. Setup this repository as an upstream branch using:
-`git remote add upstream https://github.com/codebuddiesdotorg/cb-v2-scratch.git`. <br/>
-Now, whenever you want to sync with the owner repository. Do the following:
- * `git fetch upstream`
- * `git checkout master`
- * `git merge upstream/master`
 
-6. Type `meteor npm install`, and then `meteor --settings settings-development.json` in your terminal to start up the app in your browser (`localhost:3000`). (`npm run meteor:dev` can also run the app, but will likely [use up your CPU](https://github.com/meteor/meteor/issues/4314).)
+  `git clone https://github.com/codebuddiesdotorg/cb-v2-scratch.git`
+
+  (Replace the URL with your own repository URL path.)
+5. Setup this repository as an upstream branch using:
+  * `git remote add upstream https://github.com/codebuddiesdotorg/cb-v2-scratch.git`
+
+  Now, whenever you want to sync with the owner repository. Do the following:
+  * `git fetch upstream`
+  * `git checkout master`
+  * `git merge upstream/master`
+6. Type `meteor npm install`, and then `meteor --settings settings-development.json` in your terminal to start up the app in your browser ([http://localhost:3000](http://localhost:3000)).
+  * (`meteor npm run meteor:dev` can also run the app, but will likely [use up your CPU](https://github.com/meteor/meteor/issues/4314).)
 7. Look at some of the [open issues](https://github.com/codebuddiesdotorg/cb-v2-scratch/issues) and identify one that sparks your interest. If you want to work on the issue, leave a comment on it saying that you're working on it!
 8. If you have any questions about the issue you're looking at, you can leave a comment in there, or ask in the [#codebuddies-meta Slack channel](https://codebuddiesmeet.slack.com/messages/codebuddies-meta). Read below for more instructions about how to work with branches.
 9. Type `git branch -a` to see a list of all the branches besides `master`, the default branch you're in. Note that if you want to switch to a branch returned in the last, you would type `git checkout BRANCHNAME`. You can read more about how to create a new branch to work on an issue below.
+10. Once you finish making your changes, commit and push your changes.
+11. Submit your Pull Request! See some tips on [how to create the perfect pull request](https://github.com/blog/1943-how-to-write-the-perfect-pull-request).
+12. (Optional) Add yourself as a contributor, if you haven't done so already. Steps are listed [below](#how-do-i-add-myself-as-a-contributor).
 
 If you see a bug in the app or have a feature request, feel free to [create a new issue](https://github.com/codebuddiesdotorg/cb-v2-scratch/issues/new) on the Github repo!
 
-### I've picked out an issue I want to work on and left a comment on the issue to tell everyone that I'm working on it. Now what?
 
+# Common Questions
+### How do I start up the app?
+* `meteor npm install`
+* `meteor --settings settings-development.json`
+
+If you have any problems getting the app to start, feel free to ask in the #troubleshooting channel on the CodeBuddies Slack. (Click [here](http://codebuddiesmeet.herokuapp.com) for an invite to the Slack channel if you're not already on it.) Please mention:
+- Your operating system (e.g. Windows, MacOSX, Linux, etc.)
+- Which version of meteor you have installed (You can type `meteor --version` in your terminal to check)
+- Whether or not you've run `meteor npm install` before you attempted to start the app.
+
+### I've picked out an issue I want to work on and left a comment on the issue to tell everyone that I'm working on it. Now what?
 - To work on a new feature, leave a comment on the issue saying that you're working on it. Then, you need to *create* a new branch for the issue. You can do it by typing:
 
   `git checkout -b NAME_OF_NEW_BRANCH`
 
-So for example, if you wanted to work on issue #29 [github.com/codebuddiesdotorg/cb-v2-scratch/issues/29](https://github.com/codebuddiesdotorg/cb-v2-scratch/issues/29), you should type:
+  So for example, if you wanted to work on issue #29 [github.com/codebuddiesdotorg/cb-v2-scratch/issues/29](https://github.com/codebuddiesdotorg/cb-v2-scratch/issues/29), you should type:
 
-  `git checkout -b fix/issue-29-limit-140-characters`
+    `git checkout -b fix/issue-29-limit-140-characters`
 
-Please remember to include the issue number in the name of the branch.
+  Please remember to include the issue number in the name of the branch.
 
 ![screenshot of typing git checkout -b fix/issue-29-limit-140-characters](http://codebuddies.org/images/contributing-screenshot2.jpg)
 
@@ -67,26 +90,31 @@ Click on the "pull request" button by going to https://github.com/codebuddiesdot
 
 One of the github maintainers (@linda or someone else) will look over your pull request and accept it.
 
-Note 1 - If you've picked out an issue to work on, make sure you let people know that you're continuing working on it, if the fix happens to take 2 days or longer. An update every two dates by way of a comment on the issue will do. Doesn't necessarily have to be a fix. In case you're unable to continue on the issue for some reason, just let people know that as well so that someone else can claim it. If you do not update within a couple of days, it will be assumed that the issue is not being attended to and will be up for grabs.
+*Note 1* - If you've picked out an issue to work on, make sure you let people know that you're continuing working on it, if the fix happens to take 2 days or longer. An update every two dates by way of a comment on the issue will do. Doesn't necessarily have to be a fix. In case you're unable to continue on the issue for some reason, just let people know that as well so that someone else can claim it. If you do not update within a couple of days, it will be assumed that the issue is not being attended to and will be up for grabs.
 
-Note 2 - "Thou shalt not hijack a 'claimed' issue so long as the person who's claimed it has commented otherwise or one of the maintainers has added the unclaimed label onto it."
+*Note 2* - "Thou shalt not hijack a 'claimed' issue so long as the person who's claimed it has commented otherwise or one of the maintainers has added the unclaimed label onto it."
 
 ### What should I remember while I'm working on my branch?
-
 - As you're working, it's always a good idea to check which branch you're in by typing `git branch`. When you first `git clone` the repo, you'll only see a single branch, but you can discover other branches you can check out by typing `git branch -a`.
 
-For example, to check out the `feature/active-users` branch, you would type `git checkout feature/active-users` in your command line.
+  For example, to check out the `feature/active-users` branch, you would type `git checkout feature/active-users` in your command line.
 
-#####Our staging site is located at [http://cbv2-staging.herokuapp.com](http://cbv2-staging.herokuapp.com/).
+- While you're working, you should try to merge in the latest from `master` occasionally while you are in your branch. You can do this by typing:
 
-While you're working, you should try to merge in the latest from `master` occasionally while you are in your branch. You can do this by typing:
+  * `git checkout master`
+  * `git pull`
+  * `git checkout [branch_name]`
+  * `git merge master`
 
-`git merge master`.
+### How do I stage master/deploy?
+Our staging site is located at [http://cbv2-staging.herokuapp.com](http://cbv2-staging.herokuapp.com/). This staging site is deployed through Heroku to ensure everything on `master` works before deploying it to master.
 
-Again, type this while you are in your branch.
+For full deployment instructions, see the [wiki](https://github.com/codebuddiesdotorg/cb-v2-scratch/wiki/CBV2-Deployment-Instructions).
 
 ### What do I do when I'm ready to merge my fix or feature back into the main app?
-When you are ready to merge your branch back into the main app, type `git checkout master`, `git pull`, and then `git merge BRANCHNAME`.
+When you are ready, submit a PR on GitHub, and a member from the CodeBuddies community will review it.
+
+If you have recently pushed a commit, you should see 'create a pull request' on the master repo. If you do not see it, GitHub provides [documentation on how to create a PR](https://help.github.com/articles/creating-a-pull-request/).
 
 @anbuselvan is working on integrating javascript; automated testing will be available soon in the `dev/testing` branch.
 
@@ -102,29 +130,22 @@ If you are unfamiliar with how to resolve a merge conflict in git, you should re
 In summary, the steps are:
 
 1. open up the file(s) with the conflict.
-
 2. Be sure to remove all traces of >>>>> , ======, and <<<<<< from the file.
-
 3. If you're unsure about a merge conflict, or would like to pair to solve it with someone else, ask in the #codebuddies-meta channel on Slack.
-
 4. Save the file after you've cleared up the conflict.
-
 5. `git add [filename]`.
-
 6. `git commit -m "message" [filename]`.
-
 7. You're done! Now you can continue to `git push` and `git pull` and `git merge staging` while you're inside your branch.
 
-##How do I start up the app locally and log in as an admin?
+###How do I start up the app locally and log in as an admin?
 1. add your email and username to ```settings-development.json```.
 2. ```meteor reset && meteor --settings settings-development.json```.
 3. you will receive your password in your email .
 4. admin login ```http://localhost:3000/admin```.
 
-Note: When you create a hangout in localhost:3000, a Slack notification will be sent to the #cb2-test channel. This emulates what happens when you create a hangout on codebuddies.org/; a Slack announcement about the hangout will appear in the #general channel.
+Note: When you create a hangout in localhost:3000, a Slack notification will be sent to the #cb2-test channel. This emulates what happens when you create a hangout on codebuddies.org, where a Slack announcement about the hangout will appear in the #general channel.
 
-
-###How do I seed the app with fake Posts/Hangouts
+###How do I seed the app with fake Posts/Hangouts?
 When the app is run locally, there are no hangouts seeded by default. Hence to be able to see how things work out, some fake posts could be seeded to the app. To do this run the app with the following changes.
 
 1. Open the ```settings-development.json``` file in the root directory of app.
@@ -132,14 +153,55 @@ When the app is run locally, there are no hangouts seeded by default. Hence to b
 3. Now start the app normally using ```meteor --settings settings-development.json```
 4. Now you can see that fake data is seeded to the app.
 
-##Reminders:
+###How do I add myself as a contributor?
+*Make sure you have recently `git pull` from `master` before continuing.*
+
+Once you've submitted your PR, switch to the branch [`adding-contributor`](https://github.com/codebuddiesdotorg/cb-v2-scratch/tree/adding-contributor). Then, you can add yourself to both the README.md and on our About page. Keeping a separate branch for adding yourself as a contributor will alleviate most merge conflicts.
+
+* Switch to contributor's branch
+  * `git checkout adding-contributor`
+* Merge master's changes into branch
+  * `git merge master`
+* **For the README.md:**
+  * Open `readme.md` in your editor of choice.
+  * Go to [How do I contribute to this project?](/readme.md#how-do-i-contribute-to-this-project) in the readme
+  * Add your GitHub handler, GitHub profile page, and what you worked on _above the line "Add Your Name Above"_
+    * example: `@Example, https://github.com/onlyforexample - provided an example on Contributing.md`
+  * Commit your changes
+*  **For the [About](https://codebuddies.org/about) Page:**
+  * Open `client/templates/other/about.html` in your editor of choice
+  * Add the following code above the comment "Add Your Name Above!" (NB: Best to `cmd + f` this line.):
+
+```html
+<a rel="popover" class="user-popover" title="ADD_SLACK_HANDLER_HERE
+  <a href='ADD_TWITTER_LINK_HERE'><i class='fa fa-twitter'></i></a>
+  <a href='ADD_GITHUB_LINK_HERE'><i class='fa fa-github'></i></a>
+  <a href='ADD_PERSONAL_SITE_HERE'><i class='fa fa-link'></i></a>"  
+  data-content="ADD INFORMATION ABOUT YOU AND HOW YOU CONTRIBUTED TO CODEBUDDIES" data-placement="top" data-toggle="popover">
+  <img src="ADD_IMG_URL_HERE" class="img-circle" alt="abdulhannanali"/>
+</a>
+```
+  * Replace the following values:
+    * **ADD_SLACK_HANDLER_HERE** - replace with your Slack handler (e.g., @sample)
+    * **ADD_TWITTER_LINK_HERE** - replace with your Twitter link
+      * If you don't have a Twitter account, delete `<a href='ADD_TWITTER_LINK_HERE'><i class='fa fa-twitter'></i></a>`
+    * **ADD_GITHUB_LINK_HERE** - replace with your GitHub link
+    * **ADD_PERSONAL_SITE_HERE** - replace with your actual site
+      * If you don't have a personal site, delete `<a href='ADD_PERSONAL_SITE_HERE'><i class='fa fa-link'></i></a>`
+    * **ADD INFORMATION ABOUT YOU AND HOW YOU CONTRIBUTED TO CODEBUDDIES** - replace this with the requested information!
+    * **ADD_IMG_URL_HERE** - replace with a image URL of yourself! (Can be your GitHub profile picture.)
+  * Commit and push your changes!
+* [Submit a PR](https://help.github.com/articles/creating-a-pull-request/)! (You may link it to your issues' PR, so the code reviewer can review your contributors additions as well.)
+* **Remember not to delete this branch, so that others can use this branch as well!**
+
+#Helpful Reminders:
 1. Remember, you can always check which branch you are in by typing `git branch` or `git branch -a` to see all the branches that exist.
 
 2. Remember to `git pull` occasionally to get the new commits and branches others have pushed up.
 
 3. To minimize large messes of merge conflicts, you can `git merge master` occasionally if you're working inside a branch that you intend to merge back into `master`. Make sure you're in this branch when you type `git merge master`.
 
-4. Type `npm run meteor:dev` to run this app. Your terminal will tell you to open up a new browser window at http://localhost:3000.
+4. Type `meteor npm run meteor:dev` to run this app. Your terminal will tell you to open up a new browser window at [http://localhost:3000](http://localhost:3000).
 
 5. Remember to leave a comment on the issue if you decide to start working on an issue, so that others know.
 
