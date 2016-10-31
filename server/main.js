@@ -16,14 +16,14 @@ Meteor.startup(function() {
     "loginStyle" : "popup"
   });
 
-  smtp = {
+  smtps = {
     username: Meteor.settings.mailgun_username,
     password: Meteor.settings.mailgun_password,
     server: Meteor.settings.mailgun_host,
     port: Meteor.settings.mailgun_port
   }
 
-  process.env.MAIL_URL = 'smtp://' + encodeURIComponent(smtp.username) + ':' + encodeURIComponent(smtp.password) + '@' + encodeURIComponent(smtp.server) + ':' + smtp.port;
+  process.env.MAIL_URL = 'smtps://' + encodeURIComponent(smtps.username) + ':' + encodeURIComponent(smtp.password) + '@' + encodeURIComponent(smtp.server) + ':' + smtps.port;
 
   if(Meteor.users.find().count()===0){
 
