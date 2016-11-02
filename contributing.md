@@ -130,7 +130,7 @@ If you are unfamiliar with how to resolve a merge conflict in git, you should re
 In summary, the steps are:
 
 1. open up the file(s) with the conflict.
-2. Be sure to remove all traces of >>>>> , ======, and <<<<<< from the file.
+2. Be sure to remove all traces of `>>>>>` , `======`, and `<<<<<<` from the file.
 3. If you're unsure about a merge conflict, or would like to pair to solve it with someone else, ask in the #codebuddies-meta channel on Slack.
 4. Save the file after you've cleared up the conflict.
 5. `git add [filename]`.
@@ -178,7 +178,7 @@ Once you've submitted your PR, switch to the branch [`adding-contributor`](https
   <a href='ADD_GITHUB_LINK_HERE'><i class='fa fa-github'></i></a>
   <a href='ADD_PERSONAL_SITE_HERE'><i class='fa fa-link'></i></a>"  
   data-content="ADD INFORMATION ABOUT YOU AND HOW YOU CONTRIBUTED TO CODEBUDDIES" data-placement="top" data-toggle="popover">
-  <img src="ADD_IMG_URL_HERE" class="img-circle" alt="abdulhannanali"/>
+  <img src="ADD_IMG_URL_HERE" class="img-circle" alt="YOUR_NAME"/>
 </a>
 ```
   * Replace the following values:
