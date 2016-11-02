@@ -31,7 +31,7 @@ hangoutReminder = function() {
           Hangouts.update({_id: hangout._id},
                           {$set: { day_reminder_sent: true}});
 
-      }  else if (time_diff <= 2 && hangout.hourly_reminder_sent == false) { // let's alert on Slack channel and email
+      }  else if (time_diff >= 1 && time_diff <= 2 && hangout.hourly_reminder_sent == false) { // let's alert on Slack channel and email
           console.log("found a hangout for a 2 hour slack reminder alert");
 
           // send slack alert to default channel!

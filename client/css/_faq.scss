@@ -3,14 +3,16 @@
     @include font-face(400, 16px, normal, $primary-grey);
     line-height: 27px;
   }
+
   .flags img {
-    width: 51px;
     @include border-radius(3px);
+    width: 51px;
   }
+
   .faq-top {
+    background: linear-gradient(to top, rgba(30, 144, 255, .5) 0%, rgba(30, 144, 255, .5) 0%, rgba(30, 144, 255, .5) 0%, rgba(30, 144, 255, .55) 18%, rgba(30, 144, 255, .64) 46%, rgba(3, 87, 232, .8) 100%), url(/images/language-logos.svg) center repeat;
     padding: 100px 0;
     h2 { @include font-face(700, 32px, bold, $bg-white); }
-    background: linear-gradient(top, rgba(30,144,255,0.5) 0%, rgba(30,144,255,0.5) 0%, rgba(30,144,255,0.5) 0%, rgba(30,144,255,0.55) 18%, rgba(30,144,255,0.64) 46%, rgba(3,87,232,0.8) 100%), url(/images/language-logos.svg) center repeat;
   }
 
   .faq-middle {
@@ -19,23 +21,24 @@
   }
 
   .faq-hangout {
-    padding: 100px 0;
     background: $bg-lightgrey;
+    padding: 100px 0;
   }
 
   .divider {
     border-top: 1px solid $secondary-grey;
-    opacity: 0.2;
+    opacity: .2;
   }
 
   .faq-bottom {
-    padding: 50px 0;
     background: $bg-white;
+    padding: 50px 0;
   }
 
   [data-toggle="popover"] {
     display: inline-block;
   }
+
   a.user-popover {
     .popover { margin-top: -10px;}
     .popover:hover {
@@ -43,6 +46,6 @@
     }
   }
 
-  h3.popover-title { margin-top: 0px;}
+  h3.popover-title { margin-top: 0;}
   h3 { font-weight: 200;}
 }

@@ -20,7 +20,7 @@ Join us on Slack! You can get your invite by clicking on the Slack invite button
 Credit: [Ada Chiu](https://github.com/adachiu).
 
 ##Why are you building this site?
-Our community spends a lot of time helping each other on [our public Slack](http://codebuddiesmeet.slack.com) (P.S. You can get an invite [here](http://codebuddiesmeet.herokuapp.com) if you want to join), but it's hard to schedule google hangout study times via Slack, and it's also hard to know who else is online and available for joining a hangout to work on something together. The platform we're building solves those issues.
+Our community spends a lot of time helping each other on [our public Slack](http://codebuddiesmeet.slack.com) (P.S. You can get an invite [here](http://codebuddiesmeet.herokuapp.com) if you want to join), but it's hard to schedule Google Hangout study times via Slack, and it's also hard to know who else is online and available for joining a Hangout to work on something together. The platform we're building solves those issues.
 
 ##How do I contribute to this project?
 **PLEASE go to _[contributing.md](contributing.md)_ and refer contribution steps listed there!** There are also helpful resources there, in case you get stuck. To add yourself as a contributor, please see the [How do I add myself as a contributor?](contributing.md#how-do-i-add-myself-as-a-contributor) section.
@@ -57,7 +57,7 @@ Our community spends a lot of time helping each other on [our public Slack](http
 - @sharynneazhar, http://github.com/sharynneazhar - contributed to site fixes and enhancements, particularly the ability for users to edit their profile information
 - Add Your Name Above. Refer to ***[contributing.md](contributing.md#how-do-i-add-myself-as-a-contributor)***
 
-If you'd like to help contribute, pick out an [issue](https://github.com/codebuddiesdotorg/cb-v2-scratch/issues) and say hello in the [#codebuddies-meta](https://codebuddiesmeet.slack.com/messages/codebuddies-meta/) channel on Slack. Be sure to read the "how do I contribute" instructions on [contributing.md](contributing.md)!
+If you'd like to help contribute, pick out an [issue](https://github.com/codebuddiesdotorg/cb-v2-scratch/issues) (leave a comment on it to indicate your interest!) and say hello in the [#codebuddies-meta](https://codebuddiesmeet.slack.com/messages/codebuddies-meta/) channel on Slack. Be sure to read the "how do I contribute" instructions on [contributing.md](contributing.md)!
 
 P.S. We'll schedule hangouts to do code walkthroughs or code show and tells occasionally, and announce it in the #codebuddies-meta channel on Slack. The goal is to help everyone who wants to contribute to this app learn quickly through collaboration. You can also request a code walkthrough as well. The list of contributors above contains a good mix of full-time developers and as well as people contributing to an open-sourced project for the first time.
 

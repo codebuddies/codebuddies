@@ -3,25 +3,21 @@ import QuillEditor from '../../libs/QuillEditor';
 Template.editHangoutModal.rendered = function() {
   var templateInstance = Template.instance();
   var editorHostElement = templateInstance.$('[data-editor-host]').get(0);
-  
+  var start = this.$('#start-date-time-picker');
+
+
   templateInstance.editor = QuillEditor.createEditor({
     container: editorHostElement
   });
-  
-  templateInstance.editor.setContents(templateInstance.data.hangout.data.description_in_quill_delta || 
+
+  templateInstance.editor.setContents(templateInstance.data.hangout.data.description_in_quill_delta ||
                                       templateInstance.data.hangout.data.description)
 
-  var start = this.$('#start-date-time-picker');
-  var end = this.$('#end-date-time-picker');
-
-  //dateTo.setHours(dateTo.getHours()+1);
+  //instructions for start date time picker
   start.datetimepicker({
     ignoreReadonly: true
   });
-  end.datetimepicker({
-    ignoreReadonly: true,
-    useCurrent: false
-  });
+
 
 };
 
@@ -32,7 +28,10 @@ Template.editHangoutModal.events({
      const description = QuillEditor.generatePlainTextFromDeltas(templateInstance.editor.getContents());
      const description_in_quill_delta = templateInstance.editor.getContents();
      const start = $('#start-date-time').val();
-     const end = $('#end-date-time').val();
+     const startDate = new Date(start);
+     // If date was not set, return 24 hours later. Else, return end date time
+     const duration = Number($('#end-date-time').val()) || 1440;
+     const end = new Date(startDate.getTime() + (1000*60* duration));
      const type = $('input[name="hangout-type"]:checked').val();
 
      const data = {
@@ -42,12 +41,12 @@ Template.editHangoutModal.events({
        description_in_quill_delta: description_in_quill_delta,
        start: new Date(start),
        end: new Date(end),
+       duration: duration,
        type: type,
        hangoutId:Session.get("hangoutId"),
      };
-     
+
       Meteor.call('editHangout', data, function(err, result) {
-        console.log(result);
         if (result) {
           Modal.hide();
           sweetAlert({
@@ -57,11 +56,6 @@ Template.editHangoutModal.events({
             type: 'success',
             closeOnConfirm: true
           });
-        } else {
-          //console.log(err.reason);
-          //console.log("there was an error");
-        	//console.log(data);
-          //console.log(hangoutId);
         }
       });
     }

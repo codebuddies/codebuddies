@@ -1,11 +1,8 @@
 .navbar {
-
-    margin-bottom: 0px;
+  margin-bottom: 0;
 
   .container {
-
     .navbar-brand {
-
       @include font-face(700, 24px, bold, $black);
       margin-top: 4px;
       width: 8em;
@@ -13,20 +10,16 @@
       img {
         display: inline-block;
       }
-
     }
-
   }
-
 }
 
 .navbar-default {
   background-color: $white;
 
   .navbar-nav {
-
     li > a {
-      @include font-face(400, 18px, normal, $cta-blue);
+      @include font-face(400, 18px, normal, $secondary-grey);
       margin-top: 4px;
     }
 
@@ -36,7 +29,5 @@
       height: 34px;
       margin-top: -4px;
     }
-
   }
-
 }
