@@ -201,7 +201,7 @@ Once you've submitted your PR, switch to the branch [`adding-contributor`](https
 
 3. To minimize large messes of merge conflicts, you can `git merge master` occasionally if you're working inside a branch that you intend to merge back into `master`. Make sure you're in this branch when you type `git merge master`.
 
-4. Type `meteor npm run meteor:dev` to run this app. Your terminal will tell you to open up a new browser window at [http://localhost:3000](http://localhost:3000).
+4. Type `meteor --settings settings-development.json` (or alternatively, `meteor npm run meteor:dev`) to run this app. Your terminal will tell you to open up a new browser window at [http://localhost:3000](http://localhost:3000).
 
 5. Remember to leave a comment on the issue if you decide to start working on an issue, so that others know.
 
