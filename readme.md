@@ -6,9 +6,8 @@
 [![slack in](http://codebuddiesmeet.herokuapp.com/badge.svg?style=flat-square)](http://codebuddiesmeet.herokuapp.com/)
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat-square)](https://github.com/codebuddiesdotorg/cb-v2-scratch/issues)
 [![first-timers-only](https://img.shields.io/badge/first--timers--only-friendly-blue.svg?style=flat-square)](http://www.firsttimersonly.com/)
-(https://img.shields.io/issuestats/p/github/codebuddiesdotorg/cb-v2-scratch.svg?maxAge=2592000&style=flat-square)
-(https://img.shields.io/issuestats/i/github/codebuddiesdotorg/cb-v2-scratch.svg?maxAge=2592000&style=flat-square)
-
+[![Issue Stats](https://img.shields.io/issuestats/i/github/codebuddiesdotorg/cb-v2-scratch.svg?maxAge=2592000&style=flat-square)]()
+[![Issue Stats](https://img.shields.io/issuestats/p/github/codebuddiesdotorg/cb-v2-scratch.svg?maxAge=2592000&style=flat-square)]()
 
 
 #FAQ
