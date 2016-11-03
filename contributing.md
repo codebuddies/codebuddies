@@ -16,7 +16,7 @@
 
 # The Quick Steps on Contributing:
 1. Join the community!
-2. Install meteor and node!
+2. Install meteor!
 3. Fork and clone the repository.
 4. Install your development environment.
 5. Create a branch on the issue you want to work on.
