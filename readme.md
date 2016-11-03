@@ -103,10 +103,8 @@ Sponsor!](https://opencollective.com/codebuddies#sponsor)
 <a href="https://opencollective.com/codebuddies/sponsor/29/website" target="_blank"><img src="https://opencollective.com/codebuddies/sponsor/29/avatar.svg"></a>
 
 ###Sponsors
-<a href="https://www.digitalocean.com/" target="_blank"><img src="https://github.com/codebuddiesdotorg/cb-v2-scratch/blob/master/public/images/powered_by_digitalocean.png" width="250" alt="Powered by DigitalOcean"/></a>
+<a href="https://www.digitalocean.com/" target="_blank"><img src="https://github.com/codebuddiesdotorg/cb-v2-scratch/blob/master/public/images/powered_by_digitalocean.png" width="200" alt="Powered by DigitalOcean"/></a>
 
-###Individual Backers
-<a href="http://github.com/distalx" target="_blank"><img src="https://avatars0.githubusercontent.com/u/11193792?v=3&s=466" width="100"></a>
 You can also support us with a monthly donation by [becoming a Backer!](https://opencollective.com/codebuddies#backer)
 
 <a href="https://opencollective.com/codebuddies/backer/0/website" target="_blank"><img src="https://opencollective.com/codebuddies/backer/0/avatar.svg"></a>
@@ -139,3 +137,6 @@ You can also support us with a monthly donation by [becoming a Backer!](https://
 <a href="https://opencollective.com/codebuddies/backer/27/website" target="_blank"><img src="https://opencollective.com/codebuddies/backer/27/avatar.svg"></a>
 <a href="https://opencollective.com/codebuddies/backer/28/website" target="_blank"><img src="https://opencollective.com/codebuddies/backer/28/avatar.svg"></a>
 <a href="https://opencollective.com/codebuddies/backer/29/website" target="_blank"><img src="https://opencollective.com/codebuddies/backer/29/avatar.svg"></a>
+
+###Individual Backers
+<a href="http://github.com/distalx" target="_blank"><img src="https://avatars0.githubusercontent.com/u/11193792?v=3&s=466" width="50"></a>
