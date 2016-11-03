@@ -135,8 +135,8 @@ You can also support us with a monthly donation by [becoming a Backer!](https://
 <a href="https://opencollective.com/codebuddies/backer/28/website" target="_blank"><img src="https://opencollective.com/codebuddies/backer/28/avatar.svg"></a>
 <a href="https://opencollective.com/codebuddies/backer/29/website" target="_blank"><img src="https://opencollective.com/codebuddies/backer/29/avatar.svg"></a>
 
-###Our Wonderful Sponsors
+###Sponsors
 <a href="https://www.digitalocean.com/" target="_blank"><img src="https://github.com/codebuddiesdotorg/cb-v2-scratch/blob/master/public/images/powered_by_digitalocean.png" width="200" alt="Powered by DigitalOcean"/></a>
 
-###Our Amazing Individual Backers
+###Individual Backers
 <a href="http://github.com/distalx" target="_blank"><img src="https://avatars0.githubusercontent.com/u/11193792?v=3&s=466" width="50"></a>
