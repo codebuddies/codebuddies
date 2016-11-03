@@ -105,6 +105,8 @@ Sponsor!](https://opencollective.com/codebuddies#sponsor)
 ###Sponsors
 <a href="https://www.digitalocean.com/" target="_blank"><img src="https://github.com/codebuddiesdotorg/cb-v2-scratch/blob/master/public/images/powered_by_digitalocean.png" width="250" alt="Powered by DigitalOcean"/></a>
 
+###Individual Backers
+<a href="http://github.com/distalx" target="_blank"><img src="https://avatars0.githubusercontent.com/u/11193792?v=3&s=466" width="100"></a>
 You can also support us with a monthly donation by [becoming a Backer!](https://opencollective.com/codebuddies#backer)
 
 <a href="https://opencollective.com/codebuddies/backer/0/website" target="_blank"><img src="https://opencollective.com/codebuddies/backer/0/avatar.svg"></a>
