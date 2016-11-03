@@ -62,12 +62,9 @@ If you'd like to help contribute, pick out an [issue](https://github.com/codebud
 P.S. We'll schedule hangouts to do code walkthroughs or code show and tells occasionally, and announce it in the #codebuddies-meta channel on Slack. The goal is to help everyone who wants to contribute to this app learn quickly through collaboration. You can also request a code walkthrough as well. The list of contributors above contains a good mix of full-time developers and as well as people contributing to an open-sourced project for the first time.
 
 ## Support CodeBuddies
-<!-- This project is hosted on DigitalOcean. You can help keep this project alive by becoming a [sponsor of the month!](https://codebuddies.org/sponsor) -->
 
 You can help keep this project alive by [becoming a
 Sponsor!](https://opencollective.com/codebuddies#sponsor)
-
-<img src="https://github.com/codebuddiesdotorg/cb-v2-scratch/blob/master/public/images/powered_by_digitalocean.png" width="250" alt="Powered by DigitalOcean"/>
 
 <a href="https://opencollective.com/codebuddies/sponsor/0/website" target="_blank"><img src="https://opencollective.com/codebuddies/sponsor/0/avatar.svg"></a>
 <a href="https://opencollective.com/codebuddies/sponsor/1/website" target="_blank"><img src="https://opencollective.com/codebuddies/sponsor/1/avatar.svg"></a>
@@ -100,6 +97,8 @@ Sponsor!](https://opencollective.com/codebuddies#sponsor)
 <a href="https://opencollective.com/codebuddies/sponsor/28/website" target="_blank"><img src="https://opencollective.com/codebuddies/sponsor/28/avatar.svg"></a>
 <a href="https://opencollective.com/codebuddies/sponsor/29/website" target="_blank"><img src="https://opencollective.com/codebuddies/sponsor/29/avatar.svg"></a>
 
+###Sponsors
+<img src="https://github.com/codebuddiesdotorg/cb-v2-scratch/blob/master/public/images/powered_by_digitalocean.png" width="250" alt="Powered by DigitalOcean"/>
 
 You can also support us with a monthly donation by [becoming a Backer!](https://opencollective.com/codebuddies#backer)
 
