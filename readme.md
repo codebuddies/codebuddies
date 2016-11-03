@@ -3,7 +3,13 @@
 # CodeBuddies Hangouts Platform v2.0 - from scratch
 
 [![Waffle.io](https://img.shields.io/waffle/label/codebuddiesdotorg/cb-v2-scratch/Ready.svg?label=Ready&title=Ready)](https://waffle.io/codebuddiesdotorg/cb-v2-scratch)
-[![Slack](https://img.shields.io/badge/Chat-on%20Slack-red.svg)](https://codebuddiesmeet.herokuapp.com/)
+[![slack in](http://codebuddiesmeet.herokuapp.com/badge.svg?style=flat-square)](http://codebuddiesmeet.herokuapp.com/)
+[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/codebuddiesdotorg/cb-v2-scratch/issues)
+[![first-timers-only](http://img.shields.io/badge/first--timers--only-friendly-blue.svg)](http://www.firsttimersonly.com/)
+[![Pull Close](https://img.shields.io/issuestats/p/github/codebuddiesdotorg/cb-v2-scratch.svg?maxAge=2592000&style=flat-square)]
+[![Issue Close](https://img.shields.io/issuestats/i/github/codebuddiesdotorg/cb-v2-scratch.svg?maxAge=2592000&style=flat-square)]
+
+
 
 #FAQ
 
