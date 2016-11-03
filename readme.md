@@ -103,7 +103,7 @@ Sponsor!](https://opencollective.com/codebuddies#sponsor)
 <a href="https://opencollective.com/codebuddies/sponsor/29/website" target="_blank"><img src="https://opencollective.com/codebuddies/sponsor/29/avatar.svg"></a>
 
 ###Sponsors
-<img src="https://github.com/codebuddiesdotorg/cb-v2-scratch/blob/master/public/images/powered_by_digitalocean.png" width="250" alt="Powered by DigitalOcean"/>
+<a href="https://www.digitalocean.com/"><img src="https://github.com/codebuddiesdotorg/cb-v2-scratch/blob/master/public/images/powered_by_digitalocean.png" width="250" alt="Powered by DigitalOcean"/></a>
 
 You can also support us with a monthly donation by [becoming a Backer!](https://opencollective.com/codebuddies#backer)
 
