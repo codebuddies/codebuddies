@@ -66,7 +66,9 @@ P.S. We'll schedule hangouts to do code walkthroughs or code show and tells occa
 
 You can help keep this project alive by [becoming a
 Sponsor!](https://opencollective.com/codebuddies#sponsor)
+
 <img src="https://github.com/codebuddiesdotorg/cb-v2-scratch/blob/master/public/images/powered_by_digitalocean.png" width="250" alt="Powered by DigitalOcean"/>
+
 <a href="https://opencollective.com/codebuddies/sponsor/0/website" target="_blank"><img src="https://opencollective.com/codebuddies/sponsor/0/avatar.svg"></a>
 <a href="https://opencollective.com/codebuddies/sponsor/1/website" target="_blank"><img src="https://opencollective.com/codebuddies/sponsor/1/avatar.svg"></a>
 <a href="https://opencollective.com/codebuddies/sponsor/2/website" target="_blank"><img src="https://opencollective.com/codebuddies/sponsor/2/avatar.svg"></a>
