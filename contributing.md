@@ -12,6 +12,7 @@
   7. [How do I seed the app with fake Posts/Hangouts?](#how-do-i-seed-the-app-with-fake-postshangouts)
   8. [How do I add myself as a contributor?](#how-do-i-add-myself-as-a-contributor)
 4. [Helpful Reminders](#helpful-reminders)
+5. [Editorconfig](#editorconfig)
 
 
 # The Quick Steps on Contributing:
@@ -206,3 +207,6 @@ Once you've submitted your PR, switch to the branch [`adding-contributor`](https
 5. Remember to leave a comment on the issue if you decide to start working on an issue, so that others know.
 
 6. Remember to join the `#codebuddies-meta` channel on the CodeBuddies Slack (go to [codebuddiesmeet.herokuapp.com](http://codebuddiesmeet.herokuapp.com) if you need an invitation to the Slack) to discuss updates to this project and to ask questions. We'll be there!
+
+#Editorconfig
+Because everyone has their own preferred development tools, this project has an `.editorconfig` file in its root to help maintain code  consistency.  Please [download the appropriate plugin](http://editorconfig.org/#download) for your text editor or IDE - this will help to  ensure that your editor uses the rules configured in the `.editorconfig` file.
