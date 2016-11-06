@@ -25,7 +25,7 @@
 
 
 # The More Detailed Steps on Contributing:
-1. Say hello on the [#codebuddies-meta](https://codebuddiesmeet.slack.com/messages/codebuddies-meta/) channel in the Slack. Feel free to ask questions here, or to ask for someone to review your pull request. (If you don't have an account with the CodeBuddies Slack, please visit [codebuddies.org](http://codebuddies.org) to sign up.)
+1. Say hello on the [#codebuddies-meta](https://codebuddiesmeet.slack.com/messages/codebuddies-meta/) channel in the Slack. Feel free to ask questions here, or to ask for someone to review your pull request. (If you don't have an account with codebuddiesmeet.slack.com, please visit [codebuddies.org](http://codebuddies.org) to sign up.)
 2. [Install Meteor](https://www.meteor.com/install) if you don't already have it installed.
 3. Please star this repository! We need to reach 100 stars so that we can apply to the [Open Collective](https://opencollective.com/opensource/apply).
   [Edit - We're already there! But still star this repo, so others can hear about what we're doing!]
