@@ -48,6 +48,7 @@
 
 // column 3
   .footer-social {
+
     a {display: inline-block;}
     .fa {font-size: 20px; padding-right: 10px;}
   }
@@ -72,11 +73,13 @@
 
 // bottom sponsor section
   .footer-sponsor {
-    border-top: 1px solid $divider;
-    margin-top: 50px;
-    padding-top: 15px;
+    @include breakpoint(tiny) { margin: 30px 0; }
+    @include breakpoint(xsmall) { margin: 30px 0; }
+    @include breakpoint(small) { margin: 30px 0 30px; }
+    @include breakpoint(xmedium) { margin: 30px 0 30px; }
 
     a {display: inline-block; }
+    p > strong { color:$primary-grey;}
     p {color: $secondary-grey; }
   }
 
