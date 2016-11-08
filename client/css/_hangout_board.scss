@@ -1,0 +1,58 @@
+#hangout-board {
+  .hangout-card {
+    background: $bg-white;
+    cursor: pointer;
+    display: block;
+    height: 180px;
+    padding: 10px;
+    position: relative;
+    @include box-shadow(0, 12px, 60px, rgba(0, 0, 0, .5));
+    .hangout-topic {
+      @include font-face(600, 16px, bold, $primary-grey);
+      line-height: 25px;
+    }
+
+    .hangout-details {
+      bottom: 10px;
+      position: absolute;
+    }
+
+    .hangout-date {
+      margin: 0;
+    }
+
+    .details-extra { right: 10px;}
+  }
+
+  .hangout-card:hover {
+    box-shadow: none;
+  }
+
+  .board-top {
+    background: linear-gradient(to top, rgba(30, 144, 255, .5) 0%, rgba(30, 144, 255, .5) 0%, rgba(30, 144, 255, .5) 0%, rgba(30, 144, 255, .55) 18%, rgba(30, 144, 255, .64) 46%, rgba(3, 87, 232, .8) 100%), url(/images/language-logos.svg) center repeat;
+    padding: 100px 0;
+    h2 { @include font-face(700, 32px, bold, $bg-white); }
+  }
+
+  .board-middle {
+    padding: 20px 0;
+    h2 { @include font-face(700, 32px, bold, $primary-grey); }
+  }
+
+  .hangout-board {
+    h3 { margin: 0;}
+
+    .hangout-filter-block {
+      margin-bottom: 20px;
+      margin-top: 10px;
+    }
+
+  }
+
+  .hangout-header-block {
+    height: 100px;
+    padding: 0;
+
+    @include font-face(400, 17px, normal, $cta-blue);
+  }
+}

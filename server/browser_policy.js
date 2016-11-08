@@ -8,6 +8,7 @@ BrowserPolicy.content.allowInlineStyles();
 BrowserPolicy.content.allowOriginForAll('http://*.materialdesignicons.com');
 BrowserPolicy.content.allowOriginForAll('http://*.google.com');
 BrowserPolicy.content.allowOriginForAll('http://*.gravatar.com');
+BrowserPolicy.content.allowOriginForAll('https://*.quilljs.com');
 var trusted = [
   '*.herokuapp.com',
   '*.gstatic.com',

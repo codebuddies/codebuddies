@@ -1,39 +1,98 @@
 #post {
-	label { font-weight: 200; font-size: 16px;}
-	h2 { font-weight: 200; }
-	h2.completed, p.completed, p.status { color: $warm-grey; }
-	h2.completed { font-weight: 600;}
-	h4 { font-weight: 400; margin: 0px; text-transform: uppercase; font-size: 14px; margin-bottom: 5px;}
-	.panel-default { margin: 10px 0px;}
-	.panel-body { font-size: 20px; font-weight: 200;}
-	.panel-footer {
-		color: $warm-grey;
-		.img-circle { width: 50px; }
-	}
-	
-	textarea#newMessage { min-height: 100px; margin-bottom: 10px;}
-	select#commentFilter { margin-bottom: 10px;}
-	span.cb-delete:hover { cursor: pointer;}
-	ol{
-		padding-left: 16px; 
-		font-weight: 200;
-	}
-	.hangout-status { text-align: center; }
-	.hangout-status p { 
-		background: dodgerblue;
-		text-align: center;
-		padding: 10px 0;
-		font-size: 18px;
-		@include border-radius(3px);
-		margin: 0px;
-		font-weight: 200;
-		color: #fff;
-		a {
-			color: #fff;
-			text-decoration: underline;
-		}
-	}
-	.btn-cb2 { font-size: 18px; text-transform: uppercase; font-weight: 200; width: 300px;}
-	.btn-danger { background: #d9534f; }
+  label {
+    font-weight: 200;
+    font-size: 16px;
+  }
 
+  h2 {
+    font-weight: 200;
+  }
+
+  h2.completed,
+  p.completed,
+  p.status {
+    color: $warm-grey;
+  }
+
+  h2.completed {
+    font-weight: 600;
+  }
+
+  h4 {
+    font-weight: 400;
+    margin: 0;
+    text-transform: uppercase;
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+
+  .panel-default {
+    margin: 10px 0;
+  }
+
+  .panel-body {
+    font-size: 20px;
+    font-weight: 200;
+  }
+
+  .panel-footer {
+    color: $warm-grey;
+
+    .img-circle {
+      width: 50px;
+    }
+  }
+
+  textarea#newMessage {
+    min-height: 100px;
+    margin-bottom: 10px;
+  }
+
+  select#commentFilter {
+    margin-bottom: 10px;
+  }
+
+  span.cb-delete:hover {
+    cursor: pointer;
+  }
+
+  ol {
+    padding-left: 16px;
+    font-weight: 200;
+  }
+
+  .hangout-status {
+    text-align: center;
+  }
+
+  .hangout-status p {
+    background: $bg-white;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 18px;
+    @include border-radius(3px);
+    margin: 0;
+    font-weight: 200;
+    color: $primary-grey;
+
+    a {
+      color: $white;
+      text-decoration: underline;
+    }
+  }
+  //Note: Let's figure out a way to move the styles below to _buttons.scss so that we can reuse them
+  .btn-cb2 {
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: 200;
+    width: 300px;
+  }
+
+  .btn-danger {
+    background: $danger-red;
+  }
+
+  #end-hangout {
+    margin-top: 5px;
+  }
 }

@@ -1,18 +1,41 @@
-#sponsor,#sponsor-us-now {
-	background-color: #1E90FF;
-	padding-bottom: 50px;
-	h2,p {
-		color: white;
-		padding-top: 25px;
-	}
-	p { @include font-face(200, 15px, normal, $bg-white); line-height: 1.9; margin-top: 10px;},
-	a { text-decoration: underline; color: #fff;}
+#sponsor,
+#sponsor-us-now {
+  background-color: $dodgerblue;
+  padding-bottom: 50px;
+
+  h2,
+  p {
+    color: $white;
+    padding-top: 25px;
+  }
+
+  p {
+    @include font-face(200, 15px, normal, $bg-white);
+    line-height: 1.9;
+    margin-top: 10px;
+  }
+
+  ,
+  a {
+    text-decoration: underline;
+    color: $white;
+  }
 }
 
 #statistics {
-	background-color: #FFF;
-	padding-top: 50px;
-	padding-bottom: 50px;
-	p { @include font-face(200, 15px, normal, #4C4C4C); line-height: 1.9; margin-top: 10px;},
-	a { text-decoration: underline; color: #4C4C4C;}
+  background-color: $bg-white;
+  padding-top: 50px;
+  padding-bottom: 50px;
+
+  p {
+    @include font-face(200, 15px, normal, $secondary-grey);
+    line-height: 1.9;
+    margin-top: 10px;
+  }
+
+  ,
+  a {
+    text-decoration: underline;
+    color: $secondary-grey;
+  }
 }

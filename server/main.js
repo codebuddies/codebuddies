@@ -42,9 +42,7 @@ Meteor.startup(function() {
           text: password
         });
       }
-
-    }
-
+  }
 
 });
 

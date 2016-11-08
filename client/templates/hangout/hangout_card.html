@@ -1,0 +1,27 @@
+<template name="hangoutCard">
+    <a href="{{pathFor 'hangout' hangoutId=_id }}" class="hangout-card">
+
+        <h4 class="hangout-date"><small><i class="fa fa-calendar"></i>  {{getHangoutStartDateTime start}}</small></h4>
+
+        <h4 class="hangout-topic">{{truncate topic}}</h4>
+
+        <h4>
+          <small class="hangout-details">
+              <i class="fa {{getHangoutTypeSign type}}"></i> Host
+                {{#unless currentUser}}
+                  <a href="#" id='visitor'>{{host.name}}</a>
+                {{else}}
+                  <a href="{{pathFor 'profile' name=host.name userId=host.id}}">{{host.name}}</a>
+                {{/unless}}
+           </small>
+            <small class="hangout-details details-extra">
+                {{users.length}} Joined
+                {{#if views}}| <i class="fa fa-eye" aria-hidden="true" data-toggle="tooltip" title="Views" > {{views}} </i> {{/if}}
+            </small>
+
+        </h4>
+
+
+
+  </a>
+</template>

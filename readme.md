@@ -1,7 +1,14 @@
-[![Stories in Ready](https://badge.waffle.io/codebuddiesdotorg/cb-v2-scratch.png?label=ready&title=Ready)](https://waffle.io/codebuddiesdotorg/cb-v2-scratch)
-#CodeBuddies Hangouts Platform v2.0 - from scratch
+![CodeBuddies logo](https://github.com/codebuddiesdotorg/cb-v2-scratch/raw/master/public/images/cb-readme.jpg)
 
-[![Join the chat at https://gitter.im/codebuddiesdotorg/cb-v2-scratch](https://badges.gitter.im/codebuddiesdotorg/cb-v2-scratch.svg)](https://gitter.im/codebuddiesdotorg/cb-v2-scratch?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+# CodeBuddies Hangouts Platform v2.0 - from scratch
+
+[![Waffle.io](https://img.shields.io/waffle/label/codebuddiesdotorg/cb-v2-scratch/Ready.svg?label=Ready&title=Ready&style=flat-square)](https://waffle.io/codebuddiesdotorg/cb-v2-scratch)
+[![slack in](http://codebuddiesmeet.herokuapp.com/badge.svg?style=flat-square)](http://codebuddiesmeet.herokuapp.com/)
+[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat-square)](https://github.com/codebuddiesdotorg/cb-v2-scratch/issues)
+[![first-timers-only](https://img.shields.io/badge/first--timers--only-friendly-blue.svg?style=flat-square)](http://www.firsttimersonly.com/)
+[![Issue Stats](https://img.shields.io/issuestats/i/github/codebuddiesdotorg/cb-v2-scratch.svg?maxAge=2592000&style=flat-square)]()
+[![Issue Stats](https://img.shields.io/issuestats/p/github/codebuddiesdotorg/cb-v2-scratch.svg?maxAge=2592000&style=flat-square)]()
+
 
 #FAQ
 
@@ -10,36 +17,38 @@ We're a community of independent code learners who help each other on [Slack](ht
 
 Learning with each other helps us learn faster. We strive to create a safe space for anyone interested in code to talk about the learning process. The project is free and open-sourced on Github, and this app is 100% community/volunteer-built.
 
+Join us on Slack! You can get your invite by clicking on the Slack invite button and join the community by verifying your invitation through your e-mail!
+
 ##What are you trying to build here?
 
-![screenshot of what we're building](http://codebuddies.org/images/code-buddies-landing.png)
+![screenshot of what we're building](https://github.com/codebuddiesdotorg/cb-v2-scratch/raw/master/public/images/cb-example.png)
 Credit: [Ada Chiu](https://github.com/adachiu).
 
 ##Why are you building this site?
-Our community spends a lot of time helping each other on [our public Slack](http://codebuddiesmeet.slack.com) (P.S. You can get an invite [here](http://codebuddiesmeet.herokuapp.com) if you want to join), but it's hard to schedule google hangout study times via Slack, and it's also hard to know who else is online and available for joining a hangout to work on something together. The platform we're building solves those issues.
+Our community spends a lot of time helping each other on [our public Slack](http://codebuddiesmeet.slack.com) (P.S. You can get an invite [here](http://codebuddiesmeet.herokuapp.com) if you want to join), but it's hard to schedule Google Hangout study times via Slack, and it's also hard to know who else is online and available for joining a Hangout to work on something together. The platform we're building solves those issues.
 
 ##How do I contribute to this project?
-PLEASE GO TO ***[contributing.md](contributing.md)*** and follow the first six instructions listed there!!!
+**PLEASE go to _[contributing.md](contributing.md)_ and refer to the contribution steps listed there!** There are also helpful resources there, in case you get stuck. To add yourself as a contributor, please see the [How do I add myself as a contributor?](contributing.md#how-do-i-add-myself-as-a-contributor) section.
 
-And here are the volunteers so far:
+*And here are the volunteers so far:*
 
 - @linda, https://github.com/lpatmo - contributed to various issues
 - @sbe, https://github.com/sbe - contributed to discussion on features
 - @abdulhannanali, https://github.com/abdulhannanali - contributed to the start of a #todayilearned slackbot
 - @bethanyg, https://github.com/bethanyg - contributed good advice and discussion on features
-- @mattierae https://github.com/mattierae - contributed awesome balsamiq mockups
-- @adachiu https://github.com/adachiu - contributed awesome high-quality designs for almost every page of the app, lead the design and UX thinking
-- @wuworkshop https://github.com/wuworkshop - contributed advice on a huge number of issues and helped organize the git process flow
-- @Richardh https://github.com/studentrik
-- @anbuselvan https://github.com/anbuselvan - contributed code for the foundations of the app, including hangout/learning creation and Slack authentication.
-- @husam https://github.com/hudat
-- @ccr https://github.com/Iccr
-- @ghazi https://github.com/ghmoha
-- @mualth https://github.com/maudem
-- @oliver84 https://github.com/Oliver84
+- @mattierae, https://github.com/mattierae - contributed awesome balsamiq mockups
+- @adachiu, https://github.com/adachiu - contributed awesome high-quality designs for almost every page of the app, lead the design and UX thinking
+- @wuworkshop, https://github.com/wuworkshop - contributed advice on a huge number of issues and helped organize the git process flow
+- @Richardh, https://github.com/studentrik
+- @anbuselvan, https://github.com/anbuselvan - contributed code for the foundations of the app, including hangout/learning creation and Slack authentication.
+- @husam, https://github.com/hudat
+- @ccr, https://github.com/Iccr
+- @ghazi, https://github.com/ghmoha
+- @mualth, https://github.com/maudem
+- @oliver84, https://github.com/Oliver84
 - @selfspunwebs, https://github.com/anonRegions
-- @luxis https://github.com/Luxisapex - contributed to various issues, including the "kudos" feature which lets users upvote learnings
-- @sergeant-q https://github.com/sergeant-q - contributed fixes for issues, including hangout deletion and email notification for cancelled hangouts, and improved thinking on process steps for how to collaborate on this app
+- @luxis, https://github.com/Luxisapex - contributed to various issues, including the "kudos" feature which lets users upvote learnings
+- @sergeant-q, https://github.com/sergeant-q - contributed fixes for issues, including hangout deletion and email notification for cancelled hangouts, and improved thinking on process steps for how to collaborate on this app
 - @daisukeoka, https://github.com/daisukeokaoss
 - @adanot, https://github.com/adanot
 - @sheldonbarnes, https://github.com/sheldonbarnes - contributed fixes to issues, including textarea word limit
@@ -49,11 +58,85 @@ And here are the volunteers so far:
 - @will, http://github.com/William-R-Wilson - contributed fixes to issues, including ability to edit/trash learnings
 - @anon user(s) - contributed fixes to bugs, including security measures, re-touching of the kudos layout, and scrolling pagination
 - @olivia, http://github.com/foxiae - contributed to discussions on features
-- Add Your Name on the Google Doc (link below) If You Want To Help, then read ***[contributing.md](contributing.md)***
+- @abhiii5459, http://github.com/abhiii5459 - contributed to PR#239. Working on Fix#203 along with @linda.
+- @sharynneazhar, http://github.com/sharynneazhar - contributed to site fixes and enhancements, particularly the ability for users to edit their profile information
+- Add Your Name Above. Refer to ***[contributing.md](contributing.md#how-do-i-add-myself-as-a-contributor)***
 
-If you'd like to help contribute, add your name on the google doc at [http://bit.ly/codebuddies-hangouts-platform-v2-googledoc](http://bit.ly/codebuddies-hangouts-platform-v2-googledoc), say hello in the [#codebuddies-meta](https://codebuddiesmeet.slack.com/messages/codebuddies-meta/) channel on Slack, and be sure to read the "how do I contribute" instructions on [contributing.md](contributing.md)!
+If you'd like to help contribute, pick out an [issue](https://github.com/codebuddiesdotorg/cb-v2-scratch/issues) (leave a comment on it to indicate your interest!) and say hello in the [#codebuddies-meta](https://codebuddiesmeet.slack.com/messages/codebuddies-meta/) channel on Slack. Be sure to read the "how do I contribute" instructions on [contributing.md](contributing.md)!
 
-P.S. We'll schedule hangouts to do code walkthroughs or code show and tells occasionally, and announce it in the #codebuddies-meta channel on Slack. The goal is to help everyone who wants to contribute to this app learn quickly through collaboration. The list of contributors above contains a good mix of full-time developers and as well as people contributing to an open-sourced project for the first time.
+P.S. We'll schedule hangouts to do code walkthroughs or code show and tells occasionally, and announce it in the #codebuddies-meta channel on Slack. The goal is to help everyone who wants to contribute to this app learn quickly through collaboration. You can also request a code walkthrough as well. The list of contributors above contains a good mix of full-time developers and as well as people contributing to an open-sourced project for the first time.
 
+## Support CodeBuddies
 
+You can help keep this project alive by [becoming a
+Sponsor!](https://opencollective.com/codebuddies#sponsor)
 
+<a href="https://opencollective.com/codebuddies/sponsor/0/website" target="_blank"><img src="https://opencollective.com/codebuddies/sponsor/0/avatar.svg"></a>
+<a href="https://opencollective.com/codebuddies/sponsor/1/website" target="_blank"><img src="https://opencollective.com/codebuddies/sponsor/1/avatar.svg"></a>
+<a href="https://opencollective.com/codebuddies/sponsor/2/website" target="_blank"><img src="https://opencollective.com/codebuddies/sponsor/2/avatar.svg"></a>
+<a href="https://opencollective.com/codebuddies/sponsor/3/website" target="_blank"><img src="https://opencollective.com/codebuddies/sponsor/3/avatar.svg"></a>
+<a href="https://opencollective.com/codebuddies/sponsor/4/website" target="_blank"><img src="https://opencollective.com/codebuddies/sponsor/4/avatar.svg"></a>
+<a href="https://opencollective.com/codebuddies/sponsor/5/website" target="_blank"><img src="https://opencollective.com/codebuddies/sponsor/5/avatar.svg"></a>
+<a href="https://opencollective.com/codebuddies/sponsor/6/website" target="_blank"><img src="https://opencollective.com/codebuddies/sponsor/6/avatar.svg"></a>
+<a href="https://opencollective.com/codebuddies/sponsor/7/website" target="_blank"><img src="https://opencollective.com/codebuddies/sponsor/7/avatar.svg"></a>
+<a href="https://opencollective.com/codebuddies/sponsor/8/website" target="_blank"><img src="https://opencollective.com/codebuddies/sponsor/8/avatar.svg"></a>
+<a href="https://opencollective.com/codebuddies/sponsor/9/website" target="_blank"><img src="https://opencollective.com/codebuddies/sponsor/9/avatar.svg"></a>
+<a href="https://opencollective.com/codebuddies/sponsor/10/website" target="_blank"><img src="https://opencollective.com/codebuddies/sponsor/10/avatar.svg"></a>
+<a href="https://opencollective.com/codebuddies/sponsor/11/website" target="_blank"><img src="https://opencollective.com/codebuddies/sponsor/11/avatar.svg"></a>
+<a href="https://opencollective.com/codebuddies/sponsor/12/website" target="_blank"><img src="https://opencollective.com/codebuddies/sponsor/12/avatar.svg"></a>
+<a href="https://opencollective.com/codebuddies/sponsor/13/website" target="_blank"><img src="https://opencollective.com/codebuddies/sponsor/13/avatar.svg"></a>
+<a href="https://opencollective.com/codebuddies/sponsor/14/website" target="_blank"><img src="https://opencollective.com/codebuddies/sponsor/14/avatar.svg"></a>
+<a href="https://opencollective.com/codebuddies/sponsor/15/website" target="_blank"><img src="https://opencollective.com/codebuddies/sponsor/15/avatar.svg"></a>
+<a href="https://opencollective.com/codebuddies/sponsor/16/website" target="_blank"><img src="https://opencollective.com/codebuddies/sponsor/16/avatar.svg"></a>
+<a href="https://opencollective.com/codebuddies/sponsor/17/website" target="_blank"><img src="https://opencollective.com/codebuddies/sponsor/17/avatar.svg"></a>
+<a href="https://opencollective.com/codebuddies/sponsor/18/website" target="_blank"><img src="https://opencollective.com/codebuddies/sponsor/18/avatar.svg"></a>
+<a href="https://opencollective.com/codebuddies/sponsor/19/website" target="_blank"><img src="https://opencollective.com/codebuddies/sponsor/19/avatar.svg"></a>
+<a href="https://opencollective.com/codebuddies/sponsor/20/website" target="_blank"><img src="https://opencollective.com/codebuddies/sponsor/20/avatar.svg"></a>
+<a href="https://opencollective.com/codebuddies/sponsor/21/website" target="_blank"><img src="https://opencollective.com/codebuddies/sponsor/21/avatar.svg"></a>
+<a href="https://opencollective.com/codebuddies/sponsor/22/website" target="_blank"><img src="https://opencollective.com/codebuddies/sponsor/22/avatar.svg"></a>
+<a href="https://opencollective.com/codebuddies/sponsor/23/website" target="_blank"><img src="https://opencollective.com/codebuddies/sponsor/23/avatar.svg"></a>
+<a href="https://opencollective.com/codebuddies/sponsor/24/website" target="_blank"><img src="https://opencollective.com/codebuddies/sponsor/24/avatar.svg"></a>
+<a href="https://opencollective.com/codebuddies/sponsor/25/website" target="_blank"><img src="https://opencollective.com/codebuddies/sponsor/25/avatar.svg"></a>
+<a href="https://opencollective.com/codebuddies/sponsor/26/website" target="_blank"><img src="https://opencollective.com/codebuddies/sponsor/26/avatar.svg"></a>
+<a href="https://opencollective.com/codebuddies/sponsor/27/website" target="_blank"><img src="https://opencollective.com/codebuddies/sponsor/27/avatar.svg"></a>
+<a href="https://opencollective.com/codebuddies/sponsor/28/website" target="_blank"><img src="https://opencollective.com/codebuddies/sponsor/28/avatar.svg"></a>
+<a href="https://opencollective.com/codebuddies/sponsor/29/website" target="_blank"><img src="https://opencollective.com/codebuddies/sponsor/29/avatar.svg"></a>
+
+You can also support us with a monthly donation by [becoming a Backer!](https://opencollective.com/codebuddies#backer)
+
+<a href="https://opencollective.com/codebuddies/backer/0/website" target="_blank"><img src="https://opencollective.com/codebuddies/backer/0/avatar.svg"></a>
+<a href="https://opencollective.com/codebuddies/backer/1/website" target="_blank"><img src="https://opencollective.com/codebuddies/backer/1/avatar.svg"></a>
+<a href="https://opencollective.com/codebuddies/backer/2/website" target="_blank"><img src="https://opencollective.com/codebuddies/backer/2/avatar.svg"></a>
+<a href="https://opencollective.com/codebuddies/backer/3/website" target="_blank"><img src="https://opencollective.com/codebuddies/backer/3/avatar.svg"></a>
+<a href="https://opencollective.com/codebuddies/backer/4/website" target="_blank"><img src="https://opencollective.com/codebuddies/backer/4/avatar.svg"></a>
+<a href="https://opencollective.com/codebuddies/backer/5/website" target="_blank"><img src="https://opencollective.com/codebuddies/backer/5/avatar.svg"></a>
+<a href="https://opencollective.com/codebuddies/backer/6/website" target="_blank"><img src="https://opencollective.com/codebuddies/backer/6/avatar.svg"></a>
+<a href="https://opencollective.com/codebuddies/backer/7/website" target="_blank"><img src="https://opencollective.com/codebuddies/backer/7/avatar.svg"></a>
+<a href="https://opencollective.com/codebuddies/backer/8/website" target="_blank"><img src="https://opencollective.com/codebuddies/backer/8/avatar.svg"></a>
+<a href="https://opencollective.com/codebuddies/backer/9/website" target="_blank"><img src="https://opencollective.com/codebuddies/backer/9/avatar.svg"></a>
+<a href="https://opencollective.com/codebuddies/backer/10/website" target="_blank"><img src="https://opencollective.com/codebuddies/backer/10/avatar.svg"></a>
+<a href="https://opencollective.com/codebuddies/backer/11/website" target="_blank"><img src="https://opencollective.com/codebuddies/backer/11/avatar.svg"></a>
+<a href="https://opencollective.com/codebuddies/backer/12/website" target="_blank"><img src="https://opencollective.com/codebuddies/backer/12/avatar.svg"></a>
+<a href="https://opencollective.com/codebuddies/backer/13/website" target="_blank"><img src="https://opencollective.com/codebuddies/backer/13/avatar.svg"></a>
+<a href="https://opencollective.com/codebuddies/backer/14/website" target="_blank"><img src="https://opencollective.com/codebuddies/backer/14/avatar.svg"></a>
+<a href="https://opencollective.com/codebuddies/backer/15/website" target="_blank"><img src="https://opencollective.com/codebuddies/backer/15/avatar.svg"></a>
+<a href="https://opencollective.com/codebuddies/backer/16/website" target="_blank"><img src="https://opencollective.com/codebuddies/backer/16/avatar.svg"></a>
+<a href="https://opencollective.com/codebuddies/backer/17/website" target="_blank"><img src="https://opencollective.com/codebuddies/backer/17/avatar.svg"></a>
+<a href="https://opencollective.com/codebuddies/backer/18/website" target="_blank"><img src="https://opencollective.com/codebuddies/backer/18/avatar.svg"></a>
+<a href="https://opencollective.com/codebuddies/backer/19/website" target="_blank"><img src="https://opencollective.com/codebuddies/backer/19/avatar.svg"></a>
+<a href="https://opencollective.com/codebuddies/backer/20/website" target="_blank"><img src="https://opencollective.com/codebuddies/backer/20/avatar.svg"></a>
+<a href="https://opencollective.com/codebuddies/backer/21/website" target="_blank"><img src="https://opencollective.com/codebuddies/backer/21/avatar.svg"></a>
+<a href="https://opencollective.com/codebuddies/backer/22/website" target="_blank"><img src="https://opencollective.com/codebuddies/backer/22/avatar.svg"></a>
+<a href="https://opencollective.com/codebuddies/backer/23/website" target="_blank"><img src="https://opencollective.com/codebuddies/backer/23/avatar.svg"></a>
+<a href="https://opencollective.com/codebuddies/backer/24/website" target="_blank"><img src="https://opencollective.com/codebuddies/backer/24/avatar.svg"></a>
+<a href="https://opencollective.com/codebuddies/backer/25/website" target="_blank"><img src="https://opencollective.com/codebuddies/backer/25/avatar.svg"></a>
+<a href="https://opencollective.com/codebuddies/backer/26/website" target="_blank"><img src="https://opencollective.com/codebuddies/backer/26/avatar.svg"></a>
+<a href="https://opencollective.com/codebuddies/backer/27/website" target="_blank"><img src="https://opencollective.com/codebuddies/backer/27/avatar.svg"></a>
+<a href="https://opencollective.com/codebuddies/backer/28/website" target="_blank"><img src="https://opencollective.com/codebuddies/backer/28/avatar.svg"></a>
+<a href="https://opencollective.com/codebuddies/backer/29/website" target="_blank"><img src="https://opencollective.com/codebuddies/backer/29/avatar.svg"></a>
+
+###Sponsors
+<a href="https://www.digitalocean.com/" target="_blank"><img src="https://github.com/codebuddiesdotorg/cb-v2-scratch/blob/master/public/images/powered_by_digitalocean.png" width="200" alt="Powered by DigitalOcean"/></a>
+
+###Individual Backers
+<a href="http://github.com/distalx" target="_blank"><img src="https://avatars0.githubusercontent.com/u/11193792?v=3&s=466" width="50"></a>
