@@ -45,5 +45,12 @@ sitemaps.add('/sitemap.xml', function() {
         { loc: '/images/icon-mute.png', },
       ],
     },
+    { page: '/terms-of-service',
+      images: [
+        { loc: '/images/pattern.png', },
+        { loc: '/images/logo.png', },
+        { loc: '/images/slack-icon.png', },
+      ],
+    },
   ];
 });
