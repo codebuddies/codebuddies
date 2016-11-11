@@ -15,24 +15,24 @@
         <img src="{{#if currentUser.profile.avatar.default}}{{currentUser.profile.avatar.default}}{{else}}/default-avatar.png{{/if}}"  class="img-circle"/>
       </div>
       <div class="col-md-10">
-        <form class="addNewMessage">
+        <form>
           <textarea id="newMessage" class="form-control" rows="3" cols="30"></textarea>
 
-          <button type="submit" class="btn btn-cb2 pull-right"> Reply</button>
+          <button class="btn btn-cb2 pull-right {{#if currentUser}} addNewMessage {{else}} continue-popup {{/if}}"> Reply</button>
 
         </form>
 
       </div>
   </div>
- 
+
  <br />
   <hr>
 
   {{#if Template.subscriptionsReady}}
     {{#each discussion}}
-      
+
           {{> discussionItem}}
-       
+
 
 
     {{/each}}

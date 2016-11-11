@@ -1,4 +1,4 @@
-// import {_} from 'meteor/erasaur:meteor-lodash';
+// import {_} from 'lodash';
 
 if (Meteor.isClient) {
   Meteor.startup(function () {

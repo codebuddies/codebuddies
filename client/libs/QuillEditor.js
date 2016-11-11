@@ -1,4 +1,4 @@
-import { _ } from 'meteor/erasaur:meteor-lodash';
+import _ from 'lodash';
 import Quill from './quill.js';
 import quillRender from 'quill-render';
 import QuillEditorDefaultOptions from './QuillEditorDefaultOptions';

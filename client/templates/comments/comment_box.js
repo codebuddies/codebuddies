@@ -1,4 +1,4 @@
-import _ from 'meteor/erasaur:meteor-lodash';
+import _ from 'lodash';
 
 Template.commentBox.onCreated(function() {
   this.autorun(() => {
@@ -75,26 +75,7 @@ Template.commentBox.helpers({
 });
 
 Template.commentBox.events({
-  "submit .addNewMessage": function(event, template){
-    event.preventDefault();
-    if (!Meteor.userId()) {
-      sweetAlert({
-        title: TAPi18n.__("Login to comment"),
-        // text: TAPi18n.__("login_create_hangout_message"),
-        confirmButtonText: TAPi18n.__("sign_in_with_slack"),
-        type: 'info'
-      },
-      function(){
-        var options = {
-          requestPermissions: ['identify', 'users:read']
-        };
-        Meteor.loginWithSlack(options);
-      }
-    );
-
-      return;
-    };
-
+  'click .addNewMessage': function(event, template) {
     if ($.trim($('#newMessage').val()) == '') {
       sweetAlert({
         title: TAPi18n.__("Comment can't be empty"),
@@ -102,20 +83,18 @@ Template.commentBox.events({
         confirmButtonText: TAPi18n.__("ok"),
         type: 'info'
       });
-
       return;
     };
 
-
-       var comment = {
-          discussionId : FlowRouter.getParam("hangoutId"),
-          slug: Random.secret(7),
-          authorId : Meteor.userId(),
-          authorName : Meteor.user().username,
-          authorAvatar: Meteor.user().profile.avatar.default,
-          text : $('#newMessage').val().replace(/\r?\n/g, '<br />'),
-          parent_id : null
-        }
+    var comment = {
+      discussionId : FlowRouter.getParam("hangoutId"),
+      slug: Random.secret(7),
+      authorId : Meteor.userId(),
+      authorName : Meteor.user().username,
+      authorAvatar: Meteor.user().profile.avatar.default,
+      text : $('#newMessage').val().replace(/\r?\n/g, '<br />'),
+      parent_id : null
+    }
 
        Meteor.call("addComments", comment, function(error, result){
          if(error){
@@ -128,34 +107,13 @@ Template.commentBox.events({
 
   },
   'click .upVote': function(event, template) {
-    if (!Meteor.userId()) {
-      sweetAlert({
-        title: TAPi18n.__("Login to upvote"),
-        // text: TAPi18n.__("login_create_hangout_message"),
-        confirmButtonText: TAPi18n.__("sign_in_with_slack"),
-        type: 'info'
-      },
-      function(){
-        var options = {
-          requestPermissions: ['identify', 'users:read']
-        };
-        Meteor.loginWithSlack(options);
-      }
-    );
-      return;
-    };
     var userId = Meteor.userId();
     var commentId = this._id;
 
-    //checking user status
-    if (userId === null) {
-      Modal.show('loginModal');
-    }
-
     //checking if user has already voted for same category
-    if (userId && !_.include(this.upvotes, userId)) {
+    if (userId && !_.includes(this.upvotes, userId)) {
       //checking if user has already voted for other category if true then switching
-      if (userId && _.include(this.downvotes, userId)) {
+      if (userId && _.includes(this.downvotes, userId)) {
 
         Meteor.call("voteSwitching", commentId, "downvote-to-upvote", function(error, result){ if(error){ console.log("error", error); }});
 
@@ -172,21 +130,6 @@ Template.commentBox.events({
 
   },
   'click .downVote': function(event, template) {
-    if (!Meteor.userId()) {
-      sweetAlert({
-        title: TAPi18n.__("Login to downvote"),
-        // text: TAPi18n.__("login_create_hangout_message"),
-        confirmButtonText: TAPi18n.__("sign_in_with_slack"),
-        type: 'info'
-      },
-      function(){
-        var options = {
-          requestPermissions: ['identify', 'users:read']
-        };
-        Meteor.loginWithSlack(options);
-      });
-      return;
-    };
     var userId = Meteor.userId();
     var commentId = this._id;
 
@@ -196,10 +139,10 @@ Template.commentBox.events({
     // }
 
     //checking if user has already voted for same category if false
-    if (userId && !_.include(this.downvotes, userId)) {
+    if (userId && !_.includes(this.downvotes, userId)) {
 
       //checking if user has already voted for other category if true then switching
-      if (userId && _.include(this.upvotes, userId)) {
+      if (userId && _.includes(this.upvotes, userId)) {
 
         Meteor.call("voteSwitching", commentId, "upvote-to-downvote", function(error, result){ if(error){ console.log("error", error); } });
 
@@ -215,32 +158,12 @@ Template.commentBox.events({
 
   },
   'click .replyToComment': function(event, template) {
-
-    if (!Meteor.userId()) {
-      sweetAlert({
-        title: TAPi18n.__("Login to comment"),
-        // text: TAPi18n.__("login_create_hangout_message"),
-        confirmButtonText: TAPi18n.__("sign_in_with_slack"),
-        type: 'info'
-      },
-      function(){
-        var options = {
-          requestPermissions: ['identify', 'users:read']
-        };
-        Meteor.loginWithSlack(options);
-      }
-    );
-      return;
-    };
-    //checking user status
-    // if (userId=== null) {
-    //   Modal.show('loginModal');
-    // }
+    event.preventDefault();
 
     var commentId = this._id;
     var replyToComment = Session.get("replyToComment");
 
-    if(_.include(replyToComment, commentId)){
+    if(_.includes(replyToComment, commentId)){
        $("#"+ commentId +"replyToCommentSection").empty();
        replyToComment = _.pull(replyToComment, commentId);
        console.log(replyToComment);
@@ -257,24 +180,8 @@ Template.commentBox.events({
 
   "submit .addNewReply": function(event, template){
     event.preventDefault();
-    if (!Meteor.userId()) {
-      sweetAlert({
-        title: TAPi18n.__("Login to reply"),
-        // text: TAPi18n.__("login_create_hangout_message"),
-        confirmButtonText: TAPi18n.__("sign_in_with_slack"),
-        type: 'info'
-      },
-      function(){
-        var options = {
-          requestPermissions: ['identify', 'users:read']
-        };
-        Meteor.loginWithSlack(options);
-      }
-    );
-      return;
-    };
 
-    if ($.trim($('#newMessage').val()) == '') {
+    if ($.trim($('#commentReply').val()) == '') {
       sweetAlert({
         title: TAPi18n.__("Comment can't be empty"),
         // text: TAPi18n.__("login_create_hangout_message"),
@@ -314,22 +221,6 @@ Template.commentBox.events({
 
   },
   "click .delete": function(event, template){
-    if (!Meteor.userId()) {
-      sweetAlert({
-        title: TAPi18n.__("Login to delete"),
-        // text: TAPi18n.__("login_create_hangout_message"),
-        confirmButtonText: TAPi18n.__("sign_in_with_slack"),
-        type: 'info'
-      },
-      function(){
-        var options = {
-          requestPermissions: ['identify', 'users:read']
-        };
-        Meteor.loginWithSlack(options);
-      }
-    );
-      return;
-    };
     var data = {
       commentId : this._id,
       authorId : this.authorId,
