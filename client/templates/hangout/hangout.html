@@ -156,7 +156,7 @@
 
               {{else}}
                 {{# unless isHangoutCompleted end}}
-                   <button id="join-hangout" class="btn btn-cb2 btn-success">{{_ "join_in_session"}}</button>
+                   <button class="btn btn-cb2 btn-success {{#if currentUser}} join-hangout {{else}} continue-popup {{/if}}">{{_ "join_in_session"}}</button>
                 {{/unless}}
               {{/if}}
 
