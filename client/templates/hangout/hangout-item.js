@@ -112,7 +112,12 @@ Template.hangoutItem.helpers({
     return topic.truncate()
   },
   getDescriptionTruncated: function(description) {
+    if(description.length > 201){
       return description.substring(0,201)+"...";
+    }
+    else {
+      return description.substring(0,201)
+    }
   }
 });
 
