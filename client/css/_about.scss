@@ -21,7 +21,7 @@
 
   .about-middle {
     background: $bg-white;
-    padding: 50px 0;
+    padding: 50px 0px;
     h2 { @include font-face(700, 32px, bold, $primary-grey); }
     .flags { margin: 20px 0;}
     img { margin: 10px;}
@@ -29,10 +29,10 @@
 
   .about-bottom {
     background: $bg-lightgrey;
-    padding: 100px 0;
+    padding: 100px 0px;
 
     .contributors {
-      margin: 40px 0;
+      margin: 40px 0px;
 
       img {
         margin: 0 0 40px 40px;
@@ -58,15 +58,15 @@
     }
 
     .fa {
-      padding: 0 5px;
+      padding: 0px 5px;
     }
   }
 
-  h2 {margin: 50px 0 40px; }
+  h2 {margin: 50px 0px 40px; }
 
-  h3.popover-title { margin-top: 0;}
+  h3.popover-title { margin-top: 0px;}
   h3 { font-weight: 200;}
 
-  .contributors-title { padding: 0 0 50px; }
+  .contributors-title { padding: 0px 0px 50px; }
 
 }
