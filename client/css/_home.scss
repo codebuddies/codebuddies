@@ -1,6 +1,6 @@
 #home {
   background: $cta-blue;
-  padding-top: 50;
+  padding-top: 50px;
 
   p {
     line-height: 27px;
@@ -11,7 +11,7 @@
 
   .join-slack {
     overflow: auto;
-    max-width: 440;
+    max-width: 440px;
     margin: 0 auto;
 
     input {
@@ -25,7 +25,7 @@
     p {
       @include font-face(200, 13px, normal, $bg-white);
       line-height: 1.9;
-      margin-top: 10;
+      margin-top: 10px;
     }
 
     a {
@@ -71,7 +71,7 @@
   }
 
   .search-area {
-    padding: 30;
+    padding: 30px;
     .searchTerm {
       font-size: 16px;
       height: 37px;
@@ -80,7 +80,7 @@
 
   .home-ask,
   .home-top {
-    padding: 60 0 0;
+    padding: 60px 0 0;
     background: $dodgerblue;
     overflow: hidden;
     background: $cta-blue;
@@ -110,12 +110,12 @@
 
     #intro {
       text-align: center;
-      max-width: 530;
-      margin: 0 auto 40;
+      max-width: 530px;
+      margin: 0 auto 40px;
     }
 
     .intro {
-      margin: 40 0;
+      margin: 40px 0px;
     }
 
     .footnote {
@@ -130,7 +130,7 @@
     .slack-note {
       @include breakpoint(medium) {
         margin-top: 70;
-        max-width: 300;
+        max-width: 300px;
       }
 
       line-height: 16px;
@@ -140,7 +140,7 @@
         line-height: 18px;
 
         @include breakpoint(medium) {
-          max-width: 350;
+          max-width: 350px;
         }
       }
 
@@ -163,7 +163,7 @@
       @include font-face(400, 16px, normal, $primary-grey);
       line-height: 27px;
       letter-spacing: .2px;
-      margin-top: 40;
+      margin-top: 40px;
     }
 
     h3 {
@@ -178,7 +178,7 @@
       top: 10%;
 
       h2 {
-        margin-bottom: 50;
+        margin-bottom: 50px;
       }
     }
 
@@ -198,7 +198,7 @@
 
       h3 {
         @include font-face(700, 20, bold, $primary-grey);
-        margin: 40 0 0;
+        margin: 40px 0px 0px;
       }
 
       p {
@@ -210,7 +210,7 @@
 
       .hangout-image {
         align-self: stretch;
-        max-height: 200;
+        max-height: 200px;
         flex: 1 1 auto;
       }
 
@@ -218,13 +218,13 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        height: 200;
+        height: 200px;
       }
 
       img {
         margin-top: 0;
         padding: 30 0;
-        max-height: 200;
+        max-height: 200px;
         width: 80%;
       }
 
@@ -232,12 +232,12 @@
 
       .hangout-details {
         overflow: auto;
-        padding: 5px 20;
+        padding: 5px 20px;
 
         i {
-          font-size: 70;
+          font-size: 70px;
           float: left;
-          padding-right: 10;
+          padding-right: 10px;
         }
 
         table {
@@ -252,10 +252,10 @@
           td {
             text-align: right;
             @include font-face(400, 13px, normal, $primary-grey);
-            padding: 0 4px 4px;
+            padding: 0px 4px 4px;
           }
 
-          max-width: 150;
+          max-width: 150px;
         }
       }
 
@@ -310,12 +310,12 @@
     background-image: url('images/code-logos.png');
     background-repeat: no-repeat;
     background-position: center;
-    padding: 120 0 50;
+    padding: 120px 0px 50px;
     @include font-face(400, 16px, normal, $primary-grey);
 
     p {
       line-height: 27px;
-      margin-top: 40;
+      margin-top: 40px;
     }
 
     #intro {
@@ -326,17 +326,17 @@
       h3,
       p {
         @include breakpoint(small) {
-          padding: 0 20;
+          padding: 0px 20px;
         }
 
         @include breakpoint(xsmall) {
-          padding: 0 40;
+          padding: 0px 40px;
         }
       }
 
       text-align: center;
-      max-width: 550;
-      margin: 0 auto 60;
+      max-width: 550px;
+      margin: 0px auto 60px;
     }
 
     img#hangout-join {
@@ -365,7 +365,7 @@
 
     h2 {
       text-align: center;
-      margin: 100 0;
+      margin: 100px 0px;
     }
 
     background: $bg-lightgrey;
@@ -375,18 +375,18 @@
     }
 
     p {
-      padding: 20 0;
+      padding: 20px 0px;
     }
 
-    padding-bottom: 100;
+    padding-bottom: 100px;
   }
 
   .home-ask {
-    padding: 60 0;
+    padding: 60px 0px;
     text-align: center;
 
     .join-slack {
-      margin-top: 50;
+      margin-top: 50px;
     }
   }
 
