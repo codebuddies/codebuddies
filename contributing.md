@@ -11,6 +11,7 @@
   6. [How do I start up the app locally and log in as an admin?](#how-do-i-start-up-the-app-locally-and-log-in-as-an-admin)
   7. [How do I seed the app with fake Posts/Hangouts?](#how-do-i-seed-the-app-with-fake-postshangouts)
   8. [How do I add myself as a contributor?](#how-do-i-add-myself-as-a-contributor)
+  9. [How do I manually create an active Hangout link on the development version of the app?](#how-do-i-manually-create-an-active-hangout-link-on-the-development-version-of-the-app)
 4. [Helpful Reminders](#helpful-reminders)
 5. [Editorconfig](#editorconfig)
 
@@ -195,6 +196,24 @@ Once you've submitted your PR, switch to the branch [`adding-contributor`](https
   * Commit and push your changes!
 * [Submit a PR](https://help.github.com/articles/creating-a-pull-request/)! (You may link it to your issues' PR, so the code reviewer can review your contributors additions as well.)
 * **Remember not to delete this branch, so that others can use this branch as well!**
+
+###How do I manually create an active Hangout link on the development version of the app?
+
+The Google Hangout API only works on the production site.  If you want to create a link to an existing Google Hangout while working on the development site, follow these steps:
+
+1. Type Ctrl-m to open Mongol.
+2. Click the "hangouts" tab.
+3. Click "Update".
+
+<img title="screenshot of Mongol's hangouts tab" src="https://cloud.githubusercontent.com/assets/4512699/20333476/a8272a6a-ab67-11e6-8b9f-f7972ceac850.jpg" width="60%">
+
+4. Add a comma to the end of the `"created_at"` line.
+5. On the next line, add a key-value pair: `"url": "[URL]"` (replacing `[URL]` with a URL of your choosing)
+6. Click "Save".
+
+<img title="screenshot of Mongol's hangouts tab with new line" src="https://cloud.githubusercontent.com/assets/4512699/20333502/dd90a064-ab67-11e6-89c7-ea9e8f1d751c.jpg" width="60%">
+
+Now, when the Google Hangout is active, a button will appear on the page, linking to the URL you supplied.
 
 #Helpful Reminders:
 1. Remember, you can always check which branch you are in by typing `git branch` or `git branch -a` to see all the branches that exist.
