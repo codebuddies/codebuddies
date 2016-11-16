@@ -11,6 +11,7 @@
   6. [How do I start up the app locally and log in as an admin?](#how-do-i-start-up-the-app-locally-and-log-in-as-an-admin)
   7. [How do I seed the app with fake Posts/Hangouts?](#how-do-i-seed-the-app-with-fake-postshangouts)
   8. [How do I add myself as a contributor?](#how-do-i-add-myself-as-a-contributor)
+  9. [How do I manually create an active Hangout link on the development version of the app?](#how-do-i-manually-create-an-active-hangout-link-on-the-development-version-of-the-app)
 4. [Helpful Reminders](#helpful-reminders)
 5. [Editorconfig](#editorconfig)
 
@@ -156,6 +157,24 @@ When the app is run locally, there are no hangouts seeded by default. Hence to b
 
 ###How do I add myself as a contributor?
 *Make sure you have recently `git pull` from `master` before continuing.*
+
+###How do I manually create an active Hangout link on the development version of the app?
+
+The Google Hangout API only works on the production site.  If you want to create a link to an existing Google Hangout while working on the development site, follow these steps:
+
+1. Type Ctrl-M to open Mongol.
+2. Click the "hangouts" tab.
+3. Click "Update".
+
+![screenshot of Mongol's hangouts tab](https://cloud.githubusercontent.com/assets/4512699/20333476/a8272a6a-ab67-11e6-8b9f-f7972ceac850.jpg)
+
+4. Add a comma to the end of the `"created_at"` line.
+5. On the next line, add a key-value pair: `"url": "[URL]"` (replacing `[URL]` with the URL of a Hangout)
+6. Click "Save".
+
+![screenshot of Mongol's hangouts tab with new line](https://cloud.githubusercontent.com/assets/4512699/20333502/dd90a064-ab67-11e6-89c7-ea9e8f1d751c.jpg)
+
+Now the Google Hangouts link will appear on the page.
 
 Once you've submitted your PR, switch to the branch [`adding-contributor`](https://github.com/codebuddiesdotorg/cb-v2-scratch/tree/adding-contributor). Then, you can add yourself to both the README.md and on our About page. Keeping a separate branch for adding yourself as a contributor will alleviate most merge conflicts.
 
