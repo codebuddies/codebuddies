@@ -51,10 +51,10 @@
     }
 
     .status {
-      padding-left: 10px;
+      padding: .4em;
+      background: white;
       display: inline-block;
       @include font-face(400, 15px, normal, $primary-grey);
-      word-break: break-all;
     }
 
     .status-date {
