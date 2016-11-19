@@ -21,7 +21,7 @@ Join us on Slack! You can get your invite by clicking on the Slack invite button
 
 ##What are you trying to build here?
 
-![screenshot of what we're building](https://github.com/codebuddiesdotorg/cb-v2-scratch/raw/master/public/images/cb-example.png)
+![screenshot of what we're building](https://github.com/codebuddiesdotorg/codebuddies/raw/master/public/images/cb-example.png)
 Credit: [Ada Chiu](https://github.com/adachiu).
 
 ##Why are you building this site?
