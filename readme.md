@@ -62,7 +62,7 @@ Our community spends a lot of time helping each other on [our public Slack](http
 - @sharynneazhar, http://github.com/sharynneazhar - contributed to site fixes and enhancements, particularly the ability for users to edit their profile information
 - Add Your Name Above. Refer to ***[contributing.md](contributing.md#how-do-i-add-myself-as-a-contributor)***
 
-If you'd like to help contribute, pick out an [issue](https://github.com/codebuddiesdotorg/cb-v2-scratch/issues) (leave a comment on it to indicate your interest!) and say hello in the [#codebuddies-meta](https://codebuddiesmeet.slack.com/messages/codebuddies-meta/) channel on Slack. Be sure to read the "how do I contribute" instructions on [contributing.md](contributing.md)!
+If you'd like to help contribute, pick out an [issue](https://github.com/codebuddiesdotorg/codebuddies/issues) (leave a comment on it to indicate your interest!) and say hello in the [#codebuddies-meta](https://codebuddiesmeet.slack.com/messages/codebuddies-meta/) channel on Slack. Be sure to read the "how do I contribute" instructions on [contributing.md](contributing.md)!
 
 P.S. We'll schedule hangouts to do code walkthroughs or code show and tells occasionally, and announce it in the #codebuddies-meta channel on Slack. The goal is to help everyone who wants to contribute to this app learn quickly through collaboration. You can also request a code walkthrough as well. The list of contributors above contains a good mix of full-time developers and as well as people contributing to an open-sourced project for the first time.
 
@@ -136,7 +136,7 @@ You can also support us with a monthly donation by [becoming a Backer!](https://
 <a href="https://opencollective.com/codebuddies/backer/29/website" target="_blank"><img src="https://opencollective.com/codebuddies/backer/29/avatar.svg"></a>
 
 ###Sponsors
-<a href="https://www.digitalocean.com/" target="_blank"><img src="https://github.com/codebuddiesdotorg/cb-v2-scratch/blob/master/public/images/powered_by_digitalocean.png" width="200" alt="Powered by DigitalOcean"/></a>
+<a href="https://www.digitalocean.com/" target="_blank"><img src="https://github.com/codebuddiesdotorg/codebuddies/blob/master/public/images/powered_by_digitalocean.png" width="200" alt="Powered by DigitalOcean"/></a>
 
 ###Individual Backers
 <a href="http://github.com/distalx" target="_blank"><img src="https://avatars0.githubusercontent.com/u/11193792?v=3&s=466" width="50"></a>
