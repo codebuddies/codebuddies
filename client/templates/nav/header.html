@@ -19,7 +19,7 @@
           <li><a href="{{pathFor 'faq'}}">{{_ "faq"}}</a></li>
           <li><a href="{{pathFor 'browse'}}">{{_ "browse"}} <span class="sr-only">(current)</span></a></li>
           {{#unless isInRole 'admin'}}
-             <li><a href="https://codebuddiesmeet.slack.com/messages/general" target="_blank"><i class="fa fa-slack" aria-hidden="true"></i> </a></li>
+             <li><a href="https://codebuddies.slack.com/messages/general" target="_blank"><i class="fa fa-slack" aria-hidden="true"></i> </a></li>
            {{/unless}}
           {{#if currentUser}}
               <li><a href="{{pathFor 'user notification'}}"><i class="fa fa-bell" aria-hidden="true"></i> {{#if userNotificationCount}}<small><span class="badge">{{userNotificationCount}}</span></small>{{/if}} </a></li>

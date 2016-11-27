@@ -27,7 +27,7 @@
 
 
 # The More Detailed Steps on Contributing:
-1. Say hello on the [#codebuddies-meta](https://codebuddiesmeet.slack.com/messages/codebuddies-meta/) channel in the Slack. Feel free to ask questions here, or to ask for someone to review your pull request. (If you don't have an account with codebuddiesmeet.slack.com, please visit [codebuddies.org](http://codebuddies.org) to sign up.)
+1. Say hello on the [#codebuddies-meta](https://codebuddies.slack.com/messages/codebuddies-meta/) channel in the Slack. Feel free to ask questions here, or to ask for someone to review your pull request. (If you don't have an account with codebuddies.slack.com, please visit [codebuddies.org](http://codebuddies.org) to sign up.)
 2. [Install Meteor](https://www.meteor.com/install) if you don't already have it installed.
 3. Please star this repository! We need to reach 100 stars so that we can apply to the [Open Collective](https://opencollective.com/opensource/apply).
   [Edit - We're already there! But still star this repo, so others can hear about what we're doing!]
@@ -47,7 +47,7 @@
   * (`meteor npm run meteor:dev` can also run the app, but will likely [use up your CPU](https://github.com/meteor/meteor/issues/4314).)
   * Also note: if you see an error in your terminal asking you to `meteor npm install --save faker`, please run that command!
 7. Look at some of the [open issues](https://github.com/codebuddiesdotorg/cb-v2-scratch/issues) and identify one that sparks your interest. If you want to work on the issue, leave a comment on it saying that you're working on it!
-8. If you have any questions about the issue you're looking at, you can leave a comment in there, or ask in the [#codebuddies-meta Slack channel](https://codebuddiesmeet.slack.com/messages/codebuddies-meta). Read below for more instructions about how to work with branches.
+8. If you have any questions about the issue you're looking at, you can leave a comment in there, or ask in the [#codebuddies-meta Slack channel](https://codebuddies.slack.com/messages/codebuddies-meta). Read below for more instructions about how to work with branches.
 9. Type `git branch -a` to see a list of all the branches besides `master`, the default branch you're in. Note that if you want to switch to an already-created branch, you would type `git checkout BRANCHNAME`. You can read more about how to create a new branch to work on an issue below.
 10. Once you finish making your changes, commit and push your changes.
 11. Submit your Pull Request! See some tips on [how to create the perfect pull request](https://github.com/blog/1943-how-to-write-the-perfect-pull-request).
