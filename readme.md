@@ -13,7 +13,7 @@
 #FAQ
 
 ##What is CodeBuddies?
-We're a community of independent code learners who help each other on [Slack](http://codebuddiesmeet.slack.com), [schedule hangouts](http://hangouts.codebuddies.org) to learn with each other, contribute to a periodic [anonymous crowdsourced newsletter](http://tinyletter.com/codebuddies) where anyone can share a personal project or leave a shout out, and post on [Facebook](https://www.facebook.com/groups/TOPSTUDYGROUP/). We come from all over the world; there are members living in the United States, Japan, Sweden, the United Kingdom, Russia, Australia, Canada, India, and more. We accept donations and are 100% transparent on [Open Collective](opencollective.com/codebuddies) 
+We're a community of independent code learners who help each other on [Slack](http://codebuddiesmeet.slack.com), [schedule hangouts](http://hangouts.codebuddies.org) to learn with each other, contribute to a periodic [anonymous crowdsourced newsletter](http://tinyletter.com/codebuddies) where anyone can share a personal project or leave a shout out, and post on [Facebook](https://www.facebook.com/groups/TOPSTUDYGROUP/). We come from all over the world; there are members living in the United States, Japan, Sweden, the United Kingdom, Russia, Australia, Canada, India, and more. We accept donations and are 100% transparent on [Open Collective](https://opencollective.com/codebuddies) 
 
 Learning with each other helps us learn faster. We strive to create a safe space for anyone interested in code to talk about the learning process. The project is free and open-sourced on Github, and this app is 100% community/volunteer-built.
 
@@ -25,7 +25,7 @@ Join us on Slack! You can get your invite by clicking on the Slack invite button
 Credit: [Ada Chiu](https://github.com/adachiu).
 
 ##Why are you building this site?
-Our community spends a lot of time helping each other on [our public Slack](http://codebuddiesmeet.slack.com) (P.S. You can get an invite [here](http://codebuddiesmeet.herokuapp.com) if you want to join), but it's hard to schedule Google Hangout study times via Slack, and it's also hard to know who else is online and available for joining a Hangout to work on something together. The platform we're building solves those issues.
+Our community spends a lot of time helping each other on [our public Slack](http://codebuddies.slack.com) (P.S. You can get an invite [here](http://codebuddiesmeet.herokuapp.com) if you want to join), but it's hard to schedule Google Hangout study times via Slack, and it's also hard to know who else is online and available for joining a Hangout to work on something together. The platform we're building solves those issues.
 
 ##How do I contribute to this project?
 **PLEASE go to _[contributing.md](contributing.md)_ and refer to the contribution steps listed there!** There are also helpful resources there, in case you get stuck. To add yourself as a contributor, please see the [How do I add myself as a contributor?](contributing.md#how-do-i-add-myself-as-a-contributor) section.
