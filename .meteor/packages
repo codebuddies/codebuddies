@@ -43,7 +43,6 @@ email
 meteorhacks:ssr
 sacha:spin
 georgediab:slack-notify
-erasaur:meteor-lodash
 patrickml:swal
 percolate:synced-cron@=1.3.0
 gadicohen:sitemaps
@@ -59,3 +58,4 @@ meteorhacks:kadira
 matb33:bootstrap-popovers
 browser-policy
 practicalmeteor:mocha
+erasaur:meteor-lodash
