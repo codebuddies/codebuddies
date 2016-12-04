@@ -12,4 +12,4 @@ RUN curl https://install.meteor.com/ | sh
 RUN meteor npm install
 RUN meteor npm install --save faker
 
-RUN meteor --allow-superuser --settings settings-development.json
+CMD meteor --allow-superuser --settings settings-development.json
