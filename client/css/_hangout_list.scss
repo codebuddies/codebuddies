@@ -1,23 +1,54 @@
 #hangouts {
-
   padding: 0;
 
   .hangout-item {
-    p.overflowtext { color: $warm-grey;}
-    p.completed { color: $kudo; text-align: left; line-height: 10px; font-size: 85%}
+    p.overflowtext {
+      color: $warm-grey;
+    }
+
+    p.completed {
+      color: $kudo;
+      text-align: left;
+      line-height: 10px;
+      font-size: 85%;
+    }
+
     border-top: 1px solid $divider;
     padding: 20px 0;
 
-    ul.dropdown-menu { top: 35px; left: -200px;}
-    span.dropdown-toggle:hover { cursor: pointer;}
+    ul.dropdown-menu {
+      top: 35px;
+      left: -200px;
+    }
+
+    span.dropdown-toggle:hover {
+      cursor: pointer;
+    }
 
     .hangout-topic {
       @include font-face(400, 17px, normal, $cta-blue);
     }
-    .hangout-topic.completed { color: $warm-grey; font-weight: 600;}
-    #leave-hangout { text-decoration: underline; text-align: center; display: block;
-        @include font-face(400, 12px, normal, $cta-blue);}
-    p.upcoming { text-transform: uppercase; color: $kudo; text-align: left; line-height: 20px; font-size: 85%}
+
+    .hangout-topic.completed {
+      color: $warm-grey;
+      font-weight: 600;
+    }
+
+    #leave-hangout {
+      text-decoration: underline;
+      text-align: center;
+      display: block;
+      @include font-face(400, 12px, normal, $cta-blue);
+    }
+
+    p.upcoming {
+      text-transform: uppercase;
+      color: $kudo;
+      text-align: left;
+      line-height: 20px;
+      font-size: 85%;
+    }
+
     .status {
       list-style: none;
       display: table;
@@ -40,11 +71,9 @@
       i.faa-burst {
         margin-top: 20px;
       }
-
     }
 
     label {
-
       &.name {
         @include font-face(400, 14px, normal, $primary-grey);
       }
@@ -52,23 +81,17 @@
       span {
         @include font-face(400, 12px, normal, $warm-grey);
       }
-
     }
-
   }
-
 }
 
 #hangout-options {
-
   .btn {
-
     text-align: left;
 
     &.active {
       box-shadow: none;
     }
-
   }
 
   span.title {
@@ -84,14 +107,17 @@
           display: inline;
           outline: none;
         }
+
         &.fa-dot-circle-o {
           display: none;
         }
       }
+
       &:checked ~ i.fa {
         &.fa-circle-o {
           display: none;
         }
+
         &.fa-dot-circle-o {
           color: $cta-blue;
           display: inline;
@@ -108,5 +134,4 @@
       color: $cta-blue;
     }
   }
-
 }

@@ -1,3 +1,5 @@
+// import {_} from 'meteor/erasaur:meteor-lodash';
+
 if (Meteor.isClient) {
   Meteor.startup(function () {
     if(!Meteor.settings.public.isModeDebug){
@@ -48,11 +50,27 @@ Template.registerHelper("getHangoutEndDateTime", function(date){
   return moment(date).tz(tz).format('MMMM Do h:mm a z')
 });
 
-String.prototype.truncate = function(){
-    var re = this.match(/^.{0,50}[\S]*/);
-    var l = re[0].length;
-    var re = re[0].replace(/\s$/,'');
-    if(l < this.length)
-        re = re + "...";
-    return re;
-}
+Template.registerHelper('isHangoutUpcoming', function(startDate) {
+  return startDate > new Date() ? true : false;
+});
+
+Template.registerHelper("isHangoutInProgress", function(startDate, endDate){
+  return (startDate <= new Date() && endDate >= new Date()) ? true : false;
+});
+
+Template.registerHelper('isHangoutCompleted', function(endDate) {
+  return endDate < new Date() ? true : false;
+});
+
+Template.registerHelper("isAttending", function(users){
+  return users.indexOf(Meteor.userId()) != -1;
+});
+
+Template.registerHelper("upcomingTime", function(start){
+  return start > new Date() ? TAPi18n.__("upcoming_time", { time: moment(start).fromNow() }) : "nan" ;
+});
+
+Template.registerHelper("isHangoutEndTimeTBA", function(start, end){
+  const duration = (end - start) / (1000 * 60 * 60 * 24)
+  return duration === 1 ?  true : false;
+});

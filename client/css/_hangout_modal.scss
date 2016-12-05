@@ -1,13 +1,14 @@
 .modal-backdrop {
-   background-color: $cta-blue;
+  background-color: $cta-blue;
 }
 
 #create-hangout-modal h4 {
   @include font-face(700, 20px, bold, $black);
 }
 
-#create-hangout-modal, #edit-hangout-modal, #clone-hangout-modal {
-
+#clone-hangout-modal,
+#create-hangout-modal,
+#edit-hangout-modal {
   .modal-dialog {
     width: 800px;
   }
@@ -16,35 +17,45 @@
     margin-top: -30px;
   }
 
-  #start-date-time, #end-date-time, #topic, #description {
-    border: none;
+  #description,
+  #end-date-time,
+  #start-date-time,
+  #topic {
+    border: 0;
     background-color: $bg-lightgrey;
   }
 
   #description {
     resize: vertical;
+    height: 150px;
   }
 
   .input-group-addon {
-    border: none;
+    border: 0;
     color: $cta-blue;
     font-size: 18px;
     background-color: $bg-lightgrey;
   }
 
   .btn-group-vertical {
-    label { padding: 0px; }
+    label {
+      padding: 0;
+    }
   }
-  .descriptionHide { 
+
+  .descriptionHide {
     padding: 10px;
     margin-top: 10px;
     color: $kudo;
+
     &#d1 {
       border: 1px solid $hangout-silent;
     }
+
     &#d2 {
       border: 1px solid $hangout-teaching;
     }
+
     &#d3 {
       border: 1px solid $hangout-collab;
     }
@@ -54,4 +65,9 @@
     @include font-face(400, 13px, normal, $warm-grey);
   }
 
+  textarea {
+    width: 100%;
+    padding: 10px;
+    min-height: 150px;
+  }
 }

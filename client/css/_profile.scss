@@ -3,39 +3,133 @@
     margin: 0 auto;
     display: block;
   }
-  .box { border-top: 1px solid $divider; padding: 30px 0; }
+
+  .box {
+    border-top: 1px solid $divider;
+    padding: 30px 0;
+  }
+
+  i.online-now {
+    position: relative;
+    bottom: 3px;
+  }
 }
 
-#learning-pagination{
+#learning-pagination {
   overflow-y: auto;
   height: 350px;
 }
-#hangout-created-pagination{
+
+#hangout-created-pagination {
   overflow-y: auto;
 }
 
-#hangout-joined-pagination{
+#hangout-joined-pagination {
   height: 350px;
 }
 
-.profile-top{
+#profileEdit .form-group:not(.dynamic) {
+  width: 350px;
+}
+
+#profileEdit button {
+  width: 100px;
+  margin-top: 15px;
+  margin-left: 15px;
+  float: right;
+}
+
+.form-group label {
+  width: 100%;
+}
+
+.profile-top {
   background: $cta-blue;
-  padding: 60px 0;
-  color: $white;
+  padding: 40px 0;
+  color: $bg-white;
+  letter-spacing: .2px;
+
+  .username {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: .25px;
+    line-height: 1.6;
+  }
+
+  .online-now {
+    color: $hangout-collab;
+    font-size: 10px;
+    margin-left: 15px;
+  }
+
+  .form-control:not(:last-child) {
+    margin-bottom: 15px;
+  }
+
+  .bio {
+    font-size: 14px;
+    line-height: 1.6;
+    opacity: .8;
+  }
+
+  .bio + a {
+    text-decoration: none;
+    color: $bg-white;
+    opacity: .8;
+  }
+
+  .social-icons {
+    margin-top: 20px;
+
+    a {
+      text-decoration: none;
+      color: $bg-white;
+    }
+
+    i {
+      font-size: 24px;
+      line-height: 1.32;
+      padding: 0 10px;
+    }
+  }
 }
 
 .profile-hangouts-completed {
   background: $bg-lightgrey;
   padding: 35px 80px;
-  h2, h3 { color: $cta-blue; margin: 0px; }
-  h2 { font-size: 64px; line-height: 70px; font-weight: 200; }
-  h3 { text-align: center; font-size: 20px; font-weight: 600; letter-spacing: 0.2px; }
+
+  h2,
+  h3 {
+    color: $cta-blue;
+    margin: 0;
+  }
+
+  h2 {
+    font-size: 64px;
+    line-height: 70px;
+    font-weight: 200;
+  }
+
+  h3 {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: .2px;
+  }
 }
 
 .profile-learnings {
-  .status-list { background: $bg-white; }
+  .status-list {
+    background: $bg-white;
+  }
+
   background: $bg-white;
   padding: 35px 80px;
-  h3 { @include font-face(600, 20px, normal, $warm-grey); text-align: center; }
-}
 
+  h3 {
+    @include font-face(600, 20px, normal, $warm-grey);
+    text-align: center;
+  }
+}

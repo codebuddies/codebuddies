@@ -5,8 +5,8 @@
 }
 
 .btn-primary.btn-outline {
-  color: $cta-blue;
   border-color: $cta-blue;
+  color: $cta-blue;
   &:hover { background: $cta-blue;}
 }
 
@@ -26,6 +26,11 @@
   color: $danger-red;
 }
 
+.btn-white.btn-outline {
+  border-color: #fff;
+  color: #fff;
+}
+
 .btn-primary.btn-outline:hover,
 .btn-success.btn-outline:hover,
 .btn-info.btn-outline:hover,
@@ -34,57 +39,72 @@
   color: $white;
 }
 
+.btn-edit {
+  border: 1px solid $divider;
+  border-radius: 4px;
+  color: $bg-white;
+  float: right;
+  font-family: $open-sans;
+  font-size: 13px;
+  margin-right: 35px;
+  padding: 6px 12px;
+  text-decoration: none;
+  i { margin-right: 8px; }
+  &:hover { background: $white; color: $cta-blue;}
+}
+
 .btn-circle {
-  width: 30px;
-  height: 30px;
-  text-align: center;
-  padding: 6px 0;
-  font-size: 12px;
-  line-height: 1.428571429;
   border-radius: 15px;
+  font-size: 12px;
+  height: 30px;
+  line-height: 1.428571429;
+  padding: 6px 0;
+  text-align: center;
+  width: 30px;
 
   &.btn-lg {
-    width: 50px;
-    height: 50px;
-    padding: 10px 16px;
-    font-size: 18px;
-    line-height: 1.33;
     border-radius: 25px;
+    font-size: 18px;
+    height: 50px;
+    line-height: 1.33;
+    padding: 10px 16px;
+    width: 50px;
   }
 
   &.btn-xl {
-    width: 70px;
-    height: 70px;
-    padding: 10px 16px;
-    font-size: 24px;
-    line-height: 1.33;
     @include border-radius(35px);
+    font-size: 24px;
+    height: 70px;
+    line-height: 1.33;
+    padding: 10px 16px;
+    width: 70px;
   }
 }
 
 .btn-slack {
-  height: 36px;
-  padding: 0 20px 0 20px;
-  margin-top: -8px;
+  @include font-face(400, 16px, normal, $black);
   background-color: $bg-white;
   border: 2px solid $cta-blue;
   border-radius: 6px;
-  @include font-face(400, 16px, normal, $black);
+  height: 36px;
+  margin-top: -8px;
+  padding: 0 20px;
 }
 
 .btn-slack-join {
-    background-color: $bg-white;
-    height: 36px;
-    @include border-radius(6px);
-    @include font-face(400, 16px, normal, $primary-grey);
+  @include font-face(400, 16px, normal, $primary-grey);
+  @include border-radius(6px);
+  background-color: $bg-white;
+  height: 36px;
 }
 
 .btn-cb2 {
-  height: 36px;
-  background-color: $cta-blue;
   @include font-face(700, 16px, bold, $bg-white);
+  background-color: $cta-blue;
   display: block;
+  height: 36px;
   margin: 0 auto;
+
   &:hover {
     color: $white;
   }
@@ -93,17 +113,18 @@
     color: $white;
   }
 
-  &.btn-success {background: $success-green;}
-
+  &.btn-success {
+    background: $success-green;
+  }
 }
 
 .btn-cb3 {
-
-  height: 36px;
-  background-color: $cta-blue;
   @include font-face(700, 16px, bold, $bg-white);
+  background-color: $cta-blue;
   display: block;
+  height: 36px;
   margin: 0 auto;
+
   &:hover {
     color: $white;
   }
@@ -122,9 +143,9 @@
 
 
 .btn-learning {
+  color: $white;
   float: left;
   margin-left: -4px;
-  color: $white;
 
   &.btn-unlike {
     color: $cta-blue;
@@ -134,8 +155,9 @@
     color: $cta-blue;
   }
 }
+
 .delete-hangout:hover, .edit-hangout:hover {
-  cursor:pointer;
+  cursor: pointer;
 }
 
 .fa-comment {
@@ -143,24 +165,30 @@
 }
 
 .btn-block {
-    margin-top: 20px;
-    border: none;
-    background: $bg-lightgrey;
-    @include font-face(700, 13px, bold, $black);
-    &:hover {
-      color: $white;
-      background: $cta-blue;
-    }
+  @include font-face(700, 13px, bold, $black);
+  background: $bg-lightgrey;
+  border: 0;
+  margin-top: 20px;
+
+  &:hover {
+    background: $cta-blue;
+    color: $white;
   }
+}
 
 .delete-hangout, .edit-hangout {
   @media (min-width: 480px) {
-    border: none;
+    border: 0;
     padding: 0;
   }
 }
 
-#btn-load-more, #load-more-learnings { margin: 10px 0; color: $cta-blue; &:hover { color: $white; } }
+#btn-load-more, #load-more-learnings {
+  color: $cta-blue;
+  margin: 10px 0;
+
+  &:hover { color: $white; }
+}
 
 .btn-grey {
   background: $warm-grey;

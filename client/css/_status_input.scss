@@ -1,17 +1,17 @@
-input:focus, textarea:focus {
+input:focus,
+textarea:focus {
   outline: none;
 }
 
 .status-input textarea {
   resize: vertical;
   width: 100%;
-  border: none;
+  border: 0;
   padding: 20px;
   @include font-face(400, 16px, normal, $primary-grey);
 }
 
 .status-actions {
-
   width: 100%;
   background-color: $bg-white;
   height: 80px;
@@ -27,16 +27,18 @@ input:focus, textarea:focus {
   }
 
   span.charactersLeft {
-    margin-left: 90px;
     position: relative;
-    top: -20px;
+    top: -10px;
+    padding-right: 5px;
   }
-  span.learnedCharactersLeft {
-    margin-left: 300px;
-  }
-  #status-buttons { 
+
+  #status-buttons {
     position: relative;
     top: -10px;
   }
-  button.btn-hangout-status { position: relative; top: -10px;}
+
+  button.btn-hangout-status {
+    position: relative;
+    top: -10px;
+  }
 }

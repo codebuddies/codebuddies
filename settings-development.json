@@ -10,6 +10,12 @@
     "kadira": {
       "appId": "kadira-app-id",
       "appSecret": "kadira-app-secret"
+    },
+    "twitter": {
+      "consumer_key": "5tuwUTjY4NwMs5KuVEgDBTIJV",
+      "consumer_secret": "k05UXe9j4En8PeZ1m9qfjGgud76KutvlJ2T55qNftuT7VwhvbK",
+      "access_token_key": "2770917768-WmbE99Qj7SUz0IAVNjHXACYIYgyWS2hCHt7ROB7",
+      "access_token_secret": "b1e7icigIxXcIXupJDapAjujfJdzSmvgd98Um6d15BbYw"
     }
   },
   "isModeProduction": false,

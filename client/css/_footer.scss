@@ -1,29 +1,110 @@
 #footer {
-  position: absolute;
-  bottom: 0px;
-  @include breakpoint(xsmall) { position: relative;}
-  background: $bg-white;
-  padding: 20px 0;
-  @include font-face(400, 13px, normal, $primary-grey);
-  a {color: $cta-blue; text-decoration: underline;}
-  img {width: 12em;}
-  .fa {font-size: 20px; color: $cta-blue; padding-left: 10px;}
-  .footer-icons {
-    @include breakpoint(tiny) { display: block; }
-    @include breakpoint(xsmall) { display: block; }
-  }
-  span.note { display: block; font-size: 12px;}
+  @include font-face(400, 13px, normal, $secondary-grey);
+  background: $bg-lightgrey;
+  bottom: 0;
+  padding: 50px 0;
+  position: relative;
   width: 100%;
-  min-height: 95px;
-  .footer-details{
-    float:right;
-    @include breakpoint(tiny) { float: none; }
-    @include breakpoint(xsmall) { float: none; }
-    .help {
-      @include breakpoint(tiny) { display: block; }
-      @include breakpoint(xsmall) { display: block; }
+  @include breakpoint(xsmall) { position: relative;}
+
+  img {
+    padding: 20px 0;
+    width: 12em;
+  }
+
+  a {
+    color: $secondary-grey;
+    display: block;
+    text-decoration: none;
+  }
+
+  p {
+    color: $primary-grey;
+    margin-bottom: 20px;
+  }
+
+// column 1
+  .footer-logo {
+    padding: 40px 0;
+    @include breakpoint(tiny) { margin: 20px 0; }
+    @include breakpoint(xsmall) { margin: 20px 0; }
+    @include breakpoint(small) { margin: 0; padding: 0 0 40px; }
+    @include breakpoint(xmedium) { margin: 0; padding: 0 0 40px; }
+    @include breakpoint(medium) { margin: 0; padding: 0 0 40px; }
+    @include breakpoint(large) { margin: 0; padding: 40px 0; }
+    a {display: inline-block; }
+    p {margin: 0; }
+  }
+
+// column 2
+  .footer-links {
+    @include breakpoint(tiny) { margin: 20px 0; }
+    @include breakpoint(xsmall) { margin: 20px 0; }
+    @include breakpoint(small) { margin: 0 0 20px; }
+    @include breakpoint(xmedium) { margin: 0 0 20px; }
+    a {padding-bottom: 10px; }
+
+  }
+
+// column 3
+  .footer-social {
+
+    a {display: inline-block;}
+    .fa {font-size: 20px; padding-right: 10px;}
+  }
+
+  .footer-icons {
+    @include breakpoint(tiny) {
+      .fa {padding: 0 5px;}
+    }
+
+    @include breakpoint(xsmall) {
+      .fa {padding: 0 5px;}
+     }
+
+    @include breakpoint(small) {
+      .fa {padding: 0 5px;}
+    }
+
+    @include breakpoint(xmedium) {
+      .fa {padding: 0 5px;}
     }
   }
-  @include breakpoint(tiny) { text-align: center !important; }
-  @include breakpoint(xsmall) { text-align: center !important; }
+
+// bottom sponsor section
+  .footer-sponsor {
+    @include breakpoint(tiny) { margin: 30px 0; }
+    @include breakpoint(xsmall) { margin: 30px 0; }
+    @include breakpoint(small) { margin: 30px 0 30px; }
+    @include breakpoint(xmedium) { margin: 30px 0 30px; }
+
+    a {display: inline-block; }
+    p > strong { color:$primary-grey;}
+    p {color: $secondary-grey; }
+  }
+
+  a:hover {
+    color: #333;
+  }
+  
+// media queries
+  @include breakpoint(tiny) {
+    padding: 0;
+    text-align: center !important;
+  }
+
+  @include breakpoint(xsmall) {
+    padding: 0;
+    text-align: center !important;
+  }
+
+  @include breakpoint(small) {
+    padding: 50px 0;
+    text-align: center !important;
+  }
+
+  @include breakpoint(xmedium) {
+    text-align: center !important;
+  }
+
 }

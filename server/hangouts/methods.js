@@ -1,11 +1,17 @@
+import {tweetHangout} from '../twitter/methods.js';
+
 Meteor.methods({
   createHangout: function(data) {
     check(data, Match.ObjectIncluding({
       topic: String,
       slug: String,
       description: String,
+      description_in_quill_delta: Match.ObjectIncluding({
+        ops: Match.Any
+      }),
       start: Match.OneOf(String, Date),
       end: Match.OneOf(String, Date),
+      duration: Number,
       type: String,
     }));
 
@@ -13,12 +19,20 @@ Meteor.methods({
     if (!this.userId) {
       throw new Meteor.Error('Hangout.methods.createHangout.not-logged-in', 'Must be logged in to create new hangout.');
     }
+
+    let createdAt = new Date();
+    let createdAtPlusTwoHour = new Date(createdAt.getTime() + (2*1000*60*60));
+    const reminder = data.start <= createdAtPlusTwoHour ? true : false;
+
+
     var hangout = {
       topic: data.topic,
       slug: data.slug,
       description: data.description,
+      description_in_quill_delta: data.description_in_quill_delta,
       start: data.start,
       end: data.end,
+      duration: data.duration,
       type: data.type,
       host:{
         id: loggedInUser._id,
@@ -28,15 +42,19 @@ Meteor.methods({
       attendees:[],
       email_addresses: [loggedInUser.email],
       users:[loggedInUser._id],
-      day_reminder_sent: false,
-      hourly_reminder_sent: false,
+      day_reminder_sent: reminder,
+      hourly_reminder_sent: reminder,
       views: 0,
       visibility: true,
-      created_at: new Date(),
+      created_at: createdAt,
     }
 
     const hangout_id = Hangouts.insert(hangout);
     hangout._id = hangout_id;
+
+    //tweet new hangout
+    tweetHangout(hangout);
+
 
     slackNotification(hangout, "NEW");
     return true;
@@ -97,8 +115,12 @@ Meteor.methods({
       topic: String,
       slug: String,
       description: String,
+      description_in_quill_delta: Match.ObjectIncluding({
+        ops: Match.Any
+      }),
       start: Match.OneOf(String, Date),
       end: Match.OneOf(String, Date),
+      duration: Number,
       type: String
     }));
 
@@ -116,8 +138,10 @@ Meteor.methods({
                       {$set:{ topic: data.topic,
                               slug: data.slug,
                               description: data.description,
+                              description_in_quill_delta: data.description_in_quill_delta,
                               start: data.start,
                               end: data.end,
+                              duration: data.duration,
                               type: data.type } });
 
       return true;
@@ -128,8 +152,10 @@ Meteor.methods({
                       {$set:{ topic: data.topic,
                               slug: data.slug,
                               description: data.description,
+                              description_in_quill_delta: data.description_in_quill_delta,
                               start: data.start,
                               end: data.end,
+                              duration: data.duration,
                               type: data.type }});
 
       const notification = {
@@ -277,6 +303,56 @@ Meteor.methods({
     return Hangouts.update({'host.id': userId},
                            {$set: {visibility: false}},
                            {multi: true});
+
+
+  }
+});
+
+Meteor.methods({
+  endHangout:function(data){
+    check(data.hangoutId, String);
+
+    const loggedInUser = Meteor.user();
+    const date = new Date();
+    const end = date.setMinutes(date.getMinutes() - 1);
+    if (!this.userId) {
+      throw new Meteor.Error('Hangout.methods.endHangout.not-logged-in', 'Must be logged in to end hangout.');
+    }
+    const hangout = Hangouts.findOne({_id: data.hangoutId});
+
+    if(hangout.host.id === loggedInUser._id){
+
+      Hangouts.update({_id: data.hangoutId},
+                      {$set:{ end: end,
+                              url: "" } });
+
+      return true;
+
+    }else if(Roles.userIsInRole(loggedInUser._id,['admin','moderator'])){
+
+      Hangouts.update({_id: data.hangoutId},
+                      {$set:{ end: end,
+                              url: "" } });
+
+      const notification = {
+        actorId : loggedInUser._id,
+        actorUsername : loggedInUser.username,
+        subjectId : hangout.host.id,
+        subjectUsername : hangout.host.name,
+        hangoutId : hangout._id,
+        createdAt : new Date(),
+        read:[loggedInUser._id],
+        action : "ended",
+        icon : "fa-stop",
+        type : "hangout end",
+      }
+      Notifications.insert(notification);
+
+      return true;
+
+    }else{
+      throw new Meteor.Error('Hangouts.methods.endHangout.accessDenied','Cannot end hangout, Access denied');
+    }
 
 
   }
