@@ -22,7 +22,7 @@ Template.updateStatus.events({
         //Check value and if 140 characters have been typed, the user can't type anymore
         var currentLength = $("#working-text").val().length;
         workingCounterValue = maxChars - currentLength;
-        console.log(workingCounterValue);
+        //console.log(workingCounterValue);
         $('.charactersLeft').text(workingCounterValue);
     },
     'keyup #learned-text': function(event) {

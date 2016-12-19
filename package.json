@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "meteor:dev": "meteor --settings settings-development.json",
-    "meteor:prod": "meteor --setings settings-production.json",
+    "meteor:prod": "meteor --settings settings-production.json",
     "test:full-app": "meteor test --full-app --driver-package=practicalmeteor:mocha --settings=settings-development.json --port 3100"
   },
   "dependencies": {
@@ -15,8 +15,5 @@
     "quill": "^1.0.6",
     "quill-render": "^1.0.5",
     "twitter": "1.4.0"
-  },
-  "devDependencies": {
-    "faker": "3.1.0"
   }
 }

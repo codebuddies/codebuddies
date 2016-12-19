@@ -4,16 +4,17 @@
     </div>
     <div class="status-actions">
         {{#if isWorking type}}
-        <span class="interest">What are you in the mood for? </span>
-        <button class="btn btn-circle btn-danger btn-outline btn-hangout-status silent-tooltip silent-arrow" data-type="silent" data-toggle="tooltip" data-placement="top" title="'Silent' google hangout: I want to motivate myself to get through a tutorial with others who are learning from the same tutorial, OR simply participate in a fun, silent coworking experience."><i class="fa fa-microphone-slash"></i></button>
-        <button class="btn btn-circle btn-warning btn-outline btn-hangout-status teach-tooltip" data-type="teaching" data-toggle="tooltip" data-placement="top" title="'Teaching' google hangout: I want to practice teaching a concept, or walk participants through a codebase. Basically, I'm in the mood for creating a hangout to share what I know!"><i class="fa fa-user"></i></button>
-        <button class="btn btn-circle btn-success btn-outline btn-hangout-status collab-tooltip" data-type="collaboration" data-toggle="tooltip" data-placement="top" title="'Collaboration' google hangout: I want to pair program on a coding exercise, talk through a chapter of a tutorial, or work on an open-sourced project with others."><i class="fa fa-users"></i></button>
         <!--Character counter for 140 character limit-->
-        <span class="charactersLeft">{{characterCount}}</span>
-		    {{else}}
-        <!--Character counter for learned 140 character limit-->
-        <span class="learnedCharactersLeft">{{learnedCharacterCount}}</span>
+            <span class="interest">What are you in the mood for? </span>
+            <button class="btn btn-circle btn-danger btn-outline btn-hangout-status silent-tooltip silent-arrow" data-type="silent" data-toggle="tooltip" data-placement="top" title="'Silent' google hangout: I want to motivate myself to get through a tutorial with others who are learning from the same tutorial, OR simply participate in a fun, silent coworking experience."><i class="fa fa-microphone-slash"></i></button>
+            <button class="btn btn-circle btn-warning btn-outline btn-hangout-status teach-tooltip" data-type="teaching" data-toggle="tooltip" data-placement="top" title="'Teaching' google hangout: I want to practice teaching a concept, or walk participants through a codebase. Basically, I'm in the mood for creating a hangout to share what I know!"><i class="fa fa-user"></i></button>
+            <button class="btn btn-circle btn-success btn-outline btn-hangout-status collab-tooltip" data-type="collaboration" data-toggle="tooltip" data-placement="top" title="'Collaboration' google hangout: I want to pair program on a coding exercise, talk through a chapter of a tutorial, or work on an open-sourced project with others."><i class="fa fa-users"></i></button>
+            <span class="charactersLeft">{{characterCount}}</span>
+		{{else}}
+            <!--Character counter for learned 140 character limit-->
+            <span class="learnedCharactersLeft">{{learnedCharacterCount}}</span>
         {{/if}}
+
         <button id="update-{{type}}-btn" class="btn btn-cb2 pull-right">{{_ "update"}}</button>
     </div>
 </template>
