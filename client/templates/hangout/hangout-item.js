@@ -25,7 +25,8 @@ Template.hangoutItem.helpers({
 });
 
 Template.hangoutItem.events({
-  'click #join-hangout': function() {
+  'click .join-hangout': function() {
+    console.log('clicked on join hangout')
     if (!Meteor.userId()) {
       sweetAlert({
         title: TAPi18n.__("you_are_almost_there"),

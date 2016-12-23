@@ -83,7 +83,7 @@
   "remove_owner_from_hangout": "Hey! You can't remove yourself from your hangout.",
   "delete_hangout_confirm": "Are you sure?",
   "delete_hangout_text": "Note: All participants will be notified via email of cancellation",
-  "continue_popup_text":"By continuing, I agree that I am at least 13 years of age and have read and agreed to the terms of service and privacy policy of this site.",
+  "continue_popup_text":"By continuing, I agree that I am at least 13 years of age and have read and agree to the terms of service and privacy policy on this site.",
   "not_now":"Not Now",
   "continue_with_slack": "Continue with Slack",
   "end_hangout_confirm": "Are you sure?",
