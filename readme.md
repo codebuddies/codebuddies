@@ -2,13 +2,13 @@
 
 # CodeBuddies Hangouts Platform v2.0 - from scratch
 
-[![Waffle.io](https://img.shields.io/waffle/label/codebuddiesdotorg/cb-v2-scratch/Ready.svg?label=Ready&title=Ready&style=flat-square)](https://waffle.io/codebuddiesdotorg/cb-v2-scratch)
+
 [![slack in](http://codebuddiesmeet.herokuapp.com/badge.svg?style=flat-square)](http://codebuddiesmeet.herokuapp.com/)
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat-square)](https://github.com/codebuddiesdotorg/cb-v2-scratch/issues)
 [![first-timers-only](https://img.shields.io/badge/first--timers--only-friendly-blue.svg?style=flat-square)](http://www.firsttimersonly.com/)
 [![Issue Stats](https://img.shields.io/issuestats/i/github/codebuddiesdotorg/cb-v2-scratch.svg?maxAge=2592000&style=flat-square)]()
 [![Issue Stats](https://img.shields.io/issuestats/p/github/codebuddiesdotorg/cb-v2-scratch.svg?maxAge=2592000&style=flat-square)]()
-
+[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0)
 
 #FAQ
 
@@ -137,6 +137,3 @@ You can also support us with a monthly donation by [becoming a Backer!](https://
 
 ###Sponsors
 <a href="https://www.digitalocean.com/" target="_blank"><img src="https://github.com/codebuddiesdotorg/codebuddies/blob/master/public/images/powered_by_digitalocean.png" width="200" alt="Powered by DigitalOcean"/></a>
-
-###Individual Backers
-<a href="http://github.com/distalx" target="_blank"><img src="https://avatars0.githubusercontent.com/u/11193792?v=3&s=466" width="50"></a>
