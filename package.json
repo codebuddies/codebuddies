@@ -1,7 +1,7 @@
 {
   "name": "codebuddies-v2",
   "version": "1.0.0",
-  "license": "GNU General Public License, Version 2",
+  "license": "GNU General Public License, Version 3",
   "scripts": {
     "meteor:dev": "meteor --settings settings-development.json",
     "meteor:prod": "meteor --settings settings-production.json",
