@@ -2,6 +2,7 @@
   // general & menu
   "sign_out": "Sign Out",
   "sign_in_with": "Sign In with",
+  "sign_in_with_slack": "Sign into Slack",
 
   //home
   "jumbotron_subtitle": "We're __count__ people who help each other by sharing knowledge",
@@ -82,8 +83,10 @@
   "remove_owner_from_hangout": "Hey! You can't remove yourself from your hangout.",
   "delete_hangout_confirm": "Are you sure?",
   "delete_hangout_text": "Note: All participants will be notified via email of cancellation",
+  "continue_popup_text":"Please sign in using your CodeBuddies Slack account. By continuing, I agree that I am at least 13 years of age and have read and agree to the terms of service and privacy policy on this site.",
+  "not_now":"Not Now",
+  "continue_with_slack": "Sign in with Slack",
   "end_hangout_confirm": "Are you sure?",
-
 
   // create hangout modal - popup messages
   "hangout_created_title": "Hangout Created Successfully",

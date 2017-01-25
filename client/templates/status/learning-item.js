@@ -31,8 +31,14 @@ Template.learningItem.events({
       sweetAlert({
         title: TAPi18n.__("you_are_almost_there"),
         text: TAPi18n.__("login_update_status"),
-        confirmButtonText: TAPi18n.__("ok"),
+        confirmButtonText: TAPi18n.__("sign_in_with_slack"),
         type: 'info'
+      },
+      function(){
+        var options = {
+          requestPermissions: ['identify', 'users:read']
+        };
+        Meteor.loginWithSlack(options);
       });
     } else {
       Meteor.call('incrementKudoCount', this._id, function(error, result) { });
@@ -44,8 +50,14 @@ Template.learningItem.events({
       sweetAlert({
         title: TAPi18n.__("you_are_almost_there"),
         text: TAPi18n.__("login_update_status"),
-        confirmButtonText: TAPi18n.__("ok"),
+        confirmButtonText: TAPi18n.__("sign_in_with_slack"),
         type: 'info'
+      },
+      function(){
+        var options = {
+          requestPermissions: ['identify', 'users:read']
+        };
+        Meteor.loginWithSlack(options);
       });
     } else {
       Meteor.call('decrementKudoCount', this._id, function(error, result) { });
@@ -57,8 +69,14 @@ Template.learningItem.events({
       sweetAlert({
         title: TAPi18n.__("you_are_almost_there"),
         text: TAPi18n.__("login_update_status"),
-        confirmButtonText: TAPi18n.__("ok"),
+        confirmButtonText: TAPi18n.__("sign_in_with_slack"),
         type: 'info'
+      },
+      function(){
+        var options = {
+          requestPermissions: ['identify', 'users:read']
+        };
+        Meteor.loginWithSlack(options);
       });
     } else {
       Session.set('learningId', this._id);
