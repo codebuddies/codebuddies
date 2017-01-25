@@ -16,5 +16,8 @@
     "quill": "^1.0.6",
     "quill-render": "^1.0.5",
     "twitter": "1.4.0"
+  },
+  "devDependencies": {
+      "faker": "3.1.0"
   }
 }
