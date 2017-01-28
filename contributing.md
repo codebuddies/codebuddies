@@ -33,7 +33,7 @@
   [Edit - We're already there! But still star this repo, so others can hear about what we're doing!]
 4. Fork this repository! Once you have a copy of this repo on your own account, clone this repo to your computer by typing in something like:
 
-  `git clone https://github.com/codebuddiesdotorg/cb-v2-scratch.git`
+  `git clone https://github.com/codebuddiesdotorg/codebuddies.git`
 
   (Replace the URL with your own repository URL path.)
 5. Setup this repository as an upstream branch using:
