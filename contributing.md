@@ -28,7 +28,7 @@
 
 # The More Detailed Steps on Contributing:
 1. Say hello on the [#codebuddies-meta](https://codebuddies.slack.com/messages/codebuddies-meta/) channel in the Slack. Feel free to ask questions here, or to ask for someone to review your pull request. (If you don't have an account with codebuddies.slack.com, please visit [codebuddies.org](http://codebuddies.org) to sign up.)
-2. [Install Meteor](https://www.meteor.com/install) if you don't already have it installed.
+2. Install Meteor! On mac, you should use this command: `curl https://install.meteor.com/?release=1.3.2.4 ` On Windows, you should run the official installer [here](https://www.meteor.com/install).
 3. Please star this repository! We need to reach 100 stars so that we can apply to the [Open Collective](https://opencollective.com/opensource/apply).
   [Edit - We're already there! But still star this repo, so others can hear about what we're doing!]
 4. Fork this repository! Once you have a copy of this repo on your own account, clone this repo to your computer by typing in something like:
