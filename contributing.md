@@ -28,7 +28,7 @@
 
 # The More Detailed Steps on Contributing:
 1. Say hello on the [#codebuddies-meta](https://codebuddies.slack.com/messages/codebuddies-meta/) channel in the Slack. Feel free to ask questions here, or to ask for someone to review your pull request. (If you don't have an account with codebuddies.slack.com, please visit [codebuddies.org](http://codebuddies.org) to sign up.)
-2. Install Meteor! On mac, you should use this command: `curl https://install.meteor.com/ | sed 's/1.3/1.3.2.4/' | sh` On Windows, you should run the official installer [here](https://www.meteor.com/install).
+2. Install Meteor! On mac, you should use this command: `curl "https://install.meteor.com/?release=1.3.2.4" | sh`. On Windows, you should run the official installer [here](https://www.meteor.com/install).
 3. Please star this repository! We need to reach 100 stars so that we can apply to the [Open Collective](https://opencollective.com/opensource/apply).
   [Edit - We're already there! But still star this repo, so others can hear about what we're doing!]
 4. Fork this repository! Once you have a copy of this repo on your own account, clone this repo to your computer by typing in something like:
@@ -43,7 +43,6 @@
   * `git fetch upstream`
   * `git checkout master`
   * `git merge upstream/master`
-6. Run `meteor update --release 1.3.2.4` while you are inside your `codebuddies` folder.
 6. Type `meteor npm install`, and then `meteor --settings settings-development.json` in your terminal to start up the app in your browser ([http://localhost:3000](http://localhost:3000)).
   * (`meteor npm run meteor:dev` can also run the app, but will likely [use up your CPU](https://github.com/meteor/meteor/issues/4314).)
   * Also note: if you see an error in your terminal asking you to `meteor npm install --save faker`, please run that command!
