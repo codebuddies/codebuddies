@@ -2,7 +2,9 @@ import QuillEditor from '../../libs/QuillEditor';
 
 Meteor.startup(function() {
     $('head').append('<link href="https://cdn.quilljs.com/1.0.3/quill.snow.css" rel="stylesheet">');
+    $('head').append('<script src="https://meet.jit.si/external_api.js"></script>');
 });
+
 
 Template.hangout.onCreated(function() {
   var title = "CodeBuddies | Hangout";
@@ -14,7 +16,6 @@ Template.hangout.onCreated(function() {
 Template.hangout.rendered = function() {
 
   $('head').append('<script src="https://apis.google.com/js/platform.js" async defer></script>');
-
 }
 
 Template.hangout.helpers({
