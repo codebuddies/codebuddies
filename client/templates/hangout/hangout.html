@@ -26,15 +26,7 @@
                       {{> hangoutActionBar}}
 
                 </h2>
-                <script>
-                  $(window).load(function() {
-                    var domain = "meet.jit.si";
-                    var room = "starflower123";
-                    var width = 700;
-                    var height = 700;
-                    var api = new JitsiMeetExternalAPI(domain, room, width, height);
-                    });
-                </script>
+               
                 <!-- ./hangout topic and action bar -->
 
                 <!-- hangout type host  and date time -->
@@ -66,11 +58,12 @@
                 </div> <!--./col-md-12-->
                 </div> <!--./row-->
               </div><!--panel-heading-->
-
+              
               <div class="panel-body">
-
+                {{> hangoutFrame }}
                 <div id="hangout-description">
                     {{{formatDescription this}}}
+                    
                 </div>
               </div><!-- ./panel-body-->
 

@@ -25,7 +25,10 @@ var trusted = [
   '*.licdn.com',
   '*.wp.com',
   '*.codebuddies.org',
-  '*.jit.si'
+  '*.jit.si',
+  'jitmeet.org',
+  '*.jitsi.org',
+  'jitsi.org'
 ];
 
 _.each(trusted, function(origin) {
