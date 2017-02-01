@@ -1,0 +1,13 @@
+<template name="hangoutFrame">
+  <script>
+    $(window).load(function() {
+	    var domain = "meet.jit.si";
+	    var room = "starflower123";
+	    var width = 1000;
+	    var height = 550;
+	    var api = new JitsiMeetExternalAPI(domain, room, width, height);
+	    $('#jitsiConference0').css('width','100%');
+	    //todo: reload page once? OR: create a "Load Hangout" button that -- when clicked on -- reloads the page.
+	});
+  </script>
+</template>
