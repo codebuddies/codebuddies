@@ -84,7 +84,7 @@ Meteor.methods({
           return true;
 
         }else{
-          if( !Roles.userIsInRole(this.userId,['admin','moderator']) ) {
+          if( !Roles.userIsInRole(this.userId,['admin','moderator'], 'CB') ) {
             throw new Meteor.Error('Hangout.methods.deleteHangout.accessDenied', 'Cannot delete hangout, Access denied');
           }
 
@@ -146,7 +146,7 @@ Meteor.methods({
 
       return true;
 
-    }else if(Roles.userIsInRole(loggedInUser._id,['admin','moderator'])){
+    }else if(Roles.userIsInRole(loggedInUser._id,['admin','moderator'], 'CB')){
 
       Hangouts.update({_id: data.hangoutId},
                       {$set:{ topic: data.topic,
@@ -182,7 +182,7 @@ Meteor.methods({
   },
   getHangout: function(hangoutId) {
     check(hangoutId, String);
-    if (Roles.userIsInRole(this.userId, ['admin','moderator'])) {
+    if (Roles.userIsInRole(this.userId, ['admin','moderator'], 'CB')) {
 
       return Hangouts.findOne({_id:hangoutId});
 
@@ -328,7 +328,7 @@ Meteor.methods({
 
       return true;
 
-    }else if(Roles.userIsInRole(loggedInUser._id,['admin','moderator'])){
+    }else if(Roles.userIsInRole(loggedInUser._id,['admin','moderator'], 'CB')){
 
       Hangouts.update({_id: data.hangoutId},
                       {$set:{ end: end,
