@@ -167,7 +167,7 @@
                     {{#if hangoutOwner host.id}}
                         <div id="end-hangout" class="btn btn-cb2 btn-danger">{{_ "end_hangout"}}</div>
                     {{else}}
-                        {{#if isInRole 'admin,moderator,volunteer'}}
+                        {{#if isInRole 'admin,moderator,volunteer' 'CB'}}
                             <div id="end-hangout" class="btn btn-cb2 btn-danger">{{_ 'end_hangout'}}</div>
                         {{/if}}
                     {{/if}}

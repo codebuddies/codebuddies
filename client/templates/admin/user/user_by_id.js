@@ -5,14 +5,14 @@ Template.registerHelper('selected', function(key, value) {
 Template.registerHelper('isUpdateable', function(userId, role) {
   var loggedInUserId = Meteor.userId();
 
-  return ((userId == loggedInUserId || (role === 'moderator' && (!Roles.userIsInRole( loggedInUserId, ['admin'])))) ? true : false);
+  return ((userId == loggedInUserId || (role === 'moderator' && (!Roles.userIsInRole( loggedInUserId, ['admin'], 'CB')))) ? true : false);
 });
 
 Template.userById.helpers({
   getUser:function(){
     var userId = FlowRouter.getParam('userId');
 
-    if (Roles.userIsInRole(userId, ['admin'])) {
+    if (Roles.userIsInRole(userId, ['admin'], 'CB')) {
       return ;
     } else {
       return Meteor.users.find({_id:userId});

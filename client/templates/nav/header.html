@@ -19,13 +19,13 @@
           <li><a href="{{pathFor 'faq'}}">{{_ "faq"}}</a></li>
           <li><a href="https://github.com/codebuddiesdotorg/cb-v2-scratch" target="_blank" title="CodeBuddies on Github. Contributors welcome!">Github</a></li>
           {{#unless currentUser}}<li><a href="{{pathFor 'browse_hangouts'}}">{{_ "browse_hangouts"}} <span class="sr-only">(current)</span></a></li>{{/unless}}
-          {{#unless isInRole 'admin'}}
+          {{#unless isInRole 'admin' 'CB'}}
              <li><a href="https://codebuddies.slack.com/messages/general" target="_blank"><i class="fa fa-slack" aria-hidden="true"></i> </a></li>
            {{/unless}}
           {{#if currentUser}}
               <li><a href="{{pathFor 'user notification'}}"><i class="fa fa-bell" aria-hidden="true"></i> {{#if userNotificationCount}}<small><span class="badge">{{userNotificationCount}}</span></small>{{/if}} </a></li>
           {{/if}}
-          {{#if isInRole 'moderator,admin'}}
+          {{#if isInRole 'moderator,admin' 'CB'}}
             <li id="user-drop-down" class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                 <i class="fa fa-cogs" aria-hidden="true"></i>
@@ -38,7 +38,7 @@
             </li>
           {{/if}}
           {{#if currentUser}}
-            {{#if isInRole 'admin'}}
+            {{#if isInRole 'admin' 'CB'}}
               {{> loginButtons align="right"}}
             {{else}}
               <li id="user-drop-down" class="dropdown">
