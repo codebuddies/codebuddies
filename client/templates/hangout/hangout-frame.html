@@ -1,11 +1,11 @@
 <template name="hangoutFrame">
-Is this template rendering??
+
+<span id="post_id" class="hide">{{_id}}</span>
   <script>
     $(window).load(function() {
-    	console.log('is this happening');
 	    var domain = "meet.jit.si";
-	    var room = "starflower123";
-	    var width = 1000;
+	    var room = 'codebuddies-' + $('span#post_id').text();
+	    var width = 1000;	
 	    var height = 550;
 	    var api = new JitsiMeetExternalAPI(domain, room, width, height);
 	    $('#jitsiConference0').css('width','100%');
