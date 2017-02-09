@@ -1,0 +1,117 @@
+{
+  // general & menu
+  "sign_out": "Sign Out",
+  "sign_in_with": "Entrar con",
+  "sign_in_with_slack": "Entrar con Slack",
+
+  //home
+  "jumbotron_subtitle": "Somos __count__ personas que se ayudan unos a otros compartiendo conocimiento",
+  "slack_title": "Chat de Slack",
+  //profile page
+  "send_profile_message": "Enviar a __username__ a un mensaje",
+  "chat": "Chat",
+
+
+  // other pages
+  "about": "Acerca",
+  "faq": "FAQ",
+  "terms_of_service": "Términos de Servicio",
+  "profile": "Perfil",
+
+  // status messages
+  "i_am_working_on": "Estoy trabajando en ...",
+  "today_i_learned": "Hoy aprendí ...",
+  "start_a_hangout": "Comenzar un Hangout",
+  "edit_a_hangout": "Editar tu Hangout",
+  "learning_message": "__count__ personas aprendiendo online",
+  "learning_message_plural": "__count__ personas aprendiendo online",
+  "accomplishment_message": "__count__ cumplido",
+  "accomplishment_message_plural": "__count__ cumplidos",
+  "working_on": "Por favor comparte en qué estás trabajando!",
+  "accomplished": "¿Qué lograste o aprendiste hoy?",
+  "upcoming_time": "Comenzando __time__",
+  "mastered_x_days_ago": "COMPLETADO",
+  "completed_long": "ESTE HANGOUT HA SIDO COMPLETADO",
+  //COMPLETED __days__ days ago, COMPLETED __days__ days ago, COMPLETED today __time__
+  "mastered_x_days_ago_plural": "COMPLETADO",
+  "mastered_today_time": "COMPLETADO",
+  "delete_learning_confirm": "¿Estás seguro que quieres borrar este aprendizaje?",
+
+
+  // buttons
+  "save_changes": "Guardar cambios",
+  "update": "Actualizar",
+  "join_hangouts" : "Unirse a Hangouts",
+  "create_a_hangout": "Crear un Hangout",
+  "clone_a_hangout": "Crear este hangout",
+  "join": "RSVP",
+  "join_long": "Lanzar hangout",
+  "rsvp": "RSVP",
+  "rsvp_long": "RSVP este evento",
+  "leave": "Borrar RSVP",
+  "join_in_session": "Unirse",
+  "load_more": "Cargar más...",
+  "load_page": "Cargar página __start__/__total__",
+  "ok": "OK",
+  "yes_delete_hangout": "¡Sí, borrarlo!",
+  "no_delete_hangout": "No, sólo bromeaba",
+  "yes_delete_learning": "Sí por favor",
+  "no_delete_learning": "No gracias!",
+  "launch" : "Lanzar Hangout",
+  "yes_end_hangout": "Sí, termínalo!",
+  "no_end_hangout": "No, sólo bromeaba",
+  "end_hangout": "TERMINAR HANGOUT",
+
+  // hangout
+  "what_is_a_hangout": "¿Qué es un hangout?",
+  "loading_hangouts": "Cargando hangouts...por favor espere.",
+  "create_hangout_hint": "Tu sesión de estudio aparecerá en la página principal de inmediato. Después de proponer una sesión de estudio, siempre puedes regresar y cambiar el tiempo, título y descripción.",
+  "clone_hangout_hint": "Tu sesión de estudio aparecerá en la página principal de inmediato. Después de proponer una sesión de estudio, siempre puedes regresar y cambiar el tiempo, título y descripción.",
+  "edit_hangout_hint": "Tu hangout será actualizado",
+  "silent_hangout": "Hangout Silencioso",
+  "teaching_hangout": "Hangout de Enseñanza",
+  "collaboration_hangout": "Hangout de Colaboración",
+
+  // popup messages
+  "you_are_almost_there": "¡Ya casi estás ahí!",
+  "login_join_hangout": "Por favor entra a tu cuenta para unirte al hangout.",
+  "login_update_status": "Por favor entra a tu cuenta para actualizar tu estado.",
+  "login_create_hangout_title": "¡Eres increíble! Sólo un último paso",
+  "login_create_hangout_message": "Por favor regístrate para creat un hangout.",
+  "you_are_awesome": "¡Eres increíble!",
+  "looking_forward_to_see_you": "Espero verte",
+  "remove_owner_from_hangout": "Hey! No puedes borrarte de tu propio hangout.",
+  "delete_hangout_confirm": "¿Seguro?",
+  "delete_hangout_text": "Nota: Todos los participantes serán notificados si se cancela el hangout.",
+  "continue_popup_text":"Por favor haz login con tu cuenta de CodeBuddies Slack. Continuando, estoy de acuerdo qur tengo por lo menos 13 años y que he leídos y estoy de acuerdo con los términos de servicio y la política de privacidad de este sitio.",
+  "not_now":"Ahora no",
+  "continue_with_slack": "Continuar con Slack",
+  "end_hangout_confirm": "¿Seguro?",
+
+  // create hangout modal - popup messages
+  "hangout_created_title": "Hangout Creado Exitosamente",
+  "hangout_edited_title": "Hangout Editado Exitosamente",
+  "hangout_created_message": "¡Bien!",
+  "select_start_time": "Por favor selecciona un tiempo de inicio",
+  "enter_topic": "Por favor elige un tema del hangout.",
+  "enter_description": "Por favor pon una descripción del hangout.",
+
+  // report hangout modal - popup message
+  "report_this_hangout":"Reportar este hangout",
+  "report hangout category spam" : "Spam",
+  "report hangout category abusive": "Abusivo",
+  "report hangout category inappropriate" : "Inapropiado",
+  "report hangout category offensive" : "Ofensivo",
+  "report_a_hangout" : "Reportar",
+  "report_hangout_message" : "Revisaremos el Hangout y borraremos cualquier cosa que no siga los estándares de Code Buddies. Nosotros podremos avisar o eliminar a la persona responsable.",
+  "hangout_has_been_reported" : "Reportado Exitosamente.",
+  "hangout_reported_message" : "Apreciamos tu ayuda en mantener la calidad de nuestra comunidad.",
+
+  // admin header
+  "manage_user" : "Administrar usuario",
+  "notification" : "Notificación",
+
+  //visitor
+  "sign_in_to_continue" : "Por favor regístrate para continuar",
+  "browse_hangouts" : "Navegar"
+}

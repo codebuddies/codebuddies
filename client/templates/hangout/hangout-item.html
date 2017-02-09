@@ -40,7 +40,8 @@
               {{else}}
 
                 {{# unless isHangoutCompleted end}}
-                  <button id="join-hangout" class="btn btn-cb2">{{_ "rsvp"}}</button>
+                  <!-- <button id="join-hangout" class="btn btn-cb2">{{_ "rsvp"}}</button> -->
+                  <button class="btn btn-cb2 {{#if currentUser}} join-hangout {{else}} continue-popup {{/if}}">{{_ "rsvp"}}</button>
                 {{/unless}}
 
               {{/if}}

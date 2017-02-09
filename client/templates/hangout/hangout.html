@@ -34,11 +34,9 @@
                   <label><i class="fa {{getHangoutTypeSign type}}"></i>
 
                   {{type}} hangout hosted by
-                      {{#unless currentUser}}
-                        <a href="#" id='visitor'>{{host.name}}</a>
-                      {{else}}
-                        <a href="{{pathFor 'profile' name=host.name userId=host.id}}">{{host.name}}</a>
-                      {{/unless}}
+
+                    <a href="{{#if currentUser}} {{pathFor 'profile' name=host.name userId=host.id}} {{/if}}" class="{{#unless currentUser}} continue-popup {{/unless}}">{{host.name}}</a>
+
 
                     <br />
                       {{getHangoutStartDateTime start}} -
@@ -80,7 +78,9 @@
                    <ol>
                             <li>
                               {{#unless url}}
-                                After <a href="https://codebuddies.slack.com/messages/{{host.name}}">@{{host.name}}</a> has initiated the hangout, you will be able to click on a button below to launch the Google Hangout.
+
+                                After <a href="{{#if currentUser}} {{pathFor 'profile' name=host.name userId=host.id}} {{/if}}" class="{{#unless currentUser}} continue-popup {{/unless}}">@{{host.name}}</a> has initiated the hangout, you will be able to click on a button below to launch the Google Hangout.
+
                               {{ else }}
                                 At the time of the event, click the button below to launch the Google Hangout.
                               {{/unless}}
@@ -92,10 +92,11 @@
                {{/unless}} <!-- ./isHangoutCompleted -->
                   <div class="col-md-3 col-sm-3 {{#unless isHangoutCompleted end}} pull-right {{/unless}}">
 
-                      <a href="{{pathFor 'profile' name=host.name userId=host.id}}"><img class="img-circle" src="{{host.avatar}}"></a>
-                      {{#each attendees}}
-                        <a href="{{pathFor 'profile' name=name userId=id}}"><img class="img-circle" src="{{avatar}}"></a>
-                      {{/each}}
+
+              <a href="{{#if currentUser}} {{pathFor 'profile' name=host.name userId=host.id}} {{/if}}" class="{{#unless currentUser}} continue-popup {{/unless}}"><img class="img-circle" src="{{host.avatar}}"></a>
+                {{#each attendees}}
+                <a href="{{#if currentUser}} {{pathFor 'profile' name=name userId=id}} {{/if}}" class="{{#unless currentUser}} continue-popup {{/unless}}" ><img class="img-circle" src="{{avatar}}"></a>
+                {{/each}}
 
                   </div>
                 </div> <!-- ./row -->
@@ -127,7 +128,7 @@
 
               {{else}}
                 {{# unless isHangoutCompleted end}}
-                   <button id="join-hangout" class="btn btn-cb2">{{_ "join_in_session"}}</button>
+                   <button class="btn btn-cb2 {{#if currentUser}} join-hangout {{else}} continue-popup {{/if}}">{{_ "join_in_session"}}</button>
                 {{/unless}}
               {{/if}}
 
@@ -139,7 +140,7 @@
               {{else}}
 
                 {{# unless isHangoutCompleted end}}
-                  <button id="join-hangout" class="btn btn-cb2 btn-success">{{_ "rsvp_long"}}</button>
+                  <button class="btn btn-cb2 btn-success {{#if currentUser}} join-hangout {{else}} continue-popup {{/if}}">{{_ "rsvp_long"}}</button>
                 {{/unless}}
 
               {{/if}}

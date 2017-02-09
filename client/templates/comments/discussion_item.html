@@ -14,13 +14,13 @@
         {{/if}}
         {{#unless isUserCommentAuthor authorId}}
 
-            <i class="fa fa-angle-up  upVote" aria-hidden="true"></i>
+            <i class="fa fa-angle-up {{#if currentUser}} upVote {{else}} continue-popup {{/if}}" aria-hidden="true"></i>
             <small>&nbsp; | &nbsp;</small>
-            <i class="fa fa-angle-down  downVote" aria-hidden="true"></i>
+            <i class="fa fa-angle-down {{#if currentUser}} downVote {{else}} continue-popup {{/if}}" aria-hidden="true"></i>
             &nbsp;&nbsp;
-            <span class="replyToComment"> Reply</span>
-
+            <span class="{{#if currentUser}} replyToComment {{else}} continue-popup {{/if}}"> Reply</span>
         {{/unless}}
+
         <div id="{{_id}}replyToCommentSection"></div>
       </p>
     </div>
