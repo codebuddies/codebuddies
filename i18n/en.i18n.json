@@ -61,6 +61,7 @@
   "no_end_hangout": "No, I was just kidding",
   "end_hangout": "END HANGOUT",
 
+
   // hangout
   "what_is_a_hangout": "What is a hangout?",
   "loading_hangouts": "Loading hangouts... please wait.",
@@ -70,6 +71,7 @@
   "silent_hangout": "Silent Hangout",
   "teaching_hangout": "Teaching Hangout",
   "collaboration_hangout": "Collaboration Hangout",
+  "click_to_load_hangout": "Click to load hangout",
 
   // popup messages
   "you_are_almost_there": "You are almost there!",
