@@ -116,9 +116,6 @@
             {{#if isHangoutInProgress start end}}
 
               {{#if isAttending users}}
-                {{#if url}}
-
-                    <a class="btn btn-cb2 btn-grey btn-success" href="{{url}}" target="_blank">{{_ "join_long"}}</a>
 
                     {{#if hangoutOwner host.id}}
                         <div id="end-hangout" class="btn btn-cb2 btn-danger">{{_ "end_hangout"}}</div>
@@ -128,17 +125,9 @@
                         {{/if}}
                     {{/if}}
 
-                {{else}}
-                  {{#unless hangoutOwner host.id}}
-                         <p class="status"><i class="fa fa-dot-circle-o fa text-danger faa-burst animated"></i> &nbsp; Please wait for <a href="https://codebuddies.slack.com/messages/{{host.name}}">@{{host.name}}</a> to initiate the hangout.</p>
-                  {{/unless}}
-                {{/if}}
-
-
-
               {{else}}
                 {{# unless isHangoutCompleted end}}
-                   <button id="join-hangout" class="btn btn-cb2 btn-success">{{_ "join_in_session"}}</button>
+                   <button id="join-hangout" class="btn btn-cb2">{{_ "join_in_session"}}</button>
                 {{/unless}}
               {{/if}}
 
