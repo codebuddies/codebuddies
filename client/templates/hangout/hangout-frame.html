@@ -14,7 +14,9 @@
 	    var room = 'codebuddies-' + $('span#post_id').text();
 	    var width = 1000;	
 	    var height = 550;
-	    var api = new JitsiMeetExternalAPI(domain, room, width, height);
+	    var configOverwrite = {startVideoMuted: 0};
+		var htmlElement = undefined;
+		var api = new JitsiMeetExternalAPI(domain, room, width, height, htmlElement, configOverwrite);
 	    $('#jitsiConference0').appendTo('div#hangout-container').css('width','100%');
 
 	    //only show the launch hangout button if Jitsi is not loaded
