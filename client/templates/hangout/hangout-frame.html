@@ -1,15 +1,23 @@
 <template name="hangoutFrame">
 
+<button id="load-hangout" class="btn btn-cb2">Launch Hangout</button>
+<div id="hangout-container"></div>
 <span id="post_id" class="hide">{{_id}}</span>
   <script>
+  //add button that reloads the page
+    $('#load-hangout').on('click', function() {
+    	window.location.reload();
+    });
     $(window).load(function() {
 	    var domain = "meet.jit.si";
 	    var room = 'codebuddies-' + $('span#post_id').text();
 	    var width = 1000;	
 	    var height = 550;
 	    var api = new JitsiMeetExternalAPI(domain, room, width, height);
-	    $('#jitsiConference0').css('width','100%');
-	    //todo: reload page once? OR: create a "Load Hangout" button that -- when clicked on -- reloads the page.
+	    $('#jitsiConference0').appendTo('div#hangout-container').css('width','100%');
+
+	    //only show the launch hangout button if Jitsi is not loaded
+	    $('#jitsiConference0').length == 1 ? $('#load-hangout').hide() : $('#load-hangout').show();
 	});
   </script>
 </template>
