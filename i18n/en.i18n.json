@@ -47,7 +47,7 @@
   "join": "RSVP",
   "join_long": "Launch the hangout",
   "rsvp": "RSVP",
-  "rsvp_long": "RSVP to this event",
+  "rsvp_long": "RSVP to this hangout",
   "leave": "Remove RSVP",
   "join_in_session": "Join",
   "load_more": "Load more...",
