@@ -6,8 +6,10 @@
         <label class="name">
         {{#if isHangoutInProgress start end}}
           &nbsp; &nbsp;<i class="fa fa-dot-circle-o fa text-danger faa-burst animated"></i> &nbsp;
-        {{/if}}
           <a href="{{pathFor 'hangout' hangoutId=_id }}" class="hangout-topic {{# if isHangoutCompleted end }}completed{{/if}}" target="_blank"> {{topic}} </a>
+        {{ else }}
+          <a href="{{pathFor 'hangout' hangoutId=_id }}" class="hangout-topic {{# if isHangoutCompleted end }}completed{{/if}}"> {{topic}} </a>
+        {{/if}}
 
 
         </label>
