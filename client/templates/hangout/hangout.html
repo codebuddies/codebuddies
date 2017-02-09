@@ -76,17 +76,9 @@
                   <div class="col-md-9 col-sm-9">
                    <h4>Hangout Reminders</h4>
                    <ol>
-                            <li>
-                              {{#unless url}}
-
-                                After <a href="{{#if currentUser}} {{pathFor 'profile' name=host.name userId=host.id}} {{/if}}" class="{{#unless currentUser}} continue-popup {{/unless}}">@{{host.name}}</a> has initiated the hangout, you will be able to click on a button below to launch the Google Hangout.
-
-                              {{ else }}
-                                At the time of the event, click the button below to launch the Google Hangout.
-                              {{/unless}}
-                            </li>
-                            <li>In the Google Hangout, click to mute your video camera. <img src="/images/icon-video-off.png" width="20" height="20"></li>
-                            <li>Feel free to mute the microphone too if this is a silent hangout. <img src="/images/icon-mute.png" width="20" height="20"> </li>
+                            <li>Once the hangout iframe has loaded on the page, you  can click to mute your video camera. <img src="/images/icon-video-off.png" width="20" height="20"></li>
+                            <li>You can mute your microphone too if this is a silent hangout. <img src="/images/icon-mute.png" width="20" height="20"> </li>
+                            <li>You can toggle the documents icon in the hangout to open up a collaborative etherpad which you can use for notetaking during the hangout.</li>
                     </ol>
                   </div>
                {{/unless}} <!-- ./isHangoutCompleted -->
