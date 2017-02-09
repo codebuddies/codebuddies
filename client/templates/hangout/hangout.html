@@ -65,7 +65,7 @@
                           {{> hangoutFrame }}
                         {{/if}}
                       {{/if}}
-                <div id="hangout-description">
+                <div id="hangout-description" class="margin-top-1">
                     {{{formatDescription this}}}
                     
                 </div>
@@ -78,15 +78,6 @@
                   <div class="col-md-9 col-sm-9">
                    <h4>Hangout Reminders</h4>
                    <ol>
-                      {{#if hangoutOwner host.id}}
-                          {{#unless url}}
-                            <li>
-                              <strong>You are the host of this hangout! Click the green "Start" button below to initiate and enter the hangout.</strong>
-                            </li>
-                            <li>Other participants will only be able to join you after you've initiated and entered the google hangout.</li>
-                            <li>You can initate the hangout early so that participants don't have to wait for you in order to join.</li>
-                          {{/unless}}
-                      {{else}}
                             <li>
                               {{#unless url}}
                                 After <a href="https://codebuddies.slack.com/messages/{{host.name}}">@{{host.name}}</a> has initiated the hangout, you will be able to click on a button below to launch the Google Hangout.
@@ -96,7 +87,6 @@
                             </li>
                             <li>In the Google Hangout, click to mute your video camera. <img src="/images/icon-video-off.png" width="20" height="20"></li>
                             <li>Feel free to mute the microphone too if this is a silent hangout. <img src="/images/icon-mute.png" width="20" height="20"> </li>
-                      {{/if}}
                     </ol>
                   </div>
                {{/unless}} <!-- ./isHangoutCompleted -->
