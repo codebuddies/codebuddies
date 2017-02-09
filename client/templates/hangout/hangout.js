@@ -14,8 +14,7 @@ Template.hangout.onCreated(function() {
 });
 
 Template.hangout.rendered = function() {
-
-  $('head').append('<script src="https://apis.google.com/js/platform.js" async defer></script>');
+ // $('head').append('<script src="https://apis.google.com/js/platform.js" async defer></script>');
 }
 
 Template.hangout.helpers({

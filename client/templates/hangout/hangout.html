@@ -107,21 +107,6 @@
             <div class="row">
              <div class="hangout-status">
 
-          {{# unless isHangoutCompleted end }}
-          {{# unless url }}
-                {{#if hangoutOwner host.id}}
-                  <div class="google-hangout">
-                      <div class="g-hangout" data-render="createhangout"
-                      data-initial_apps="[{ app_id : '999356798349', start_data: {{_id}}, 'app_type' : 'LOCAL_APP' }]" data-widget_size="72"></div>
-                  </div>
-                {{/if}}
-          {{else}}
-
-          {{/unless}}
-         {{/unless}}
-
-
-
         {{#if equals visibility false}}
           <span class="label label-pill label-danger">DELETED</span>
         {{else}}
