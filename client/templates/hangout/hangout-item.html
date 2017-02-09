@@ -30,7 +30,7 @@
                   <a class="btn btn-cb2 btn-grey btn-success" href="{{pathFor 'hangout' hangoutId=_id }}" target="_blank">{{_ "launch"}}</a>
               {{else}}
                 {{# unless isHangoutCompleted end}}
-                  <button id="join-hangout" class="btn btn-cb2">{{_ "join_in_session"}}</button>
+                  <button class="btn btn-cb2 join-hangout">{{_ "join_in_session"}}</button>
                 {{/unless}}
               {{/if}}
 
