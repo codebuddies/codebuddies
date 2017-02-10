@@ -63,7 +63,7 @@
                           {{> hangoutFrame }}
                         {{/if}}
                       {{/if}}
-                <div id="hangout-description" class="margin-top-1">
+                <div id="hangout-description" class="margin-1">
                     {{{formatDescription this}}}
                     
                 </div>
@@ -73,12 +73,20 @@
 
                 <div class="row">
                 {{# unless isHangoutCompleted end }}
-                  <div class="col-md-9 col-sm-9">
+                  <div class="col-md-3 col-sm-3">
+                      <img src="/images/jitsi_screenshot.jpg" width="100%" class="jitsi-screenshot"/>
+                      {{#if isHangoutInProgress start end}}
+                        {{#if isAttending users}}
+                          <small class="load-hangout reminder">We're in session! Please wait a few seconds and refresh the page to load the hangout.</small>
+                        {{/if}}
+                      {{/if}}
+                  </div>
+                  <div class="col-md-6 col-sm-6">
                    <h4>Hangout Reminders</h4>
                    <ol>
-                            <li>Once the hangout iframe has loaded on the page, you  can click to mute your video camera. <img src="/images/icon-video-off.png" width="20" height="20"></li>
-                            <li>You can mute your microphone too if this is a silent hangout. <img src="/images/icon-mute.png" width="20" height="20"> </li>
-                            <li>You can toggle the documents icon in the hangout to open up a collaborative etherpad which you can use for notetaking during the hangout.</li>
+                        <li>Once the hangout is in progress, you can refresh the page, and the hangout iframe will load on the page for everyone who's RSVPed to the hangout. </li>
+                        <li>You can click to stop video sharing <img src="/images/icon-video-off.png" width="20" height="20">, and mute your microphone too if this is a silent hangout. <img src="/images/icon-mute.png" width="20" height="20"> </li>
+                        <li>Everyone can screenshare simultaneously by clicking the middle icon at the top of the hangout. Screensharing makes it easier for others to follow along the tutorial you're working through, is useful for pair programming, and helps you stay on task. </li>
                     </ol>
                   </div>
                {{/unless}} <!-- ./isHangoutCompleted -->
@@ -139,7 +147,13 @@
 
             {{/if}}
           {{else}}
-            <p class="completed"> COMPLETED </p>
+            <p class="completed"> 
+              {{#if isAttending users}}
+                  <p>Thanks for joining! This hangout has ended. Would you like to start another one?</p> <div class="btn btn-cb2" id="create-hangout-popup margin-top-1"> Create a Hangout </div>
+              {{else}}
+                  Sorry, this hangout has ended. Why not start your own? <div class="btn btn-cb2 margin-top-1" id="create-hangout-popup"> Create a Hangout </div>
+              {{/if}}
+            </p>
           {{/unless}}
 
         {{/if}} <!-- if equals visibility false -->

@@ -1,4 +1,9 @@
 #post {
+  .jitsi-screenshot { 
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)"; // IE8
+    filter: alpha(opacity=80); // IE 5-7
+    opacity: 0.8;
+  }
   label {
     font-weight: 200;
     font-size: 16px;
@@ -6,6 +11,7 @@
 
   h2 {
     font-weight: 200;
+    margin: 0px;
   }
 
   h2.completed,
