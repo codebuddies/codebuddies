@@ -8,6 +8,7 @@ Template.hangoutFrame.onCreated(function() {
   * @param {data.room} room - The hangout _id.
   * @param {data.username} username - The username of the user.
   * @param {data.type} type - Hangout type (silent, teaching, collaboration).
+  * @param {data.avatar} avatar - Avatar image of the user from Slack.
   */
   instance.loadJitsi = function(data){
 
@@ -31,7 +32,7 @@ Template.hangoutFrame.onCreated(function() {
   }
 
   /**
-  * Dispose Jitsi
+  * Dispose of Jitsi
   * @function
   * @name disposeJitsi
   */
