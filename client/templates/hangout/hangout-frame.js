@@ -7,7 +7,7 @@ Template.hangoutFrame.onCreated(function() {
     let room = 'cb-' + data.room;
     let width = 500;
     let height = 550;
-    let configOverwrite = {};
+    let configOverwrite = { startVideoMuted: 0 };
     let interfaceConfigOverwrite = {};
     let htmlElement = undefined;
 
