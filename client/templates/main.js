@@ -2,6 +2,9 @@
 
 if (Meteor.isClient) {
   Meteor.startup(function () {
+
+    $('head').append('<script src="https://meet.jit.si/external_api.js"></script>');
+
     if(!Meteor.settings.public.isModeDebug){
       console = console || {};
       console.log = function(){};

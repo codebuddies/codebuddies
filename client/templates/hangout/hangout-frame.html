@@ -1,28 +1,7 @@
 <template name="hangoutFrame">
-<div class="load-hangout">
-	<button class="btn btn-cb2 btn-grey btn-success">{{_ "click_to_load_hangout"}}</button>
-</div>
-<div id="hangout-container"></div>
-<span id="post_id" class="hide">{{_id}}</span>
-  <script>
-  //add button that reloads the page
-  	function load_jitsi() {
-  		var domain = "meet.jit.si";
-	    var room = 'cb-' + $('span#post_id').text();
-	    var width = 500;	
-	    var height = 550;
-	    var configOverwrite = {startVideoMuted: 0};
-		var htmlElement = undefined;
-		var api = new JitsiMeetExternalAPI(domain, room, width, height, htmlElement, configOverwrite);
-	    $('#jitsiConference0').appendTo('div#hangout-container').css('width','100%');
-	    //only show the launch hangout button if Jitsi is not loaded
-	    $('#jitsiConference0').length == 1 ? $('.load-hangout').hide() : $('#load-hangout').show();
-  	}
-  	$(window).load(function() {
-  		load_jitsi();
-  	});
-    $('.load-hangout').on('click', function() {
-    	load_jitsi();
-    });
-  </script>
+
+  <button class="btn btn-cb2 btn-grey btn-success load-hangout">{{_ "click_to_load_hangout"}}</button>
+  <div id="hangout-container"></div>
+  <span id="post_id" class="hide">{{_id}}</span>
+
 </template>
