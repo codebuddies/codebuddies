@@ -18,18 +18,20 @@ Template.hangoutFrame.onCreated(function() {
     let height = 550;
     let configOverwrite = { startVideoMuted: 0 };
     let interfaceConfigOverwrite = {};
-    let htmlElement = undefined;
+    let htmlElement = document.getElementById("hangout-container");
 
     instance.api = new JitsiMeetExternalAPI(domain, room, width, height, htmlElement, configOverwrite, interfaceConfigOverwrite);
+    
     instance.api.executeCommand('displayName', data.username);
-    instance.api.executeCommand('toggleVideo');
-    instance.api.executeCommand('toggleChat')
-    instance.api.executeCommand('avatarUrl', data.avatar)
+    instance.api.executeCommand('toggleChat');
+    instance.api.executeCommand('avatarUrl', data.avatar);
+    instance.api.executeCommand('toggleShareScreen');
 
-    $('#jitsiConference0').appendTo('div#hangout-container').css('width','100%');
+    $('#jitsiConference0').css('width', '100%');
     //only show the launch hangout button if Jitsi is not loaded
     $('#jitsiConference0').length == 1 ? $('.load-hangout').hide() : $('#load-hangout').show();
   }
+
 
   /**
   * Dispose of Jitsi
