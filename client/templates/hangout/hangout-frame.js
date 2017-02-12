@@ -1,21 +1,46 @@
 Template.hangoutFrame.onCreated(function() {
   let instance = this;
-  instance.loadJitsi = function(){
+
+  instance.loadJitsi = function(data){
+
     const domain = "meet.jit.si";
-    let room = 'cb-' + $('span#post_id').text();
+    let room = 'cb-' + data.room;
     let width = 500;
     let height = 550;
-    let configOverwrite = {startVideoMuted: 0};
+    let configOverwrite = {};
+    let interfaceConfigOverwrite = {};
     let htmlElement = undefined;
-    let api = new JitsiMeetExternalAPI(domain, room, width, height, htmlElement, configOverwrite);
+
+    instance.api = new JitsiMeetExternalAPI(domain, room, width, height, htmlElement, configOverwrite, interfaceConfigOverwrite);
+
     $('#jitsiConference0').appendTo('div#hangout-container').css('width','100%');
     //only show the launch hangout button if Jitsi is not loaded
     $('#jitsiConference0').length == 1 ? $('.load-hangout').hide() : $('#load-hangout').show();
+
+    instance.api.executeCommand('displayName', data.username);
+    instance.api.executeCommand('toggleVideo');
+
   }
+
+  instance.disposeJitsi= function(){
+    instance.api.dispose();
+  }
+
 });
 
 Template.hangoutFrame.events({
   'click .load-hangout': function(event, template){
-    return Template.instance().loadJitsi();
+
+    const data = {
+      room: this._id,
+      username: Meteor.user().username,
+      type: this.type
+    }
+    return template.loadJitsi(data);
   }
+});
+
+
+Template.hangoutFrame.onDestroyed(function () {
+  Template.instance().disposeJitsi();
 });
