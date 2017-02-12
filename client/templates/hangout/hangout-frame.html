@@ -17,6 +17,7 @@
 	    var configOverwrite = {startVideoMuted: 0};
 		var htmlElement = undefined;
 		var api = new JitsiMeetExternalAPI(domain, room, width, height, htmlElement, configOverwrite);
+		console.log('instantiated jitsi instance')
 	    $('#jitsiConference0').appendTo('div#hangout-container').css('width','100%');
 
 	    //only show the launch hangout button if Jitsi is not loaded
