@@ -1,3 +1,0 @@
-// load_jitsi = function(){
-//
-// }
