@@ -1,6 +1,14 @@
 Template.hangoutFrame.onCreated(function() {
   let instance = this;
 
+  /**
+  * Initialize Jitsi
+  * @function
+  * @name loadJitsi
+  * @param {data.room} room - The hangout _id.
+  * @param {data.username} username - The username of the user.
+  * @param {data.type} type - Hangout type (silent, teaching, collaboration).
+  */
   instance.loadJitsi = function(data){
 
     const domain = "meet.jit.si";
@@ -22,6 +30,11 @@ Template.hangoutFrame.onCreated(function() {
     $('#jitsiConference0').length == 1 ? $('.load-hangout').hide() : $('#load-hangout').show();
   }
 
+  /**
+  * Dispose Jitsi
+  * @function
+  * @name disposeJitsi
+  */
   instance.disposeJitsi= function(){
     instance.api.dispose();
   }
