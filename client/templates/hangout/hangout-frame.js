@@ -12,8 +12,8 @@ Template.hangoutFrame.onCreated(function() {
   */
   instance.loadJitsi = function(data){
 
-    const domain = "meet.jit.si";
-    let room = 'cb-' + data.room;
+    const domain = "beta.meet.jit.si";
+    let room = 'cb' + data.room;
     let width = 500;
     let height = 550;
     let configOverwrite = { startVideoMuted: 0 };
