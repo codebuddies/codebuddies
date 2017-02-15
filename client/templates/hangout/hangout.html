@@ -77,21 +77,27 @@
                       <img src="/images/jitsi_screenshot.jpg" width="100%" class="jitsi-screenshot"/>
                       {{#if isHangoutInProgress start end}}
                         {{#if isAttending users}}
-                          <small class="load-hangout reminder">We're in session! Please wait a few seconds and refresh the page to load the hangout.</small>
+                          <small class="load-hangout reminder">We're in session! Please click to load the hangout.</small>
                         {{/if}}
                       {{/if}}
                   </div>
-                  <div class="col-md-6 col-sm-6">
+                  <div class="col-md-3 col-sm-3">
+                    <img src="/images/jitsi_guide.jpg" width="100%">
+                  </div>
+                  <div class="col-md-3 col-sm-3">
                    <h4>Hangout Reminders</h4>
                    <ol>
-                        <li class="load-hangout">Once the hangout is in progress, you can refresh the page, and the hangout iframe will load on the page for everyone who's RSVPed to the hangout. </li>
-                        <li>You can click to stop video sharing <img src="/images/icon-video-off.png" width="20" height="20">, and mute your microphone too if this is a silent hangout. <img src="/images/icon-mute.png" width="20" height="20"> </li>
-                        <li>Everyone can screenshare simultaneously by clicking the middle icon at the top of the hangout. Screensharing makes it easier for others to follow along the tutorial you're working through, is useful for pair programming, and helps you stay on task. </li>
+                        <li class="load-hangout">When the hangout starts, click the green button to load the hangout. </li>
+                        <li>By default, video for everyone should be off.</li>
+                        <li>Multiple people can screenshare at the same time, which can make it easier for everyone to follow along the coding exercise or material.</li>
                     </ol>
+                    
                   </div>
                {{/unless}} <!-- ./isHangoutCompleted -->
+
                   <div class="col-md-3 col-sm-3 {{#unless isHangoutCompleted end}} pull-right {{/unless}}">
 
+                     
 
               <a href="{{#if currentUser}} {{pathFor 'profile' name=host.name userId=host.id}} {{/if}}" class="{{#unless currentUser}} continue-popup {{/unless}}"><img class="img-circle" src="{{host.avatar}}"></a>
                 {{#each attendees}}
