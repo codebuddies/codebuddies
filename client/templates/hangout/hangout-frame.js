@@ -32,7 +32,6 @@ Template.hangoutFrame.onCreated(function() {
     $('#jitsiConference0').length == 1 ? $('.load-hangout').hide() : $('#load-hangout').show();
   }
 
-
   /**
   * Dispose of Jitsi
   * @function
@@ -42,6 +41,22 @@ Template.hangoutFrame.onCreated(function() {
     instance.api.dispose();
   }
 
+});
+
+Template.hangoutFrame.onRendered(function() {
+    /**
+  * Display warning if
+  * user is not using
+  * Chrome or Firefox
+  */
+
+  if (!!window.chrome && !!window.chrome.webstore || typeof InstallTrigger !== 'undefined') { 
+    //console.log('using firefox or chrome')
+    $('p.chrome-firefox-warning').hide();
+  } else {
+    //console.log('a different browser')
+     $('p.chrome-firefox-warning').show();
+  }
 });
 
 Template.hangoutFrame.events({

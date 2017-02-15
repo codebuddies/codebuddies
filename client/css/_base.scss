@@ -26,6 +26,13 @@ small.reminder {
   height: 100%;
 }
 
+p.warning { 
+  text-align: center;
+  color: $hangout-silent;
+  margin:10px;
+  font-weight: 400;
+}
+
 #wrapper {
   min-height: 100%;
   padding: 0;
