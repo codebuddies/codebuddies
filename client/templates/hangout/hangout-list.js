@@ -16,12 +16,12 @@ Template.hangoutList.onRendered(function() {
 
     instance.loadHangouts = function() {
       var now = new Date();
-      return Hangouts.find({'start': { $gte : now }}, {sort: { start: 1 }});
+      return Hangouts.find({'end': { $gte : now }}, {sort: { start: 1 }});
     }
 
     instance.loadCompletedHangouts = function() {
       var now = new Date();
-      return Hangouts.find({'start': {$lt : now}}, {sort: { start: 1 }});
+      return Hangouts.find({'end': {$lt : now}}, {sort: { start: -1 }});
     }
 
     instance.addMoreHangouts = function(){
