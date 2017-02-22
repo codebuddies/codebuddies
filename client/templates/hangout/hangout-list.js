@@ -21,8 +21,7 @@ Template.hangoutList.onRendered(function() {
 
     instance.loadCompletedHangouts = function() {
       var now = new Date();
-      var now_in_min = now.setMinutes(now.getMinutes())
-      return Hangouts.find({'end': {$lt : now_in_min}}, {sort: { start: -1 }});
+      return Hangouts.find({'end': {$lt : now}}, {sort: { start: -1 }});
     }
 
     instance.addMoreHangouts = function(){
