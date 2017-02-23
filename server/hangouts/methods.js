@@ -314,7 +314,7 @@ Meteor.methods({
 
     const loggedInUser = Meteor.user();
     const date = new Date();
-    const end = date.setMinutes(date.getMinutes() - 1);
+    const end = date.setMinutes(date.getMinutes());
     const oneMinuteAgo = new Date(end - 60000)
     if (!this.userId) {
       throw new Meteor.Error('Hangout.methods.endHangout.not-logged-in', 'Must be logged in to end hangout.');
