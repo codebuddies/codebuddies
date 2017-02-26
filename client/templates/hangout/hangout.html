@@ -8,60 +8,65 @@
               <div class="panel-heading">
                 <div class="row">
                 <div class="col-md-12">
-                <!-- hangout topic and action bar -->
-                <h2 class="{{# if isHangoutCompleted end }}completed{{/if}}" id="hangout-topic">
-                    {{#if equals visibility false}}
-                      <span class="label label-pill label-danger">DELETED</span>
-                    {{else}}
 
-                      {{#if isHangoutInProgress start end}}
-                        <div id="placeholder-div-{{_id}}"></div> &nbsp;
-                        <i class="fa fa-dot-circle-o fa text-danger faa-burst animated"></i> &nbsp;
-                      {{/if}}
+                 <div class="col-md-10">
+                  <!-- hangout topic and action bar -->
+                  <h2 class="{{# if isHangoutCompleted end }}completed{{/if}}" id="hangout-topic">
+                      {{#if equals visibility false}}
+                        <span class="label label-pill label-danger">DELETED</span>
+                      {{else}}
 
-                    {{/if}} <!-- ./if equals visibility false -->
+                        {{#if isHangoutInProgress start end}}
+                          <div id="placeholder-div-{{_id}}"></div> &nbsp;
+                          <i class="fa fa-dot-circle-o fa text-danger faa-burst animated"></i> &nbsp;
+                        {{/if}}
 
-                      {{topic}}
+                      {{/if}} <!-- ./if equals visibility false -->
 
-                      {{> hangoutActionBar}}
+                        {{topic}}
 
-                </h2>
-               
-                <!-- ./hangout topic and action bar -->
+                  </h2>
+                  <p class="status">
+                    <i class="fa {{getHangoutTypeSign type}}"></i>
 
-                <!-- hangout type host  and date time -->
-                <p class="status">
-                  <label><i class="fa {{getHangoutTypeSign type}}"></i>
-
-                  {{type}} hangout hosted by
+                  {{type}} hangout started by
 
                     <a href="{{#if currentUser}} {{pathFor 'profile' name=host.name userId=host.id}} {{/if}}" class="{{#unless currentUser}} continue-popup {{/unless}}">{{host.name}}</a>
-
-
+                    |
+                      {{users.length}} Joined
+                      {{#if views}}| <i class="fa fa-eye" aria-hidden="true" data-toggle="tooltip" title="Views" > </i> {{views}} {{/if}}
+                  </p>
+                <!-- hangout type host  and date time -->
+                   <p class="date-holder">
+                    <i class="fa fa-clock-o" aria-hidden="true"></i>
+                      <strong>{{getHangoutStartDateDay start}}</strong>
                     <br />
-                      {{getHangoutStartDateTime start}} -
-
+                     
+                      {{getHangoutStartDateTime start}} - 
                       {{#if isHangoutEndTimeTBA start end}}
-                        To Be Announced
+                        TBA (End Manually)
                       {{else}}
                         {{getHangoutEndDateTime end}}
                       {{/if}}
-                         |
-                      {{users.length}} Joined
-                      {{#if views}}| <i class="fa fa-eye" aria-hidden="true" data-toggle="tooltip" title="Views" > </i> {{views}} {{/if}}
-                   </label>
+                         
+                   
                  </p>
                  <!-- ./hangout type host  and date time -->
-
+                </div>
+                 <div class="col-md-2">
+                    {{> hangoutActionBar}}
+                  </div><!--column -->
                 </div> <!--./col-md-12-->
                 </div> <!--./row-->
               </div><!--panel-heading-->
               
               <div class="panel-body">
-
-                        {{#if isAttending users}}
-                          {{> hangoutFrame }}
-                        {{/if}}
+                <p class="upcoming align-center">
+                  <i class="fa fa-dot-circle-o fa text-danger faa-burst animated"></i>&nbsp;{{upcomingTime start}}
+                </p>
+                {{#if isAttending users}}
+                    {{> hangoutFrame }}
+                {{/if}}
 
                 <div id="hangout-description" class="margin-1">
                     {{{formatDescription this}}}
@@ -73,7 +78,7 @@
 
                 <div class="row">
                 {{# unless isHangoutCompleted end }}
-                  <div class="col-md-3 col-sm-3">
+                  <div class="col-md-2 col-sm-2">
                       <img src="/images/jitsi_screenshot.jpg" width="100%" class="jitsi-screenshot"/>
                       {{#if isHangoutInProgress start end}}
                         {{#if isAttending users}}
@@ -84,13 +89,13 @@
                   <div class="col-md-3 col-sm-3">
                     <img src="/images/jitsi_guide.jpg" width="100%">
                   </div>
-                  <div class="col-md-3 col-sm-3">
+                  <div class="col-md-4 col-sm-4">
                    <h4>Hangout Reminders</h4>
                    <ol>
-                        <li class="load-hangout">When it's time, click the green button to load the hangout. </li>
-                        <li>We usually turn off video in our hangouts.</li>
-                        <li>We encourage everyone to screenshare, which can make it much easier for everyone to follow along the material or pair program on coding exercises.</li>
-                        <li>Remember: this is a safe space! Always feel free to ask questions.</li>
+                        <li class="load-hangout">When it's time, click to load the hangout. </li>
+                        <li>We usually keep video turned off.</li>
+                        <li>Take advantage of the ability to screenshare simultaneously! It is helpful for reading the same code, pair programming, and staying on task.</li>
+                        <li>Remember that this is a safe space, and we help each other learn faster. Be patient, and always feel free to ask questions.</li>
                     </ol>
                     
                   </div>
@@ -153,7 +158,6 @@
             {{else}}
 
               {{#if isAttending users}}
-                <p class="upcoming"><i class="fa fa-dot-circle-o fa text-danger faa-burst animated"></i>&nbsp;{{upcomingTime start}}</p>
                 <a id="leave-hangout" class="btn btn-cb2 btn-danger">{{_ "leave"}}</a>
               {{else}}
 

@@ -4,9 +4,8 @@
     filter: alpha(opacity=80); // IE 5-7
     opacity: 0.8;
   }
-  label {
-    font-weight: 200;
-    font-size: 16px;
+  p {
+    font-family: $open-sans;
   }
 
   h2 {
@@ -18,6 +17,14 @@
   p.completed,
   p.status {
     color: $warm-grey;
+    font-weight: 200;
+    font-size: 16px;
+    margin: 10px 0;
+  }
+  p.date-holder {
+    color: $black;
+    font-weight: 400;
+    font-size: 16px;
   }
 
   h2.completed {

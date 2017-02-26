@@ -45,7 +45,17 @@ Template.registerHelper("getHangoutTypeSign", function(hangoutType){
 
 Template.registerHelper("getHangoutStartDateTime", function(date){
   const tz = TimezonePicker.detectedZone();
-  return moment(date).tz(tz).format('ddd MMMM Do YYYY, h:mm a z');
+  return moment(date).tz(tz).format('dddd MMMM Do YYYY, h:mm a z');
+});
+
+Template.registerHelper("getHangoutStartDateDay", function(date){
+  const tz = TimezonePicker.detectedZone();
+  return moment(date).tz(tz).format('dddd MMMM Do YYYY');
+});
+
+Template.registerHelper("getHangoutStartDateTime", function(date){
+  const tz = TimezonePicker.detectedZone();
+  return moment(date).tz(tz).format('h:mm a z');
 });
 
 Template.registerHelper("getHangoutEndDateTime", function(date){
