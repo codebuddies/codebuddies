@@ -98,8 +98,8 @@
                     {{/if}}
                 {{else}}
                   {{#unless hangoutOwner host.id}}
-                        <span class="ask">Please ask <a href="https://codebuddiesmeet.slack.com/messages/{{host.name}}">@{{host.name}}</a> to click to start the hangout.</span>
-                  {{/unless}}
+                        <p class="status">Please wait for <a href="https://codebuddies.slack.com/messages/{{host.name}}">@{{host.name}}</a> to start the hangout.</p>
+                      {{/unless}}
                 {{/if}}
 
 
@@ -121,7 +121,8 @@
               {{else}}
 
                 {{# unless isHangoutCompleted end}}
-                  <button id="join-hangout" class="btn btn-cb2">{{_ "rsvp"}}</button>
+                  <!-- <button id="join-hangout" class="btn btn-cb2">{{_ "rsvp"}}</button> -->
+                  <button class="btn btn-cb2 {{#if currentUser}} join-hangout {{else}} continue-popup {{/if}}">{{_ "rsvp"}}</button>
                 {{/unless}}
 
               {{/if}}

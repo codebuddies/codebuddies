@@ -38,8 +38,8 @@ Template.createHangoutModal.rendered = function() {
 };
 
 Template.createHangoutModal.events({
-  'click #create-hangout': function(e) {
-    const templateInstance = Template.instance();
+  'click #create-hangout': function(e, template) {
+    const templateInstance = template;
     const topic = $('#topic').val();
     const description = QuillEditor.generatePlainTextFromDeltas(templateInstance.editor.getContents());
     const description_in_quill_delta = templateInstance.editor.getContents();
@@ -62,7 +62,6 @@ Template.createHangoutModal.events({
       duration: duration,
       type: type
     };
-
 
     if ($.trim(start) == '') {
       sweetAlert({

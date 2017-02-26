@@ -30,20 +30,27 @@ Template.hangout.helpers({
   }
 });
 Template.hangout.events({
-  'click #join-hangout': function() {
-    if (!Meteor.userId()) {
-      sweetAlert({
-        title: TAPi18n.__("you_are_almost_there"),
-        text: TAPi18n.__("login_join_hangout"),
-        confirmButtonText: TAPi18n.__("ok"),
-        type: 'info'
-      });
-    } else {
+  'click .join-hangout': function() {
+    // if (!Meteor.userId()) {
+    //   sweetAlert({
+    //     title: TAPi18n.__("you_are_almost_there"),
+    //     text: TAPi18n.__("login_join_hangout"),
+    //     confirmButtonText: TAPi18n.__("sign_in_with_slack"),
+    //     type: 'info'
+    //   },
+    //   function(){
+    //     var options = {
+    //       requestPermissions: ['identify', 'users:read']
+    //     };
+    //     Meteor.loginWithSlack(options);
+    //   });
+    // } else {
 
       const data = {
         hangoutId: this._id,
-        hostId: this.host.id,
+        hostId: this.host.id
       }
+    //  }
 
       Meteor.call('addUserToHangout', data, function(error, result) {
         if (result) {
@@ -55,7 +62,6 @@ Template.hangout.events({
           });
         }
       });
-    }
   },
   'click #leave-hangout': function() {
     if (this.host.id == Meteor.userId()) {
@@ -75,14 +81,6 @@ Template.hangout.events({
         if (result) console.log('removed');
       });
     }
-  },
-  "click #visitor": function(event, template){
-    event.preventDefault();
-    sweetAlert({
-      title: TAPi18n.__("sign_in_to_continue"),
-      confirmButtonText: TAPi18n.__("ok"),
-      type: 'info'
-    });
   },
   'click #end-hangout': function(){
 

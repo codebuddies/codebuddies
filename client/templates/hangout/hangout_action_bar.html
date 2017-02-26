@@ -5,8 +5,10 @@
         <span>Edit <i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
     </button>
     <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-        {{#unless hangoutOwner host.id}}<li class="report-hangout"><a href="#">Report</a></li>{{/unless}}
-        <li class="clone-hangout"><a href="#">Duplicate</a></li>
+        {{#unless hangoutOwner host.id}}
+          <li class="{{#if currentUser}} report-hangout {{else}} continue-popup {{/if}} "><a href="#">Report</a></li>
+        {{/unless}}
+        <li class="{{#if currentUser}} clone-hangout {{else}} continue-popup {{/if}}"><a href="#">Duplicate</a></li>
         {{#if hangoutOwner host.id}}
           <li class="edit-hangout"><a href="#">Edit</a></li>
           <li class="delete-hangout"><a href="#">Delete</a></li>

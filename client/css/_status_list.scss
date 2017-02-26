@@ -51,8 +51,7 @@
     }
 
     .status {
-      padding: .4em;
-      background: white;
+      padding: 0 .4em;
       display: inline-block;
       @include font-face(400, 15px, normal, $primary-grey);
     }

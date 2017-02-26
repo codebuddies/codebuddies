@@ -1,4 +1,4 @@
-// import {_} from 'meteor/erasaur:meteor-lodash';
+// import {_} from 'lodash';
 
 if (Meteor.isClient) {
   Meteor.startup(function () {
@@ -55,6 +55,13 @@ Template.registerHelper("getHangoutEndDateTimeHour", function(date){
   return moment(date).tz(tz).format('h:mm a z')
 });
 
+Template.registerHelper("displaySlackSignInBtn", function(){
+    var options = {
+      requestPermissions: ['identify', 'users:read']
+    };
+    Meteor.loginWithSlack(options);
+});
+
 Template.registerHelper('isHangoutUpcoming', function(startDate) {
   return startDate > new Date() ? true : false;
 });
@@ -78,4 +85,5 @@ Template.registerHelper("upcomingTime", function(start){
 Template.registerHelper("isHangoutEndTimeTBA", function(start, end){
   const duration = (end - start) / (1000 * 60 * 60 * 24)
   return duration === 1 ?  true : false;
+
 });

@@ -27,16 +27,16 @@
 
 
 # The More Detailed Steps on Contributing:
-1. Say hello on the [#codebuddies-meta](https://codebuddiesmeet.slack.com/messages/codebuddies-meta/) channel in the Slack. Feel free to ask questions here, or to ask for someone to review your pull request. (If you don't have an account with codebuddiesmeet.slack.com, please visit [codebuddies.org](http://codebuddies.org) to sign up.)
-2. [Install Meteor](https://www.meteor.com/install) if you don't already have it installed.
+1. Say hello on the [#codebuddies-meta](https://codebuddies.slack.com/messages/codebuddies-meta/) channel in the Slack. Feel free to ask questions here, or to ask for someone to review your pull request. (If you don't have an account with codebuddies.slack.com, please visit [codebuddies.org](http://codebuddies.org) to sign up.)
+2. Install Meteor! On mac, you should use this command: `curl "https://install.meteor.com/?release=1.3.2.4" | sh`. On Windows, you should run the official installer [here](https://www.meteor.com/install).
 3. Please star this repository! We need to reach 100 stars so that we can apply to the [Open Collective](https://opencollective.com/opensource/apply).
   [Edit - We're already there! But still star this repo, so others can hear about what we're doing!]
 4. Fork this repository! Once you have a copy of this repo on your own account, clone this repo to your computer by typing in something like:
 
-  `git clone https://github.com/codebuddiesdotorg/cb-v2-scratch.git`
+  `git clone https://github.com/codebuddiesdotorg/codebuddies.git`
 
   (Replace the URL with your own repository URL path.)
-5. Setup this repository as an upstream branch using:
+5. Run `cd codebuddies`. Then, set up this repository as an upstream branch using:
   * `git remote add upstream https://github.com/codebuddiesdotorg/cb-v2-scratch.git`
 
   Now, whenever you want to sync with the owner repository. Do the following:
@@ -46,12 +46,12 @@
 6. Type `meteor npm install`, and then `meteor --settings settings-development.json` in your terminal to start up the app in your browser ([http://localhost:3000](http://localhost:3000)).
   * (`meteor npm run meteor:dev` can also run the app, but will likely [use up your CPU](https://github.com/meteor/meteor/issues/4314).)
   * Also note: if you see an error in your terminal asking you to `meteor npm install --save faker`, please run that command!
-7. Look at some of the [open issues](https://github.com/codebuddiesdotorg/cb-v2-scratch/issues) and identify one that sparks your interest. If you want to work on the issue, leave a comment on it saying that you're working on it!
-8. If you have any questions about the issue you're looking at, you can leave a comment in there, or ask in the [#codebuddies-meta Slack channel](https://codebuddiesmeet.slack.com/messages/codebuddies-meta). Read below for more instructions about how to work with branches.
-9. Type `git branch -a` to see a list of all the branches besides `master`, the default branch you're in. Note that if you want to switch to an already-created branch, you would type `git checkout BRANCHNAME`. You can read more about how to create a new branch to work on an issue below.
-10. Once you finish making your changes, commit and push your changes.
-11. Submit your Pull Request! See some tips on [how to create the perfect pull request](https://github.com/blog/1943-how-to-write-the-perfect-pull-request).
-12. (Optional) Add yourself as a contributor, if you haven't done so already. Steps are listed [below](#how-do-i-add-myself-as-a-contributor).
+8.Look at some of the [open issues](https://github.com/codebuddiesdotorg/cb-v2-scratch/issues) and identify one that sparks your interest. If you want to work on the issue, leave a comment on it saying that you're working on it!
+9. If you have any questions about the issue you're looking at, you can leave a comment in there, or ask in the [#codebuddies-meta Slack channel](https://codebuddies.slack.com/messages/codebuddies-meta). Read below for more instructions about how to work with branches.
+10. Type `git branch -a` to see a list of all the branches besides `master`, the default branch you're in. Note that if you want to switch to an already-created branch, you would type `git checkout BRANCHNAME`. You can read more about how to create a new branch to work on an issue below.
+11. Once you finish making your changes, commit and push your changes.
+12. Submit your Pull Request! See some tips on [how to create the perfect pull request](https://github.com/blog/1943-how-to-write-the-perfect-pull-request).
+13. (Optional) Add yourself as a contributor, if you haven't done so already. Steps are listed [below](#how-do-i-add-myself-as-a-contributor).
 
 If you see a bug in the app or have a feature request, feel free to [create a new issue](https://github.com/codebuddiesdotorg/cb-v2-scratch/issues/new) on the Github repo!
 
@@ -91,7 +91,7 @@ Finally, when you're finished working on the fix or feature in your branch, you'
 
 Click on the "pull request" button by going to https://github.com/codebuddiesdotorg/cb-v2-scratch/pulls and clicking on "new pull request." Next, select your branch, and submit.
 
-One of the github maintainers (@linda or someone else) will look over your pull request and accept it.
+One of the github maintainers (@linda or someone else) will look over your pull request and accept it after it is reviewed by volunteer contributors. Note that for best practice, the PR [may get "squashed" into one commit](http://softwareengineering.stackexchange.com/questions/263164/why-squash-git-commits-for-pull-requests). If you prefer that the merge not be squashed into one commit, just let us know in the PR! 
 
 *Note 1* - If you've picked out an issue to work on, make sure you let people know that you're continuing working on it, if the fix happens to take 2 days or longer. An update every two dates by way of a comment on the issue will do. Doesn't necessarily have to be a fix. In case you're unable to continue on the issue for some reason, just let people know that as well so that someone else can claim it. If you do not update within a couple of days, it will be assumed that the issue is not being attended to and will be up for grabs.
 
