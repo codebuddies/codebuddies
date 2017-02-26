@@ -83,7 +83,6 @@
 
     a {
       color: $white;
-      text-decoration: underline;
     }
   }
   //Note: Let's figure out a way to move the styles below to _buttons.scss so that we can reuse them
@@ -91,13 +90,27 @@
     font-size: 18px;
     text-transform: uppercase;
     width: 300px;
+    display: inline-block;
   }
 
   .btn-danger {
     background: $danger-red;
   }
 
+  .google-hangout {
+    position: relative;
+    top: 8px;
+  }
+  .google-hangout-button {
+    position: relative;
+    top: -2px;
+  }
+
   #end-hangout {
     margin-top: 5px;
+  }
+
+  #hangout-button-wrapper {
+    text-align: center;
   }
 }

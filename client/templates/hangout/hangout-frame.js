@@ -25,7 +25,6 @@ Template.hangoutFrame.onCreated(function() {
     instance.api.executeCommand('displayName', data.username);
     instance.api.executeCommand('toggleChat');
     instance.api.executeCommand('avatarUrl', data.avatar);
-    instance.api.executeCommand('toggleShareScreen');
 
     $('#jitsiConference0').css('width', '100%');
     //only show the launch hangout button if Jitsi is not loaded
@@ -57,6 +56,9 @@ Template.hangoutFrame.onRendered(function() {
     //console.log('a different browser')
      $('p.chrome-firefox-warning').show();
   }
+
+  //Google Hangout support
+  $('head').append('<script src="https://apis.google.com/js/platform.js" async defer></script>');
 });
 
 Template.hangoutFrame.events({

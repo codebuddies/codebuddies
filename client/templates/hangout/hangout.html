@@ -87,9 +87,10 @@
                   <div class="col-md-3 col-sm-3">
                    <h4>Hangout Reminders</h4>
                    <ol>
-                        <li class="load-hangout">When the hangout starts, click the green button to load the hangout. </li>
-                        <li>By default, please turn off video.</li>
-                        <li>We encourage everyone to screenshare simultaneously, which can make it much easier for everyone to follow along the material or collaborate on coding exercises.</li>
+                        <li class="load-hangout">When it's time, click the green button to load the hangout. </li>
+                        <li>We usually turn off video in our hangouts.</li>
+                        <li>We encourage everyone to screenshare, which can make it much easier for everyone to follow along the material or pair program on coding exercises.</li>
+                        <li>Remember: this is a safe space! Always feel free to ask questions.</li>
                     </ol>
                     
                   </div>
@@ -123,6 +124,17 @@
             {{#if isHangoutInProgress start end}}
 
               {{#if isAttending users}}
+
+                <p>Want to use Google Hangouts instead? 
+                {{# unless url }}
+                    <div class="google-hangout display-inline">   
+                     <div class="g-hangout" data-render="createhangout"   
+                     data-initial_apps="[{ app_id : '999356798349', start_data: {{_id}}, 'app_type' : 'LOCAL_APP' }]" data-widget_size="72"></div>    
+                    </div>
+                  {{ else }}
+                    <a class="btn btn-cb2 btn-grey btn-success google-hangout-button" href="{{url}}" target="_blank">Launch Google Hangout</a>
+                  {{/unless}}
+                </p>
 
                     {{#if hangoutOwner host.id}}
                         <div id="end-hangout" class="btn btn-cb2 btn-danger">{{_ "end_hangout"}}</div>
