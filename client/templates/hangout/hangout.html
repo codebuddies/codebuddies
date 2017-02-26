@@ -61,12 +61,29 @@
               </div><!--panel-heading-->
               
               <div class="panel-body">
-                <p class="upcoming align-center">
+              {{# unless isHangoutCompleted end }}
+                <p class="upcoming align-center load-hangout">
                   <i class="fa fa-dot-circle-o fa text-danger faa-burst animated"></i>&nbsp;{{upcomingTime start}}
                 </p>
-                {{#if isAttending users}}
+
+                 {{#if isAttending users}}
                     {{> hangoutFrame }}
-                {{/if}}
+                 {{/if}}
+
+
+              {{ else }}
+                <div class="completed align-center"> 
+                  {{#if isAttending users}}
+                      <p>Thanks for joining! This hangout has ended. Would you like to start another one?</p> <div class="btn btn-cb2 margin-top-1" id="create-hangout-popup"> Create a Hangout </div>
+                  {{else}}
+                      Sorry, this hangout has ended. Why not start your own? 
+                      <div class="btn btn-cb2 margin-top-1" id="create-hangout-popup">
+                        Create a Hangout
+                      </div>
+                  {{/if}}
+                </div>
+              {{/ unless }}
+               
 
                 <div id="hangout-description" class="margin-1">
                     {{{formatDescription this}}}
@@ -77,7 +94,18 @@
               <div class="panel-footer">
 
                 <div class="row">
-                {{# unless isHangoutCompleted end }}
+                
+                  <div class="col-md-4 col-sm-4">
+                   <h4>Hangout Reminders</h4>
+                   <ol>
+                        <li>Remember that this is a safe space, and we help each other learn faster. Be patient, and always feel free to ask questions.</li>
+                        <li class="load-hangout">When it's time, click to load the hangout. </li>
+                        <li>We usually keep video turned off.</li>
+                        <li>Take advantage of the ability to screenshare simultaneously! It is helpful for reading the same code, pair programming, and staying on task.</li>
+
+                    </ol>
+                    
+                  </div>
                   <div class="col-md-2 col-sm-2">
                       <img src="/images/jitsi_screenshot.jpg" width="100%" class="jitsi-screenshot"/>
                       {{#if isHangoutInProgress start end}}
@@ -89,22 +117,12 @@
                   <div class="col-md-3 col-sm-3">
                     <img src="/images/jitsi_guide.jpg" width="100%">
                   </div>
-                  <div class="col-md-4 col-sm-4">
-                   <h4>Hangout Reminders</h4>
-                   <ol>
-                        <li class="load-hangout">When it's time, click to load the hangout. </li>
-                        <li>We usually keep video turned off.</li>
-                        <li>Take advantage of the ability to screenshare simultaneously! It is helpful for reading the same code, pair programming, and staying on task.</li>
-                        <li>Remember that this is a safe space, and we help each other learn faster. Be patient, and always feel free to ask questions.</li>
-                    </ol>
-                    
-                  </div>
-               {{/unless}} <!-- ./isHangoutCompleted -->
+                  
+               
 
-                  <div class="col-md-3 col-sm-3 {{#unless isHangoutCompleted end}} pull-right {{/unless}}">
+                  <div class="col-md-3 col-sm-3">
 
-                     
-
+                  
               <a href="{{#if currentUser}} {{pathFor 'profile' name=host.name userId=host.id}} {{/if}}" class="{{#unless currentUser}} continue-popup {{/unless}}"><img class="img-circle" src="{{host.avatar}}"></a>
                 {{#each attendees}}
                 <a href="{{#if currentUser}} {{pathFor 'profile' name=name userId=id}} {{/if}}" class="{{#unless currentUser}} continue-popup {{/unless}}" ><img class="img-circle" src="{{avatar}}"></a>
@@ -168,14 +186,7 @@
               {{/if}}
 
             {{/if}}
-          {{else}}
-            <p class="completed"> 
-              {{#if isAttending users}}
-                  <p>Thanks for joining! This hangout has ended. Would you like to start another one?</p> <div class="btn btn-cb2 margin-top-1" id="create-hangout-popup"> Create a Hangout </div>
-              {{else}}
-                  Sorry, this hangout has ended. Why not start your own? <div class="btn btn-cb2 margin-top-1" id="create-hangout-popup"> Create a Hangout </div>
-              {{/if}}
-            </p>
+            
           {{/unless}}
 
         {{/if}} <!-- if equals visibility false -->

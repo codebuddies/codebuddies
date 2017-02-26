@@ -6,7 +6,7 @@
         <label class="name">
         {{#if isHangoutInProgress start end}}
           &nbsp; &nbsp;<i class="fa fa-dot-circle-o fa text-danger faa-burst animated"></i> &nbsp;
-          <a href="{{pathFor 'hangout' hangoutId=_id }}" class="hangout-topic {{# if isHangoutCompleted end }}completed{{/if}}" target="_blank"> {{topic}} </a>
+          <a href="{{pathFor 'hangout' hangoutId=_id }}" class="hangout-topic {{# if isHangoutCompleted end }}completed{{/if}}"> {{topic}} </a>
         {{ else }}
           <a href="{{pathFor 'hangout' hangoutId=_id }}" class="hangout-topic {{# if isHangoutCompleted end }}completed{{/if}}"> {{topic}} </a>
         {{/if}}
@@ -27,7 +27,7 @@
             {{#if isHangoutInProgress start end}}
 
               {{#if isAttending users}}
-                  <a class="btn btn-cb2 btn-grey btn-success" href="{{pathFor 'hangout' hangoutId=_id }}" target="_blank">{{_ "launch"}}</a>
+                  <a class="btn btn-cb2 btn-grey btn-success" href="{{pathFor 'hangout' hangoutId=_id }}">{{_ "launch"}}</a>
               {{else}}
                 {{# unless isHangoutCompleted end}}
                   <button class="btn btn-cb2 join-hangout">{{_ "join_in_session"}}</button>
@@ -59,7 +59,7 @@
 
     <div class="col-md-9">
 
-      <p class="status"><label><i class="fa {{getHangoutTypeSign type}}"></i> Host <a href="{{pathFor 'profile' name=host.name userId=host.id}}">{{host.name}}</a></label></p>
+      <p class="status"><label><i class="fa {{getHangoutTypeSign type}}"></i> Started by <a href="{{pathFor 'profile' name=host.name userId=host.id}}">{{host.name}}</a></label></p>
       <p class="status"><label><i class="fa fa-calendar fa-lg"></i> {{getHangoutStartDateTime start}} -
 
         {{#if isHangoutEndTimeTBA start end}}

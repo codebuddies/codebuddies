@@ -12,7 +12,7 @@ Template.hangoutFrame.onCreated(function() {
   */
   instance.loadJitsi = function(data){
 
-    const domain = "beta.meet.jit.si";
+    const domain = "meet.jit.si";
     let room = 'cb' + data.room;
     let width = 500;
     let height = 550;
@@ -26,9 +26,9 @@ Template.hangoutFrame.onCreated(function() {
     instance.api.executeCommand('toggleChat');
     instance.api.executeCommand('avatarUrl', data.avatar);
 
-    $('#jitsiConference0').css('width', '100%');
+    $("div[id^=" + 'jitsiConference' + "]").css('width', '100%');
     //only show the launch hangout button if Jitsi is not loaded
-    $('#jitsiConference0').length == 1 ? $('.load-hangout').hide() : $('#load-hangout').show();
+    $("div[id^=" + 'jitsiConference' + "]").length == 1 ? $('.load-hangout').hide() : $('#load-hangout').show();
   }
 
   /**
@@ -75,5 +75,6 @@ Template.hangoutFrame.events({
 
 
 Template.hangoutFrame.onDestroyed(function () {
-  Template.instance().disposeJitsi();
+  //Template.instance().disposeJitsi();
+  //Remove for now (see: issue 461)
 });

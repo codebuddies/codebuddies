@@ -87,7 +87,7 @@ Template.registerHelper("isAttending", function(users){
 });
 
 Template.registerHelper("upcomingTime", function(start){
-  return start > new Date() ? TAPi18n.__("upcoming_time", { time: moment(start).fromNow() }) : "nan" ;
+  return start > new Date() ? TAPi18n.__("upcoming_time", { time: moment(start).fromNow() }) : "The hangout has started!" ;
 });
 
 Template.registerHelper("isHangoutEndTimeTBA", function(start, end){

@@ -9,8 +9,9 @@
   }
 
   h2 {
-    font-weight: 200;
+    font-weight: 400;
     margin: 0px;
+    font-size: 26px;
   }
 
   h2.completed,
@@ -97,7 +98,6 @@
     font-size: 18px;
     text-transform: uppercase;
     width: 300px;
-    display: inline-block;
   }
 
   .btn-danger {
@@ -111,6 +111,7 @@
   .google-hangout-button {
     position: relative;
     top: -2px;
+    display: inline-block;
   }
 
   #end-hangout {
