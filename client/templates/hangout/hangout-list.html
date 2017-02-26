@@ -1,6 +1,6 @@
 <template name="hangoutList">
   {{#if Template.subscriptionsReady}}
-    <ul id="hangouts">
+    <div id="hangouts">
 
       {{#each hangouts}}
         {{> hangoutItem}}
@@ -11,17 +11,17 @@
       {{/each}}
 
 
-    </ul>
+    </div>
 
     {{#unless status}}
 
-      <div>
+      <div class="col-md-12">
         <button id="loadMore" class="btn btn-default btn-block">Load More</button>
       </div>
 
     {{else}}
 
-      <div>
+      <div class="col-md-12">
         <button id="#" class="btn btn-default btn-block">There are no more hangouts</button>
       </div>
 

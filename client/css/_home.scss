@@ -7,6 +7,8 @@
     color: $primary-grey;
   }
 
+  .panel-body { padding: 15px 0px 15px 15px;}
+
   .join-slack {
     overflow: auto;
     max-width: 440px;
@@ -38,7 +40,8 @@
     text-align: center;
 
     .title {
-      margin: 10px 0px 20px;
+      margin: 10px 0 20px 0;
+      color: white;
     }
   }
 
@@ -69,8 +72,6 @@
 
   .search-area {
     padding: 30px;
-    background: $bg-lightgrey;
-
     .searchTerm {
       font-size: 16px;
       height: 37px;
@@ -82,7 +83,7 @@
     padding: 60px 0 0;
     background: $dodgerblue;
     overflow: hidden;
-
+    background: $cta-blue;
     h2 {
       @include font-face(600, 36px, bold, $bg-white);
     }
@@ -388,4 +389,8 @@
       margin-top: 50px;
     }
   }
+
+  .nav-tabs > li > a { border-radius: 0px;}
+
+  .panel { margin: 0px; background-color: $cta-blue;}
 }

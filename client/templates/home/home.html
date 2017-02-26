@@ -1,30 +1,26 @@
 <template name="home">
-<div id="home" class="{{#if currentUser}}logged-in{{/if}}">
+<div id="home" class="{{#if currentUser}}logged-in{{/if}} padding-none">
   {{#unless currentUser}}
       {{> homeLoggedOut}}
   {{else}}
-  <div class="container">
+  <div class="">
     <div class="row">
-      <div class="col-md-7">
+      <div class="col-md-8 padding-none">
         <div class="panel panel-default">
           <div class="panel-body">
             <div class="heading">
-              <div class="title">{{_ "join_hangouts"}} <span class="question"><a id="hangout-faq-popup"><i class="fa fa-question-circle fa-2x"></i></a></span> </div>
+              <div class="title">{{_ "join_hangouts"}} <span class="question"><a id="hangout-faq-popup"><i class="material-icons help-outline---Material-Icons">help_outline</i></a></span> </div>
             </div><!--heading-->
 
             <div class="row search-area">
-              <div class="col-md-7">
+              <div class="col-md-8">
                   <input type="text" class="form-control searchTerm" name="searchTerm" placeholder="&#128269; Search" id="searchBox">
               </div>
-              <div class="col-md-5">
-                  <div class="btn btn-cb2" id="create-hangout-popup"> {{_ "create_a_hangout"}} </div>
+              <div class="col-md-4">
+                  <div class="btn btn-cb2 btn-CreateHangout" id="create-hangout-popup"> {{_ "create_a_hangout"}} </div>
                   <!-- <button id="create-hangout-popup" class="btn btn-cb2">{{_ "create_a_hangout"}}</button> -->
               </div>
             </div><!-- inner row-->
-            
-            <div class="heading">
-
-            </div>
             {{#if searchMode}}
               <div class="page-header align-center"><h5>Showing results for '{{hangoutSearchQuery}}'</h5></div>
                 {{#if searchResults.count}}
@@ -51,7 +47,7 @@
           </div>
         </div><!-- panel-->
       </div><!--col-md-6 col-md-offset-1-->
-      <div class="col-md-5">
+      <div class="col-md-4 padding-none">
         <div class="full-width-tabs">
           <ul id="statusTabs" class="nav nav-tabs" role="tablist">
             <li class="active full-width-tab"><a data-id="A" href="#A"><span class="tab-title">{{_ "i_am_working_on"}}</span></a></li>
@@ -87,4 +83,3 @@
 
 </div>
 </template>
-

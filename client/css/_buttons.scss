@@ -183,6 +183,27 @@
   }
 }
 
+.btn-CreateHangout {
+  width: 220px;
+  height: 36px;
+  background-color: #7ed321;
+  object-fit: contain;
+}
+
+.help-outline---Material-Icons {
+  width: 36px;
+  height: 24px;
+  object-fit: contain;
+  font-family: MaterialIcons;
+  font-size: 24px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: 0.3px;
+  text-align: center;
+  color: #ffffff;
+}
+
 #btn-load-more, #load-more-learnings {
   color: $cta-blue;
   margin: 10px 0;
