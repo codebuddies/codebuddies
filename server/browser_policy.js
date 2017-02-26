@@ -28,7 +28,8 @@ var trusted = [
   '*.jit.si',
   'jitmeet.org',
   '*.jitsi.org',
-  'jitsi.org'
+  'jitsi.org',
+  '*.google-analytics.com'
 ];
 
 _.each(trusted, function(origin) {
