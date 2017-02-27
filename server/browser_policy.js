@@ -25,6 +25,10 @@ var trusted = [
   '*.licdn.com',
   '*.wp.com',
   '*.codebuddies.org',
+  '*.jit.si',
+  'jitmeet.org',
+  '*.jitsi.org',
+  'jitsi.org',
   '*.google-analytics.com'
 ];
 

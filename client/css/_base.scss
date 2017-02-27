@@ -15,8 +15,22 @@ h3 {
   margin: 60px 0 20px;
 }
 
+small.reminder {
+    display: block;
+    line-height: 1.2;
+    margin: 5px 0px;
+    font-weight: 200;
+}
+
 #__blaze-root {
   height: 100%;
+}
+
+p.warning { 
+  text-align: center;
+  color: $hangout-silent;
+  margin:10px;
+  font-weight: 400;
 }
 
 #wrapper {
@@ -47,6 +61,10 @@ a:hover {
   text-align: center;
 }
 
+.display-inline {
+  display: inline-block;
+}
+
 .col-centered {
   float: none;
   margin: 0 auto;
@@ -61,6 +79,17 @@ a:hover {
 }
 
 #post {
-  margin-top: 30px;
   ul { list-style: none; }
 }
+
+.margin-top-1 {
+  margin-top: 10px;
+}
+.margin-bottom-1 {
+  margin-bottom: 10px;
+}
+.margin-1 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+

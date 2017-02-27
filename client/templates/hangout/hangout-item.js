@@ -1,6 +1,6 @@
 Template.hangoutItem.rendered =function() {
 
-  $('head').append('<script src="https://apis.google.com/js/platform.js" async defer></script>');
+  //$('head').append('<script src="https://apis.google.com/js/platform.js" async defer></script>');
 
 };
 
