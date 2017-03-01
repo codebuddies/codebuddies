@@ -5,7 +5,7 @@
 
 Template.home.onCreated(function(){
   var title = "CodeBuddies | Home";
-  var metaInfo = {name: "description", content: "We're a community learning code via a Slack chatroom, a Facebook Group, and peer-to-peer Google Hangouts. Learning with others helps us learn faster. The project is free, open-sourced, and 100% community-built."};
+  var metaInfo = {name: "description", content: "We're a community learning code via a Slack chatroom, a Facebook Group, and peer-to-peer organized screensharing/pair-programming hangouts. Learning with others helps us learn faster. The project is free, open-sourced, and 100% community-built."};
   DocHead.setTitle(title);
   DocHead.addMeta(metaInfo);
 });
@@ -49,8 +49,14 @@ Template.home.events({
       sweetAlert({
         title: TAPi18n.__("login_create_hangout_title"),
         text: TAPi18n.__("login_create_hangout_message"),
-        confirmButtonText: TAPi18n.__("ok"),
+        confirmButtonText: TAPi18n.__("sign_in_with_slack"),
         type: 'info'
+      },
+      function(){
+        var options = {
+          requestPermissions: ['identify', 'users:read']
+        };
+        Meteor.loginWithSlack(options);
       });
     } else {
       Modal.show('createHangoutModal');

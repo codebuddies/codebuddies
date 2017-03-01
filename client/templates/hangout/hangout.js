@@ -2,7 +2,9 @@ import QuillEditor from '../../libs/QuillEditor';
 
 Meteor.startup(function() {
     $('head').append('<link href="https://cdn.quilljs.com/1.0.3/quill.snow.css" rel="stylesheet">');
+    //$('head').append('<script src="https://meet.jit.si/external_api.js"></script>');
 });
+
 
 Template.hangout.onCreated(function() {
   var title = "CodeBuddies | Hangout";
@@ -12,9 +14,7 @@ Template.hangout.onCreated(function() {
 });
 
 Template.hangout.rendered = function() {
-
-  $('head').append('<script src="https://apis.google.com/js/platform.js" async defer></script>');
-
+ // $('head').append('<script src="https://apis.google.com/js/platform.js" async defer></script>');
 }
 
 Template.hangout.helpers({
@@ -30,20 +30,27 @@ Template.hangout.helpers({
   }
 });
 Template.hangout.events({
-  'click #join-hangout': function() {
-    if (!Meteor.userId()) {
-      sweetAlert({
-        title: TAPi18n.__("you_are_almost_there"),
-        text: TAPi18n.__("login_join_hangout"),
-        confirmButtonText: TAPi18n.__("ok"),
-        type: 'info'
-      });
-    } else {
+  'click .join-hangout': function() {
+    // if (!Meteor.userId()) {
+    //   sweetAlert({
+    //     title: TAPi18n.__("you_are_almost_there"),
+    //     text: TAPi18n.__("login_join_hangout"),
+    //     confirmButtonText: TAPi18n.__("sign_in_with_slack"),
+    //     type: 'info'
+    //   },
+    //   function(){
+    //     var options = {
+    //       requestPermissions: ['identify', 'users:read']
+    //     };
+    //     Meteor.loginWithSlack(options);
+    //   });
+    // } else {
 
       const data = {
         hangoutId: this._id,
-        hostId: this.host.id,
+        hostId: this.host.id
       }
+    //  }
 
       Meteor.call('addUserToHangout', data, function(error, result) {
         if (result) {
@@ -55,7 +62,6 @@ Template.hangout.events({
           });
         }
       });
-    }
   },
   'click #leave-hangout': function() {
     if (this.host.id == Meteor.userId()) {
@@ -75,14 +81,6 @@ Template.hangout.events({
         if (result) console.log('removed');
       });
     }
-  },
-  "click #visitor": function(event, template){
-    event.preventDefault();
-    sweetAlert({
-      title: TAPi18n.__("sign_in_to_continue"),
-      confirmButtonText: TAPi18n.__("ok"),
-      type: 'info'
-    });
   },
   'click #end-hangout': function(){
 
@@ -114,5 +112,23 @@ Template.hangout.events({
 
       }); //sweetAlert
 
+  },
+  "click #create-hangout-popup": function() {
+    if (!Meteor.userId()) {
+      sweetAlert({
+        title: TAPi18n.__("login_create_hangout_title"),
+        text: TAPi18n.__("login_create_hangout_message"),
+        confirmButtonText: TAPi18n.__("sign_in_with_slack"),
+        type: 'info'
+      },
+      function(){
+        var options = {
+          requestPermissions: ['identify', 'users:read']
+        };
+        Meteor.loginWithSlack(options);
+      });
+    } else {
+      Modal.show('createHangoutModal');
+    }
   }
 });

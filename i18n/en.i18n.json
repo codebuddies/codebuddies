@@ -2,6 +2,7 @@
   // general & menu
   "sign_out": "Sign Out",
   "sign_in_with": "Sign In with",
+  "sign_in_with_slack": "Sign into Slack",
 
   //home
   "jumbotron_subtitle": "We're __count__ people who help each other by sharing knowledge",
@@ -46,9 +47,9 @@
   "join": "RSVP",
   "join_long": "Launch the hangout",
   "rsvp": "RSVP",
-  "rsvp_long": "RSVP to this event",
+  "rsvp_long": "RSVP to this hangout",
   "leave": "Remove RSVP",
-  "join_in_session": "Join",
+  "join_in_session": "RSVP NOW",
   "load_more": "Load more...",
   "load_page": "Load page __start__/__total__",
   "ok": "OK",
@@ -56,10 +57,11 @@
   "no_delete_hangout": "No, I was just kidding",
   "yes_delete_learning": "Yes please!",
   "no_delete_learning": "No thanks!",
-  "launch" : "Launch Hangout",
+  "launch" : "JOIN NOW",
   "yes_end_hangout": "Yes end it!",
   "no_end_hangout": "No, I was just kidding",
   "end_hangout": "END HANGOUT",
+
 
   // hangout
   "what_is_a_hangout": "What is a hangout?",
@@ -70,6 +72,7 @@
   "silent_hangout": "Silent Hangout",
   "teaching_hangout": "Teaching Hangout",
   "collaboration_hangout": "Collaboration Hangout",
+  "click_to_load_hangout": "Click to load hangout",
 
   // popup messages
   "you_are_almost_there": "You are almost there!",
@@ -82,8 +85,10 @@
   "remove_owner_from_hangout": "Hey! You can't remove yourself from your hangout.",
   "delete_hangout_confirm": "Are you sure?",
   "delete_hangout_text": "Note: All participants will be notified via email of cancellation",
+  "continue_popup_text":"Please sign in using your CodeBuddies Slack account. By continuing, I agree that I am at least 13 years of age and have read and agree to the terms of service and privacy policy on this site.",
+  "not_now":"Not Now",
+  "continue_with_slack": "Sign in with Slack",
   "end_hangout_confirm": "Are you sure?",
-
 
   // create hangout modal - popup messages
   "hangout_created_title": "Hangout Created Successfully",
@@ -110,5 +115,5 @@
 
   //visitor
   "sign_in_to_continue" : "Please sign in to continue.",
-  "browse" : "Browse"
+  "browse_hangouts" : "Hangouts"
 }
