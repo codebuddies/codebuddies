@@ -1,0 +1,35 @@
+<template name="resourcesList">
+  {{#if Template.subscriptionsReady}}
+    {{#if resources.count}}
+      {{#each resources}}
+        <div class="well">
+          <h4>
+            {{title}}
+            <br>
+            <small>
+              <a href="{{url}}" target="_blank" alt="{{title}}">{{url}}</a>
+            </small>
+
+            {{#if isInRole 'owner' study_group.id}}
+              <button class="btn btn-danger pull-right delete-resource"> X</button>
+            {{/if}}
+          </h4>
+        </div>
+      {{/each}}
+    {{else}}
+
+      <div class="jumbotron align-center">
+        <div class="container">
+          <div class="row text-center">
+
+              <h5>There are no Resources !</h5>
+
+          </div>
+         </div>
+      </div>
+
+    {{/if}}
+  {{else}}
+    {{> loading}}
+  {{/if}}
+</template>
