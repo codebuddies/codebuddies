@@ -1,0 +1,69 @@
+<template name="allStudyGroups">
+  <div id="study-groups">
+
+
+    <div class="section study-groups-top">
+        <div class="container">
+          <div class="row">
+              <div class="col-md-12 align-center">
+                <h2>Study Groups</h2>
+            </div>
+          </div>
+      </div>
+    </div>
+
+    <div class="container">
+    <br>
+    <br>
+      {{#if Template.subscriptionsReady}}
+        {{#if studyGroups.count}}
+          {{#each studyGroups}}
+            <div class="well">
+              <h4>
+                <a href="{{pathFor 'study group' studyGroupSlug=slug studyGroupId=_id}}">  {{title}} </a>
+                <br> <small>{{tagline}}</small> <small><i class="fa fa-users fa-fw"></i>{{members.length}}</small>
+                {{#if isInRole 'owner' _id}}
+                  <span class="label label-primary pull-right">Owner</span>
+                {{/if}}
+                {{#if isInRole 'manager' _id}}
+                  <span class="label label-primary pull-right">Manager</span>
+                {{/if}}
+                {{#if isInRole 'moderator' _id}}
+                  <span class="label label-primary pull-right">Moderator</span>
+                {{/if}}
+                {{#if isInRole 'member' _id}}
+                  <span class="label label-primary pull-right">Member</span>
+                {{/if}}
+
+              </h4>
+            </div>
+          {{/each}}
+        {{else}}
+
+          <!-- <div class="jumbotron align-center">
+            <div class="container">
+              <div class="row text-center">
+
+                  <h5>You don't have any studygroups</h5>
+                  <div class="btn btn-default" id="newStudyGroup">Create A Study Group</div>
+                  &nbsp; OR &nbsp;
+                  <div class="btn btn-default" id="findMeStudyGroup">Find me a Study Group</div>
+              </div>
+             </div>
+          </div> -->
+
+        {{/if}}
+      {{else}}
+        {{> loading}}
+      {{/if}}<!-- ./Template.subscriptionsReady -->
+
+      {{#if status}}
+          <div class="col-md-12">
+            <h5 class="text-center well">You've reached the end of the page.</h5>
+          </div>
+      {{/if}}
+
+    </div>
+
+  </div><!-- #study-groups -->
+</template>

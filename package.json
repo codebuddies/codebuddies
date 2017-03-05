@@ -19,6 +19,12 @@
     "twitter": "1.4.0"
   },
   "devDependencies": {
-      "faker": "3.1.0"
+    "cz-conventional-changelog": "2.0.0",
+    "faker": "3.1.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }

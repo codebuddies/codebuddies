@@ -23,7 +23,22 @@
              <li><a href="https://codebuddies.slack.com/messages/general" target="_blank"><i class="fa fa-slack" aria-hidden="true"></i> </a></li>
            {{/unless}}
           {{#if currentUser}}
+              <!-- Study Groups -->
+              <li><a href="{{pathFor 'all study groups'}}">Groups</a></li>
+              <!-- notification for user-->
               <li><a href="{{pathFor 'user notification'}}"><i class="fa fa-bell" aria-hidden="true"></i> {{#if userNotificationCount}}<small><span class="badge">{{userNotificationCount}}</span></small>{{/if}} </a></li>
+              <!-- dropdown for user-->
+              <li id="user-drop-down" class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                  <i class="fa fa-plus" aria-hidden="true"></i> <span class="caret"></span>
+                </a>
+                  <ul class="dropdown-menu" role="menu">
+                      <!-- pop up for new hangout -->
+                    <li id="newHangout"><a href="#">{{_ "new_hangout"}}</a></li>
+                      <!-- pop up for new studygroup -->
+                    <li id="newStudyGroup"><a href="#">{{_ "new_study_group"}}</a></li>
+                  </ul>
+              </li>
           {{/if}}
           {{#if isInRole 'moderator,admin' 'CB'}}
             <li id="user-drop-down" class="dropdown">
@@ -46,6 +61,7 @@
                   <img src="{{user.profile.avatar.default}}" class="img-circle"> {{user.username}} <span class="caret"></span>
                 </a>
                   <ul class="dropdown-menu" role="menu">
+                    <li><a href="{{pathFor 'my study groups'}}"><i class="fa fa-users fa-fw"></i> {{_ "my_study_groups"}}</a></li>
                     <li><a href="/profile/{{user.username}}/{{user._id}}"><i class="fa fa-user fa-fw"></i> {{_ "profile"}}</a></li>
                     <li><a href="{{pathFor 'account' name=user.username userId=user._id}}"><i class="fa fa-gear fa-fw"></i> {{_ "settings"}}</a></li>
                     <li><a href="#" id="signOut"><i class="fa fa-sign-out fa-fw"></i> {{_ "sign_out"}}</a></li>

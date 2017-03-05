@@ -1,0 +1,41 @@
+<template name="newStudyGroupModal">
+    <div id="create-hangout-modal" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+            <form class="newStudyGroup">
+
+              <div class="modal-header">
+                <h4 class="modal-title text-center">{{_ "start_a_studygroup"}}</h4>
+                <button type="button" class="btn btn-circle btn-outline btn-info pull-right" data-dismiss="modal"><i class="fa fa-times"></i></button>
+              </div>
+
+              <div class="modal-body">
+
+                <fieldset>
+                  <div class="form-group">
+                    <label class="col-md-12 control-label">{{_ 'study_group_name'}}</label>
+
+                    <div class="col-md-12">
+                      <input type="text" class="form-control" id="title">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="tagline" class="col-md-12 control-label">{{_ 'study_group_tagline'}}</label>
+
+                    <div class="col-md-12">
+                      <input type="text" class="form-control" id="tagline">
+                    </div>
+                  </div>
+                </fieldset>
+
+              </div><!-- ./modal-body -->
+
+              <div class="modal-footer">
+                  <button type="submit" class="btn btn-primary pull-right">{{_ 'create'}}</button>
+              </div>
+            </form>
+
+        </div><!--modal content-->
+      </div>
+    </div>
+</template>
