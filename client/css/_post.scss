@@ -1,17 +1,31 @@
 #post {
-  label {
-    font-weight: 200;
-    font-size: 16px;
+  .jitsi-screenshot { 
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)"; // IE8
+    filter: alpha(opacity=80); // IE 5-7
+    opacity: 0.8;
+  }
+  p {
+    font-family: $open-sans;
   }
 
   h2 {
-    font-weight: 200;
+    font-weight: 400;
+    margin: 0px;
+    font-size: 26px;
   }
 
   h2.completed,
   p.completed,
   p.status {
     color: $warm-grey;
+    font-weight: 200;
+    font-size: 16px;
+    margin: 10px 0;
+  }
+  p.date-holder {
+    color: $black;
+    font-weight: 400;
+    font-size: 16px;
   }
 
   h2.completed {
@@ -77,14 +91,12 @@
 
     a {
       color: $white;
-      text-decoration: underline;
     }
   }
   //Note: Let's figure out a way to move the styles below to _buttons.scss so that we can reuse them
   .btn-cb2 {
     font-size: 18px;
     text-transform: uppercase;
-    font-weight: 200;
     width: 300px;
   }
 
@@ -92,7 +104,21 @@
     background: $danger-red;
   }
 
+  .google-hangout {
+    position: relative;
+    top: 8px;
+  }
+  .google-hangout-button {
+    position: relative;
+    top: -2px;
+    display: inline-block;
+  }
+
   #end-hangout {
     margin-top: 5px;
+  }
+
+  #hangout-button-wrapper {
+    text-align: center;
   }
 }

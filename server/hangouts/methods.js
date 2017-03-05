@@ -314,7 +314,8 @@ Meteor.methods({
 
     const loggedInUser = Meteor.user();
     const date = new Date();
-    const end = date.setMinutes(date.getMinutes() - 1);
+    const end = date.setMinutes(date.getMinutes());
+    const oneMinuteAgo = new Date(end - 60000)
     if (!this.userId) {
       throw new Meteor.Error('Hangout.methods.endHangout.not-logged-in', 'Must be logged in to end hangout.');
     }
@@ -323,7 +324,7 @@ Meteor.methods({
     if(hangout.host.id === loggedInUser._id){
 
       Hangouts.update({_id: data.hangoutId},
-                      {$set:{ end: end,
+                      {$set:{ end: oneMinuteAgo,
                               url: "" } });
 
       return true;
@@ -331,7 +332,7 @@ Meteor.methods({
     }else if(Roles.userIsInRole(loggedInUser._id,['admin','moderator'], 'CB')){
 
       Hangouts.update({_id: data.hangoutId},
-                      {$set:{ end: end,
+                      {$set:{ end: oneMinuteAgo,
                               url: "" } });
 
       const notification = {

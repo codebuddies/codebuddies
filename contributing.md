@@ -91,7 +91,7 @@ Finally, when you're finished working on the fix or feature in your branch, you'
 
 Click on the "pull request" button by going to https://github.com/codebuddiesdotorg/cb-v2-scratch/pulls and clicking on "new pull request." Next, select your branch, and submit.
 
-One of the github maintainers (@linda or someone else) will look over your pull request and accept it.
+One of the github maintainers (@linda or someone else) will look over your pull request and accept it after it is reviewed by volunteer contributors. Note that for best practice, the PR [may get "squashed" into one commit](http://softwareengineering.stackexchange.com/questions/263164/why-squash-git-commits-for-pull-requests). If you prefer that the merge not be squashed into one commit, just let us know in the PR! 
 
 *Note 1* - If you've picked out an issue to work on, make sure you let people know that you're continuing working on it, if the fix happens to take 2 days or longer. An update every two dates by way of a comment on the issue will do. Doesn't necessarily have to be a fix. In case you're unable to continue on the issue for some reason, just let people know that as well so that someone else can claim it. If you do not update within a couple of days, it will be assumed that the issue is not being attended to and will be up for grabs.
 
@@ -197,23 +197,6 @@ Once you've submitted your PR, switch to the branch [`adding-contributor`](https
 * [Submit a PR](https://help.github.com/articles/creating-a-pull-request/)! (You may link it to your issues' PR, so the code reviewer can review your contributors additions as well.)
 * **Remember not to delete this branch, so that others can use this branch as well!**
 
-###How do I manually create an active Hangout link on the development version of the app?
-
-The Google Hangout API only works on the production site.  If you want to create a link to an existing Google Hangout while working on the development site, follow these steps:
-
-1. Type Ctrl-m to open Mongol.
-2. Click the "hangouts" tab.
-3. Click "Update".
-
-<img title="screenshot of Mongol's hangouts tab" src="https://cloud.githubusercontent.com/assets/4512699/20333476/a8272a6a-ab67-11e6-8b9f-f7972ceac850.jpg" width="60%">
-
-4. Add a comma to the end of the `"created_at"` line.
-5. On the next line, add a key-value pair: `"url": "[URL]"` (replacing `[URL]` with a URL of your choosing)
-6. Click "Save".
-
-<img title="screenshot of Mongol's hangouts tab with new line" src="https://cloud.githubusercontent.com/assets/4512699/20333502/dd90a064-ab67-11e6-89c7-ea9e8f1d751c.jpg" width="60%">
-
-Now, when the Google Hangout is active, a button will appear on the page, linking to the URL you supplied.
 
 #Helpful Reminders:
 1. Remember, you can always check which branch you are in by typing `git branch` or `git branch -a` to see all the branches that exist.

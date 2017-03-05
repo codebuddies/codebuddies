@@ -2,7 +2,9 @@ import QuillEditor from '../../libs/QuillEditor';
 
 Meteor.startup(function() {
     $('head').append('<link href="https://cdn.quilljs.com/1.0.3/quill.snow.css" rel="stylesheet">');
+    //$('head').append('<script src="https://meet.jit.si/external_api.js"></script>');
 });
+
 
 Template.hangout.onCreated(function() {
   var title = "CodeBuddies | Hangout";
@@ -12,9 +14,7 @@ Template.hangout.onCreated(function() {
 });
 
 Template.hangout.rendered = function() {
-
-  $('head').append('<script src="https://apis.google.com/js/platform.js" async defer></script>');
-
+ // $('head').append('<script src="https://apis.google.com/js/platform.js" async defer></script>');
 }
 
 Template.hangout.helpers({
@@ -112,5 +112,23 @@ Template.hangout.events({
 
       }); //sweetAlert
 
+  },
+  "click #create-hangout-popup": function() {
+    if (!Meteor.userId()) {
+      sweetAlert({
+        title: TAPi18n.__("login_create_hangout_title"),
+        text: TAPi18n.__("login_create_hangout_message"),
+        confirmButtonText: TAPi18n.__("sign_in_with_slack"),
+        type: 'info'
+      },
+      function(){
+        var options = {
+          requestPermissions: ['identify', 'users:read']
+        };
+        Meteor.loginWithSlack(options);
+      });
+    } else {
+      Modal.show('createHangoutModal');
+    }
   }
 });
