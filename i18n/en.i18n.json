@@ -126,7 +126,14 @@
   "create": "Create a Study Group",
   "my_study_groups": "My study groups",
   "coming_soon": "Coming Soon",
-  "info": "home",
+  "info": "24/7 General Hangout",
+  "hangouts": "All Hangouts",
+  "members": "Members",
+  "learnings": "Learnings",
+  "resources": "Resources",
+  "discussion": "Discussion",
+  "availability": "Availability",
+  "activity": "Activity",
   "join_study_group": "Join this study group",
   "leave_study_group": "Leave this study group"
 }

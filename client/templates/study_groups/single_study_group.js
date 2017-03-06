@@ -28,6 +28,9 @@ Template.singleStudyGroup.helpers({
   isAddResource:function(){
     return Template.instance().isAddResource.get();
   },
+  usersOnlineCount:function(){
+    return Meteor.users.find({ "status.online": true }).count();
+  }
 });
 
 Template.singleStudyGroup.events({
