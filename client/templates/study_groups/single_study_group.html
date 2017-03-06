@@ -13,6 +13,8 @@
                 {{#if isInRole 'moderator, member' _id}}
                   <div class="btn btn-default pull-right {{#if currentUser}} leaveStudyGroup {{else}} continue-popup {{/if}}" > Leave </div>
                 {{/if}}
+                    
+
               {{/unless}}
             </div>
 
@@ -33,13 +35,11 @@
             <!-- Tab panes -->
             <div class="tab-content">
               <div role="tabpanel" class="tab-pane active" id="info">
-                <br>
-                <br>
-                <br>
                 <div class="panel panel-default">
                   <div class="panel-body">
                     <div class="text-center">
-                      <h5>{{_ "coming_soon" }}</h5>
+                      {{> hangoutFrame }}
+                      <p>See who else is around! This hangout will always be here for this study group.</p>
                     </div>
                   </div>
                 </div>
