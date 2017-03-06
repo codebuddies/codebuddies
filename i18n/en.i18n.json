@@ -42,7 +42,7 @@
   "save_changes": "Save changes",
   "update": "Update",
   "join_hangouts" : "Join Hangouts",
-  "create_a_hangout": "Create a Hangout",
+  "create_a_hangout": "Start a Hangout",
   "clone_a_hangout": "Create this hangout",
   "join": "RSVP",
   "join_long": "Launch the hangout",
@@ -126,5 +126,7 @@
   "create": "Create a Study Group",
   "my_study_groups": "My study groups",
   "coming_soon": "Coming Soon",
-  "info": "home"
+  "info": "home",
+  "join_study_group": "Join this study group",
+  "leave_study_group": "Leave this study group"
 }

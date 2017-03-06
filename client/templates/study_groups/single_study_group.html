@@ -8,12 +8,14 @@
             <div class="page-header">
               <h3>{{title}}   <small>{{tagline}}</small></h3>
               {{#unless isInRole 'owner, moderator ,member' _id}}
-                <div class="btn btn-default pull-right {{#if currentUser}} joinStudyGroup {{else}} continue-popup {{/if}}" > Join </div>
+                <div class="btn btn-cb2 join-hangout {{#if currentUser}} joinStudyGroup study-action {{else}} continue-popup {{/if}}">{{_ "join_study_group"}}</div>
               {{else}}
                 {{#if isInRole 'moderator, member' _id}}
-                  <div class="btn btn-default pull-right {{#if currentUser}} leaveStudyGroup {{else}} continue-popup {{/if}}" > Leave </div>
+                  <div class="btn btn-cb2 join-hangout {{#if currentUser}} leaveStudyGroup study-action btn-leave {{else}} continue-popup {{/if}}">{{_ "leave_study_group"}}</div>
                 {{/if}}
-                    
+                {{#if isInRole 'moderator, member' _id}}
+                  <div id="create-hangout-popup" class="btn btn-cb2 join-hangout {{#if currentUser}} study-action {{else}} continue-popup {{/if}}">{{_ "create_a_hangout"}}</div>
+                {{/if}} 
 
               {{/unless}}
             </div>
@@ -39,7 +41,7 @@
                   <div class="panel-body">
                     <div class="text-center">
                       {{> hangoutFrame }}
-                      <p>See who else is around! This hangout will always be here for this study group.</p>
+                      <p>See who else is around! This hangout room will always be here for this study group.</p>
                     </div>
                   </div>
                 </div>
