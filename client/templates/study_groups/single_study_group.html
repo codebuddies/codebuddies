@@ -6,7 +6,11 @@
           <div class="panel-body">
 
             <div class="page-header">
-              <h3>{{title}}   <small>{{tagline}}</small></h3>
+              <div class="pull-right">
+                <textarea id="learned-text" rows="3" maxlength="140" placeholder="What did you learn?"></textarea>
+              </div>
+              <h3>{{title}}   <small>{{tagline}} </small></h3>
+  
               {{#unless isInRole 'owner, moderator ,member' _id}}
                 <div class="btn btn-cb2 join-hangout {{#if currentUser}} joinStudyGroup study-action {{else}} continue-popup {{/if}}">{{_ "join_study_group"}}</div>
               {{else}}
@@ -41,7 +45,7 @@
                   <div class="panel-body">
                     <div class="text-center">
                       {{> hangoutFrame }}
-                      <p>See who else is around! This hangout room will always be here for this study group.</p>
+                      <p>Chat or study with whoever is around! This room will always be open for this study group.</p>
                     </div>
                   </div>
                 </div>
@@ -232,6 +236,9 @@
             </div><!-- ./Tab panes -->
 
           </div><!-- ./panel-body -->
+          <div class="panel-footer">
+            <p>{{_ "learning_message" count=usersOnlineCount}} right now. More people are online on the CodeBuddies <a href="http://codebuddies.slack.com">Slack</a>. (Not a member? <a href="http://codebuddiesmeet.herokuapp.com/" target="_blank">Get your invite here.</a>)</p>
+          </div>
         </div> <!-- ./panel panel-default -->
 
       {{else}}
