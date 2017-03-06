@@ -28,13 +28,16 @@ Template.singleStudyGroup.helpers({
   isAddResource:function(){
     return Template.instance().isAddResource.get();
   },
+  usersOnlineCount:function(){
+    return Meteor.users.find({ "status.online": true }).count();
+  }
 });
 
 Template.singleStudyGroup.events({
   "click #addResource": function(event, template){
      template.isAddResource.set( true );
   },
-  "click #cancleAddResource": function(event, template){
+  "click #cancelAddResource": function(event, template){
      template.isAddResource.set( false );
   },
   "submit .addResource": function(event, template) {

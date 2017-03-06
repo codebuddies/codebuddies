@@ -3,7 +3,37 @@
     background: linear-gradient(to top, rgba(30, 144, 255, .5) 0%, rgba(30, 144, 255, .5) 0%, rgba(30, 144, 255, .5) 0%, rgba(30, 144, 255, .55) 18%, rgba(30, 144, 255, .64) 46%, rgba(3, 87, 232, .8) 100%), url(/images/language-logos.svg) center repeat;
     padding: 100px 0;
     h2 { @include font-face(700, 32px, bold, $bg-white); }
+    span.label { padding: .3em .6em;}
   }
+  .panel-default { 
+  	border: none;
+  }
+  .img-circle {
+      width: 50px;
+  }
+  #cancelAddResource {
+  	margin-right: 5px;
+  }
+  .well, .jumbotron {
+  	margin: 10px 0;
+  }
+  p { 
+  	margin: 10px 0px;
+  }
+  .study-action {
+  	display: inline-block;
+  	margin: 0px;
+  }
+  #info .panel-body { 
+  	padding: 10px 0px;
+  }
+}
 
-
+.newStudyGroup {
+	fieldset {
+		border: none;
+	}
+	input { 
+		margin-bottom: 10px;
+	}
 }

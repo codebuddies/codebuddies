@@ -1,18 +1,26 @@
 <template name="singleStudyGroup">
   {{#if Template.subscriptionsReady}}
-    <div class="container">
+    <div class="container" id="study-groups">
       {{#with studyGroup}}
         <div class="panel panel-default">
           <div class="panel-body">
 
             <div class="page-header">
-              <h3>{{title}}   <small>{{tagline}}</small></h3>
+              <div class="pull-right">
+                <textarea id="learned-text" rows="3" maxlength="140" placeholder="What did you learn?"></textarea>
+              </div>
+              <h3>{{title}}   <small>{{tagline}} </small></h3>
+  
               {{#unless isInRole 'owner, moderator ,member' _id}}
-                <div class="btn btn-default pull-right {{#if currentUser}} joinStudyGroup {{else}} continue-popup {{/if}}" > Join </div>
+                <div class="btn btn-cb2 join-hangout {{#if currentUser}} joinStudyGroup study-action {{else}} continue-popup {{/if}}">{{_ "join_study_group"}}</div>
               {{else}}
                 {{#if isInRole 'moderator, member' _id}}
-                  <div class="btn btn-default pull-right {{#if currentUser}} leaveStudyGroup {{else}} continue-popup {{/if}}" > Leave </div>
+                  <div class="btn btn-cb2 join-hangout {{#if currentUser}} leaveStudyGroup study-action btn-leave {{else}} continue-popup {{/if}}">{{_ "leave_study_group"}}</div>
                 {{/if}}
+                {{#if isInRole 'moderator, member' _id}}
+                  <div id="create-hangout-popup" class="btn btn-cb2 join-hangout {{#if currentUser}} study-action {{else}} continue-popup {{/if}}">{{_ "create_a_hangout"}}</div>
+                {{/if}} 
+
               {{/unless}}
             </div>
 
@@ -20,10 +28,11 @@
               <li role="presentation" class="active"><a href="#info" aria-controls="info" role="tab" data-toggle="tab">{{_ 'info'}}</a></li>
               <li role="presentation"><a href="#hangouts" aria-controls="hangouts" role="tab" data-toggle="tab">{{_ 'hangouts'}}</a></li>
               <li role="presentation"><a href="#members" aria-controls="members" role="tab" data-toggle="tab">{{_ 'members'}}</a></li>
+              <li role="presentation"><a href="#learnings" aria-controls="resources" role="tab" data-toggle="tab">{{_ 'learnings'}}</a></li>
               <li role="presentation"><a href="#resources" aria-controls="resources" role="tab" data-toggle="tab">{{_ 'resources'}}</a></li>
               <li role="presentation"><a href="#discussion" aria-controls="discussion" role="tab" data-toggle="tab">{{_ 'discussion'}}</a></li>
               <li role="presentation"><a href="#availability" aria-controls="availability" role="tab" data-toggle="tab">{{_ 'availability'}}</a></li>
-              <li role="presentation"><a href="#activities" aria-controls="activities" role="tab" data-toggle="tab">{{_ 'activities'}}</a></li>
+              <li role="presentation"><a href="#activities" aria-controls="activities" role="tab" data-toggle="tab">{{_ 'activity'}}</a></li>
               {{#if isInRole 'owner, moderator ' _id}}
                 <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">{{_ 'settings'}}</a></li>
               {{/if}}
@@ -32,13 +41,11 @@
             <!-- Tab panes -->
             <div class="tab-content">
               <div role="tabpanel" class="tab-pane active" id="info">
-                <br>
-                <br>
-                <br>
                 <div class="panel panel-default">
                   <div class="panel-body">
                     <div class="text-center">
-                      <h5>Comming Soon</h5>
+                      {{> hangoutFrame }}
+                      <p>Chat or study with whoever is around! This room will always be open for this study group.</p>
                     </div>
                   </div>
                 </div>
@@ -51,21 +58,18 @@
 
 
               <div role="tabpanel" class="tab-pane" id="members">
-                <br>
-                <br>
-                <div class="page-header">
-                  <h5>Members</h5>
-                </div>
+
                 {{#if members}}
 
                     <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <h3 class="panel-title">Members</h3>
+                      </div>
                       <div class="panel-body">
                         {{#each members}}
-                        <div class="col-xs-3 col-md-1">
-                          <a href="{{pathFor 'profile' name=name userId=id}}" class="thumbnail">
-                            <img src="{{avatar}}" alt="{{name}}">
+                          <a href="{{pathFor 'profile' name=name userId=id}}">
+                            <img src="{{avatar}}" alt="{{name}}" class="img-circle">
                           </a>
-                        </div>
                         {{/each}}
                       </div>
                     </div>
@@ -78,43 +82,49 @@
 
               </div><!-- #/members -->
 
+              <div role="tabpanel" class="tab-pane" id="learnings">
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">Learnings</h3>
+                  </div>
+                  <div class="panel-body">
+                    <div class="text-center">
+                      <h5>{{_ "coming_soon" }}</h5>
+                    </div>
+                  </div>
+                </div>
+              </div><!-- #/learnings -->
+
               <div role="tabpanel" class="tab-pane" id="resources">
                 <br>
                 {{#if isInRole 'owner,manager' _id}}
-                  <div class="btn btn-default pull-right" id="addResource"> + </div>
+                  <div class="btn btn-default" id="addResource"> + </div>
                 {{/if}}
-                <br>
-                <br>
-                <br>
                 {{#unless isAddResource}}
 
                     {{> resourcesList}}
 
                   {{else}}
-                      <div class="well">
-                        <div class="page-header">
-                          <h4>Add New Resource</h4>
-                        </div>
-
-                        <div class="row">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="well">     
+                          <h4>Add a new resource</h4>
                           <form class="addResource">
 
-                            <div class="form-group">
-                               <label >Resource Title</label>
-                               <input type="text" class="form-control" id="resourceTitle">
+                            <div class="form-group">        
+                               <input type="text" class="form-control" id="resourceTitle" placeholder="Description">
                             </div>
                             <div class="form-group">
-                               <label >Resource URL</label>
-                               <input type="text" class="form-control" id="resourceURL">
+                               <input type="text" class="form-control" id="resourceURL" placeholder="URL">
                             </div>
 
-                            <button type="submit" class="btn btn-default pull-right">Submit</button>
-                            <button type="button" id="cancleAddResource" class="btn btn-default pull-right">Cancle</button>
+                            <button type="submit" class="btn btn-cb2 pull-right">Submit</button> &nbsp;
+                            <button type="button" id="cancelAddResource" class=" btn btn-cb2 pull-right">Cancel</button>
                           </form>
 
-                        </div>
-
                       </div>
+                    </div>
+                 </div>
 
 
                   {{/unless}}
@@ -123,26 +133,26 @@
               </div><!-- #/resources -->
 
               <div role="tabpanel" class="tab-pane" id="discussion">
-                <br>
-                <br>
-                <br>
                 <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">Discussion</h3>
+                  </div>
                   <div class="panel-body">
                     <div class="text-center">
-                      <h5>Comming Soon</h5>
+                      <h5>{{_ "coming_soon" }}</h5>
                     </div>
                   </div>
                 </div>
               </div><!-- #/discussion -->
 
               <div role="tabpanel" class="tab-pane" id="availability">
-                <br>
-                <br>
-                <br>
                 <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">Availability</h3>
+                  </div>
                   <div class="panel-body">
                     <div class="text-center">
-                      <h5>Comming Soon</h5>
+                      <h5>{{_ "coming_soon" }}</h5>
                     </div>
                   </div>
                 </div>
@@ -150,18 +160,16 @@
 
 
               <div role="tabpanel" class="tab-pane" id="activities">
-                <br>
-                <br>
-                <br>
 
-                <div class="page-header">
-                  <h5>Activities</h5>
-                </div>
+ 
 
                 <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">Activities</h3>
+                  </div>
                   <div class="panel-body">
                     <div class="text-center">
-                      <h5>Comming Soon</h5>
+                      <h5>{{_ "coming_soon" }}</h5>
                     </div>
                   </div>
                 </div>
@@ -212,9 +220,6 @@
 
               {{#if isInRole 'owner, moderator ' _id}}
               <div role="tabpanel" class="tab-pane" id="settings">
-                <br>
-                <br>
-                <br>
                 <div class="panel panel-default">
                   <div class="panel-heading">
                     <h3 class="panel-title">Archive Group</h3>
@@ -231,6 +236,9 @@
             </div><!-- ./Tab panes -->
 
           </div><!-- ./panel-body -->
+          <div class="panel-footer">
+            <p>{{_ "learning_message" count=usersOnlineCount}} right now. More people are online on the CodeBuddies <a href="http://codebuddies.slack.com">Slack</a>. (Not a member? <a href="http://codebuddiesmeet.herokuapp.com/" target="_blank">Get your invite here.</a>)</p>
+          </div>
         </div> <!-- ./panel panel-default -->
 
       {{else}}
