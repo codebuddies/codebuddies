@@ -126,5 +126,7 @@
   "create": "Create a Study Group",
   "my_study_groups": "My study groups",
   "coming_soon": "Coming Soon",
-  "info": "home"
+  "info": "home",
+  "join_study_group": "Join this study group",
+  "leave_study_group": "Leave this study group"
 }
