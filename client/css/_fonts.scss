@@ -7,6 +7,6 @@ $open-sans: 'Open Sans', sans-serif;
 .fa-user { color: $icon-teaching;}
 .fa-users { color: $icon-collab;}
 
-a:link, a:visited {
+a:link:not(.btn-cb2), a:visited:not(.btn-cb2) {
 	color: $dodgerblue;
 }
