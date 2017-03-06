@@ -6,3 +6,7 @@ $open-sans: 'Open Sans', sans-serif;
 .fa-microphone-slash { color: $icon-silent;}
 .fa-user { color: $icon-teaching;}
 .fa-users { color: $icon-collab;}
+
+a:link, a:visited {
+	color: $dodgerblue;
+}
