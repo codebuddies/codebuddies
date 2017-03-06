@@ -34,7 +34,7 @@ Template.singleStudyGroup.events({
   "click #addResource": function(event, template){
      template.isAddResource.set( true );
   },
-  "click #cancleAddResource": function(event, template){
+  "click #cancelAddResource": function(event, template){
      template.isAddResource.set( false );
   },
   "submit .addResource": function(event, template) {
