@@ -9,7 +9,7 @@
                 <div class="row">
                 <div class="col-md-12">
 
-                 <div class="col-md-10">
+                 <div class="col-md-8">
                   <!-- hangout topic and action bar -->
                   <h2 class="{{# if isHangoutCompleted end }}completed{{/if}}" id="hangout-topic">
                       {{#if equals visibility false}}
@@ -52,8 +52,9 @@
                  </p>
                  <!-- ./hangout type host  and date time -->
                 </div>
-                 <div class="col-md-2">
+                 <div class="col-md-4">
                     {{> hangoutActionBar}}
+                     {{> hangoutLearned }}
                   </div><!--column -->
                 </div> <!--./col-md-12-->
                 </div> <!--./row-->
