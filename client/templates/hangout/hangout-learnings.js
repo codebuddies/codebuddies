@@ -1,4 +1,4 @@
-Template.profileLearnings.onCreated(function () {
+Template.hangoutLearnings.onCreated(function () {
 
   // 1. Initialization
 
@@ -6,7 +6,7 @@ Template.profileLearnings.onCreated(function () {
 
   // initialize the reactive variables
   instance.loaded = new ReactiveVar(0);
-  instance.limit = new ReactiveVar(5);
+  instance.limit = new ReactiveVar(3);
 
   // ...
    instance.autorun(function () {
@@ -15,12 +15,10 @@ Template.profileLearnings.onCreated(function () {
     var limit = instance.limit.get();
 
     console.log("Asking for "+limit+" learnings...")
-    var userId = FlowRouter.getParam('userId');
-    console.log(userId)
-    // subscribe to the learningsByUserId publication
-    var subscription = instance.subscribe('learningsByUserId', limit, userId);
-    console.log(subscription);
-
+    var hangoutId = FlowRouter.getParam('hangoutId');
+    console.log(hangoutId)
+    // subscribe to the learningsByHangoutId publication
+    var subscription = instance.subscribe('learningsByHangoutId', limit, hangoutId);
     // if subscription is ready, set limit to newLimit
     if (subscription.ready()) {
       console.log("> Received "+limit+" learnings. \n\n")
@@ -30,24 +28,24 @@ Template.profileLearnings.onCreated(function () {
     }
   });
 
-   instance.learningsForUser = function() {
+   instance.learningsForHangout = function() {
     return Learnings.find({}, {limit: instance.loaded.get(), sort: {created_at: -1}});
   }
 
 });
 
-Template.profileLearnings.helpers({
+Template.hangoutLearnings.helpers({
     // the posts cursor
   learnings: function () {
-    return Template.instance().learningsForUser();
+    return Template.instance().learningsForHangout();
   },
   // are there more posts to show?
   hasMoreLearnings: function () {
-    return Template.instance().learningsForUser().count() >= Template.instance().limit.get();
+    return Template.instance().learningsForHangout().count() >= Template.instance().limit.get();
   }
 });
 
-Template.profileLearnings.events({
+Template.hangoutLearnings.events({
  'click #load-more-learnings': function (event, instance) {
     event.preventDefault();
 
@@ -55,7 +53,7 @@ Template.profileLearnings.events({
     var limit = instance.limit.get();
 
     // increase limit by 5 and update it
-    limit += 5;
+    limit += 1;
     instance.limit.set(limit);
   }
 });
