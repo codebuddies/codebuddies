@@ -42,6 +42,12 @@ Template.hangoutLearned.events({
 		                hangout_id: this._id
 		            }
 		            Meteor.call("addLearning", data, function(error, result) {});
+		            swal({
+					  type: "success",
+					  text: "Thank you for sharing what you learned!",
+					  timer: 500,
+					  showConfirmButton: false
+					});
 		            $('#learned-text').val('What did you learn?');
 					$('.learnedCharactersLeft').text(140);
 		        }
