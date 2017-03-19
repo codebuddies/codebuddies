@@ -85,7 +85,8 @@ Template.createHangoutModal.events({
       start: new Date(start),
       end: end,
       duration: duration,
-      type: type
+      type: type,
+      groupId: groupId
     };
 
     if ($.trim(start) == '') {
@@ -127,18 +128,20 @@ Template.createHangoutModal.events({
     }
 
 
-    // Meteor.call('createHangout', data, function(err, result) {
-    //   if (result) {
-    //     Modal.hide();
-    //     sweetAlert({
-    //       title: TAPi18n.__("hangout_created_title"),
-    //       text: TAPi18n.__("hangout_created_message"),
-    //       confirmButtonText: TAPi18n.__("ok"),
-    //       type: 'success',
-    //       closeOnConfirm: true
-    //     });
-    //     FlowRouter.go("home");
-    //   }
-    // });
+    // console.log(data);
+
+    Meteor.call('createHangout', data, function(err, result) {
+      if (result) {
+        Modal.hide();
+        sweetAlert({
+          title: TAPi18n.__("hangout_created_title"),
+          text: TAPi18n.__("hangout_created_message"),
+          confirmButtonText: TAPi18n.__("ok"),
+          type: 'success',
+          closeOnConfirm: true
+        });
+        FlowRouter.go("home");
+      }
+    });
   }
 });
