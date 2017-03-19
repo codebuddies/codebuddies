@@ -59,7 +59,11 @@
 
     <div class="col-md-9">
 
-      <p class="status"><label><i class="fa {{getHangoutTypeSign type}}"></i> Started by <a href="{{pathFor 'profile' name=host.name userId=host.id}}">{{host.name}}</a></label></p>
+      <p class="status"> <label><i class="fa {{getHangoutTypeSign type}}"></i> Started by <a href="{{pathFor 'profile' name=host.name userId=host.id}}">{{host.name}}</a></label> </p>
+
+      {{!-- Group Label --}}
+      {{#if group}}<p><a href="{{pathFor 'study group' studyGroupSlug=group.slug studyGroupId=group.id}}"> <span class="label label-default pull-right">{{group.title}}</span> </a>  </p>{{/if}}
+
       <p class="status"><label><i class="fa fa-calendar fa-lg"></i> {{getHangoutStartDateTime start}} -
 
         {{#if isHangoutEndTimeTBA start end}}
