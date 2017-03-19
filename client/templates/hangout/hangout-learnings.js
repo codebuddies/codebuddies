@@ -6,7 +6,7 @@ Template.hangoutLearnings.onCreated(function () {
 
   // initialize the reactive variables
   instance.loaded = new ReactiveVar(0);
-  instance.limit = new ReactiveVar(3);
+  instance.limit = new ReactiveVar(5);
 
   // ...
    instance.autorun(function () {
@@ -53,7 +53,7 @@ Template.hangoutLearnings.events({
     var limit = instance.limit.get();
 
     // increase limit by 5 and update it
-    limit += 1;
+    limit += 5;
     instance.limit.set(limit);
   }
 });
