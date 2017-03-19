@@ -10,7 +10,7 @@
                 <textarea id="learned-text" rows="3" maxlength="140" placeholder="What did you learn?"></textarea>
               </div>
               <h3>{{title}}   <small>{{tagline}} </small></h3>
-  
+
               {{#unless isInRole 'owner, moderator ,member' _id}}
                 <div class="btn btn-cb2 join-hangout {{#if currentUser}} joinStudyGroup study-action {{else}} continue-popup {{/if}}">{{_ "join_study_group"}}</div>
               {{else}}
@@ -19,7 +19,7 @@
                 {{/if}}
                 {{#if isInRole 'moderator, member' _id}}
                   <div id="create-hangout-popup" class="btn btn-cb2 join-hangout {{#if currentUser}} study-action {{else}} continue-popup {{/if}}">{{_ "create_a_hangout"}}</div>
-                {{/if}} 
+                {{/if}}
 
               {{/unless}}
             </div>
@@ -37,7 +37,9 @@
                 <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">{{_ 'settings'}}</a></li>
               {{/if}}
             </ul>
-
+            <br>
+            <br>
+            <br>
             <!-- Tab panes -->
             <div class="tab-content">
               <div role="tabpanel" class="tab-pane active" id="info">
@@ -53,6 +55,9 @@
               </div><!-- #/info -->
 
               <div role="tabpanel" class="tab-pane" id="hangouts">
+                <div class="container">
+                    {{> hangoutByGroup id=_id}}
+                </div>
 
               </div><!-- #/hangouts -->
 
@@ -107,11 +112,11 @@
                   {{else}}
                   <div class="row">
                     <div class="col-md-6">
-                      <div class="well">     
+                      <div class="well">
                           <h4>Add a new resource</h4>
                           <form class="addResource">
 
-                            <div class="form-group">        
+                            <div class="form-group">
                                <input type="text" class="form-control" id="resourceTitle" placeholder="Description">
                             </div>
                             <div class="form-group">
@@ -161,7 +166,7 @@
 
               <div role="tabpanel" class="tab-pane" id="activities">
 
- 
+
 
                 <div class="panel panel-default">
                   <div class="panel-heading">

@@ -84,3 +84,37 @@ Meteor.publish("hangoutBoard", function(limit, hangoutFilter) {
   return Hangouts.find(query, projection, options);
 
 });
+
+Meteor.publish("hangoutByGroupId", function(groupId, limit, hangoutFilter) {
+  check(limit, Number);
+  check(hangoutFilter, String);
+
+  var query = new Object();
+  query.visibility = {$ne:false};
+  query['group.id'] = groupId;
+
+
+  var projection = new Object();
+  projection.sort = {'start' : 1};
+  projection.fields = {"topic" : 1, 'host':1, "views" : 1, "users" : 1, "slug" : 1, "start":1, "end":1 ,'type':1, 'group':1 };
+  projection.limit = limit;
+
+  var options = new Object();
+  options.reactive=false;
+
+  switch (hangoutFilter) {
+    case 'live':
+      query.start = {'$lte' : new Date()};
+      query.end = {'$gte' : new Date()};
+
+      break;
+    case 'upcoming':
+      query.start = {$gte : new Date()};
+
+      break;
+    default:
+  }
+
+  return Hangouts.find(query, projection, options);
+
+});
