@@ -2,6 +2,7 @@
     <a href="{{pathFor 'hangout' hangoutId=_id }}" class="hangout-card">
 
         <h4 class="hangout-date"><small><i class="fa fa-calendar"></i>  {{getHangoutStartDateTime start}}</small></h4>
+        {{#if group}}<p><a href="{{pathFor 'study group' studyGroupSlug=group.slug studyGroupId=group.id}}"> <span class="label label-default pull-right">{{group.title}}</span> </a>  </p>{{/if}}
 
         <h4 class="hangout-topic">{{truncate topic}}</h4>
 

@@ -61,7 +61,7 @@ Meteor.publish("hangoutBoard", function(limit, hangoutFilter) {
 
   var projection = new Object();
   projection.sort = {'start' : 1};
-  projection.fields = {"topic" : 1, 'host':1, "views" : 1, "users" : 1, "slug" : 1, "start":1, "end":1 ,'type':1};
+  projection.fields = {"topic" : 1, 'host':1, "views" : 1, "users" : 1, "slug" : 1, "start":1, "end":1 ,'type':1, 'group':1 };
   projection.limit = limit;
 
   var options = new Object();
