@@ -12,10 +12,13 @@ Template.hangoutLearned.events({
 	 	if (event.which === 13) {
 		        if (!Meteor.userId()) {
 		            sweetAlert({
+		            	imageUrl: '/images/slack-signin-example.jpg',
+        				imageSize: '140x120',
+        				showCancelButton: true,
 		                title: TAPi18n.__("you_are_almost_there"),
-		                text: TAPi18n.__("login_update_status"),
+		                html: TAPi18n.__("continue_popup_text"),
 		                confirmButtonText: TAPi18n.__("sign_in_with_slack"),
-		                type: 'info'
+		                cancelButtonText: TAPi18n.__("not_now")
 		            },
 		            function(){
 		              var options = {
