@@ -2,7 +2,7 @@
   // general & menu
   "sign_out": "Sign Out",
   "sign_in_with": "Sign In with",
-  "sign_in_with_slack": "Sign into Slack",
+  "sign_in_with_slack": "Sign in with Slack",
 
   //home
   "jumbotron_subtitle": "We're __count__ people who help each other by sharing knowledge",
@@ -85,7 +85,7 @@
   "remove_owner_from_hangout": "Hey! You can't remove yourself from your Hangout.",
   "delete_hangout_confirm": "Are you sure?",
   "delete_hangout_text": "Note: All participants will be notified via email of cancellation",
-  "continue_popup_text":"Please sign in using your codebuddies.slack.com account. By continuing, you agree that you are at least 13 years of age and have read and agreed to the Terms of Service and Privacy Policy on this site.",
+  "continue_popup_text":"Please sign in using your <a href=\"http://codebuddies.slack.com\" target=\"blank\">codebuddies.slack.com</a> team. <br /> (No CodeBuddies Slack account? <a href=\"http://codebuddiesmeet.herokuapp.com\" target=\"_blank\">Get your invite here</a>!)",
   "not_now":"Not Now",
   "continue_with_slack": "Sign in with Slack",
   "end_hangout_confirm": "Are you sure?",
