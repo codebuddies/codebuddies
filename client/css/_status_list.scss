@@ -13,9 +13,11 @@
   .status-item {
     margin: 0;
     list-style: none;
-    padding: 20px 0;
+    padding: 10px 0;
     border-top: 1px solid $divider;
     overflow: auto;
+
+    p { margin: 0px; }
 
     li {
       display: table-cell;
@@ -71,10 +73,16 @@
 
     .kudo-holder {
       text-align: left;
+      vertical-align: top;
+      position: relative;
+      top: -7px;
     }
 
     .kudo-count {
       @include font-face(400, 15px, normal, $primary-grey);
+    }  
+    .learning-holder {
+      max-width: 90%;
     }
   }
 }

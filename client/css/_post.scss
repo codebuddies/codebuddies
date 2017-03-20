@@ -4,17 +4,14 @@
     filter: alpha(opacity=80); // IE 5-7
     opacity: 0.8;
   }
-  p {
-    font-family: $open-sans;
-  }
-
   h2 {
-    font-weight: 400;
-    margin: 0px;
-    font-size: 26px;
+    margin: 5px 0px;
+    @include font-face(200, 22px, normal, $black);
   }
-
-  h2.completed,
+  p, textarea {
+    font-family: $open-sans;
+    @include font-face(200, 17px, normal, $black);
+  }
   p.completed,
   p.status {
     color: $warm-grey;
@@ -27,11 +24,11 @@
     font-weight: 400;
     font-size: 16px;
   }
-
-  h2.completed {
-    font-weight: 600;
-  }
-
+  h3 {
+    text-transform: uppercase;
+    margin: 10px 0px;
+    @include font-face(700, 14px, bold, $black);
+  } 
   h4 {
     font-weight: 400;
     margin: 0;
@@ -122,7 +119,9 @@
     text-align: center;
   }
   a#show-all-learnings {
-    text-decoration: underline;
     margin-top: 3px;
+  }
+  .status-list {
+    margin-top: 10px;
   }
 }
