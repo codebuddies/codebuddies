@@ -14,7 +14,7 @@
              <a href="{{pathFor 'profile' name=username userId=userId}}"><span class="username">{{username}}</span></a>
               <label class="status">
                   {{#if isOwner}} 
-                    <span class="delete-learning"><i class="fa fa-trash-o"></i></span> <span class="edit-learning"><i class="fa fa-pencil-square-o"></i></span>
+                    <span class="delete-learning"><i class="fa fa-trash-o"></i></span> <a class="edit-learning">(Edit)</a>
                   {{/if}}
               </label>
               <p>{{title}}</p> 

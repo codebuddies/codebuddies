@@ -8,6 +8,14 @@ Template.registerHelper("learningOwner", function(ownerid){
 });
 
 Template.hangoutLearned.events({
+	'keyup textarea#learned-text': function(event) {
+        //Check value and if 140 characters have been typed, the user can't type anymore
+        let learnedCounterValue = 140;
+		let maxChars = 140;
+        var currentLength = $("textarea#learned-text").val().length;
+        learnedCounterValue = maxChars - currentLength;
+        $('.learnedCharactersLeft').text(learnedCounterValue).append(' <small><em>(Hit enter to submit)</em></small>');
+	},
 	 'keypress textarea#learned-text': function(event) {
 	 	if (event.which === 13) {
 		        if (!Meteor.userId()) {
