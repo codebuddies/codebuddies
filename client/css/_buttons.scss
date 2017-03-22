@@ -144,8 +144,6 @@
 
 .btn-learning {
   color: $white;
-  float: left;
-  margin-left: -4px;
 
   &.btn-unlike {
     color: $cta-blue;
@@ -154,6 +152,10 @@
   &.btn-like {
     color: $cta-blue;
   }
+}
+
+.btn-learning:hover {
+  cursor: pointer;
 }
 
 .delete-hangout:hover, .edit-hangout:hover {

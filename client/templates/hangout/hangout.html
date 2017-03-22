@@ -7,9 +7,9 @@
             <div class="panel panel-default">
               <div class="panel-heading">
                 <div class="row">
-                <div class="col-md-12">
+                <div>
 
-                 <div class="col-md-10">
+                 <div class="col-md-8">
                   <!-- hangout topic and action bar -->
                   <h2 class="{{# if isHangoutCompleted end }}completed{{/if}}" id="hangout-topic">
                       {{#if equals visibility false}}
@@ -52,8 +52,9 @@
                  </p>
                  <!-- ./hangout type host  and date time -->
                 </div>
-                 <div class="col-md-2">
+                 <div class="col-md-4">
                     {{> hangoutActionBar}}
+                     {{> hangoutLearned }}
                   </div><!--column -->
                 </div> <!--./col-md-12-->
                 </div> <!--./row-->
@@ -83,10 +84,10 @@
               {{/ unless }}
                
 
-                <div id="hangout-description" class="margin-1">
+                <p id="hangout-description" class="margin-1">
                     {{{formatDescription this}}}
                     
-                </div>
+                </p>
               </div><!-- ./panel-body-->
 
               <div class="panel-footer">
@@ -191,10 +192,21 @@
               </div>
           </div>
 
+
+          <!--learnings section -->
+          <div class="panel panel-default">
+            <div>
+              {{> hangoutLearnings }}
+            </div>
+          </div>
+
+
           <!--comment section-->
           <div class="panel panel-default">
             <div class="panel-body">
+
               {{> commentBox}}
+
             </div>
           </div>
 
