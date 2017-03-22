@@ -13,7 +13,7 @@ Template.hangoutBoard.onCreated(function() {
    let instance = this;
    instance.limit = new ReactiveVar(54);
    instance.flag = new ReactiveVar(false);
-   instance.hangoutFilter = new ReactiveVar('live');
+   instance.hangoutFilter = new ReactiveVar('upcoming');
 
 
 
