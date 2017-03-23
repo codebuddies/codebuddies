@@ -16,7 +16,7 @@ Template.hangoutLearned.events({
         learnedCounterValue = maxChars - currentLength;
         $('.learnedCharactersLeft').text(learnedCounterValue).append(' <small><em>(Hit enter to submit)</em></small>');
 	},
-	 'keypress textarea#learned-text': function(event) {
+  'keypress textarea#learned-text': function(event) {
 	 	if (event.which === 13) {
 		        if (!Meteor.userId()) {
 		            sweetAlert({
@@ -52,17 +52,24 @@ Template.hangoutLearned.events({
 		                title: learningStatus,
 		                hangout_id: this._id
 		            }
-		            Meteor.call("addLearning", data, function(error, result) {});
-		            swal({
-					  type: "success",
-					  text: "Thank you for sharing what you learned!",
-					  timer: 500,
-					  showConfirmButton: false
-					});
-		            $('#learned-text').val('What did you learn?');
-					$('.learnedCharactersLeft').text(140);
+		            Meteor.call("addLearning", data, function(error, result) {
+                  if (error) {
+                    console.log(error);
+                  }
+                  if (result) {
+                    swal({
+                       type: "success",
+                       text: "Thank you for sharing what you learned!",
+                       timer: 500,
+                       showConfirmButton: false
+                     });
+                     $('#learned-text').val('').blur();
+                     $('.learnedCharactersLeft').text(140);
+                  }
+                });
+
 		        }
 		    }
-    },
+      },
 
 });

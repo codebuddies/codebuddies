@@ -19,11 +19,17 @@ Meteor.methods({
       hangout_id: data.hangout_id,
       kudos: 0
     }
-    Learnings.insert(learning);
 
-    //tweet user learning
-    tweetLearning(learning);
 
+    try {
+      Learnings.insert(learning);
+
+      //tweet user learning
+      tweetLearning(learning);
+      return true;
+    } catch (e) {
+      console.log('learning error', e.toString());
+    }
 
   },
 
