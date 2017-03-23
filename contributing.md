@@ -110,7 +110,7 @@ One of the github maintainers (@linda or someone else) will look over your pull 
   * `git merge master`
 
 ### How do I stage master/deploy?
-Our staging site is located at [http://cbv2-staging.herokuapp.com](http://cbv2-staging.herokuapp.com/). This staging site is deployed through Heroku to ensure everything on `master` works before deploying it to master.
+Our staging site is located at [http://codebuddies.herokuapp.com](http://codebuddies.herokuapp.com/). This staging site is deployed through Heroku to ensure everything on `master` works before deploying it to master.
 
 For full deployment instructions, see the [wiki](https://github.com/codebuddiesdotorg/cb-v2-scratch/wiki/CBV2-Deployment-Instructions).
 
