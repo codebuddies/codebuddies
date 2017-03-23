@@ -49,7 +49,7 @@
 
   #jumbotron {
     text-align: center;
-    padding-bottom: 20;
+    padding-bottom: 20px;
     @include font-face(700, 22px, bold, $bg-white);
 
     .subtitle {
@@ -57,7 +57,7 @@
     }
 
     p {
-      margin-top: 10;
+      margin-top: 10px;
       @include font-face(400, 12px, bold, $bg-white);
 
       a {
@@ -79,7 +79,7 @@
 
   .home-ask,
   .home-top {
-    padding: 60px 0 0;
+    padding: 60px 0px 0px;
     background: $dodgerblue;
     overflow: hidden;
 
@@ -128,7 +128,7 @@
 
     .slack-note {
       @include breakpoint(medium) {
-        margin-top: 70;
+        margin-top: 70px;
         max-width: 300px;
       }
 
@@ -152,10 +152,11 @@
 
   .home-middle {
     background: $bg-white;
-    padding: 120 0 60;
+    padding: 120px 0px 60px;
 
     h2 {
       @include font-face(700, 24px, bold, $primary-grey);
+      margin-top: 40px;
     }
 
     p {
@@ -188,7 +189,7 @@
 
     %hangout-cards {
       position: relative;
-      margin-top: 20;
+      margin-top: 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -201,10 +202,10 @@
       }
 
       p {
-        padding: 0 30 40;
+        padding: 0px 30px 40px;
         @include font-face(400, 13px, normal, $primary-grey);
         line-height: 27px;
-        margin: 0;
+        margin: 0px;
       }
 
       .hangout-image {
@@ -221,8 +222,8 @@
       }
 
       img {
-        margin-top: 0;
-        padding: 30 0;
+        margin-top: 0px;
+        padding: 30px 0px;
         max-height: 200px;
         width: 80%;
       }
@@ -339,7 +340,7 @@
     }
 
     img#hangout-join {
-      @include box-shadow(0, 12px, 60, rgba(0, 0, 0, .5));
+      @include box-shadow(0px, 12px, 60px, rgba(0, 0, 0, .5));
       @include border-radius(10);
     }
 
