@@ -27,71 +27,17 @@ Template.learningItem.helpers({
 
 Template.learningItem.events({
   'click .btn-like': function(event, template) {
-    if (!Meteor.userId()) {
-      sweetAlert({
-        imageUrl: '/images/slack-signin-example.jpg',
-        imageSize: '140x120',
-        showCancelButton: true,
-        title: TAPi18n.__("you_are_almost_there"),
-        html: TAPi18n.__("continue_popup_text"),
-        confirmButtonText: TAPi18n.__("sign_in_with_slack"),
-        cancelButtonText: TAPi18n.__("not_now")
-      },
-      function(){
-        var options = {
-          requestPermissions: ['identify', 'users:read']
-        };
-        Meteor.loginWithSlack(options);
-      });
-    } else {
-      Meteor.call('incrementKudoCount', this._id, function(error, result) { });
-    }
+    Meteor.call('incrementKudoCount', this._id, function(error, result) { });
   },
 
   'click .btn-unlike': function(event, template) {
-    if (!Meteor.userId()) {
-      sweetAlert({
-        imageUrl: '/images/slack-signin-example.jpg',
-        imageSize: '140x120',
-        showCancelButton: true,
-        title: TAPi18n.__("you_are_almost_there"),
-        html: TAPi18n.__("continue_popup_text"),
-        confirmButtonText: TAPi18n.__("sign_in_with_slack"),
-        cancelButtonText: TAPi18n.__("not_now")
-      },
-      function(){
-        var options = {
-          requestPermissions: ['identify', 'users:read']
-        };
-        Meteor.loginWithSlack(options);
-      });
-    } else {
-      Meteor.call('decrementKudoCount', this._id, function(error, result) { });
-    }
+    Meteor.call('decrementKudoCount', this._id, function(error, result) { });
   },
 
   'click .edit-learning': function(event) {
-    if (!Meteor.userId()) {
-      sweetAlert({
-        imageUrl: '/images/slack-signin-example.jpg',
-        imageSize: '140x120',
-        showCancelButton: true,
-        title: TAPi18n.__("you_are_almost_there"),
-        html: TAPi18n.__("continue_popup_text"),
-        confirmButtonText: TAPi18n.__("sign_in_with_slack"),
-        cancelButtonText: TAPi18n.__("not_now")
-      },
-      function(){
-        var options = {
-          requestPermissions: ['identify', 'users:read']
-        };
-        Meteor.loginWithSlack(options);
-      });
-    } else {
-      Session.set('learningId', this._id);
-      Modal.show('editLearningModal');
-      $('#edit-learning-modal #title').val(this.title);
-    }
+    Session.set('learningId', this._id);
+    Modal.show('editLearningModal');
+    $('#edit-learning-modal #title').val(this.title);
   },
 
   'click .delete-learning': function(event, learningId) {
@@ -117,8 +63,6 @@ Template.learningItem.events({
           }
         });
       }
-    }
-  );
-}
-
+    });
+  }
 });

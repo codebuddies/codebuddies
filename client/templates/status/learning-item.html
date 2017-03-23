@@ -2,7 +2,7 @@
     <ul class="status-item">
        <li>
           <div class="kudo-holder display-inline">
-              <label class="kudo-count">
+              <label class="kudo-count {{#unless currentUser}} continue-popup {{/unless}}">
               {{#unless isOwner}}
                 <i class="fa fa-angle-up fa-2x btn-{{#if buttonStatus}}un{{/if}}like  btn-learning btn-xs"></i>
               {{else}}
@@ -18,7 +18,7 @@
              <a href="{{pathFor 'profile' name=username userId=userId}}"><span class="username">{{username}}</span></a>
               <label class="status">
                   {{#if isOwner}}
-                    <span class="delete-learning"><i class="fa fa-trash-o"></i></span> <a class="edit-learning">(Edit)</a>
+                    <span class="{{#unless currentUser}} continue-popup {{else}} delete-learning {{/unless}}"><i class="fa fa-trash-o"></i></span> <a class="{{#unless currentUser}} continue-popup {{else}} edit-learning {{/unless}}">(Edit)</a>
                   {{/if}}
               </label>
               <p>{{title}}</p>
