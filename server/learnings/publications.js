@@ -21,10 +21,10 @@ Meteor.publish("learningsByUserId", function(limit, userId) {
 
 Meteor.publish("learningsByHangoutId", function(limit, hangoutId) {
   check(hangoutId, String);
+  check(limit, Number);
 
     return Learnings.find({hangout_id: { $exists: true, $not: {$ne: hangoutId } }},
                           {sort: {created_at: -1}, limit: limit});
 
 
 });
-

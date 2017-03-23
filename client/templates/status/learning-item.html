@@ -3,25 +3,29 @@
        <li>
           <div class="kudo-holder display-inline">
               <label class="kudo-count">
-              <i class="fa fa-angle-up fa-2x btn-{{#if buttonStatus}}un{{/if}}like  btn-learning btn-xs"></i>
+              {{#unless isOwner}}
+                <i class="fa fa-angle-up fa-2x btn-{{#if buttonStatus}}un{{/if}}like  btn-learning btn-xs"></i>
+              {{else}}
+                <i class="fa fa-angle-up fa-2x btn-learning btn-xs"></i>
+              {{/unless}}
               <p class="align-center">{{kudos}}</p>
             </label>
-          </div> 
+          </div>
           <div class="learning-holder display-inline">
              <span class="status-date">
                 {{learningTime}} by
              </span>
              <a href="{{pathFor 'profile' name=username userId=userId}}"><span class="username">{{username}}</span></a>
               <label class="status">
-                  {{#if isOwner}} 
+                  {{#if isOwner}}
                     <span class="delete-learning"><i class="fa fa-trash-o"></i></span> <a class="edit-learning">(Edit)</a>
                   {{/if}}
               </label>
-              <p>{{title}}</p> 
+              <p>{{title}}</p>
           </div>
-       
 
-        
+
+
       </li>
     </ul>
 </template>
