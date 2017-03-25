@@ -1,10 +1,9 @@
 .full-width-tab {
-  width:50%;
-  padding-bottom:1px;
+  width: 50%;
+  padding-bottom: 1px;
 }
 
 .full-width-tabs {
-
   ul.nav.nav-tabs {
     display: table;
     width: 100%;
@@ -30,17 +29,14 @@
     text-align: center;
     background-color: $bg-white;
   }
-
 }
 
 .tab-content {
-
   &.status-fields {
-    margin: 0 0 0 0;
+    margin: 0;
   }
 
   &.status-data {
-    margin: 0px;
+    margin: 0;
   }
-
 }

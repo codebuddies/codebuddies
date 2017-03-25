@@ -38,8 +38,14 @@ Template.updateStatus.events({
             sweetAlert({
                 title: TAPi18n.__("you_are_almost_there"),
                 text: TAPi18n.__("login_update_status"),
-                confirmButtonText: TAPi18n.__("ok"),
+                confirmButtonText: TAPi18n.__("sign_in_with_slack"),
                 type: 'info'
+            },
+            function(){
+              var options = {
+                requestPermissions: ['identify', 'users:read']
+              };
+              Meteor.loginWithSlack(options);
             });
         } else {
             var currentStatus = $('#working-text').val();
@@ -64,8 +70,14 @@ Template.updateStatus.events({
             sweetAlert({
                 title: TAPi18n.__("you_are_almost_there"),
                 text: TAPi18n.__("login_update_status"),
-                confirmButtonText: TAPi18n.__("ok"),
+                confirmButtonText: TAPi18n.__("sign_in_with_slack"),
                 type: 'info'
+            },
+            function(){
+              var options = {
+                requestPermissions: ['identify', 'users:read']
+              };
+              Meteor.loginWithSlack(options);
             });
         } else {
             var learningStatus = $('#learned-text').val();

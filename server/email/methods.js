@@ -14,7 +14,7 @@ emailNotification = function(hangout, type){
     hangout_topic: hangout.topic,
     host: hangout.host.name,
     hangout_start_time: moment.utc( hangout.start ).format('MMMM Do YYYY, h:mm a z'),
-    logo: Meteor.absoluteUrl('images/logo.svg'),
+    logo: Meteor.absoluteUrl('images/logo-circle.png'),
     hangout_url: Meteor.absoluteUrl("hangout/" + hangout._id)
   };
 

@@ -8,9 +8,15 @@ Template.hangoutList.onCreated(function () {
         instance.subscribe('hangouts', limit);
     });
 
-    instance.loadHangouts = function () {
 
-        return Hangouts.find({}, { sort: { start: -1 } });
+    instance.loadHangouts = function() {
+      var now = new Date();
+      return Hangouts.find({'end': { $gte : now }}, {sort: { start: 1 }});
+    }
+
+    instance.loadCompletedHangouts = function() {
+      var now = new Date();
+      return Hangouts.find({'end': {$lt : now}}, {sort: { start: -1 }});
     }
 
     instance.addMoreHangouts = function () {
@@ -29,12 +35,15 @@ Template.hangoutList.onCreated(function () {
 
 
 Template.hangoutList.helpers({
-    hangouts: function () {
-        return Template.instance().loadHangouts();
-    },
-    status: function () {
-        return Template.instance().flag.get();
-    }
+  hangouts:function(){
+    return Template.instance().loadHangouts();
+  },
+  completedHangouts:function(){
+    return Template.instance().loadCompletedHangouts();
+  },
+  status:function(){
+     return  Template.instance().flag.get();
+  }
 });
 
 Template.hangoutList.events({

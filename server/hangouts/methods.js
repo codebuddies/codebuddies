@@ -19,6 +19,12 @@ Meteor.methods({
     if (!this.userId) {
       throw new Meteor.Error('Hangout.methods.createHangout.not-logged-in', 'Must be logged in to create new hangout.');
     }
+
+    let createdAt = new Date();
+    let createdAtPlusTwoHour = new Date(createdAt.getTime() + (2*1000*60*60));
+    const reminder = data.start <= createdAtPlusTwoHour ? true : false;
+
+
     var hangout = {
       topic: data.topic,
       slug: data.slug,
@@ -36,11 +42,11 @@ Meteor.methods({
       attendees:[],
       email_addresses: [loggedInUser.email],
       users:[loggedInUser._id],
-      day_reminder_sent: false,
-      hourly_reminder_sent: false,
+      day_reminder_sent: reminder,
+      hourly_reminder_sent: reminder,
       views: 0,
       visibility: true,
-      created_at: new Date(),
+      created_at: createdAt,
     }
 
     const hangout_id = Hangouts.insert(hangout);
@@ -308,7 +314,8 @@ Meteor.methods({
 
     const loggedInUser = Meteor.user();
     const date = new Date();
-    const end = date.setMinutes(date.getMinutes() - 1);
+    const end = date.setMinutes(date.getMinutes());
+    const oneMinuteAgo = new Date(end - 60000)
     if (!this.userId) {
       throw new Meteor.Error('Hangout.methods.endHangout.not-logged-in', 'Must be logged in to end hangout.');
     }
@@ -317,7 +324,7 @@ Meteor.methods({
     if(hangout.host.id === loggedInUser._id){
 
       Hangouts.update({_id: data.hangoutId},
-                      {$set:{ end: end,
+                      {$set:{ end: oneMinuteAgo,
                               url: "" } });
 
       return true;
@@ -325,7 +332,7 @@ Meteor.methods({
     }else if(Roles.userIsInRole(loggedInUser._id,['admin','moderator'])){
 
       Hangouts.update({_id: data.hangoutId},
-                      {$set:{ end: end,
+                      {$set:{ end: oneMinuteAgo,
                               url: "" } });
 
       const notification = {

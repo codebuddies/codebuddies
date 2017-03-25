@@ -15,28 +15,42 @@ h3 {
   margin: 60px 0 20px;
 }
 
-#__blaze-root{
+small.reminder {
+    display: block;
+    line-height: 1.2;
+    margin: 5px 0px;
+    font-weight: 200;
+}
+
+#__blaze-root {
   height: 100%;
 }
 
+p.warning { 
+  text-align: center;
+  color: $hangout-silent;
+  margin:10px;
+  font-weight: 400;
+}
+
 #wrapper {
-  position: relative;
   min-height: 100%;
-  padding: 0 0;
+  padding: 0;
+  position: relative;
 }
 
 .auto-height {
   overflow: auto;
 }
 
-#connection-lost-banner{
+#connection-lost-banner {
   text-align: center;
 }
 
 a:hover {
-  text-decoration: none;
-  cursor: pointer;
   color: $cta-blue;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 .__slackin {
@@ -44,12 +58,16 @@ a:hover {
 }
 
 .align-center {
-	text-align: center;
+  text-align: center;
 }
 
-.col-centered{
-    float: none;
-    margin: 0 auto;
+.display-inline {
+  display: inline-block;
+}
+
+.col-centered {
+  float: none;
+  margin: 0 auto;
 }
 
 .img-circle {
@@ -57,10 +75,21 @@ a:hover {
 }
 
 .page-header {
-  border-bottom: none; /*remove bootstrap divider in search*/
+  border-bottom: 0; // remove bootstrap divider in search
 }
 
 #post {
   ul { list-style: none; }
-  margin-top: 30px;
 }
+
+.margin-top-1 {
+  margin-top: 10px;
+}
+.margin-bottom-1 {
+  margin-bottom: 10px;
+}
+.margin-1 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+

@@ -6,8 +6,10 @@
         <label class="name">
         {{#if isHangoutInProgress start end}}
           &nbsp; &nbsp;<i class="fa fa-dot-circle-o fa text-danger faa-burst animated"></i> &nbsp;
-        {{/if}}
           <a href="{{pathFor 'hangout' hangoutId=_id }}" class="hangout-topic {{# if isHangoutCompleted end }}completed{{/if}}"> {{topic}} </a>
+        {{ else }}
+          <a href="{{pathFor 'hangout' hangoutId=_id }}" class="hangout-topic {{# if isHangoutCompleted end }}completed{{/if}}"> {{topic}} </a>
+        {{/if}}
 
 
         </label>
@@ -15,16 +17,6 @@
       </div>
 
       <div class="col-md-3">
-       {{# unless isHangoutCompleted end }}
-          {{# unless url }}
-                {{#if hangoutOwner host.id}}
-                  <div class="google-hangout">
-                      <div class="g-hangout" data-render="createhangout"
-                      data-initial_apps="[{ app_id : '999356798349', start_data: {{_id}}, 'app_type' : 'LOCAL_APP' }]" data-widget_size="72"></div>
-                  </div>
-                {{/if}}
-          {{/unless}}
-         {{/unless}}
 
         {{#if equals visibility false}}
           <span class="label label-pill label-danger">DELETED</span>
@@ -35,19 +27,10 @@
             {{#if isHangoutInProgress start end}}
 
               {{#if isAttending users}}
-                {{#if url}}
-                  <a class="btn btn-cb2 btn-grey btn-success" href="{{url}}" target="_blank">{{_ "launch"}}</a>
-                {{else}}
-                  {{#unless hangoutOwner host.id}}
-                        <p class="status">Please wait for <a href="https://codebuddiesmeet.slack.com/messages/{{host.name}}">@{{host.name}}</a> to start the hangout.</p>
-                      {{/unless}}
-                {{/if}}
-
-
-
+                  <a class="btn btn-cb2 btn-grey btn-success" href="{{pathFor 'hangout' hangoutId=_id }}">{{_ "launch"}}</a>
               {{else}}
                 {{# unless isHangoutCompleted end}}
-                  <button id="join-hangout" class="btn btn-cb2">{{_ "join_in_session"}}</button>
+                  <button class="btn btn-cb2 join-hangout">{{_ "join_in_session"}}</button>
                 {{/unless}}
               {{/if}}
 
@@ -59,7 +42,8 @@
               {{else}}
 
                 {{# unless isHangoutCompleted end}}
-                  <button id="join-hangout" class="btn btn-cb2">{{_ "rsvp"}}</button>
+                  <!-- <button id="join-hangout" class="btn btn-cb2">{{_ "rsvp"}}</button> -->
+                  <button class="btn btn-cb2 {{#if currentUser}} join-hangout {{else}} continue-popup {{/if}}">{{_ "rsvp"}}</button>
                 {{/unless}}
 
               {{/if}}
@@ -75,7 +59,7 @@
 
     <div class="col-md-9">
 
-      <p class="status"><label><i class="fa {{getHangoutTypeSign type}}"></i> Host <a href="{{pathFor 'profile' name=host.name userId=host.id}}">{{host.name}}</a></label></p>
+      <p class="status"><label><i class="fa {{getHangoutTypeSign type}}"></i> Started by <a href="{{pathFor 'profile' name=host.name userId=host.id}}">{{host.name}}</a></label></p>
       <p class="status"><label><i class="fa fa-calendar fa-lg"></i> {{getHangoutStartDateTime start}} -
 
         {{#if isHangoutEndTimeTBA start end}}
@@ -84,7 +68,7 @@
           {{getHangoutEndDateTime end}}
         {{/if}}
           |
-         {{users.length}} Joined  {{#if views}} | <i class="fa fa-eye" aria-hidden="true" data-toggle="tooltip" title="Views" > {{views}} </i> {{/if}}</label> </p>
+         {{users.length}} Joined  {{#if views}} | <i class="fa fa-eye" aria-hidden="true" data-toggle="tooltip" title="Views" ></i> {{views}} {{/if}}</label> </p>
       <p class="overflowtext">{{ getDescriptionTruncated description }}</p>
     </div>
 
