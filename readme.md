@@ -19,6 +19,9 @@ Learning with each other helps us learn faster. We strive to create a safe space
 
 Join us on Slack! You can get your invite by clicking on the Slack invite button and join the community by verifying your invitation through your e-mail!
 
+## How do I contribute to this project?
+**PLEASE go to _[contributing.md](contributing.md)_ and refer to the contribution steps listed there!** There are also helpful resources there, in case you get stuck. To add yourself as a contributor, please see the [How do I add myself as a contributor?](contributing.md#how-do-i-add-myself-as-a-contributor) section.
+
 ## What are you trying to build here?
 
 ![screenshot of what we're building](https://github.com/codebuddiesdotorg/codebuddies/raw/master/public/images/cb-example.png)
@@ -27,10 +30,9 @@ Credit: [Ada Chiu](https://github.com/adachiu).
 ## Why are you building this site?
 Our community spends a lot of time helping each other on [our public Slack](http://codebuddies.slack.com) (P.S. You can get an invite [here](http://codebuddiesmeet.herokuapp.com) if you want to join), but it's hard to schedule screensharing/voice hangout study times via Slack, and it's also hard to know who else is online and available for joining a Hangout to work on something together. The platform we're building solves those issues.
 
-## How do I contribute to this project?
-**PLEASE go to _[contributing.md](contributing.md)_ and refer to the contribution steps listed there!** There are also helpful resources there, in case you get stuck. To add yourself as a contributor, please see the [How do I add myself as a contributor?](contributing.md#how-do-i-add-myself-as-a-contributor) section.
+##Who are the volunteers so far?
 
-*And here are the volunteers so far:*
+*Note: the list below is incomplete. Please add your name and your contribution.*
 
 - @linda, https://github.com/lpatmo - contributed to various issues
 - @sbe, https://github.com/sbe - contributed to discussion on features
