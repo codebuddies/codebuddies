@@ -15,6 +15,6 @@
             <span class="learnedCharactersLeft">{{learnedCharacterCount}}</span>
         {{/if}}
 
-        <button id="update-{{type}}-btn" class="btn btn-cb2 pull-right">{{_ "update"}}</button>
+        <button id="update-{{type}}-btn" class="btn btn-cb2 pull-right {{#unless currentUser}} continue-popup {{/unless}}">{{_ "update"}}</button>
     </div>
 </template>
