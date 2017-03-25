@@ -137,5 +137,5 @@ You can also support us with a monthly donation by [becoming a Backer!](https://
 <a href="https://opencollective.com/codebuddies/backer/28/website" target="_blank"><img src="https://opencollective.com/codebuddies/backer/28/avatar.svg"></a>
 <a href="https://opencollective.com/codebuddies/backer/29/website" target="_blank"><img src="https://opencollective.com/codebuddies/backer/29/avatar.svg"></a>
 
-###Sponsors
+### Sponsors
 <a href="https://www.digitalocean.com/" target="_blank"><img src="https://github.com/codebuddiesdotorg/codebuddies/blob/master/public/images/powered_by_digitalocean.png" width="200" alt="Powered by DigitalOcean"/></a>
