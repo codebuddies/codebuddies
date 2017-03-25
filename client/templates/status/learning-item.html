@@ -3,11 +3,9 @@
        <li>
           <div class="kudo-holder display-inline">
               <label class="kudo-count {{#unless currentUser}} continue-popup {{/unless}}">
-              {{#unless isOwner}}
+              
                 <i class="fa fa-angle-up fa-2x btn-{{#if buttonStatus}}un{{/if}}like  btn-learning btn-xs"></i>
-              {{else}}
-                <i class="fa fa-angle-up fa-2x btn-learning btn-xs"></i>
-              {{/unless}}
+             
               <p class="align-center">{{kudos}}</p>
             </label>
           </div>
