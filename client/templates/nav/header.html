@@ -17,6 +17,7 @@
         <ul class="nav navbar-nav navbar-right">
           <li><a href="{{pathFor 'about'}}">{{_ "about"}} <span class="sr-only">(current)</span></a></li>
           <li><a href="{{pathFor 'faq'}}">{{_ "faq"}}</a></li>
+          <li><a href="https://github.com/codebuddiesdotorg/cb-v2-scratch" target="_blank" title="CodeBuddies on Github. Contributors welcome!">Github</a></li>
           {{#unless currentUser}}<li><a href="{{pathFor 'browse_hangouts'}}">{{_ "browse_hangouts"}} <span class="sr-only">(current)</span></a></li>{{/unless}}
           {{#unless isInRole 'admin'}}
              <li><a href="https://codebuddies.slack.com/messages/general" target="_blank"><i class="fa fa-slack" aria-hidden="true"></i> </a></li>
