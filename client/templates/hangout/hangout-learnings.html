@@ -1,0 +1,15 @@
+<template name="hangoutLearnings">
+<h3 id="hangout-learnings-title">Learnings</h3>
+<div class="status-list">
+ <div class="learnings">
+    {{#each learnings}}
+        {{> learningItem}}
+    {{/each}}
+  {{#if Template.subscriptionsReady}}
+    {{#if hasMoreLearnings}}
+        <button id="load-more-learnings" class="btn btn-default btn-block">Load more</button>
+    {{/if}}
+  {{/if}}
+  </div>
+ </div>
+</template>
