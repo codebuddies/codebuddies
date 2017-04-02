@@ -102,7 +102,7 @@ Template.createHangoutModal.events({
           type: 'success',
           closeOnConfirm: true
         });
-        FlowRouter.go("home");
+        FlowRouter.go("hangouts");
       }
     });
   }
