@@ -17,6 +17,10 @@
     display: block;
     text-decoration: none;
   }
+    
+  a:hover {
+    color: #333;
+  }
 
   p {
     color: $primary-grey;
