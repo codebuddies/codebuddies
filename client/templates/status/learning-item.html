@@ -3,9 +3,9 @@
        <li>
           <div class="kudo-holder display-inline">
               <label class="kudo-count {{#unless currentUser}} continue-popup {{/unless}}">
-              
+
                 <i class="fa fa-angle-up fa-2x btn-{{#if buttonStatus}}un{{/if}}like  btn-learning btn-xs"></i>
-             
+
               <p class="align-center">{{kudos}}</p>
             </label>
           </div>
@@ -19,7 +19,7 @@
                     <span class="{{#unless currentUser}} continue-popup {{else}} delete-learning {{/unless}}"><i class="fa fa-trash-o"></i></span> <a class="{{#unless currentUser}} continue-popup {{else}} edit-learning {{/unless}}">(Edit)</a>
                   {{/if}}
               </label>
-              <p>{{title}}</p>
+              <p class="learning-title">{{{ learningTitle }}}</p>
           </div>
 
 
