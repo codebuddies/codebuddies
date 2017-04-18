@@ -28,7 +28,11 @@
 
 # The More Detailed Steps on Contributing:
 1. Say hello on the [#codebuddies-meta](https://codebuddies.slack.com/messages/codebuddies-meta/) channel in the Slack. Feel free to ask questions here, or to ask for someone to review your pull request. (If you don't have an account with codebuddies.slack.com, please visit [codebuddies.org](http://codebuddies.org) to sign up.)
-2. Install Meteor! On mac, you should use this command: `curl "https://install.meteor.com/?release=1.3.2.4" | sh`. On Windows, you should run the official installer [here](https://www.meteor.com/install). If you're unsure whether you already have meteor installed, type `meteor --version` in your command line to check. You should see that you have meteor version 1.3.2.4.
+2. Install Meteor! On mac, you should use this command: 
+
+   `curl "https://install.meteor.com/?release=1.3.2.4" | sh`
+
+On Windows, you should run the official installer [here](https://www.meteor.com/install). If you're unsure whether you already have meteor installed, type `meteor --version` in your command line to check. You should see that you have meteor version 1.3.2.4.
 3. Please star this repository! We need to reach 100 stars so that we can apply to the [Open Collective](https://opencollective.com/opensource/apply).
   [Edit - We're already there! But still star this repo, so others can hear about what we're doing!]
 4. Fork this repository! Once you have a copy of this repo on your own account, clone this repo to your computer by typing in something like:
@@ -43,7 +47,11 @@
   * `git fetch upstream`
   * `git checkout release`
   * `git merge upstream/release`
-6. Type `meteor npm install` to install the initial meteor packages (you have to do this once!), and then `meteor --settings settings-development.json` in your terminal to start up the app in your browser ([http://localhost:3000](http://localhost:3000)).
+  
+  Note: You can type `git remote -v` to check which repositories your `origin` and `upstream` are pointing to.
+6. Type `meteor npm install` to install the initial meteor packages (you have to do this once!).
+
+Then, run `meteor --settings settings-development.json` in your terminal to start up the app in your browser ([http://localhost:3000](http://localhost:3000)). Note that the first time you do this, it may take a while (a few minutes) for the app to start up.
   * (`meteor npm run meteor:dev` can also run the app, but will likely [use up your CPU](https://github.com/meteor/meteor/issues/4314).)
   * Also note: if you see an error in your terminal asking you to `meteor npm install --save faker`, please run that command!
 8.Look at some of the [open issues](https://github.com/codebuddiesdotorg/cb-v2-scratch/issues) and identify one that sparks your interest. If you want to work on the issue, leave a comment on it saying that you're working on it! Then, create a new branch by typing `git checkout -b BRANCHNAME`. Replace BRANCHNAME with what you want to name the branch. Conventionally, you should use the issue number in your branch name. For example, if you decided to work on issue 123, you should run `git checkout -b issue-123` to create a branch named `issue-123`.
@@ -106,7 +114,7 @@ One of the github maintainers (@linda or someone else) will look over your pull 
 
   * `git checkout release`
   * `git pull`
-  * `git checkout [branch_name]`
+  * `git checkout BRANCH_NAME`
   * `git merge master`
 
 ### How do I stage master/deploy?
