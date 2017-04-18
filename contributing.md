@@ -104,7 +104,7 @@ One of the github maintainers (@linda or someone else) will look over your pull 
 
 - While you're working, you should try to merge in the latest from `master` occasionally while you are in your branch. You can do this by typing:
 
-  * `git checkout master`
+  * `git checkout release`
   * `git pull`
   * `git checkout [branch_name]`
   * `git merge master`
