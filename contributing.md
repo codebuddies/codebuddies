@@ -52,7 +52,7 @@ On Windows, you should run the official installer [here](https://www.meteor.com/
 
 6. Type `meteor npm install` to install the initial meteor packages (you have to do this once!).
 
-Then, run `meteor --settings settings-development.json` in your terminal to start up the app in your browser ([http://localhost:3000](http://localhost:3000)). Note that the first time you do this, it may take a while (a few minutes) for the app to start up.
+7. Then, run `meteor --settings settings-development.json` in your terminal to start up the app in your browser ([http://localhost:3000](http://localhost:3000)). Note that the first time you do this, it may take a while (a few minutes) for the app to start up.
   * (`meteor npm run meteor:dev` can also run the app, but will likely [use up your CPU](https://github.com/meteor/meteor/issues/4314).)
   * Also note: if you see an error in your terminal asking you to `meteor npm install --save faker`, please run that command!
 
