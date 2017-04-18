@@ -43,10 +43,10 @@
   * `git fetch upstream`
   * `git checkout release`
   * `git merge upstream/release`
-6. Type `meteor npm install`, and then `meteor --settings settings-development.json` in your terminal to start up the app in your browser ([http://localhost:3000](http://localhost:3000)).
+6. Type `meteor npm install` to install the initial meteor packages (you have to do this once!), and then `meteor --settings settings-development.json` in your terminal to start up the app in your browser ([http://localhost:3000](http://localhost:3000)).
   * (`meteor npm run meteor:dev` can also run the app, but will likely [use up your CPU](https://github.com/meteor/meteor/issues/4314).)
   * Also note: if you see an error in your terminal asking you to `meteor npm install --save faker`, please run that command!
-8.Look at some of the [open issues](https://github.com/codebuddiesdotorg/cb-v2-scratch/issues) and identify one that sparks your interest. If you want to work on the issue, leave a comment on it saying that you're working on it!
+8.Look at some of the [open issues](https://github.com/codebuddiesdotorg/cb-v2-scratch/issues) and identify one that sparks your interest. If you want to work on the issue, leave a comment on it saying that you're working on it! Then, create a new branch by typing `git checkout -b BRANCHNAME`. Replace BRANCHNAME with what you want to name the branch. Conventionally, you should use the issue number in your branch name. For example, if you decided to work on issue 123, you should run `git checkout -b issue-123` to create a branch named `issue-123`.
 9. If you have any questions about the issue you're looking at, you can leave a comment in there, or ask in the [#codebuddies-meta Slack channel](https://codebuddies.slack.com/messages/codebuddies-meta). Read below for more instructions about how to work with branches.
 10. Type `git branch -a` to see a list of all the branches besides `release`, the default branch you're in. Note that if you want to switch to an already-created branch, you would type `git checkout BRANCHNAME`. You can read more about how to create a new branch to work on an issue below.
 11. Once you finish making your changes, commit and push your changes.
