@@ -1,15 +1,15 @@
 <template name="homeLoggedIn">
 <div id="home">
-	<div class="container">
+	<div class="container padding-none">
     <div class="row">
-      <div class="col-md-7">
-        <div class="panel panel-default">
-          <div class="panel-body">
+      <div class="col-md-7 padding-none">
+        <div class="panel panel-default bg-blue">
+          <div class="panel-body padding-none">
             <div class="heading">
               <div class="title">{{_ "join_hangouts"}} <span class="question"><a id="hangout-faq-popup"><i class="fa fa-question-circle fa-2x"></i></a></span> </div>
             </div><!--heading-->
 
-            <div class="row search-area">
+            <div class="row search-area bg-blue">
               <div class="col-md-7">
                   <input type="text" class="form-control searchTerm" name="searchTerm" placeholder="&#128269; Search" id="searchBox">
               </div>
@@ -41,14 +41,14 @@
 
             {{else}}
 
-                {{> hangoutList}}
+                {{> hangoutCards}}
 
             {{/if}}<!--searchMode-->
 
           </div>
         </div><!-- panel-->
       </div><!--col-md-6 col-md-offset-1-->
-      <div class="col-md-5">
+      <div class="col-md-5 padding-none">
         <div class="full-width-tabs">
           <ul id="statusTabs" class="nav nav-tabs" role="tablist">
             <li class="active full-width-tab"><a data-id="A" href="#A"><span class="tab-title">{{_ "i_am_working_on"}}</span></a></li>
