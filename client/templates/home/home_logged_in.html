@@ -2,7 +2,7 @@
 <div id="home">
 	<div class="container padding-none">
     <div class="row">
-      <div class="col-md-7 padding-none">
+      <div class="col-md-8 padding-none">
         <div class="panel panel-default bg-blue">
           <div class="panel-body padding-none">
             <div class="heading">
@@ -28,7 +28,7 @@
 
                   <ul id="hangouts">
                     {{#each searchResults}}
-                      {{> hangoutItem}}
+                      {{> hangoutCard }}
                     {{/each}}
                   </ul>
 
@@ -48,7 +48,7 @@
           </div>
         </div><!-- panel-->
       </div><!--col-md-6 col-md-offset-1-->
-      <div class="col-md-5 padding-none">
+      <div class="col-md-4 padding-none">
         <div class="full-width-tabs">
           <ul id="statusTabs" class="nav nav-tabs" role="tablist">
             <li class="active full-width-tab"><a data-id="A" href="#A"><span class="tab-title">{{_ "i_am_working_on"}}</span></a></li>

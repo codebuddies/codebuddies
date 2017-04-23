@@ -9,7 +9,7 @@
           <small class="hangout-details">
               <i class="fa {{getHangoutTypeSign type}}"></i> Started by
                 {{#unless currentUser}}
-                  <a href="#" id='visitor'>{{host.name}}</a>
+                  <a href="#" class="{{#unless currentUser}} continue-popup {{/unless}}">{{host.name}}</a>
                 {{else}}
                   <a href="{{pathFor 'profile' name=host.name userId=host.id}}">{{host.name}}</a>
                 {{/unless}}
@@ -20,8 +20,37 @@
             </small>
 
         </h4>
+         {{# unless isHangoutCompleted end }}
 
+            {{#if isHangoutInProgress start end}}
 
+              {{#if isAttending users}}
+                  <a class="btn btn-cb2 btn-grey btn-success" href="{{pathFor 'hangout' hangoutId=_id }}">{{_ "launch"}}</a>
+              {{else}}
+                {{# unless isHangoutCompleted end}}
+                  <button class="btn btn-cb2 join-hangout {{#unless currentUser}} continue-popup {{/unless}}">{{_ "join_in_session"}}</button>
+                {{/unless}}
+              {{/if}}
 
+            {{else}}
+
+              {{#if isAttending users}}
+                <p class="upcoming">{{upcomingTime start}}</p>
+                <a id="leave-hangout" class="align-center">{{_ "leave"}}</a>
+              {{else}}
+
+                {{# unless isHangoutCompleted end}}
+                  <!-- <button id="join-hangout" class="btn btn-cb2">{{_ "rsvp"}}</button> -->
+                  <button class="btn btn-cb2 {{#if currentUser}} join-hangout {{else}} continue-popup {{/if}}">{{_ "rsvp"}}</button>
+                {{/unless}}
+
+              {{/if}}
+
+            {{/if}}
+          {{else}}
+            <p class="completed">completed</p>
+          {{/unless}}
   </a>
+
 </template>
+
