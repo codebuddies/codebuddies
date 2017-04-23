@@ -1,4 +1,8 @@
 #home {
+  .container {
+    overflow: auto;
+    margin: 0px 10px;
+  }
   background: $cta-blue;
 
   p {
