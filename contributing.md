@@ -158,7 +158,7 @@ In summary, the steps are:
 6. `git commit -m "message" [filename]`.
 7. You're done! Now you can continue to `git push` and `git pull` and `git merge staging` while you're inside your branch.
 
-###How do I start up the app locally and log in as an admin?
+### How do I start up the app locally and log in as an admin?
 1. add your email and username to ```settings-development.json```.
 2. ```meteor reset && meteor --settings settings-development.json```.
 3. you will receive your password in your email .
@@ -166,7 +166,7 @@ In summary, the steps are:
 
 Note: When you create a hangout in localhost:3000, a Slack notification will be sent to the #cb2-test channel. This emulates what happens when you create a hangout on codebuddies.org, where a Slack announcement about the hangout will appear in the #general channel.
 
-###How do I seed the app with fake Posts/Hangouts?
+### How do I seed the app with fake Posts/Hangouts?
 When the app is run locally, there are no hangouts seeded by default. Hence to be able to see how things work out, some fake posts could be seeded to the app. To do this run the app with the following changes.
 
 1. Open the ```settings-development.json``` file in the root directory of app.
@@ -174,7 +174,7 @@ When the app is run locally, there are no hangouts seeded by default. Hence to b
 3. Now start the app normally using ```meteor --settings settings-development.json```
 4. Now you can see that fake data is seeded to the app.
 
-###How do I add myself as a contributor?
+### How do I add myself as a contributor?
 *Make sure you have recently `git pull` from `master` before continuing.*
 
 Once you've submitted your PR, switch to the branch [`adding-contributor`](https://github.com/codebuddiesdotorg/cb-v2-scratch/tree/adding-contributor). Then, you can add yourself to both the README.md and on our About page. Keeping a separate branch for adding yourself as a contributor will alleviate most merge conflicts.
@@ -216,7 +216,7 @@ Once you've submitted your PR, switch to the branch [`adding-contributor`](https
 * **Remember not to delete this branch, so that others can use this branch as well!**
 
 
-#Helpful Reminders:
+### Helpful Reminders:
 1. Remember, you can always check which branch you are in by typing `git branch` or `git branch -a` to see all the branches that exist.
 
 2. Remember to `git pull` occasionally to get the new commits and branches others have pushed up.
@@ -229,5 +229,5 @@ Once you've submitted your PR, switch to the branch [`adding-contributor`](https
 
 6. Remember to join the `#codebuddies-meta` channel on the CodeBuddies Slack (go to [codebuddiesmeet.herokuapp.com](http://codebuddiesmeet.herokuapp.com) if you need an invitation to the Slack) to discuss updates to this project and to ask questions. We'll be there!
 
-#Editorconfig
+### Editorconfig
 Because everyone has their own preferred development tools, this project has an `.editorconfig` file in its root to help maintain code  consistency.  Please [download the appropriate plugin](http://editorconfig.org/#download) for your text editor or IDE - this will help to  ensure that your editor uses the rules configured in the `.editorconfig` file.
