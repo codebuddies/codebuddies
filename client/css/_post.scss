@@ -134,6 +134,8 @@
     }
   }
   .load-hangout-screenshot {
+    display: block;
+    margin: 0 auto;
     -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)"; // IE8
     filter: alpha(opacity=70); // IE 5-7
     opacity: 0.7;

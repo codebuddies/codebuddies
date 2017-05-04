@@ -70,9 +70,12 @@
 
               {{#if isAttending users}}
                   {{> hangoutFrame }}
-              {{/if}}
+              {{ else }}
+                <button class="btn btn-cb2 continue-popup display-inline">{{_ "click_to_load_hangout"}}</button> 
+                <img src="/images/click_to_load_hangout2.jpg" width="50%" class="load-hangout-screenshot continue-popup align-center"/>
+              {{/if}} 
               {{# unless isHangoutCompleted end }}
-                <p class="upcoming align-center load-hangout margin-top-1">
+                <p class="upcoming align-center continue-popup margin-top-1">
                   <i class="fa fa-dot-circle-o fa text-danger faa-burst animated"></i>&nbsp;{{upcomingTime start}}
 
                     {{#if isAttending users}}
