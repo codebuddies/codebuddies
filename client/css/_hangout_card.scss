@@ -5,6 +5,7 @@
   min-height: 150px;
   width: 270px;
   margin: 10px;
+  padding: 10px;
 
   .hangout-topic {
     @include font-face(400, 17px, normal, $cta-blue);

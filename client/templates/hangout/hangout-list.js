@@ -1,6 +1,6 @@
 Template.hangoutList.onCreated(function() {
   var instance = this;
-   instance.limit = new ReactiveVar(5);
+   instance.limit = new ReactiveVar(20);
    instance.flag = new ReactiveVar(false);
 
    instance.autorun(function () {
@@ -23,7 +23,7 @@ Template.hangoutList.onCreated(function() {
     instance.addMoreHangouts = function(){
 
         if(Hangouts.find().count() === instance.limit.get()){
-             instance.limit.set(instance.limit.get() + 8);
+             instance.limit.set(instance.limit.get() + 9);
 
         }else{
            if(Hangouts.find().count() < instance.limit.get()){

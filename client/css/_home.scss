@@ -1,7 +1,6 @@
 #home {
   .container {
     overflow: auto;
-    margin: 0px 10px;
     width: 100%;
   }
   background: $cta-blue;
@@ -81,6 +80,7 @@
 
   .search-area {
     padding: 30px;
+    overflow: auto;
 
     .searchTerm {
       font-size: 16px;
@@ -402,5 +402,9 @@
     .join-slack {
       margin-top: 50px;
     }
+  }
+  #loadMore {
+    width: 50%;
+    margin: 20px auto;
   }
 }
