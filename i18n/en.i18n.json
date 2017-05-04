@@ -50,7 +50,7 @@
   "rsvp": "RSVP",
   "rsvp_long": "RSVP to this Hangout",
   "joined": "JOINED",
-  "leave": "LEAVE",
+  "leave": "REMOVE RSVP",
   "join_in_session": "RSVP NOW",
   "load_more": "Load more...",
   "load_page": "Load page __start__/__total__",
