@@ -73,6 +73,16 @@
               {{# unless isHangoutCompleted end }}
                 <p class="upcoming align-center load-hangout margin-top-1">
                   <i class="fa fa-dot-circle-o fa text-danger faa-burst animated"></i>&nbsp;{{upcomingTime start}}
+
+                    {{#if isAttending users}}
+                      <a id="leave-hangout" class="btn btn-cb2 btn-danger">{{_ "leave"}}</a>
+                    {{else}}
+
+                      {{# unless isHangoutCompleted end}}
+                        <button class="btn btn-cb2 {{#if currentUser}} join-hangout {{else}} continue-popup {{/if}}">{{_ "rsvp_long"}}</button>
+                      {{/unless}}
+
+                    {{/if}}
                 </p>
 
               {{ else }}
@@ -180,17 +190,8 @@
 
             {{else}}
 
-              {{#if isAttending users}}
-                <a id="leave-hangout" class="btn btn-cb2 btn-danger">{{_ "leave"}}</a>
-              {{else}}
-
-                {{# unless isHangoutCompleted end}}
-                  <button class="btn btn-cb2 {{#if currentUser}} join-hangout {{else}} continue-popup {{/if}}">{{_ "rsvp_long"}}</button>
-                {{/unless}}
-
-              {{/if}}
-
-            {{/if}}
+              
+            {{/if}} <!-- This refers isHangoutInProgress -->
 
           {{/unless}}
 
