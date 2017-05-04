@@ -1,7 +1,12 @@
 <template name="hangoutCard">
     <a href="{{pathFor 'hangout' hangoutId=_id }}" class="hangout-card">
 
-        <h4 class="hangout-date"><small><i class="fa fa-calendar"></i>  {{getHangoutStartDateTime start}}</small></h4>
+        <h4 class="hangout-date"><i class="fa fa-calendar"></i>  {{getHangoutStartDateTime start}}</h4>
+        {{#if isHangoutInProgress start end}} 
+          <h5 class="in-progress"><span class="oval"></span> LIVE</h5>
+        {{/if}}
+
+         {{> hangoutActionBar}}
 
         <h4 class="hangout-topic {{#if isHangoutCompleted end }}completed{{/if}}">{{truncate topic}}</h4>
 
