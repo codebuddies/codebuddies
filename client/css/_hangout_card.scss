@@ -12,6 +12,25 @@
   .hangout-topic {
     @include font-face(400, 17px, normal, $cta-blue);
     text-align: justify;
+    &.completed {
+      color: $secondary-grey;
+    }
   }
+  .hangout-date {
+    margin: 0px;
+  }
+  .hangout-meta {
+    position: absolute;
+    bottom: 10px;
+  }
+  button { 
+    display: inline;
+  }
+  button.joined {
+    background: $warm-grey;
+  }
+}
 
+.hangout-card:hover {
+  @include box-shadow(0px, 12px, 60px, rgba(0, 0, 0, .5));
 }

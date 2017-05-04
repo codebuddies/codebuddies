@@ -3,9 +3,9 @@
 
         <h4 class="hangout-date"><small><i class="fa fa-calendar"></i>  {{getHangoutStartDateTime start}}</small></h4>
 
-        <h4 class="hangout-topic">{{truncate topic}}</h4>
+        <h4 class="hangout-topic {{#if isHangoutCompleted end }}completed{{/if}}">{{truncate topic}}</h4>
 
-        <h4>
+        <h4 class="hangout-meta">
           <small class="hangout-details">
               <i class="fa {{getHangoutTypeSign type}}"></i> Started by
                 {{#unless currentUser}}
@@ -20,8 +20,7 @@
             </small>
 
         </h4>
-         {{# unless isHangoutCompleted end }}
-
+        {{# unless isHangoutCompleted end}}
             {{#if isHangoutInProgress start end}}
 
               {{#if isAttending users}}
@@ -36,7 +35,8 @@
 
               {{#if isAttending users}}
                 <p class="upcoming">{{upcomingTime start}}</p>
-                <a id="leave-hangout" class="align-center">{{_ "leave"}}</a>
+                <button class="btn btn-cb2 align-center joined">{{_ "joined"}}</button>
+                <button id="leave-hangout" class="btn btn-cb2 align-center">{{_ "leave"}}</button>
               {{else}}
 
                 {{# unless isHangoutCompleted end}}
@@ -47,9 +47,8 @@
               {{/if}}
 
             {{/if}}
-          {{else}}
-            <p class="completed">completed</p>
           {{/unless}}
+
   </a>
 
 </template>
