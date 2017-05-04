@@ -1,12 +1,21 @@
 <template name="hangoutCard">
     <a href="{{pathFor 'hangout' hangoutId=_id }}" class="hangout-card">
-
+    <div class="card-header-wrapper">
+      <div class="pull-left calendar">
         <h4 class="hangout-date"><i class="fa fa-calendar"></i>  {{getHangoutStartDateTime start}}</h4>
         {{#if isHangoutInProgress start end}} 
           <h5 class="in-progress"><span class="oval"></span> LIVE</h5>
         {{/if}}
-
+        {{# unless isHangoutCompleted end}}
+          {{#unless isHangoutInProgress start end}} 
+            - <h5 class="upcoming">{{upcomingTime start}}</h5>
+          {{/unless}}
+        {{/unless}}
+      </div>
+      <div class="pull-right more-options">
          {{> hangoutActionBar}}
+      </div>
+    </div>
 
         <h4 class="hangout-topic {{#if isHangoutCompleted end }}completed{{/if}}">{{truncate topic}}</h4>
 
@@ -25,11 +34,15 @@
             </small>
 
         </h4>
+        <div class="hangout-description">
+          <p class="overflowtext">{{ getDescriptionTruncated description }}</p>
+        </div>
+        <div class="rsvp-buttons align-center">
         {{# unless isHangoutCompleted end}}
             {{#if isHangoutInProgress start end}}
 
               {{#if isAttending users}}
-                  <a class="btn btn-cb2 btn-grey btn-success" href="{{pathFor 'hangout' hangoutId=_id }}">{{_ "launch"}}</a>
+                  <a class="btn btn-cb2 btn-grey btn-success join-now" href="{{pathFor 'hangout' hangoutId=_id }}">{{_ "launch"}}</a>
               {{else}}
                 {{# unless isHangoutCompleted end}}
                   <button class="btn btn-cb2 join-hangout {{#unless currentUser}} continue-popup {{/unless}}">{{_ "join_in_session"}}</button>
@@ -39,8 +52,7 @@
             {{else}}
 
               {{#if isAttending users}}
-                <p class="upcoming">{{upcomingTime start}}</p>
-                <button class="btn btn-cb2 align-center joined">{{_ "joined"}}</button>
+                <button class="btn btn-cb2 align-center btn-grey" disabled>{{_ "joined"}}</button>
                 <button id="leave-hangout" class="btn btn-cb2 align-center">{{_ "leave"}}</button>
               {{else}}
 
@@ -52,7 +64,10 @@
               {{/if}}
 
             {{/if}}
+          {{ else }}
+            <h5 class="completed">{{_ "completed"}}</h5>
           {{/unless}}
+        </div>
 
   </a>
 

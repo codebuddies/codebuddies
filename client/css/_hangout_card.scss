@@ -6,10 +6,14 @@
   width: 100%;
   margin: 5px 0px;
   padding: 10px;
-  overflow: hidden;
+  overflow: scroll;
 
-
+  p.overflowtext {
+    color: $secondary-grey;
+  }
   .hangout-topic {
+    margin-top: 0px;
+    margin-bottom: 5px;
     @include font-face(400, 17px, normal, $cta-blue);
     text-align: justify;
     &.completed {
@@ -26,10 +30,20 @@
   button { 
     display: inline;
   }
-  button.joined {
-    background: $warm-grey;
+  .join-now {
+    width: 50%;
   }
-  h4.hangout-date, h5.in-progress {
+  .card-header-wrapper {
+    height: 40px;
+  }
+  div.calendar {
+    width: 80%;
+    line-height: 1.1;
+  }
+  div.more-options {
+    width: 20%;
+  }
+  h4.hangout-date, h5.in-progress, h5.upcoming, h5.completed {
     display: inline;
     font-size: 12px;
     letter-spacing: 0.1px;
@@ -37,7 +51,7 @@
     text-transform: uppercase;
     font-weight: 500;
   }
-  h5.in-progress {
+  h5.in-progress, h5.upcoming {
     color: $primary-grey;
   }
   .oval {
@@ -47,8 +61,15 @@
     @include border-radius(5px);
     display: inline-block;
   }
+  .rsvp-buttons {
+    position: relative;
+    top: 10px;
+    display: none;
+  }
 }
 
 .hangout-card:hover {
   @include box-shadow(0px, 12px, 60px, rgba(0, 0, 0, .5));
+  .rsvp-buttons { display: block; }
+  .hangout-description { display: none; }
 }

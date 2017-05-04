@@ -1,6 +1,14 @@
 Template.hangoutCard.helpers({
   truncate: function(topic){
     return topic.truncate()
+  },
+  getDescriptionTruncated: function(description) {
+    if(description.length > 101){
+      return description.substring(0,101)+"...";
+    }
+    else {
+      return description.substring(0,101)
+    }
   }
 });
 

@@ -75,7 +75,10 @@
                   <i class="fa fa-dot-circle-o fa text-danger faa-burst animated"></i>&nbsp;{{upcomingTime start}}
 
                     {{#if isAttending users}}
-                      <a id="leave-hangout" class="btn btn-cb2 btn-danger">{{_ "leave"}}</a>
+                      <div class="leave-wrapper">
+                        <a class="btn btn-cb2 align-center btn-grey" disabled>{{_ "joined"}}</a>
+                        <a id="leave-hangout" class="btn btn-cb2">{{_ "leave"}}</a>
+                      </div>
                     {{else}}
 
                       {{# unless isHangoutCompleted end}}
