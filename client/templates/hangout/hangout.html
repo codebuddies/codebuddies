@@ -67,7 +67,9 @@
               </div><!--panel-heading-->
 
               <div class="panel-body">
-
+              {{#if isHangoutInProgress start end}}
+                <h5 class="in-progress"><span class="oval"></span> LIVE</h5>
+              {{/if}}
               {{#if isAttending users}}
                   {{> hangoutFrame }}
               {{ else }}

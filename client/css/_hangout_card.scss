@@ -47,24 +47,6 @@
   div.more-options {
     width: 20%;
   }
-  h4.hangout-date, h5.in-progress, h5.upcoming, h5.completed {
-    display: inline;
-    font-size: 12px;
-    letter-spacing: 0.1px;
-    color: $warm-grey;
-    text-transform: uppercase;
-    font-weight: 500;
-  }
-  h5.in-progress, h5.upcoming {
-    color: $primary-grey;
-  }
-  .oval {
-    width: 10px;
-    height: 10px;
-    background-color: $danger-red;
-    @include border-radius(5px);
-    display: inline-block;
-  }
   .rsvp-buttons {
     display: none;
   }
