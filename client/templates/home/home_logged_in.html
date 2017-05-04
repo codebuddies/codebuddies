@@ -22,14 +22,16 @@
 
             </div>
             {{#if searchMode}}
-              <div class="page-header align-center"><h5>Showing results for '{{hangoutSearchQuery}}'</h5></div>
+              <div class="page-header align-center search-message"><h5>Showing results for '{{hangoutSearchQuery}}'</h5></div>
                 {{#if searchResults.count}}
 
-                  <ul id="hangouts">
+                  <div class="row margin-none" id="hangouts">
                     {{#each searchResults}}
-                      {{> hangoutCard }}
+                      <div class="col-md-4">
+                        {{> hangoutCard }}
+                      </div>
                     {{/each}}
-                  </ul>
+                  </div>
 
                 {{else}}
 

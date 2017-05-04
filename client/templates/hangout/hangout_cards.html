@@ -1,17 +1,22 @@
 <template name="hangoutCards">
   {{#if Template.subscriptionsReady}}
-    <ul id="hangouts">
-
+    <div class="row margin-none" id="hangouts">
+      
       {{#each hangouts}}
-        {{> hangoutCard}}
+        <div class="col-md-4">
+          {{> hangoutCard}}
+        </div>
       {{/each}}
-
+      
+     
       {{#each completedHangouts}}
-        {{> hangoutCard}}
+         <div class="col-md-4">
+           {{> hangoutCard}}
+        </div>
       {{/each}}
+      
 
-
-    </ul>
+    </div>
 
     {{#unless status}}
 
