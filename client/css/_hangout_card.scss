@@ -25,7 +25,11 @@
   }
   .hangout-meta {
     position: absolute;
-    bottom: 10px;
+    bottom: 0px;
+    padding-top: 0px;
+    margin-top: 0px;
+    padding-bottom: 10px;
+    background: white;
   }
   button { 
     display: inline;
@@ -62,8 +66,6 @@
     display: inline-block;
   }
   .rsvp-buttons {
-    position: relative;
-    top: 10px;
     display: none;
   }
 }

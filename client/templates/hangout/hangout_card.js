@@ -3,11 +3,11 @@ Template.hangoutCard.helpers({
     return topic.truncate()
   },
   getDescriptionTruncated: function(description) {
-    if(description.length > 101){
-      return description.substring(0,101)+"...";
+    if(description.length > 88){
+      return description.substring(0,88)+"...";
     }
     else {
-      return description.substring(0,101)
+      return description.substring(0,88)
     }
   }
 });
