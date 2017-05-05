@@ -47,13 +47,14 @@
   div.more-options {
     width: 20%;
   }
-  .rsvp-buttons {
+  .show-on-hover {
     display: none;
   }
 }
 
 .hangout-card:hover {
   @include box-shadow(0px, 12px, 60px, rgba(0, 0, 0, .5));
-  .rsvp-buttons { display: block; }
+  .show-on-hover { display: block; }
+  h5.completed.show-on-hover { display: inline-block; line-height: 0.8;}
   .hangout-description { display: none; }
 }

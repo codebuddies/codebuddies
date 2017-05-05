@@ -10,6 +10,8 @@
           {{#unless isHangoutInProgress start end}} 
             - <h5 class="upcoming">{{upcomingTime start}}</h5>
           {{/unless}}
+        {{ else }}
+            <h5 class="hangout-date completed show-on-hover">{{_ "completed"}}</h5>
         {{/unless}}
       </div>
       <div class="pull-right more-options">
@@ -37,7 +39,7 @@
         <div class="hangout-description">
           <p class="overflowtext">{{ getDescriptionTruncated description }}</p>
         </div>
-        <div class="rsvp-buttons align-center">
+        <div class="rsvp-buttons show-on-hover align-center">
         {{# unless isHangoutCompleted end}}
             {{#if isHangoutInProgress start end}}
 
@@ -65,7 +67,7 @@
 
             {{/if}}
           {{ else }}
-            <h5 class="completed">{{_ "completed"}}</h5>
+          <i class="fa fa-check" aria-hidden="true"></i>
           {{/unless}}
         </div>
 
