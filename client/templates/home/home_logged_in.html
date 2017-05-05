@@ -1,0 +1,83 @@
+<template name="homeLoggedIn">
+<div id="home">
+	<div class="container padding-none width-100">
+    <div class="row margin-none">
+      <div class="col-md-8 padding-none">
+        <div class="bg-blue">
+            <div class="heading">
+              <div class="title">{{_ "join_hangouts"}} <span class="question"><a id="hangout-faq-popup"><i class="fa fa-question-circle fa-2x"></i></a></span> </div>
+            </div><!--heading-->
+
+            <div class="search-area bg-blue">
+              <div class="col-md-7">
+                  <input type="text" class="form-control searchTerm" name="searchTerm" placeholder="&#128269; Search" id="searchBox">
+              </div>
+              <div class="col-md-5">
+                  <div class="btn btn-cb2 {{#unless currentUser}} continue-popup {{/unless}}" id="create-hangout-popup"> {{_ "create_a_hangout"}} </div>
+                  <!-- <button id="create-hangout-popup" class="btn btn-cb2">{{_ "create_a_hangout"}}</button> -->
+              </div>
+            </div><!-- inner row-->
+            
+            <div class="heading">
+
+            </div>
+            {{#if searchMode}}
+              <div class="page-header align-center search-message"><h5>Showing results for '{{hangoutSearchQuery}}'</h5></div>
+                {{#if searchResults.count}}
+
+                  <div class="row margin-none" id="hangouts">
+                    {{#each searchResults}}
+                      <div class="col-lg-4">
+                        {{> hangoutCard }}
+                      </div>
+                    {{/each}}
+                  </div>
+
+                {{else}}
+
+                  <h4>Sorry, no results were found.</h4>
+                  <p>Please check your spelling, or try another search.</p>
+
+                {{/if}}<!--searchResults.count-->
+
+            {{else}}
+
+                {{> hangoutCards}}
+
+            {{/if}}<!--searchMode-->
+
+          </div>
+      </div><!--col-md-6 col-md-offset-1-->
+      <div class="col-md-4 padding-none">
+        <div class="full-width-tabs">
+          <ul id="statusTabs" class="nav nav-tabs" role="tablist">
+            <li class="active full-width-tab"><a data-id="A" href="#A"><span class="tab-title">{{_ "i_am_working_on"}}</span></a></li>
+            <li class="full-width-tab"><a data-id="B" href="#B"><span class="tab-title">{{_ "today_i_learned"}}</span></a></li>
+          </ul>
+        </div>
+        <div class="tab-content status-fields">
+          <div role="tabpanel" class="tab-pane active" id="A">
+            {{> updateStatus type="working"}}
+          </div>
+          <div role="tabpanel" class="tab-pane" id="B">
+            {{> updateStatus type="learned"}}
+          </div>
+        </div>
+        <ul id="statusListTabs" style="display: none;" class="nav nav-tabs" role="tablist">
+          <li class="active"><a href="#AA"></a></li>
+          <li><a href="#BB"></a></li>
+        </ul>
+        <div class="tab-content status-data">
+          <div role="tabpanel" class="tab-pane active" id="AA">
+            {{> statusList type="working"}}
+          </div>
+          <div role="tabpanel" class="tab-pane" id="BB">
+            {{> statusList type="learned"}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+ </div>
+
+</template>

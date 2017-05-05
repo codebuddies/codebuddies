@@ -13,7 +13,7 @@
              <span class="status-date">
                 {{learningTime}} by
              </span>
-             <a href="{{pathFor 'profile' name=username userId=userId}}"><span class="username">{{username}}</span></a>
+             <a href="{{pathFor 'profile' name=username userId=userId}}" class="{{#unless currentUser}} continue-popup {{/unless}}"><span class="username">{{username}}</span></a>
               <label class="status">
                   {{#if isOwner}}
                     <span class="{{#unless currentUser}} continue-popup {{else}} delete-learning {{/unless}}"><i class="fa fa-trash-o"></i></span> <a class="{{#unless currentUser}} continue-popup {{else}} edit-learning {{/unless}}">(Edit)</a>

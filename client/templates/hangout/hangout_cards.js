@@ -1,12 +1,14 @@
-Template.hangoutList.onCreated(function() {
-   var instance = this;
-   instance.limit = new ReactiveVar(20);
+Template.hangoutCards.onCreated(function() {
+  var instance = this;
+   instance.limit = new ReactiveVar(12);
    instance.flag = new ReactiveVar(false);
 
    instance.autorun(function () {
      var limit = instance.limit.get();
      instance.subscribe('hangouts', limit);
    });
+
+    var instance = this;
 
     instance.loadHangouts = function() {
       var now = new Date();
@@ -18,22 +20,21 @@ Template.hangoutList.onCreated(function() {
       return Hangouts.find({'end': {$lt : now}}, {sort: { start: -1 }});
     }
 
-    instance.addMoreHangouts = function () {
+    instance.addMoreHangouts = function(){
 
         if(Hangouts.find().count() === instance.limit.get()){
              instance.limit.set(instance.limit.get() + 9);
 
-        } else {
-            if (Hangouts.find().count() < instance.limit.get()) {
-                instance.flag.set(true);
-            }
-        }
+        }else{
+           if(Hangouts.find().count() < instance.limit.get()){
+               instance.flag.set(true);
+           }
+       }
     }
+
 });
 
-
-
-Template.hangoutList.helpers({
+Template.hangoutCards.helpers({
   hangouts:function(){
     return Template.instance().loadHangouts();
   },
@@ -45,8 +46,8 @@ Template.hangoutList.helpers({
   }
 });
 
-Template.hangoutList.events({
-    "click #loadMore": function (event, template) {
-        template.addMoreHangouts();
-    }
+Template.hangoutCards.events({
+  "click #loadMore": function(event, template){
+     template.addMoreHangouts();
+  }
 });

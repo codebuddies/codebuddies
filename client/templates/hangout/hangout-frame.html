@@ -1,11 +1,12 @@
 <template name="hangoutFrame">
 
 <div id="hangout-button-wrapper">
-  <button class="btn btn-cb2 btn-grey btn-success load-hangout display-inline">{{_ "click_to_load_hangout"}}</button> 
+  <p class="warning chrome-firefox-warning">Warning: Please load this page using Chrome <img src="/images/chrome.ico" width="25"/> or Firefox <img src="/images/firefox.ico" width="25"/> to avoid technical issues</p>
+  <button class="btn btn-cb2 load-hangout display-inline">{{_ "click_to_load_hangout"}}</button> 
+  <img src="/images/click_to_load_hangout2.jpg" width="50%" class="load-hangout load-hangout-screenshot"/>
 </div>
 
-  <p class="warning chrome-firefox-warning">Warning: Please load this page using Chrome <img src="/images/chrome.ico" width="25"/> or Firefox <img src="/images/firefox.ico" width="25"/> to avoid technical issues</p>
-  <div id="hangout-container"></div> 
+ <div id="hangout-container"></div> 
   <span id="post_id" class="hide">{{_id}}</span>
 
 </template>
