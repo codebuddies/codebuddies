@@ -1,6 +1,6 @@
-Template.hangoutList.onCreated(function() {
+Template.hangoutCards.onCreated(function() {
   var instance = this;
-   instance.limit = new ReactiveVar(20);
+   instance.limit = new ReactiveVar(12);
    instance.flag = new ReactiveVar(false);
 
    instance.autorun(function () {
@@ -34,7 +34,7 @@ Template.hangoutList.onCreated(function() {
 
 });
 
-Template.hangoutList.helpers({
+Template.hangoutCards.helpers({
   hangouts:function(){
     return Template.instance().loadHangouts();
   },
@@ -46,7 +46,7 @@ Template.hangoutList.helpers({
   }
 });
 
-Template.hangoutList.events({
+Template.hangoutCards.events({
   "click #loadMore": function(event, template){
      template.addMoreHangouts();
   }

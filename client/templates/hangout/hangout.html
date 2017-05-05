@@ -41,7 +41,7 @@
                       <strong>{{getHangoutStartDateDay start}}</strong>
                     <br />
 
-                      {{getHangoutStartDateTime start}} -
+                      {{getHangoutStartTime start}} -
                       {{#if isHangoutEndTimeTBA start end}}
                         TBA (End Manually)
                       {{else}}
@@ -67,15 +67,24 @@
               </div><!--panel-heading-->
 
               <div class="panel-body">
-                 {{#if isAttending users}}
-                    {{> hangoutFrame }}
-                 {{/if}}
+              {{#if isHangoutInProgress start end}}
+                <h5 class="in-progress"><span class="oval"></span> LIVE</h5>
+              {{/if}}
+              {{#if isAttending users}}
+                  {{> hangoutFrame }}
+              {{ else }}
+                <button class="btn btn-cb2 continue-popup display-inline">{{_ "click_to_load_hangout"}}</button> 
+                <img src="/images/click_to_load_hangout2.jpg" width="50%" class="load-hangout-screenshot continue-popup align-center"/>
+              {{/if}} 
               {{# unless isHangoutCompleted end }}
-                <p class="upcoming align-center load-hangout margin-top-1">
+                <p class="upcoming align-center continue-popup margin-top-1">
                   <i class="fa fa-dot-circle-o fa text-danger faa-burst animated"></i>&nbsp;{{upcomingTime start}}
 
                     {{#if isAttending users}}
-                      <a id="leave-hangout" class="btn btn-cb2 btn-danger">{{_ "leave"}}</a>
+                      <div class="leave-wrapper">
+                        <a class="btn btn-cb2 align-center btn-grey" disabled>{{_ "joined"}}</a>
+                        <a id="leave-hangout" class="btn btn-cb2">{{_ "leave"}}</a>
+                      </div>
                     {{else}}
 
                       {{# unless isHangoutCompleted end}}
@@ -93,12 +102,13 @@
                   {{else}}
                       Sorry, this hangout has ended. Why not start your own?
                       <div class="btn btn-cb2 margin-top-1" id="create-hangout-popup">
-                        Create a Hangout
+                        Start a Hangout
                       </div>
                   {{/if}}
                 </div>
               {{/ unless }}
 
+           
 
                 <p id="hangout-description" class="margin-1">
                     {{{formatDescription this}}}
@@ -110,7 +120,7 @@
 
                 <div class="row">
 
-                  <div class="col-md-4 col-sm-4">
+                  <div class="col-md-6 col-sm-6">
                    <h4>Hangout Reminders</h4>
                    <ol>
                         <li>Remember that this is a safe space, and we help each other learn faster. Be patient, and always feel free to ask questions.</li>
@@ -122,15 +132,11 @@
 
                   </div>
                   <div class="col-md-2 col-sm-2">
-                      <img src="/images/jitsi_screenshot.jpg" width="100%" class="jitsi-screenshot"/>
                       {{#if isHangoutInProgress start end}}
                         {{#if isAttending users}}
                           <small class="load-hangout reminder">We're in session! Please click to load the hangout.</small>
                         {{/if}}
                       {{/if}}
-                  </div>
-                  <div class="col-md-3 col-sm-3">
-                    <img src="/images/jitsi_guide.jpg" width="100%">
                   </div>
 
 

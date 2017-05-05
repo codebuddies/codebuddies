@@ -30,11 +30,12 @@
   "working_on": "Please type what you're working on right now!",
   "accomplished": "What did you learn or accomplish just now?",
   "upcoming_time": "Starting __time__",
-  "mastered_x_days_ago": "COMPLETED",
+  "mastered_x_days_ago": "HANGOUT HAS ENDED",
+  "completed": "hangout has ended",
   "completed_long": "THIS HANGOUT HAS BEEN COMPLETED",
   //COMPLETED __days__ days ago, COMPLETED __days__ days ago, COMPLETED today __time__
-  "mastered_x_days_ago_plural": "COMPLETED",
-  "mastered_today_time": "COMPLETED",
+  "mastered_x_days_ago_plural": "HANGOUT HAS ENDED",
+  "mastered_today_time": "HANGOUT HAS ENDED",
   "delete_learning_confirm": "Are you sure you want to delete this learning?",
 
 
@@ -48,7 +49,8 @@
   "join_long": "Launch the Hangout",
   "rsvp": "RSVP",
   "rsvp_long": "RSVP to this Hangout",
-  "leave": "Remove RSVP",
+  "joined": "JOINED",
+  "leave": "REMOVE RSVP",
   "join_in_session": "RSVP NOW",
   "load_more": "Load more...",
   "load_page": "Load page __start__/__total__",

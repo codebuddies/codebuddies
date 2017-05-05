@@ -53,7 +53,7 @@ Template.registerHelper("getHangoutStartDateDay", function(date){
   return moment(date).tz(tz).format('dddd MMMM Do YYYY');
 });
 
-Template.registerHelper("getHangoutStartDateTime", function(date){
+Template.registerHelper("getHangoutStartTime", function(date){
   const tz = TimezonePicker.detectedZone();
   return moment(date).tz(tz).format('h:mm a z');
 });

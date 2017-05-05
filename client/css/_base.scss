@@ -1,3 +1,14 @@
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
 body {
   padding: 0;
   #profile { background: $bg-white;}
@@ -24,6 +35,10 @@ small.reminder {
 
 #__blaze-root {
   height: 100%;
+}
+
+.color-white {
+  color: $white;
 }
 
 p.warning { 
@@ -61,6 +76,14 @@ a:hover {
   text-align: center;
 }
 
+.centered {
+  margin: 0 auto;
+}
+
+.display-block {
+  display: block;
+}
+
 .display-inline {
   display: inline-block;
 }
@@ -92,4 +115,17 @@ a:hover {
   margin-top: 10px;
   margin-bottom: 10px;
 }
+.padding-none {
+  padding: 0px;
+}
+.margin-none {
+  margin: 0px;
+}
 
+.width-100 {
+  width: 100%;
+}
+
+.bg-blue {
+  background: $cta-blue;
+}
