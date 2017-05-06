@@ -59,6 +59,7 @@
       label {
         @include font-face(400, 12px, normal, $warm-grey);
         display: inline-block;
+        line-height: 1.5;
       }
 
       i.faa-burst {

@@ -63,6 +63,14 @@ Template.statusList.events({
     // increase limit by 5 and update it
     limit += 5;
     instance.limit.set(limit);
-  }
+  },
+'click .signIn': function(event) {
+    var options = {
+      requestPermissions: ['identify', 'users:read']
+    };
+    Meteor.loginWithSlack(options);
+}
 
 });
+
+

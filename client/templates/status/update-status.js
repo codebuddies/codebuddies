@@ -34,20 +34,6 @@ Template.updateStatus.events({
 
     //3 Buttons
     'click #update-working-btn': function(event) {
-        if (!Meteor.userId()) {
-            sweetAlert({
-                title: TAPi18n.__("you_are_almost_there"),
-                html: TAPi18n.__("continue_popup_text"),
-                confirmButtonText: TAPi18n.__("sign_in_with_slack"),
-                cancelButtonText: TAPi18n.__("not_now")
-            },
-            function(){
-              var options = {
-                requestPermissions: ['identify', 'users:read']
-              };
-              Meteor.loginWithSlack(options);
-            });
-        } else {
             var currentStatus = $('#working-text').val();
 
             if ($.trim(currentStatus) == '') {
@@ -59,11 +45,9 @@ Template.updateStatus.events({
                 });
                 return;
             }
-
             Meteor.call('setUserStatus', currentStatus, function(error, result) {});
             $('#working-text').val('');
 			$('.charactersLeft').text(140);
-        }
     },
     'click #update-learned-btn': function(event) {
         if (!Meteor.userId()) {

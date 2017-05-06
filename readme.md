@@ -62,6 +62,7 @@ Our community spends a lot of time helping each other on [our public Slack](http
 - @olivia, http://github.com/foxiae - contributed to discussions on features
 - @abhiii5459, http://github.com/abhiii5459 - contributed to PR#239. Working on Fix#203 along with @linda.
 - @sharynneazhar, http://github.com/sharynneazhar - contributed to site fixes and enhancements, particularly the ability for users to edit their profile information
+- @grfraser, https://github.com/grfraser
 - Add Your Name Above. Refer to ***[contributing.md](contributing.md#how-do-i-add-myself-as-a-contributor)***
 
 If you'd like to help contribute, pick out an [issue](https://github.com/codebuddiesdotorg/codebuddies/issues) (leave a comment on it to indicate your interest!) and say hello in the [#codebuddies-meta](https://codebuddies.slack.com/messages/codebuddies-meta/) channel on Slack. Be sure to read the "how do I contribute" instructions on [contributing.md](contributing.md)!

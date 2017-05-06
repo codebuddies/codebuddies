@@ -18,7 +18,10 @@ Template.header.events({
     var options = {
       requestPermissions: ['identify', 'users:read']
     };
-    Meteor.loginWithSlack(options);
+    Meteor.loginWithSlack(options, function() {
+        FlowRouter.go("hangouts");
+    });
+
   },
   'click #signOut': function(event) {
     Meteor.logout(function(err) {

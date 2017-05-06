@@ -27,22 +27,6 @@ Template.hangoutItem.helpers({
 Template.hangoutItem.events({
   'click .join-hangout': function() {
     console.log('clicked on join hangout')
-    if (!Meteor.userId()) {
-      sweetAlert({
-        title: TAPi18n.__("you_are_almost_there"),
-        text: TAPi18n.__("login_join_hangout"),
-        confirmButtonText: TAPi18n.__("sign_in_with_slack"),
-        type: 'info'
-      },
-      function(){
-        var options = {
-          requestPermissions: ['identify', 'users:read']
-        };
-        Meteor.loginWithSlack(options);
-      }
-    );
-    } else {
-
       const data = {
         hangoutId: this._id,
         hostId: this.host.id,
@@ -57,7 +41,6 @@ Template.hangoutItem.events({
           });
         }
       });
-    }
   },
   'click #leave-hangout': function() {
     if (this.host.id == Meteor.userId()) {

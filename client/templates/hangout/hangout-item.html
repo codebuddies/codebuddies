@@ -17,6 +17,9 @@
       </div>
 
       <div class="col-md-3">
+        
+      {{!-- Group Label --}}
+      {{#if group}}<p><a href="{{pathFor 'study group' studyGroupSlug=group.slug studyGroupId=group.id}}"> <span class="label label-default pull-right">{{group.title}}</span> </a>  </p>{{/if}}
 
         {{#if equals visibility false}}
           <span class="label label-pill label-danger">DELETED</span>
@@ -30,7 +33,7 @@
                   <a class="btn btn-cb2 btn-grey btn-success" href="{{pathFor 'hangout' hangoutId=_id }}">{{_ "launch"}}</a>
               {{else}}
                 {{# unless isHangoutCompleted end}}
-                  <button class="btn btn-cb2 join-hangout">{{_ "join_in_session"}}</button>
+                  <button class="btn btn-cb2 join-hangout {{#unless currentUser}} continue-popup {{/unless}}">{{_ "join_in_session"}}</button>
                 {{/unless}}
               {{/if}}
 
@@ -50,7 +53,7 @@
 
             {{/if}}
           {{else}}
-            <p class="completed">completed</p>
+            <p class="completed"><i class="fa fa-check" aria-hidden="true"></i> {{_ "completed"}}</p>
           {{/unless}}
 
         {{/if}} <!-- if equals visibility false -->
@@ -59,11 +62,8 @@
 
     <div class="col-md-9">
 
-      <p class="status"> <label><i class="fa {{getHangoutTypeSign type}}"></i> Started by <a href="{{pathFor 'profile' name=host.name userId=host.id}}">{{host.name}}</a></label> </p>
 
-      {{!-- Group Label --}}
-      {{#if group}}<p><a href="{{pathFor 'study group' studyGroupSlug=group.slug studyGroupId=group.id}}"> <span class="label label-default pull-right">{{group.title}}</span> </a>  </p>{{/if}}
-
+      <p class="status"><label><i class="fa {{getHangoutTypeSign type}}"></i> Started by <a href="{{pathFor 'profile' name=host.name userId=host.id}}" class="{{#unless currentUser}} continue-popup {{/unless}}">{{host.name}}</a></label></p>
       <p class="status"><label><i class="fa fa-calendar fa-lg"></i> {{getHangoutStartDateTime start}} -
 
         {{#if isHangoutEndTimeTBA start end}}
