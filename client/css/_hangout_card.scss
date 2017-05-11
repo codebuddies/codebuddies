@@ -14,10 +14,10 @@
   .hangout-topic {
     margin-top: 10px;
     margin-bottom: 5px;
-    @include font-face(bold, 17px, normal, black);
+    @include font-face(bold, 17px, normal, $black);
     text-align: left;
     &.completed {
-      color: #8e8e8e;
+      color: $secondary-grey;
     }
   }
   .hangout-date {
