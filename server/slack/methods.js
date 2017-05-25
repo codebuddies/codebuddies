@@ -18,9 +18,25 @@ slackNotification = function(hangout, type){
 
   let fallback, pretext;
 
+  let attendees_list = hangout.attendees
+
+  let nameString = "";
+  if (attendees_list.length ==1) {
+    nameString += '<@' + attendees_list[0]['name'] + '> has RSVPed!';
+  } else if (attendees_list.length == 2) {
+    nameString = '<@' + attendees_list[0]['name'] + '> and <@' + attendees_list[1]['name'] + '> have RSVPed!'; 
+  } else {
+    attendees_list.forEach(function(element) {
+      if (element!==attendees_list[attendees_List.length-1]){
+        nameString += '<@' + element.name + '>, ';
+      } else if (element==attendees_list[attendees_List.length-1]){
+        nameString += 'and <@' + element.name + '> have RSVPed!';
+      }
+    });
+  }
   if(type === "REMINDER"){
      fallback = `Reminder! hangout: ${hangout.topic} is set to start on ${hangout.start_time}. Visit` + Meteor.absoluteUrl("hangout/" + hangout._id);
-     pretext = `Reminder! ${hangout.type} hangout: *${hangout.topic}* scheduled by <@${hangout.host.name}> is set to start in *less than two hours!*`;
+     pretext = `Reminder! ${hangout.type} hangout: *${hangout.topic}* scheduled by <@${hangout.host.name}> is set to start in *less than two hours!* ${nameString}`;
   }
   if(type === "NEW"){
      fallback = 'A new hangout has been scheduled. Visit' + Meteor.absoluteUrl('hangout/' + hangout._id);
