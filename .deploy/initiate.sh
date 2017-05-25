@@ -17,7 +17,7 @@ DEPLOYMENT_TARGET="$1"
    APP_NAME=cb-stage
  fi
 
- SERVER=lann@139.59.74.210
+ SERVER=codeship@104.236.145.198
  APP_DIR=/var/www/$APP_NAME
  KEYFILE=
  REMOTE_SCRIPT_PATH=/tmp/deploy-myapp.sh
