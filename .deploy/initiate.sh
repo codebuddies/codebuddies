@@ -45,6 +45,6 @@ run scp $KEYARG package.tar.gz $SERVER:$APP_DIR/
 run scp $KEYARG .deploy/work.sh $SERVER:$REMOTE_SCRIPT_PATH
 echo
 echo "---- Running deployment script on remote server ----"
-run ssh $KEYARG $SERVER bash $REMOTE_SCRIPT_PATH
+run ssh $KEYARG $SERVER bash $REMOTE_SCRIPT_PATH $DEPLOYMENT_TARGET
 rm package.tar.gz
 echo "---- All done ----"
