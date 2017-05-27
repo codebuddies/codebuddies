@@ -127,10 +127,10 @@ One of the github maintainers (@linda or someone else) will look over your pull 
   * `git checkout BRANCH_NAME`
   * `git merge master`
 
-### How do I stage master/deploy?
-Our staging site is located at [http://codebuddies.herokuapp.com](http://codebuddies.herokuapp.com/). This staging site is deployed through Heroku to ensure everything on `master` works before deploying it to master.
+### How does the deployment process work?
+Our staging site is located at [staging.codebuddies.org](http://staging.codebuddies.org/). Pull requests that are approved are  merged into the `staging` branch and automatically deployed to the staging site.
 
-For full deployment instructions, see the [wiki](https://github.com/codebuddiesdotorg/cb-v2-scratch/wiki/CBV2-Deployment-Instructions).
+When we're ready to do a release, we'll merge the `staging` branch into the `master` branch via a pull request, Codeship will run, and we'll automatically see the changes live at [codebuddies.org](http://codebuddies.org)
 
 ### What do I do when I'm ready to merge my fix or feature back into the main app?
 When you are ready, submit a PR on GitHub, and a member from the CodeBuddies community will review it.
