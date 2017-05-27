@@ -12,10 +12,10 @@
     color: $secondary-grey;
   }
   .hangout-topic {
-    margin-top: 0px;
+    margin-top: 6px;
     margin-bottom: 5px;
-    @include font-face(400, 17px, normal, $cta-blue);
-    text-align: justify;
+    @include font-face(600, 17px, normal, $black);
+    text-align: left;
     &.completed {
       color: $secondary-grey;
     }
