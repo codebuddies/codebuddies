@@ -48,8 +48,8 @@ On Windows, you should run the official installer [here](https://www.meteor.com/
 
   Now, whenever you want to sync with the owner repository. Do the following:
   * `git fetch upstream`
-  * `git checkout release`
-  * `git merge upstream/release`
+  * `git checkout staging`
+  * `git merge upstream/staging`
   
   Note: You can type `git remote -v` to check which repositories your `origin` and `upstream` are pointing to.
 
@@ -66,7 +66,7 @@ If you want to work on the issue, leave a comment on it saying that you're worki
 Then, create a new branch by typing `git checkout -b BRANCHNAME`. Replace BRANCHNAME with what you want to name the branch. Conventionally, you should use the issue number in your branch name. For example, if you decided to work on issue https://github.com/codebuddiesdotorg/codebuddies/issues/491, you should type `git checkout -b issue-491` to create a branch named `issue-491`.
 
 9. If you have any questions about the issue you're looking at, you can leave a comment in there, or ask in the [#codebuddies-meta Slack channel](https://codebuddies.slack.com/messages/codebuddies-meta). Read below for more instructions about how to work with branches.
-10. Type `git branch -a` to see a list of all the branches besides `release`, the default branch you're in. Note that if you want to switch to an already-created branch, you would type `git checkout BRANCHNAME`. You can read more about how to create a new branch to work on an issue below.
+10. Type `git branch -a` to see a list of all the branches besides `staging`, the default branch you're in. Note that if you want to switch to an already-created branch, you would type `git checkout BRANCHNAME`. You can read more about how to create a new branch to work on an issue below.
 11. Once you finish making your changes, commit and push your changes.
 12. Submit your Pull Request! See some tips on [how to create the perfect pull request](https://github.com/blog/1943-how-to-write-the-perfect-pull-request).
 13. (Optional) Add yourself as a contributor, if you haven't done so already. Steps are listed [below](#how-do-i-add-myself-as-a-contributor).
@@ -122,7 +122,7 @@ One of the github maintainers (@linda or someone else) will look over your pull 
 
 - While you're working, you should try to merge in the latest from `master` occasionally while you are in your branch. You can do this by typing:
 
-  * `git checkout release`
+  * `git checkout staging`
   * `git pull`
   * `git checkout BRANCH_NAME`
   * `git merge master`
