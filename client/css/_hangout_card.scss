@@ -1,5 +1,5 @@
 .hangout-card {
-  border-radius: 0 !important;
+  border-radius: 4px !important;
   background: $white;
   display: inline-block;
   height: 180px;
@@ -24,6 +24,7 @@
     margin: 0px;
   }
   .hangout-meta {
+    border-radius: 10px !important;
     position: absolute;
     bottom: 0px;
     padding-top: 0px;
