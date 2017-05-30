@@ -3,7 +3,7 @@ Template.hangoutCard.helpers({
     return topic.truncate()
   },
   getDescriptionTruncated: function(description) {
-    if(description.length > 88){
+    if(description.length && description.length > 88){
       return description.substring(0,88)+"...";
     }
     else {
