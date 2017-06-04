@@ -56,10 +56,18 @@
   }
   h5, li.dropdown {
     display: inline;
+    text-decoration: none;
   }
   li.dropdown ul.dropdown-menu {
     a:link, a:visited {
       color: $cta-blue;
+      text-decoration: none;
+    }
+  }
+  a.study-group-item {
+    display: block;
+    &:hover {
+      color: $hangout-collab;
     }
   }
 }

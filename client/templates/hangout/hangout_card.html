@@ -1,7 +1,7 @@
 <template name="hangoutCard">
+    {{#if group}}<a href="{{pathFor 'study group' studyGroupSlug=group.slug studyGroupId=group.id}}" class="study-group-tag"> <span class="label label-default pull-right">{{group.title}}</span> </a>{{/if}}
     <a href="{{pathFor 'hangout' hangoutId=_id }}" class="hangout-card">
     <div class="card-header-wrapper">
-      {{#if group}}<p><a href="{{pathFor 'study group' studyGroupSlug=group.slug studyGroupId=group.id}}"> <span class="label label-default pull-right">{{group.title}}</span> </a>  </p>{{/if}}
       <div class="pull-left calendar">
         <h4 class="hangout-date"><i class="fa fa-calendar"></i>  {{getHangoutStartDateTime start}}</h4>
         {{#if isHangoutInProgress start end}} 
@@ -35,8 +35,8 @@
                 {{users.length}} Joined
                 {{#if views}}| <i class="fa fa-eye" aria-hidden="true" data-toggle="tooltip" title="Views" > {{views}} </i> {{/if}}
             </small>
-
         </h4>
+
         <div class="hangout-description">
           <p class="overflowtext">{{ getDescriptionTruncated description }}</p>
         </div>
