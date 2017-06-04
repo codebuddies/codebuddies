@@ -17,20 +17,24 @@
                   <!-- <button id="create-hangout-popup" class="btn btn-cb2">{{_ "create_a_hangout"}}</button> -->
               </div>
             </div><!-- inner row-->
-            
-            <div class="heading">
-
+            <div class="header">
             </div>
+
             {{#if searchMode}}
               <div class="page-header align-center search-message"><h5>Showing results for '{{hangoutSearchQuery}}'</h5></div>
                 {{#if searchResults.count}}
 
-                  <div class="row margin-none" id="hangouts">
-                    {{#each searchResults}}
-                      <div class="col-lg-4">
+                  <div class="row margin-none">
+                    <div class="col-md-2">
+                      {{> allStudyGroupsHomepage }}
+                    </div><!--3-->
+                    <div class="col-md-10">
+                      {{#each searchResults}}
+                      <div class="col-lg-4" id="hangouts">
                         {{> hangoutCard }}
                       </div>
                     {{/each}}
+                    </div><!--9-->
                   </div>
 
                 {{else}}
@@ -41,13 +45,21 @@
                 {{/if}}<!--searchResults.count-->
 
             {{else}}
-
-                {{> hangoutCards}}
+            
+              <div class="row">
+                <div class="col-md-3">
+                        {{> allStudyGroupsHomepage }}
+                </div><!--3-->
+                <div class="col-md-9">
+                  {{> hangoutCards}}
+                </div>
+              </div>
 
             {{/if}}<!--searchMode-->
 
           </div>
       </div><!--col-md-6 col-md-offset-1-->
+
       <div class="col-md-4 padding-none">
         <div class="full-width-tabs">
           <ul id="statusTabs" class="nav nav-tabs" role="tablist">

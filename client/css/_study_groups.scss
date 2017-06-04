@@ -37,3 +37,29 @@
 		margin-bottom: 10px;
 	}
 }
+
+.study-groups-list {
+  ul {
+    list-style: none;
+  }
+  ul, li a:link, li a:visited {
+    color: $white;
+  }
+  li {
+    margin-bottom: 10px;
+  }
+  h5 {
+    padding-left: 40px;
+    color: $white;
+    margin: 0px;
+    text-transform: uppercase;
+  }
+  h5, li.dropdown {
+    display: inline;
+  }
+  li.dropdown ul.dropdown-menu {
+    a:link, a:visited {
+      color: $cta-blue;
+    }
+  }
+}
