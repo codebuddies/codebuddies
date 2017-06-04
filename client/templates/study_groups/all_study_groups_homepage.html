@@ -20,20 +20,20 @@
             
 
             <li>
-                <a href="{{pathFor 'study group' studyGroupSlug=slug studyGroupId=_id}}" class="study-group-item">  {{title}} 
-                <br> <small style="display: none;">{{tagline}}</small> <small><i class="fa fa-users fa-fw"></i>{{members.length}}</small>
-                {{#if isInRole 'owner' _id}}
-                  <span class="label label-primary pull-right">Owner</span>
-                {{/if}}
-                {{#if isInRole 'manager' _id}}
-                  <span class="label label-primary pull-right">Manager</span>
-                {{/if}}
-                {{#if isInRole 'moderator' _id}}
-                  <span class="label label-primary pull-right">Moderator</span>
-                {{/if}}
-                {{#if isInRole 'member' _id}}
-                  <span class="label label-primary pull-right">Member</span>
-                {{/if}}
+                <a href="{{pathFor 'study group' studyGroupSlug=slug studyGroupId=_id}}" class="study-group-item">  <span class="study-group-tag label label-default">{{title}}</span>
+                  <br> <small style="display: none;">{{tagline}}</small> <small><i class="fa fa-users fa-fw"></i>{{members.length}}</small>
+                  {{#if isInRole 'owner' _id}}
+                    <span class="label label-primary pull-right">Owner</span>
+                  {{/if}}
+                  {{#if isInRole 'manager' _id}}
+                    <span class="label label-primary pull-right">Manager</span>
+                  {{/if}}
+                  {{#if isInRole 'moderator' _id}}
+                    <span class="label label-primary pull-right">Moderator</span>
+                  {{/if}}
+                  {{#if isInRole 'member' _id}}
+                    <span class="label label-primary pull-right">Member</span>
+                  {{/if}}
                 </a>
               </li>
 
