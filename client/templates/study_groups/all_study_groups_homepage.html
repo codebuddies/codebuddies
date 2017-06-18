@@ -2,17 +2,6 @@
   <div class="study-groups-list">
 
       <h5>Study Groups</h5>
-      <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                  <i class="fa fa-plus" aria-hidden="true"></i> <span class="caret"></span>
-                </a>
-                  <ul class="dropdown-menu" role="menu">
-                      <!-- pop up for new hangout -->
-                    <li id="newHangout"><a href="#">New hangout</a></li>
-                      <!-- pop up for new studygroup -->
-                    <li id="newStudyGroup"><a href="#">New study group</a></li>
-                  </ul>
-      </li>
       {{#if Template.subscriptionsReady}}
         {{#if studyGroups.count}}
         <ul>
