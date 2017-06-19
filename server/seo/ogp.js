@@ -13,7 +13,7 @@ SSR.compileTemplate('seoHangout', Assets.getText('templates/seo/hangout.html'));
 //default fallback meta information
 let defaultMetaData = {
   title: "CodeBuddies | Peer-to-peer organized study hangouts to learn faster",
-  description: "We're a community learning code via a Slack chatroom, a Facebook Group, and peer-to-peer Google Hangouts. Learning with others helps us learn faster. The project is free, open-sourced, and 100% community-built.",
+  description: "We're a community learning code via a Slack chatroom, a Facebook Group, and peer-to-peer organized virtual screensharing hangouts. Learning with others helps us learn faster. The project is free, open-sourced, and 100% community-built.",
   url: Meteor.absoluteUrl(),
   image: Meteor.absoluteUrl('images/logo-circle.png'),
   card: "summary_large_image",
@@ -138,7 +138,7 @@ seoPicker.route('/hangout/:hangoutId', function(params, req, res){
     data.url = Meteor.absoluteUrl('hangout/' + hangout._id );
     data.image = Meteor.absoluteUrl('images/logo-circle.png');
   }else {
-    data.title = '404 | Page Not Found !';
+    data.title = '404 | Page Not Found';
     data.description = 'The Page, You are looking for does not exexist';
     data.url = Meteor.absoluteUrl('404');
     data.image = Meteor.absoluteUrl('images/logo-circle.png');
