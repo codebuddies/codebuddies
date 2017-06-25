@@ -24,3 +24,4 @@ Some small improvements, and changed Slack names to codebuddies.slack.com
 
 0.1
 Latest round of Hacktoberfest PRs
+
