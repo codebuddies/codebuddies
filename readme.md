@@ -143,6 +143,7 @@ Thank you to [@distalx](https://twitter.com/distalx), [@alfougy](https://twitter
 
 ### Sponsors
 Thank you to DigitalOcean for sponsoring our hosting, and StickerMule for sponsoring $50 in credits!
+
 <a href="https://www.digitalocean.com/" target="_blank"><img src="https://github.com/codebuddiesdotorg/codebuddies/blob/master/public/images/powered_by_digitalocean.png" width="200" alt="Powered by DigitalOcean"/></a>
 
-<a href="http://stickermule.com" target="_blank"><img src="http://i.imgur.com/WblcveC.png" width="200" alt="Thank you to StickerMule for sponsoring $50 in credits!"></a>
+<a href="http://stickermule.com" target="_blank"><img src="http://i.imgur.com/WblcveC.png" width="180" alt="Thank you to StickerMule for sponsoring $50 in credits!"></a>
