@@ -12,11 +12,9 @@ textarea:focus {
 }
 
 .status-actions {
-  display: flex;
-  flex-wrap: wrap;
   width: 100%;
   background-color: $bg-white;
-  height: auto;
+  height: 80px;
   margin-top: -5px;
   padding-left: 21px;
   padding-right: 21px;
@@ -29,7 +27,8 @@ textarea:focus {
   }
 
   span.charactersLeft {
-    align-self: center;
+    position: relative;
+    top: -10px;
     padding-right: 5px;
   }
 
@@ -39,10 +38,10 @@ textarea:focus {
   }
 
   button.btn-hangout-status {
-    align-self: center;
-    margin-right: 0.5rem;
+    position: relative;
+    top: -10px;
   }
   button.btn-cb2 {
-    margin-right: 3%;
+    margin-right: 20px;
   }
 }
