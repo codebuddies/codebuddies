@@ -1,3 +1,14 @@
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
 body {
   padding: 0;
   #profile { background: $bg-white;}
@@ -15,8 +26,26 @@ h3 {
   margin: 60px 0 20px;
 }
 
+small.reminder {
+    display: block;
+    line-height: 1.2;
+    margin: 5px 0px;
+    font-weight: 200;
+}
+
 #__blaze-root {
   height: 100%;
+}
+
+.color-white {
+  color: $white;
+}
+
+p.warning { 
+  text-align: center;
+  color: $hangout-silent;
+  margin:10px;
+  font-weight: 400;
 }
 
 #wrapper {
@@ -47,6 +76,18 @@ a:hover {
   text-align: center;
 }
 
+.centered {
+  margin: 0 auto;
+}
+
+.display-block {
+  display: block;
+}
+
+.display-inline {
+  display: inline-block;
+}
+
 .col-centered {
   float: none;
   margin: 0 auto;
@@ -61,6 +102,30 @@ a:hover {
 }
 
 #post {
-  margin-top: 30px;
   ul { list-style: none; }
+}
+
+.margin-top-1 {
+  margin-top: 10px;
+}
+.margin-bottom-1 {
+  margin-bottom: 10px;
+}
+.margin-1 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.padding-none {
+  padding: 0px;
+}
+.margin-none {
+  margin: 0px;
+}
+
+.width-100 {
+  width: 100%;
+}
+
+.bg-blue {
+  background: $cta-blue;
 }

@@ -16,8 +16,10 @@ Template.profileLearnings.onCreated(function () {
 
     console.log("Asking for "+limit+" learnings...")
     var userId = FlowRouter.getParam('userId');
+    console.log(userId)
     // subscribe to the learningsByUserId publication
     var subscription = instance.subscribe('learningsByUserId', limit, userId);
+    console.log(subscription);
 
     // if subscription is ready, set limit to newLimit
     if (subscription.ready()) {

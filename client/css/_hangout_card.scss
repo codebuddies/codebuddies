@@ -1,10 +1,60 @@
 .hangout-card {
   border-radius: 0 !important;
-  min-height: 150px;
+  background: $white;
+  display: inline-block;
+  height: 180px;
+  width: 100%;
+  margin: 5px 0px;
+  padding: 10px;
+  overflow: scroll;
 
-  .hangout-topic {
-    @include font-face(400, 17px, normal, $cta-blue);
-    text-align: justify;
+  p.overflowtext {
+    color: $secondary-grey;
   }
+  .hangout-topic {
+    margin-top: 6px;
+    margin-bottom: 5px;
+    @include font-face(600, 17px, normal, $black);
+    text-align: left;
+    &.completed {
+      color: $secondary-grey;
+    }
+  }
+  .hangout-date {
+    margin: 0px;
+  }
+  .hangout-meta {
+    position: absolute;
+    bottom: 0px;
+    padding-top: 0px;
+    margin-top: 0px;
+    padding-bottom: 10px;
+    background: white;
+  }
+  button { 
+    display: inline;
+  }
+  .join-now {
+    width: 50%;
+  }
+  .card-header-wrapper {
+    height: 40px;
+  }
+  div.calendar {
+    width: 80%;
+    line-height: 1.1;
+  }
+  div.more-options {
+    width: 20%;
+  }
+  .show-on-hover {
+    display: none;
+  }
+}
 
+.hangout-card:hover {
+  @include box-shadow(0px, 12px, 60px, rgba(0, 0, 0, .5));
+  .show-on-hover { display: block; }
+  h5.completed.show-on-hover { display: inline-block; line-height: 0.8;}
+  .hangout-description { display: none; }
 }

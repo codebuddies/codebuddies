@@ -15,6 +15,7 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="cb2-navbar-collapse">
         <ul class="nav navbar-nav navbar-right">
+          <li><a href="{{pathFor 'hangouts'}}">{{_ "browse_hangouts"}} <span class="sr-only">(current)</span></a></li>
           <li><a href="{{pathFor 'about'}}">{{_ "about"}} <span class="sr-only">(current)</span></a></li>
           <li><a href="{{pathFor 'faq'}}">{{_ "faq"}}</a></li>
           {{#unless currentUser}}<li><a href="{{pathFor 'browse_hangouts'}}">{{_ "browse_hangouts"}} <span class="sr-only">(current)</span></a></li>{{/unless}}

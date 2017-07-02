@@ -1,6 +1,6 @@
 Template.hangoutList.onCreated(function() {
-  var instance = this;
-   instance.limit = new ReactiveVar(5);
+   var instance = this;
+   instance.limit = new ReactiveVar(20);
    instance.flag = new ReactiveVar(false);
 
    instance.autorun(function () {
@@ -8,34 +8,37 @@ Template.hangoutList.onCreated(function() {
      instance.subscribe('hangouts', limit);
    });
 
-});
-
-
-Template.hangoutList.onRendered(function() {
-    var instance = this;
-
     instance.loadHangouts = function() {
-
-      return Hangouts.find({}, {sort: {start: -1}});
+      var now = new Date();
+      return Hangouts.find({'end': { $gte : now }}, {sort: { start: 1 }});
     }
 
-    instance.addMoreHangouts = function(){
+    instance.loadCompletedHangouts = function() {
+      var now = new Date();
+      return Hangouts.find({'end': {$lt : now}}, {sort: { start: -1 }});
+    }
+
+    instance.addMoreHangouts = function () {
 
         if(Hangouts.find().count() === instance.limit.get()){
-             instance.limit.set(instance.limit.get() + 8);
+             instance.limit.set(instance.limit.get() + 9);
 
-        }else{
-           if(Hangouts.find().count() < instance.limit.get()){
-               instance.flag.set(true);
-           }
-       }
+        } else {
+            if (Hangouts.find().count() < instance.limit.get()) {
+                instance.flag.set(true);
+            }
+        }
     }
-
 });
+
+
 
 Template.hangoutList.helpers({
   hangouts:function(){
     return Template.instance().loadHangouts();
+  },
+  completedHangouts:function(){
+    return Template.instance().loadCompletedHangouts();
   },
   status:function(){
      return  Template.instance().flag.get();
@@ -43,7 +46,7 @@ Template.hangoutList.helpers({
 });
 
 Template.hangoutList.events({
-  "click #loadMore": function(event, template){
-     template.addMoreHangouts();
-  }
+    "click #loadMore": function (event, template) {
+        template.addMoreHangouts();
+    }
 });

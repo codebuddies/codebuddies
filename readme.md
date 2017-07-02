@@ -10,27 +10,29 @@
 [![Issue Stats](https://img.shields.io/issuestats/p/github/codebuddiesdotorg/cb-v2-scratch.svg?maxAge=2592000&style=flat-square)]()
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0)
 
-#FAQ
+# FAQ
 
-##What is CodeBuddies?
-We're a community of independent code learners who help each other on [Slack](http://codebuddies.slack.com), [schedule hangouts](http://hangouts.codebuddies.org) to learn with each other, contribute to a periodic [anonymous crowdsourced newsletter](http://tinyletter.com/codebuddies) where anyone can share a personal project or leave a shout out, and post on [Facebook](https://www.facebook.com/groups/TOPSTUDYGROUP/). We come from all over the world; there are members living in the United States, Japan, Sweden, the United Kingdom, Russia, Australia, Canada, India, and more. We accept donations and are 100% transparent on [Open Collective](https://opencollective.com/codebuddies) 
+## What is CodeBuddies?
+We're a community of independent code learners who help each other on [Slack](http://codebuddies.slack.com), [schedule hangouts](http://hangouts.codebuddies.org) to learn with each other, contribute to a periodic [anonymous crowdsourced newsletter](http://tinyletter.com/codebuddies) where anyone can share a personal project or leave a shout out, and post on [Facebook](https://www.facebook.com/groups/TOPSTUDYGROUP/). We come from all over the world; there are members living in the United States, Japan, Sweden, the United Kingdom, Russia, Australia, Canada, India, and more. We accept donations and are 100% transparent on [Open Collective](https://opencollective.com/codebuddies).
 
 Learning with each other helps us learn faster. We strive to create a safe space for anyone interested in code to talk about the learning process. The project is free and open-sourced on Github, and this app is 100% community/volunteer-built.
 
 Join us on Slack! You can get your invite by clicking on the Slack invite button and join the community by verifying your invitation through your e-mail!
 
-##What are you trying to build here?
+## How do I contribute to this project?
+**PLEASE go to _[contributing.md](contributing.md)_ and refer to the contribution steps listed there!** There are also helpful resources there, in case you get stuck. To add yourself as a contributor, please see the [How do I add myself as a contributor?](contributing.md#how-do-i-add-myself-as-a-contributor) section.
+
+## What are you trying to build here?
 
 ![screenshot of what we're building](https://github.com/codebuddiesdotorg/codebuddies/raw/master/public/images/cb-example.png)
 Credit: [Ada Chiu](https://github.com/adachiu).
 
-##Why are you building this site?
-Our community spends a lot of time helping each other on [our public Slack](http://codebuddies.slack.com) (P.S. You can get an invite [here](http://codebuddiesmeet.herokuapp.com) if you want to join), but it's hard to schedule Google Hangout study times via Slack, and it's also hard to know who else is online and available for joining a Hangout to work on something together. The platform we're building solves those issues.
+## Why are you building this site?
+Our community spends a lot of time helping each other on [our public Slack](http://codebuddies.slack.com) (P.S. You can get an invite [here](http://codebuddiesmeet.herokuapp.com) if you want to join), but it's hard to schedule screensharing/voice hangout study times via Slack, and it's also hard to know who else is online and available for joining a Hangout to work on something together. The platform we're building solves those issues.
 
-##How do I contribute to this project?
-**PLEASE go to _[contributing.md](contributing.md)_ and refer to the contribution steps listed there!** There are also helpful resources there, in case you get stuck. To add yourself as a contributor, please see the [How do I add myself as a contributor?](contributing.md#how-do-i-add-myself-as-a-contributor) section.
+##Who are the volunteers so far?
 
-*And here are the volunteers so far:*
+*Note: the list below is incomplete. Please add your name and your contribution.*
 
 - @linda, https://github.com/lpatmo - contributed to various issues
 - @sbe, https://github.com/sbe - contributed to discussion on features
@@ -60,6 +62,7 @@ Our community spends a lot of time helping each other on [our public Slack](http
 - @olivia, http://github.com/foxiae - contributed to discussions on features
 - @abhiii5459, http://github.com/abhiii5459 - contributed to PR#239. Working on Fix#203 along with @linda.
 - @sharynneazhar, http://github.com/sharynneazhar - contributed to site fixes and enhancements, particularly the ability for users to edit their profile information
+- @grfraser, https://github.com/grfraser
 - Add Your Name Above. Refer to ***[contributing.md](contributing.md#how-do-i-add-myself-as-a-contributor)***
 
 If you'd like to help contribute, pick out an [issue](https://github.com/codebuddiesdotorg/codebuddies/issues) (leave a comment on it to indicate your interest!) and say hello in the [#codebuddies-meta](https://codebuddies.slack.com/messages/codebuddies-meta/) channel on Slack. Be sure to read the "how do I contribute" instructions on [contributing.md](contributing.md)!
@@ -135,5 +138,12 @@ You can also support us with a monthly donation by [becoming a Backer!](https://
 <a href="https://opencollective.com/codebuddies/backer/28/website" target="_blank"><img src="https://opencollective.com/codebuddies/backer/28/avatar.svg"></a>
 <a href="https://opencollective.com/codebuddies/backer/29/website" target="_blank"><img src="https://opencollective.com/codebuddies/backer/29/avatar.svg"></a>
 
-###Sponsors
+### Backers
+Thank you to [@distalx](https://twitter.com/distalx), [@alfougy](https://twitter.com/alfougy), and [@mozzadrella](https://twitter.com/mozzadrella) for supporting us on our [Open Collective](http://opencollective.com/codebuddies)!
+
+### Sponsors
+Thank you to DigitalOcean for sponsoring our hosting, and StickerMule for sponsoring $50 in credits!
+
 <a href="https://www.digitalocean.com/" target="_blank"><img src="https://github.com/codebuddiesdotorg/codebuddies/blob/master/public/images/powered_by_digitalocean.png" width="200" alt="Powered by DigitalOcean"/></a>
+
+<a href="http://stickermule.com" target="_blank"><img src="http://i.imgur.com/WblcveC.png" width="180" alt="Thank you to StickerMule for sponsoring $50 in credits!"></a>

@@ -34,20 +34,6 @@ Template.updateStatus.events({
 
     //3 Buttons
     'click #update-working-btn': function(event) {
-        if (!Meteor.userId()) {
-            sweetAlert({
-                title: TAPi18n.__("you_are_almost_there"),
-                text: TAPi18n.__("login_update_status"),
-                confirmButtonText: TAPi18n.__("sign_in_with_slack"),
-                type: 'info'
-            },
-            function(){
-              var options = {
-                requestPermissions: ['identify', 'users:read']
-              };
-              Meteor.loginWithSlack(options);
-            });
-        } else {
             var currentStatus = $('#working-text').val();
 
             if ($.trim(currentStatus) == '') {
@@ -59,19 +45,20 @@ Template.updateStatus.events({
                 });
                 return;
             }
-
             Meteor.call('setUserStatus', currentStatus, function(error, result) {});
             $('#working-text').val('');
 			$('.charactersLeft').text(140);
-        }
     },
     'click #update-learned-btn': function(event) {
         if (!Meteor.userId()) {
             sweetAlert({
+                imageUrl: '/images/slack-signin-example.jpg',
+                imageSize: '140x120',
+                showCancelButton: true,
                 title: TAPi18n.__("you_are_almost_there"),
-                text: TAPi18n.__("login_update_status"),
+                html: TAPi18n.__("continue_popup_text"),
                 confirmButtonText: TAPi18n.__("sign_in_with_slack"),
-                type: 'info'
+                cancelButtonText: TAPi18n.__("not_now")
             },
             function(){
               var options = {
@@ -95,6 +82,7 @@ Template.updateStatus.events({
                 user_id: Meteor.userId(),
                 username: Meteor.user().username,
                 title: learningStatus,
+                hangout_id: 'homepage'
             }
             Meteor.call("addLearning", data, function(error, result) {});
             $('#learned-text').val('');

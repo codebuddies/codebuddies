@@ -19,7 +19,7 @@ Template.hangoutsJoined.onRendered(function() {
 
     instance.loadHangouts = function() {
       var userId = FlowRouter.getParam('userId');
-      var arr = Hangouts.find().fetch();
+      var arr = Hangouts.find().fetch().reverse();
       var userHangouts = _.filter(arr, function(elem) { return elem.users.includes(userId)});
       return userHangouts;
     }

@@ -1,0 +1,36 @@
+<template name="hangoutCards">
+  {{#if Template.subscriptionsReady}}
+    <div class="row margin-none" id="hangouts">
+      
+      {{#each hangouts}}
+        <div class="col-lg-4">
+          {{> hangoutCard}}
+        </div>
+      {{/each}}
+      
+     
+      {{#each completedHangouts}}
+         <div class="col-lg-4">
+           {{> hangoutCard}}
+        </div>
+      {{/each}}
+      
+
+    </div>
+
+    {{#unless status}}
+
+      <div>
+        <button id="loadMore" class="btn btn-default btn-block">Load More</button>
+      </div>
+
+    {{else}}
+        <h5 class="align-center color-white">There are no more hangouts.</h5>
+    {{/unless}}
+
+  {{else}}
+
+    {{> loading}}
+
+  {{/if}}
+</template>

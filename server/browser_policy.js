@@ -24,7 +24,12 @@ var trusted = [
   '*.twimg.com',
   '*.licdn.com',
   '*.wp.com',
-  '*.codebuddies.org'
+  '*.codebuddies.org',
+  '*.jit.si',
+  'jitmeet.org',
+  '*.jitsi.org',
+  'jitsi.org',
+  '*.google-analytics.com'
 ];
 
 _.each(trusted, function(origin) {

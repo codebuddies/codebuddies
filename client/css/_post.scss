@@ -1,23 +1,34 @@
 #post {
-  label {
-    font-weight: 200;
-    font-size: 16px;
+  .jitsi-screenshot { 
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)"; // IE8
+    filter: alpha(opacity=80); // IE 5-7
+    opacity: 0.8;
   }
-
   h2 {
-    font-weight: 200;
+    margin: 5px 0px;
+    @include font-face(200, 22px, normal, $black);
   }
-
-  h2.completed,
+  p, textarea {
+    font-family: $open-sans;
+    @include font-face(200, 17px, normal, $black);
+  }
   p.completed,
   p.status {
     color: $warm-grey;
+    font-weight: 200;
+    font-size: 16px;
+    margin: 10px 0;
   }
-
-  h2.completed {
-    font-weight: 600;
+  p.date-holder {
+    color: $black;
+    font-weight: 400;
+    font-size: 16px;
   }
-
+  h3 {
+    text-transform: uppercase;
+    margin: 10px 15px;
+    @include font-face(700, 14px, bold, $black);
+  } 
   h4 {
     font-weight: 400;
     margin: 0;
@@ -25,7 +36,14 @@
     font-size: 14px;
     margin-bottom: 5px;
   }
-
+  h5.in-progress {
+    display: block;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  .panel-heading {
+    padding: 5px 15px;
+  }
   .panel-default {
     margin: 10px 0;
   }
@@ -77,14 +95,12 @@
 
     a {
       color: $white;
-      text-decoration: underline;
     }
   }
   //Note: Let's figure out a way to move the styles below to _buttons.scss so that we can reuse them
   .btn-cb2 {
     font-size: 18px;
     text-transform: uppercase;
-    font-weight: 200;
     width: 300px;
   }
 
@@ -92,7 +108,47 @@
     background: $danger-red;
   }
 
+  .google-hangout {
+    position: relative;
+    top: 8px;
+  }
+  .google-hangout-button {
+    position: relative;
+    top: -2px;
+    display: inline-block;
+  }
+
   #end-hangout {
     margin-top: 5px;
+  }
+
+  #hangout-button-wrapper {
+    text-align: center;
+  }
+  a#show-all-learnings {
+    margin-top: 3px;
+  }
+  .status-list {
+    padding: 0px 15px;
+    margin-top: 10px;
+  }
+  .leave-wrapper {
+    margin-top: 20px;
+    a {
+      display: inline;
+    }
+  }
+  .load-hangout-screenshot {
+    display: block;
+    margin: 0 auto;
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)"; // IE8
+    filter: alpha(opacity=70); // IE 5-7
+    opacity: 0.7;
+    cursor: pointer;
+    &:hover {
+        -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)"; // IE8
+        filter: alpha(opacity=100); // IE 5-7
+        opacity: 1.0;
+    }
   }
 }

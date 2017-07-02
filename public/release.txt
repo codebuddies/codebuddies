@@ -1,1 +1,27 @@
-0.2.0.28
+0.3
+Major deployment process change and Jitsi link
+
+0.2.1
+Mini-release: CSS issue, Slack alert notifications with attendee names, and new deployment processes
+
+0.2
+New logged-in home page and other good fixes
+
+0.1.6
+Semi-large release, with learnings!
+
+0.1.5
+Jitsi hangout launch and bug fixes
+
+0.1.4
+Google Analytics and Profile Page Bug Fix
+
+0.1.3
+First release of 2017: bug fixes and improvements
+
+0.1.2
+Some small improvements, and changed Slack names to codebuddies.slack.com
+
+0.1
+Latest round of Hacktoberfest PRs
+
