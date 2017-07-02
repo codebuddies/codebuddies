@@ -13,7 +13,7 @@
 # FAQ
 
 ## What is CodeBuddies?
-We're a community of independent code learners who help each other on [Slack](http://codebuddies.slack.com), [schedule hangouts](http://hangouts.codebuddies.org) to learn with each other, contribute to a periodic [anonymous crowdsourced newsletter](http://tinyletter.com/codebuddies) where anyone can share a personal project or leave a shout out, and post on [Facebook](https://www.facebook.com/groups/TOPSTUDYGROUP/). We come from all over the world; there are members living in the United States, Japan, Sweden, the United Kingdom, Russia, Australia, Canada, India, and more. We accept donations and are 100% transparent on [Open Collective](https://opencollective.com/codebuddies) 
+We're a community of independent code learners who help each other on [Slack](http://codebuddies.slack.com), [schedule hangouts](http://hangouts.codebuddies.org) to learn with each other, contribute to a periodic [anonymous crowdsourced newsletter](http://tinyletter.com/codebuddies) where anyone can share a personal project or leave a shout out, and post on [Facebook](https://www.facebook.com/groups/TOPSTUDYGROUP/). We come from all over the world; there are members living in the United States, Japan, Sweden, the United Kingdom, Russia, Australia, Canada, India, and more. We accept donations and are 100% transparent on [Open Collective](https://opencollective.com/codebuddies).
 
 Learning with each other helps us learn faster. We strive to create a safe space for anyone interested in code to talk about the learning process. The project is free and open-sourced on Github, and this app is 100% community/volunteer-built.
 
@@ -138,5 +138,12 @@ You can also support us with a monthly donation by [becoming a Backer!](https://
 <a href="https://opencollective.com/codebuddies/backer/28/website" target="_blank"><img src="https://opencollective.com/codebuddies/backer/28/avatar.svg"></a>
 <a href="https://opencollective.com/codebuddies/backer/29/website" target="_blank"><img src="https://opencollective.com/codebuddies/backer/29/avatar.svg"></a>
 
+### Backers
+Thank you to [@distalx](https://twitter.com/distalx), [@alfougy](https://twitter.com/alfougy), and [@mozzadrella](https://twitter.com/mozzadrella) for supporting us on our [Open Collective](http://opencollective.com/codebuddies)!
+
 ### Sponsors
+Thank you to DigitalOcean for sponsoring our hosting, and StickerMule for sponsoring $50 in credits!
+
 <a href="https://www.digitalocean.com/" target="_blank"><img src="https://github.com/codebuddiesdotorg/codebuddies/blob/master/public/images/powered_by_digitalocean.png" width="200" alt="Powered by DigitalOcean"/></a>
+
+<a href="http://stickermule.com" target="_blank"><img src="http://i.imgur.com/WblcveC.png" width="180" alt="Thank you to StickerMule for sponsoring $50 in credits!"></a>
