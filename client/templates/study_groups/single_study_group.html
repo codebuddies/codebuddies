@@ -72,9 +72,12 @@
                       </div>
                       <div class="panel-body">
                         {{#each members}}
-                          <a href="{{pathFor 'profile' name=name userId=id}}">
+                          <!-- <a href="{{pathFor 'profile' name=name userId=id}}">
                             <img src="{{avatar}}" alt="{{name}}" class="img-circle">
-                          </a>
+                          </a> -->
+
+                          <img src="{{avatar}}" alt="{{name}}" class="img-circle" id="memberDetail" data-id="{{id}}">
+
                         {{/each}}
                       </div>
                     </div>

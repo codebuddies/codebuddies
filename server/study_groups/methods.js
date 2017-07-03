@@ -48,9 +48,9 @@ Meteor.methods({
 
 
 /**
-* Create new study group
+* Join study group
 * @function
-* @name createNewStudyGroup
+* @name joinStudyGroup
 * @param {String} _id - studyGroupId
 * @return {Boolean} true on success
 */
