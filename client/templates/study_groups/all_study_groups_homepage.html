@@ -1,0 +1,69 @@
+<template name="allStudyGroupsHomepage">
+  <div class="study-groups-list">
+
+      <h5>Study Groups</h5>
+      <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                  <i class="fa fa-plus" aria-hidden="true"></i> <span class="caret"></span>
+                </a>
+                  <ul class="dropdown-menu" role="menu">
+                      <!-- pop up for new hangout -->
+                    <li id="newHangout"><a href="#">New hangout</a></li>
+                      <!-- pop up for new studygroup -->
+                    <li id="newStudyGroup"><a href="#">New study group</a></li>
+                  </ul>
+      </li>
+      {{#if Template.subscriptionsReady}}
+        {{#if studyGroups.count}}
+        <ul>
+          {{#each studyGroups}}
+            
+
+            <li>
+                <a href="{{pathFor 'study group' studyGroupSlug=slug studyGroupId=_id}}" class="study-group-item">  <span class="study-group-tag label label-default">{{title}}</span>
+                  <br> <small style="display: none;">{{tagline}}</small> <small><i class="fa fa-users fa-fw"></i>{{members.length}}</small>
+                  {{#if isInRole 'owner' _id}}
+                    <span class="label label-primary pull-right">Owner</span>
+                  {{/if}}
+                  {{#if isInRole 'manager' _id}}
+                    <span class="label label-primary pull-right">Manager</span>
+                  {{/if}}
+                  {{#if isInRole 'moderator' _id}}
+                    <span class="label label-primary pull-right">Moderator</span>
+                  {{/if}}
+                  {{#if isInRole 'member' _id}}
+                    <span class="label label-primary pull-right">Member</span>
+                  {{/if}}
+                </a>
+              </li>
+
+          {{/each}}
+        </ul>
+        {{else}}
+
+          <!-- <div class="jumbotron align-center">
+            <div class="container">
+              <div class="row text-center">
+
+                  <h5>You don't have any studygroups</h5>
+                  <div class="btn btn-default" id="newStudyGroup">Create A Study Group</div>
+                  &nbsp; OR &nbsp;
+                  <div class="btn btn-default" id="findMeStudyGroup">Find me a Study Group</div>
+              </div>
+             </div>
+          </div> -->
+
+        {{/if}}
+      {{else}}
+        {{> loading}}
+      {{/if}}<!-- ./Template.subscriptionsReady -->
+
+      {{#if status}}
+          <div class="col-md-12">
+            <h5 class="text-center well">You've reached the end of the page.</h5>
+          </div>
+      {{/if}}
+
+
+  </div><!-- #study-groups -->
+</template>
