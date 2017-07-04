@@ -18,18 +18,24 @@ Template.userById.helpers({
       return Meteor.users.find({_id:userId});
     }
 
-
-
+  },
+  userRoles: function(){
+    const roles = Meteor.users.findOne({_id: FlowRouter.getParam('userId') }).roles;
+    const roleGroup = 'CB';
+    return roles[roleGroup] ;
   },
 });
 
 Template.userById.events({
   "change #authorization": function(event, template){
     var currentAuthorization = template.find('#authorization').value;
-    var pastAuthorization =  this.roles[0];
+    console.log(this);
+    const roleGroup = 'CB';
+    var pastAuthorization =  this.roles[roleGroup].pop();
+    console.log(pastAuthorization, currentAuthorization);
     var userId = this._id;
     var username = this.username;
-    Meteor.call("updateRoles",this._id,this.username,currentAuthorization,pastAuthorization, function(error, result) {
+    Meteor.call("updateRoles",this._id,this.username,currentAuthorization,pastAuthorization, roleGroup, function(error, result) {
       if (result) {
         swal("Done!", "Updated "+ username +"'s access right ", "success")
       }else{
