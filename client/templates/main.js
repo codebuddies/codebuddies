@@ -95,3 +95,10 @@ Template.registerHelper("isHangoutEndTimeTBA", function(start, end){
   return duration === 1 ?  true : false;
 
 });
+
+Template.registerHelper("canManageStudyGroup", function(userId, groupId){
+  const loggedInUserId = Meteor.userId();
+
+  return ((loggedInUserId !== userId) &&  (Roles.userIsInRole( loggedInUserId, ['owner', 'admin' ], groupId)) ? true : false  ) ;
+
+});

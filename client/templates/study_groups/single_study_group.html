@@ -69,9 +69,12 @@
                       </div>
                       <div class="panel-body">
                         {{#each members}}
-                          <a href="{{pathFor 'profile' name=name userId=id}}">
+                          <!-- <a href="{{pathFor 'profile' name=name userId=id}}">
                             <img src="{{avatar}}" alt="{{name}}" class="img-circle">
-                          </a>
+                          </a> -->
+
+                          <img src="{{avatar}}" alt="{{name}}" class="img-circle" id="memberDetail" data-id="{{id}}">
+
                         {{/each}}
                       </div>
                     </div>
@@ -165,7 +168,7 @@
 
 
 
-                <div class="panel panel-default">
+                <!-- <div class="panel panel-default">
                   <div class="panel-heading">
                     <h3 class="panel-title">Activities</h3>
                   </div>
@@ -174,48 +177,24 @@
                       <h5>{{_ "coming_soon" }}</h5>
                     </div>
                   </div>
-                </div>
-
-                <!-- <div class="well row">
-                  <div class="col-xs-2 col-md-1">
-                    <a href="#" class="thumbnail">
-                      <img src="/default-avatar.png" alt="username">
-                    </a>
-                  </div>
-                  <div class="col-xs-3 col-md-1">
-                    <h6>Username</h6>
-                  </div>
-                  <div class="col-xs-7 col-md-9">
-                    Join the group 2 hours ago
-                  </div>
-                </div>
-                <div class="well row">
-                  <div class="col-xs-2 col-md-1">
-                    <a href="#" class="thumbnail">
-                      <img src="/default-avatar.png" alt="username">
-                    </a>
-                  </div>
-                  <div class="col-xs-3 col-md-1">
-                    <h6>Username</h6>
-                  </div>
-                  <div class="col-xs-7 col-md-9">
-                    Leave the group 2 hours ago
-                  </div>
-                </div>
-                <div class="well row">
-                  <div class="col-xs-2 col-md-1">
-                    <a href="#" class="thumbnail">
-                      <img src="/default-avatar.png" alt="username">
-                    </a>
-                  </div>
-                  <div class="col-xs-3 col-md-1">
-                    <h6>Username</h6>
-                  </div>
-                  <div class="col-xs-7 col-md-9">
-                    schedule a hangout
-                  </div>
                 </div> -->
+              {{#each activities}}
 
+                <div class="well row">
+                  <div class="col-xs-2 col-md-1">
+                    <a href="#" class="thumbnail">
+                      <img src="{{actor.avatar}}" alt="{{actor.name}}">
+                    </a>
+                  </div>
+                  <div class="col-xs-3 col-md-1">
+                    <h6>{{actor.name}}</h6>
+                  </div>
+                  <div class="col-xs-7 col-md-9">
+                    {{action}}
+                  </div>
+                </div>
+
+              {{/each}}
 
               </div><!-- #/Activities -->
 

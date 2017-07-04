@@ -3,7 +3,9 @@ Template.singleStudyGroup.onCreated(function() {
   instance.studyGroupId = FlowRouter.getParam('studyGroupId');
   instance.isAddResource = new ReactiveVar( false );
   this.autorun(() => {
-      this.subscribe('studyGroupById', instance.studyGroupId);
+      instance.subscribe('studyGroupById', instance.studyGroupId);
+      //TODO : pagination
+      instance.subscribe("allStudyGroupActivities", 50, instance.studyGroupId);
   });
 
 });
@@ -30,6 +32,10 @@ Template.singleStudyGroup.helpers({
   },
   usersOnlineCount:function(){
     return Meteor.users.find({ "status.online": true }).count();
+  },
+  activities: function() {
+      console.log(Activities.find({'study_group.id': FlowRouter.getParam('studyGroupId') }).count());
+    return Activities.find({'study_group.id': FlowRouter.getParam('studyGroupId') });
   }
 });
 
@@ -72,7 +78,9 @@ Template.singleStudyGroup.events({
     event.preventDefault();
 
     let data = {
-      studyGroupId: this._id
+      studyGroupId: this._id,
+      studyGroupTitle: this.title,
+      studyGroupSlug: this.slug
     }
 
     Meteor.call("joinStudyGroup", data, function(error, result){
@@ -91,7 +99,9 @@ Template.singleStudyGroup.events({
 
 
     let data = {
-      studyGroupId: this._id
+      studyGroupId: this._id,
+      studyGroupTitle: this.title,
+      studyGroupSlug: this.slug
     }
 
     Meteor.call("leaveStudyGroup", data, function(error, result){
@@ -103,6 +113,12 @@ Template.singleStudyGroup.events({
 
       }
     });
+
+  },
+  'click #memberDetail': function(event, template){
+    event.preventDefault();
+
+    Modal.show('studyGroupMemberDetail', this);
 
   },
 });
