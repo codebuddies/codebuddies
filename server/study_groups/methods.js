@@ -41,6 +41,33 @@ Meteor.methods({
     //by default the creator of the study gets an owner privilege
     Roles.addUsersToRoles(user._id, 'owner', studyGroupId);
 
+    //activity
+    const activity = {
+      actor: {
+        id: user._id,
+        name: user.username,
+        avatar: user.profile.avatar.default
+      },
+      type: "GROUP_CREATION",
+      action: "created",
+      subject: {
+        id: studyGroupId,
+        title: data.title,
+        slug: data.slug
+      },
+      created_at: new Date(),
+      icon: 'fa-birthday-cake',
+      study_group: {
+        id: studyGroupId,
+        title: data.title,
+        slug: data.slug
+      },
+      read: [user._id]
+    }
+
+    Activities.insert(activity);
+
+
     return true;
 
   }
@@ -58,7 +85,9 @@ Meteor.methods({
 Meteor.methods({
   'joinStudyGroup': function(data){
     check(data,{
-      studyGroupId: String
+      studyGroupId: String,
+      studyGroupTitle: String,
+      studyGroupSlug: String
     });
 
     if (!this.userId) {
@@ -73,20 +102,32 @@ Meteor.methods({
       avatar: user.profile.avatar.default
     }
 
-    //TODO:make use of it for activities
-    // const activity = {
-    //
-    // }
-
-
-
     StudyGroups.update({_id:data.studyGroupId}, {$addToSet:{members:member}});
-
-    //TODO:make use of it for activities
-    // const activityId = Activities.insert(activity);
 
     //by default on join person gets a member privilege
     Roles.addUsersToRoles(user._id, 'member', data.studyGroupId);
+
+    //activity
+    const activity = {
+      actor: member,
+      type: "USER_JOIN",
+      action: "joined",
+      subject: {
+        id: data.studyGroupId,
+        title: data.studyGroupTitle,
+        slug: data.studyGroupSlug
+      },
+      created_at: new Date(),
+      icon: 'fa-user-plus',
+      study_group: {
+        id: data.studyGroupId,
+        title: data.studyGroupTitle,
+        slug: data.studyGroupSlug
+      },
+      read: [user._id]
+    }
+
+    Activities.insert(activity);
 
     return true;
 
@@ -104,31 +145,56 @@ Meteor.methods({
 Meteor.methods({
   'leaveStudyGroup': function(data){
     check(data,{
-      studyGroupId: String
+      studyGroupId: String,
+      studyGroupTitle: String,
+      studyGroupSlug: String
     });
 
 
     const user = Meteor.user();
 
-    //
+    const member = {
+      id: user._id,
+      name: user.username,
+      avatar: user.profile.avatar.default
+    }
+
+    //check if the user is a member
     if (!user || !Roles.userIsInRole(user, ['member', 'moderator'], data.studyGroupId)) {
         throw new Meteor.Error('StudyGroups.methods.leaveStudyGroup.not-logged-in', 'Access denied');
     }
 
     const memberId = user._id;
 
-    //TODO:make use of it for activities
-    // const activity = {
-    //
-    // }
 
     StudyGroups.update({_id:data.studyGroupId}, { $pull: { members: { id : memberId } } });
 
-    //TODO:make use of it for activities
-    // const activityId = Activities.insert(activity);
 
     //remove privilege for user
     Roles.setUserRoles(memberId, [], data.studyGroupId);
+
+
+    //activity
+    const activity = {
+      actor: member,
+      type: "USER_LEAVE",
+      action: "leave",
+      subject: {
+        id: data.studyGroupId,
+        title: data.studyGroupTitle,
+        slug: data.studyGroupSlug
+      },
+      created_at: new Date(),
+      icon: 'fa-sign-out',
+      study_group: {
+        id: data.studyGroupId,
+        title: data.studyGroupTitle,
+        slug: data.studyGroupSlug
+      },
+      read: [user._id]
+    }
+
+    Activities.insert(activity);
 
 
     return true;
