@@ -3,14 +3,15 @@ Meteor.publish("hangouts", function(limit) {
 
 
   if(this.userId) {
-    console.log("here");
+
     if (Roles.userIsInRole(this.userId, ['admin','moderator'], 'CB')) {
       return Hangouts.find({}, {fields:{'email_addresses': 0 }, sort: { start: -1 }, 'limit':limit});
     } else {
       return Hangouts.find({'visibility':{$ne:false}}, {fields:{'email_addresses': 0 }, sort: { start: -1 }, 'limit':limit});
     }
+  }
 
-
+  this.ready();
 });
 
 Meteor.publish("hangoutById", function(hangoutId) {
