@@ -29,10 +29,8 @@ Template.userById.helpers({
 Template.userById.events({
   "change #authorization": function(event, template){
     var currentAuthorization = template.find('#authorization').value;
-    console.log(this);
     const roleGroup = 'CB';
     var pastAuthorization =  this.roles[roleGroup].pop();
-    console.log(pastAuthorization, currentAuthorization);
     var userId = this._id;
     var username = this.username;
     Meteor.call("updateRoles",this._id,this.username,currentAuthorization,pastAuthorization, roleGroup, function(error, result) {
