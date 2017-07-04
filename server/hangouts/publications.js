@@ -9,21 +9,20 @@ Meteor.publish("hangouts", function(limit) {
     }
   }
 
+  this.ready();
 
 });
 
+
+
 Meteor.publish("hangoutById", function(hangoutId) {
-
   if (Roles.userIsInRole(this.userId, ['admin','moderator'], 'CB')) {
-
     return Hangouts.find({_id: hangoutId},
                          {fields:{'email_addresses': 0 }});
   } else {
-
     return Hangouts.find({_id: hangoutId, 'visibility':{ $ne: false} },
                          {fields: {'email_addresses': 0 }} );
   }
-
 });
 
 
@@ -55,7 +54,6 @@ Meteor.publish("hangoutBoard", function(limit, hangoutFilter) {
 
   var query = new Object();
   query.visibility = {$ne:false};
-
 
   var projection = new Object();
   projection.sort = {'start' : 1};
@@ -111,7 +109,5 @@ Meteor.publish("hangoutByGroupId", function(groupId, limit, hangoutFilter) {
       break;
     default:
   }
-
   return Hangouts.find(query, projection, options);
-
 });

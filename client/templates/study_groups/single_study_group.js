@@ -34,7 +34,6 @@ Template.singleStudyGroup.helpers({
     return Meteor.users.find({ "status.online": true }).count();
   },
   activities: function() {
-      console.log(Activities.find({'study_group.id': FlowRouter.getParam('studyGroupId') }).count());
     return Activities.find({'study_group.id': FlowRouter.getParam('studyGroupId') });
   }
 });
