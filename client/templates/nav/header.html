@@ -22,7 +22,6 @@
           {{#unless isInRole 'admin' 'CB'}}
              <li><a href="https://codebuddies.slack.com/messages/general" target="_blank"><i class="fa fa-slack" aria-hidden="true"></i> </a></li>
           {{/unless}}
-          {{#if currentUser}}
               <!-- Study Groups -->
               <li><a href="{{pathFor 'all study groups'}}">Study Groups</a></li>
               <!-- notification for user-->
@@ -39,7 +38,6 @@
                     <li id="newStudyGroup"><a href="#">{{_ "new_study_group"}}</a></li>
                   </ul>
               </li>
-          {{/if}}
           {{#if isInRole 'moderator,admin' 'CB'}}
             <li id="user-drop-down" class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#">
