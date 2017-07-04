@@ -26,4 +26,5 @@ Meteor.publish("studyGroupMemberDetail", function (groupId, userId) {
   }
   this.ready();
 
+
 });

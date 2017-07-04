@@ -21,7 +21,7 @@
           <li><a href="https://github.com/codebuddiesdotorg/cb-v2-scratch" target="_blank" title="CodeBuddies on Github. Contributors welcome!">Github</a></li>
           {{#unless isInRole 'admin' 'CB'}}
              <li><a href="https://codebuddies.slack.com/messages/general" target="_blank"><i class="fa fa-slack" aria-hidden="true"></i> </a></li>
-           {{/unless}}
+          {{/unless}}
           {{#if currentUser}}
               <!-- Study Groups -->
               <li><a href="{{pathFor 'all study groups'}}">Study Groups</a></li>
