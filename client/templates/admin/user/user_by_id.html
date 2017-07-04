@@ -38,13 +38,13 @@
               <label class="col-sm-2 control-label">Status :</label>
               <div class="col-md-10">
                 {{#if isUpdateable _id roles.[0]}}
-                  {{roles.[0]}}
+                  {{userRoles.[0]}}
                 {{else}}
                   <select class="form-control" id="authorization">
-                    <option value="user" {{selected roles.[0]  "user"}}>user</option>
-                    <option value="moderator" {{selected roles.[0]  "moderator"}}>moderator</option>
-                    <option value="volunteer" {{selected roles.[0]  "volunteer"}}>volunteer</option>
-                    <option value="inactive" {{selected roles.[0]  "inactive"}}>inactive</option>
+                    <option value="user" {{selected userRoles.[0]  "user"}}>user</option>
+                    <option value="moderator" {{selected userRoles.[0]  "moderator"}}>moderator</option>
+                    <option value="volunteer" {{selected userRoles.[0]  "volunteer"}}>volunteer</option>
+                    <option value="inactive" {{selected userRoles.[0]  "inactive"}}>inactive</option>
                   </select>
                 {{/if}}
 

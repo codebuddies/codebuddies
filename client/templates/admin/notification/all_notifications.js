@@ -3,7 +3,7 @@ Template.registerHelper('dispDate', function(date) {
 });
 
 Template.registerHelper("isActorAdmin", function(actorId){
-  return Roles.userIsInRole( actorId, ['admin']) ;
+  return Roles.userIsInRole( actorId, ['admin'], 'CB') ;
 });
 
 Template.allNotification.onCreated(function() {
