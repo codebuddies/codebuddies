@@ -34,7 +34,7 @@ Meteor.startup(function() {
         password : password
       })
       if(id){
-        Roles.addUsersToRoles(id, 'admin');
+        Roles.addUsersToRoles(id, 'admin', 'CB');
         Email.send({
           to: Meteor.settings.root_email,
           from: Meteor.settings.email_from,
@@ -93,7 +93,7 @@ let generateGravatarURL = (email) => {
 Accounts.onCreateUser(function(options, user) {
 
   if (user.services.slack){
-    Roles.setRolesOnUserObj(user, ['user']);
+    Roles.setRolesOnUserObj(user, ['user'], 'CB');
     const user_info = loggingInUserInfo(user);
     const pickField = filterForSlackLogins(user_info.user)
 
