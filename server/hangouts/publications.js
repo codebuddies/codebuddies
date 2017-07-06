@@ -1,14 +1,12 @@
 Meteor.publish("hangouts", function(limit) {
   check(limit, Number);
 
-  if(this.userId) {
-    if (Roles.userIsInRole(this.userId, ['admin','moderator'], 'CB')) {
-      return Hangouts.find({}, {fields:{'email_addresses': 0 }, sort: { start: -1 }, 'limit':limit});
-    } else {
-      return Hangouts.find({'visibility':{$ne:false}}, {fields:{'email_addresses': 0 }, sort: { start: -1 }, 'limit':limit});
-    }
+  if (Roles.userIsInRole(this.userId, ['admin','moderator'], 'CB')) {
+    return Hangouts.find({}, {fields:{'email_addresses': 0 }, sort: { start: -1 }, 'limit':limit});
+  } else {
+    return Hangouts.find({'visibility':{$ne:false}}, {fields:{'email_addresses': 0 }, sort: { start: -1 }, 'limit':limit});
   }
-  this.ready();
+
 });
 
 Meteor.publish("hangoutById", function(hangoutId) {
@@ -50,7 +48,7 @@ Meteor.publish("hangoutBoard", function(limit, hangoutFilter) {
 
   var query = new Object();
   query.visibility = {$ne:false};
-  
+
   var projection = new Object();
   projection.sort = {'start' : 1};
   projection.fields = {"topic" : 1, 'host':1, "views" : 1, "users" : 1, "slug" : 1, "start":1, "end":1 ,'type':1};
