@@ -18,7 +18,6 @@
           <li><a href="{{pathFor 'hangouts'}}">{{_ "browse_hangouts"}} <span class="sr-only">(current)</span></a></li>
           <li><a href="{{pathFor 'about'}}">{{_ "about"}} <span class="sr-only">(current)</span></a></li>
           <li><a href="{{pathFor 'faq'}}">{{_ "faq"}}</a></li>
-          {{#unless currentUser}}<li><a href="{{pathFor 'browse_hangouts'}}">{{_ "browse_hangouts"}} <span class="sr-only">(current)</span></a></li>{{/unless}}
           {{#unless isInRole 'admin' 'CB'}}
              <li><a href="https://codebuddies.slack.com/messages/general" target="_blank"><i class="fa fa-slack" aria-hidden="true"></i> </a></li>
            {{/unless}}
