@@ -54,7 +54,6 @@ kadira:blaze-layout
 ian:accounts-ui-bootstrap-3
 meteorhacks:picker
 force-ssl@1.0.14
-meteorhacks:kadira
 matb33:bootstrap-popovers
 browser-policy@1.1.0
 practicalmeteor:mocha

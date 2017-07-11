@@ -57,18 +57,18 @@ let IMPF = function (actor,subject,current,past){
 
 
 Meteor.methods({
-  updateRoles: function (subjectId, subjectUsername, current, past) {
+  updateRoles: function (subjectId, subjectUsername, current, past, roleGroup) {
     const actor = Meteor.user()
-    if (!actor || !Roles.userIsInRole(actor, ['admin','moderator'])) {
+    if (!actor || !Roles.userIsInRole(actor, ['admin','moderator'], 'CB')) {
       throw new Meteor.Error(403, "Access denied")
     }
 
     if(current === "inactive"){
       Meteor.users.update({ _id: subjectId }, {$set: { "services.resume.loginTokens" : [] }});
-      Roles.setUserRoles(subjectId, current);
+      Roles.setUserRoles(subjectId, current, roleGroup);
     }else{
 
-      Roles.setUserRoles(subjectId, current);
+      Roles.setUserRoles(subjectId, current, roleGroup);
     }
 
     const incident = IMPF(actor.username, subjectUsername , current, past);

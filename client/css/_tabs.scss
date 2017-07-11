@@ -18,6 +18,7 @@
     background-color: $bg-white;
     margin: 0;
     @include font-face(400, 16px, normal, $inactive);
+    padding: 1rem 0.8rem;
   }
 
   ul.nav.nav-tabs > li.active > a {
