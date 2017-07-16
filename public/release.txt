@@ -1,3 +1,6 @@
+0.4
+Mobile CSS issue, User and roles schematic changes, Fix confusing RSVP button, Fix Publications, and Remove Kadira
+
 0.3
 Major deployment process change and Jitsi link
 
@@ -24,4 +27,3 @@ Some small improvements, and changed Slack names to codebuddies.slack.com
 
 0.1
 Latest round of Hacktoberfest PRs
-
