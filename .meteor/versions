@@ -73,8 +73,6 @@ matb33:bootstrap-tooltip@10.0.0
 matb33:bootstrap-transition-js@10.0.0
 meteor@1.6.1
 meteor-base@1.0.4
-meteorhacks:kadira@2.30.3
-meteorhacks:meteorx@1.4.1
 meteorhacks:picker@1.0.3
 meteorhacks:ssr@2.2.0
 meteorspark:util@0.2.0
@@ -90,7 +88,6 @@ modules-runtime@0.7.10
 momentjs:moment@2.18.1
 mongo@1.1.17
 mongo-id@1.0.6
-mongo-livedata@1.0.12
 mrt:moment@2.8.1
 mrt:moment-timezone@0.2.1
 msavin:mongol@1.6.2
