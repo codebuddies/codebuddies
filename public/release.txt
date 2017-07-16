@@ -1,3 +1,6 @@
+0.4.1
+Remove migration and deployment test
+
 0.4
 Mobile CSS issue, User and roles schematic changes, Fix confusing RSVP button, Fix Publications, and Remove Kadira
 
