@@ -44,7 +44,7 @@ On Windows, you should run the official installer [here](https://www.meteor.com/
   (Replace the URL with your own repository URL path.)
   
 5. Run `cd codebuddies`. Then, set up this repository as an upstream branch using:
-  * `git remote add upstream https://github.com/codebuddiesdotorg/cb-v2-scratch.git`
+  * `git remote add upstream https://github.com/codebuddiesdotorg/codebuddies.git`
 
   Now, whenever you want to sync with the owner repository. Do the following:
   * `git fetch upstream`
@@ -59,7 +59,7 @@ On Windows, you should run the official installer [here](https://www.meteor.com/
   * (`meteor npm run meteor:dev` can also run the app, but will likely [use up your CPU](https://github.com/meteor/meteor/issues/4314).)
   * Also note: if you see an error in your terminal asking you to `meteor npm install --save faker`, please run that command!
 
-8.Look at some of the [open issues](https://github.com/codebuddiesdotorg/cb-v2-scratch/issues) and identify one that sparks your interest.
+8.Look at some of the [open issues](https://github.com/codebuddiesdotorg/codebuddies/issues) and identify one that sparks your interest.
 
 If you want to work on the issue, leave a comment on it saying that you're working on it!
 
@@ -71,7 +71,7 @@ Then, create a new branch by typing `git checkout -b BRANCHNAME`. Replace BRANCH
 12. Submit your Pull Request! See some tips on [how to create the perfect pull request](https://github.com/blog/1943-how-to-write-the-perfect-pull-request).
 13. (Optional) Add yourself as a contributor, if you haven't done so already. Steps are listed [below](#how-do-i-add-myself-as-a-contributor).
 
-If you see a bug in the app or have a feature request, feel free to [create a new issue](https://github.com/codebuddiesdotorg/cb-v2-scratch/issues/new) on the Github repo!
+If you see a bug in the app or have a feature request, feel free to [create a new issue](https://github.com/codebuddiesdotorg/codebuddies/issues/new) on the Github repo!
 
 
 # Common Questions
@@ -89,7 +89,7 @@ If you have any problems getting the app to start, feel free to ask in the #trou
 
   `git checkout -b NAME_OF_NEW_BRANCH`
 
-  So for example, if you wanted to work on issue #29 [github.com/codebuddiesdotorg/cb-v2-scratch/issues/29](https://github.com/codebuddiesdotorg/cb-v2-scratch/issues/29), you should type:
+  So for example, if you wanted to work on issue #29 [github.com/codebuddiesdotorg/codebuddies/issues/29](https://github.com/codebuddiesdotorg/codebuddies/issues/29), you should type:
 
     `git checkout -b fix/issue-29-limit-140-characters`
 
@@ -107,7 +107,7 @@ Now we can make commits to our branch (`git commit -am "commit message"`) and `g
 
 Finally, when you're finished working on the fix or feature in your branch, you'll need to submit a pull request!
 
-Click on the "pull request" button by going to https://github.com/codebuddiesdotorg/cb-v2-scratch/pulls and clicking on "new pull request." Next, select your branch, and submit.
+Click on the "pull request" button by going to https://github.com/codebuddiesdotorg/codebuddies/pulls and clicking on "new pull request." Next, select your branch, and submit.
 
 One of the github maintainers (@linda or someone else) will look over your pull request and accept it after it is reviewed by volunteer contributors. Note that for best practice, the PR [may get "squashed" into one commit](http://softwareengineering.stackexchange.com/questions/263164/why-squash-git-commits-for-pull-requests). If you prefer that the merge not be squashed into one commit, just let us know in the PR! 
 
@@ -177,7 +177,7 @@ When the app is run locally, there are no hangouts seeded by default. Hence to b
 ### How do I add myself as a contributor?
 *Make sure you have recently `git pull` from `master` before continuing.*
 
-Once you've submitted your PR, switch to the branch [`adding-contributor`](https://github.com/codebuddiesdotorg/cb-v2-scratch/tree/adding-contributor). Then, you can add yourself to both the README.md and on our About page. Keeping a separate branch for adding yourself as a contributor will alleviate most merge conflicts.
+Once you've submitted your PR, switch to the branch [`adding-contributor`](https://github.com/codebuddiesdotorg/codebuddies/tree/adding-contributor). Then, you can add yourself to both the README.md and on our About page. Keeping a separate branch for adding yourself as a contributor will alleviate most merge conflicts.
 
 * Switch to contributor's branch
   * `git checkout adding-contributor`
