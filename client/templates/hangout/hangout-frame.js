@@ -27,9 +27,9 @@ Template.hangoutFrame.onCreated(function() {
     instance.api.executeCommand('toggleChat');
     instance.api.executeCommand('avatarUrl', data.avatar);
 
-    $("div[id^=" + 'jitsiConference' + "]").css('width', '100%');
+    $("[id^=" + 'jitsiConference' + "]").css('width', '100%');
     //only show the launch hangout button if Jitsi is not loaded
-    $("div[id^=" + 'jitsiConference' + "]").length == 1 ? $('.load-hangout').hide() : $('#load-hangout').show();
+    $("[id^=" + 'jitsiConference' + "]").length == 1 ? $('.load-hangout').hide() : $('#load-hangout').show();
   }
 
   /**
