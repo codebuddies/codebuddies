@@ -14,14 +14,15 @@ Template.hangoutFrame.onCreated(function() {
 
     const domain = "meet.jit.si";
     let room = 'cb' + data.room;
-    let width = 500;
+    let width = '100%';
     let height = 550;
     let configOverwrite = { startVideoMuted: 0 };
     let interfaceConfigOverwrite = {};
     let htmlElement = document.getElementById("hangout-container");
 
     instance.api = new JitsiMeetExternalAPI(domain, room, width, height, htmlElement, configOverwrite, interfaceConfigOverwrite);
-    
+
+
     instance.api.executeCommand('displayName', data.username);
     instance.api.executeCommand('toggleChat');
     instance.api.executeCommand('avatarUrl', data.avatar);
@@ -49,7 +50,7 @@ Template.hangoutFrame.onRendered(function() {
   * Chrome or Firefox
   */
 
-  if (!!window.chrome && !!window.chrome.webstore || typeof InstallTrigger !== 'undefined') { 
+  if (!!window.chrome && !!window.chrome.webstore || typeof InstallTrigger !== 'undefined') {
     //console.log('using firefox or chrome')
     $('p.chrome-firefox-warning').hide();
   } else {
