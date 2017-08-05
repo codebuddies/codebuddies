@@ -87,7 +87,7 @@ Template.singleStudyGroup.events({
         return Bert.alert( error.reason, 'danger', 'growl-top-right' );
       }
       if(result){
-        return Bert.alert( 'Join', 'success', 'growl-top-right' );
+        return Bert.alert( 'You have joined the study group!', 'success', 'growl-top-right' );
 
       }
     });
@@ -108,7 +108,7 @@ Template.singleStudyGroup.events({
         return Bert.alert( error.reason, 'danger', 'growl-top-right' );
       }
       if(result){
-        return Bert.alert( 'Leave', 'success', 'growl-top-right' );
+        return Bert.alert( 'You have left the study group!', 'success', 'growl-top-right' );
 
       }
     });
