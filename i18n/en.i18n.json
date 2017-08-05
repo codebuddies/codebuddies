@@ -137,5 +137,6 @@
   "availability": "Availability",
   "activity": "Activity",
   "join_study_group": "Join this study group",
-  "leave_study_group": "Leave this study group"
+  "leave_study_group": "Leave this study group",
+  "select_study_group": "Please select a study group."
 }
