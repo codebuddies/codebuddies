@@ -1,13 +1,13 @@
-![CodeBuddies logo](https://github.com/codebuddiesdotorg/cb-v2-scratch/raw/master/public/images/cb-readme.jpg)
+![CodeBuddies logo](https://github.com/codebuddiesdotorg/codebuddies/raw/master/public/images/cb-readme.jpg)
 
 # CodeBuddies Hangouts Platform v2.0 - from scratch
 
 
 [![slack in](http://codebuddiesmeet.herokuapp.com/badge.svg?style=flat-square)](http://codebuddiesmeet.herokuapp.com/)
-[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat-square)](https://github.com/codebuddiesdotorg/cb-v2-scratch/issues)
+[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat-square)](https://github.com/codebuddiesdotorg/codebuddies/issues)
 [![first-timers-only](https://img.shields.io/badge/first--timers--only-friendly-blue.svg?style=flat-square)](http://www.firsttimersonly.com/)
-[![Issue Stats](https://img.shields.io/issuestats/i/github/codebuddiesdotorg/cb-v2-scratch.svg?maxAge=2592000&style=flat-square)]()
-[![Issue Stats](https://img.shields.io/issuestats/p/github/codebuddiesdotorg/cb-v2-scratch.svg?maxAge=2592000&style=flat-square)]()
+[![Issue Stats](https://img.shields.io/issuestats/i/github/codebuddiesdotorg/codebuddies.svg?maxAge=2592000&style=flat-square)]()
+[![Issue Stats](https://img.shields.io/issuestats/p/github/codebuddiesdotorg/codebuddies.svg?maxAge=2592000&style=flat-square)]()
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0)
 
 # FAQ

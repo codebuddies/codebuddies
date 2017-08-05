@@ -7,10 +7,6 @@
       "apiKey": "mailchimp-api-key",
       "listId": "mailchimp-list-id"
     },
-    "kadira": {
-      "appId": "kadira-app-id",
-      "appSecret": "kadira-app-secret"
-    },
     "twitter": {
       "consumer_key": "5tuwUTjY4NwMs5KuVEgDBTIJV",
       "consumer_secret": "k05UXe9j4En8PeZ1m9qfjGgud76KutvlJ2T55qNftuT7VwhvbK",
