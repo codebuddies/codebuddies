@@ -178,7 +178,7 @@ Meteor.methods({
     const activity = {
       actor: member,
       type: "USER_LEAVE",
-      action: "leave",
+      action: "left",
       subject: {
         id: data.studyGroupId,
         title: data.studyGroupTitle,
