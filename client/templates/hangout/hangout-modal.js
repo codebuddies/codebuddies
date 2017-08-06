@@ -47,7 +47,7 @@ Template.createHangoutModal.helpers({
     //this won't work on safari and opera.
     if (Object.entries) {
       Object.entries(roles).forEach(([key, value]) => {
-        if(value.includes('owner') || value.includes('moderator') && key !== 'CB'){
+        if(value.includes('owner') || value.includes('admin') || value.includes('moderator') && key !== 'CB'){
           studyGroups.push(key)
         }
       });
