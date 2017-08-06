@@ -200,3 +200,57 @@ Meteor.methods({
     return true;
   }
 });
+
+
+
+
+
+/**
+* update user role for study_group
+* @function
+* @name updateUserRoleForStudyGroup
+* @param { data } Object
+* @return {Boolean} true on success
+*/
+
+Meteor.methods({
+  updateUserRoleForStudyGroup(data){
+
+
+    check(data,{
+      user: Match.ObjectIncluding({
+        id: String,
+        username: String,
+        avatar: String
+      }),
+      role: String,
+      studyGroupId: String
+    })
+
+    //console.log(data);
+
+    const expectedRoles= ['admin','moderator', 'member'];
+    const actor = Meteor.user()
+
+    //check if user is owner or admin
+    if (!actor || !Roles.userIsInRole(actor, ['owner','admin'], data.studyGroupId )) {
+      throw new Meteor.Error(403, "Access denied");
+    }
+
+    if (expectedRoles.indexOf(data.role) < 0 ) {
+      throw new Meteor.Error(403, "Unexpected Role");
+    }
+
+    //role update
+    Roles.setUserRoles(data.user.id, data.role, data.studyGroupId);
+
+    // Todo
+    // create activity
+    // const activity = {
+    //
+    // }
+
+    return true;
+
+  }
+});

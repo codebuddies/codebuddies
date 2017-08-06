@@ -21,15 +21,40 @@ Template.studyGroupMemberDetail.helpers({
   userRoles: function(){
     const roles = Meteor.users.findOne({_id: Template.instance().data.id }).roles;
     const studyGroupId = FlowRouter.getParam('studyGroupId');
-    return roles[studyGroupId] ;
+    return roles[studyGroupId].pop() ;
   },
 });
 
 Template.studyGroupMemberDetail.events({
   "change #authorization": function(event, template){
-     console.log(this);
-     console.log(template.find("#authorization").value);
+     //console.log(this);
+     //console.log(template.find("#authorization").value);
 
      //todo - update user role
+     const user = this;
+
+     const data = {
+       user: {
+         id: user._id,
+         username: user.username,
+         avatar: user.profile.avatar.default
+       },
+       role: template.find("#authorization").value,
+       studyGroupId: FlowRouter.getParam('studyGroupId')
+     }
+
+     //console.log(data);
+
+     Meteor.call('updateUserRoleForStudyGroup', data ,function(error, result){
+       if(error){
+         Bert.alert( error.reason, 'danger', 'growl-top-right' );
+       }
+       if(result){
+         Modal.hide();
+         Bert.alert( 'Role updated', 'success', 'growl-top-right' );
+       }
+     });
+
+
   }
 });

@@ -6,22 +6,20 @@
           <div class="panel-body">
 
             <div class="page-header">
-              <div class="pull-right">
-                <textarea id="learned-text" rows="3" maxlength="140" placeholder="What did you learn?"></textarea>
-              </div>
               <h3>{{title}}   <small>{{tagline}} </small></h3>
 
-              {{#unless isInRole 'owner, moderator ,member' _id}}
-                <div class="btn btn-cb2 join-hangout {{#if currentUser}} joinStudyGroup study-action {{else}} continue-popup {{/if}}">{{_ "join_study_group"}}</div>
-              {{else}}
-                {{#if isInRole 'moderator, member' _id}}
-                  <div class="btn btn-cb2 join-hangout {{#if currentUser}} leaveStudyGroup study-action btn-leave {{else}} continue-popup {{/if}}">{{_ "leave_study_group"}}</div>
-                {{/if}}
-                {{#if isInRole 'moderator, member' _id}}
-                  <div id="create-hangout-popup" class="btn btn-cb2 join-hangout {{#if currentUser}} study-action {{else}} continue-popup {{/if}}">{{_ "create_a_hangout"}}</div>
-                {{/if}}
+              <div class="pull-right">
 
-              {{/unless}}
+                {{#unless isInRole 'owner, moderator ,member' _id}}
+                  <div class="btn btn-cb2 join-hangout {{#if currentUser}} joinStudyGroup study-action {{else}} continue-popup {{/if}}">{{_ "join_study_group"}}</div>
+                {{else}}
+                  {{#if isInRole 'moderator, member' _id}}
+                    <div class="btn btn-cb2 join-hangout {{#if currentUser}} leaveStudyGroup study-action btn-leave {{else}} continue-popup {{/if}}">{{_ "leave_study_group"}}</div>
+                  {{/if}}
+                {{/unless}}
+                
+              </div>
+
             </div>
 
             <ul class="nav nav-tabs" role="tablist">

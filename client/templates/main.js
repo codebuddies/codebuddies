@@ -96,9 +96,16 @@ Template.registerHelper("isHangoutEndTimeTBA", function(start, end){
 
 });
 
-Template.registerHelper("canManageStudyGroup", function(userId, groupId){
+Template.registerHelper("isOwnerOfTheGroup", function(userId, groupId){
   const loggedInUserId = Meteor.userId();
 
-  return ((loggedInUserId !== userId) &&  (Roles.userIsInRole( loggedInUserId, ['owner', 'admin' ], groupId)) ? true : false  ) ;
+  return ((loggedInUserId !== userId) &&  (Roles.userIsInRole( loggedInUserId, ['owner' ], groupId)) ? true : false  ) ;
+
+});
+
+Template.registerHelper("canUpdateUserRoleForGroup", function(subjectId, groupId, subjectRole){
+  const loggedInUserId = Meteor.userId();
+
+  return ((loggedInUserId !== subjectId) && (subjectRole !== 'owner' && subjectRole !=='admin') &&  (Roles.userIsInRole( loggedInUserId, ['owner', 'admin' ], groupId)) ? true : false  ) ;
 
 });
