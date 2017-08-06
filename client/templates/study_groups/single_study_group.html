@@ -7,7 +7,9 @@
 
             <div class="page-header">
               <h3>{{title}}   <small>{{tagline}} </small></h3>
-
+              {{#if isInRole 'moderator, owner' _id}}
+                    <div id="create-hangout-popup" class="btn btn-cb2 join-hangout {{#if currentUser}} study-action {{else}} continue-popup {{/if}}">{{_ "create_a_hangout"}}</div>
+              {{/if}}
               <div class="pull-right">
 
                 {{#unless isInRole 'owner, moderator ,member' _id}}
@@ -50,9 +52,10 @@
               </div><!-- #/info -->
 
               <div role="tabpanel" class="tab-pane" id="hangouts">
-                <div class="container">
-                    {{> hangoutByGroup id=_id}}
-                </div>
+                <p>If you'd like to schedule a hangout for this study group, you'll need to be an admin or moderator.</p>
+
+                {{> hangoutByGroup id=_id}}
+
 
               </div><!-- #/hangouts -->
 
@@ -179,15 +182,15 @@
               {{#each activities}}
 
                 <div class="well row">
-                  <div class="col-xs-2 col-md-1">
+                  <div class="col-md-1">
                     <a href="#">
                       <img src="{{actor.avatar}}" alt="{{actor.name}}" class="img-circle">
                     </a>
                   </div>
-                  <div class="col-xs-3 col-md-1">
+                  <div class="col-md-3">
                     <h4>{{actor.name}}</h4>
                   </div>
-                  <div class="col-xs-7 col-md-9">
+                  <div class="col-md-8">
                     <p>{{action}}</p>
                   </div>
                 </div>
