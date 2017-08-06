@@ -87,7 +87,7 @@ Template.singleStudyGroup.events({
         return Bert.alert( error.reason, 'danger', 'growl-top-right' );
       }
       if(result){
-        return Bert.alert( 'Join', 'success', 'growl-top-right' );
+        return Bert.alert( 'You have joined the study group!', 'success', 'growl-top-right' );
 
       }
     });
@@ -108,7 +108,7 @@ Template.singleStudyGroup.events({
         return Bert.alert( error.reason, 'danger', 'growl-top-right' );
       }
       if(result){
-        return Bert.alert( 'Leave', 'success', 'growl-top-right' );
+        return Bert.alert( 'You have left the study group!', 'success', 'growl-top-right' );
 
       }
     });
@@ -120,4 +120,22 @@ Template.singleStudyGroup.events({
     Modal.show('studyGroupMemberDetail', this);
 
   },
+  "click #create-hangout-popup": function() {
+    if (!Meteor.userId()) {
+      sweetAlert({
+        title: TAPi18n.__("login_create_hangout_title"),
+        text: TAPi18n.__("login_create_hangout_message"),
+        confirmButtonText: TAPi18n.__("sign_in_with_slack"),
+        type: 'info'
+      },
+      function(){
+        var options = {
+          requestPermissions: ['identify', 'users:read']
+        };
+        Meteor.loginWithSlack(options);
+      });
+    } else {
+      Modal.show('createHangoutModal');
+    }
+  }
 });

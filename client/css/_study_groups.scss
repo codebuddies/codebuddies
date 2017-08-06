@@ -1,10 +1,12 @@
 #study-groups {
+  h3 { margin: 10px 0px;}
   .study-groups-top {
     background: linear-gradient(to top, rgba(30, 144, 255, .5) 0%, rgba(30, 144, 255, .5) 0%, rgba(30, 144, 255, .5) 0%, rgba(30, 144, 255, .55) 18%, rgba(30, 144, 255, .64) 46%, rgba(3, 87, 232, .8) 100%), url(/images/language-logos.svg) center repeat;
     padding: 100px 0;
     h2 { @include font-face(700, 32px, bold, $bg-white); }
     span.label { padding: .3em .6em;}
   }
+  .page-header { margin-top: 0px; }
   .panel-default { 
   	border: none;
   }

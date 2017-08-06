@@ -41,10 +41,9 @@ Template.createHangoutModal.rendered = function() {
 };
 
 Template.createHangoutModal.helpers({
-  studyGroups() {
+  studyGroups: function() {
     let roles = Meteor.user().roles;
     let studyGroups = [];
-
     //this won't work on safari and opera.
     if (Object.entries) {
       Object.entries(roles).forEach(([key, value]) => {
@@ -54,9 +53,6 @@ Template.createHangoutModal.helpers({
       });
     }
     //this won't work on safari and opera. end
-
-
-
     return StudyGroups.find({_id:{$in:studyGroups}});
   }
 });
