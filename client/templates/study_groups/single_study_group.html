@@ -52,7 +52,9 @@
               </div><!-- #/info -->
 
               <div role="tabpanel" class="tab-pane" id="hangouts">
-                <p>If you'd like to schedule a hangout for this study group, you'll need to be an admin or moderator.</p>
+                {{#if isInRole 'member' _id}}
+                  <p>If you'd like to schedule a hangout for this study group, you will need to be an admin or an organizer.</p>
+                {{/if}}
 
                 {{> hangoutByGroup id=_id}}
 
@@ -70,9 +72,6 @@
                       </div>
                       <div class="panel-body">
                         {{#each members}}
-                          <!-- <a href="{{pathFor 'profile' name=name userId=id}}">
-                            <img src="{{avatar}}" alt="{{name}}" class="img-circle">
-                          </a> -->
 
                           <img src="{{avatar}}" alt="{{name}}" class="img-circle" id="memberDetail" data-id="{{id}}">
 
