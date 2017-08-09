@@ -53,7 +53,7 @@
 
               <div role="tabpanel" class="tab-pane" id="hangouts">
                 {{#if isInRole 'member' _id}}
-                  <p>If you'd like to schedule a hangout for this study group, you will need to be an admin or an organizer.</p>
+                  <p>If you'd like to schedule a hangout for this study group, you will need to be an organizer of the group.</p>
                 {{/if}}
 
                 {{> hangoutByGroup id=_id}}
