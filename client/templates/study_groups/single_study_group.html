@@ -63,7 +63,9 @@
 
 
               <div role="tabpanel" class="tab-pane" id="members">
-
+                {{#if isInRole 'owner,manager' _id}}
+                  <p>Click on a member's icon to adjust their permissions. Organizers and admins can schedule hangouts in this study group; admins can promote other members to be organizers.</p>
+                {{/if}}
                 {{#if members}}
 
                     <div class="panel panel-default">
@@ -73,7 +75,7 @@
                       <div class="panel-body">
                         {{#each members}}
 
-                          <img src="{{avatar}}" alt="{{name}}" class="img-circle" id="memberDetail" data-id="{{id}}">
+                          <img src="{{avatar}}" alt="{{name}}" class="img-circle {{#if isInRole 'owner,manager' _id}}memberDetail{{/if}}" data-id="{{id}}">
 
                         {{/each}}
                       </div>
@@ -102,7 +104,7 @@
 
               <div role="tabpanel" class="tab-pane" id="resources">
                 <br>
-                {{#if isInRole 'owner,manager' _id}}
+                {{#if isInRole 'owner,manager,moderator' _id}}
                   <div class="btn btn-default" id="addResource"> + </div>
                 {{/if}}
                 {{#unless isAddResource}}

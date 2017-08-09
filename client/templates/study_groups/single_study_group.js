@@ -114,7 +114,7 @@ Template.singleStudyGroup.events({
     });
 
   },
-  'click #memberDetail': function(event, template){
+  'click .memberDetail': function(event, template){
     event.preventDefault();
 
     Modal.show('studyGroupMemberDetail', this);
