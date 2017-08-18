@@ -7,6 +7,11 @@
 
             <div class="page-header">
               <h3>{{title}}   <small>{{tagline}} </small></h3>
+              <p>Organizers: 
+              {{# each organizers }}
+                   {{ username }}
+                {{/each}}
+              </p>
               {{#if isInRole 'moderator, owner' _id}}
                     <div id="create-hangout-popup" class="btn btn-cb2 join-hangout {{#if currentUser}} study-action {{else}} continue-popup {{/if}}">{{_ "create_a_hangout"}}</div>
               {{/if}}
@@ -66,6 +71,8 @@
                 {{#if isInRole 'owner,manager' _id}}
                   <p>Click on a member's icon to adjust their permissions. Organizers and admins can schedule hangouts in this study group; admins can promote other members to be organizers.</p>
                 {{/if}}
+                
+
                 {{#if members}}
 
                     <div class="panel panel-default">

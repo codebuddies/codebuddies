@@ -30,7 +30,8 @@ Meteor.methods({
          {
            id: user._id,
            name: user.username,
-           avatar: user.profile.avatar.default
+           avatar: user.profile.avatar.default,
+           role: 'owner'
          }
        ]
      }

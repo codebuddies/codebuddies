@@ -24,7 +24,7 @@ Template.singleStudyGroup.onRendered(function(){
 
 Template.singleStudyGroup.helpers({
   studyGroup: function(){
-
+    console.log(FlowRouter.getParam('studyGroupId'))
     return StudyGroups.findOne({_id:FlowRouter.getParam('studyGroupId')});
   },
   isAddResource:function(){
@@ -35,6 +35,22 @@ Template.singleStudyGroup.helpers({
   },
   activities: function() {
     return Activities.find({'study_group.id': FlowRouter.getParam('studyGroupId') });
+  },
+  organizers: function() {
+    // var studyGroupId = FlowRouter.getParam('studyGroupId')
+    // console.log(studyGroupId);
+
+    // // var query = { roles: {} };
+    // // query.roles.studyGroupId =  {"$in": ["owner", "manager", "moderator"]};
+    // // Meteor.users.find(query).fetch();
+    // var query = {};
+    // var sgid = 'roles.' + studyGroupId;
+    // var query[sgid] =  {"$in": ["owner", "manager", "moderator"]} };
+
+
+    return Meteor.users.find({"roles.trnwrQWAGZtb95tsw": {
+            "$in": ["owner", "manager", "moderator"]
+    }});
   }
 });
 
