@@ -2,20 +2,12 @@
   {{#if Template.subscriptionsReady}}
     <div class="container" id="study-groups">
       {{#with studyGroup}}
-        <div class="panel panel-default">
-          <div class="panel-body">
-
-            <div class="page-header">
-              <h3>{{title}}   <small>{{tagline}} </small></h3>
-              <p>Organizers: 
-              {{# each organizers }}
-                   {{ username }}
-                {{/each}}
-              </p>
+        <div class="row">
+          <div class="col-md-3">
+              <h2>{{title}}   <small>{{tagline}} </small></h2>
               {{#if isInRole 'moderator, owner' _id}}
                     <div id="create-hangout-popup" class="btn btn-cb2 join-hangout {{#if currentUser}} study-action {{else}} continue-popup {{/if}}">{{_ "create_a_hangout"}}</div>
               {{/if}}
-              <div class="pull-right">
 
                 {{#unless isInRole 'owner, moderator ,member' _id}}
                   <div class="btn btn-cb2 join-hangout {{#if currentUser}} joinStudyGroup study-action {{else}} continue-popup {{/if}}">{{_ "join_study_group"}}</div>
@@ -24,17 +16,60 @@
                     <div class="btn btn-cb2 join-hangout {{#if currentUser}} leaveStudyGroup study-action btn-leave {{else}} continue-popup {{/if}}">{{_ "leave_study_group"}}</div>
                   {{/if}}
                 {{/unless}}
-                
-              </div>
 
-            </div>
+                <h3>Organizers</h3>
+                <ul>
+                {{# each organizers }}
+                   <li>{{ username }}</li>
+                {{/each}}
+                </ul>
+
+                <h3>Links</h3>
+
+                 {{#if isInRole 'owner,manager,moderator' _id}}
+                  <div class="btn btn-default" id="addResource"> + </div>
+                {{/if}}
+                {{#unless isAddResource}}
+
+                    {{> resourcesList}}
+
+                  {{else}}
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="well">
+                          <h4>Add a new resource</h4>
+                          <form class="addResource">
+
+                            <div class="form-group">
+                               <input type="text" class="form-control" id="resourceTitle" placeholder="Description">
+                            </div>
+                            <div class="form-group">
+                               <input type="text" class="form-control" id="resourceURL" placeholder="URL">
+                            </div>
+
+                            <button type="submit" class="btn btn-cb2 pull-right">Submit</button> &nbsp;
+                            <button type="button" id="cancelAddResource" class=" btn btn-cb2 pull-right">Cancel</button>
+                          </form>
+
+                      </div>
+                    </div>
+                 </div>
+
+
+                  {{/unless}}
+
+                <h3>Description</h3>
+
+              
+
+          </div><!--3-->
+          <div class="col-md-9">
 
             <ul class="nav nav-tabs" role="tablist">
               <li role="presentation" class="active"><a href="#info" aria-controls="info" role="tab" data-toggle="tab">{{_ 'info'}}</a></li>
               <li role="presentation"><a href="#hangouts" aria-controls="hangouts" role="tab" data-toggle="tab">{{_ 'hangouts'}}</a></li>
               <li role="presentation"><a href="#members" aria-controls="members" role="tab" data-toggle="tab">{{_ 'members'}}</a></li>
               <li role="presentation"><a href="#learnings" aria-controls="resources" role="tab" data-toggle="tab">{{_ 'learnings'}}</a></li>
-              <li role="presentation"><a href="#resources" aria-controls="resources" role="tab" data-toggle="tab">{{_ 'resources'}}</a></li>
               <li role="presentation"><a href="#discussion" aria-controls="discussion" role="tab" data-toggle="tab">{{_ 'discussion'}}</a></li>
               <li role="presentation"><a href="#availability" aria-controls="availability" role="tab" data-toggle="tab">{{_ 'availability'}}</a></li>
               <li role="presentation"><a href="#activities" aria-controls="activities" role="tab" data-toggle="tab">{{_ 'activity'}}</a></li>
@@ -109,8 +144,7 @@
                 </div>
               </div><!-- #/learnings -->
 
-              <div role="tabpanel" class="tab-pane" id="resources">
-                <br>
+         <!--      <div role="tabpanel" class="tab-pane" id="resources">
                 {{#if isInRole 'owner,manager,moderator' _id}}
                   <div class="btn btn-default" id="addResource"> + </div>
                 {{/if}}
@@ -144,7 +178,7 @@
                   {{/unless}}
 
 
-              </div><!-- #/resources -->
+              </div> #/resources -->
 
               <div role="tabpanel" class="tab-pane" id="discussion">
                 <div class="panel panel-default">
@@ -232,7 +266,7 @@
         </div> <!-- ./panel panel-default -->
 
       {{else}}
-        not found
+        Not found.
       {{/with}}
 
     </div><!-- ./container -->
