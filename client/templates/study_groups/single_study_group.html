@@ -20,7 +20,7 @@
                 <h3>Organizers</h3>
                 <ul>
                 {{# each organizers }}
-                   <li>{{ username }}</li>
+                   <li><a href="https://codebuddies.slack.com/messages/@{{ username }}">@{{ username }}</a></li>
                 {{/each}}
                 </ul>
 
@@ -34,9 +34,7 @@
                     {{> resourcesList}}
 
                   {{else}}
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="well">
+                      <div>
                           <h4>Add a new resource</h4>
                           <form class="addResource">
 
@@ -50,10 +48,7 @@
                             <button type="submit" class="btn btn-cb2 pull-right">Submit</button> &nbsp;
                             <button type="button" id="cancelAddResource" class=" btn btn-cb2 pull-right">Cancel</button>
                           </form>
-
-                      </div>
-                    </div>
-                 </div>
+                  </div>
 
 
                   {{/unless}}
