@@ -65,7 +65,7 @@
               <li role="presentation"><a href="#hangouts" aria-controls="hangouts" role="tab" data-toggle="tab">{{_ 'hangouts'}}</a></li>
               <li role="presentation"><a href="#members" aria-controls="members" role="tab" data-toggle="tab">{{_ 'members'}}</a></li>
               <li role="presentation"><a href="#learnings" aria-controls="resources" role="tab" data-toggle="tab">{{_ 'learnings'}}</a></li>
-              <li role="presentation"><a href="#discussion" aria-controls="discussion" role="tab" data-toggle="tab">{{_ 'discussion'}}</a></li>
+              <li role="presentation"><a href="#notes" aria-controls="notes" role="tab" data-toggle="tab">{{_ 'notes'}}</a></li>
               <li role="presentation"><a href="#availability" aria-controls="availability" role="tab" data-toggle="tab">{{_ 'availability'}}</a></li>
               <li role="presentation"><a href="#activities" aria-controls="activities" role="tab" data-toggle="tab">{{_ 'activity'}}</a></li>
               {{#if isInRole 'owner, moderator ' _id}}
@@ -175,14 +175,14 @@
 
               </div> #/resources -->
 
-              <div role="tabpanel" class="tab-pane" id="discussion">
+              <div role="tabpanel" class="tab-pane" id="notes">
                 <div class="panel panel-default">
                   <div class="panel-heading">
-                    <h3 class="panel-title">Discussion</h3>
+                    <h3 class="panel-title">Notes</h3>
                   </div>
                   <div class="panel-body">
                     <div class="text-center">
-                      <h5>{{_ "coming_soon" }}</h5>
+                      <p>Coming Soon</p>
                     </div>
                   </div>
                 </div>
@@ -204,35 +204,24 @@
 
               <div role="tabpanel" class="tab-pane" id="activities">
 
-
-
-                <!-- <div class="panel panel-default">
-                  <div class="panel-heading">
-                    <h3 class="panel-title">Activities</h3>
-                  </div>
-                  <div class="panel-body">
-                    <div class="text-center">
-                      <h5>{{_ "coming_soon" }}</h5>
-                    </div>
-                  </div>
-                </div> -->
+              <table class="table table-striped margin-top-1"> 
+                <tr>
+                  <th>Username</th>
+                  <th>Action</th>
+                </tr>
               {{#each activities}}
 
-                <div class="well row">
-                  <div class="col-md-1">
-                    <a href="#">
-                      <img src="{{actor.avatar}}" alt="{{actor.name}}" class="img-circle">
-                    </a>
-                  </div>
-                  <div class="col-md-3">
-                    <h4>{{actor.name}}</h4>
-                  </div>
-                  <div class="col-md-8">
-                    <p>{{action}}</p>
-                  </div>
-                </div>
-
+                <tr>
+                  <td>
+                    <img src="{{actor.avatar}}" alt="{{actor.name}}" class="img-circle">
+                    {{actor.name}}
+                  </td>
+                  <td>
+                     {{action}}
+                  </td>
+                </tr>
               {{/each}}
+              </table>
 
               </div><!-- #/Activities -->
 
