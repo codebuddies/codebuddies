@@ -1,8 +1,8 @@
 <template name="hangoutByGroup">
 
-  <div class="section board-middle">
+  <div class="section board-middle margin-top-1">
     <div class="container hangout-board">
-      <div class="row hangout-filter-block">
+      <div class="row hangout-filter-block margin-bottom-1">
           <div class="col-md-3">
             <!-- {{hangoutFilter}} -->
             <select class="form-control" id="hangoutFilter">
@@ -24,26 +24,17 @@
             {{> hangoutCard}}
          </div>
         {{else}}
-
-          <div class="col-md-12">
-            <h4 class="text-center well">No hangouts displayed.</h4>
-          </div>
-
-
+            <p>No hangouts displayed.</p>
         {{/each}}
 
 
     {{#if status}}
-          <div class="col-md-12">
-            <h5 class="text-center well">You've reached the end of the page.</h5>
-          </div>
+          <h5 class="text-center well">You've reached the end of the page.</h5>
     {{/if}}
 
 
   {{else}}
-      <div class="col-md-12">
         {{> loading}}
-      </div>
   {{/if}}
       </div>
   </div>
