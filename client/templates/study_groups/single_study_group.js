@@ -83,7 +83,7 @@ Template.singleStudyGroup.events({
         Bert.alert( error.reason, 'danger', 'growl-top-right' );
       }
       if(result){
-        Bert.alert( 'Resource had been added', 'success', 'growl-top-right' );
+        Bert.alert( 'Link has been added', 'success', 'growl-top-right' );
         return template.isAddResource.set( false );
       }
     });

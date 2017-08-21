@@ -29,3 +29,7 @@ h5.in-progress, h5.upcoming {
 	@include border-radius(5px);
 	display: inline-block;
 }
+
+  span.cb-delete:hover {
+    cursor: pointer;
+  }

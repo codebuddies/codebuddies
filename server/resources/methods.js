@@ -41,5 +41,9 @@ Meteor.methods({
     if (id) {
       return true
     }
+  },
+  deleteResource:function(id){
+    Resources.remove( { _id: id } );
+    return true
   }
 });

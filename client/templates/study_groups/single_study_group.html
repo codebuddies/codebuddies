@@ -24,11 +24,11 @@
                 {{/each}}
                 </ul>
 
-                <h3>Links</h3>
+                <h3>Links </h3>
 
                  {{#if isInRole 'owner,manager,moderator' _id}}
-                  <div class="btn btn-default" id="addResource"> + </div>
-                {{/if}}
+                  <span class="btn btn-default" id="addResource"> + </span>
+                 {{/if}}
                 {{#unless isAddResource}}
 
                     {{> resourcesList}}
@@ -47,6 +47,7 @@
 
                             <button type="submit" class="btn btn-cb2 pull-right">Submit</button> &nbsp;
                             <button type="button" id="cancelAddResource" class=" btn btn-cb2 pull-right">Cancel</button>
+
                           </form>
                   </div>
 

@@ -16,7 +16,7 @@ Template.resourcesList.events({
         Bert.alert( error.reason, 'danger', 'growl-top-right' );
       }
       if(result){
-        Bert.alert( 'Resource Deleted', 'success', 'growl-top-right' );
+        Bert.alert( 'Link removed', 'success', 'growl-top-right' );
       }
     });
   },
