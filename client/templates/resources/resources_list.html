@@ -4,15 +4,14 @@
       {{#each resources}}
         <div class="well">
           <h4>
+            {{#if isInRole 'owner, moderator' study_group.id}}
+              <span class="pull-right cb-delete delete-resource" id="cancelAddResource"><i class="fa fa-times delete" aria-hidden="true"></i></span>
+            {{/if}}
             {{title}}
             <br>
             <small>
               <a href="{{url}}" target="_blank" alt="{{title}}">{{url}}</a>
             </small>
-
-            {{#if isInRole 'owner, moderator' study_group.id}}
-              <span class="pull-right cb-delete delete-resource" id="cancelAddResource"><i class="fa fa-times delete" aria-hidden="true"></i></span>
-            {{/if}}
           </h4>
         </div>
       {{/each}}
