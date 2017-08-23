@@ -1,5 +1,5 @@
 #study-groups {
-  h2 { 
+  h2 {
     margin: 10px 0px;
     @include font-face(600, 28px, normal, $black);
   }
@@ -15,7 +15,7 @@
     span.label { padding: .3em .6em;}
   }
   .page-header { margin-top: 0px; }
-  .panel-default { 
+  .panel-default {
   	border: none;
   }
   .img-circle {
@@ -27,14 +27,10 @@
   .well, .jumbotron {
   	margin: 10px 0;
   }
-  p { 
+  p {
   	margin: 10px 0px;
   }
-  .study-action {
-  	display: inline-block;
-  	margin: 0px;
-  }
-  #info .panel-body { 
+  #info .panel-body {
   	padding: 10px 0px;
   }
 }
@@ -43,7 +39,7 @@
 	fieldset {
 		border: none;
 	}
-	input { 
+	input {
 		margin-bottom: 10px;
 	}
 }

@@ -2,6 +2,58 @@
   {{#if Template.subscriptionsReady}}
     <div class="container" id="study-groups">
       {{#with studyGroup}}
+        <br>
+        <div class="row">
+          <ol class="breadcrumb">
+            {{#unless isInRole 'owner, moderator, member' _id}}
+              <li><a href="{{pathFor 'all study groups'}}">Study Groups</a></li>
+            {{else}}
+              <li><a href="{{pathFor 'my study groups'}}">My Study Groups</a></li>
+            {{/unless}}
+            <li class="active">{{title}}</li>
+          </ol>
+        </div>
+
+
+        <div class="row">
+          <div class="well">
+            <h2>{{title}}
+              <div class="pull-right">
+                {{#unless isInRole 'owner, moderator, member' _id}}
+                  <div class="btn btn-cb2 {{#if currentUser}} joinStudyGroup {{else}} continue-popup {{/if}}">{{_ "join_study_group"}}</div>
+                {{else}}
+                  {{#if isInRole 'moderator, member' _id}}
+                    <div class="btn btn-cb2 leaveStudyGroup btn-leave">{{_ "leave_study_group"}}</div>
+                  {{/if}}
+                {{/unless}}
+              </div>
+            </h2>
+            <h5><i class="fa fa-map-pin" aria-hidden="true"></i> {{tagline}}</h5>
+
+
+
+          </div>
+        </div>
+
+        <div class="row">
+          <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#info" aria-controls="info" role="tab" data-toggle="tab">{{_ 'info'}}</a></li>
+            <li role="presentation"><a href="#info" aria-controls="info" role="tab" data-toggle="tab">{{_ 'twentyforseven'}}</a></li>
+            <li role="presentation"><a href="#hangouts" aria-controls="hangouts" role="tab" data-toggle="tab">{{_ 'hangouts'}}</a></li>
+            <li role="presentation"><a href="#members" aria-controls="members" role="tab" data-toggle="tab">{{_ 'members'}}</a></li>
+            <li role="presentation"><a href="#learnings" aria-controls="resources" role="tab" data-toggle="tab">{{_ 'learnings'}}</a></li>
+            <li role="presentation"><a href="#notes" aria-controls="notes" role="tab" data-toggle="tab">{{_ 'notes'}}</a></li>
+            <li role="presentation"><a href="#availability" aria-controls="availability" role="tab" data-toggle="tab">{{_ 'availability'}}</a></li>
+            <li role="presentation"><a href="#activities" aria-controls="activities" role="tab" data-toggle="tab">{{_ 'activity'}}</a></li>
+            {{#if isInRole 'owner, moderator ' _id}}
+              <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">{{_ 'settings'}}</a></li>
+            {{/if}}
+          </ul>
+        </div>
+
+        <br>
+
+
         <div class="row">
           <div class="col-md-3">
               <h2>{{title}}   <small>{{tagline}} </small></h2>
@@ -9,13 +61,13 @@
                     <div id="create-hangout-popup" class="btn btn-cb2 join-hangout {{#if currentUser}} study-action {{else}} continue-popup {{/if}}">{{_ "create_a_hangout"}}</div>
               {{/if}}
 
-                {{#unless isInRole 'owner, moderator ,member' _id}}
-                  <div class="btn btn-cb2 join-hangout {{#if currentUser}} joinStudyGroup study-action {{else}} continue-popup {{/if}}">{{_ "join_study_group"}}</div>
-                {{else}}
-                  {{#if isInRole 'moderator, member' _id}}
-                    <div class="btn btn-cb2 join-hangout {{#if currentUser}} leaveStudyGroup study-action btn-leave {{else}} continue-popup {{/if}}">{{_ "leave_study_group"}}</div>
-                  {{/if}}
-                {{/unless}}
+              {{#unless isInRole 'owner, moderator ,member' _id}}
+                <div class="btn btn-cb2 join-hangout {{#if currentUser}} joinStudyGroup study-action {{else}} continue-popup {{/if}}">{{_ "join_study_group"}}</div>
+              {{else}}
+                {{#if isInRole 'moderator, member' _id}}
+                  <div class="btn btn-cb2 join-hangout {{#if currentUser}} leaveStudyGroup study-action btn-leave {{else}} continue-popup {{/if}}">{{_ "leave_study_group"}}</div>
+                {{/if}}
+              {{/unless}}
 
                 <h3>Organizers</h3>
                 <ul>
@@ -56,7 +108,7 @@
 
                 <h3>Description</h3>
 
-              
+
 
           </div><!--3-->
           <div class="col-md-9">
@@ -102,7 +154,7 @@
                 {{#if isInRole 'owner,manager' _id}}
                   <p>Click on a member's icon to adjust their permissions. Organizers and admins can schedule hangouts in this study group; admins can promote other members to be organizers.</p>
                 {{/if}}
-                
+
 
                 {{#if members}}
 
@@ -205,7 +257,7 @@
 
               <div role="tabpanel" class="tab-pane" id="activities">
 
-              <table class="table table-striped margin-top-1"> 
+              <table class="table table-striped margin-top-1">
                 <tr>
                   <th>Username</th>
                   <th>Action</th>
