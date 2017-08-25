@@ -9,20 +9,55 @@ Template.myStudyGroups.onCreated(function() {
   DocHead.addMeta(metaInfo);
 
   let instance = this;
-  instance.limit = new ReactiveVar(54);
+  instance.limit = new ReactiveVar(30);
+  instance.flag = new ReactiveVar(false);
 
-  instance.autorun(() => {
-      let limit = instance.limit.get();
-      this.subscribe('myStudyGroups', limit);
+
+  instance.autorun(function () {
+    let limit = instance.limit.get();
+    instance.subscribe('myStudyGroups', limit);
   });
 
+  instance.loadStudyGroups = function() {
+    return StudyGroups.find({}, {sort: {createdAt: 1}});
+  }
+
+
+});
+
+
+Template.myStudyGroups.onRendered(function() {
+  let instance = this;
+
+  instance.scrollHandler = function(){
+
+    if  ($(window).scrollTop() > ($(document).height() - $(window).height()) -20 && !instance.flag.get()){
+
+      if(StudyGroups.find().count() === instance.limit.get()){
+           instance.limit.set(instance.limit.get() + 9);
+           $('body').addClass('stop-scrolling');
+      }else{
+         if(StudyGroups.find().count() < instance.limit.get()){
+             instance.flag.set(true);
+         }else {
+
+         }
+      }
+
+    }
+
+
+  }.bind(instance);
+  $(window).on("scroll" ,instance.scrollHandler);
 });
 
 Template.myStudyGroups.helpers({
   studyGroups: function(){
     return StudyGroups.find();
-
-  }
+  },
+  status:function(){
+    return  Template.instance().flag.get();
+  },
 });
 
 Template.myStudyGroups.events({
