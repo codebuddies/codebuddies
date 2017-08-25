@@ -9,7 +9,7 @@ Template.allStudyGroups.onCreated(function() {
   DocHead.addMeta(metaInfo);
 
   let instance = this;
-  instance.limit = new ReactiveVar(54);
+  instance.limit = new ReactiveVar(30);
   instance.flag = new ReactiveVar(false);
   instance.studyGroupsFilter = new ReactiveVar('new');
 
@@ -27,7 +27,7 @@ Template.allStudyGroups.onCreated(function() {
 
 });
 
-Template.hangoutBoard.onRendered(function() {
+Template.allStudyGroups.onRendered(function() {
   let instance = this;
   let studyGroupsFilter = instance.studyGroupsFilter.get() || 'new';
   instance.studyGroupsFilter.set(studyGroupsFilter);
@@ -40,7 +40,7 @@ Template.hangoutBoard.onRendered(function() {
            instance.limit.set(instance.limit.get() + 9);
            $('body').addClass('stop-scrolling');
       }else{
-         if(Hangouts.find().count() < instance.limit.get()){
+         if(StudyGroups.find().count() < instance.limit.get()){
              instance.flag.set(true);
          }else {
 
