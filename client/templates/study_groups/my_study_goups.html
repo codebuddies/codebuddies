@@ -25,8 +25,8 @@
                 {{#if isInRole 'owner' _id}}
                   <span class="label label-primary pull-right">Owner</span>
                 {{/if}}
-                {{#if isInRole 'manager' _id}}
-                  <span class="label label-primary pull-right">Manager</span>
+                {{#if isInRole 'admin' _id}}
+                  <span class="label label-primary pull-right">Admin</span>
                 {{/if}}
                 {{#if isInRole 'moderator' _id}}
                   <span class="label label-primary pull-right">Organizer</span>
@@ -44,7 +44,7 @@
                 <h5 class="text-center well">You've reached the end of the page.</h5>
               </div>
           {{/if}}
-          
+
         {{else}}
 
           <div class="jumbotron align-center">

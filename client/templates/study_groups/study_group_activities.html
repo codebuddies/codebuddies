@@ -1,0 +1,40 @@
+<template name="studyGroupActivities">
+{{#if Template.subscriptionsReady}}
+  {{#each activities}}
+  
+    {{#if equals type 'GROUP_CREATION'}}
+      <div class="row">
+        <p class="alert">
+          <i class="fa {{icon}}" aria-hidden="true"> </i>
+          <a href="{{pathFor 'profile' name=actor.name userId=actor.id}}"> {{actor.name}} </a>  created the group.
+          <small> &nbsp; {{dispDate created_at}} </small>
+        </p>
+      </div>
+    {{/if}}
+
+    {{#if equals type 'USER_JOIN'}}
+      <div class="row">
+        <p class="alert">
+          <i class="fa {{icon}}" aria-hidden="true"> </i>
+          <a href="{{pathFor 'profile' name=actor.name userId=actor.id}}"> {{actor.name}} </a>  join the group.
+          <small> &nbsp; {{dispDate created_at}} </small>
+        </p>
+      </div>
+    {{/if}}
+
+    {{#if equals type 'USER_LEAVE'}}
+      <div class="row">
+        <p class="alert">
+          <i class="fa {{icon}}" aria-hidden="true"> </i>
+          <a href="{{pathFor 'profile' name=actor.name userId=actor.id}}"> {{actor.name}} </a>  left the group.
+          <small> &nbsp; {{dispDate created_at}} </small>
+        </p>
+      </div>
+    {{/if}}
+
+
+  {{else}}
+
+  {{/each}}
+{{/if}}
+</template>

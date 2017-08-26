@@ -19,7 +19,7 @@
         {{#if studyGroups.count}}
         <div class="row">
           {{#each studyGroups}}
-            
+
             <div class="col-md-4">
             <div class="well">
               <h4>
@@ -28,8 +28,8 @@
                 {{#if isInRole 'owner' _id}}
                   <span class="label label-primary pull-right">Owner</span>
                 {{/if}}
-                {{#if isInRole 'manager' _id}}
-                  <span class="label label-primary pull-right">Manager</span>
+                {{#if isInRole 'admin' _id}}
+                  <span class="label label-primary pull-right">Admin</span>
                 {{/if}}
                 {{#if isInRole 'moderator' _id}}
                   <span class="label label-primary pull-right">Organizer</span>

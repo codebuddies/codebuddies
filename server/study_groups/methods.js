@@ -255,3 +255,34 @@ Meteor.methods({
 
   }
 });
+
+
+/**
+* update study group info
+* @function
+* @name updateStudyGroupInfo
+* @param {Object}
+* @return {Boolean} true on success
+*/
+
+
+Meteor.methods({
+  updateStudyGroupInfo(data){
+    check(data,{
+      id: String,
+      introduction: String,
+      description: String
+    })
+
+    const actor = Meteor.user()
+
+    //check if user is owner or admin
+    if (!actor || !Roles.userIsInRole(actor, ['owner','admin'], data.id )) {
+      throw new Meteor.Error(403, "Access denied");
+    }
+
+    StudyGroups.update({_id: data.id}, { $set:{introduction: data.introduction, description: data.description }});
+
+    return true;
+  }
+});

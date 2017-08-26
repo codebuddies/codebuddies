@@ -1,0 +1,35 @@
+<template name="studyGroupHangouts">
+  {{#if isInRole 'member' _id}}
+    <p>If you'd like to schedule a hangout for this study group, you will need to be an organizer of the group.</p>
+  {{/if}}
+  <div id="hangout-board">
+    <div class="container hangout-board">
+      <div class="row">
+          <div class="col-md-3 col-md-offset-9">
+            <div id="newHangout" class="btn btn-cb2 {{#unless currentUser}} continue-popup {{/unless}}">{{_ "create_a_hangout"}}</div>
+
+          </div>
+      </div><!--row-->
+
+        {{#if Template.subscriptionsReady}}
+          <div class="row">
+              {{#each hangouts}}
+               <div class="col-md-3">
+                  {{> hangoutCard}}
+               </div>
+              {{else}}
+                  <h5 class="text-center well">No hangouts displayed.</h5>
+              {{/each}}
+          </div>
+
+          {{#if status}}
+            <h5 class="text-center well">You've reached the end of the page.</h5>
+          {{/if}}
+
+        {{else}}
+            {{> loading}}
+        {{/if}}
+    </div>
+
+  </div><!--hangout-board-->
+</template>

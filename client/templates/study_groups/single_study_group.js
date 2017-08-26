@@ -1,10 +1,8 @@
 Template.singleStudyGroup.onCreated(function() {
   let instance = this;
   instance.studyGroupId = FlowRouter.getParam('studyGroupId');
-  instance.isAddResource = new ReactiveVar( false );
-  this.autorun(() => {
+  instance.autorun(() => {
       instance.subscribe('studyGroupById', instance.studyGroupId);
-      //TODO : pagination
       instance.subscribe("allStudyGroupActivities", 50, instance.studyGroupId);
   });
 
@@ -24,34 +22,11 @@ Template.singleStudyGroup.onRendered(function(){
 
 Template.singleStudyGroup.helpers({
   studyGroup: function(){
-    console.log(FlowRouter.getParam('studyGroupId'))
     return StudyGroups.findOne({_id:FlowRouter.getParam('studyGroupId')});
-  },
-  isAddResource:function(){
-    return Template.instance().isAddResource.get();
   },
   usersOnlineCount:function(){
     return Meteor.users.find({ "status.online": true }).count();
   },
-  activities: function() {
-    return Activities.find({'study_group.id': FlowRouter.getParam('studyGroupId') });
-  },
-  organizers: function() {
-    // var studyGroupId = FlowRouter.getParam('studyGroupId')
-    // console.log(studyGroupId);
-
-    // // var query = { roles: {} };
-    // // query.roles.studyGroupId =  {"$in": ["owner", "manager", "moderator"]};
-    // // Meteor.users.find(query).fetch();
-    // var query = {};
-    // var sgid = 'roles.' + studyGroupId;
-    // var query[sgid] =  {"$in": ["owner", "manager", "moderator"]} };
-
-
-    return Meteor.users.find({"roles.trnwrQWAGZtb95tsw": {
-            "$in": ["owner", "manager", "moderator"]
-    }});
-  }
 });
 
 Template.singleStudyGroup.events({
@@ -60,34 +35,6 @@ Template.singleStudyGroup.events({
   },
   "click #cancelAddResource": function(event, template){
      template.isAddResource.set( false );
-  },
-  "submit .addResource": function(event, template) {
-    event.preventDefault();
-    if ($.trim(template.find("#resourceTitle").value) == '') {
-      return Bert.alert( 'Resource Title', 'warning', 'growl-top-right' );
-    }
-    if ($.trim(template.find("#resourceURL").value) == '') {
-      return Bert.alert( 'Please URL', 'warning', 'growl-top-right' );
-    }
-
-    let data = {
-      studyGroupId: this._id,
-      studyGroupTitle: this.title,
-      studyGroupSlug: this.slug,
-      resourceTitle: template.find("#resourceTitle").value,
-      resourceURL : template.find("#resourceURL").value
-    }
-
-    Meteor.call("addResource", data, function(error, result){
-      if(error){
-        Bert.alert( error.reason, 'danger', 'growl-top-right' );
-      }
-      if(result){
-        Bert.alert( 'Link has been added', 'success', 'growl-top-right' );
-        return template.isAddResource.set( false );
-      }
-    });
-
   },
   'click .joinStudyGroup': function(event, template){
     event.preventDefault();
@@ -112,7 +59,6 @@ Template.singleStudyGroup.events({
   'click .leaveStudyGroup': function(event, template){
     event.preventDefault();
 
-
     let data = {
       studyGroupId: this._id,
       studyGroupTitle: this.title,
@@ -132,26 +78,6 @@ Template.singleStudyGroup.events({
   },
   'click .memberDetail': function(event, template){
     event.preventDefault();
-
-    Modal.show('studyGroupMemberDetail', this);
-
+    return Modal.show('studyGroupMemberDetail', this);
   },
-  "click #create-hangout-popup": function() {
-    if (!Meteor.userId()) {
-      sweetAlert({
-        title: TAPi18n.__("login_create_hangout_title"),
-        text: TAPi18n.__("login_create_hangout_message"),
-        confirmButtonText: TAPi18n.__("sign_in_with_slack"),
-        type: 'info'
-      },
-      function(){
-        var options = {
-          requestPermissions: ['identify', 'users:read']
-        };
-        Meteor.loginWithSlack(options);
-      });
-    } else {
-      Modal.show('createHangoutModal');
-    }
-  }
 });

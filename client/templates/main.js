@@ -1,4 +1,4 @@
-// import {_} from 'lodash';
+// import _ from 'lodash';
 
 if (Meteor.isClient) {
   Meteor.startup(function () {
@@ -108,4 +108,9 @@ Template.registerHelper("canUpdateUserRoleForGroup", function(subjectId, groupId
 
   return ((loggedInUserId !== subjectId) && (subjectRole !== 'owner' && subjectRole !=='admin') &&  (Roles.userIsInRole( loggedInUserId, ['owner', 'admin' ], groupId)) ? true : false  ) ;
 
+});
+
+Template.registerHelper("isOrganizers", function(role){
+  
+  return ["owner", "admin", "moderator"].indexOf(role) < 0 ? false : true ;
 });

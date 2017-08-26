@@ -1,0 +1,21 @@
+<template name="studyGroupMembers">
+  {{#if isInRole 'owner, admin, moderator' _id}}
+    <p>Click on a member's icon to adjust their permissions. Organizers and admins can schedule hangouts in this study group; admins can promote other members to be organizers.</p>
+  {{/if}}
+
+
+  <div class="row">
+    {{#if isInRole 'owner, admin, moderator' _id}}
+      {{#each members}}
+        <img src="{{avatar}}" alt="{{name}}" class="img-circle memberDetail" data-id="{{id}}">
+      {{/each}}
+    {{else}}
+      {{#each members}}
+        <a href="{{pathFor 'profile' name=name userId=id}}">
+          <img src="{{avatar}}" alt="{{name}}" class="img-circle" data-id="{{id}}">
+        </a>
+      {{/each}}
+    {{/if}}
+  </div>
+
+</template>

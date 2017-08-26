@@ -38,13 +38,11 @@
         <div class="row">
           <ul class="nav nav-tabs" role="tablist">
             <li role="presentation" class="active"><a href="#info" aria-controls="info" role="tab" data-toggle="tab">{{_ 'info'}}</a></li>
-            <li role="presentation"><a href="#info" aria-controls="info" role="tab" data-toggle="tab">{{_ 'twentyforseven'}}</a></li>
+            <li role="presentation"><a href="#247hangout" aria-controls="247hangout" role="tab" data-toggle="tab">{{_ 'twentyforseven'}}</a></li>
             <li role="presentation"><a href="#hangouts" aria-controls="hangouts" role="tab" data-toggle="tab">{{_ 'hangouts'}}</a></li>
             <li role="presentation"><a href="#members" aria-controls="members" role="tab" data-toggle="tab">{{_ 'members'}}</a></li>
-            <li role="presentation"><a href="#learnings" aria-controls="resources" role="tab" data-toggle="tab">{{_ 'learnings'}}</a></li>
-            <li role="presentation"><a href="#notes" aria-controls="notes" role="tab" data-toggle="tab">{{_ 'notes'}}</a></li>
-            <li role="presentation"><a href="#availability" aria-controls="availability" role="tab" data-toggle="tab">{{_ 'availability'}}</a></li>
-            <li role="presentation"><a href="#activities" aria-controls="activities" role="tab" data-toggle="tab">{{_ 'activity'}}</a></li>
+            <li role="presentation"><a href="#resources" aria-controls="resources" role="tab" data-toggle="tab">{{_ 'resources'}}</a></li>
+            <li role="presentation"><a href="#activities" aria-controls="activities" role="tab" data-toggle="tab">{{_ 'activities'}}</a></li>
             {{#if isInRole 'owner, moderator ' _id}}
               <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">{{_ 'settings'}}</a></li>
             {{/if}}
@@ -53,254 +51,49 @@
 
         <br>
 
+        <div class="tab-content">
 
-        <div class="row">
-          <div class="col-md-3">
-              <h2>{{title}}   <small>{{tagline}} </small></h2>
-              {{#if isInRole 'moderator, owner' _id}}
-                    <div id="create-hangout-popup" class="btn btn-cb2 join-hangout {{#if currentUser}} study-action {{else}} continue-popup {{/if}}">{{_ "create_a_hangout"}}</div>
-              {{/if}}
-
-              {{#unless isInRole 'owner, moderator ,member' _id}}
-                <div class="btn btn-cb2 join-hangout {{#if currentUser}} joinStudyGroup study-action {{else}} continue-popup {{/if}}">{{_ "join_study_group"}}</div>
-              {{else}}
-                {{#if isInRole 'moderator, member' _id}}
-                  <div class="btn btn-cb2 join-hangout {{#if currentUser}} leaveStudyGroup study-action btn-leave {{else}} continue-popup {{/if}}">{{_ "leave_study_group"}}</div>
-                {{/if}}
-              {{/unless}}
-
-                <h3>Organizers</h3>
-                <ul>
-                {{# each organizers }}
-                   <li><a href="https://codebuddies.slack.com/messages/@{{ username }}">@{{ username }}</a></li>
-                {{/each}}
-                </ul>
-
-                <h3>Links </h3>
-
-                 {{#if isInRole 'owner,manager,moderator' _id}}
-                  <span class="btn btn-default" id="addResource"> + </span>
-                 {{/if}}
-                {{#unless isAddResource}}
-
-                    {{> resourcesList}}
-
-                  {{else}}
-                      <div>
-                          <h4>Add a new resource</h4>
-                          <form class="addResource">
-
-                            <div class="form-group">
-                               <input type="text" class="form-control" id="resourceTitle" placeholder="Description">
-                            </div>
-                            <div class="form-group">
-                               <input type="text" class="form-control" id="resourceURL" placeholder="URL">
-                            </div>
-
-                            <button type="submit" class="btn btn-cb2 pull-right">Submit</button> &nbsp;
-                            <button type="button" id="cancelAddResource" class=" btn btn-cb2 pull-right">Cancel</button>
-
-                          </form>
-                  </div>
-
-
-                  {{/unless}}
-
-                <h3>Description</h3>
-
-
-
-          </div><!--3-->
-          <div class="col-md-9">
-
-            <ul class="nav nav-tabs" role="tablist">
-              <li role="presentation" class="active"><a href="#info" aria-controls="info" role="tab" data-toggle="tab">{{_ 'info'}}</a></li>
-              <li role="presentation"><a href="#hangouts" aria-controls="hangouts" role="tab" data-toggle="tab">{{_ 'hangouts'}}</a></li>
-              <li role="presentation"><a href="#members" aria-controls="members" role="tab" data-toggle="tab">{{_ 'members'}}</a></li>
-              <li role="presentation"><a href="#learnings" aria-controls="resources" role="tab" data-toggle="tab">{{_ 'learnings'}}</a></li>
-              <li role="presentation"><a href="#notes" aria-controls="notes" role="tab" data-toggle="tab">{{_ 'notes'}}</a></li>
-              <li role="presentation"><a href="#availability" aria-controls="availability" role="tab" data-toggle="tab">{{_ 'availability'}}</a></li>
-              <li role="presentation"><a href="#activities" aria-controls="activities" role="tab" data-toggle="tab">{{_ 'activity'}}</a></li>
-              {{#if isInRole 'owner, moderator ' _id}}
-                <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">{{_ 'settings'}}</a></li>
-              {{/if}}
-            </ul>
-            <!-- Tab panes -->
-            <div class="tab-content">
-              <div role="tabpanel" class="tab-pane active" id="info">
-                <div class="panel panel-default">
-                  <div class="panel-body">
-                    <div class="text-center">
-                      {{> hangoutFrame }}
-                      <p>Chat or study with whoever is around! This room will always be open for this study group.</p>
-                    </div>
-                  </div>
-                </div>
-
-              </div><!-- #/info -->
-
-              <div role="tabpanel" class="tab-pane" id="hangouts">
-                {{#if isInRole 'member' _id}}
-                  <p>If you'd like to schedule a hangout for this study group, you will need to be an organizer of the group.</p>
-                {{/if}}
-
-                {{> hangoutByGroup id=_id}}
-
-
-              </div><!-- #/hangouts -->
-
-
-              <div role="tabpanel" class="tab-pane" id="members">
-                {{#if isInRole 'owner,manager' _id}}
-                  <p>Click on a member's icon to adjust their permissions. Organizers and admins can schedule hangouts in this study group; admins can promote other members to be organizers.</p>
-                {{/if}}
-
-
-                {{#if members}}
-
-                    <div class="panel panel-default">
-                      <div class="panel-heading">
-                        <h3 class="panel-title">Members</h3>
-                      </div>
-                      <div class="panel-body">
-                        {{#each members}}
-
-                          <img src="{{avatar}}" alt="{{name}}" class="img-circle memberDetail" data-id="{{id}}">
-
-                        {{/each}}
-                      </div>
-                    </div>
-
-
-                {{else}}
-
-
-                {{/if}}
-
-              </div><!-- #/members -->
-
-              <div role="tabpanel" class="tab-pane" id="learnings">
-                <div class="panel panel-default">
-                  <div class="panel-heading">
-                    <h3 class="panel-title">Learnings</h3>
-                  </div>
-                  <div class="panel-body">
-                    <div class="text-center">
-                      <h5>{{_ "coming_soon" }}</h5>
-                    </div>
-                  </div>
-                </div>
-              </div><!-- #/learnings -->
-
-         <!--      <div role="tabpanel" class="tab-pane" id="resources">
-                {{#if isInRole 'owner,manager,moderator' _id}}
-                  <div class="btn btn-default" id="addResource"> + </div>
-                {{/if}}
-                {{#unless isAddResource}}
-
-                    {{> resourcesList}}
-
-                  {{else}}
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="well">
-                          <h4>Add a new resource</h4>
-                          <form class="addResource">
-
-                            <div class="form-group">
-                               <input type="text" class="form-control" id="resourceTitle" placeholder="Description">
-                            </div>
-                            <div class="form-group">
-                               <input type="text" class="form-control" id="resourceURL" placeholder="URL">
-                            </div>
-
-                            <button type="submit" class="btn btn-cb2 pull-right">Submit</button> &nbsp;
-                            <button type="button" id="cancelAddResource" class=" btn btn-cb2 pull-right">Cancel</button>
-                          </form>
-
-                      </div>
-                    </div>
-                 </div>
-
-
-                  {{/unless}}
-
-
-              </div> #/resources -->
-
-              <div role="tabpanel" class="tab-pane" id="notes">
-                <div class="panel panel-default">
-                  <div class="panel-heading">
-                    <h3 class="panel-title">Notes</h3>
-                  </div>
-                  <div class="panel-body">
-                    <div class="text-center">
-                      <p>Coming Soon</p>
-                    </div>
-                  </div>
-                </div>
-              </div><!-- #/discussion -->
-
-              <div role="tabpanel" class="tab-pane" id="availability">
-                <div class="panel panel-default">
-                  <div class="panel-heading">
-                    <h3 class="panel-title">Availability</h3>
-                  </div>
-                  <div class="panel-body">
-                    <div class="text-center">
-                      <h5>{{_ "coming_soon" }}</h5>
-                    </div>
-                  </div>
-                </div>
-              </div><!-- #/availability -->
-
-
-              <div role="tabpanel" class="tab-pane" id="activities">
-
-              <table class="table table-striped margin-top-1">
-                <tr>
-                  <th>Username</th>
-                  <th>Action</th>
-                </tr>
-              {{#each activities}}
-
-                <tr>
-                  <td>
-                    <img src="{{actor.avatar}}" alt="{{actor.name}}" class="img-circle">
-                    {{actor.name}}
-                  </td>
-                  <td>
-                     {{action}}
-                  </td>
-                </tr>
-              {{/each}}
-              </table>
-
-              </div><!-- #/Activities -->
-
-
-              {{#if isInRole 'owner, moderator ' _id}}
-              <div role="tabpanel" class="tab-pane" id="settings">
-                <div class="panel panel-default">
-                  <div class="panel-heading">
-                    <h3 class="panel-title">Archive Group</h3>
-                  </div>
-                  <div class="panel-body">
-                    <h5>Archive this study group</h5>
-                    <div class="btn btn-danger" id="deleteMyAccount">Archive Group</div>
-                  </div>
-                </div>
-              </div><!-- #/settings -->
-              {{/if}}
-
-
-            </div><!-- ./Tab panes -->
-
-          </div><!-- ./panel-body -->
-          <div class="panel-footer">
-            <p>{{_ "learning_message" count=usersOnlineCount}} right now. More people are online on the CodeBuddies <a href="http://codebuddies.slack.com">Slack</a>. (Not a member? <a href="http://codebuddiesmeet.herokuapp.com/" target="_blank">Get your invite here.</a>)</p>
+          <div role="tabpanel" class="tab-pane active" id="info">
+            {{> studyGroupInfo}}
           </div>
-        </div> <!-- ./panel panel-default -->
+
+
+          <div role="tabpanel" class="tab-pane" id="247hangout">
+            <div class="text-center">
+              {{> hangoutFrame }}
+              <p>Chat or study with whoever is around! This room will always be open for this study group.</p>
+            </div>
+          </div>
+
+          <div role="tabpanel" class="tab-pane" id="hangouts">
+            {{> studyGroupHangouts}}
+          </div>
+
+          <div role="tabpanel" class="tab-pane" id="members">
+            {{> studyGroupMembers}}
+          </div>
+
+          <div role="tabpanel" class="tab-pane" id="resources">
+            {{> studyGroupResources}}
+          </div>
+
+          <div role="tabpanel" class="tab-pane" id="activities">
+            {{> studyGroupActivities}}
+          </div><!-- #/Activities -->
+
+          {{#if isInRole 'owner, admin' _id}}
+            <div role="tabpanel" class="tab-pane" id="settings">
+              {{> studyGroupSettings}}
+            </div>
+          {{/if}}
+
+          <br>
+
+        </div>
+
+
+
+
 
       {{else}}
         Not found.

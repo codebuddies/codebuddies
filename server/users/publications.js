@@ -21,7 +21,7 @@ Meteor.publish("studyGroupMemberDetail", function (groupId, userId) {
   check(userId, String);
 
 
-  if (Roles.userIsInRole(this.userId, ["owner","moderator"], groupId)) {
+  if (Roles.userIsInRole(this.userId, ["owner", "admin", "moderator"], groupId)) {
     return Meteor.users.find({_id: userId}, {fields: {'createdAt':1, email: 1, profile: 1, roles: 1, username: 1, status: 1}});
   }
   this.ready();
