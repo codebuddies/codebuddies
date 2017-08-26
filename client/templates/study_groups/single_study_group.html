@@ -42,7 +42,9 @@
             <li role="presentation"><a href="#hangouts" aria-controls="hangouts" role="tab" data-toggle="tab">{{_ 'hangouts'}}</a></li>
             <li role="presentation"><a href="#members" aria-controls="members" role="tab" data-toggle="tab">{{_ 'members'}}</a></li>
             <li role="presentation"><a href="#resources" aria-controls="resources" role="tab" data-toggle="tab">{{_ 'resources'}}</a></li>
-            <li role="presentation"><a href="#activities" aria-controls="activities" role="tab" data-toggle="tab">{{_ 'activities'}}</a></li>
+            {{#if currentUser}}
+              <li role="presentation"><a href="#activities" aria-controls="activities" role="tab" data-toggle="tab">{{_ 'activities'}}</a></li>
+            {{/if}}
             {{#if isInRole 'owner, moderator ' _id}}
               <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">{{_ 'settings'}}</a></li>
             {{/if}}
@@ -60,8 +62,13 @@
 
           <div role="tabpanel" class="tab-pane" id="247hangout">
             <div class="text-center">
-              {{> hangoutFrame }}
-              <p>Chat or study with whoever is around! This room will always be open for this study group.</p>
+              {{#unless isInRole 'owner, moderator, member' _id}}
+                <p>Please join the study group access 24X7</p>
+              {{else}}
+                {{> hangoutFrame }}
+                <p>Chat or study with whoever is around! This room will always be open for this study group.</p>
+              {{/unless}}
+
             </div>
           </div>
 

@@ -6,8 +6,9 @@
     <div class="container hangout-board">
       <div class="row">
           <div class="col-md-3 col-md-offset-9">
-            <div id="newHangout" class="btn btn-cb2 {{#unless currentUser}} continue-popup {{/unless}}">{{_ "create_a_hangout"}}</div>
-
+            {{#if isInRole 'owner, admin, moderator' _id}}
+              <div class="btn btn-cb2 {{#unless currentUser}} continue-popup {{/unless}}" id="{{#if currentUser}}newHangout{{/if}}"  >{{_ "create_a_hangout"}}</div>
+            {{/if}}
           </div>
       </div><!--row-->
 

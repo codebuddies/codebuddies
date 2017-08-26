@@ -16,13 +16,15 @@
         <br>
         <h4>Introduction</h4>
         {{#if introduction}}
-          <div class="btn btn-default pull-right" id="editDescription">Edit</div>
+          {{#if isInRole 'owner, admin' _id}}
+            <div class="btn btn-default pull-right" id="editDescription">Edit</div>
+          {{/if}}
           <p>{{{introduction}}}</p>
 
           <p> {{{description}}}</p>
         {{else}}
 
-          {{#if isInRole 'owner' _id}}
+          {{#if isInRole 'owner, admin' _id}}
             <div class="text-center">
               <h5>Your Study Group doesn't have any description yet.</h5>
               <div class="btn btn-default" id="editDescription">Add description</div>

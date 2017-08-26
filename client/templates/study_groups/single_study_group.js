@@ -3,7 +3,6 @@ Template.singleStudyGroup.onCreated(function() {
   instance.studyGroupId = FlowRouter.getParam('studyGroupId');
   instance.autorun(() => {
       instance.subscribe('studyGroupById', instance.studyGroupId);
-      instance.subscribe("allStudyGroupActivities", 50, instance.studyGroupId);
   });
 
 });

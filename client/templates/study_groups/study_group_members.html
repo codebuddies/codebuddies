@@ -11,7 +11,7 @@
       {{/each}}
     {{else}}
       {{#each members}}
-        <a href="{{pathFor 'profile' name=name userId=id}}">
+        <a href="{{pathFor 'profile' name=name userId=id}}" class="{{#unless currentUser}} continue-popup {{/unless}}">
           <img src="{{avatar}}" alt="{{name}}" class="img-circle" data-id="{{id}}">
         </a>
       {{/each}}
