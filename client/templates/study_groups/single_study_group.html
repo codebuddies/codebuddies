@@ -2,6 +2,7 @@
   {{#if Template.subscriptionsReady}}
     <div class="container" id="study-groups">
       {{#with studyGroup}}
+
         <br>
         <div class="row">
           <ol class="breadcrumb">
@@ -14,10 +15,23 @@
           </ol>
         </div>
 
+        {{#unless visibility}}
+          <div class="text-center">
+            <h4>This study group has been archived.</h4>
+            <a href="{{pathFor 'all study groups'}}"> Browse More</a>
+            <a href="{{pathFor 'home'}}"> Go to home</a>
+          </div>
+
+        {{else}}
 
         <div class="row">
           <div class="well">
+            {{#if equals visibility false}}
+              <small class="label label-danger">Archived</small>
+            {{/if}}
+
             <h2>{{title}}
+
               <div class="pull-right">
                 {{#unless isInRole 'owner, moderator, member' _id}}
                   <div class="btn btn-cb2 {{#if currentUser}} joinStudyGroup {{else}} continue-popup {{/if}}">{{_ "join_study_group"}}</div>
@@ -98,6 +112,9 @@
 
         </div>
 
+
+
+        {{/unless}}
 
 
 

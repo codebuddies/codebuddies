@@ -33,7 +33,8 @@ Meteor.methods({
            avatar: user.profile.avatar.default,
            role: 'owner'
          }
-       ]
+       ],
+       visibility: true
      }
 
     studyGroupId = StudyGroups.insert(studyGroup);
@@ -284,5 +285,45 @@ Meteor.methods({
     StudyGroups.update({_id: data.id}, { $set:{introduction: data.introduction, description: data.description }});
 
     return true;
+  }
+});
+
+
+/**
+* Archive Studygroup
+* @function
+* @name archieveStudyGroup
+* @param {String} _id - studyGroupId
+* @return {Boolean} true on success
+*/
+
+
+Meteor.methods({
+  archiveStudyGroup(studyGroupId){
+    check(studyGroupId, String);
+
+    const actor = Meteor.user()
+
+    //check if user is owner
+    if (!actor || !Roles.userIsInRole(actor, ['owner'], studyGroupId )) {
+      throw new Meteor.Error(403, "Access denied");
+    }
+
+    const members = StudyGroups.findOne({_id: studyGroupId}).members;
+
+    //remove studygroup
+    StudyGroups.update({_id: studyGroupId}, {$set: {'visibility': false } });
+    //remove members permission
+    members.forEach((member)=>{
+      Roles.setUserRoles(member.id, [], studyGroupId);
+    });
+
+    //remove hangouts
+    Hangouts.update({'group.id': studyGroupId}, {$set: {'visibility': false } });
+
+
+    return true;
+
+
   }
 });
