@@ -19,7 +19,7 @@
       <div class="col-md-3">
         
       {{!-- Group Label --}}
-      {{#if group}}<p><a href="{{pathFor 'study group' studyGroupSlug=group.slug studyGroupId=group.id}}"> <span class="label label-default pull-right">{{group.title}}</span> </a>  </p>{{/if}}
+      {{#if group}}<p><a href="{{pathFor 'study group' studyGroupSlug=group.slug studyGroupId=group.id}}"> <span class="study-group-tag label label-default pull-right">{{group.title}}</span> </a>  </p>{{/if}}
 
         {{#if equals visibility false}}
           <span class="label label-pill label-danger">DELETED</span>

@@ -25,14 +25,14 @@
         {{else}}
 
         <div class="row">
-          <div class="well">
+          <div class="col-md-3 well">
             {{#if equals visibility false}}
               <small class="label label-danger">Archived</small>
             {{/if}}
 
             <h2>{{title}}
 
-              <div class="pull-right">
+              <div class="margin-top-1">
                 {{#unless isInRole 'owner, moderator, member' _id}}
                   <div class="btn btn-cb2 {{#if currentUser}} joinStudyGroup {{else}} continue-popup {{/if}}">{{_ "join_study_group"}}</div>
                 {{else}}
@@ -43,44 +43,39 @@
               </div>
             </h2>
             <h5><i class="fa fa-map-pin" aria-hidden="true"></i> {{tagline}}</h5>
+            {{> studyGroupInfo}}
 
 
 
           </div>
-        </div>
-
-        <div class="row">
+          <div class="col-md-9">
           <ul class="nav nav-tabs" role="tablist">
-            <li role="presentation" class="active"><a href="#info" aria-controls="info" role="tab" data-toggle="tab">{{_ 'info'}}</a></li>
             <li role="presentation"><a href="#247hangout" aria-controls="247hangout" role="tab" data-toggle="tab">{{_ 'twentyforseven'}}</a></li>
             <li role="presentation"><a href="#hangouts" aria-controls="hangouts" role="tab" data-toggle="tab">{{_ 'hangouts'}}</a></li>
             <li role="presentation"><a href="#members" aria-controls="members" role="tab" data-toggle="tab">{{_ 'members'}}</a></li>
             <li role="presentation"><a href="#resources" aria-controls="resources" role="tab" data-toggle="tab">{{_ 'resources'}}</a></li>
             {{#if currentUser}}
-              <li role="presentation"><a href="#activities" aria-controls="activities" role="tab" data-toggle="tab">{{_ 'activities'}}</a></li>
+              <li role="presentation"><a href="#activities" aria-controls="activities" role="tab" data-toggle="tab">{{_ 'activity'}}</a></li>
             {{/if}}
             {{#if isInRole 'owner, moderator ' _id}}
               <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">{{_ 'settings'}}</a></li>
             {{/if}}
           </ul>
-        </div>
+       
+        
 
         <br>
 
         <div class="tab-content">
 
-          <div role="tabpanel" class="tab-pane active" id="info">
-            {{> studyGroupInfo}}
-          </div>
 
-
-          <div role="tabpanel" class="tab-pane" id="247hangout">
+          <div role="tabpanel" class="tab-pane active" id="247hangout">
             <div class="text-center">
               {{#unless isInRole 'owner, moderator, member' _id}}
-                <p>Please join the study group access 24X7</p>
+                <p>Please join the study group to access the 24/7 hangout.</p>
               {{else}}
                 {{> hangoutFrame }}
-                <p>Chat or study with whoever is around! This room will always be open for this study group.</p>
+                <p>Chat or study with whomever is around! This room will always be open for this study group.</p>
               {{/unless}}
 
             </div>
@@ -110,6 +105,8 @@
 
           <br>
 
+        </div>
+        </div>
         </div>
 
 

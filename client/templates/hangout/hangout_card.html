@@ -1,5 +1,5 @@
 <template name="hangoutCard">
-    {{#if group}}<a href="{{pathFor 'study group' studyGroupSlug=group.slug studyGroupId=group.id}}" class="study-group-tag"> <span class="label label-default pull-right">{{group.title}}</span> </a>{{/if}}
+    {{#if group}}<a href="{{pathFor 'study group' studyGroupSlug=group.slug studyGroupId=group.id}}"> <span class="study-group-tag label label-default pull-right">{{group.title}}</span> </a>{{/if}}
     <a href="{{pathFor 'hangout' hangoutId=_id }}" class="hangout-card">
     <div class="card-header-wrapper">
       <div class="pull-left calendar">

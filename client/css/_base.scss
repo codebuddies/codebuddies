@@ -137,3 +137,8 @@ a:hover {
 .bg-blue {
   background: $cta-blue;
 }
+
+.study-group-tag.label-default {
+  position: absolute;
+  z-index: 99999;
+}

@@ -1,10 +1,16 @@
 <template name="studyGroupMembers">
   {{#if isInRole 'owner, admin, moderator' _id}}
-    <p>Click on a member's icon to adjust their permissions. Organizers and admins can schedule hangouts in this study group; admins can promote other members to be organizers.</p>
+    <p>Click on a member's icon to adjust their permissions.
+      <ul>
+        <li>Managers and moderators can both schedule hangouts in this study group.</li>
+        <li>Managers can promote other members to be moderators.</li>
+      </ul>
+    </p>
   {{/if}}
 
 
   <div class="row">
+    <div class="col-md-12">
     {{#if isInRole 'owner, admin, moderator' _id}}
       {{#each members}}
         <img src="{{avatar}}" alt="{{name}}" class="img-circle memberDetail" data-id="{{id}}">
@@ -16,6 +22,7 @@
         </a>
       {{/each}}
     {{/if}}
+    </div>
   </div>
 
 </template>

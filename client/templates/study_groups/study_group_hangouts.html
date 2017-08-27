@@ -3,8 +3,8 @@
     <p>If you'd like to schedule a hangout for this study group, you will need to be an organizer of the group.</p>
   {{/if}}
   <div id="hangout-board">
-    <div class="container hangout-board">
-      <div class="row">
+    <div class="hangout-board">
+      <div>
           <div class="col-md-3 col-md-offset-9">
             {{#if isInRole 'owner, admin, moderator' _id}}
               <div class="btn btn-cb2 {{#unless currentUser}} continue-popup {{/unless}}" id="{{#if currentUser}}newHangout{{/if}}"  >{{_ "create_a_hangout"}}</div>
@@ -13,9 +13,9 @@
       </div><!--row-->
 
         {{#if Template.subscriptionsReady}}
-          <div class="row">
+          <div class="row margin-top-1">
               {{#each hangouts}}
-               <div class="col-md-3">
+               <div class="col-md-4">
                   {{> hangoutCard}}
                </div>
               {{else}}
