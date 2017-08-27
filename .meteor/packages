@@ -59,5 +59,3 @@ browser-policy@1.1.0
 practicalmeteor:mocha
 erasaur:meteor-lodash
 shell-server
-dburles:factory
-xolvio:cleaner
