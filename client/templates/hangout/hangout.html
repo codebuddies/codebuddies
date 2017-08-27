@@ -26,7 +26,7 @@
 
                   </h2>
                   {{!-- group title lable --}}
-                  {{#if group}}<p><a href="{{pathFor 'study group' studyGroupSlug=group.slug studyGroupId=group.id}}"> <span class="study-group-tag label label-default">{{group.title}}</span> </a>  </p>{{/if}}
+                  {{#if group}}<p><a href="{{pathFor 'study group' studyGroupSlug=group.slug studyGroupId=group.id}}"> <span class="label label-default">{{group.title}}</span> </a>  </p>{{/if}}
                   <p class="status">
                     <i class="fa {{getHangoutTypeSign type}}"></i>
 

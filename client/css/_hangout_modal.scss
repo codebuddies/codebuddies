@@ -2,8 +2,11 @@
   background-color: $cta-blue;
 }
 
-#create-hangout-modal h4 {
-  @include font-face(700, 20px, bold, $black);
+#create-hangout-modal {
+  z-index: 9999999;
+  h4 {
+    @include font-face(700, 20px, bold, $black);
+  }
 }
 
 #clone-hangout-modal,

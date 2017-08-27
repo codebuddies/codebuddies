@@ -9,7 +9,7 @@
             
 
             <li>
-                <a href="{{pathFor 'study group' studyGroupSlug=slug studyGroupId=_id}}" class="study-group-item">  <span class="study-group-tag label label-default">{{title}}</span>
+                <a href="{{pathFor 'study group' studyGroupSlug=slug studyGroupId=_id}}" class="study-group-item">  <span class="label label-default">{{title}}</span>
                   <br> <small style="display: none;">{{tagline}}</small> <small><i class="fa fa-users fa-fw"></i>{{members.length}}</small>
                   {{#if isInRole 'owner' _id}}
                     <span class="label label-primary pull-right">Owner</span>
