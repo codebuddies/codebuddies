@@ -18,8 +18,10 @@
         {{#unless visibility}}
           <div class="text-center">
             <h4>This study group has been archived.</h4>
-            <a href="{{pathFor 'all study groups'}}"> Browse More</a>
-            <a href="{{pathFor 'home'}}"> Go to home</a>
+            <p>
+              <a href="{{pathFor 'all study groups'}}"> Browse more</a> | 
+              <a href="{{pathFor 'home'}}"> Home</a>
+            </p>
           </div>
 
         {{else}}
