@@ -6,6 +6,7 @@ Meteor.methods({
     check(data.user_id, String);
     check(data.username, String);
     check(data.hangout_id, String)
+    check(data.study_group_id, String)
 
     if (!this.userId) {
       throw new Meteor.Error('Learnings.methods.addLearning.not-logged-in', 'Must be logged in to add new learning.');
@@ -17,6 +18,7 @@ Meteor.methods({
       username: data.username,
       created_at: new Date(),
       hangout_id: data.hangout_id,
+      study_group_id: data.study_group_id,
       kudos: 0
     }
 
