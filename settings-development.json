@@ -25,7 +25,7 @@
   "mailgun_port": 2525,
   "email_from": "CodeBuddies-NoReply@codebuddies.org",
   "team_id":"T04AQ6GEY",
-  "slack_alert_channel": "#cb2-test",
+  "slack_alert_channel": "#codebuddies-ops",
   "slack_alert_username": "CodeBuddies Alerts",
   "hangout_reminder_interval": "every 1 hour",
   "root_email":"codebuddiesdotorg@gmail.com",
