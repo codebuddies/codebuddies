@@ -130,5 +130,8 @@ Template.hangout.events({
     } else {
       Modal.show('createHangoutModal');
     }
+  },
+  "click #hangout-faq-popup": function() {
+    Modal.show('hangoutFAQModal');
   }
 });

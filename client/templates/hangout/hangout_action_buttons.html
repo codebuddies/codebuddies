@@ -1,0 +1,52 @@
+<template name="hangoutActionButtons">
+  <div class="hangout-action-buttons">
+                      {{#if isHangoutInProgress start end}}
+                          <h5 class="in-progress"><span class="oval"></span> LIVE</h5>
+                      {{/if}}
+    {{# unless isHangoutCompleted end }}
+                <p class="upcoming align-center">
+                  <i class="fa fa-dot-circle-o fa text-danger faa-burst animated"></i>&nbsp;{{upcomingTime start}}
+                </p>
+
+                    {{#if isAttending users}}
+                        <a class="btn btn-cb2 align-center btn-grey" disabled>{{_ "joined"}}</a>
+                        <a id="leave-hangout" class="btn btn-cb2 btn-danger">{{_ "leave"}}</a>
+                    {{else}}
+
+                        {{# unless isHangoutCompleted end}}
+                            <button class="btn btn-cb2 {{#if currentUser}} join-hangout {{else}} continue-popup {{/if}}">{{_ "rsvp_long"}}</button>
+                        {{/unless}}
+
+                    {{/if}}
+             
+
+              {{ else }}
+
+                <div class="completed align-center margin-top-1">
+                  {{#if isAttending users}}
+                      <p>Thanks for joining! This hangout has ended. Would you like to start another one?</p> <div class="btn btn-cb2 margin-top-1" id="create-hangout-popup"> Create a Hangout </div>
+                  {{else}}
+                      <p>Sorry, this hangout has ended. Why not start your own?</p>
+                      <div class="btn btn-cb2 margin-top-1" id="create-hangout-popup">
+                        Start a Hangout
+                      </div>
+                  {{/if}}
+                </div>
+    {{/ unless }}
+
+  <div class="hangout-action-buttons-other">
+    {{#if hangoutOwner host.id}}
+      <a href="#" class="edit-hangout btn btn-cb2">Edit Details</a>
+      <a href="#" class="delete-hangout btn btn-cb2"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</a>
+    {{else}}
+      {{#if isInRole 'admin,moderator,volunteer' 'CB'}}
+        <a href="#" class="edit-hangout btn btn-cb2">Edit Details<span class="label label-info">M</span> </a>
+      {{/if}}
+      {{#if isInRole 'admin,moderator' 'CB'}}
+        <a href="#" class="delete-hangout btn btn-cb2 btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i>&nbsp; Delete <span class="label label-info">M</span> </a>
+      {{/if}}
+    {{/if}}
+        <a href="#" class="{{#if currentUser}} clone-hangout {{else}} continue-popup {{/if}} btn btn-cb2"><i class="fa fa-clone" aria-hidden="true"></i> Duplicate</a>
+  </div>
+</div>
+</template>

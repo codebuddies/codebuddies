@@ -1,16 +1,11 @@
 <template name="hangout">
   <div id="post" class="container-fluid">
     <div class="row">
-      <div class="col-md-10 col-md-offset-1">
+      
         {{#if Template.subscriptionsReady}}
           {{#with hangout}}
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <div class="row">
-                <div>
+          <div class="col-md-3 well">
 
-                 <div class="col-md-8">
-                  <!-- hangout topic and action bar -->
                   <h2 class="{{# if isHangoutCompleted end }}completed{{/if}}" id="hangout-topic">
                       {{#if equals visibility false}}
                         <span class="label label-pill label-danger">DELETED</span>
@@ -22,20 +17,16 @@
 
                       {{/if}} <!-- ./if equals visibility false -->
 
-                        {{topic}}
-
+                        {{topic}}  {{#if views}} <span class="view"><i class="fa fa-eye" aria-hidden="true" data-toggle="tooltip" title="Views" > </i> {{views}}</span> {{/if}}
                   </h2>
                   <p class="status">
-                    <i class="fa {{getHangoutTypeSign type}}"></i>
+                    <i class="fa {{getHangoutTypeSign type}}"></i> 
 
-                  {{type}} hangout started by
+                  {{type}} hangout <sup><a id="hangout-faq-popup"><i class="fa fa-question-circle"></i></a></sup> started by
 
                     <a href="{{#if currentUser}} {{pathFor 'profile' name=host.name userId=host.id}} {{/if}}" class="{{#unless currentUser}} continue-popup {{/unless}}">{{host.name}}</a>
-                    |
-                      {{users.length}} Joined
-                      {{#if views}}| <i class="fa fa-eye" aria-hidden="true" data-toggle="tooltip" title="Views" > </i> {{views}} {{/if}}
                   </p>
-                <!-- hangout type host  and date time -->
+                
                    <p class="date-holder">
                     <i class="fa fa-clock-o" aria-hidden="true"></i>
                       <strong>{{getHangoutStartDateDay start}}</strong>
@@ -45,140 +36,76 @@
                       {{#if isHangoutEndTimeTBA start end}}
                         TBA (End Manually)
                       {{else}}
-                        {{getHangoutEndDateTime end}}
+                        {{getHangoutEndTime end}}
                       {{/if}}
 
 
                  </p>
                  <!-- ./hangout type host  and date time -->
-                </div>
-                 <div class="col-md-4">
-                   {{! -- action bar --}}
-
-                   {{> hangoutActionBar}}
-
-                   {{! -- learning box --}}
-
-                   {{> hangoutLearned }}
-
-                  </div><!--column -->
-                </div> <!--./col-md-12-->
-                </div> <!--./row-->
-              </div><!--panel-heading-->
-
-              <div class="panel-body">
-              {{#if isHangoutInProgress start end}}
-                <h5 class="in-progress"><span class="oval"></span> LIVE</h5>
-              {{/if}}
-              {{#if isAttending users}}
-                  {{> hangoutFrame }}
-              {{ else }}
-                <button class="btn btn-cb2 {{#if currentUser}} join-hangout {{else}} continue-popup {{/if}}">{{_ "rsvp_long"}}</button>
-                <img src="/images/jitsi_guide_lp.jpg" width="50%" class="display-block centered margin-top-1"/>
-              {{/if}} 
-              {{# unless isHangoutCompleted end }}
-                <p class="upcoming align-center continue-popup margin-top-1">
-                  <i class="fa fa-dot-circle-o fa text-danger faa-burst animated"></i>&nbsp;{{upcomingTime start}}
-
-                    {{#if isAttending users}}
-                      <div class="leave-wrapper">
-                        <a class="btn btn-cb2 align-center btn-grey" disabled>{{_ "joined"}}</a>
-                        <a id="leave-hangout" class="btn btn-cb2">{{_ "leave"}}</a>
-                      </div>
-                    {{else}}
-
-                      {{# unless isHangoutCompleted end}}
-                        <button class="btn btn-cb2 {{#if currentUser}} join-hangout {{else}} continue-popup {{/if}}">{{_ "rsvp_long"}}</button>
-                      {{/unless}}
-
-                    {{/if}}
-                </p>
-
-              {{ else }}
-
-                <div class="completed align-center margin-top-1">
-                  {{#if isAttending users}}
-                      <p>Thanks for joining! This hangout has ended. Would you like to start another one?</p> <div class="btn btn-cb2 margin-top-1" id="create-hangout-popup"> Create a Hangout </div>
-                  {{else}}
-                      Sorry, this hangout has ended. Why not start your own?
-                      <div class="btn btn-cb2 margin-top-1" id="create-hangout-popup">
-                        Start a Hangout
-                      </div>
-                  {{/if}}
-                </div>
-              {{/ unless }}
-
            
-
+  
+                  
+                {{> hangoutActionButtons }}
+                    
+                <h3>Goals of hangout</h3>
                 <p id="hangout-description" class="margin-1">
                     {{{formatDescription this}}}
-
                 </p>
-              </div><!-- ./panel-body-->
 
-              <div class="panel-footer">
-
-                <div class="row">
-
-                  <div class="col-md-6 col-sm-6">
-                   <h4>Hangout Reminders</h4>
-                   <ol>
-                        <li>Remember that this is a safe space, and we help each other learn faster. Be patient, and always feel free to ask questions.</li>
-                        <li class="load-hangout">When it's time, click to load the hangout. </li>
-                        <li>We usually keep video turned off.</li>
-                        <li>Take advantage of the ability to screenshare simultaneously! It is helpful for reading the same code, pair programming, and staying on task.</li>
-
-                    </ol>
-
-                  </div>
-                  <div class="col-md-2 col-sm-2">
-                      {{#if isHangoutInProgress start end}}
-                        {{#if isAttending users}}
-                          <small class="load-hangout reminder">We're in session! Please click to load the hangout.</small>
-                        {{/if}}
-                      {{/if}}
-                  </div>
-
-
-
-                  <div class="col-md-3 col-sm-3">
-
-
-              <a href="{{#if currentUser}} {{pathFor 'profile' name=host.name userId=host.id}} {{/if}}" class="{{#unless currentUser}} continue-popup {{/unless}}"><img class="img-circle" src="{{host.avatar}}"></a>
+                <h3>Participants</h3>
+                <a href="{{#if currentUser}} {{pathFor 'profile' name=host.name userId=host.id}} {{/if}}" class="{{#unless currentUser}} continue-popup {{/unless}}"><img class="img-circle" src="{{host.avatar}}"></a>
                 {{#each attendees}}
                 <a href="{{#if currentUser}} {{pathFor 'profile' name=name userId=id}} {{/if}}" class="{{#unless currentUser}} continue-popup {{/unless}}" ><img class="img-circle" src="{{avatar}}"></a>
                 {{/each}}
 
-                  </div>
-                </div> <!-- ./row -->
 
-              </div><!-- ./panel-footer-->
-            </div> <!--panel panel-default-->
+                   
 
-
-            <div class="row">
-             <div class="hangout-status">
-
-        {{#if equals visibility false}}
-          <span class="label label-pill label-danger">DELETED</span>
-        {{else}}
-
-          {{# unless isHangoutCompleted end }}
-
-            {{#if isHangoutInProgress start end}}
-
-              {{#if isAttending users}}
-
-                <p>Want to use Google Hangouts instead?
-                {{# unless url }}
-                    <div class="google-hangout display-inline">
-                     <div class="g-hangout" data-render="createhangout"
-                     data-initial_apps="[{ app_id : '999356798349', start_data: {{_id}}, 'app_type' : 'LOCAL_APP' }]" data-widget_size="72"></div>
-                    </div>
-                  {{ else }}
-                    <a class="btn btn-cb2 btn-grey btn-success google-hangout-button" href="{{url}}" target="_blank">Launch Google Hangout</a>
+                  <h3>Hangout Tips</h3>
+                   <ol>
+                        <li>Remember that this is a safe space, and we help each other learn faster. Be patient, and always feel free to ask questions.</li>
+                        <li class="load-hangout">When it's time, click to load the hangout. </li>
+                        <li>Please keep video turned off.</li>
+                        <li>Take advantage of the ability to screenshare simultaneously! It is helpful for reading the same code, pair programming, and staying on task.</li>
+                        <li>Remember to share what you learned.</li>
+                    </ol>
+                  {{#unless hangoutOwner host.id}}
+                    <a href="#" class="{{#if currentUser}} report-hangout {{else}} continue-popup {{/if}}"><i class="fa fa-flag-o" aria-hidden="true"></i> Report</a>
                   {{/unless}}
-                </p>
+
+          </div>
+          <div class="col-md-9">
+              {{#if isAttending users}}
+                  {{> hangoutFrame }}
+              {{ else }}
+                
+                <a class="{{#if currentUser}}{{# unless isHangoutCompleted end}} join-hangout {{/unless }} {{else}} continue-popup {{/if}}"><img src="/images/jitsi_guide_lp.jpg" width="100%" class="load-hangout-screenshot display-block centered margin-top-1"/></a>
+
+                {{# unless isHangoutCompleted end}} 
+                  <p class="align-center margin-top-1"><a class="join-hangout">Click to RSVP to this hangout</a></p>
+                {{/unless }}
+              {{/if}} 
+          
+            {{#if equals visibility false}}
+              <span class="label label-pill label-danger">DELETED</span>
+            {{else}}
+
+              {{# unless isHangoutCompleted end }}
+
+                {{#if isHangoutInProgress start end}}
+
+                  {{#if isAttending users}}
+
+                    <p class="align-center">Want to use Google Hangouts instead?
+                    {{# unless url }}
+                        <div class="google-hangout display-inline">
+                         <div class="g-hangout" data-render="createhangout"
+                         data-initial_apps="[{ app_id : '999356798349', start_data: {{_id}}, 'app_type' : 'LOCAL_APP' }]" data-widget_size="72"></div>
+                        </div>
+                      {{ else }}
+                        <a class="btn btn-cb2 btn-grey btn-success google-hangout-button" href="{{url}}" target="_blank">Launch Google Hangout</a>
+                      {{/unless}}
+                    </p>
 
                     {{#if hangoutOwner host.id}}
                         <div id="end-hangout" class="btn btn-cb2 btn-danger">{{_ "end_hangout"}}</div>
@@ -190,7 +117,7 @@
 
               {{else}}
                 {{# unless isHangoutCompleted end}}
-                   <button class="btn btn-cb2 {{#if currentUser}} join-hangout {{else}} continue-popup {{/if}}">{{_ "join_in_session"}}</button>
+                   <a class="btn btn-cb2 {{#if currentUser}} join-hangout {{else}} continue-popup {{/if}}">{{_ "join_in_session"}}</a>
                 {{/unless}}
               {{/if}}
 
@@ -202,38 +129,27 @@
           {{/unless}}
 
         {{/if}} <!-- if equals visibility false -->
-              </div>
-          </div>
 
+              {{> hangoutLearned }}
 
-          <!--learnings section -->
-          <div class="panel panel-default">
-            <div>
               {{> hangoutLearnings }}
-            </div>
-          </div>
 
-
-          <!--comment section-->
-          <div class="panel panel-default">
-            <div class="panel-body">
-
+              <h3>Comments</h3>
               {{> commentBox}}
 
-            </div>
-          </div>
 
-
+              </div>
 
             {{else}}
 
                 {{> hangoutNotFound}}
-
-          {{/with}}
+            
+        {{/with}}
         {{else}}
           {{> loading}}
+         
         {{/if}}
-      </div>
+      
     </div>
   </div>
 </template>

@@ -1,9 +1,6 @@
 <template name="hangoutLearned">
-	<div>
+	<div class="margin-top-1">
 	<textarea id="learned-text" rows="3" maxlength="140" class="form-control {{#unless currentUser}} continue-popup {{/unless}}" placeholder="What did you learn?"></textarea>
 	<span class="learnedCharactersLeft">{{learnedCharacterCount}}</span>
-	<small class="pull-right">
-	 <a href="#hangout-learnings-title">See all learnings</a></small>
-
 	</div>
 </template>
