@@ -113,7 +113,7 @@ Template.hangout.events({
       }); //sweetAlert
 
   },
-  "click #create-hangout-popup": function() {
+  'click #create-hangout-popup': function() {
     if (!Meteor.userId()) {
       sweetAlert({
         title: TAPi18n.__("login_create_hangout_title"),
@@ -133,5 +133,16 @@ Template.hangout.events({
   },
   "click #hangout-faq-popup": function() {
     Modal.show('hangoutFAQModal');
+  },
+   'click .report-hangout': function(e, hangout) {
+
+    if (Meteor.userId()) {
+      const hangoutId = hangout.data._id;
+      Session.set('hangoutId', hangoutId);
+
+      Modal.show('reportHangoutModal');
+    }
+
   }
+
 });

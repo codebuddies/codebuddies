@@ -13,12 +13,18 @@
                       {{/if}}
                   {{/if}} <!-- ./if equals visibility false -->
 
+                  {{#if isHangoutInProgress start end}}
+                      <h5 class="in-progress"><span class="oval"></span> LIVE</h5>
+                  {{/if}}
+
                   {{topic}}  
 
                   {{#if views}}
                     <span class="view"><i class="fa fa-eye" aria-hidden="true" data-toggle="tooltip" title="Views" > </i> {{views}}</span>
                   {{/if}}
                   </h2>
+
+
 
                   <p class="status">
                     <i class="fa {{getHangoutTypeSign type}}"></i> {{type}} hangout <sup><a id="hangout-faq-popup"><i class="fa fa-question-circle"></i></a></sup> started by
@@ -42,6 +48,15 @@
                 {{> hangoutActionButtons }}
                     
                 <h3>Goals of hangout</h3>
+                {{#if hangoutOwner host.id}}
+                  <p class="pull-right">
+                    
+                  </p>
+                    {{else}}
+                      {{#if isInRole 'admin,moderator,volunteer' 'CB'}}
+                        <p class="pull-right"><a href="#" class="edit-hangout">Edit (M) <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></p>
+                      {{/if}}
+                {{/if}}
                 <p id="hangout-description" class="margin-1">
                     {{{formatDescription this}}}
                 </p>
@@ -68,15 +83,14 @@
 
           </div>
           <div class="col-md-9">
+                <p class="upcoming align-center margin-top-1 load-hangout">
+                    <i class="fa fa-dot-circle-o fa text-danger faa-burst animated"></i>{{upcomingTime start}}
+                </p>
               {{#if isAttending users}}
                   {{> hangoutFrame }}
               {{ else }}
               
-                <a class="{{#if currentUser}}{{# unless isHangoutCompleted end}} join-hangout {{/unless }} {{else}} continue-popup {{/if}}"><img src="/images/jitsi_guide_lp.jpg" width="100%" class="load-hangout-screenshot display-block centered margin-top-1"/></a>
-
-                {{# unless isHangoutCompleted end}} 
-                  <p class="align-center margin-top-1"><a class="join-hangout">Click to RSVP to this hangout</a></p>
-                {{/unless }}
+                <a class="{{#if currentUser}}{{# unless isHangoutCompleted end}} join-hangout {{/unless }} {{else}} continue-popup {{/if}}"><img src="/images/logo-circle-cropped.png" width="65%" class="load-hangout-screenshot display-block centered margin-top-1"/></a>
               {{/if}} 
           
             {{#if equals visibility false}}
@@ -109,9 +123,9 @@
                     {{/if}}
 
               {{else}}
-                {{# unless isHangoutCompleted end}}
+          <!--       {{# unless isHangoutCompleted end}}
                    <a class="btn btn-cb2 {{#if currentUser}} join-hangout {{else}} continue-popup {{/if}}">{{_ "join_in_session"}}</a>
-                {{/unless}}
+                {{/unless}} -->
               {{/if}}
 
             {{else}}
@@ -138,7 +152,7 @@
             
         {{/with}}
         {{else}}
-        
+
           {{> loading}}
          
         {{/if}}

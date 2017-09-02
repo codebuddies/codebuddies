@@ -1,16 +1,6 @@
 import QuillEditor from '../../libs/QuillEditor';
 
 Template.hangoutActionButtons.events({
-  'click .report-hangout': function(e, hangout) {
-
-    if (Meteor.userId()) {
-      const hangoutId = hangout.data._id;
-      Session.set('hangoutId', hangoutId);
-
-      Modal.show('reportHangoutModal');
-    }
-
-  },
   'click .clone-hangout': function(e, hangout) {
 
     if (Meteor.userId()) {

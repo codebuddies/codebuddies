@@ -12,6 +12,9 @@
     font-family: $open-sans;
     @include font-face(200, 15px, normal, $black);
   }
+  p.upcoming {
+    @include font-face(700, 23px, bold, $black);
+  }
   .completed p {
     text-transform: none;
   }
@@ -21,6 +24,11 @@
     font-weight: 200;
     font-size: 16px;
     margin: 10px 0;
+  }
+  p.click-text {
+    @include font-face(700, 30px, normal, $cta-blue);
+    background-image: url('/images/logo-circle-cropped.png');
+    background-size: cover;
   }
   p.date-holder {
     color: $black;
@@ -41,7 +49,7 @@
   }
   h5.in-progress {
     display: block;
-    text-align: center;
+    text-align: left;
     margin-bottom: 10px;
   }
   .panel-heading {
@@ -146,5 +154,17 @@
   }
   .hangout-action-buttons {
     p { text-decoration: none;}
+    #attendance {
+      text-align: center;
+      a {
+        display: inline-block;
+      }
+      a#joined-hangout {
+        width: 35%;
+      }
+      a#leave-hangout {
+        width: 60%
+      }
+    }
   }
 }
