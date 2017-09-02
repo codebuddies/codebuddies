@@ -77,9 +77,9 @@
                         <li>Remember to share what you learned.</li>
                     </ol>
 
-                  {{#unless hangoutOwner host.id}}
-                    <a href="#" class="{{#if currentUser}} report-hangout {{else}} continue-popup {{/if}}"><i class="fa fa-flag-o" aria-hidden="true"></i> Report</a>
-                  {{/unless}}
+                  
+                  {{> hangoutActionBar }}
+                  
 
           </div>
           <div class="col-md-9">
