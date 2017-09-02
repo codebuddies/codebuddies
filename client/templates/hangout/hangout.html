@@ -1,29 +1,27 @@
 <template name="hangout">
   <div id="post" class="container-fluid">
     <div class="row">
-      
         {{#if Template.subscriptionsReady}}
           {{#with hangout}}
-          <div class="col-md-3 well">
+            <div class="col-md-3 well">
+                <h2 class="{{# if isHangoutCompleted end }}completed{{/if}}" id="hangout-topic">
+                  {{#if equals visibility false}}
+                    <span class="label label-pill label-danger">DELETED</span>
+                  {{else}}
+                      {{#if isHangoutInProgress start end}}
+                        <div id="placeholder-div-{{_id}}"></div>
+                      {{/if}}
+                  {{/if}} <!-- ./if equals visibility false -->
 
-                  <h2 class="{{# if isHangoutCompleted end }}completed{{/if}}" id="hangout-topic">
-                      {{#if equals visibility false}}
-                        <span class="label label-pill label-danger">DELETED</span>
-                      {{else}}
+                  {{topic}}  
 
-                        {{#if isHangoutInProgress start end}}
-                          <div id="placeholder-div-{{_id}}"></div>
-                        {{/if}}
-
-                      {{/if}} <!-- ./if equals visibility false -->
-
-                        {{topic}}  {{#if views}} <span class="view"><i class="fa fa-eye" aria-hidden="true" data-toggle="tooltip" title="Views" > </i> {{views}}</span> {{/if}}
+                  {{#if views}}
+                    <span class="view"><i class="fa fa-eye" aria-hidden="true" data-toggle="tooltip" title="Views" > </i> {{views}}</span>
+                  {{/if}}
                   </h2>
+
                   <p class="status">
-                    <i class="fa {{getHangoutTypeSign type}}"></i> 
-
-                  {{type}} hangout <sup><a id="hangout-faq-popup"><i class="fa fa-question-circle"></i></a></sup> started by
-
+                    <i class="fa {{getHangoutTypeSign type}}"></i> {{type}} hangout <sup><a id="hangout-faq-popup"><i class="fa fa-question-circle"></i></a></sup> started by
                     <a href="{{#if currentUser}} {{pathFor 'profile' name=host.name userId=host.id}} {{/if}}" class="{{#unless currentUser}} continue-popup {{/unless}}">{{host.name}}</a>
                   </p>
                 
@@ -38,13 +36,9 @@
                       {{else}}
                         {{getHangoutEndTime end}}
                       {{/if}}
-
-
-                 </p>
-                 <!-- ./hangout type host  and date time -->
-           
-  
-                  
+                  </p>
+                 <!-- ./hangout type host and date time -->
+          
                 {{> hangoutActionButtons }}
                     
                 <h3>Goals of hangout</h3>
@@ -53,13 +47,11 @@
                 </p>
 
                 <h3>Participants</h3>
-                <a href="{{#if currentUser}} {{pathFor 'profile' name=host.name userId=host.id}} {{/if}}" class="{{#unless currentUser}} continue-popup {{/unless}}"><img class="img-circle" src="{{host.avatar}}"></a>
-                {{#each attendees}}
-                <a href="{{#if currentUser}} {{pathFor 'profile' name=name userId=id}} {{/if}}" class="{{#unless currentUser}} continue-popup {{/unless}}" ><img class="img-circle" src="{{avatar}}"></a>
-                {{/each}}
-
-
-                   
+                  <a href="{{#if currentUser}} {{pathFor 'profile' name=host.name userId=host.id}} {{/if}}" class="{{#unless currentUser}} continue-popup {{/unless}}"><img class="img-circle" src="{{host.avatar}}"></a>
+                
+                  {{#each attendees}}
+                    <a href="{{#if currentUser}} {{pathFor 'profile' name=name userId=id}} {{/if}}" class="{{#unless currentUser}} continue-popup {{/unless}}" ><img class="img-circle" src="{{avatar}}"></a>
+                  {{/each}}
 
                   <h3>Hangout Tips</h3>
                    <ol>
@@ -69,6 +61,7 @@
                         <li>Take advantage of the ability to screenshare simultaneously! It is helpful for reading the same code, pair programming, and staying on task.</li>
                         <li>Remember to share what you learned.</li>
                     </ol>
+
                   {{#unless hangoutOwner host.id}}
                     <a href="#" class="{{#if currentUser}} report-hangout {{else}} continue-popup {{/if}}"><i class="fa fa-flag-o" aria-hidden="true"></i> Report</a>
                   {{/unless}}
@@ -78,7 +71,7 @@
               {{#if isAttending users}}
                   {{> hangoutFrame }}
               {{ else }}
-                
+              
                 <a class="{{#if currentUser}}{{# unless isHangoutCompleted end}} join-hangout {{/unless }} {{else}} continue-popup {{/if}}"><img src="/images/jitsi_guide_lp.jpg" width="100%" class="load-hangout-screenshot display-block centered margin-top-1"/></a>
 
                 {{# unless isHangoutCompleted end}} 
@@ -122,7 +115,6 @@
               {{/if}}
 
             {{else}}
-
               
             {{/if}} <!-- This refers isHangoutInProgress -->
 
@@ -146,6 +138,7 @@
             
         {{/with}}
         {{else}}
+        
           {{> loading}}
          
         {{/if}}
