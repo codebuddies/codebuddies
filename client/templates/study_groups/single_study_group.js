@@ -29,6 +29,9 @@ Template.singleStudyGroup.helpers({
 });
 
 Template.singleStudyGroup.events({
+  'click #newHangout': function(event) {
+    Modal.show('createHangoutModal');
+  },
   'click .joinStudyGroup': function(event, template){
     event.preventDefault();
 

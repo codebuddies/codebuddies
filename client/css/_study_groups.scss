@@ -4,10 +4,10 @@
     @include font-face(600, 28px, normal, $black);
   }
   h3 {
-    margin: 10px 0px;
-    @include font-face(200, 20px, normal, $black);
     text-transform: uppercase;
-  }
+    margin: 20px 0px 10px 0px;
+    @include font-face(700, 14px, bold, $black);
+  } 
   .study-groups-top {
     background: linear-gradient(to top, rgba(30, 144, 255, .5) 0%, rgba(30, 144, 255, .5) 0%, rgba(30, 144, 255, .5) 0%, rgba(30, 144, 255, .55) 18%, rgba(30, 144, 255, .64) 46%, rgba(3, 87, 232, .8) 100%), url(/images/language-logos.svg) center repeat;
     padding: 100px 0;
@@ -15,6 +15,9 @@
     span.label { padding: .3em .6em;}
   }
   .page-header { margin-top: 0px; }
+  .panel-body {
+    background: $well;
+  }
   .panel-default {
   	border: none;
   }
@@ -29,6 +32,9 @@
   }
   p {
   	margin: 10px 0px;
+  }
+  p.overflowtext {
+    margin: 0px;
   }
   #info .panel-body {
   	padding: 10px 0px;

@@ -3,7 +3,7 @@
     <div class="panel panel-default">
       <div class="panel-body">
 
-        <h4>Organizers</h4>
+        <h3>Organizers</h3>
         {{#each members}}
           {{#if isOrganizers role}}
             <a href="{{pathFor 'profile' name=name userId=id}}">
@@ -14,7 +14,7 @@
 
         <br>
         <br>
-        <h4>Description and Goals</h4>
+        <h3>Description and Goals</h3>
         {{#if introduction}}
           {{#if isInRole 'owner, admin' _id}}
             <div class="btn btn-default pull-right" id="editDescription">Edit</div>
