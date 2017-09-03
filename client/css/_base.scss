@@ -115,6 +115,14 @@ a:hover {
   margin-top: 10px;
   margin-bottom: 10px;
 }
+.margin-right-1 {
+  margin-right: 10px;
+}
+
+.well {
+  margin: 10px 0px;
+  overflow: auto;
+}
 .padding-none {
   padding: 0px;
 }
@@ -128,4 +136,9 @@ a:hover {
 
 .bg-blue {
   background: $cta-blue;
+}
+
+.study-group-tag.label-default {
+  position: absolute;
+  z-index: 99999;
 }

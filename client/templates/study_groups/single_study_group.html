@@ -1,0 +1,140 @@
+<template name="singleStudyGroup">
+  {{#if Template.subscriptionsReady}}
+    <div class="container" id="study-groups">
+      {{#with studyGroup}}
+
+        <br>
+        <div class="row">
+          <ol class="breadcrumb">
+            {{#unless isInRole 'owner, moderator, member' _id}}
+              <li><a href="{{pathFor 'all study groups'}}">Study Groups</a></li>
+            {{else}}
+              <li><a href="{{pathFor 'my study groups'}}">My Study Groups</a></li>
+            {{/unless}}
+            <li class="active">{{title}}</li>
+          </ol>
+        </div>
+
+        {{#unless visibility}}
+          <div class="text-center">
+            <h4>This study group has been archived.</h4>
+            <p>
+              <a href="{{pathFor 'all study groups'}}"> Browse more</a> | 
+              <a href="{{pathFor 'home'}}"> Home</a>
+            </p>
+          </div>
+
+        {{else}}
+
+        <div class="row">
+
+          <div class="col-md-3 well">
+            {{#if isInRole 'owner, moderator, member ' _id}}
+              {{> hangoutLearned }}
+            {{/if}}
+            {{#if equals visibility false}}
+              <small class="label label-danger">Archived</small>
+            {{/if}}
+
+            <h2>{{title}}
+
+              <div class="margin-top-1">
+                {{#unless isInRole 'owner, moderator, member' _id}}
+                  <div class="btn btn-cb2 {{#if currentUser}} joinStudyGroup {{else}} continue-popup {{/if}}">{{_ "join_study_group"}}</div>
+                {{else}}
+                  {{#if isInRole 'moderator, member' _id}}
+                    <div class="btn btn-cb2 leaveStudyGroup btn-leave">{{_ "leave_study_group"}}</div>
+                  {{/if}}
+                {{/unless}}
+              </div>
+            </h2>
+
+            <h5><i class="fa fa-map-pin" aria-hidden="true"></i> {{tagline}}</h5>
+            {{> studyGroupInfo}}
+
+
+
+          </div>
+          <div class="col-md-9">
+          <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation"><a href="#247hangout" aria-controls="247hangout" role="tab" data-toggle="tab">{{_ 'twentyforseven'}}</a></li>
+            <li role="presentation"><a href="#hangouts" aria-controls="hangouts" role="tab" data-toggle="tab">{{_ 'hangouts'}}</a></li>
+            <li role="presentation"><a href="#members" aria-controls="members" role="tab" data-toggle="tab">{{_ 'members'}}</a></li>
+            <li role="presentation"><a href="#learnings" aria-controls="learnings" role="tab" data-toggle="tab">{{_ 'learnings'}}</a></li>
+            <li role="presentation"><a href="#resources" aria-controls="resources" role="tab" data-toggle="tab">{{_ 'links'}}</a></li>
+            {{#if currentUser}}
+            <li role="presentation"><a href="#activities" aria-controls="activity" role="tab" data-toggle="tab">{{_ 'activity'}}</a></li>
+            {{/if}}
+            {{#if isInRole 'owner, moderator ' _id}}
+            <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">{{_ 'settings'}}</a></li>
+            {{/if}}
+          </ul>
+       
+        
+
+        <br>
+
+        <div class="tab-content">
+
+
+          <div role="tabpanel" class="tab-pane active" id="247hangout">
+            <div class="text-center">
+              {{#unless isInRole 'owner, moderator, member' _id}}
+                <p>Please join the study group to access the 24/7 hangout.</p>
+                <img src="/images/click_to_load_hangout2.jpg" width="90%" class="load-hangout load-hangout-screenshot">
+              {{else}}
+                {{> hangoutFrame }}
+                <p>Chat or study with whomever is around! This room will always be open for this study group.</p>
+              {{/unless}}
+
+            </div>
+          </div>
+
+          <div role="tabpanel" class="tab-pane" id="hangouts">
+            {{> studyGroupHangouts}}
+          </div>
+
+          <div role="tabpanel" class="tab-pane" id="members">
+            {{> studyGroupMembers}}
+          </div>
+
+          <div role="tabpanel" class="tab-pane" id="resources">
+            {{> studyGroupResources}}
+          </div>
+
+          <div role="tabpanel" class="tab-pane" id="learnings">
+            {{> studyGroupLearnings}}
+          </div>
+
+          <div role="tabpanel" class="tab-pane" id="activities">
+            {{> studyGroupActivities}}
+          </div><!-- #/Activities -->
+
+          {{#if isInRole 'owner, admin' _id}}
+            <div role="tabpanel" class="tab-pane" id="settings">
+              {{> studyGroupSettings}}
+            </div>
+          {{/if}}
+
+          <br>
+
+        </div>
+        </div>
+        </div>
+
+
+
+        {{/unless}}
+
+
+
+
+      {{else}}
+        Not found.
+      {{/with}}
+
+    </div><!-- ./container -->
+  {{else}}
+    {{> loading}}
+  {{/if}}<!-- ./Template.subscriptionsReady -->
+</template>

@@ -7,10 +7,6 @@
     padding: 10px;
     position: relative;
     @include box-shadow(0, 12px, 60px, rgba(0, 0, 0, .5));
-    .hangout-topic {
-      @include font-face(600, 16px, bold, $primary-grey);
-      line-height: 25px;
-    }
 
     .hangout-details {
       bottom: 10px;
@@ -55,4 +51,5 @@
 
     @include font-face(400, 17px, normal, $cta-blue);
   }
+
 }

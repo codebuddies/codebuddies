@@ -1,0 +1,43 @@
+<template name="studyGroupInfo">
+  <div class="row">
+    <div class="panel panel-default">
+      <div class="panel-body">
+
+        <h4>Organizers</h4>
+        {{#each members}}
+          {{#if isOrganizers role}}
+            <a href="{{pathFor 'profile' name=name userId=id}}">
+              <img src="{{avatar}}" alt="{{name}}" class="img-circle" data-id="{{id}}">
+            </a>
+          {{/if}}
+        {{/each}}
+
+        <br>
+        <br>
+        <h4>Description and Goals</h4>
+        {{#if introduction}}
+          {{#if isInRole 'owner, admin' _id}}
+            <div class="btn btn-default pull-right" id="editDescription">Edit</div>
+          {{/if}}
+          <p>{{{introduction}}}</p>
+
+          <p> {{{description}}}</p>
+        {{else}}
+
+          {{#if isInRole 'owner, admin' _id}}
+            <div class="text-center">
+              <p>Your study group doesn't have a description yet.</p>
+              <div class="btn btn-default" id="editDescription">Add description</div>
+            </div>
+          {{else}}
+            <p>This study group doesn't have a description yet.</p>
+          {{/if}}
+
+        {{/if}}
+        <br>
+
+      </div>
+    </div>
+
+  </div>
+</template>

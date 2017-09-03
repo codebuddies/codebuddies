@@ -1,4 +1,4 @@
-// import {_} from 'lodash';
+// import _ from 'lodash';
 
 if (Meteor.isClient) {
   Meteor.startup(function () {
@@ -99,4 +99,23 @@ Template.registerHelper("isHangoutEndTimeTBA", function(start, end){
   const duration = (end - start) / (1000 * 60 * 60 * 24)
   return duration === 1 ?  true : false;
 
+});
+
+Template.registerHelper("isOwnerOfTheGroup", function(userId, groupId){
+  const loggedInUserId = Meteor.userId();
+
+  return ((loggedInUserId !== userId) &&  (Roles.userIsInRole( loggedInUserId, ['owner' ], groupId)) ? true : false  ) ;
+
+});
+
+Template.registerHelper("canUpdateUserRoleForGroup", function(subjectId, groupId, subjectRole){
+  const loggedInUserId = Meteor.userId();
+
+  return ((loggedInUserId !== subjectId) && (subjectRole !== 'owner' && subjectRole !=='admin') &&  (Roles.userIsInRole( loggedInUserId, ['owner', 'admin' ], groupId)) ? true : false  ) ;
+
+});
+
+Template.registerHelper("isOrganizers", function(role){
+  
+  return ["owner", "admin", "moderator"].indexOf(role) < 0 ? false : true ;
 });
