@@ -31,13 +31,13 @@ Template.hangout.helpers({
 });
 Template.hangout.events({
   'click #hide-sidebar': function() {
-      $('.well').hide();
-      $('.col-md-9').removeClass('col-md-9').addClass('col-md-12');
+      $('.hangout-sidebar').hide();
+      $('.hangout-body').removeClass('col-md-9').addClass('col-md-10 col-md-offset-1');
       $('#show-sidebar').fadeIn();
   },
   'click #show-sidebar': function() {
-      $('.well').show();
-      $('.col-md-12').removeClass('col-md-12').addClass('col-md-9');
+      $('.hangout-sidebar').show();
+      $('.hangout-body').removeClass('col-md-10 col-md-offset-1').addClass('col-md-9');
       $('#show-sidebar').hide();
   },
   'click .join-hangout': function() {

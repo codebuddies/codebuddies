@@ -6,7 +6,7 @@
     <div class="row">
         {{#if Template.subscriptionsReady}}
           {{#with hangout}}
-            <div class="col-md-3 well">
+            <div class="col-md-3 well hangout-sidebar">
                 <h2 class="{{# if isHangoutCompleted end }}completed{{/if}}" id="hangout-topic">
                   {{#if equals visibility false}}
                     <span class="label label-pill label-danger">DELETED</span>
@@ -30,9 +30,9 @@
                   {{/if}}
                   </h2>
                   {{!-- group title lable --}}
-                  {{#if group}}<p><a href="{{pathFor 'study group' studyGroupSlug=group.slug studyGroupId=group.id}}"> <span class="label label-default">{{group.title}}</span> </a>  </p>{{/if}}
-                  <p class="status">
-                    <i class="fa {{getHangoutTypeSign type}}"></i>
+                  {{#if group}}
+                    <p><a href="{{pathFor 'study group' studyGroupSlug=group.slug studyGroupId=group.id}}"> <span class="label label-default">{{group.title}}</span></a></p>
+                  {{/if}}
 
                   <p class="status">
                     <i class="fa {{getHangoutTypeSign type}}"></i> {{type}} hangout <sup><a id="hangout-faq-popup"><i class="fa fa-question-circle"></i></a></sup> started by
@@ -56,11 +56,13 @@
                 {{> hangoutActionButtons }}
 
                 <h3>Participants</h3>
+                <div id="participants">
                   <a href="{{#if currentUser}} {{pathFor 'profile' name=host.name userId=host.id}} {{/if}}" class="{{#unless currentUser}} continue-popup {{/unless}}"><img class="img-circle" src="{{host.avatar}}"></a>
                 
                   {{#each attendees}}
                     <a href="{{#if currentUser}} {{pathFor 'profile' name=name userId=id}} {{/if}}" class="{{#unless currentUser}} continue-popup {{/unless}}" ><img class="img-circle" src="{{avatar}}"></a>
                   {{/each}}
+                </div>
 
                   <h3>Hangout Tips</h3>
 
@@ -71,13 +73,10 @@
                         <li>Take advantage of the ability to screenshare simultaneously! It is helpful for reading the same code, pair programming, and staying on task.</li>
                         <li>Remember to share what you learned.</li>
                     </ol>
-
-                  
-                  {{> hangoutActionBar }}
                   
 
           </div>
-          <div class="col-md-9">
+          <div class="col-md-9 hangout-body">
                 <p class="upcoming align-center margin-top-1 load-hangout">
                     <i class="fa fa-dot-circle-o fa text-danger faa-burst animated"></i>{{upcomingTime start}}
                 </p>
@@ -133,7 +132,8 @@
 
               {{> hangoutLearned }}
 
-              <h3>Goals of hangout</h3>
+              <h3>Goals of hangout {{> hangoutActionBar }}</h3>
+
                 <p id="hangout-description" class="margin-1">
                     {{{formatDescription this}}}
                 </p>
