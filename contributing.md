@@ -164,7 +164,7 @@ In summary, the steps are:
 3. you will receive your password in your email .
 4. admin login ```http://localhost:3000/admin```.
 
-Note: When you create a hangout in localhost:3000, a Slack notification will be sent to the #cb2-test channel. This emulates what happens when you create a hangout on codebuddies.org, where a Slack announcement about the hangout will appear in the #general channel.
+Note: When you create a hangout in localhost:3000, a Slack notification will be sent to the #codebuddies-ops channel. This emulates what happens when you create a hangout on codebuddies.org, where a Slack announcement about the hangout will appear in the #general channel.
 
 ### How do I seed the app with fake Posts/Hangouts?
 When the app is run locally, there are no hangouts seeded by default. Hence to be able to see how things work out, some fake posts could be seeded to the app. To do this run the app with the following changes.
