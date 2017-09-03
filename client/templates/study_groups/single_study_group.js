@@ -29,12 +29,6 @@ Template.singleStudyGroup.helpers({
 });
 
 Template.singleStudyGroup.events({
-  "click #addResource": function(event, template){
-     template.isAddResource.set( true );
-  },
-  "click #cancelAddResource": function(event, template){
-     template.isAddResource.set( false );
-  },
   'click .joinStudyGroup': function(event, template){
     event.preventDefault();
 
