@@ -178,7 +178,7 @@
   }
 }
 
-.delete-hangout, .edit-hangout {
+li.delete-hangout, li.edit-hangout {
   @media (min-width: 480px) {
     border: 0;
     padding: 0;
@@ -194,6 +194,22 @@
 
 .btn-grey {
   background: $warm-grey;
+}
+
+.hangout-action-buttons {
+  .btn {
+    display: inline-block;
+    text-transform: uppercase;
+    width: 100%;
+  }
+  .hangout-action-buttons-other {
+      a.btn {
+        @include font-face(200, 16px, light, $black);
+        background: transparent;
+        border: 1px solid $black;
+        margin: 10px 0px 0px 0px;
+      }
+  }
 }
 
 
