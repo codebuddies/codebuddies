@@ -14,6 +14,9 @@
     h2 { @include font-face(700, 32px, bold, $bg-white); }
     span.label { padding: .3em .6em;}
   }
+  #newHangout {
+    margin-top: 10px;
+  }
   .page-header { margin-top: 0px; }
   .panel-body {
     background: $well;
