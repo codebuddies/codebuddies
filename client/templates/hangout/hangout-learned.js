@@ -33,7 +33,7 @@ Template.hangoutLearned.events({
         user_id: Meteor.userId(),
         username: Meteor.user().username,
         title: learningStatus,
-        hangout_id: this._id,
+        hangout_id: FlowRouter.getParam('hangoutId'),
         study_group_id: FlowRouter.getParam('studyGroupId')
       }
       Meteor.call("addLearning", data, function(error, result) {
