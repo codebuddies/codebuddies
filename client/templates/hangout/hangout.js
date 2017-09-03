@@ -30,6 +30,16 @@ Template.hangout.helpers({
   }
 });
 Template.hangout.events({
+  'click #hide-sidebar': function() {
+      $('.well').hide();
+      $('.col-md-9').removeClass('col-md-9').addClass('col-md-12');
+      $('#show-sidebar').fadeIn();
+  },
+  'click #show-sidebar': function() {
+      $('.well').show();
+      $('.col-md-12').removeClass('col-md-12').addClass('col-md-9');
+      $('#show-sidebar').hide();
+  },
   'click .join-hangout': function() {
     // if (!Meteor.userId()) {
     //   sweetAlert({

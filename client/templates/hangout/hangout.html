@@ -1,5 +1,8 @@
 <template name="hangout">
   <div id="post" class="container-fluid">
+                      <div id="show-sidebar">
+                    <a href="#">Show details</a>
+                  </div>
     <div class="row">
         {{#if Template.subscriptionsReady}}
           {{#with hangout}}
@@ -12,6 +15,9 @@
                         <div id="placeholder-div-{{_id}}"></div>
                       {{/if}}
                   {{/if}} <!-- ./if equals visibility false -->
+                  <div id="hide-sidebar">
+                    <a href="#" class="pull-right"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
+                  </div>
 
                   {{#if isHangoutInProgress start end}}
                       <h5 class="in-progress"><span class="oval"></span> LIVE</h5>
@@ -46,20 +52,6 @@
                  <!-- ./hangout type host and date time -->
           
                 {{> hangoutActionButtons }}
-                    
-                <h3>Goals of hangout</h3>
-                {{#if hangoutOwner host.id}}
-                  <p class="pull-right">
-                    
-                  </p>
-                    {{else}}
-                      {{#if isInRole 'admin,moderator,volunteer' 'CB'}}
-                        <p class="pull-right"><a href="#" class="edit-hangout">Edit (M) <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></p>
-                      {{/if}}
-                {{/if}}
-                <p id="hangout-description" class="margin-1">
-                    {{{formatDescription this}}}
-                </p>
 
                 <h3>Participants</h3>
                   <a href="{{#if currentUser}} {{pathFor 'profile' name=host.name userId=host.id}} {{/if}}" class="{{#unless currentUser}} continue-popup {{/unless}}"><img class="img-circle" src="{{host.avatar}}"></a>
@@ -137,6 +129,11 @@
         {{/if}} <!-- if equals visibility false -->
 
               {{> hangoutLearned }}
+
+              <h3>Goals of hangout</h3>
+                <p id="hangout-description" class="margin-1">
+                    {{{formatDescription this}}}
+                </p>
 
               {{> hangoutLearnings }}
 
