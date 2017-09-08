@@ -1,0 +1,88 @@
+#study-groups {
+  h2 {
+    margin: 10px 0px;
+    @include font-face(600, 28px, normal, $black);
+  }
+  h3 {
+    text-transform: uppercase;
+    margin: 20px 0px 10px 0px;
+    @include font-face(700, 14px, bold, $black);
+  } 
+  .study-groups-top {
+    background: linear-gradient(to top, rgba(30, 144, 255, .5) 0%, rgba(30, 144, 255, .5) 0%, rgba(30, 144, 255, .5) 0%, rgba(30, 144, 255, .55) 18%, rgba(30, 144, 255, .64) 46%, rgba(3, 87, 232, .8) 100%), url(/images/language-logos.svg) center repeat;
+    padding: 100px 0;
+    h2 { @include font-face(700, 32px, bold, $bg-white); }
+    span.label { padding: .3em .6em;}
+  }
+  #newHangout {
+    margin-top: 10px;
+  }
+  .page-header { margin-top: 0px; }
+  .panel-body {
+    background: $well;
+  }
+  .panel-default {
+  	border: none;
+  }
+  .img-circle {
+      width: 50px;
+  }
+  #cancelAddResource {
+  	margin-right: 5px;
+  }
+  .well, .jumbotron {
+  	margin: 0px 0px 10px 0px;
+  }
+  p {
+  	margin: 10px 0px;
+  }
+  p.overflowtext {
+    margin: 0px;
+  }
+  #info .panel-body {
+  	padding: 10px 0px;
+  }
+}
+
+.newStudyGroup {
+	fieldset {
+		border: none;
+	}
+	input {
+		margin-bottom: 10px;
+	}
+}
+
+.study-groups-list {
+  ul {
+    list-style: none;
+  }
+  ul, li a:link, li a:visited {
+    color: $white;
+  }
+  li {
+    margin-bottom: 10px;
+  }
+  h5 {
+    padding-left: 40px;
+    color: $white;
+    margin: 0px;
+    text-transform: uppercase;
+  }
+  h5, li.dropdown {
+    display: inline;
+    text-decoration: none;
+  }
+  li.dropdown ul.dropdown-menu {
+    a:link, a:visited {
+      color: $cta-blue;
+      text-decoration: none;
+    }
+  }
+  a.study-group-item {
+    display: block;
+    &:hover {
+      color: $hangout-collab;
+    }
+  }
+}

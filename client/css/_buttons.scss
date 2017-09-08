@@ -118,6 +118,10 @@
   }
 }
 
+.btn-leave {
+  background-color: $warm-grey;
+}
+
 .btn-cb3 {
   @include font-face(700, 16px, bold, $bg-white);
   background-color: $cta-blue;

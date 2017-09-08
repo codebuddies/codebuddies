@@ -1,0 +1,79 @@
+<template name="studyGroupMemberDetail">
+  <div id="create-hangout-modal" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+          <form class="newStudyGroup">
+
+            <div class="modal-header">
+              <h4 class="modal-title text-center">Member Detail</h4>
+              <button type="button" class="btn btn-circle btn-outline btn-info pull-right" data-dismiss="modal"><i class="fa fa-times"></i></button>
+            </div>
+
+            <div class="modal-body">
+              {{#if Template.subscriptionsReady}}
+              <fieldset>
+                {{#with user}}
+                  <div class="row">
+                    <div class="col-md-3">
+                      <img src="{{profile.avatar.image_512}}" alt="{{name}}" class="img-circle">
+                    </div>
+                    <div class="col-md-6">
+                      <div class="row">
+                        <form>
+                          <div class="form-group">
+                            <label for="username">Username</label>
+                            {{username}}
+                          </div>
+                          {{#if isOwnerOfTheGroup _id groupId }}
+
+                            {{#if isInRole 'owner' groupId}}
+                              <div class="form-group">
+                                <label for="username">Role</label>
+                                <select class="form-control" id="authorization">
+                                  <option value="admin" {{selected userRoles  "admin"}}>admin</option>
+                                  <option value="moderator" {{selected userRoles  "moderator"}}>moderator</option>
+                                  <option value="member" {{selected userRoles  "member"}}>member</option>
+                                </select>
+                              </div>
+                            {{/if}}
+
+                          {{/if}}
+
+                          {{#if canUpdateUserRoleForGroup _id groupId userRoles }}
+                            {{#if isInRole 'admin' groupId}}
+                              <div class="form-group">
+                                <label for="username">Role</label>
+                                <select class="form-control" id="authorization">
+                                  <option value="moderator" {{selected userRoles  "moderator"}}>moderator</option>
+                                  <option value="member" {{selected userRoles  "member"}}>member</option>
+                                </select>
+                              </div>
+                            {{/if}}
+
+                          {{/if}}
+                        </form>
+                      </div>
+
+
+                    </div>
+                  </div>
+                {{/with}}
+              </fieldset>
+              {{else}}
+                {{>loading}}
+              {{/if}}
+
+
+
+            </div><!-- ./modal-body -->
+
+            <div class="modal-footer">
+
+            </div>
+          </form>
+
+      </div><!--modal content-->
+    </div>
+  </div>
+
+</template>

@@ -27,5 +27,11 @@ Template.header.events({
     Meteor.logout(function(err) {
       FlowRouter.go("home");
     });
+  },
+  'click #newHangout': function(event) {
+    Modal.show('createHangoutModal');
+  },
+  'click #newStudyGroup': function(event) {
+    Modal.show('newStudyGroupModal');
   }
 });

@@ -82,7 +82,6 @@ Template.updateStatus.events({
                 user_id: Meteor.userId(),
                 username: Meteor.user().username,
                 title: learningStatus,
-                hangout_id: 'homepage'
             }
             Meteor.call("addLearning", data, function(error, result) {});
             $('#learned-text').val('');

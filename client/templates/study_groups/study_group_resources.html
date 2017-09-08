@@ -1,0 +1,8 @@
+<template name="studyGroupResources">
+	    	{{#if isInRole 'owner, admin, moderator' _id}}
+	      		<div class="btn btn-default" id="addResource"> + </div>
+	    	{{/if}}
+
+	    	{{> resourcesList}}
+
+</template>

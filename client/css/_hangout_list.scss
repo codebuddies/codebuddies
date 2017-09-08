@@ -1,4 +1,12 @@
 #hangouts {
+  .col-lg-4 {
+    padding: 0px 8px;
+  }
+  .study-group-tag {
+    position: absolute;
+    top: -4px;
+    z-index: 0;
+  }
   padding: 0;
 
   .hangout-item {
@@ -32,13 +40,6 @@
     .hangout-topic.completed {
       color: $warm-grey;
       font-weight: 600;
-    }
-
-    #leave-hangout {
-      text-decoration: underline;
-      text-align: center;
-      display: block;
-      @include font-face(400, 12px, normal, $cta-blue);
     }
 
     p.upcoming {
