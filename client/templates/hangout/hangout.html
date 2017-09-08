@@ -77,9 +77,13 @@
 
           </div>
           <div class="col-md-9 hangout-body">
+              {{# unless isHangoutCompleted end}}
                 <p class="upcoming align-center margin-top-1 load-hangout">
                     <i class="fa fa-dot-circle-o fa text-danger faa-burst animated"></i>{{upcomingTime start}}
                 </p>
+              {{ else }}
+                <p class="upcoming align-center margin-top-1">Sorry, this hangout has ended.</p>
+              {{/unless}}
               {{#if isAttending users}}
                   {{> hangoutFrame }}
               {{ else }}
