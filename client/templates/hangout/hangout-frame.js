@@ -27,7 +27,6 @@ Template.hangoutFrame.onCreated(function() {
     instance.api.executeCommand('toggleChat');
     instance.api.executeCommand('avatarUrl', data.avatar);
     let jitsiParticipants = instance.api.getNumberOfParticipants();
-    console.log(jitsiParticipants);
 
     $("[id^=" + 'jitsiConference' + "]").css('width', '100%');
     //only show the launch hangout button if Jitsi is not loaded
