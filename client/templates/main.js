@@ -63,6 +63,11 @@ Template.registerHelper("getHangoutEndDateTime", function(date){
   return moment(date).tz(tz).format('MMMM Do h:mm a z')
 });
 
+Template.registerHelper("getHangoutEndTime", function(date){
+  const tz = TimezonePicker.detectedZone();
+  return moment(date).tz(tz).format('h:mm a z')
+});
+
 Template.registerHelper("displaySlackSignInBtn", function(){
     var options = {
       requestPermissions: ['identify', 'users:read']

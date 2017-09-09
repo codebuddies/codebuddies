@@ -51,7 +51,7 @@
   "rsvp_long": "RSVP to this Hangout",
   "joined": "JOINED",
   "leave": "REMOVE RSVP",
-  "join_in_session": "RSVP NOW",
+  "join_in_session": "Click to RSVP",
   "load_more": "Load more...",
   "load_page": "Load page __start__/__total__",
   "ok": "OK",
@@ -62,7 +62,7 @@
   "launch" : "JOIN NOW",
   "yes_end_hangout": "Yes, end it!",
   "no_end_hangout": "No, I was just kidding",
-  "end_hangout": "END HANGOUT",
+  "end_hangout": "End hangout manually",
 
 
   // hangout
@@ -74,8 +74,7 @@
   "silent_hangout": "Silent Hangout",
   "teaching_hangout": "Teaching Hangout",
   "collaboration_hangout": "Collaboration Hangout",
-  "click_to_load_hangout": "Click to Load Hangout",
-
+  "click_to_load_hangout": "Click to load the hangout",
   // popup messages
   "you_are_almost_there": "You are almost there!",
   "login_join_hangout": "Please sign in to codebuddies.slack.com to join a hangout",
