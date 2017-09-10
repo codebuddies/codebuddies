@@ -37,13 +37,14 @@ Template.newStudyGroupModal.events({
         template.find('#tagline').value="";
 
         Modal.hide();
-        FlowRouter.reload();
+        FlowRouter.go('my study groups');
         Bert.alert({
           type: 'success',
           message: 'Congratulations! Your study group "' + data.title + '" has been created.',
           icon: 'fa-check-circle',
           hideDelay: 6500
         });
+        location.reload();
       }
     });
 
