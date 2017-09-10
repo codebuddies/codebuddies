@@ -28,6 +28,9 @@ Template.singleStudyGroup.helpers({
   },
   resourcesCount: function(){
     return Resources.find().count();
+  },
+  learningsCount: function() {
+    return Learnings.find().count();
   }
 });
 
