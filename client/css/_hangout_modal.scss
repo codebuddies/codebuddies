@@ -3,7 +3,7 @@
 }
 
 #create-hangout-modal {
-  z-index: 9999999;
+  z-index: 1050;
   h4 {
     @include font-face(700, 20px, bold, $black);
   }
