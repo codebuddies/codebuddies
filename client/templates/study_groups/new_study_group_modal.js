@@ -16,10 +16,10 @@ Template.newStudyGroupModal.events({
     event.preventDefault();
 
     if ($.trim(template.find("#title").value) == '') {
-      return Bert.alert( 'Study Group Name', 'warning', 'growl-top-right' );
+      return Bert.alert( 'Please input a name for your study group.', 'warning', 'growl-top-right' );
     }
     if ($.trim(template.find("#tagline").value) == '') {
-      return Bert.alert( 'Study Group Name', 'warning', 'growl-top-right' );
+      return Bert.alert( 'Please input a tagline for your study group.', 'warning', 'growl-top-right' );
     }
 
     const data = {
@@ -40,7 +40,7 @@ Template.newStudyGroupModal.events({
         FlowRouter.reload();
         Bert.alert({
           type: 'success',
-          message: 'Study Group ' + data.title + ' has created.',
+          message: 'Congratulations! Your study group "' + data.title + '" has been created.',
           icon: 'fa-check-circle',
           hideDelay: 6500
         });

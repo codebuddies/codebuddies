@@ -1,6 +1,6 @@
 <template name="studyGroupMembers">
   {{#if isInRole 'owner, admin, moderator' _id}}
-    <p>Click on a member's icon to adjust their permissions.
+    <p class="well"><strong>Click on a member's avatar to adjust their permissions.</strong>
       <ul>
         <li>Admins and moderators can both schedule hangouts in this study group.</li>
         <li>Admins can promote other members to be moderators.</li>

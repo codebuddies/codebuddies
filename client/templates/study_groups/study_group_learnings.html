@@ -1,15 +1,19 @@
 <template name="studyGroupLearnings">
-<h3 id="hangout-learnings-title">What We Learned</h3>
-<div class="status-list">
- <div class="learnings">
-    {{#each learnings}}
-        {{> learningItem}}
-    {{/each}}
-  {{#if Template.subscriptionsReady}}
-    {{#if hasMoreLearnings}}
-        <button id="load-more-learnings" class="btn btn-default btn-block">Load more</button>
-    {{/if}}
-  {{/if}}
-  </div>
- </div>
+	{{#if learnings.count}}
+		<div class="status-list">
+			<div class="learnings">
+				{{#each learnings}}
+					{{> learningItem}}
+				{{/each}}
+			</div>
+		</div>
+	{{ else }}
+		<h5 class="well">Please share something you learned by typing in the box on the left.</h5>
+	{{/if}}
+    {{#if Template.subscriptionsReady}}
+    	{{#if hasMoreLearnings}}
+        	<button id="load-more-learnings" class="btn btn-default btn-block">Load more</button>
+    	{{/if}}
+  	{{/if}}
+
 </template>
