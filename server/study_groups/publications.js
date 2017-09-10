@@ -6,7 +6,9 @@ Meteor.publish( 'myStudyGroups', function(limit) {
   let roles = Meteor.users.findOne({_id : this.userId}).roles;
   let studyGroups = [];
   for (let key in roles) {
-    studyGroups.push(key)
+    if (roles[key].length !== 0) {
+      studyGroups.push(key)
+    }
   }
 
   let query = new Object();
