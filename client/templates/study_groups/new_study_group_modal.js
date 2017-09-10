@@ -16,10 +16,10 @@ Template.newStudyGroupModal.events({
     event.preventDefault();
 
     if ($.trim(template.find("#title").value) == '') {
-      return Bert.alert( 'Study Group Name', 'warning', 'growl-top-right' );
+      return Bert.alert( 'Please input a name for your study group.', 'warning', 'growl-top-right' );
     }
     if ($.trim(template.find("#tagline").value) == '') {
-      return Bert.alert( 'Study Group Name', 'warning', 'growl-top-right' );
+      return Bert.alert( 'Please input a tagline for your study group.', 'warning', 'growl-top-right' );
     }
 
     const data = {
