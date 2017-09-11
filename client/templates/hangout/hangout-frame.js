@@ -31,6 +31,15 @@ Template.hangoutFrame.onCreated(function() {
     $("[id^=" + 'jitsiConference' + "]").css('width', '100%');
     //only show the launch hangout button if Jitsi is not loaded
     $("[id^=" + 'jitsiConference' + "]").length == 1 ? $('.load-hangout').hide() : $('#load-hangout').show();
+    
+    instance.api.on('readyToClose', () => {
+      Bert.alert({
+          type: 'success',
+          message: 'Thanks for joining the hangout!',
+          hideDelay: 3500
+        });
+      FlowRouter.go('all study groups');
+    });
   }
 
   /**
