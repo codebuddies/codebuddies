@@ -44,7 +44,6 @@ Template.newStudyGroupModal.events({
           icon: 'fa-check-circle',
           hideDelay: 6500
         });
-        location.reload();
       }
     });
 
