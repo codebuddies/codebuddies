@@ -16,7 +16,8 @@
       {{#each members}}
       <div class="col-md-6">
         <li>
-          <img src="{{avatar}}" alt="{{name}}" class="img-circle" data-id="{{id}}"> <strong>{{ name }}</strong> 
+          <a href="{{pathFor 'profile' name=name userId=id}}">
+          <img src="{{avatar}}" alt="{{name}}" class="img-circle" data-id="{{id}}"> <strong>{{ name }}</strong></a>
           <a class="memberDetail btn btn-default pull-right">Modify</a>
         </li>
       </div>
