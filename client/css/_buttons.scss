@@ -123,8 +123,12 @@
 }
 
 .btn-leave {
-  background-color: $warm-grey;
+  background: $warm-grey;
+  &:hover {
+    background: $danger-red;
+  }
 }
+
 
 .btn-cb3 {
   @include font-face(700, 16px, bold, $bg-white);
