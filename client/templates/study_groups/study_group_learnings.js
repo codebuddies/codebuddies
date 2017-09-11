@@ -8,23 +8,22 @@ Template.studyGroupLearnings.onCreated(function () {
   instance.loaded = new ReactiveVar(0);
   instance.limit = new ReactiveVar(5);
 
-  // ...
    instance.autorun(function () {
 
     // get the limit
     var limit = instance.limit.get();
 
-    console.log("Asking for "+limit+" learnings...")
+    //console.log("Asking for "+limit+" learnings...")
     var studyGroupId = FlowRouter.getParam('studyGroupId');
-    console.log(studyGroupId)
+    //console.log(studyGroupId)
     // subscribe to the learningsByHangoutId publication
     var subscription = instance.subscribe('learningsByStudyGroupId', limit, studyGroupId);
     // if subscription is ready, set limit to newLimit
     if (subscription.ready()) {
-      console.log("> Received "+limit+" learnings. \n\n")
+      //console.log("> Received "+limit+" learnings. \n\n")
       instance.loaded.set(limit);
     } else {
-      console.log("> Subscription is not ready yet. \n\n");
+      //console.log("> Subscription is not ready yet. \n\n");
     }
   });
 

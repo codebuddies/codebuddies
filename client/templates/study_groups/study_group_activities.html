@@ -30,5 +30,12 @@
   {{else}}
 
   {{/each}}
+
+  {{#if Template.subscriptionsReady}}
+      {{#if hasMoreActivities}}
+          <button id="load-more-activities" class="btn btn-default btn-block">Load more</button>
+      {{/if}}
+  {{/if}}
+
 {{/if}}
 </template>
