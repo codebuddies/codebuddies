@@ -1,0 +1,24 @@
+<template name="studyGroupDescription">
+  <h3>Description and Goals</h3>
+  <div class="well">
+        {{#if introduction}}
+          {{#if isInRole 'owner, admin' _id}}
+            <div class="btn btn-default pull-right" id="editDescription">Edit</div>
+          {{/if}}
+          <p>{{{introduction}}}</p>
+
+          <p> {{{description}}}</p>
+        {{else}}
+
+          {{#if isInRole 'owner, admin' _id}}
+            <div class="text-center">
+              <p>Your study group doesn't have a description yet.</p>
+              <div class="btn btn-default" id="editDescription">Add description</div>
+            </div>
+          {{else}}
+            <p>This study group doesn't have a description yet.</p>
+          {{/if}}
+
+        {{/if}}
+  </div>
+</template>

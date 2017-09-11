@@ -120,6 +120,7 @@
 
   //Study groups
   "new_hangout": "New hangout",
+  "description": "Description",
   "new_study_group": "New study group",
   "study_group_name": "Name",
   "study_group_tagline": "Tagline",
@@ -129,7 +130,7 @@
   "my_study_groups": "My study groups",
   "coming_soon": "Coming Soon",
   "info": "Info",
-  "twentyforseven": "24/7 General Hangout",
+  "twentyforseven": "24/7 Hangout",
   "hangouts": "All Hangouts",
   "members": "Members",
   "learnings": "Learnings",
