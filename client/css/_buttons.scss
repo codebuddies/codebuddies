@@ -4,6 +4,10 @@
   transition: all .5s;
 }
 
+.btn-default-size {
+  width: 300px;
+}
+
 .btn-primary.btn-outline {
   border-color: $cta-blue;
   color: $cta-blue;
