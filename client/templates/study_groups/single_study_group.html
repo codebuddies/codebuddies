@@ -29,9 +29,6 @@
         <div class="row">
 
           <div class="col-md-3 well">
-            {{#if isInRole 'owner, moderator, member ' _id}}
-              {{> hangoutLearned }}
-            {{/if}}
             {{#if equals visibility false}}
               <small class="label label-danger">Archived</small>
             {{/if}}
@@ -56,7 +53,10 @@
               </div>
             </h2>
 
-            
+            {{#if isInRole 'owner, moderator, member ' _id}}
+              {{> hangoutLearned }}
+            {{/if}}
+
             {{> studyGroupInfo}}
 
 
@@ -91,7 +91,7 @@
                 <img src="/images/click_to_load_hangout2.jpg" width="90%" class="load-hangout load-hangout-screenshot">
               {{else}}
                 {{> hangoutFrame }}
-                <p>Chat or study with whomever is around! This room will always be open for this study group.</p>
+                <p class="well">Chat or study with whomever is around! This room will always be open for this study group.</p>
               {{/unless}}
 
             </div>

@@ -3,7 +3,7 @@
   {{#each activities}}
   
     {{#if equals type 'GROUP_CREATION'}}
-        <p class="alert">
+        <p class="activity">
           <i class="fa {{icon}}" aria-hidden="true"> </i>
           <a href="{{pathFor 'profile' name=actor.name userId=actor.id}}"> {{actor.name}} </a>  created the group.
           <small> &nbsp; {{dispDate created_at}} </small>
@@ -11,15 +11,15 @@
     {{/if}}
 
     {{#if equals type 'USER_JOIN'}}
-        <p class="alert">
+        <p class="activity">
           <i class="fa {{icon}}" aria-hidden="true"> </i>
-          <a href="{{pathFor 'profile' name=actor.name userId=actor.id}}"> {{actor.name}} </a>  join the group.
+          <a href="{{pathFor 'profile' name=actor.name userId=actor.id}}"> {{actor.name}} </a>  joined the group.
           <small> &nbsp; {{dispDate created_at}} </small>
         </p>
     {{/if}}
 
     {{#if equals type 'USER_LEAVE'}}
-        <p class="alert">
+        <p class="activity">
           <i class="fa {{icon}}" aria-hidden="true"> </i>
           <a href="{{pathFor 'profile' name=actor.name userId=actor.id}}"> {{actor.name}} </a>  left the group.
           <small> &nbsp; {{dispDate created_at}} </small>
