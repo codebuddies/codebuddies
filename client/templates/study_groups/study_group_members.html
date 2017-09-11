@@ -1,28 +1,40 @@
 <template name="studyGroupMembers">
   {{#if isInRole 'owner, admin, moderator' _id}}
-    <p class="well"><strong>Click on a member's avatar to adjust their permissions.</strong>
+    <p class="well"><h5>You can modify your members' roles here.</h5>
       <ul>
-        <li>Admins and moderators can both schedule hangouts in this study group.</li>
+        <li>Only <strong>admins</strong> and <strong>moderators</strong> can schedule hangouts for this group.</li>
         <li>Admins can promote other members to be moderators.</li>
       </ul>
     </p>
   {{/if}}
 
 
-  <div class="row">
-    <div class="col-md-12">
+  <div class="row members">
     {{#if isInRole 'owner, admin, moderator' _id}}
+      
+      <ul id="members">
       {{#each members}}
-        <img src="{{avatar}}" alt="{{name}}" class="img-circle memberDetail" data-id="{{id}}">
+      <div class="col-md-6">
+        <li>
+          <img src="{{avatar}}" alt="{{name}}" class="img-circle" data-id="{{id}}"> <strong>{{ name }}</strong> 
+          <a class="memberDetail btn btn-default pull-right">Modify</a>
+        </li>
+      </div>
       {{/each}}
+      </ul>
+      
     {{else}}
+      <ul id="members">
       {{#each members}}
-        <a href="{{pathFor 'profile' name=name userId=id}}" class="{{#unless currentUser}} continue-popup {{/unless}}">
-          <img src="{{avatar}}" alt="{{name}}" class="img-circle" data-id="{{id}}">
-        </a>
+        <li>
+          <a href="{{pathFor 'profile' name=name userId=id}}" class="{{#unless currentUser}} continue-popup {{/unless}}">
+            <img src="{{avatar}}" alt="{{name}}" class="img-circle" data-id="{{id}}"> <strong>{{ name }}</strong>
+          </a>
+        </li>
       {{/each}}
+      </ul>
     {{/if}}
-    </div>
+
   </div>
 
 </template>

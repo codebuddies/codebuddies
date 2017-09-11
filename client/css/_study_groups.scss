@@ -48,6 +48,18 @@
   #info .panel-body {
   	padding: 10px 0px;
   }
+  ul#members {
+    list-style: none;
+    padding: 0px 15px 10px 15px;
+    strong {
+      color: $black;
+      padding-left: 5px;
+    }
+  }
+  a.memberDetail {
+    position: relative;
+    top: 8px;
+  }
 }
 
 .newStudyGroup {
