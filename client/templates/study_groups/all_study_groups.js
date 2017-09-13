@@ -69,9 +69,12 @@ Template.allStudyGroups.helpers({
 });
 
 Template.allStudyGroups.events({
-  "change #studyGroupsFilter": function(event, template) {
+  'change #studyGroupsFilter': function(event, template) {
     studyGroupsFilter = template.find("#studyGroupsFilter").value;
     template.flag.set(false);
     template.studyGroupsFilter.set(studyGroupsFilter);
+  },
+  'click #createGroupButton': function(event) {
+    Modal.show('newStudyGroupModal');
   }
 });

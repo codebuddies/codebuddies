@@ -61,7 +61,7 @@ Template.myStudyGroups.helpers({
 });
 
 Template.myStudyGroups.events({
-  "click #newStudyGroup": function(event, template){
+  'click #newStudyGroup': function(event, template){
     event.preventDefault();
     Modal.show('newStudyGroupModal');
   }
