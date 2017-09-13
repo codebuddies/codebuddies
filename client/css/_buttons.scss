@@ -223,4 +223,12 @@ li.delete-hangout, li.edit-hangout {
   }
 }
 
+#create-hangout-popup, #createGroupButton {
+  background: $success-green;
+  margin: 0 auto;
+  max-width: 340px;
+}
+#createGroupButton {
+  margin: 10px auto;
+}
 

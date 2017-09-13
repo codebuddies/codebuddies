@@ -111,7 +111,7 @@
   "hangout_reported_message" : "We appreciate your assistance in maintaining the quality of this community.",
 
   // admin header
-  "manage_user" : "Manage user",
+  "manage_user" : "Manage Users",
   "notification" : "Notification",
 
   //visitor
@@ -119,15 +119,15 @@
   "browse_hangouts" : "Hangouts",
 
   //Study groups
-  "new_hangout": "New hangout",
+  "new_hangout": "New Hangout",
   "description": "Description",
-  "new_study_group": "New study group",
+  "new_study_group": "New Study Group",
   "study_group_name": "Name",
   "study_group_tagline": "Tagline",
-  "start_a_studygroup": "Start a new study group",
+  "start_a_studygroup": "Start a New Study Group",
   "create": "Create a study group",
-  "find_study_group": "Find a study group",
-  "my_study_groups": "My study groups",
+  "find_study_group": "Find a Study Group",
+  "my_study_groups": "My Study Groups",
   "coming_soon": "Coming Soon",
   "info": "Info",
   "twentyforseven": "24/7 Hangout",
@@ -140,8 +140,9 @@
   "availability": "Availability",
   "activity": "Activity",
   "activities": "Activities",
-  "join_study_group": "Join this study group",
-  "leave_study_group": "Leave this study group",
+  "join_study_group": "Join this Study Group",
+  "leave_study_group": "Leave this Study Group",
   "select_study_group": "Please select a group.",
-  "settings": "Settings"
+  "settings": "Settings",
+  "start_new_group": "Start a New Group"
 }
