@@ -1,7 +1,4 @@
 <template name="studyGroupLearnings">
-	{{#if isInRole 'owner, moderator, member ' _id}}
-        {{> hangoutLearned }}
-    {{/if}}
 	{{#if learnings.count}}
 		<div class="status-list">
 			<div class="learnings">
@@ -11,7 +8,7 @@
 			</div>
 		</div>
 	{{ else }}
-		<h5 class="well margin-top-1">Please share something you learned.</h5>
+		<h5 class="well margin-top-1">Please share something you learned or accomplished.</h5>
 	{{/if}}
     {{#if Template.subscriptionsReady}}
     	{{#if hasMoreLearnings}}
