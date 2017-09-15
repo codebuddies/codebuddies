@@ -12,6 +12,7 @@
               <li><a href="{{pathFor 'my study groups'}}">My Study Groups</a></li>
             {{/unless}}
             <li class="active">{{title}}</li>
+
           </ol>
         </div>
 
@@ -34,6 +35,9 @@
             {{/if}}
 
             <h2>{{title}}
+                {{#if isInRole 'owner, admin' _id}}
+                  <div class="btn btn-default pull-right" id="editTitle"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></div>
+                {{/if}}
 
               <h5><i class="fa fa-map-pin" aria-hidden="true"></i> {{tagline}}</h5>
 

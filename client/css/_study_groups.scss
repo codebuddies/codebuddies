@@ -1,7 +1,7 @@
 #study-groups {
   h2 {
     margin: 10px 0px;
-    @include font-face(600, 28px, normal, $black);
+    @include font-face(600, 24px, normal, $black);
   }
   h3 {
     text-transform: uppercase;

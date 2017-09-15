@@ -288,6 +288,36 @@ Meteor.methods({
   }
 });
 
+/**
+* update study group title and tagline
+* @function
+* @name updateStudyGroupTitle
+* @param {Object}
+* @return {Boolean} true on success
+*/
+
+
+Meteor.methods({
+  updateStudyGroupTitle(data){
+    check(data,{
+      id: String,
+      title: String,
+      tagline: String
+    })
+
+    const actor = Meteor.user()
+
+    //check if user is owner or admin
+    if (!actor || !Roles.userIsInRole(actor, ['owner','admin'], data.id )) {
+      throw new Meteor.Error(403, "Access denied");
+    }
+
+    StudyGroups.update({_id: data.id}, { $set:{title: data.title, tagline: data.tagline }});
+
+    return true;
+  }
+});
+
 
 /**
 * Archive Studygroup

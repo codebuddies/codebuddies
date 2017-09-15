@@ -82,4 +82,8 @@ Template.singleStudyGroup.events({
     event.preventDefault();
     return Modal.show('studyGroupMemberDetail', this);
   },
+  "click #editTitle": function(event, template){
+     event.preventDefault();
+     Modal.show('editStudyGroupTitleModal', this);
+  },
 });

@@ -56,7 +56,7 @@ Template.editStudyGroupInfoModal.events({
       }
       if(result){
         template.processing.set( false );
-        Bert.alert( 'info updated' , 'success', 'growl-top-right' );
+        Bert.alert( 'Description updated!' , 'success', 'growl-top-right' );
         Modal.hide()
       }
     });
