@@ -26,6 +26,7 @@ export const  hangoutCollectionSeeder = (user, dateTime) =>{
       "users" : [ user.id ],
       "day_reminder_sent" : true,
       "hourly_reminder_sent" : true,
+      "followup_email_sent" : true,
       "views" : faker.random.number({min:5, max:10}),
   }
 

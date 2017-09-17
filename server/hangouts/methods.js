@@ -59,6 +59,7 @@ Meteor.methods({
       users:[loggedInUser._id],
       day_reminder_sent: reminder,
       hourly_reminder_sent: reminder,
+      followup_email_sent: false,
       views: 0,
       visibility: true,
       created_at: createdAt,

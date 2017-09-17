@@ -36,6 +36,7 @@ Template.cloneHangoutModal.events({
     const duration = Number($('#end-date-time').val()) || 1440;
     const end = new Date(startDate.getTime() + (1000*60* duration));
     const type = $('input[name="hangout-type"]:checked').val();
+    const groupId = $('#studyGroup').val();
 
 
     const data = {
@@ -46,7 +47,8 @@ Template.cloneHangoutModal.events({
       start: new Date(start),
       end: new Date(end),
       duration: duration,
-      type: type
+      type: type,
+      groupId: groupId
     };
 
 
@@ -68,6 +70,15 @@ Template.cloneHangoutModal.events({
         type: 'error'
       });
       return;
+    }
+
+    if ($.trim(groupId) == 'default') {
+      $('#studyGroup').focus();
+      sweetAlert({
+        title: TAPi18n.__("select_study_group"),
+        confirmButtonText: TAPi18n.__("ok"),
+        type: 'error'
+      });
     }
 
     if ($.trim(description) == '') {

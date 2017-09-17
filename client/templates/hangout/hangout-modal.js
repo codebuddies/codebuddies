@@ -67,7 +67,6 @@ Template.createHangoutModal.events({
     // If date was not set, return 24 hours later. Else, return end date time
     const duration = Number($('#end-date-time').val()) || 1440;
     const end = new Date(startDate.getTime() + (1000*60* duration));
-
     const groupId = $('#studyGroup').val();
 
 
