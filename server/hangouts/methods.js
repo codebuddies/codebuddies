@@ -13,12 +13,27 @@ Meteor.methods({
       end: Match.OneOf(String, Date),
       duration: Number,
       type: String,
+      groupId: String
     }));
 
     const loggedInUser = Meteor.user();
     if (!this.userId) {
       throw new Meteor.Error('Hangout.methods.createHangout.not-logged-in', 'Must be logged in to create new hangout.');
     }
+
+    let group;
+    if (data.groupId == 'CB') {
+      group = {_id: 'CB', title: 'CB', slug: 'CB' };
+    } else if (!loggedInUser || !Roles.userIsInRole(loggedInUser, ['owner','moderator'], data.groupId)) {
+      throw new Meteor.Error(403, "Access denied");
+    } else {
+      group = StudyGroups.findOne({'_id': data.groupId }, { 'title': 1, 'slug': 1 });
+    }
+
+
+
+
+
 
     let createdAt = new Date();
     let createdAtPlusTwoHour = new Date(createdAt.getTime() + (2*1000*60*60));
@@ -48,7 +63,14 @@ Meteor.methods({
       views: 0,
       visibility: true,
       created_at: createdAt,
+      group: {
+        id: group._id,
+        title: group.title,
+        slug: group.slug
+      }
     }
+
+    // console.log(hangout);
 
     const hangout_id = Hangouts.insert(hangout);
     hangout._id = hangout_id;

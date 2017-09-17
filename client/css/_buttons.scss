@@ -4,6 +4,10 @@
   transition: all .5s;
 }
 
+.btn-default-size {
+  width: 300px;
+}
+
 .btn-primary.btn-outline {
   border-color: $cta-blue;
   color: $cta-blue;
@@ -103,7 +107,7 @@
   background-color: $cta-blue;
   display: block;
   height: 36px;
-  margin: 0 auto;
+  margin: 10px auto;
 
   &:hover {
     color: $white;
@@ -115,6 +119,13 @@
 
   &.btn-success {
     background: $success-green;
+  }
+}
+
+.btn-leave {
+  background: $warm-grey;
+  &:hover {
+    background: $danger-red;
   }
 }
 
@@ -178,7 +189,7 @@
   }
 }
 
-.delete-hangout, .edit-hangout {
+li.delete-hangout, li.edit-hangout {
   @media (min-width: 480px) {
     border: 0;
     padding: 0;
@@ -196,4 +207,28 @@
   background: $warm-grey;
 }
 
+.hangout-action-buttons {
+  .btn {
+    display: inline-block;
+    text-transform: uppercase;
+    width: 100%;
+  }
+  .hangout-action-buttons-other {
+      a.btn {
+        @include font-face(200, 16px, light, $black);
+        background: transparent;
+        border: 1px solid $black;
+        margin: 10px 0px 0px 0px;
+      }
+  }
+}
+
+#create-hangout-popup, #createGroupButton {
+  background: $success-green;
+  margin: 0 auto;
+  max-width: 340px;
+}
+#createGroupButton {
+  margin: 10px auto;
+}
 

@@ -1,3 +1,9 @@
+0.4.3
+Small additions/fixes
+
+0.4.2
+Jitsi fix and first-time PRs
+
 0.4.1
 Remove migration and deployment test
 

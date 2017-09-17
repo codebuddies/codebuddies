@@ -115,6 +115,17 @@ a:hover {
   margin-top: 10px;
   margin-bottom: 10px;
 }
+.margin-right-1 {
+  margin-right: 10px;
+}
+.margin-top-2 {
+  margin-top: 20px;
+}
+
+.well {
+  margin: 10px 0px;
+  overflow: auto;
+}
 .padding-none {
   padding: 0px;
 }
@@ -129,3 +140,24 @@ a:hover {
 .bg-blue {
   background: $cta-blue;
 }
+
+.study-group-tag.label-default {
+  position: absolute;
+  z-index: 99999;
+}
+
+.load-hangout-screenshot {
+  display: block;
+  margin: 0 auto;
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)"; // IE8
+  filter: alpha(opacity=70); // IE 5-7
+  opacity: 0.7;
+  cursor: pointer;
+  &:hover {
+      -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)"; // IE8
+      filter: alpha(opacity=100); // IE 5-7
+      opacity: 1.0;
+  }
+}
+
+

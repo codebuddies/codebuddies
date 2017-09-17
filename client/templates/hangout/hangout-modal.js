@@ -1,5 +1,8 @@
 import QuillEditor from '../../libs/QuillEditor';
 
+Template.createHangoutModal.onCreated(function () {
+    this.subscribe('myStudyGroups');
+});
 Template.createHangoutModal.rendered = function() {
   var start = this.$('#start-date-time-picker');
   var templateInstance = Template.instance();
@@ -37,6 +40,22 @@ Template.createHangoutModal.rendered = function() {
   });
 };
 
+Template.createHangoutModal.helpers({
+  studyGroups: function() {
+    let roles = Meteor.user().roles;
+    let studyGroups = [];
+    //this won't work on safari and opera.
+    if (Object.entries) {
+      Object.entries(roles).forEach(([key, value]) => {
+        if(value.includes('owner') || value.includes('admin') || value.includes('moderator') && key !== 'CB'){
+          studyGroups.push(key)
+        }
+      });
+    }
+    //this won't work on safari and opera. end
+    return StudyGroups.find({_id:{$in:studyGroups}});
+  }
+});
 Template.createHangoutModal.events({
   'click #create-hangout': function(e, template) {
     const templateInstance = template;
@@ -49,6 +68,8 @@ Template.createHangoutModal.events({
     const duration = Number($('#end-date-time').val()) || 1440;
     const end = new Date(startDate.getTime() + (1000*60* duration));
 
+    const groupId = $('#studyGroup').val();
+
 
     const type = $('input[name="hangout-type"]:checked').val();
 
@@ -60,7 +81,8 @@ Template.createHangoutModal.events({
       start: new Date(start),
       end: end,
       duration: duration,
-      type: type
+      type: type,
+      groupId: groupId
     };
 
     if ($.trim(start) == '') {
@@ -91,6 +113,18 @@ Template.createHangoutModal.events({
       });
       return;
     }
+
+    if ($.trim(groupId) == 'default') {
+      $('#studyGroup').focus();
+      sweetAlert({
+        title: TAPi18n.__("select_study_group"),
+        confirmButtonText: TAPi18n.__("ok"),
+        type: 'error'
+      });
+    }
+
+
+    // console.log(data);
 
     Meteor.call('createHangout', data, function(err, result) {
       if (result) {

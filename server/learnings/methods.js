@@ -2,10 +2,14 @@ import {tweetLearning} from '../twitter/methods.js';
 
 Meteor.methods({
   addLearning: function(data) {
-    check(data.title, String);
-    check(data.user_id, String);
-    check(data.username, String);
-    check(data.hangout_id, String)
+    check(data, {
+      title: String,
+      user_id: String,
+      username: String,
+      hangout_id: Match.Optional(String),
+      study_group_id: Match.Optional(String),
+    })
+
 
     if (!this.userId) {
       throw new Meteor.Error('Learnings.methods.addLearning.not-logged-in', 'Must be logged in to add new learning.');
@@ -17,6 +21,7 @@ Meteor.methods({
       username: data.username,
       created_at: new Date(),
       hangout_id: data.hangout_id,
+      study_group_id: data.study_group_id,
       kudos: 0
     }
 
