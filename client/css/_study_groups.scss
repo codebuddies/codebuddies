@@ -1,3 +1,6 @@
+$margin-zero: 0 !default;
+$margin-base: 10px !default;
+
 #study-groups {
   h2 {
     margin: 10px 0px;
@@ -63,6 +66,10 @@
 
   .well--end-of-page {
     padding: 5px;
+  }
+
+  .label-box {
+    margin-top: $margin-base;
   }
 }
 

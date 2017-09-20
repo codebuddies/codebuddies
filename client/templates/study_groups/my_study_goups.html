@@ -21,16 +21,16 @@
                 <a href="{{pathFor 'study group' studyGroupSlug=slug studyGroupId=_id}}">  {{title}} </a>
                 <br> <small>{{tagline}}</small> <small><i class="fa fa-users fa-fw"></i>{{members.length}}</small>
                 {{#if isInRole 'owner' _id}}
-                  <span class="label label-primary pull-right">Owner</span>
+                  <span class="label-box label label-primary pull-right">Owner</span>
                 {{/if}}
                 {{#if isInRole 'admin' _id}}
-                  <span class="label label-primary pull-right">Admin</span>
+                  <span class="label-box label label-primary pull-right">Admin</span>
                 {{/if}}
                 {{#if isInRole 'moderator' _id}}
-                  <span class="label label-primary pull-right">Organizer</span>
+                  <span class="label-box label label-primary pull-right">Organizer</span>
                 {{/if}}
                 {{#if isInRole 'member' _id}}
-                  <span class="label label-primary pull-right">Member</span>
+                  <span class="label-box label label-primary pull-right">Member</span>
                 {{/if}}
 
               </h4>
