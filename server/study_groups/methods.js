@@ -92,6 +92,7 @@ Meteor.methods({
       studyGroupSlug: String
     });
 
+    // default user privilege.
     const role = 'member';
 
     if (!this.userId) {
@@ -255,6 +256,13 @@ Meteor.methods({
     if (expectedRoles.indexOf(data.role) < 0 ) {
       throw new Meteor.Error(403, "Unexpected Role");
     }
+
+    StudyGroups.update(
+      {_id: data.studyGroupId, 'members.id': data.user.id },
+      {
+        $set: { 'members.$.role': data.role }
+      }
+    );
 
     //role update
     Roles.setUserRoles(data.user.id, data.role, data.studyGroupId);
