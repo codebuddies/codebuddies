@@ -12,15 +12,23 @@
 
               <div class="form-group">
                 <label  class="control-label">Title</label>
-                <textarea name="sgTitle" class="form-control" id="sgTitle" rows="3" cols="70" placeholder="Title">{{title}}</textarea>
+                <input type="text" class="form-control" id="sgTitle" placeholder="{{_ 'study_group_name'}} (required)" value="{{title}}">
                 <small class="pull-right">{{titleCharCount}}</small>
               </div>
 
               <div class="form-group">
                 <label  class="control-label">Tagline</label>
-                <textarea name="sgTagline" class="form-control" id="sgTagline" rows="5" cols="70" placeholder="Tagline">{{tagline}}</textarea>
+                <input type="text" class="form-control" id="sgTagline" placeholder="{{_ 'study_group_tagline'}} (required)" value="{{tagline}}">
                 <small class="pull-right">{{taglineCharCount}}</small>
               </div>
+
+              <div class="form-group">
+                <label  class="control-label">Tags</label>
+                <select class="study-group-tags-multiple form-control"  multiple="multiple">
+                  <option></option>
+                </select>
+              </div>
+
 
             </div><!--modal body-->
 
