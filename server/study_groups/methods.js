@@ -92,6 +92,8 @@ Meteor.methods({
       studyGroupSlug: String
     });
 
+    const role = 'member';
+
     if (!this.userId) {
       throw new Meteor.Error('StudyGroups.methods.joinStudyGroup.not-logged-in', 'Must be logged in to join any Study Group.');
     }
@@ -101,13 +103,24 @@ Meteor.methods({
     const member = {
       id: user._id,
       name: user.username,
-      avatar: user.profile.avatar.default
+      avatar: user.profile.avatar.default,
+      role: role
     }
 
-    StudyGroups.update({_id:data.studyGroupId}, {$addToSet:{members:member}});
+    StudyGroups.update(
+      {_id:data.studyGroupId},
+      {
+        $push: {
+          members: {
+            $each: [ member ],
+            $sort: { name: 1 }
+          }
+        }
+      }
+    );
 
     //by default on join person gets a member privilege
-    Roles.addUsersToRoles(user._id, 'member', data.studyGroupId);
+    Roles.addUsersToRoles(user._id, role, data.studyGroupId);
 
     //activity
     const activity = {
