@@ -13,62 +13,60 @@
       </div>
     </div>
 
-    <div class="container margin-top-2">    
+    {{> studyGroupsSearchBox}}
 
-      {{#if Template.subscriptionsReady}}
-        {{#if studyGroups.count}}
-        <div class="row">
-          {{#each studyGroups}}
+    {{#if sgSearchMode}}
+      {{> studyGroupsSearchResult}}
+    {{/if}}
 
-            <div class="col-md-4">
-            <div class="well">
-              <h4>
-                <a href="{{pathFor 'study group' studyGroupSlug=slug studyGroupId=_id}}">  {{title}} </a>
-                <br> <small>{{tagline}}</small> <small><i class="fa fa-users fa-fw"></i>{{members.length}}</small>
-                {{#if isInRole 'owner' _id}}
-                  <span class="label label-primary pull-right">Owner</span>
-                {{/if}}
-                {{#if isInRole 'admin' _id}}
-                  <span class="label label-primary pull-right">Admin</span>
-                {{/if}}
-                {{#if isInRole 'moderator' _id}}
-                  <span class="label label-primary pull-right">Organizer</span>
-                {{/if}}
-                {{#if isInRole 'member' _id}}
-                  <span class="label label-primary pull-right">Member</span>
-                {{/if}}
 
-              </h4>
-            </div>
-            </div>
-          {{/each}}
-          </div>
-        {{else}}
+    {{#unless sgSearchMode}}
+      <div class="container margin-top-2">
 
-          <!-- <div class="jumbotron align-center">
-            <div class="container">
-              <div class="row text-center">
+        {{#if Template.subscriptionsReady}}
+          {{#if studyGroups.count}}
+          <div class="row">
+            {{#each studyGroups}}
 
-                  <h5>You don't have any studygroups</h5>
-                  <div class="btn btn-default" id="newStudyGroup">Create A Study Group</div>
-                  &nbsp; OR &nbsp;
-                  <div class="btn btn-default" id="findMeStudyGroup">Find me a Study Group</div>
+              <div class="col-md-4">
+              <div class="well">
+                <h4>
+                  <a href="{{pathFor 'study group' studyGroupSlug=slug studyGroupId=_id}}">  {{title}} </a>
+                  <br> <small>{{tagline}}</small> <small><i class="fa fa-users fa-fw"></i>{{members.length}}</small>
+                  {{#if isInRole 'owner' _id}}
+                    <span class="label label-primary pull-right">Owner</span>
+                  {{/if}}
+                  {{#if isInRole 'admin' _id}}
+                    <span class="label label-primary pull-right">Admin</span>
+                  {{/if}}
+                  {{#if isInRole 'moderator' _id}}
+                    <span class="label label-primary pull-right">Organizer</span>
+                  {{/if}}
+                  {{#if isInRole 'member' _id}}
+                    <span class="label label-primary pull-right">Member</span>
+                  {{/if}}
+
+                </h4>
               </div>
-             </div>
-          </div> -->
+              </div>
+            {{/each}}
+            </div>
+          {{else}}
 
+          {{/if}}
+
+        {{else}}
+          {{> loading}}
+        {{/if}}<!-- ./Template.subscriptionsReady -->
+
+        {{#if status}}
+            <div class="well well--end-of-page">
+              <h5 class="text-center">You've reached the end of the page.</h5>
+            </div>
         {{/if}}
-      {{else}}
-        {{> loading}}
-      {{/if}}<!-- ./Template.subscriptionsReady -->
 
-      {{#if status}}
-          <div class="well well--end-of-page">
-            <h5 class="text-center">You've reached the end of the page.</h5>
-          </div>
-      {{/if}}
-
-    </div>
+      </div>
+    {{/unless}}
 
   </div><!-- #study-groups -->
 </template>

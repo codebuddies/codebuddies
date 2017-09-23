@@ -64,3 +64,11 @@ Meteor.publish( 'studyGroupById', function(studygroupId) {
 
   return StudyGroups.find({ _id : studygroupId});
 });
+
+Meteor.publish( 'studyGroupSearch', function(searchTerm) {
+  check(searchTerm, String);
+    if (_.isEmpty(searchTerm))
+    return this.ready();
+
+    return StudyGroups.search(searchTerm);
+});
