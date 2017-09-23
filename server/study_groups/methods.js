@@ -31,7 +31,10 @@ Meteor.methods({
            id: user._id,
            name: user.username,
            avatar: user.profile.avatar.default,
-           role: 'owner'
+           role: 'owner',
+           email: user.email,
+           subscribed: 1
+
          }
        ],
        visibility: true
@@ -101,7 +104,9 @@ Meteor.methods({
     const member = {
       id: user._id,
       name: user.username,
-      avatar: user.profile.avatar.default
+      avatar: user.profile.avatar.default,
+      email: user.email,
+      subscribed: 1
     }
 
     StudyGroups.update({_id:data.studyGroupId}, {$addToSet:{members:member}});
@@ -158,7 +163,9 @@ Meteor.methods({
     const member = {
       id: user._id,
       name: user.username,
-      avatar: user.profile.avatar.default
+      avatar: user.profile.avatar.default,
+      email: user.email,
+      subscribed: 0
     }
 
     //check if the user is a member
@@ -223,7 +230,9 @@ Meteor.methods({
       user: Match.ObjectIncluding({
         id: String,
         username: String,
-        avatar: String
+        avatar: String,
+        email: String,
+        subscribed: Boolean
       }),
       role: String,
       studyGroupId: String
