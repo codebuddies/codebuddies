@@ -19,7 +19,6 @@ Template.studyGroupsSearchBox.events({
   "keyup #sgSearchBox": function(event, template){
     event.preventDefault();
     const  sgSearchTerm = template.find("#sgSearchBox").value;
-    console.log(sgSearchTerm);
     if (_.isEmpty(sgSearchTerm)){
      Session.set('sgSearchTerm', '');
      Session.set('sgSearchMode',false);
