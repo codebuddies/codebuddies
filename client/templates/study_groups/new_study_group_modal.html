@@ -14,15 +14,22 @@
                 <fieldset>
                   <div class="form-group">
                       <input type="text" class="form-control" id="title" placeholder="{{_ 'study_group_name'}} (required)">
+                      <small class="pull-right margin-bottom-1">{{titleCharCount}}</small>
                   </div>
+
                   <div class="form-group">
                       <input type="text" class="form-control" id="tagline" placeholder="{{_ 'study_group_tagline'}} (required)">
+                      <small class="pull-right">{{taglineCharCount}}</small>
                   </div>
+
                   <div class="form-group">
                     <select class="study-group-tags-multiple form-control"  multiple="multiple">
                       <option></option>
                     </select>
                   </div>
+
+
+
                 </fieldset>
 
               </div><!-- ./modal-body -->
