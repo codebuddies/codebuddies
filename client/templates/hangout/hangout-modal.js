@@ -3,7 +3,7 @@ import QuillEditor from '../../libs/QuillEditor';
 Template.createHangoutModal.onCreated(function () {
     this.subscribe('myStudyGroups');
 });
-Template.createHangoutModal.rendered = function() {
+Template.createHangoutModal.onRendered(function() {
   var start = this.$('#start-date-time-picker');
   var templateInstance = Template.instance();
   var editorHostElement = templateInstance.$('[data-editor-host]').get(0);
@@ -38,24 +38,37 @@ Template.createHangoutModal.rendered = function() {
   },function(){
     $('#d3').hide();
   });
-};
 
-Template.createHangoutModal.helpers({
-  studyGroups: function() {
-    let roles = Meteor.user().roles;
-    let studyGroups = [];
-    //this won't work on safari and opera.
-    if (Object.entries) {
-      Object.entries(roles).forEach(([key, value]) => {
-        if(value.includes('owner') || value.includes('admin') || value.includes('moderator') && key !== 'CB'){
-          studyGroups.push(key)
-        }
-      });
+  const instance = this;
+  let roles = Meteor.user().roles;
+  let studyGroupsKeys = [];
+
+  Object.entries(roles).forEach(([key, value]) => {
+    if(value.includes('owner') || value.includes('admin') || value.includes('moderator') && key !== 'CB'){
+      studyGroupsKeys.push(key)
     }
-    //this won't work on safari and opera. end
-    return StudyGroups.find({_id:{$in:studyGroups}});
-  }
+  });
+
+  instance.autorun(() => {
+
+    let studyGroups = [{id: "CB", text: "CodeBuddies Default"}];
+    StudyGroups.find({_id:{$in:studyGroupsKeys}}).forEach((sg) => {
+      studyGroups.push({id: sg._id, text: sg.title});
+    });
+
+    Meteor.setTimeout(function () {
+
+      instance.$(".study-group-single", studyGroups).select2({
+        placeholder: "Select a group you organize",
+        data: studyGroups
+      });
+
+    },1000)
+
+  });
+
 });
+
 Template.createHangoutModal.events({
   'click #create-hangout': function(e, template) {
     const templateInstance = template;
@@ -67,7 +80,7 @@ Template.createHangoutModal.events({
     // If date was not set, return 24 hours later. Else, return end date time
     const duration = Number($('#end-date-time').val()) || 1440;
     const end = new Date(startDate.getTime() + (1000*60* duration));
-    const groupId = $('#studyGroup').val();
+    const groupId = $(".study-group-single").val();
 
 
     const type = $('input[name="hangout-type"]:checked').val();
@@ -113,8 +126,8 @@ Template.createHangoutModal.events({
       return;
     }
 
-    if ($.trim(groupId) == 'default') {
-      $('#studyGroup').focus();
+    if ($.trim(groupId) == '') {
+      $('.study-group-single').focus();
       sweetAlert({
         title: TAPi18n.__("select_study_group"),
         confirmButtonText: TAPi18n.__("ok"),
