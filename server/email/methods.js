@@ -2,6 +2,10 @@ emailNotification = function(hangout, type){
   let emails = hangout.email_addresses.join(",");
   console.log(emails + ' are the emails that we are sending to in emailNotification');
   let subject;
+  if (type === "CREATED") {
+    SSR.compileTemplate('notifyEmail', Assets.getText('email-hangout-created.html'));
+    subject = 'An organizer scheduled a new hangout in the study group "' + hangout.group.title + '"!';
+  }
   if(type === "REMINDER"){
      SSR.compileTemplate('notifyEmail', Assets.getText('email-hangout-reminder.html'));
      subject = 'Hangout Reminder - ' + hangout.topic + ' is scheduled to start within 24 hours!';
@@ -24,7 +28,8 @@ emailNotification = function(hangout, type){
     host: hangout.host.name,
     hangout_start_time: moment.utc( hangout.start ).format('MMMM Do YYYY, h:mm a z'),
     logo: Meteor.absoluteUrl('images/logo-circle.png'),
-    hangout_url: Meteor.absoluteUrl("hangout/" + hangout._id)
+    hangout_url: Meteor.absoluteUrl("hangout/" + hangout._id),
+    study_group: hangout.group.title
   };
 
    const data = {

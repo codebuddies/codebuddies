@@ -80,6 +80,7 @@ Meteor.methods({
 
 
     slackNotification(hangout, "NEW");
+
     return true;
   },
   deleteHangout: function (data) {
