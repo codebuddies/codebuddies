@@ -42,16 +42,8 @@
 
               <div class="row">
                 <div class="col-md-12">
-                  <select class="form-control" id="studyGroup">
-                      <option value="default">Select a group you organize</option>
-                      <option value="CB" id="CB">CodeBuddies Default</option>
-                      {{#if Template.subscriptionsReady}}
-                        {{#each studyGroups}}
-                          <option value="{{_id}}">{{title}}</option>
-                        {{/each}}
-                      {{else}}
-                        {{> loading}}
-                      {{/if}}
+                  <select class="study-group-single form-control">
+                    <option></option>
                   </select>
                 </div>
               </div>

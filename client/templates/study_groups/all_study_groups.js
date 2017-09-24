@@ -65,6 +65,9 @@ Template.allStudyGroups.helpers({
   studyGroupsFilter: function(){
     console.log(Template.instance().studyGroupsFilter.get());
     return Template.instance().studyGroupsFilter.get()
+  },
+  sgSearchMode: function(){
+    return Session.get('sgSearchMode');
   }
 });
 

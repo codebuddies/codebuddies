@@ -3,12 +3,13 @@ Template.homeLoggedIn.onCreated(function(){
   var metaInfo = {name: "description", content: "We're a community learning code via a Slack chatroom, a Facebook Group, and peer-to-peer organized screensharing/pair-programming hangouts. Learning with others helps us learn faster. The project is free, open-sourced, and 100% community-built."};
   DocHead.setTitle(title);
   DocHead.addMeta(metaInfo);
-});
-Template.registerHelper('searchMode',function(){
-    return Session.get("searchMode");
-});
-Template.registerHelper('hangoutSearchQuery',function(){
-    return Session.get("hangoutSearchQuery");
+
+  this.autorun(() => {
+    if (!_.isEmpty(Session.get('hangoutSearchTerm'))){
+    this.subscribe('hangoutSearch',Session.get('hangoutSearchTerm'));
+    }
+  });
+
 });
 
 Template.homeLoggedIn.helpers({
@@ -18,10 +19,14 @@ Template.homeLoggedIn.helpers({
       return totalUsers;
   },
   searchResults: function() {
-    return Hangouts.search(Session.get('hangoutSearchQuery'));
+    return Hangouts.search(Session.get('hangoutSearchTerm'));
   },
-  booksSearchQuery: function() {
-    return Session.get('hangoutSearchQuery');
+  hangoutSearchTerm () {
+    return Session.get("hangoutSearchTerm");
+  },
+  hangoutSearchMode () {
+    // console.log(Session.get('hangoutSearchMode'));
+    return Session.get("hangoutSearchMode");
   }
 });
 
@@ -29,14 +34,14 @@ Template.homeLoggedIn.helpers({
 Template.homeLoggedIn.events({
   "keyup #searchBox": function(event, template){
     event.preventDefault();
-    //console.log(template.find(".searchTerm").value);
+    // console.log(template.find(".searchTerm").value);
     var term = template.find(".searchTerm").value;
     if (_.isEmpty(term)){
-     Session.set('hangoutSearchQuery', ' ');
-     Session.set('searchMode',false);
+     Session.set('hangoutSearchTerm', '');
+     Session.set('hangoutSearchMode',false);
    }else{
-     Session.set('searchMode',true);
-     Session.set('hangoutSearchQuery', term);
+     Session.set('hangoutSearchMode',true);
+     Session.set('hangoutSearchTerm', term);
    }
   },
   "click #create-hangout-popup": function() {
@@ -73,6 +78,10 @@ Template.homeLoggedIn.events({
     $(e.target).parent('a').tab('show');
     var id = $(e.target).parent('a').attr('data-id');
     $('[href=#' + id + id + ']').tab('show');
+  },
+  "click #clearSearch": function(event, template){
+    Session.set('hangoutSearchTerm', "");
+    Session.set('hangoutSearchMode', false);
   }
 
 });

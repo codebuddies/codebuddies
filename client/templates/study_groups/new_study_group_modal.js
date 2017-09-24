@@ -1,17 +1,30 @@
-Template.newStudyGroupModal.onCreated(function () {
+
+Template.newStudyGroupModal.onCreated(function() {
   let instance = this;
   instance.processing = new ReactiveVar(false);
   instance.titleCharCount = new ReactiveVar(70);
   instance.taglineCharCount = new ReactiveVar(60);
 });
 
-Template.newStudyGroupModal.onRendered(function () {
+Template.newStudyGroupModal.onRendered(function() {
   let instance = this;
   let titleCharCount =  $("#title").val().length || 0;
   instance.titleCharCount.set(70 - titleCharCount)
 
   let taglineCharCount =  $("#tagline").val().length || 0;
   instance.taglineCharCount.set(60 - taglineCharCount)
+
+  Meteor.setTimeout(function () {
+    const tags = [ 'Below are some popular tags. Feel free to type your own! White spaces are supported.', 'JavaScript', 'Python', 'Go', 'CSS', 'PHP', 'R', 'NodeJS', 'D3', 'MongoDB', 'Meteor', 'Java'];
+    instance.$(".study-group-tags-multiple", tags).select2({
+      placeholder: "Tags (required)",
+      data: tags,
+      tags: true,
+      tokenSeparators: [','],
+      allowClear: true
+    });
+  },500)
+
 });
 
 Template.newStudyGroupModal.helpers({
@@ -54,11 +67,18 @@ Template.newStudyGroupModal.events({
       return Bert.alert( 'Please shorten your tagline.', 'warning', 'growl-top-right' );
     }
 
+    if (!$(".study-group-tags-multiple").val() ||$(".study-group-tags-multiple").val().length <= 2) {
+      return Bert.alert( 'Please select at least 3 tags. ', 'warning', 'growl-top-right' );
+    }
+
+
     const data = {
       title:template.find('#title').value,
       slug:template.find('#title').value.replace(/\s+/g, '-').toLowerCase(),
-      tagline:template.find('#tagline').value
+      tagline:template.find('#tagline').value,
+      tags: $(".study-group-tags-multiple").val()
     }
+    // console.log(data);
 
     template.processing.set( true );
 
