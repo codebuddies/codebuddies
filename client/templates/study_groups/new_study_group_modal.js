@@ -15,7 +15,7 @@ Template.newStudyGroupModal.onRendered(function() {
   instance.taglineCharCount.set(60 - taglineCharCount)
 
   Meteor.setTimeout(function () {
-    const tags = [ 'JavaScript', 'Python', 'Go', 'CSS', 'PHP', 'R', 'NodeJS', 'D3', 'MongoDB', 'Meteor', 'Java'];
+    const tags = [ 'Below are some popular tags. Feel free to type your own! White spaces are supported.', 'JavaScript', 'Python', 'Go', 'CSS', 'PHP', 'R', 'NodeJS', 'D3', 'MongoDB', 'Meteor', 'Java'];
     instance.$(".study-group-tags-multiple", tags).select2({
       placeholder: "Tags (required)",
       data: tags,

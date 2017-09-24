@@ -2,6 +2,9 @@
   .container {
     overflow: auto;
   }
+  .col-lg-4 {
+    padding: 0px 8px;
+  }
   background: $cta-blue;
 
   p {
