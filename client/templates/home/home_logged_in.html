@@ -18,7 +18,7 @@
 	              </div>
 							{{else}}
 								<div class="col-md-5">
-									<div class="btn btn-default btn-block" id="clearSearch"> Clear </div>
+									<div class="btn btn-default btn-clear" id="clearSearch"> Clear </div>
 								</div>
 							{{/unless}}
             </div><!-- inner row-->
@@ -36,13 +36,11 @@
                 {{#if searchResults.count}}
 
                   <div class="row margin-none">
-                    <div class="col-md-12">
                       {{#each searchResults}}
-                      	<div class="col-lg-4" id="hangouts">
+                      	<div class="col-lg-4">
                         	{{> hangoutCard }}
                       	</div>
                     	{{/each}}
-                    </div><!--9-->
                   </div>
 
                 {{else}}

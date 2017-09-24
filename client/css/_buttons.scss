@@ -178,13 +178,12 @@
 }
 
 .btn-block {
-  @include font-face(700, 13px, bold, $white);
-  background: $cta-blue;
-  border: 0;
+  @include font-face(700, 13px, bold, $cta-blue);
+  background: $white;
+  border: 1px solid $cta-blue;
   margin-top: 10px;
-
   &:hover {
-    color: $white;
+    color: $cta-blue;
   }
 }
 
@@ -230,4 +229,14 @@ li.delete-hangout, li.edit-hangout {
 #createGroupButton {
   margin: 10px auto;
 }
-
+.btn-clear {
+  width: 100%;
+  @include font-face(700, 16px, light, $white);
+  background: $cta-blue;
+  border: 1px solid $white;
+  &:hover {
+    background: $cta-blue;
+    border: 1px solid $white;
+    color: $white;
+  }
+}
