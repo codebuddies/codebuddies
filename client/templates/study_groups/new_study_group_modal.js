@@ -68,7 +68,7 @@ Template.newStudyGroupModal.events({
     }
 
     if (!$(".study-group-tags-multiple").val() ||$(".study-group-tags-multiple").val().length <= 2) {
-      return Bert.alert( 'Please select at least 3 tags. ', 'warning', 'growl-top-right' );
+      return Bert.alert( 'Please save at least 3 tags. ', 'warning', 'growl-top-right' );
     }
 
 

@@ -3,6 +3,7 @@ html {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+
 *, *:before, *:after {
   -webkit-box-sizing: inherit;
   -moz-box-sizing: inherit;
@@ -168,4 +169,3 @@ a:hover {
 .select2-container--default .select2-selection--multiple {
   border: 1px solid #ccc;
 }
-
