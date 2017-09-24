@@ -107,7 +107,7 @@ Template.editStudyGroupTitleModal.events({
       }
       if(result){
         template.processing.set( false );
-        Bert.alert( 'Title/tagline updated!' , 'success', 'growl-top-right' );
+        Bert.alert( 'The information about your study group has been updated!' , 'success', 'growl-top-right' );
         Modal.hide()
       }
     });
