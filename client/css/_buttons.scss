@@ -178,13 +178,12 @@
 }
 
 .btn-block {
-  @include font-face(700, 13px, bold, $black);
-  background: $bg-lightgrey;
+  @include font-face(700, 13px, bold, $white);
+  background: $cta-blue;
   border: 0;
-  margin-top: 20px;
+  margin-top: 10px;
 
   &:hover {
-    background: $cta-blue;
     color: $white;
   }
 }
