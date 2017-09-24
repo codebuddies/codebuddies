@@ -13,7 +13,7 @@ Template.editStudyGroupTitleModal.onRendered(function () {
   let taglineCharCount =  $("#sgTagline").val().length || 0;
   instance.taglineCharCount.set(60 - taglineCharCount)
 
-  let tags = [ 'JavaScript', 'Python', 'Go', 'CSS', 'PHP', 'R', 'NodeJS', 'D3', 'MongoDB', 'Meteor', 'Java'];
+  let tags = [ 'Below are some popular tags. Feel free to type your own! White spaces are supported.', 'JavaScript', 'Python', 'Go', 'CSS', 'PHP', 'R', 'NodeJS', 'D3', 'MongoDB', 'Meteor', 'Java'];
   instance.data.tags.forEach((tag)=> {
     if (tags.indexOf(tag) < 0) {
       tags.push(tag);
