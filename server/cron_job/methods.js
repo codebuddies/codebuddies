@@ -11,7 +11,8 @@ const debug = false;
 hangoutReminder = function() {
   // only fetch hangouts with property of "is_reminder_sent: false"
   const active_hangouts = Hangouts.find({$or: [{day_reminder_sent: false, visibility: true},
-                                               {hourly_reminder_sent: false, visibility: true}]}).fetch();
+                                               {hourly_reminder_sent: false, visibility: true},
+                                               {followup_email_sent: false, visibility: true}]}).fetch();
 
   if (active_hangouts.length > 0) {
     console.log("found a hangout to send a reminder!");
@@ -19,11 +20,13 @@ hangoutReminder = function() {
     active_hangouts.forEach(function(hangout) {
 
     const time_diff = parseInt((hangout.start - new Date()) / (1000 * 60 * 60));
-    console.log("time diff", time_diff);
+    const time_diff_ended = parseInt((hangout.end - new Date()) / (1000 * 60 * 60));
+   // console.log("time diff", time_diff);
+    //console.log("time diff ended", time_diff_ended);
 
       // 24 hours before hangout start time alert
       if ((time_diff > 2 && time_diff <= 24) && hangout.day_reminder_sent == false) {
-        console.log("found a hangout for a 24 hour reminder");
+        console.log("found a hangout for a 24-hour reminder");
 
           emailNotification(hangout, "REMINDER");
 
@@ -32,15 +35,29 @@ hangoutReminder = function() {
                           {$set: { day_reminder_sent: true}});
 
       }  else if (time_diff >= 1 && time_diff < 2 && hangout.hourly_reminder_sent == false) { // let's alert on Slack channel and email
-          console.log("found a hangout for a 2 hour slack reminder alert");
+          console.log("found a hangout for a 2-hour reminder alert");
 
           // send slack alert to default channel!
           slackNotification(hangout, "REMINDER");
 
+          // email notification
+          emailNotification(hangout, "REMINDER_TWO");
+
           // update hourly reminder to true
           Hangouts.update({_id: hangout._id},
                           {$set: {hourly_reminder_sent: true}});
+      } 
+
+      if ((time_diff_ended < 0) && hangout.followup_email_sent == false) {
+        console.log("found a hangout that just ended")
+
+        emailNotification(hangout, "FOLLOWUP");
+
+        Hangouts.update({_id: hangout._id},
+                          {$set: { followup_email_sent: true}});
+
       }
+
 
     }) //end forEach
 

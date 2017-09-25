@@ -2,6 +2,9 @@
   .container {
     overflow: auto;
   }
+  .col-lg-4 {
+    padding: 0px 8px;
+  }
   background: $cta-blue;
 
   p {
@@ -87,9 +90,6 @@
     .searchTerm {
       font-size: 16px;
       height: 37px;
-    }
-    #create-hangout-popup {
-      background: $success-green;
     }
   }
 
@@ -408,8 +408,5 @@
   #loadMore {
     width: 50%;
     margin: 20px auto;
-  }
-  .search-message {
-    color: $white;
   }
 }

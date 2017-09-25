@@ -10,44 +10,66 @@
 
             <div class="search-area bg-blue">
               <div class="col-md-7">
-                  <input type="text" class="form-control searchTerm" name="searchTerm" placeholder="&#128269; Search" id="searchBox">
+                  <input type="text" class="form-control searchTerm" name="searchTerm" placeholder="&#128269; Search" id="searchBox" value="{{hangoutSearchTerm}}">
               </div>
-              <div class="col-md-5">
-                  <div class="btn btn-cb2 {{#unless currentUser}} continue-popup {{/unless}}" id="create-hangout-popup"> {{_ "create_a_hangout"}} </div>
-                  <!-- <button id="create-hangout-popup" class="btn btn-cb2">{{_ "create_a_hangout"}}</button> -->
-              </div>
+							{{#unless hangoutSearchMode }}
+	              <div class="col-md-5">
+	                <div class="btn btn-cb2 {{#unless currentUser}} continue-popup {{/unless}}" id="create-hangout-popup"> {{_ "create_a_hangout"}} </div>
+	              </div>
+							{{else}}
+								<div class="col-md-5">
+									<div class="btn btn-default btn-clear" id="clearSearch"> Clear </div>
+								</div>
+							{{/unless}}
             </div><!-- inner row-->
-            
-            <div class="heading">
 
-            </div>
-            {{#if searchMode}}
-              <div class="page-header align-center search-message"><h5>Showing results for '{{hangoutSearchQuery}}'</h5></div>
+          	{{#if hangoutSearchMode}}
+
+							<div class="col-md-12">
+								<div class="panel panel-default">
+									<div class="panel-body">
+									<h4 class="search-message">Showing results for <strong>'{{hangoutSearchTerm}}'</strong></h4>
+									</div>
+								</div>
+							</div>
+
                 {{#if searchResults.count}}
 
-                  <div class="row margin-none" id="hangouts">
-                    {{#each searchResults}}
-                      <div class="col-lg-4">
-                        {{> hangoutCard }}
-                      </div>
-                    {{/each}}
+                  <div class="row margin-none">
+                      {{#each searchResults}}
+                      	<div class="col-lg-4">
+                        	{{> hangoutCard }}
+                      	</div>
+                    	{{/each}}
                   </div>
 
                 {{else}}
 
-                  <h4>Sorry, no results were found.</h4>
-                  <p>Please check your spelling, or try another search.</p>
+								<div class="col-md-12">
+									<div class="panel panel-default">
+										<div class="panel-body">
+											<h4>Sorry, no results were found.</h4>
+											<p>Please check your spelling, or try another search.</p>
+										</div>
+									</div>
+								</div>
 
                 {{/if}}<!--searchResults.count-->
 
             {{else}}
 
-                {{> hangoutCards}}
+              <div class="row">
+
+                <div class="col-md-12">
+                  {{> hangoutCards}}
+                </div>
+              </div>
 
             {{/if}}<!--searchMode-->
 
           </div>
       </div><!--col-md-6 col-md-offset-1-->
+
       <div class="col-md-4 padding-none">
         <div class="full-width-tabs">
           <ul id="statusTabs" class="nav nav-tabs" role="tablist">

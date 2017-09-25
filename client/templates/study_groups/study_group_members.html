@@ -1,0 +1,43 @@
+<template name="studyGroupMembers">
+  {{#if isInRole 'owner, admin, moderator' _id}}
+    <p class="well"><h5>You can modify your members' roles here.</h5>
+      <ul>
+        <li>Only <strong>admins</strong> and <strong>moderators</strong> can schedule hangouts for this group.</li>
+        <li>Admins can promote other members to be moderators.</li>
+      </ul>
+    </p>
+  {{/if}}
+
+
+  <div class="row members">
+    {{#if isInRole 'owner, admin, moderator' _id}}
+
+      <ul id="members">
+      {{#each members}}
+      <div class="col-md-6">
+        <li>
+          <a href="{{pathFor 'profile' name=name userId=id}}">
+          <img src="{{avatar}}" alt="{{name}}" class="img-circle" data-id="{{id}}"> <strong>{{ name }}</strong></a>
+          <a class="memberDetail btn btn-default pull-right">Modify</a>
+        </li>
+      </div>
+      {{/each}}
+      </ul>
+
+    {{else}}
+      <ul id="members">
+      {{#each members}}
+        <div class="col-md-6">
+          <li>
+            <a href="{{pathFor 'profile' name=name userId=id}}" class="{{#unless currentUser}} continue-popup {{/unless}}">
+              <img src="{{avatar}}" alt="{{name}}" class="img-circle" data-id="{{id}}"> <strong>{{ name }}</strong>
+            </a>
+          </li>
+        </div>
+      {{/each}}
+      </ul>
+    {{/if}}
+
+  </div>
+
+</template>

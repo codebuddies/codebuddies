@@ -1,3 +1,6 @@
+0.9
+STUDY GROUPS release
+
 0.4.3
 Small additions/fixes
 

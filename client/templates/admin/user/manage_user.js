@@ -7,6 +7,9 @@ Template.manageUser.helpers({
   searchResults: function() {
     return Meteor.users.search(Session.get('userSearchQuery'));
   },
+  searchMode: function() {
+    return Session.get("searchMode");
+  }
 });
 
 Template.manageUser.events({

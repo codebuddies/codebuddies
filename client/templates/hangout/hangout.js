@@ -30,6 +30,16 @@ Template.hangout.helpers({
   }
 });
 Template.hangout.events({
+  'click #hide-sidebar': function() {
+      $('.hangout-sidebar').hide();
+      $('.hangout-body').removeClass('col-md-9').addClass('col-md-10 col-md-offset-1');
+      $('#show-sidebar').fadeIn();
+  },
+  'click #show-sidebar': function() {
+      $('.hangout-sidebar').show();
+      $('.hangout-body').removeClass('col-md-10 col-md-offset-1').addClass('col-md-9');
+      $('#show-sidebar').hide();
+  },
   'click .join-hangout': function() {
     // if (!Meteor.userId()) {
     //   sweetAlert({
@@ -113,7 +123,7 @@ Template.hangout.events({
       }); //sweetAlert
 
   },
-  "click #create-hangout-popup": function() {
+  'click #create-hangout-popup': function() {
     if (!Meteor.userId()) {
       sweetAlert({
         title: TAPi18n.__("login_create_hangout_title"),
@@ -130,5 +140,9 @@ Template.hangout.events({
     } else {
       Modal.show('createHangoutModal');
     }
+  },
+  "click #hangout-faq-popup": function() {
+    Modal.show('hangoutFAQModal');
   }
+
 });
