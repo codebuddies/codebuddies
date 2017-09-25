@@ -36,7 +36,6 @@
 
             {{! won't be visible to cb admin}}
             {{#unless isInRole 'admin' 'CB'}}
-              <li><a href="https://codebuddies.slack.com/messages/general" target="_blank"><i class="fa fa-slack" aria-hidden="true"></i> </a></li>
               <!-- notification for user-->
               <li><a href="{{pathFor 'user notification'}}"><i class="fa fa-bell" aria-hidden="true"></i> {{#if userNotificationCount}}<small><span class="badge">{{userNotificationCount}}</span></small>{{/if}} </a></li>
               <!-- dropdown for user-->
@@ -59,6 +58,8 @@
                   <ul class="dropdown-menu" role="menu">
                     <li><a href="{{pathFor 'my study groups'}}"><i class="fa fa-users fa-fw"></i> {{_ "my_study_groups"}}</a></li>
                     <li><a href="/profile/{{user.username}}/{{user._id}}"><i class="fa fa-user fa-fw"></i> {{_ "profile"}}</a></li>
+                    <li><a href="http://github.com/codebuddiesdotorg/codebuddies"><i class="fa fa-github fa-fw"></i> Github</a></li>
+                    <li><a href="https://codebuddies.slack.com/messages/general" target="_blank"><i class="fa fa-slack fa-fw" aria-hidden="true"></i> Slack</a></li>
                     <li><a href="{{pathFor 'account' name=user.username userId=user._id}}"><i class="fa fa-gear fa-fw"></i> {{_ "settings"}}</a></li>
                     <li><a href="#" id="signOut"><i class="fa fa-sign-out fa-fw"></i> {{_ "sign_out"}}</a></li>
                   </ul>

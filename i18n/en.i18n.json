@@ -57,6 +57,8 @@
   "ok": "OK",
   "yes_delete_hangout": "Yes, delete it!",
   "no_delete_hangout": "No, I was just kidding",
+  "yes_delete_group": "Yes, archive it!",
+  "no_delete_group": "No, I was just kidding",
   "yes_delete_learning": "Yes, please!",
   "no_delete_learning": "No thanks!",
   "launch" : "JOIN NOW",
@@ -90,6 +92,7 @@
   "not_now":"Not Now",
   "continue_with_slack": "Sign in with Slack",
   "end_hangout_confirm": "Are you sure?",
+  "archive_final_warning": "Archiving this group cannot be undone",
 
   // create hangout modal - popup messages
   "hangout_created_title": "Hangout Created Successfully",
@@ -119,14 +122,14 @@
   "browse_hangouts" : "Hangouts",
 
   //Study groups
-  "new_hangout": "New Hangout",
+  "new_hangout": "Schedule a Hangout",
   "description": "Description",
-  "new_study_group": "New Study Group",
+  "new_study_group": "Start a New Group",
   "study_group_name": "Name",
   "study_group_tagline": "Tagline",
-  "start_a_studygroup": "Start a New Study Group",
+  "start_a_studygroup": "Start a New Group",
   "create": "Create a study group",
-  "find_study_group": "Find a Study Group",
+  "find_study_group": "Find a Group",
   "my_study_groups": "My Study Groups",
   "coming_soon": "Coming Soon",
   "info": "Info",
@@ -140,8 +143,8 @@
   "availability": "Availability",
   "activity": "Activity",
   "activities": "Activities",
-  "join_study_group": "Join this Study Group",
-  "leave_study_group": "Leave this Study Group",
+  "join_study_group": "Join this Group",
+  "leave_study_group": "Leave this Group",
   "select_study_group": "Please select a group.",
   "settings": "Settings",
   "start_new_group": "Start a New Group"
