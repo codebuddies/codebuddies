@@ -183,7 +183,9 @@
   border: 1px solid $cta-blue;
   margin-top: 10px;
   &:hover {
-    color: $cta-blue;
+    color: $white;
+    background: $cta-blue;
+    border: 1px solid $cta-blue;
   }
 }
 
