@@ -126,6 +126,7 @@ a:hover {
 .well {
   margin: 10px 0px;
   overflow: auto;
+  clear: both;
 }
 .padding-none {
   padding: 0px;
@@ -168,4 +169,8 @@ a:hover {
 
 .select2-container--default .select2-selection--multiple {
   border: 1px solid #ccc;
+}
+
+.label-primary {
+  margin-top: $margin-base;
 }
