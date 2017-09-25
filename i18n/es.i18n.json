@@ -8,7 +8,7 @@
   "jumbotron_subtitle": "Somos __count__ personas que se ayudan unos a otros compartiendo conocimiento",
   "slack_title": "Chat de Slack",
   //profile page
-  "send_profile_message": "Enviar a __username__ a un mensaje",
+  "send_profile_message": "Enviar a __username__ un mensaje",
   "chat": "Chat",
 
 
@@ -23,18 +23,19 @@
   "today_i_learned": "Hoy aprendí ...",
   "start_a_hangout": "Comenzar un Hangout",
   "edit_a_hangout": "Editar tu Hangout",
-  "learning_message": "__count__ personas aprendiendo online",
+  "learning_message": "__count__ persona aprendiendo online",
   "learning_message_plural": "__count__ personas aprendiendo online",
-  "accomplishment_message": "__count__ cumplido",
-  "accomplishment_message_plural": "__count__ cumplidos",
+  "accomplishment_message": "__count__ aprendizaje",
+  "accomplishment_message_plural": "__count__ aprendizajes",
   "working_on": "Por favor comparte en qué estás trabajando!",
   "accomplished": "¿Qué lograste o aprendiste hoy?",
   "upcoming_time": "Comenzando __time__",
   "mastered_x_days_ago": "COMPLETADO",
+  "completed": "hangout ha terminado",
   "completed_long": "ESTE HANGOUT HA SIDO COMPLETADO",
   //COMPLETED __days__ days ago, COMPLETED __days__ days ago, COMPLETED today __time__
-  "mastered_x_days_ago_plural": "COMPLETADO",
-  "mastered_today_time": "COMPLETADO",
+  "mastered_x_days_ago_plural": "HANGOUT HA TERMINADO",
+  "mastered_today_time": "HANGOUT HA TERMINADO",
   "delete_learning_confirm": "¿Estás seguro que quieres borrar este aprendizaje?",
 
 
@@ -48,6 +49,7 @@
   "join_long": "Lanzar Hangout",
   "rsvp": "RSVP",
   "rsvp_long": "RSVP este evento",
+  "joined": "UNIDO",
   "leave": "Borrar RSVP",
   "join_in_session": "Unirse",
   "load_more": "Cargar más...",
@@ -62,6 +64,7 @@
   "no_end_hangout": "No, sólo bromeaba",
   "end_hangout": "TERMINAR HANGOUT",
 
+
   // hangout
   "what_is_a_hangout": "¿Qué es un Hangout?",
   "loading_hangouts": "Cargando Hangouts...por favor espere.",
@@ -71,7 +74,7 @@
   "silent_hangout": "Hangout Silencioso",
   "teaching_hangout": "Hangout de Enseñanza",
   "collaboration_hangout": "Hangout de Colaboración",
-
+  "click_to_load_hangout": "Da click para cargar el hangout",
   // popup messages
   "you_are_almost_there": "¡Ya casi estás ahí!",
   "login_join_hangout": "Por favor entra a tu cuenta para unirte al Hangout.",
@@ -113,5 +116,33 @@
 
   //visitor
   "sign_in_to_continue" : "Por favor regístrate para continuar",
-  "browse_hangouts" : "Navegar"
+  "browse_hangouts" : "Navegar",
+
+  //Study groups
+  "new_hangout": "Nuevo Hangout",
+  "description": "Descripción",
+  "new_study_group": "Nuevo Grupo de Estudios",
+  "study_group_name": "Nombre",
+  "study_group_tagline": "Tagline",
+  "start_a_studygroup": "Inicia un Grupo de Estudios",
+  "create": "Crea un Grupo de Estudios",
+  "find_study_group": "Encuentra un Grupo de Estudios",
+  "my_study_groups": "Mi Grupo de Estudios",
+  "coming_soon": "Proximamente",
+  "info": "Info",
+  "twentyforseven": "24/7 Hangout",
+  "hangouts": "Todos los Hangouts",
+  "members": "Miembros",
+  "learnings": "Log de progreso",
+  "links": "Links",
+  "resources": "Recursos",
+  "notes": "Notas",
+  "availability": "Disponibilidad",
+  "activity": "Actividad",
+  "activities": "Actividades",
+  "join_study_group": "Únete al Grupo de Estudios",
+  "leave_study_group": "Deja este Grupo de Estudios",
+  "select_study_group": "Por favor selecciona un grupo.",
+  "settings": "Settings",
+  "start_new_group": "Inicia un nuevo grupo"
 }
