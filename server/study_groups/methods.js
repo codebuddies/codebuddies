@@ -178,8 +178,8 @@ Meteor.methods({
     }
 
     //check if the user is a member
-    if (!user || !Roles.userIsInRole(user, ['member', 'moderator'], data.studyGroupId)) {
-        throw new Meteor.Error('StudyGroups.methods.leaveStudyGroup.not-logged-in', 'Sorry, admins cannot leave the group. Please ask the owner or another admin that you\'d like to be made a member.');
+    if (!user || !Roles.userIsInRole(user, ['admin', 'member', 'moderator'], data.studyGroupId)) {
+        throw new Meteor.Error('StudyGroups.methods.leaveStudyGroup.not-logged-in', 'Sorry, you cannot leave this group.');
     }
 
     const memberId = user._id;
