@@ -24,7 +24,7 @@ Meteor.methods({
     let group;
     if (data.groupId == 'CB') {
       group = {_id: 'CB', title: 'CB', slug: 'CB' };
-    } else if (!loggedInUser || !Roles.userIsInRole(loggedInUser, ['owner','moderator'], data.groupId)) {
+    } else if (!loggedInUser || !Roles.userIsInRole(loggedInUser, ['owner','admin','moderator'], data.groupId)) {
       throw new Meteor.Error(403, "Access denied");
     } else {
       group = StudyGroups.findOne({'_id': data.groupId }, { 'title': 1, 'slug': 1 });
@@ -107,7 +107,7 @@ Meteor.methods({
           return true;
 
         }else{
-          if( !Roles.userIsInRole(this.userId,['admin','moderator'], 'CB') ) {
+          if( !Roles.userIsInRole(this.userId,['owner','admin','moderator'], 'CB') ) {
             throw new Meteor.Error('Hangout.methods.deleteHangout.accessDenied', 'Cannot delete hangout, Access denied');
           }
 
@@ -169,7 +169,7 @@ Meteor.methods({
 
       return true;
 
-    }else if(Roles.userIsInRole(loggedInUser._id,['admin','moderator'], 'CB')){
+    }else if(Roles.userIsInRole(loggedInUser._id,['owner', 'admin','moderator'], 'CB')){
 
       Hangouts.update({_id: data.hangoutId},
                       {$set:{ topic: data.topic,
@@ -205,7 +205,7 @@ Meteor.methods({
   },
   getHangout: function(hangoutId) {
     check(hangoutId, String);
-    if (Roles.userIsInRole(this.userId, ['admin','moderator'], 'CB')) {
+    if (Roles.userIsInRole(this.userId, ['owner', 'admin','moderator'], 'CB')) {
 
       return Hangouts.findOne({_id:hangoutId});
 
@@ -352,7 +352,7 @@ Meteor.methods({
 
       return true;
 
-    }else if(Roles.userIsInRole(loggedInUser._id,['admin','moderator'], 'CB')){
+    }else if(Roles.userIsInRole(loggedInUser._id,['owner', 'admin','moderator'], 'CB')){
 
       Hangouts.update({_id: data.hangoutId},
                       {$set:{ end: oneMinuteAgo,
@@ -374,7 +374,7 @@ Meteor.methods({
 
       return true;
 
-    }else{
+    } else {
       throw new Meteor.Error('Hangouts.methods.endHangout.accessDenied','Cannot end hangout, Access denied');
     }
 

@@ -149,6 +149,8 @@ Template.createHangoutModal.events({
           closeOnConfirm: true
         });
         FlowRouter.go("hangouts");
+      } else {
+        console.log(err)
       }
     });
   }
