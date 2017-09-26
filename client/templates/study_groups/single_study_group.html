@@ -42,10 +42,10 @@
               <h5><i class="fa fa-map-pin" aria-hidden="true"></i> {{tagline}}</h5>
 
               <div class="margin-top-1">
-                {{#unless isInRole 'owner, moderator, member' _id}}
+                {{#unless isInRole 'owner, admin, moderator, member' _id}}
                   <div class="btn btn-cb2 {{#if currentUser}} joinStudyGroup {{else}} continue-popup {{/if}}">{{_ "join_study_group"}}</div>
                 {{else}}
-                  {{#if isInRole 'moderator, member' _id}}
+                  {{#if isInRole 'admin, moderator, member' _id}}
                     <div class="btn btn-cb2 leaveStudyGroup btn-leave">{{_ "leave_study_group"}}</div>
                   {{/if}}
                 {{/unless}}
@@ -57,7 +57,7 @@
               </div>
             </h2>
 
-            {{#if isInRole 'owner, moderator, member ' _id}}
+            {{#if isInRole 'owner, admin, moderator, member ' _id}}
               {{> hangoutLearned }}
             {{/if}}
 
