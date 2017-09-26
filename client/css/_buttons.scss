@@ -210,7 +210,6 @@ li.delete-hangout, li.edit-hangout {
 .hangout-action-buttons {
   .btn {
     display: inline-block;
-    text-transform: uppercase;
     width: 100%;
   }
   .hangout-action-buttons-other {
@@ -223,7 +222,7 @@ li.delete-hangout, li.edit-hangout {
   }
 }
 
-#create-hangout-popup, #createGroupButton {
+#create-hangout-popup, #createGroupButton, .btn-schedule-hangout {
   background: $success-green;
   margin: 0 auto;
   max-width: 340px;
