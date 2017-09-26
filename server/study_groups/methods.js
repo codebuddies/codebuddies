@@ -178,8 +178,8 @@ Meteor.methods({
     }
 
     //check if the user is a member
-    if (!user || !Roles.userIsInRole(user, ['member', 'moderator'], data.studyGroupId)) {
-        throw new Meteor.Error('StudyGroups.methods.leaveStudyGroup.not-logged-in', 'Access denied');
+    if (!user || !Roles.userIsInRole(user, ['admin', 'member', 'moderator'], data.studyGroupId)) {
+        throw new Meteor.Error('StudyGroups.methods.leaveStudyGroup.not-logged-in', 'Sorry, you cannot leave this group.');
     }
 
     const memberId = user._id;
@@ -252,7 +252,7 @@ Meteor.methods({
 
     //check if user is owner or admin
     if (!actor || !Roles.userIsInRole(actor, ['owner','admin'], data.studyGroupId )) {
-      throw new Meteor.Error(403, "Access denied");
+      throw new Meteor.Error(403, "Sorry, you are an admin in this group. If you want to leave, please ask another admin to make you a member.");
     }
 
     if (expectedRoles.indexOf(data.role) < 0 ) {
