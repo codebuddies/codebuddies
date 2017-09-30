@@ -5,7 +5,7 @@
   }
   h3 {
     text-transform: uppercase;
-    margin: 20px 0px 10px 0px;
+    margin: 20px 0 10px 0;
     @include font-face(700, 14px, bold, $black);
   } 
   .tab-pane h3 {
@@ -64,14 +64,15 @@
   .well--end-of-page {
     padding: 5px;
   }
+
+  .label-box {
+    margin-top: $margin-base;
+  }
 }
 
 .newStudyGroup {
 	fieldset {
 		border: none;
-	}
-	input {
-		margin-bottom: 10px;
 	}
 }
 

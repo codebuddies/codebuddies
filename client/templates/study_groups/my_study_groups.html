@@ -1,4 +1,4 @@
-<template name="allStudyGroups">
+<template name="myStudyGroups">
   <div id="study-groups">
 
 
@@ -6,21 +6,16 @@
         <div class="container">
           <div class="row">
               <div class="col-md-12 align-center">
-                <h2>Study Groups</h2>
-                <div class="btn btn-cb2" id="createGroupButton"> {{_ "start_new_group"}} </div>
+                <h2>My Study Groups</h2>
             </div>
           </div>
       </div>
     </div>
 
-    <div class="container margin-top-2">    
-
+    <div class="container margin-top-2">
       {{#if Template.subscriptionsReady}}
         {{#if studyGroups.count}}
-        <div class="row">
           {{#each studyGroups}}
-
-            <div class="col-md-4">
             <div class="well">
               <h4>
                 <a href="{{pathFor 'study group' studyGroupSlug=slug studyGroupId=_id}}">  {{title}} </a>
@@ -40,32 +35,33 @@
 
               </h4>
             </div>
-            </div>
           {{/each}}
-          </div>
+
+          {{#if status}}
+              <div class="well well--end-of-page">
+                <h5 class="text-center">You've reached the end of the page.</h5>
+              </div>
+          {{/if}}
+
         {{else}}
 
-          <!-- <div class="jumbotron align-center">
+          <div class="jumbotron align-center">
             <div class="container">
               <div class="row text-center">
 
-                  <h5>You don't have any studygroups</h5>
-                  <div class="btn btn-default" id="newStudyGroup">Create A Study Group</div>
-                  &nbsp; OR &nbsp;
-                  <div class="btn btn-default" id="findMeStudyGroup">Find me a Study Group</div>
+                <p>You are not a member of any study groups!</p>
+                <a class="btn btn-cb2 btn-default-size" id="newStudyGroup">{{_ "create"}}</a>
+                 <p>or</p>
+                <a class="btn btn-cb2 btn-default-size" id="findMeStudyGroup" href="/study-groups">{{_ "find_study_group"}}</a>
+
               </div>
              </div>
-          </div> -->
+          </div>
 
         {{/if}}
+
       {{else}}
         {{> loading}}
-      {{/if}}<!-- ./Template.subscriptionsReady -->
-
-      {{#if status}}
-          <div class="well well--end-of-page">
-            <h5 class="text-center">You've reached the end of the page.</h5>
-          </div>
       {{/if}}
 
     </div>

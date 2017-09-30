@@ -11,7 +11,7 @@
 
   <div class="row members">
     {{#if isInRole 'owner, admin, moderator' _id}}
-      
+
       <ul id="members">
       {{#each members}}
       <div class="col-md-6">
@@ -23,15 +23,17 @@
       </div>
       {{/each}}
       </ul>
-      
+
     {{else}}
       <ul id="members">
       {{#each members}}
-        <li>
-          <a href="{{pathFor 'profile' name=name userId=id}}" class="{{#unless currentUser}} continue-popup {{/unless}}">
-            <img src="{{avatar}}" alt="{{name}}" class="img-circle" data-id="{{id}}"> <strong>{{ name }}</strong>
-          </a>
-        </li>
+        <div class="col-md-6">
+          <li>
+            <a href="{{pathFor 'profile' name=name userId=id}}" class="{{#unless currentUser}} continue-popup {{/unless}}">
+              <img src="{{avatar}}" alt="{{name}}" class="img-circle" data-id="{{id}}"> <strong>{{ name }}</strong>
+            </a>
+          </li>
+        </div>
       {{/each}}
       </ul>
     {{/if}}

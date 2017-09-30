@@ -12,6 +12,34 @@ Template.editStudyGroupTitleModal.onRendered(function () {
 
   let taglineCharCount =  $("#sgTagline").val().length || 0;
   instance.taglineCharCount.set(60 - taglineCharCount)
+
+  let tags = [ 'Below are some popular tags. Feel free to type your own! White spaces are supported.', 'JavaScript', 'Python', 'Go', 'CSS', 'PHP', 'R', 'NodeJS', 'D3', 'MongoDB', 'Meteor', 'Java'];
+
+  instance.data.tags.forEach((tag)=> {
+    if (tags.indexOf(tag) < 0) {
+      tags.push(tag);
+    }
+  })
+
+  tags = tags.map((tag) => {
+    if (instance.data.tags.indexOf(tag) > -1) {
+      return {id: tag, text: tag, selected: true}
+    }
+    return {id: tag, text: tag}
+  })
+
+  Meteor.setTimeout(function () {
+
+    instance.$(".study-group-tags-multiple", tags).select2({
+      placeholder: "Tags (required)",
+      data: tags,
+      tags: true,
+      tokenSeparators: [','],
+      allowClear: true
+    });
+
+  },500)
+
 });
 
 Template.editStudyGroupTitleModal.helpers({
@@ -57,11 +85,16 @@ Template.editStudyGroupTitleModal.events({
       return Bert.alert( 'Please shorten your tagline.', 'warning', 'growl-top-right' );
     }
 
+    if (!$(".study-group-tags-multiple").val() ||$(".study-group-tags-multiple").val().length <= 2) {
+      $('study-group-tags-multiple').css({ 'border': '#FF0000 1px solid'});
+      return Bert.alert( 'Please save at least 3 tags. ', 'warning', 'growl-top-right' );
+    }
 
     const data = {
       id: this._id,
       title: $.trim(template.find("#sgTitle").value),
-      tagline: $.trim(template.find("#sgTagline").value)
+      tagline: $.trim(template.find("#sgTagline").value),
+      tags: $(".study-group-tags-multiple").val()
     }
 
 
@@ -75,7 +108,7 @@ Template.editStudyGroupTitleModal.events({
       }
       if(result){
         template.processing.set( false );
-        Bert.alert( 'Title/tagline updated!' , 'success', 'growl-top-right' );
+        Bert.alert( 'The information about your study group has been updated!' , 'success', 'growl-top-right' );
         Modal.hide()
       }
     });

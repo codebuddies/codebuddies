@@ -3,6 +3,7 @@ html {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+
 *, *:before, *:after {
   -webkit-box-sizing: inherit;
   -moz-box-sizing: inherit;
@@ -125,6 +126,7 @@ a:hover {
 .well {
   margin: 10px 0px;
   overflow: auto;
+  clear: both;
 }
 .padding-none {
   padding: 0px;
@@ -160,4 +162,15 @@ a:hover {
   }
 }
 
+/*Tags cleanup*/
+.select2-container--default .select2-selection--multiple .select2-selection__rendered {
+  padding-left: 12px;
+}
 
+.select2-container--default .select2-selection--multiple {
+  border: 1px solid #ccc;
+}
+
+.label-primary {
+  margin-top: $margin-base;
+}

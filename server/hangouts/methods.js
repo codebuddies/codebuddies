@@ -24,7 +24,7 @@ Meteor.methods({
     let group;
     if (data.groupId == 'CB') {
       group = {_id: 'CB', title: 'CB', slug: 'CB' };
-    } else if (!loggedInUser || !Roles.userIsInRole(loggedInUser, ['owner','moderator'], data.groupId)) {
+    } else if (!loggedInUser || !Roles.userIsInRole(loggedInUser, ['admin','moderator'], data.groupId)) {
       throw new Meteor.Error(403, "Access denied");
     } else {
       group = StudyGroups.findOne({'_id': data.groupId }, { 'title': 1, 'slug': 1 });
@@ -375,7 +375,7 @@ Meteor.methods({
 
       return true;
 
-    }else{
+    } else {
       throw new Meteor.Error('Hangouts.methods.endHangout.accessDenied','Cannot end hangout, Access denied');
     }
 

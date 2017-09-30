@@ -36,14 +36,7 @@ Meteor.publish("hangoutsJoined", function(limit, userId) {
 
 });
 
-Meteor.publish("hangoutSearchResult", function(serchTerm) {
 
-  check(serchTerm, String);
-  if (_.isEmpty(serchTerm)){
-    this.ready();
-  }
-  return Hangouts.search(serchTerm);
-});
 
 Meteor.publish("hangoutBoard", function(limit, hangoutFilter) {
   check(limit, Number);
@@ -80,4 +73,12 @@ Meteor.publish("hangoutBoard", function(limit, hangoutFilter) {
 Meteor.publish("studyGroupHangouts", function(groupId, limit) {
   check(groupId, String);
   return Hangouts.find({ visibility: {$ne:false}, 'group.id': groupId}, {sort: {start: -1}, limit:limit});
+});
+
+Meteor.publish( 'hangoutSearch', function(searchTerm) {
+  check(searchTerm, String);
+    if (_.isEmpty(searchTerm))
+    return this.ready();
+
+    return Hangouts.search(searchTerm);
 });

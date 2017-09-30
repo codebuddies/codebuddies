@@ -2,6 +2,9 @@
   .container {
     overflow: auto;
   }
+  .col-lg-4 {
+    padding: 0px 8px;
+  }
   background: $cta-blue;
 
   p {
@@ -405,8 +408,5 @@
   #loadMore {
     width: 50%;
     margin: 20px auto;
-  }
-  .search-message {
-    color: $white;
   }
 }

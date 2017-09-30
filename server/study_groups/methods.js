@@ -12,7 +12,8 @@ Meteor.methods({
     check(data,{
        title: String,
        tagline: String,
-       slug: String
+       slug: String,
+       tags: Match.Maybe([String])
      });
 
      if (!this.userId) {
@@ -25,6 +26,7 @@ Meteor.methods({
        title: data.title,
        slug: data.slug,
        tagline: data.tagline,
+       tags: data.tags,
        createdAt: new Date(),
        members: [
          {
@@ -95,6 +97,9 @@ Meteor.methods({
       studyGroupSlug: String
     });
 
+    // default user privilege.
+    const role = 'member';
+
     if (!this.userId) {
       throw new Meteor.Error('StudyGroups.methods.joinStudyGroup.not-logged-in', 'Must be logged in to join any Study Group.');
     }
@@ -106,13 +111,24 @@ Meteor.methods({
       name: user.username,
       avatar: user.profile.avatar.default,
       email: user.email,
-      subscribed: 1
+      subscribed: 1,
+      role: role
     }
 
-    StudyGroups.update({_id:data.studyGroupId}, {$addToSet:{members:member}});
+    StudyGroups.update(
+      {_id:data.studyGroupId},
+      {
+        $push: {
+          members: {
+            $each: [ member ],
+            $sort: { name: 1 }
+          }
+        }
+      }
+    );
 
     //by default on join person gets a member privilege
-    Roles.addUsersToRoles(user._id, 'member', data.studyGroupId);
+    Roles.addUsersToRoles(user._id, role, data.studyGroupId);
 
     //activity
     const activity = {
@@ -169,8 +185,8 @@ Meteor.methods({
     }
 
     //check if the user is a member
-    if (!user || !Roles.userIsInRole(user, ['member', 'moderator'], data.studyGroupId)) {
-        throw new Meteor.Error('StudyGroups.methods.leaveStudyGroup.not-logged-in', 'Access denied');
+    if (!user || !Roles.userIsInRole(user, ['admin', 'member', 'moderator'], data.studyGroupId)) {
+        throw new Meteor.Error('StudyGroups.methods.leaveStudyGroup.not-logged-in', 'Sorry, you cannot leave this group.');
     }
 
     const memberId = user._id;
@@ -245,12 +261,19 @@ Meteor.methods({
 
     //check if user is owner or admin
     if (!actor || !Roles.userIsInRole(actor, ['owner','admin'], data.studyGroupId )) {
-      throw new Meteor.Error(403, "Access denied");
+      throw new Meteor.Error(403, "Sorry, you are an admin in this group. If you want to leave, please ask another admin to make you a member.");
     }
 
     if (expectedRoles.indexOf(data.role) < 0 ) {
       throw new Meteor.Error(403, "Unexpected Role");
     }
+
+    StudyGroups.update(
+      {_id: data.studyGroupId, 'members.id': data.user.id },
+      {
+        $set: { 'members.$.role': data.role }
+      }
+    );
 
     //role update
     Roles.setUserRoles(data.user.id, data.role, data.studyGroupId);
@@ -311,7 +334,8 @@ Meteor.methods({
     check(data,{
       id: String,
       title: String,
-      tagline: String
+      tagline: String,
+      tags: Match.Maybe([String])
     })
 
     const actor = Meteor.user()
@@ -321,7 +345,7 @@ Meteor.methods({
       throw new Meteor.Error(403, "Access denied");
     }
 
-    StudyGroups.update({_id: data.id}, { $set:{title: data.title, tagline: data.tagline }});
+    StudyGroups.update({_id: data.id}, { $set:{title: data.title, tagline: data.tagline, tags: data.tags }});
 
     return true;
   }

@@ -11,11 +11,7 @@ if (Meteor.isClient) {
     }
   });
 }
-Tracker.autorun(function() {
 
-  if (Session.get('hangoutSearchQuery'))
-    Meteor.subscribe('hangoutSearchResult', Session.get('hangoutSearchQuery'));
-});
 
 Template.registerHelper('equals', function (a, b) {
       return a === b;
@@ -116,6 +112,6 @@ Template.registerHelper("canUpdateUserRoleForGroup", function(subjectId, groupId
 });
 
 Template.registerHelper("isOrganizers", function(role){
-  
+
   return ["owner", "admin", "moderator"].indexOf(role) < 0 ? false : true ;
 });

@@ -27,10 +27,7 @@ Template.studyGroupMemberDetail.helpers({
 
 Template.studyGroupMemberDetail.events({
   "change #authorization": function(event, template){
-     //console.log(this);
-     //console.log(template.find("#authorization").value);
 
-     //todo - update user role
      const user = this;
 
      const data = {
