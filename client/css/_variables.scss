@@ -1,4 +1,37 @@
-//  Variables
+/* Variables */
+/*[NOTE]: 
+* please remove the vars to a different file. 
+* For example the `_varibales.scss` 😀 
+* the
+* For
+* For
+*/
+
+/* 1. CSS VARS*/
+  :root {
+    --displayFlex : flex 1;
+  }
+
+/* 2. SCSS VARIABLE declaration*/
+    
+
+// Positioning
+/// Margin
 $margin-centered: 0 auto !default;
 $margin-zero: 0 !default;
 $margin-base: 10px !default;
+
+$pardding-centered: 0 !default;
+$padding-zero: 0;
+$padding-base: $margin-base;
+
+
+
+// Colors
+
+// Typography
+
+
+// Spacing
+
+>>>>>>> Stashed changes
