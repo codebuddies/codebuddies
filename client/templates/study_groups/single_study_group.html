@@ -26,13 +26,18 @@
           </div>
 
         {{else}}
-
+        <div id="show-sidebar">
+          <a href="#">Show details</a>
+        </div>
         <div class="row">
 
           <div class="col-md-3 well study-group-sidebar">
             {{#if equals visibility false}}
               <small class="label label-danger">Archived</small>
             {{/if}}
+            <div id="hide-sidebar">
+              <a href="#" class="pull-right"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
+            </div>
 
             <h2>{{title}}
                 {{#if isInRole 'owner, admin' _id}}
