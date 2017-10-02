@@ -26,10 +26,10 @@ Meteor.methods({
     if (data.groupId == 'CB') {
       group = {_id: 'CB', title: 'CB', slug: 'CB' };
     } else {
-      const temp_item = StudyGroups.findOne({'_id': data.groupId }, { 'exempt_form_default_permission': 1 });
+      const temp_item = StudyGroups.findOne({'_id': data.groupId }, { 'exempt_from_default_permission': 1 });
 
-      // check for exempt_form_default_permission
-      if (temp_item && temp_item.exempt_form_default_permission) {
+      // check for exempt_from_default_permission
+      if (temp_item && temp_item.exempt_from_default_permission) {
 
         //check if user is a member
         if (!loggedInUser || !Roles.userIsInRole(loggedInUser, ['owner','admin','moderator','member'], data.groupId)) {

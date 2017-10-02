@@ -49,8 +49,8 @@ Template.createHangoutModal.onRendered(function() {
       if (value.includes('owner') || value.includes('admin') || value.includes('moderator') && key !== 'CB'){
         studyGroupsKeys.push(key)
       } else if (value.includes('member') && key !== 'CB'){
-        // check for exempt_form_default_permission
-        if (StudyGroups.findOne({_id:key}) && StudyGroups.findOne({_id:key}).exempt_form_default_permission) {
+        // check for exempt_from_default_permission
+        if (StudyGroups.findOne({_id:key}) && StudyGroups.findOne({_id:key}).exempt_from_default_permission) {
           studyGroupsKeys.push(key)
         }
       }

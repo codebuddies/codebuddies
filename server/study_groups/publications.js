@@ -17,7 +17,7 @@ Meteor.publish( 'myStudyGroups', function(limit) {
 
   let projection = new Object();
 
-  projection.fields = {"title" : 1, 'tagline':1, "slug" : 1, members: 1, exempt_form_default_permission: 1 };
+  projection.fields = {"title" : 1, 'tagline':1, "slug" : 1, members: 1, exempt_from_default_permission: 1 };
   projection.limit = limit;
 
   let options = new Object();

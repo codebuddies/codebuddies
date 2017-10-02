@@ -37,7 +37,7 @@ Meteor.methods({
          }
        ],
        visibility: true,
-       exempt_form_default_permission: false
+       exempt_from_default_permission: false
      }
 
     studyGroupId = StudyGroups.insert(studyGroup);
