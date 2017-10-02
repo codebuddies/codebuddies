@@ -33,7 +33,7 @@ Meteor.methods({
 
         //check if user is a member
         if (!loggedInUser || !Roles.userIsInRole(loggedInUser, ['owner','admin','moderator','member'], data.groupId)) {
-          throw new Meteor.Error(403, "Access denied o");
+          throw new Meteor.Error(403, "Access denied");
         }else {
           group = StudyGroups.findOne({'_id': data.groupId }, { 'title': 1, 'slug': 1 });
         }
@@ -42,7 +42,7 @@ Meteor.methods({
 
         //check if user has permission
         if (!loggedInUser || !Roles.userIsInRole(loggedInUser, ['owner','admin','moderator'], data.groupId)) {
-          throw new Meteor.Error(403, "Access denied p");
+          throw new Meteor.Error(403, "Access denied");
         }else {
           group = StudyGroups.findOne({'_id': data.groupId }, { 'title': 1, 'slug': 1 });
         }
