@@ -29,5 +29,37 @@ Template.studyGroupSettings.events({
           }
         })
       });
+  },
+  "change #hangoutPermission": function (event, template) {
+
+
+      const data = {
+        id: this._id,
+        permission: template.find("#hangoutPermission").value == "true" ? true : false
+      }
+
+
+      sweetAlert({
+        type: 'warning',
+        title: TAPi18n.__("delete_hangout_confirm"),
+        cancelButtonText: TAPi18n.__("no_delete_group"),
+        confirmButtonText: TAPi18n.__("yes_delete_learning"),
+        confirmButtonColor: "#d9534f",
+        showCancelButton: true,
+        closeOnConfirm: true,
+      },
+      function() {
+        // disable confirm button to avoid double (or quick) clicking on confirm event
+        swal.disableButtons();
+
+        Meteor.call("updateHagnoutCreationPermission", data ,function (error, result) {
+          if(error){
+            return Bert.alert( error.reason, 'danger', 'growl-top-right' );
+          }
+          if(result){
+            return Bert.alert( 'Permission updated', 'success', 'growl-top-right' );
+          }
+        })
+      });
   }
 });
