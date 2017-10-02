@@ -1,6 +1,10 @@
 import QuillEditor from '../../libs/QuillEditor';
 
-Template.cloneHangoutModal.rendered = function() {
+Template.cloneHangoutModal.onCreated(function () {
+    this.subscribe('myStudyGroups');
+});
+
+Template.cloneHangoutModal.onRendered(function() {
   var templateInstance = Template.instance();
   var editorHostElement = templateInstance.$('[data-editor-host]').get(0);
   var start = this.$('#start-date-time-picker');
@@ -20,7 +24,46 @@ Template.cloneHangoutModal.rendered = function() {
     minDate: new Date()
   });
 
-};
+  const instance = this;
+  let roles = Meteor.user().roles;
+  let studyGroupsKeys = [];
+
+  Object.entries(roles).forEach(([key, value]) => {
+    if(value.includes('owner') || value.includes('admin') || value.includes('moderator') && key !== 'CB'){
+      studyGroupsKeys.push(key)
+    }
+  });
+  // check for exempt_form_default_permission
+  Object.entries(roles).forEach(([key, value]) => {
+    if(value.includes('member') && key !== 'CB'){
+
+      const item = StudyGroups.findOne({_id:key});
+      if (item && item.exempt_form_default_permission) {
+        studyGroupsKeys.push(key)
+      }
+
+    }
+  });
+
+  instance.autorun(() => {
+
+    let studyGroups = [{id: "CB", text: "CodeBuddies Default"}];
+    StudyGroups.find({_id:{$in:studyGroupsKeys}}).forEach((sg) => {
+      studyGroups.push({id: sg._id, text: sg.title});
+    });
+
+    Meteor.setTimeout(function () {
+
+      instance.$(".study-group-single", studyGroups).select2({
+        placeholder: "Select a group you organize",
+        data: studyGroups
+      });
+
+    },1500)
+
+  });
+
+});
 
 
 Template.cloneHangoutModal.events({
@@ -36,7 +79,7 @@ Template.cloneHangoutModal.events({
     const duration = Number($('#end-date-time').val()) || 1440;
     const end = new Date(startDate.getTime() + (1000*60* duration));
     const type = $('input[name="hangout-type"]:checked').val();
-    const groupId = $('#studyGroup').val();
+    const groupId = $(".study-group-single").val();
 
 
     const data = {
@@ -72,8 +115,8 @@ Template.cloneHangoutModal.events({
       return;
     }
 
-    if ($.trim(groupId) == 'default') {
-      $('#studyGroup').focus();
+    if ($.trim(groupId) == '') {
+      $(".study-group-single").focus();
       sweetAlert({
         title: TAPi18n.__("select_study_group"),
         confirmButtonText: TAPi18n.__("ok"),
