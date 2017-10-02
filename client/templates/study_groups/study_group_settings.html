@@ -1,5 +1,18 @@
 <template name="studyGroupSettings">
 
+   <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Who can start/schedule a hangout for this group?</h3>
+    </div>
+    <div class="panel-body">
+      <p>By default, only you (the owner), admins and moderators are allowed to start hangouts for this group. You can opt to allow everyone (including members) schedule hangouts too.</p>
+      <select class="form-control" id="hangoutPermission">
+        <option value="false"  {{selected exempt_form_default_permission  false}}>Default (admins and moderators)</option>
+        <option value="true" {{selected exempt_form_default_permission  true}}>Everyone in the group (admins, moderators, and members)</option>
+      </select>
+    </div>
+  </div>
+
   <div class="panel panel-default">
     <div class="panel-heading">
       <h3 class="panel-title">Archive this study group</h3>
@@ -10,17 +23,5 @@
     </div>
   </div>
 
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h3 class="panel-title">Who can schedule a hangouts ?</h3>
-    </div>
-    <div class="panel-body">
-      <p>By Default Owner, admin and moderators are allowd to create hangout.</p>
-      <select class="form-control" id="hangoutPermission">
-        <option value="false"  {{selected exempt_form_default_permission  false}}>Admin, Moderator</option>
-        <option value="true" {{selected exempt_form_default_permission  true}}>Admin, Moderator, Members</option>
-      </select>
-    </div>
-  </div>
 
 </template>
