@@ -36,7 +36,8 @@ Meteor.methods({
            role: 'owner'
          }
        ],
-       visibility: true
+       visibility: true,
+       exempt_from_default_permission: false
      }
 
     studyGroupId = StudyGroups.insert(studyGroup);

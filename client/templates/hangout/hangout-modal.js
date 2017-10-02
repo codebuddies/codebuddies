@@ -40,27 +40,21 @@ Template.createHangoutModal.onRendered(function() {
   });
 
   const instance = this;
-  let roles = Meteor.user().roles;
-  let studyGroupsKeys = [];
-
-  Object.entries(roles).forEach(([key, value]) => {
-    if(value.includes('owner') || value.includes('admin') || value.includes('moderator') && key !== 'CB'){
-      studyGroupsKeys.push(key)
-    }
-  });
-  // check for exempt_form_default_permission
-  Object.entries(roles).forEach(([key, value]) => {
-    if(value.includes('member') && key !== 'CB'){
-
-      const item = StudyGroups.findOne({_id:key});
-      if (item && item.exempt_form_default_permission) {
-        studyGroupsKeys.push(key)
-      }
-
-    }
-  });
-
   instance.autorun(() => {
+
+    let roles = Meteor.user().roles;
+    let studyGroupsKeys = [];
+
+    Object.entries(roles).forEach(([key, value]) => {
+      if (value.includes('owner') || value.includes('admin') || value.includes('moderator') && key !== 'CB'){
+        studyGroupsKeys.push(key)
+      } else if (value.includes('member') && key !== 'CB'){
+        // check for exempt_from_default_permission
+        if (StudyGroups.findOne({_id:key}) && StudyGroups.findOne({_id:key}).exempt_from_default_permission) {
+          studyGroupsKeys.push(key)
+        }
+      }
+    });
 
     let studyGroups = [{id: "CB", text: "CodeBuddies Default"}];
     StudyGroups.find({_id:{$in:studyGroupsKeys}}).forEach((sg) => {
