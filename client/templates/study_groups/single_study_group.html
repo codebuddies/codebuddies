@@ -26,13 +26,18 @@
           </div>
 
         {{else}}
-
+        <div id="show-sidebar">
+          <a href="#">Show details</a>
+        </div>
         <div class="row">
 
-          <div class="col-md-3 well">
+          <div class="col-md-3 well study-group-sidebar">
             {{#if equals visibility false}}
               <small class="label label-danger">Archived</small>
             {{/if}}
+            <div id="hide-sidebar">
+              <a href="#" class="pull-right"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
+            </div>
 
             <h2>{{title}}
                 {{#if isInRole 'owner, admin' _id}}
@@ -70,7 +75,7 @@
 
 
           </div>
-          <div class="col-md-9">
+          <div class="col-md-9 study-group-body">
           <ul class="nav nav-tabs" role="tablist">
             <li role="presentation" class="active"><a href="#description" aria-controls="description" role="tab" data-toggle="tab">{{_ 'description'}}</a></li>
             <li role="presentation"><a href="#247hangout" aria-controls="247hangout" role="tab" data-toggle="tab">{{_ 'twentyforseven'}}</a></li>
