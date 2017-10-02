@@ -22,13 +22,34 @@ Meteor.methods({
     }
 
     let group;
+    //check for group
     if (data.groupId == 'CB') {
       group = {_id: 'CB', title: 'CB', slug: 'CB' };
-    } else if (!loggedInUser || !Roles.userIsInRole(loggedInUser, ['admin','moderator'], data.groupId)) {
-      throw new Meteor.Error(403, "Access denied");
     } else {
-      group = StudyGroups.findOne({'_id': data.groupId }, { 'title': 1, 'slug': 1 });
-    }
+      const temp_item = StudyGroups.findOne({'_id': data.groupId }, { 'exempt_form_default_permission': 1 });
+
+      // check for exempt_form_default_permission
+      if (temp_item && temp_item.exempt_form_default_permission) {
+
+        //check if user is a member
+        if (!loggedInUser || !Roles.userIsInRole(loggedInUser, ['owner','admin','moderator','member'], data.groupId)) {
+          throw new Meteor.Error(403, "Access denied o");
+        }else {
+          group = StudyGroups.findOne({'_id': data.groupId }, { 'title': 1, 'slug': 1 });
+        }
+
+      } else {
+
+        //check if user has permission
+        if (!loggedInUser || !Roles.userIsInRole(loggedInUser, ['owner','admin','moderator'], data.groupId)) {
+          throw new Meteor.Error(403, "Access denied p");
+        }else {
+          group = StudyGroups.findOne({'_id': data.groupId }, { 'title': 1, 'slug': 1 });
+        }
+
+      }
+
+    }// if ends
 
 
 

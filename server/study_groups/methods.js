@@ -381,3 +381,31 @@ Meteor.methods({
 
   }
 });
+
+/**
+* update study group permission
+* for hangout creation
+* @function
+* @name updateHangoutCreationPermission
+* @param {Object}
+* @return {Boolean} true on success
+*/
+Meteor.methods({
+  updateHangoutCreationPermission(data){
+    check(data,{
+      id: String,
+      permission: Boolean
+    })
+
+    const actor = Meteor.user()
+
+    //check if user is owner or admin
+    if (!actor || !Roles.userIsInRole(actor, ['owner'], data.id )) {
+      throw new Meteor.Error(403, "Access denied");
+    }
+
+    StudyGroups.update({_id: data.id}, { $set:{ 'exempt_form_default_permission': data.permission }});
+
+    return true;
+  }
+});

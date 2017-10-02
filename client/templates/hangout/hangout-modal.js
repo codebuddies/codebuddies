@@ -48,6 +48,17 @@ Template.createHangoutModal.onRendered(function() {
       studyGroupsKeys.push(key)
     }
   });
+  // check for exempt_form_default_permission
+  Object.entries(roles).forEach(([key, value]) => {
+    if(value.includes('member') && key !== 'CB'){
+
+      const item = StudyGroups.findOne({_id:key});
+      if (item && item.exempt_form_default_permission) {
+        studyGroupsKeys.push(key)
+      }
+
+    }
+  });
 
   instance.autorun(() => {
 
@@ -63,7 +74,7 @@ Template.createHangoutModal.onRendered(function() {
         data: studyGroups
       });
 
-    },1000)
+    },1500)
 
   });
 
