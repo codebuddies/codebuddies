@@ -1,16 +1,24 @@
 <template name="studyGroupHangouts">
   <div id="hangout-board">
     <div class="hangout-board">
-          {{#if isInRole 'member' _id}}
-            <div class="col-md-12 well">
-              <p>If you'd like to schedule a hangout for this study group, <strong>please ask an organizer</strong> to make you an organizer of this group.</p>
-            </div>
-          {{/if}}
+
+      {{#if isInRole 'owner, admin, moderator' _id}}
+        <div class="col-md-3 col-md-offset-9 margin-bottom-1">
+          <div class="btn btn-cb2 btn-schedule-hangout {{#unless currentUser}} continue-popup {{/unless}}" id="{{#if currentUser}}newHangout{{/if}}"  >{{_ "create_a_hangout"}}</div>
+        </div>
+      {{else}}
+        {{#if equals exempt_form_default_permission true}}
           <div class="col-md-3 col-md-offset-9 margin-bottom-1">
-            {{#if isInRole 'owner, admin, moderator' _id}}
-              <div class="btn btn-cb2 btn-schedule-hangout {{#unless currentUser}} continue-popup {{/unless}}" id="{{#if currentUser}}newHangout{{/if}}"  >{{_ "create_a_hangout"}}</div>
-            {{/if}}
+            <div class="btn btn-cb2 btn-schedule-hangout {{#unless currentUser}} continue-popup {{/unless}}" id="{{#if currentUser}}newHangout{{/if}}"  >{{_ "create_a_hangout"}}</div>
           </div>
+        {{else}}
+          <div class="col-md-12 well">
+            <p>If you'd like to schedule a hangout for this study group, <strong>please ask an organizer</strong> to make you an organizer of this group.</p>
+          </div>
+        {{/if}}
+      {{/if}}
+
+
 
         {{#if Template.subscriptionsReady}}
           <div>

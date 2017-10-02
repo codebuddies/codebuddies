@@ -52,6 +52,10 @@
 
                 {{#if isInRole 'owner, admin, moderator' _id}}
                   <div class="btn btn-cb2 btn-schedule-hangout {{#unless currentUser}} continue-popup {{/unless}}" id="{{#if currentUser}}newHangout{{/if}}">{{_ "create_a_hangout"}}</div>
+                {{else}}
+                    {{#if equals exempt_form_default_permission true}}
+                        <div class="btn btn-cb2 btn-schedule-hangout {{#unless currentUser}} continue-popup {{/unless}}" id="{{#if currentUser}}newHangout{{/if}}"  >{{_ "create_a_hangout"}}</div>
+                    {{/if}}
                 {{/if}}
 
               </div>
