@@ -386,12 +386,12 @@ Meteor.methods({
 * update study group permission
 * for hangout creation
 * @function
-* @name updateHagnoutCreationPermission
+* @name updateHangoutCreationPermission
 * @param {Object}
 * @return {Boolean} true on success
 */
 Meteor.methods({
-  updateHagnoutCreationPermission(data){
+  updateHangoutCreationPermission(data){
     check(data,{
       id: String,
       permission: Boolean

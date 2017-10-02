@@ -52,7 +52,7 @@ Template.studyGroupSettings.events({
         // disable confirm button to avoid double (or quick) clicking on confirm event
         swal.disableButtons();
 
-        Meteor.call("updateHagnoutCreationPermission", data ,function (error, result) {
+        Meteor.call("updateHangoutCreationPermission", data ,function (error, result) {
           if(error){
             return Bert.alert( error.reason, 'danger', 'growl-top-right' );
           }
