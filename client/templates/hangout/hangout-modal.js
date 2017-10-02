@@ -50,7 +50,7 @@ Template.createHangoutModal.onRendered(function() {
         studyGroupsKeys.push(key)
       } else if (value.includes('member') && key !== 'CB'){
         // check for exempt_form_default_permission
-        if (StudyGroups.findOne({_id:key}).exempt_form_default_permission) {
+        if (StudyGroups.findOne({_id:key}) && StudyGroups.findOne({_id:key}).exempt_form_default_permission) {
           studyGroupsKeys.push(key)
         }
       }
