@@ -4,86 +4,112 @@
     filter: alpha(opacity=80); // IE 5-7
     opacity: 0.8;
   }
+
   h2 {
-    margin: 5px 0px;
+    margin: ($margin-base - 5) $margin-zero;
     @include font-face(700, 23px, normal, $black);
   }
+
   p, textarea {
-    font-family: $open-sans;
     @include font-face(200, 15px, normal, $black);
+    font-family: $open-sans;
   }
+
   p.upcoming {
     @include font-face(700, 23px, bold, $black);
   }
+
   .completed p {
     text-transform: none;
   }
+
   p.completed,
   p.status {
     color: $warm-grey;
     font-weight: 200;
-    font-size: 16px;
-    margin: 10px 0;
+    margin: $margin-base $margin-zero;
   }
+
   p.click-text {
     @include font-face(700, 30px, normal, $cta-blue);
     background-image: url('/images/logo-circle-cropped.png');
     background-size: cover;
   }
+
   p.date-holder {
     color: $black;
     font-weight: 400;
-    font-size: 20px;
+    font-size: 20px; 
   }
+
   h3 {
-    text-transform: uppercase;
-    margin: 20px 0px 10px 0px;
     @include font-face(700, 14px, bold, $black);
-  } 
+    text-transform: uppercase;
+    margin: ($margin-base + 10px) $margin-zero $margin-base $margin-zero;
+  }
+
   h4 {
     font-weight: 400;
-    margin: 0;
+    margin: $margin-zero;
+    margin-bottom: ($margin-base - 5px);
     text-transform: uppercase;
-    font-size: 14px;
-    margin-bottom: 5px;
+    font-size: $font-lg; /* 24px */
   }
+
   h5.in-progress {
     display: block;
     text-align: left;
-    margin-bottom: 10px;
+    margin-bottom: $margin-base;
   }
+
   .panel-heading {
-    padding: 5px 15px;
+    padding: ($padding-base - 5) ($padding-base + 5px);
   }
+
   .panel-default {
-    margin: 10px 0;
+    margin: $margin-base $margin-zero;
   }
+
   .view {
     font-weight: 200;
   }
 
   .panel-body {
-    font-size: 20px;
+    font-size: 1.25rem /* 20px */;
     font-weight: 200;
   }
 
-
   #participants .img-circle {
-      width: 50px;
+    width: 50px;
+  }
+
+  #participants a {
+    font-size: $font-md;
   }
 
   textarea#newMessage {
     min-height: 100px;
-    margin-bottom: 10px;
+    margin-bottom: $margin-base;
   }
 
   select#commentFilter {
-    margin-bottom: 10px;
+    margin-bottom: $margin-base;
   }
 
-  ol {
-    padding-left: 16px;
-    font-weight: 200;
+
+  .list {
+
+    /* empty  declaration */
+
+    &--ordered {
+      padding-left: ($padding-base + 6px);
+      font-weight: 200;
+      list-style: decimal;
+    }
+
+    &--item {
+      font-size: $font-md;
+    }
   }
 
   .hangout-status {
@@ -91,20 +117,29 @@
   }
 
   .hangout-status p {
+    @include border-radius(3px);
+    margin: $margin-zero;
+    padding: $padding-base $padding-zero;
     background: $bg-white;
     text-align: center;
-    padding: 10px 0;
-    font-size: 18px;
-    @include border-radius(3px);
-    margin: 0;
+    font-size: $font-lg; /* 18px */
     font-weight: 200;
     color: $primary-grey;
 
     a {
       color: $white;
+      @include link-decoration;
     }
   }
-  //Note: Let's figure out a way to move the styles below to _buttons.scss so that we can reuse them
+
+
+
+
+
+  /* [Note]: Let's figure out a way to move the 
+  *  styles below to _buttons.scss so that we can reuse 
+  *  them
+  */
 
 
   .btn-danger {
@@ -122,7 +157,7 @@
   }
 
   #end-hangout {
-    margin-top: 5px;
+    margin-top: ($margin-base - 5px);
     width: 300px;
   }
 
@@ -133,12 +168,13 @@
     margin-top: 3px;
   }
   .status-list {
-    padding: 0px 15px;
-    margin-top: 10px;
+    padding: $padding-zero ($padding-base + 5px);
+    margin-top: $margin-base;
   }
   .load-hangout-screenshot {
     display: block;
-    margin: 0 auto;
+    margin:0 auto;
+    margin: $margin-centered;
     -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)"; // IE8
     filter: alpha(opacity=70); // IE 5-7
     opacity: 0.7;
@@ -149,6 +185,7 @@
         opacity: 1.0;
     }
   }
+
   .hangout-action-buttons {
     p { text-decoration: none;}
     #attendance {
@@ -178,7 +215,7 @@
     background: $cta-blue;
     a {
       @include font-face(700, 22px, normal, $white);
-      padding: 5px 10px;
+      padding: ($padding-base - 5) $padding-base;
       text-decoration: none;
     }
     @include border-radius(3px);

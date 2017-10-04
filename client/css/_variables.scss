@@ -1,35 +1,31 @@
-/* Variables */
-/*[NOTE]: 
-* please remove the vars to a different file. 
-* For example the `_varibales.scss` 😀 
-* the
-* For
-* For
-*/
-
-/* 1. CSS VARS*/
-  :root {
-    --displayFlex : flex 1;
-  }
-
-/* 2. SCSS VARIABLE declaration*/
+// Variables
     
+/// FONT_FAMILY
+$open-sans: 'Open Sans', sans-serif !default;
+$font-stack: (
+  'Helvetica Neue',
+  'Helvetica',
+  'Arial',
+  'Open Sans',
+  sans-serif
+) !default;
 
-// Positioning
-/// Margin
+/// POSITIONING
+
+/// MARGIN
 $margin-centered: 0 auto !default;
-$margin-zero: 0 !default;
-$margin-base: 10px !default;
+$margin-zero: 0          !default;
+$margin-base: 10px       !default;
 
-$pardding-centered: 0 !default;
-$padding-zero: 0px;
-$padding-base: $margin-base;
-
-
-
-// Colors
-
-// Typography
+/// PADDING
+$padding-zero: 0     !default;
+$padding-base: 10px  !default;
 
 
-// Spacing
+/// TYPOGRAPHY
+$font-xxl: 3.375rem  !default; /* 54px */
+$font-xl: 2.25rem    !default; /* 36px */
+$font-lg: 1.5rem     !default; /* 24px */
+$font-md: 1rem       !default; /* 16px */
+$font-sm: 0.667rem   !default; /* 9.3px ~10px */
+$font-xs: 0.444rem   !default; /* 7.1px ~8px */

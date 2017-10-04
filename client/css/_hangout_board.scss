@@ -10,9 +10,9 @@
     @include box-shadow(0, 12px, 60px, rgba(0, 0, 0, .5));
 
     .hangout-details {
-      bottom: 0px;
-      position: absolute;
       width: 250px;
+      position: absolute;
+      bottom: 0;
     }
 
     .hangout-date {

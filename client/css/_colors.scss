@@ -1,29 +1,54 @@
-//Background colors
+/* [NOTE]: Please add a `!default` at the end of the declaration (?) */
+
+// BACKGROUND COLORS
 $bg-lightgrey: #f9f9f9;
 $bg-white: #fff;
 
-//Other colors
+
+// BRAND COLORS
+
+/* [NOTE|QUESTION]: What do you guys think about
+*  choosing colors as:
+* 
+* `brand-[primary|secondary|tertiary]`
+* `red-[dark|light|normal]`, etc
+*  
+*  ...or soemthing like that
+*/
+
+// OTHER COLORS
 $cta-blue: #1e90ff;
 $light-blue: #5eafff;
+
 $kudo: #9b9b9b;
 $primary-grey: #4a4a4a;
 $secondary-grey: #8e8e8e;
+
 $hangout-teaching: #f5a623;
 $hangout-collab: #7ed321;
+
 $hangout-silent: #d9534f;
+
 $icon-silent: #d9534f;
 $icon-teaching: #f0ad4e;
 $icon-collab: #7ed321;
+
 $divider: #e1e1e1;
 $inactive: #cfcfcf;
+
 $warm-grey: #9b9b9b;
+
 $dodgerblue: #1e90ff;
+
 $white: #fff;
 $black: #333;
+
 $success-green: #7ed321;
 $info-blue: #5bc0de;
+
 $warning-orange: #f0ad4e;
 $danger-red: #d9534f;
+
 $well: #f5f5f5;
 
 .text-warning-color {

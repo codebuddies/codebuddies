@@ -1,47 +1,54 @@
 .hangout-card {
-  border-radius: 0 !important;
+  border-radius: 0 !important; /* [FIX-ME]: Remove !important declaration */
   background: $white;
   display: inline-block;
   height: 180px;
   width: 100%;
-  margin: 5px 0px;
-  padding: 10px;
+  margin: ($margin-base - 5px) $margin-zero;
+  padding: $padding-base;
   overflow: scroll;
 
   p.overflowtext {
+    border: $black;
+    font-size: $font-md;
     color: $secondary-grey;
-    border: $_border-black;
+    word-wrap: break-word;
   }
+
   .hangout-topic {
     margin-top: 6px;
-    margin-bottom: 5px;
-    @include font-face(600, 17px, normal, $black);
+    margin-bottom: ($margin-base - 5px);
+    @include font-face(600, $font-lg, normal, $black);
     text-align: left;
     &.completed {
       color: $secondary-grey;
     }
   }
   .hangout-date {
-    margin: 0px;
+    margin: $margin-zero;
   }
   .hangout-meta {
     position: absolute;
-    bottom: 0px;
-    padding-top: 0px;
-    margin-top: 0px;
-    padding-bottom: 10px;
-    background: white;
-    font-size: 14px;
+    bottom: 0;
+    padding-top: $padding-zero;
+    padding-bottom: $padding-base;
+    margin-top: $margin-zero;
+    background-color: $white;
+    font-size: $font-md;
   }
+
   button { 
     display: inline;
   }
+
   .join-now {
     width: 65%;
   }
+
   .card-header-wrapper {
     height: 40px;
   }
+
   div.calendar {
     width: 80%;
     line-height: 1.1;

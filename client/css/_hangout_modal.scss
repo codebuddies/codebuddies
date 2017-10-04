@@ -1,12 +1,3 @@
-:root {
-  --paddingZero: 0;  /* [NOTE] */
-}
-
-$_border-test-black: 1px solid black !default; 
-$_border-test-red: 1px solid red !default;
-$_border-test-blue: 1px solid blue !default;
-
-
 .modal-backdrop {
   background-color: $cta-blue;
 }

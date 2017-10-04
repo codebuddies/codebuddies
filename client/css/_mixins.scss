@@ -1,3 +1,6 @@
+/// @author codebuddies &copy 2017;
+/// @contributors:
+
 @mixin font-face ($weight, $size, $style, $color) {
   font-family: $open-sans;
   font-weight: $weight;
@@ -33,3 +36,36 @@
     box-shadow: $top $left $blur $color;
   }
 }
+
+
+/// link-decoration mixin
+/// @param   {string} $decoration [none] - one of [none|underline]
+/// @param   {color}  $color [$cta-blue] - one of [colors]
+/// @require {string} $decoration
+/// @require {color}  $color
+/// @see {colors} $color 
+@mixin link-decoration($decoration: none, $color: $cta-blue) {
+  a {
+    text-decoration: $decoration;
+    color: $color;
+  }
+}
+
+
+/// size mixin
+/// @param   {length} $width  [width]  - one of [vw|px|%]
+/// @param   {length} $height [$width] - one of [vw|px|%]
+/// @require {length} $width
+/// @throws  {fn} @warn - throws error message on the console 
+@mixin size($width: width, $height: $width) {
+  @if unitless($width) {
+    @warn "Assuming that #{$width} is one of [vw|px|%]";
+  }
+  @if unitless($height) {
+    @warn "Assuming that #{$height} is one of [vh|px|%]";
+  }
+    width:  $width;
+    height: $height;
+}
+
+

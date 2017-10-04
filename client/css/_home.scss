@@ -8,11 +8,13 @@
   background: $cta-blue;
 
   p {
-    line-height: 18px;
+    font: normal #{$font-lg} / 1.2 sans-serif;
     color: $primary-grey;
-  }
-  p.overflowtext {
-    color: $secondary-grey;
+
+    &.overflowtext {
+      @extend p;
+      color: $secondary-grey;
+    }
   }
 
   .panel-default { 
