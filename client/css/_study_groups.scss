@@ -68,6 +68,30 @@
   .label-box {
     margin-top: $margin-base;
   }
+  #hide-sidebar {
+      @include font-face(700, 22px, normal, $cta-blue);
+      position: relative;
+      top: -10px;
+  }
+  #show-sidebar {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: -64px;
+    top: 20%;
+    background: $cta-blue;
+    a {
+      @include font-face(700, 22px, normal, $white);
+      padding: 5px 10px;
+      text-decoration: none;
+    }
+    @include border-radius(3px);
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+  }
 }
 
 .newStudyGroup {
