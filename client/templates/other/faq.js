@@ -4,3 +4,14 @@ Template.faq.onCreated(function(){
   DocHead.setTitle(title);
   DocHead.addMeta(metaInfo);  DocHead.setTitle('CodeBuddies | FAQ');
 });
+
+Template.faq.onRendered(function() {
+  $(function() {
+
+    // Move to the top of the page on render
+    var $window = $(window);
+    if ($window.scrollTop() > 0) {
+      $window.scrollTop(0);
+    }
+  });
+});
