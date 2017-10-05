@@ -1,4 +1,8 @@
 <template name="studyGroupLearnings">
+    {{#if isInRole 'owner, admin, moderator, member ' _id}}
+        {{> hangoutLearned }}
+    {{/if}}
+
 	{{#if learnings.count}}
 		<div class="status-list">
 			<div class="learnings">
