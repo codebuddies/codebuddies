@@ -21,7 +21,8 @@ Meteor.methods({
      }
 
      // Check study group name is unique
-     isTitleAlreadyUsed = StudyGroups.find({title: data.title, visibility: true}).count() > 0;
+     const regex = new RegExp(`^${data.title}$`, 'i');
+     const isTitleAlreadyUsed = StudyGroups.findOne({title: regex, visibility: true});
      if (isTitleAlreadyUsed) {
        throw new Meteor.Error('StudyGroups.methods.createNewStudyGroup.title-already-used', 'Study group name is already used');
      }
