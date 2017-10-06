@@ -20,6 +20,13 @@ Meteor.methods({
        throw new Meteor.Error('StudyGroups.methods.createNewStudyGroup.not-logged-in', 'Must be logged in to create new Study Group.');
      }
 
+     // Check study group name is unique
+     const regex = new RegExp(`^${data.title}$`, 'i');
+     const isTitleAlreadyUsed = StudyGroups.findOne({title: regex, visibility: true});
+     if (isTitleAlreadyUsed) {
+       throw new Meteor.Error('StudyGroups.methods.createNewStudyGroup.title-already-used', 'Study group name is already used');
+     }
+
      const user = Meteor.user();
 
      const studyGroup = {
@@ -36,7 +43,8 @@ Meteor.methods({
            role: 'owner'
          }
        ],
-       visibility: true
+       visibility: true,
+       exempt_from_default_permission: false
      }
 
     studyGroupId = StudyGroups.insert(studyGroup);
@@ -379,5 +387,33 @@ Meteor.methods({
     return true;
 
 
+  }
+});
+
+/**
+* update study group permission
+* for hangout creation
+* @function
+* @name updateHangoutCreationPermission
+* @param {Object}
+* @return {Boolean} true on success
+*/
+Meteor.methods({
+  updateHangoutCreationPermission(data){
+    check(data,{
+      id: String,
+      permission: Boolean
+    })
+
+    const actor = Meteor.user()
+
+    //check if user is owner or admin
+    if (!actor || !Roles.userIsInRole(actor, ['owner'], data.id )) {
+      throw new Meteor.Error(403, "Access denied");
+    }
+
+    StudyGroups.update({_id: data.id}, { $set:{ 'exempt_form_default_permission': data.permission }});
+
+    return true;
   }
 });

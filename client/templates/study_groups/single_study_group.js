@@ -35,6 +35,16 @@ Template.singleStudyGroup.helpers({
 });
 
 Template.singleStudyGroup.events({
+  'click #hide-sidebar': function() {
+      $('.study-group-sidebar').hide();
+      $('.study-group-body').removeClass('col-md-9').addClass('col-md-10 col-md-offset-1');
+      $('#show-sidebar').fadeIn();
+  },
+  'click #show-sidebar': function() {
+      $('.study-group-sidebar').show();
+      $('.study-group-body').removeClass('col-md-10 col-md-offset-1').addClass('col-md-9');
+      $('#show-sidebar').hide();
+  },
   'click #newHangout': function(event) {
     Modal.show('createHangoutModal');
   },

@@ -20,19 +20,24 @@
           <div class="text-center">
             <h4>This study group has been archived.</h4>
             <p>
-              <a href="{{pathFor 'all study groups'}}"> Browse more</a> | 
+              <a href="{{pathFor 'all study groups'}}"> Browse more</a> |
               <a href="{{pathFor 'home'}}"> Home</a>
             </p>
           </div>
 
         {{else}}
-
+        <div id="show-sidebar">
+          <a href="#">Show details</a>
+        </div>
         <div class="row">
 
-          <div class="col-md-3 well">
+          <div class="col-md-3 well study-group-sidebar">
             {{#if equals visibility false}}
               <small class="label label-danger">Archived</small>
             {{/if}}
+            <div id="hide-sidebar">
+              <a href="#" class="pull-right"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
+            </div>
 
             <h2>{{title}}
                 {{#if isInRole 'owner, admin' _id}}
@@ -52,21 +57,18 @@
 
                 {{#if isInRole 'owner, admin, moderator' _id}}
                   <div class="btn btn-cb2 btn-schedule-hangout {{#unless currentUser}} continue-popup {{/unless}}" id="{{#if currentUser}}newHangout{{/if}}">{{_ "create_a_hangout"}}</div>
+                {{else}}
+                    {{#if equals exempt_from_default_permission true}}
+                        <div class="btn btn-cb2 btn-schedule-hangout {{#unless currentUser}} continue-popup {{/unless}}" id="{{#if currentUser}}newHangout{{/if}}"  >{{_ "create_a_hangout"}}</div>
+                    {{/if}}
                 {{/if}}
 
               </div>
             </h2>
 
-            {{#if isInRole 'owner, admin, moderator, member ' _id}}
-              {{> hangoutLearned }}
-            {{/if}}
-
             {{> studyGroupInfo}}
-
-
-
           </div>
-          <div class="col-md-9">
+          <div class="col-md-9 study-group-body">
           <ul class="nav nav-tabs" role="tablist">
             <li role="presentation" class="active"><a href="#description" aria-controls="description" role="tab" data-toggle="tab">{{_ 'description'}}</a></li>
             <li role="presentation"><a href="#247hangout" aria-controls="247hangout" role="tab" data-toggle="tab">{{_ 'twentyforseven'}}</a></li>
@@ -81,8 +83,8 @@
             <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">{{_ 'settings'}}</a></li>
             {{/if}}
           </ul>
-       
-        
+
+
 
         <br>
 
