@@ -20,6 +20,13 @@ Meteor.methods({
        throw new Meteor.Error('StudyGroups.methods.createNewStudyGroup.not-logged-in', 'Must be logged in to create new Study Group.');
      }
 
+     // Check study group name is unique
+     const regex = new RegExp(`^${data.title}$`, 'i');
+     const isTitleAlreadyUsed = StudyGroups.findOne({title: regex, visibility: true});
+     if (isTitleAlreadyUsed) {
+       throw new Meteor.Error('StudyGroups.methods.createNewStudyGroup.title-already-used', 'Study group name is already used');
+     }
+
      const user = Meteor.user();
 
      const studyGroup = {
