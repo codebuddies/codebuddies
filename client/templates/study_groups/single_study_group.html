@@ -20,7 +20,7 @@
           <div class="text-center">
             <h4>This study group has been archived.</h4>
             <p>
-              <a href="{{pathFor 'all study groups'}}"> Browse more</a> | 
+              <a href="{{pathFor 'all study groups'}}"> Browse more</a> |
               <a href="{{pathFor 'home'}}"> Home</a>
             </p>
           </div>
@@ -66,14 +66,7 @@
               </div>
             </h2>
 
-            {{#if isInRole 'owner, admin, moderator, member ' _id}}
-              {{> hangoutLearned }}
-            {{/if}}
-
             {{> studyGroupInfo}}
-
-
-
           </div>
           <div class="col-md-9 study-group-body">
           <ul class="nav nav-tabs" role="tablist">
@@ -90,8 +83,8 @@
             <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">{{_ 'settings'}}</a></li>
             {{/if}}
           </ul>
-       
-        
+
+
 
         <br>
 
