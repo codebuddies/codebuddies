@@ -26,7 +26,7 @@ $large: 1200px;
       @content;
     }
   } @else if $media == medium {
-    @media only screen and (min-width: $medium + 1) and (min-width: $large) {
+    @media only screen and (min-width: $medium + 1) and (max-width: $large) {
       @content;
     }
   } @else if $media == large {
