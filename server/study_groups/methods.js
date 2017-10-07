@@ -412,7 +412,7 @@ Meteor.methods({
       throw new Meteor.Error(403, "Access denied");
     }
 
-    StudyGroups.update({_id: data.id}, { $set:{ 'exempt_form_default_permission': data.permission }});
+    StudyGroups.update({_id: data.id}, { $set:{ 'exempt_from_default_permission': data.permission }});
 
     return true;
   }
