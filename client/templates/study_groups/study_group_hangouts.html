@@ -8,12 +8,14 @@
         </div>
       {{else}}
         {{#if equals exempt_from_default_permission true}}
-          <div class="col-md-3 col-md-offset-9 margin-bottom-1">
-            <div class="btn btn-cb2 btn-schedule-hangout {{#unless currentUser}} continue-popup {{/unless}}" id="{{#if currentUser}}newHangout{{/if}}"  >{{_ "create_a_hangout"}}</div>
-          </div>
+            {{#if isInRole 'owner, admin, moderator, member' _id}}
+                <div class="col-md-3 col-md-offset-9 margin-bottom-1">
+                    <div class="btn btn-cb2 btn-schedule-hangout {{#unless currentUser}} continue-popup {{/unless}}" id="{{#if currentUser}}newHangout{{/if}}"  >{{_ "create_a_hangout"}}</div>
+                </div>
+            {{/if}}
         {{else}}
           <div class="col-md-12 well">
-            <p>If you'd like to schedule a hangout for this study group, <strong>please ask an organizer</strong> to make you an organizer of this group.</p>
+            <p>If you'd like to schedule a hangout for this study group, <strong>please ask an organizer</strong> to make you an organizer or change the permission settings of the group.</p>
           </div>
         {{/if}}
       {{/if}}

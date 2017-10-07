@@ -38,7 +38,6 @@ Template.studyGroupSettings.events({
         permission: template.find("#hangoutPermission").value == "true" ? true : false
       }
 
-
       sweetAlert({
         type: 'warning',
         title: TAPi18n.__("delete_hangout_confirm"),
