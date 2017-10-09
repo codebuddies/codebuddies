@@ -1,1 +1,41 @@
-0.2.0.28
+0.9
+STUDY GROUPS release
+
+0.4.3
+Small additions/fixes
+
+0.4.2
+Jitsi fix and first-time PRs
+
+0.4.1
+Remove migration and deployment test
+
+0.4
+Mobile CSS issue, User and roles schematic changes, Fix confusing RSVP button, Fix Publications, and Remove Kadira
+
+0.3
+Major deployment process change and Jitsi link
+
+0.2.1
+Mini-release: CSS issue, Slack alert notifications with attendee names, and new deployment processes
+
+0.2
+New logged-in home page and other good fixes
+
+0.1.6
+Semi-large release, with learnings!
+
+0.1.5
+Jitsi hangout launch and bug fixes
+
+0.1.4
+Google Analytics and Profile Page Bug Fix
+
+0.1.3
+First release of 2017: bug fixes and improvements
+
+0.1.2
+Some small improvements, and changed Slack names to codebuddies.slack.com
+
+0.1
+Latest round of Hacktoberfest PRs

@@ -1,10 +1,22 @@
 #home {
+  .container {
+    overflow: auto;
+  }
+  .col-lg-4 {
+    padding: 0px 8px;
+  }
   background: $cta-blue;
-  padding-top: 50px;
 
   p {
     line-height: 18px;
     color: $primary-grey;
+  }
+  p.overflowtext {
+    color: $secondary-grey;
+  }
+
+  .panel-default { 
+    border: none;
   }
 
   .join-slack {
@@ -39,6 +51,10 @@
 
     .title {
       margin: 10px 0px 20px;
+      color: $white;
+    }
+    #hangout-faq-popup {
+      color: $white;
     }
   }
 
@@ -69,7 +85,7 @@
 
   .search-area {
     padding: 30px;
-    background: $bg-lightgrey;
+    overflow: auto;
 
     .searchTerm {
       font-size: 16px;
@@ -388,5 +404,9 @@
     .join-slack {
       margin-top: 50px;
     }
+  }
+  #loadMore {
+    width: 50%;
+    margin: 20px auto;
   }
 }

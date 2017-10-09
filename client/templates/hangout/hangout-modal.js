@@ -1,6 +1,9 @@
 import QuillEditor from '../../libs/QuillEditor';
 
-Template.createHangoutModal.rendered = function() {
+Template.createHangoutModal.onCreated(function () {
+    this.subscribe('myStudyGroups');
+});
+Template.createHangoutModal.onRendered(function() {
   var start = this.$('#start-date-time-picker');
   var templateInstance = Template.instance();
   var editorHostElement = templateInstance.$('[data-editor-host]').get(0);
@@ -35,7 +38,41 @@ Template.createHangoutModal.rendered = function() {
   },function(){
     $('#d3').hide();
   });
-};
+
+  const instance = this;
+  instance.autorun(() => {
+
+    let roles = Meteor.user().roles;
+    let studyGroupsKeys = [];
+
+    Object.entries(roles).forEach(([key, value]) => {
+      if (value.includes('owner') || value.includes('admin') || value.includes('moderator') && key !== 'CB'){
+        studyGroupsKeys.push(key)
+      } else if (value.includes('member') && key !== 'CB'){
+        // check for exempt_from_default_permission
+        if (StudyGroups.findOne({_id:key}) && StudyGroups.findOne({_id:key}).exempt_from_default_permission) {
+          studyGroupsKeys.push(key)
+        }
+      }
+    });
+
+    let studyGroups = [{id: "CB", text: "CodeBuddies Default"}];
+    StudyGroups.find({_id:{$in:studyGroupsKeys}}).forEach((sg) => {
+      studyGroups.push({id: sg._id, text: sg.title});
+    });
+
+    Meteor.setTimeout(function () {
+
+      instance.$(".study-group-single", studyGroups).select2({
+        placeholder: "Select a group you organize",
+        data: studyGroups
+      });
+
+    },1500)
+
+  });
+
+});
 
 Template.createHangoutModal.events({
   'click #create-hangout': function(e, template) {
@@ -48,6 +85,7 @@ Template.createHangoutModal.events({
     // If date was not set, return 24 hours later. Else, return end date time
     const duration = Number($('#end-date-time').val()) || 1440;
     const end = new Date(startDate.getTime() + (1000*60* duration));
+    const groupId = $(".study-group-single").val();
 
 
     const type = $('input[name="hangout-type"]:checked').val();
@@ -60,7 +98,8 @@ Template.createHangoutModal.events({
       start: new Date(start),
       end: end,
       duration: duration,
-      type: type
+      type: type,
+      groupId: groupId
     };
 
     if ($.trim(start) == '') {
@@ -92,6 +131,18 @@ Template.createHangoutModal.events({
       return;
     }
 
+    if ($.trim(groupId) == '') {
+      $('.study-group-single').focus();
+      sweetAlert({
+        title: TAPi18n.__("select_study_group"),
+        confirmButtonText: TAPi18n.__("ok"),
+        type: 'error'
+      });
+    }
+
+
+    // console.log(data);
+
     Meteor.call('createHangout', data, function(err, result) {
       if (result) {
         Modal.hide();
@@ -103,6 +154,8 @@ Template.createHangoutModal.events({
           closeOnConfirm: true
         });
         FlowRouter.go("hangouts");
+      } else {
+        console.log(err)
       }
     });
   }

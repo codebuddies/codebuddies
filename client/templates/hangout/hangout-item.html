@@ -17,6 +17,9 @@
       </div>
 
       <div class="col-md-3">
+        
+      {{!-- Group Label --}}
+      {{#if group}}<p><a href="{{pathFor 'study group' studyGroupSlug=group.slug studyGroupId=group.id}}"> <span class="label label-default pull-right">{{group.title}}</span> </a>  </p>{{/if}}
 
         {{#if equals visibility false}}
           <span class="label label-pill label-danger">DELETED</span>
@@ -38,7 +41,7 @@
 
               {{#if isAttending users}}
                 <p class="upcoming">{{upcomingTime start}}</p>
-                <a id="leave-hangout" class="align-center">{{_ "leave"}}</a>
+                <a id="leave-hangout" class="btn btn-cb2 btn-leave">{{_ "leave"}}</a>
               {{else}}
 
                 {{# unless isHangoutCompleted end}}
@@ -50,7 +53,7 @@
 
             {{/if}}
           {{else}}
-            <p class="completed">completed</p>
+            <p class="completed"><i class="fa fa-check" aria-hidden="true"></i> {{_ "completed"}}</p>
           {{/unless}}
 
         {{/if}} <!-- if equals visibility false -->
@@ -58,6 +61,7 @@
     </div>
 
     <div class="col-md-9">
+
 
       <p class="status"><label><i class="fa {{getHangoutTypeSign type}}"></i> Started by <a href="{{pathFor 'profile' name=host.name userId=host.id}}" class="{{#unless currentUser}} continue-popup {{/unless}}">{{host.name}}</a></label></p>
       <p class="status"><label><i class="fa fa-calendar fa-lg"></i> {{getHangoutStartDateTime start}} -

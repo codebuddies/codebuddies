@@ -1,4 +1,9 @@
 #hangouts {
+  .study-group-tag {
+    position: absolute;
+    top: -4px;
+    z-index: 1;
+  }
   padding: 0;
 
   .hangout-item {
@@ -34,13 +39,6 @@
       font-weight: 600;
     }
 
-    #leave-hangout {
-      text-decoration: underline;
-      text-align: center;
-      display: block;
-      @include font-face(400, 12px, normal, $cta-blue);
-    }
-
     p.upcoming {
       text-transform: uppercase;
       color: $kudo;
@@ -66,6 +64,7 @@
       label {
         @include font-face(400, 12px, normal, $warm-grey);
         display: inline-block;
+        line-height: 1.5;
       }
 
       i.faa-burst {

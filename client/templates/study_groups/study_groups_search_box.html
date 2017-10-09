@@ -1,0 +1,12 @@
+<template name="studyGroupsSearchBox">
+
+  <div class="row margin-top-2">
+    <div class="col-md-6 col-md-offset-3">
+      <input type="text" class="form-control" name="sgSearchBox" id="sgSearchBox" placeholder="&#128269; Search" value="{{sgSearchTerm}}">
+      {{#if sgSearchMode}}
+        <button id="clearSearch" class="btn btn-block">Clear</button>
+      {{/if}}
+    </div>
+  </div>
+
+</template>

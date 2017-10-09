@@ -6,3 +6,33 @@ $open-sans: 'Open Sans', sans-serif;
 .fa-microphone-slash { color: $icon-silent;}
 .fa-user { color: $icon-teaching;}
 .fa-users { color: $icon-collab;}
+
+
+a:link:not(.btn-cb2), a:visited:not(.btn-cb2) {
+	color: $dodgerblue;
+}
+h4.hangout-date, h5.in-progress, h5.upcoming, h5.completed {
+    display: inline;
+    font-size: 12px;
+    letter-spacing: 0.1px;
+    color: $warm-grey;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+h5.in-progress, h5.upcoming {
+    color: $primary-grey;
+}
+.oval {
+	width: 10px;
+	height: 10px;
+	background-color: $danger-red;
+	@include border-radius(5px);
+	display: inline-block;
+}
+
+  span.cb-delete:hover {
+    cursor: pointer;
+  }
+.search-message {
+    font-weight: 200;
+}

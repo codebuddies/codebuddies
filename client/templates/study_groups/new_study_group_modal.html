@@ -1,0 +1,46 @@
+<template name="newStudyGroupModal">
+    <div id="create-hangout-modal" class="modal fade study-group">
+      <div class="modal-dialog">
+        <div class="modal-content">
+            <form class="newStudyGroup">
+
+              <div class="modal-header">
+                <h4 class="modal-title text-center">{{_ "start_a_studygroup"}}</h4>
+                <button type="button" class="btn btn-circle btn-outline btn-info pull-right" data-dismiss="modal"><i class="fa fa-times"></i></button>
+              </div>
+
+              <div class="modal-body">
+
+                <fieldset>
+                  <div class="form-group">
+                      <input type="text" class="form-control" id="title" placeholder="{{_ 'study_group_name'}} (required)">
+                      <small class="pull-right margin-bottom-1">{{titleCharCount}}</small>
+                  </div>
+
+                  <div class="form-group">
+                      <input type="text" class="form-control" id="tagline" placeholder="{{_ 'study_group_tagline'}} (required)">
+                      <small class="pull-right">{{taglineCharCount}}</small>
+                  </div>
+
+                  <div class="form-group margin-top-2">
+                    <select class="study-group-tags-multiple form-control"  multiple="multiple">
+                      <option></option>
+                    </select>
+                    <small class="pull-right">Please select or write in at least three tags.</small>
+                  </div>
+
+
+
+                </fieldset>
+
+              </div><!-- ./modal-body -->
+
+              <div class="modal-footer">
+                  <button type="submit" class="btn btn-cb2 pull-right">{{_ 'create'}}</button>
+              </div>
+            </form>
+
+        </div><!--modal content-->
+      </div>
+    </div>
+</template>

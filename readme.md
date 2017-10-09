@@ -1,19 +1,19 @@
-![CodeBuddies logo](https://github.com/codebuddiesdotorg/cb-v2-scratch/raw/master/public/images/cb-readme.jpg)
+![CodeBuddies logo](https://github.com/codebuddiesdotorg/codebuddies/raw/master/public/images/cb-readme.jpg)
 
 # CodeBuddies Hangouts Platform v2.0 - from scratch
 
 
 [![slack in](http://codebuddiesmeet.herokuapp.com/badge.svg?style=flat-square)](http://codebuddiesmeet.herokuapp.com/)
-[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat-square)](https://github.com/codebuddiesdotorg/cb-v2-scratch/issues)
+[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat-square)](https://github.com/codebuddiesdotorg/codebuddies/issues)
 [![first-timers-only](https://img.shields.io/badge/first--timers--only-friendly-blue.svg?style=flat-square)](http://www.firsttimersonly.com/)
-[![Issue Stats](https://img.shields.io/issuestats/i/github/codebuddiesdotorg/cb-v2-scratch.svg?maxAge=2592000&style=flat-square)]()
-[![Issue Stats](https://img.shields.io/issuestats/p/github/codebuddiesdotorg/cb-v2-scratch.svg?maxAge=2592000&style=flat-square)]()
+[![Issue Stats](https://img.shields.io/issuestats/i/github/codebuddiesdotorg/codebuddies.svg?maxAge=2592000&style=flat-square)]()
+[![Issue Stats](https://img.shields.io/issuestats/p/github/codebuddiesdotorg/codebuddies.svg?maxAge=2592000&style=flat-square)]()
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0)
 
 # FAQ
 
 ## What is CodeBuddies?
-We're a community of independent code learners who help each other on [Slack](http://codebuddies.slack.com), [schedule hangouts](http://hangouts.codebuddies.org) to learn with each other, contribute to a periodic [anonymous crowdsourced newsletter](http://tinyletter.com/codebuddies) where anyone can share a personal project or leave a shout out, and post on [Facebook](https://www.facebook.com/groups/TOPSTUDYGROUP/). We come from all over the world; there are members living in the United States, Japan, Sweden, the United Kingdom, Russia, Australia, Canada, India, and more. We accept donations and are 100% transparent on [Open Collective](https://opencollective.com/codebuddies) 
+We're a community of independent code learners who help each other on [Slack](http://codebuddies.slack.com), [schedule hangouts](http://hangouts.codebuddies.org) to learn with each other, contribute to a periodic [anonymous crowdsourced newsletter](http://tinyletter.com/codebuddies) where anyone can share a personal project or leave a shout out, and post on [Facebook](https://www.facebook.com/groups/TOPSTUDYGROUP/). We come from all over the world; there are members living in the United States, Japan, Sweden, the United Kingdom, Russia, Australia, Canada, India, and more. We accept donations and are 100% transparent on [Open Collective](https://opencollective.com/codebuddies).
 
 Learning with each other helps us learn faster. We strive to create a safe space for anyone interested in code to talk about the learning process. The project is free and open-sourced on Github, and this app is 100% community/volunteer-built.
 
@@ -62,6 +62,7 @@ Our community spends a lot of time helping each other on [our public Slack](http
 - @olivia, http://github.com/foxiae - contributed to discussions on features
 - @abhiii5459, http://github.com/abhiii5459 - contributed to PR#239. Working on Fix#203 along with @linda.
 - @sharynneazhar, http://github.com/sharynneazhar - contributed to site fixes and enhancements, particularly the ability for users to edit their profile information
+- @grfraser, https://github.com/grfraser
 - @aewens, https://github.com/aewens - contributed fixes to issues, added hideable study group panels
 - @railsstudent, https://github.com/railsstudent - contributed to PR#639. Worked on check uniqueness of study group name  
 - Add Your Name Above. Refer to ***[contributing.md](contributing.md#how-do-i-add-myself-as-a-contributor)***
@@ -139,5 +140,12 @@ You can also support us with a monthly donation by [becoming a Backer!](https://
 <a href="https://opencollective.com/codebuddies/backer/28/website" target="_blank"><img src="https://opencollective.com/codebuddies/backer/28/avatar.svg"></a>
 <a href="https://opencollective.com/codebuddies/backer/29/website" target="_blank"><img src="https://opencollective.com/codebuddies/backer/29/avatar.svg"></a>
 
+### Backers
+Thank you to [@distalx](https://twitter.com/distalx), [@alfougy](https://twitter.com/alfougy), and [@mozzadrella](https://twitter.com/mozzadrella) for supporting us on our [Open Collective](http://opencollective.com/codebuddies)!
+
 ### Sponsors
+Thank you to DigitalOcean for sponsoring our hosting, and StickerMule for sponsoring $50 in credits!
+
 <a href="https://www.digitalocean.com/" target="_blank"><img src="https://github.com/codebuddiesdotorg/codebuddies/blob/master/public/images/powered_by_digitalocean.png" width="200" alt="Powered by DigitalOcean"/></a>
+
+<a href="http://stickermule.com" target="_blank"><img src="http://i.imgur.com/WblcveC.png" width="180" alt="Thank you to StickerMule for sponsoring $50 in credits!"></a>

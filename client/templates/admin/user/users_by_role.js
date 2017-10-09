@@ -3,7 +3,7 @@ Template.registerHelper("currentRole", function(){
 });
 Template.usersByRole.helpers({
   users:function(){
-    return Meteor.users.find({roles:FlowRouter.getParam('role')});
+    return Meteor.users.find({'roles.CB': FlowRouter.getParam('role') });
   }
 });
 

@@ -14,21 +14,32 @@ Template.hangoutFrame.onCreated(function() {
 
     const domain = "meet.jit.si";
     let room = 'cb' + data.room;
-    let width = 500;
+    let width = '100%';
     let height = 550;
     let configOverwrite = { startVideoMuted: 0 };
     let interfaceConfigOverwrite = {};
     let htmlElement = document.getElementById("hangout-container");
 
     instance.api = new JitsiMeetExternalAPI(domain, room, width, height, htmlElement, configOverwrite, interfaceConfigOverwrite);
-    
+
+
     instance.api.executeCommand('displayName', data.username);
     instance.api.executeCommand('toggleChat');
     instance.api.executeCommand('avatarUrl', data.avatar);
+    let jitsiParticipants = instance.api.getNumberOfParticipants();
 
-    $("div[id^=" + 'jitsiConference' + "]").css('width', '100%');
+    $("[id^=" + 'jitsiConference' + "]").css('width', '100%');
     //only show the launch hangout button if Jitsi is not loaded
-    $("div[id^=" + 'jitsiConference' + "]").length == 1 ? $('.load-hangout').hide() : $('#load-hangout').show();
+    $("[id^=" + 'jitsiConference' + "]").length == 1 ? $('.load-hangout').hide() : $('#load-hangout').show();
+    
+    instance.api.on('readyToClose', () => {
+      Bert.alert({
+          type: 'success',
+          message: 'Thanks for joining the hangout!',
+          hideDelay: 3500
+        });
+      FlowRouter.go('all study groups');
+    });
   }
 
   /**
@@ -49,7 +60,7 @@ Template.hangoutFrame.onRendered(function() {
   * Chrome or Firefox
   */
 
-  if (!!window.chrome && !!window.chrome.webstore || typeof InstallTrigger !== 'undefined') { 
+  if (!!window.chrome && !!window.chrome.webstore || typeof InstallTrigger !== 'undefined') {
     //console.log('using firefox or chrome')
     $('p.chrome-firefox-warning').hide();
   } else {

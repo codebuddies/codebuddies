@@ -38,6 +38,18 @@
               <br>
               <div class="row">
                 <div class="col-md-12">
+                  {{#if Template.subscriptionsReady}}
+                    <select class="study-group-single form-control">
+                      <option></option>
+                    </select>
+                  {{else}}
+                    {{> loading}}
+                  {{/if}}
+                </div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="col-md-12">
                   <div data-editor-host></div>
                 </div>
               </div>

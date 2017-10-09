@@ -2,8 +2,22 @@
   background-color: $cta-blue;
 }
 
-#create-hangout-modal h4 {
-  @include font-face(700, 20px, bold, $black);
+#create-hangout-modal {
+  z-index: 1050;
+  h4 {
+    @include font-face(700, 20px, bold, $black);
+  }
+}
+
+.modal.study-group {
+  h2 {
+    margin: 0;
+  }
+  h3, label {
+    text-transform: uppercase;
+    margin: 20px 0px 10px 0px;
+    @include font-face(700, 14px, bold, $black);
+  }
 }
 
 #clone-hangout-modal,

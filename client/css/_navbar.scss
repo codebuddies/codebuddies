@@ -12,14 +12,18 @@
       }
     }
   }
+  span.badge {
+    position: relative;
+    top: -2px;
+  }
 }
 
 .navbar-default {
   background-color: $white;
 
   .navbar-nav {
-    li > a {
-      @include font-face(400, 18px, normal, $secondary-grey);
+    li > a, li > a:hover {
+      @include font-face(400, 18px, normal, $cta-blue);
       margin-top: 4px;
     }
 

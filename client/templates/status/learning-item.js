@@ -21,6 +21,10 @@ Template.learningItem.helpers({
   },
   learningTime: function() {
     return moment(this.created_at).format("dddd, MMM DD, YYYY");
+  },
+  learningTitle: function(){
+    var pattern = /((http|https)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?)/g
+    return _.escape(this.title).replace(pattern, "<a href=\"$1\">$1</a>")
   }
 
 });

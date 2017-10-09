@@ -13,12 +13,48 @@ Meteor.methods({
       end: Match.OneOf(String, Date),
       duration: Number,
       type: String,
+      groupId: String
     }));
 
     const loggedInUser = Meteor.user();
     if (!this.userId) {
       throw new Meteor.Error('Hangout.methods.createHangout.not-logged-in', 'Must be logged in to create new hangout.');
     }
+
+    let group;
+    //check for group
+    if (data.groupId == 'CB') {
+      group = {_id: 'CB', title: 'CB', slug: 'CB' };
+    } else {
+      const temp_item = StudyGroups.findOne({'_id': data.groupId }, { 'exempt_from_default_permission': 1 });
+
+      // check for exempt_from_default_permission
+      if (temp_item && temp_item.exempt_from_default_permission) {
+
+        //check if user is a member
+        if (!loggedInUser || !Roles.userIsInRole(loggedInUser, ['owner','admin','moderator','member'], data.groupId)) {
+          throw new Meteor.Error(403, "Access denied");
+        }else {
+          group = StudyGroups.findOne({'_id': data.groupId }, { 'title': 1, 'slug': 1 });
+        }
+
+      } else {
+
+        //check if user has permission
+        if (!loggedInUser || !Roles.userIsInRole(loggedInUser, ['owner','admin','moderator'], data.groupId)) {
+          throw new Meteor.Error(403, "Access denied");
+        }else {
+          group = StudyGroups.findOne({'_id': data.groupId }, { 'title': 1, 'slug': 1 });
+        }
+
+      }
+
+    }// if ends
+
+
+
+
+
 
     let createdAt = new Date();
     let createdAtPlusTwoHour = new Date(createdAt.getTime() + (2*1000*60*60));
@@ -44,10 +80,18 @@ Meteor.methods({
       users:[loggedInUser._id],
       day_reminder_sent: reminder,
       hourly_reminder_sent: reminder,
+      followup_email_sent: false,
       views: 0,
       visibility: true,
       created_at: createdAt,
+      group: {
+        id: group._id,
+        title: group.title,
+        slug: group.slug
+      }
     }
+
+    // console.log(hangout);
 
     const hangout_id = Hangouts.insert(hangout);
     hangout._id = hangout_id;
@@ -79,12 +123,13 @@ Meteor.methods({
         const actor = Meteor.user()
         if (actor._id === data.hostId) {
 
-          Hangouts.update({_id: data.hangoutId},
+          Hangouts.up
+          date({_id: data.hangoutId},
                           {$set: { visibility: false} });
           return true;
 
         }else{
-          if( !Roles.userIsInRole(this.userId,['admin','moderator']) ) {
+          if( !Roles.userIsInRole(this.userId,['admin','moderator'], 'CB') ) {
             throw new Meteor.Error('Hangout.methods.deleteHangout.accessDenied', 'Cannot delete hangout, Access denied');
           }
 
@@ -146,7 +191,7 @@ Meteor.methods({
 
       return true;
 
-    }else if(Roles.userIsInRole(loggedInUser._id,['admin','moderator'])){
+    }else if(Roles.userIsInRole(loggedInUser._id,['admin','moderator'], 'CB')){
 
       Hangouts.update({_id: data.hangoutId},
                       {$set:{ topic: data.topic,
@@ -182,7 +227,7 @@ Meteor.methods({
   },
   getHangout: function(hangoutId) {
     check(hangoutId, String);
-    if (Roles.userIsInRole(this.userId, ['admin','moderator'])) {
+    if (Roles.userIsInRole(this.userId, ['admin','moderator'], 'CB')) {
 
       return Hangouts.findOne({_id:hangoutId});
 
@@ -329,7 +374,7 @@ Meteor.methods({
 
       return true;
 
-    }else if(Roles.userIsInRole(loggedInUser._id,['admin','moderator'])){
+    }else if(Roles.userIsInRole(loggedInUser._id,['admin','moderator'], 'CB')){
 
       Hangouts.update({_id: data.hangoutId},
                       {$set:{ end: oneMinuteAgo,
@@ -351,7 +396,7 @@ Meteor.methods({
 
       return true;
 
-    }else{
+    } else {
       throw new Meteor.Error('Hangouts.methods.endHangout.accessDenied','Cannot end hangout, Access denied');
     }
 

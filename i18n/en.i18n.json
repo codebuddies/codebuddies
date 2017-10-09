@@ -30,11 +30,12 @@
   "working_on": "Please type what you're working on right now!",
   "accomplished": "What did you learn or accomplish just now?",
   "upcoming_time": "Starting __time__",
-  "mastered_x_days_ago": "COMPLETED",
+  "mastered_x_days_ago": "HANGOUT HAS ENDED",
+  "completed": "hangout has ended",
   "completed_long": "THIS HANGOUT HAS BEEN COMPLETED",
   //COMPLETED __days__ days ago, COMPLETED __days__ days ago, COMPLETED today __time__
-  "mastered_x_days_ago_plural": "COMPLETED",
-  "mastered_today_time": "COMPLETED",
+  "mastered_x_days_ago_plural": "HANGOUT HAS ENDED",
+  "mastered_today_time": "HANGOUT HAS ENDED",
   "delete_learning_confirm": "Are you sure you want to delete this learning?",
 
 
@@ -48,19 +49,22 @@
   "join_long": "Launch the Hangout",
   "rsvp": "RSVP",
   "rsvp_long": "RSVP to this Hangout",
-  "leave": "Remove RSVP",
-  "join_in_session": "RSVP NOW",
+  "joined": "JOINED",
+  "leave": "REMOVE RSVP",
+  "join_in_session": "Click to RSVP",
   "load_more": "Load more...",
   "load_page": "Load page __start__/__total__",
   "ok": "OK",
-  "yes_delete_hangout": "Yes delete it!",
+  "yes_delete_hangout": "Yes, delete it!",
   "no_delete_hangout": "No, I was just kidding",
-  "yes_delete_learning": "Yes please!",
+  "yes_delete_group": "Yes, archive it!",
+  "no_delete_group": "No, I was just kidding",
+  "yes_delete_learning": "Yes, please!",
   "no_delete_learning": "No thanks!",
   "launch" : "JOIN NOW",
-  "yes_end_hangout": "Yes end it!",
+  "yes_end_hangout": "Yes, end it!",
   "no_end_hangout": "No, I was just kidding",
-  "end_hangout": "END HANGOUT",
+  "end_hangout": "End hangout manually",
 
 
   // hangout
@@ -72,8 +76,7 @@
   "silent_hangout": "Silent Hangout",
   "teaching_hangout": "Teaching Hangout",
   "collaboration_hangout": "Collaboration Hangout",
-  "click_to_load_hangout": "Click to load Hangout",
-
+  "click_to_load_hangout": "Click to load the hangout",
   // popup messages
   "you_are_almost_there": "You are almost there!",
   "login_join_hangout": "Please sign in to codebuddies.slack.com to join a hangout",
@@ -89,6 +92,7 @@
   "not_now":"Not Now",
   "continue_with_slack": "Sign in with Slack",
   "end_hangout_confirm": "Are you sure?",
+  "archive_final_warning": "Archiving this group cannot be undone",
 
   // create hangout modal - popup messages
   "hangout_created_title": "Hangout Created Successfully",
@@ -110,10 +114,38 @@
   "hangout_reported_message" : "We appreciate your assistance in maintaining the quality of this community.",
 
   // admin header
-  "manage_user" : "Manage user",
+  "manage_user" : "Manage Users",
   "notification" : "Notification",
 
   //visitor
   "sign_in_to_continue" : "Please sign in to continue.",
-  "browse_hangouts" : "Hangouts"
+  "browse_hangouts" : "Hangouts",
+
+  //Study groups
+  "new_hangout": "Schedule a Hangout",
+  "description": "Description",
+  "new_study_group": "Start a New Group",
+  "study_group_name": "Name",
+  "study_group_tagline": "Tagline",
+  "start_a_studygroup": "Start a New Group",
+  "create": "Create a study group",
+  "find_study_group": "Find a Group",
+  "my_study_groups": "My Study Groups",
+  "coming_soon": "Coming Soon",
+  "info": "Info",
+  "twentyforseven": "24/7 Hangout",
+  "hangouts": "All Hangouts",
+  "members": "Members",
+  "learnings": "Progress Log",
+  "links": "Links",
+  "resources": "Resources",
+  "notes": "Notes",
+  "availability": "Availability",
+  "activity": "Activity",
+  "activities": "Activities",
+  "join_study_group": "Join this Group",
+  "leave_study_group": "Leave this Group",
+  "select_study_group": "Please select a group.",
+  "settings": "Settings",
+  "start_new_group": "Start a New Group"
 }

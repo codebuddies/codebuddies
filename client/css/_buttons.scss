@@ -4,6 +4,10 @@
   transition: all .5s;
 }
 
+.btn-default-size {
+  width: 300px;
+}
+
 .btn-primary.btn-outline {
   border-color: $cta-blue;
   color: $cta-blue;
@@ -103,7 +107,7 @@
   background-color: $cta-blue;
   display: block;
   height: 36px;
-  margin: 0 auto;
+  margin: 10px auto;
 
   &:hover {
     color: $white;
@@ -115,6 +119,13 @@
 
   &.btn-success {
     background: $success-green;
+  }
+}
+
+.btn-leave {
+  background: $warm-grey;
+  &:hover {
+    background: $danger-red;
   }
 }
 
@@ -167,18 +178,18 @@
 }
 
 .btn-block {
-  @include font-face(700, 13px, bold, $black);
-  background: $bg-lightgrey;
-  border: 0;
-  margin-top: 20px;
-
+  @include font-face(700, 13px, bold, $cta-blue);
+  background: $white;
+  border: 1px solid $cta-blue;
+  margin-top: 10px;
   &:hover {
-    background: $cta-blue;
     color: $white;
+    background: $cta-blue;
+    border: 1px solid $cta-blue;
   }
 }
 
-.delete-hangout, .edit-hangout {
+li.delete-hangout, li.edit-hangout {
   @media (min-width: 480px) {
     border: 0;
     padding: 0;
@@ -194,4 +205,39 @@
 
 .btn-grey {
   background: $warm-grey;
+}
+
+.hangout-action-buttons {
+  .btn {
+    display: inline-block;
+    width: 100%;
+  }
+  .hangout-action-buttons-other {
+      a.btn {
+        @include font-face(200, 16px, light, $black);
+        background: transparent;
+        border: 1px solid $black;
+        margin: 10px 0px 0px 0px;
+      }
+  }
+}
+
+#create-hangout-popup, #createGroupButton, .btn-schedule-hangout {
+  background: $success-green;
+  margin: 0 auto;
+  max-width: 340px;
+}
+#createGroupButton {
+  margin: 10px auto;
+}
+.btn-clear {
+  width: 100%;
+  @include font-face(700, 16px, light, $white);
+  background: $cta-blue;
+  border: 1px solid $white;
+  &:hover {
+    background: $cta-blue;
+    border: 1px solid $white;
+    color: $white;
+  }
 }

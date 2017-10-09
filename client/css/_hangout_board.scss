@@ -2,19 +2,17 @@
   .hangout-card {
     background: $bg-white;
     cursor: pointer;
-    display: block;
+    display: inline-block;
     height: 180px;
     padding: 10px;
     position: relative;
+    z-index: 0;
     @include box-shadow(0, 12px, 60px, rgba(0, 0, 0, .5));
-    .hangout-topic {
-      @include font-face(600, 16px, bold, $primary-grey);
-      line-height: 25px;
-    }
 
     .hangout-details {
-      bottom: 10px;
+      bottom: 0px;
       position: absolute;
+      width: 250px;
     }
 
     .hangout-date {
@@ -55,4 +53,5 @@
 
     @include font-face(400, 17px, normal, $cta-blue);
   }
+
 }

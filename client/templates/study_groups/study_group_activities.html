@@ -1,0 +1,41 @@
+<template name="studyGroupActivities">
+{{#if Template.subscriptionsReady}}
+  {{#each activities}}
+  
+    {{#if equals type 'GROUP_CREATION'}}
+        <p class="activity">
+          <i class="fa {{icon}}" aria-hidden="true"> </i>
+          <a href="{{pathFor 'profile' name=actor.name userId=actor.id}}"> {{actor.name}} </a>  created the group.
+          <small> &nbsp; {{dispDate created_at}} </small>
+        </p>
+    {{/if}}
+
+    {{#if equals type 'USER_JOIN'}}
+        <p class="activity">
+          <i class="fa {{icon}}" aria-hidden="true"> </i>
+          <a href="{{pathFor 'profile' name=actor.name userId=actor.id}}"> {{actor.name}} </a>  joined the group.
+          <small> &nbsp; {{dispDate created_at}} </small>
+        </p>
+    {{/if}}
+
+    {{#if equals type 'USER_LEAVE'}}
+        <p class="activity">
+          <i class="fa {{icon}}" aria-hidden="true"> </i>
+          <a href="{{pathFor 'profile' name=actor.name userId=actor.id}}"> {{actor.name}} </a>  left the group.
+          <small> &nbsp; {{dispDate created_at}} </small>
+        </p>
+    {{/if}}
+
+
+  {{else}}
+
+  {{/each}}
+
+  {{#if Template.subscriptionsReady}}
+      {{#if hasMoreActivities}}
+          <button id="load-more-activities" class="btn btn-default btn-block">Load more</button>
+      {{/if}}
+  {{/if}}
+
+{{/if}}
+</template>

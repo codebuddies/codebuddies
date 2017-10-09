@@ -26,14 +26,14 @@ Meteor.methods({
 });
 
 Meteor.methods({
-  deleteUserAcount:function(data){
+  deleteUserAccount:function(data){
      check(data, {
        reason: String,
        detail: String
      });
 
      if (!this.userId) {
-       throw new Meteor.Error('Users.methods.deleteUserAcount.not-logged-in', 'Must be logged in to Delete an account.');
+       throw new Meteor.Error('Users.methods.deleteUserAccount.not-logged-in', 'Must be logged in to Delete an account.');
      }
 
      const loggedInUser = Meteor.user();

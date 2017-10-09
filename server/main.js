@@ -17,10 +17,10 @@ Meteor.startup(function() {
   });
 
   smtp = {
-    username: Meteor.settings.mailgun_username,
-    password: Meteor.settings.mailgun_password,
-    server: Meteor.settings.mailgun_host,
-    port: Meteor.settings.mailgun_port
+    username: Meteor.settings.sparkpost_username,
+    password: Meteor.settings.sparkpost_password,
+    server: Meteor.settings.sparkpost_host,
+    port: Meteor.settings.sparkpost_port
   }
 
   process.env.MAIL_URL = 'smtp://' + encodeURIComponent(smtp.username) + ':' + encodeURIComponent(smtp.password) + '@' + encodeURIComponent(smtp.server) + ':' + smtp.port;
@@ -34,7 +34,7 @@ Meteor.startup(function() {
         password : password
       })
       if(id){
-        Roles.addUsersToRoles(id, 'admin');
+        Roles.addUsersToRoles(id, 'admin', 'CB');
         Email.send({
           to: Meteor.settings.root_email,
           from: Meteor.settings.email_from,
@@ -93,7 +93,7 @@ let generateGravatarURL = (email) => {
 Accounts.onCreateUser(function(options, user) {
 
   if (user.services.slack){
-    Roles.setRolesOnUserObj(user, ['user']);
+    Roles.setRolesOnUserObj(user, ['user'], 'CB');
     const user_info = loggingInUserInfo(user);
     const pickField = filterForSlackLogins(user_info.user)
 

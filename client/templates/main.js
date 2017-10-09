@@ -1,4 +1,4 @@
-// import {_} from 'lodash';
+// import _ from 'lodash';
 
 if (Meteor.isClient) {
   Meteor.startup(function () {
@@ -11,11 +11,7 @@ if (Meteor.isClient) {
     }
   });
 }
-Tracker.autorun(function() {
 
-  if (Session.get('hangoutSearchQuery'))
-    Meteor.subscribe('hangoutSearchResult', Session.get('hangoutSearchQuery'));
-});
 
 Template.registerHelper('equals', function (a, b) {
       return a === b;
@@ -53,7 +49,7 @@ Template.registerHelper("getHangoutStartDateDay", function(date){
   return moment(date).tz(tz).format('dddd MMMM Do YYYY');
 });
 
-Template.registerHelper("getHangoutStartDateTime", function(date){
+Template.registerHelper("getHangoutStartTime", function(date){
   const tz = TimezonePicker.detectedZone();
   return moment(date).tz(tz).format('h:mm a z');
 });
@@ -61,6 +57,11 @@ Template.registerHelper("getHangoutStartDateTime", function(date){
 Template.registerHelper("getHangoutEndDateTime", function(date){
   const tz = TimezonePicker.detectedZone();
   return moment(date).tz(tz).format('MMMM Do h:mm a z')
+});
+
+Template.registerHelper("getHangoutEndTime", function(date){
+  const tz = TimezonePicker.detectedZone();
+  return moment(date).tz(tz).format('h:mm a z')
 });
 
 Template.registerHelper("displaySlackSignInBtn", function(){
@@ -94,4 +95,23 @@ Template.registerHelper("isHangoutEndTimeTBA", function(start, end){
   const duration = (end - start) / (1000 * 60 * 60 * 24)
   return duration === 1 ?  true : false;
 
+});
+
+Template.registerHelper("isOwnerOfTheGroup", function(userId, groupId){
+  const loggedInUserId = Meteor.userId();
+
+  return ((loggedInUserId !== userId) &&  (Roles.userIsInRole( loggedInUserId, ['owner' ], groupId)) ? true : false  ) ;
+
+});
+
+Template.registerHelper("canUpdateUserRoleForGroup", function(subjectId, groupId, subjectRole){
+  const loggedInUserId = Meteor.userId();
+
+  return ((loggedInUserId !== subjectId) && (subjectRole !== 'owner' && subjectRole !=='admin') &&  (Roles.userIsInRole( loggedInUserId, ['owner', 'admin' ], groupId)) ? true : false  ) ;
+
+});
+
+Template.registerHelper("isOrganizers", function(role){
+
+  return ["owner", "admin", "moderator"].indexOf(role) < 0 ? false : true ;
 });

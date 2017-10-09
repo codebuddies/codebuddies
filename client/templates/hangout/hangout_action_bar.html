@@ -2,7 +2,7 @@
 
   <div class="dropdown pull-right">
     <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-        <span>Edit <i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
+        <span><i class="fa fa-ellipsis-h" aria-hidden="true"></i></span>
     </button>
     <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
         {{#unless hangoutOwner host.id}}
@@ -10,15 +10,15 @@
         {{/unless}}
         <li class="{{#if currentUser}} clone-hangout {{else}} continue-popup {{/if}}"><a href="#">Duplicate</a></li>
         {{#if hangoutOwner host.id}}
-          <li class="edit-hangout"><a href="#">Edit</a></li>
+          <li class="edit-hangout"><a href="#">Edit Details</a></li>
           <li class="delete-hangout"><a href="#">Delete</a></li>
           {{else}}
 
-          {{#if isInRole 'admin,moderator,volunteer'}}
+          {{#if isInRole 'admin,moderator,volunteer' 'CB'}}
             <li role="separator" class="divider"></li>
             <li class="edit-hangout"><a href="#">Edit <span class="label label-info">M</span> </a></li>
           {{/if}}
-          {{#if isInRole 'admin,moderator'}}
+          {{#if isInRole 'admin,moderator' 'CB'}}
             <li role="separator" class="divider"></li>
             <li class="delete-hangout"><a href="#">Delete <span class="label label-info">M</span> </a></li>
           {{/if}}

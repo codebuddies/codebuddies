@@ -7,10 +7,6 @@
       "apiKey": "mailchimp-api-key",
       "listId": "mailchimp-list-id"
     },
-    "kadira": {
-      "appId": "kadira-app-id",
-      "appSecret": "kadira-app-secret"
-    },
     "twitter": {
       "consumer_key": "5tuwUTjY4NwMs5KuVEgDBTIJV",
       "consumer_secret": "k05UXe9j4En8PeZ1m9qfjGgud76KutvlJ2T55qNftuT7VwhvbK",
@@ -19,19 +15,19 @@
     }
   },
   "isModeProduction": false,
-  "seeder":true,
+  "seeder":false,
   "slack_clientid": "4364220508.48656557590",
   "slack_clientsecret": "33e0c6dda98e994f194efdc9b6d35c46",
   "slack": "https://hooks.slack.com/services/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",
-  "mailgun_username": "postmaster@sandbox2be14a81c3384728a7a9f3eee8500a28.mailgun.org",
-  "mailgun_password": "0980133953c04009f17abbf972914167",
-  "mailgun_host": "smtp.mailgun.org",
-  "mailgun_port": 2525,
-  "email_from": "CodeBuddies-NoReply@codebuddies.org",
+  "sparkpost_username": "SMTP_Injection",
+  "sparkpost_password": "262d2acea308cdd96213d83c97fc7ba8ab3873c1",
+  "sparkpost_host": "smtp.sparkpostmail.com",
+  "sparkpost_port": 587,
+  "email_from": "linda@codebuddies.org",
   "team_id":"T04AQ6GEY",
-  "slack_alert_channel": "#cb2-test",
+  "slack_alert_channel": "#codebuddies-ops",
   "slack_alert_username": "CodeBuddies Alerts",
-  "hangout_reminder_interval": "every 1 hour",
+  "hangout_reminder_interval": "every 1 hour", 
   "root_email":"codebuddiesdotorg@gmail.com",
   "root_username":"CB",
   "root_gravatar":"http://www.gravatar.com/avatar/"

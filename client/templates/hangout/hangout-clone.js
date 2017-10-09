@@ -1,6 +1,10 @@
 import QuillEditor from '../../libs/QuillEditor';
 
-Template.cloneHangoutModal.rendered = function() {
+Template.cloneHangoutModal.onCreated(function () {
+    this.subscribe('myStudyGroups');
+});
+
+Template.cloneHangoutModal.onRendered(function() {
   var templateInstance = Template.instance();
   var editorHostElement = templateInstance.$('[data-editor-host]').get(0);
   var start = this.$('#start-date-time-picker');
@@ -20,7 +24,40 @@ Template.cloneHangoutModal.rendered = function() {
     minDate: new Date()
   });
 
-};
+  const instance = this;
+  instance.autorun(() => {
+
+    let roles = Meteor.user().roles;
+    let studyGroupsKeys = [];
+
+    Object.entries(roles).forEach(([key, value]) => {
+      if (value.includes('owner') || value.includes('admin') || value.includes('moderator') && key !== 'CB'){
+        studyGroupsKeys.push(key)
+      } else if (value.includes('member') && key !== 'CB') {
+        // check for exempt_from_default_permission
+        if (StudyGroups.findOne({_id:key}) && StudyGroups.findOne({_id:key}).exempt_from_default_permission) {
+          studyGroupsKeys.push(key)
+        }
+      }
+    });
+
+    let studyGroups = [{id: "CB", text: "CodeBuddies Default"}];
+    StudyGroups.find({_id:{$in:studyGroupsKeys}}).forEach((sg) => {
+      studyGroups.push({id: sg._id, text: sg.title});
+    });
+
+    Meteor.setTimeout(function () {
+
+      instance.$(".study-group-single", studyGroups).select2({
+        placeholder: "Select a group you organize",
+        data: studyGroups
+      });
+
+    },1500)
+
+  });
+
+});
 
 
 Template.cloneHangoutModal.events({
@@ -36,6 +73,7 @@ Template.cloneHangoutModal.events({
     const duration = Number($('#end-date-time').val()) || 1440;
     const end = new Date(startDate.getTime() + (1000*60* duration));
     const type = $('input[name="hangout-type"]:checked').val();
+    const groupId = $(".study-group-single").val();
 
 
     const data = {
@@ -46,7 +84,8 @@ Template.cloneHangoutModal.events({
       start: new Date(start),
       end: new Date(end),
       duration: duration,
-      type: type
+      type: type,
+      groupId: groupId
     };
 
 
@@ -68,6 +107,15 @@ Template.cloneHangoutModal.events({
         type: 'error'
       });
       return;
+    }
+
+    if ($.trim(groupId) == '') {
+      $(".study-group-single").focus();
+      sweetAlert({
+        title: TAPi18n.__("select_study_group"),
+        confirmButtonText: TAPi18n.__("ok"),
+        type: 'error'
+      });
     }
 
     if ($.trim(description) == '') {
