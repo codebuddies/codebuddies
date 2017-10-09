@@ -1,9 +1,15 @@
 <template name="studyGroupMembers">
-  {{#if isInRole 'owner, admin, moderator' _id}}
+  {{#if isInRole 'owner, admin' _id}}
     <p class="well"><h5>You can modify your members' roles here.</h5>
       <ul>
-        <li>Only <strong>admins</strong> and <strong>moderators</strong> can schedule hangouts for this group.</li>
-        <li>Admins can promote other members to be moderators.</li>
+        <li>Admins can promote other members to be moderators, and change the group title and description.</li>
+        <li>Moderators can add resources to the group.</li>
+        {{#if equals exempt_from_default_permission true}}
+            <li><strong>Every member</strong> of this group can schedule hangouts for this group. {{#if isInRole 'owner' _id}}(Change this permisison in <strong>Settings</strong>.){{/if}}</li>
+        {{else}}
+            <li>Only <strong>admins</strong> and <strong>moderators</strong> can schedule hangouts for this group. {{#if isInRole 'owner' _id}}(Change this permission in <strong>Settings</strong>.){{/if}}</li>
+        {{/if}}
+        
       </ul>
     </p>
   {{/if}}
