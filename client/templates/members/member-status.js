@@ -21,30 +21,29 @@ Template.memberStatus.events({
         });
         return;
       }
-      /*var data = {
+      var data = {
         user_id: Meteor.userId(),
-        username: Meteor.user().username,
-        title: learningStatus,
-        hangout_id: FlowRouter.getParam('hangoutId'),
+        status: memberStatus,
         study_group_id: FlowRouter.getParam('studyGroupId')
-      }*/
-      /*
-      Meteor.call("addLearning", data, function(error, result) {
+      }
+
+      Meteor.call("editStatus", data, function(error, result) {
         if (error) {
           console.log(error);
+					return Bert.alert( error.reason, 'danger', 'growl-top-right' );
         }
         if (result) {
           swal({
              type: "success",
-             text: "Thank you for sharing what you learned!",
+             text: "Thank you for sharing your status!",
              timer: 500,
              showConfirmButton: false
            });
-           $('#learned-text').val('').blur();
-           $('.learnedCharactersLeft').text(140);
+           $('#status-text').val('').blur();
+           $('.statusCharactersLeft').text(140);
         }
       });
-      */
+
     }
   }
 });
