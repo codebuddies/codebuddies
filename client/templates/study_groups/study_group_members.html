@@ -1,4 +1,8 @@
 <template name="studyGroupMembers">
+  {{#if isInRole 'owner, admin, moderator, member ' _id}}
+      {{> memberStatus }}
+  {{/if}}
+
   {{#if isInRole 'owner, admin' _id}}
     <p class="well"><h5>You can modify your members' roles here.</h5>
       <ul>
@@ -9,7 +13,7 @@
         {{else}}
             <li>Only <strong>admins</strong> and <strong>moderators</strong> can schedule hangouts for this group. {{#if isInRole 'owner' _id}}(Change this permission in <strong>Settings</strong>.){{/if}}</li>
         {{/if}}
-        
+
       </ul>
     </p>
   {{/if}}

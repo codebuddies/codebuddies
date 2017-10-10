@@ -1,0 +1,7 @@
+<template name="memberStatus">
+	<div class="margin-bottom-1">
+	<textarea id="status-text" rows="3" maxlength="140" class="form-control {{#unless currentUser}} continue-popup {{/unless}}"
+	  placeholder="What is your current status? (limited to 140 characters)"></textarea>
+	<span class="statusCharactersLeft"></span>
+	</div>
+</template>
