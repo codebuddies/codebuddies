@@ -26,9 +26,17 @@
       {{#each members}}
       <div class="col-md-6">
         <li>
-          <a href="{{pathFor 'profile' name=name userId=id}}">
-          <img src="{{avatar}}" alt="{{name}}" class="img-circle" data-id="{{id}}"> <strong>{{ name }}</strong></a>
-          <a class="memberDetail btn btn-default pull-right">Modify</a>
+          <div class="col-md-6">
+            <a href="{{pathFor 'profile' name=name userId=id}}">
+              <img src="{{avatar}}" alt="{{name}}" class="img-circle" data-id="{{id}}"> <strong>{{ name }}</strong>
+            </a>
+          </div>
+          <div class="col-md-6">
+            <span>{{status}}</span>
+          </div>
+          <div class="col-md-12">
+            <a class="memberDetail btn btn-default pull-right">Modify</a>
+          </div>
         </li>
       </div>
       {{/each}}
@@ -42,6 +50,7 @@
             <a href="{{pathFor 'profile' name=name userId=id}}" class="{{#unless currentUser}} continue-popup {{/unless}}">
               <img src="{{avatar}}" alt="{{name}}" class="img-circle" data-id="{{id}}"> <strong>{{ name }}</strong>
             </a>
+            <span>{{status}}</span>
           </li>
         </div>
       {{/each}}
