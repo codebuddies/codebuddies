@@ -55,6 +55,7 @@
   text-decoration: none;
   i { margin-right: 8px; }
   &:hover { background: $white; color: $cta-blue;}
+  &.editProfile { color: $white }
 }
 
 .btn-circle {
