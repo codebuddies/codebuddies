@@ -24,6 +24,7 @@
 
       <div  id="members">
       {{#each members}}
+
         <div class="member-card col-md-6">
           <div class="member-card-avatar col-md-6">
             <a href="{{pathFor 'profile' name=name userId=id}}">
@@ -32,6 +33,8 @@
           </div>
           <div class="member-card-status col-md-6">
             <span>{{status}}</span>
+          </div>
+          <div class="member-card-button col-md-12">
             <a class="memberDetail btn btn-default pull-right">Modify</a>
           </div>
         </div>
