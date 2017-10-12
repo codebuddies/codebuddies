@@ -22,38 +22,68 @@
   <div class="members">
     {{#if isInRole 'owner, admin, moderator' _id}}
 
-      <div  id="members">
+      <table id="members" class="table table-striped table-hover">
+        <thead>
+           <tr>
+               <th></th>
+               <th></th>
+               <th>Current Status</th>
+               <th></th>
+           </tr>
+       </thead>
+       <tbody>
       {{#each members}}
-
-        <div class="member-card col-md-6">
-          <div class="member-card-avatar col-md-6">
-            <a href="{{pathFor 'profile' name=name userId=id}}">
-              <img src="{{avatar}}" alt="{{name}}" class="img-circle" data-id="{{id}}"> <strong>{{ name }}</strong>
-            </a>
-          </div>
-          <div class="member-card-status col-md-6">
-            <span>{{status}}</span>
-          </div>
-          <div class="member-card-button col-md-12">
-            <a class="memberDetail btn btn-default pull-right">Modify</a>
-          </div>
-        </div>
+        <tr>
+           <td>
+              <a href="{{pathFor 'profile' name=name userId=id}}">
+                <img src="{{avatar}}" alt="{{name}}" class="img-circle" data-id="{{id}}">
+              </a>
+           </td>
+           <td>
+             <a href="{{pathFor 'profile' name=name userId=id}}">
+                <strong>{{ name }}</strong>
+             </a>
+           </td>
+           <td>
+             <span>{{status}}</span>
+           </td>
+           <td>
+             <a class="memberDetail btn btn-default pull-right">Modify</a>
+           </td>
+         </tr>
       {{/each}}
-      </div>
+      </tbody>
+      </table>
 
     {{else}}
-      <ul id="members">
+    <table id="members" class="table table-striped table-hover">
+      <thead>
+         <tr>
+             <th></th>
+             <th></th>
+             <th>Current Status</th>
+         </tr>
+     </thead>
+     <tbody>
       {{#each members}}
-        <div class="col-md-6">
-          <li>
-            <a href="{{pathFor 'profile' name=name userId=id}}" class="{{#unless currentUser}} continue-popup {{/unless}}">
-              <img src="{{avatar}}" alt="{{name}}" class="img-circle" data-id="{{id}}"> <strong>{{ name }}</strong>
-            </a>
-            <span>{{status}}</span>
-          </li>
-        </div>
+        <tr>
+         <td>
+          <a href="{{pathFor 'profile' name=name userId=id}}" class="{{#unless currentUser}} continue-popup {{/unless}}">
+             <img src="{{avatar}}" alt="{{name}}" class="img-circle" data-id="{{id}}">
+           </a>
+         </td>
+         <td>
+           <a href="{{pathFor 'profile' name=name userId=id}}" class="{{#unless currentUser}} continue-popup {{/unless}}">
+              <strong>{{ name }}</strong>
+           </a>
+         </td>
+         <td>
+           <span>{{status}}</span>
+         </td>
+       </tr>
       {{/each}}
-      </ul>
+    </tbody>
+    </table>
     {{/if}}
 
   </div>
