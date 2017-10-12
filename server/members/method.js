@@ -6,8 +6,6 @@ Meteor.methods({
       study_group_id: String
     });
 
-    console.log(data);
-
     if (!this.userId) {
       throw new Meteor.Error('Members.methods.editStatus.not-logged-in', 'Must be logged in to edit the member status.');
     }

@@ -1,0 +1,6 @@
+// Allow `.member-card-avatar` and `.member-card-status` to be on the same row
+.member-card-avatar,
+.member-card-status {
+  display: inline-block;
+  float: left;
+}
