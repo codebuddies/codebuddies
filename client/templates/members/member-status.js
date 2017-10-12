@@ -1,4 +1,16 @@
 
+Template.memberStatus.helpers({
+  currentStatus: function(){
+		const studyGroup = StudyGroups.findOne({_id:FlowRouter.getParam('studyGroupId')});
+		if (studyGroup) {
+	    const member =  studyGroup.members
+											.find(m => m.id === Meteor.userId());
+	    return (member && member.status) ? member.status : '';
+		}
+		return '';
+  }
+});
+
 Template.memberStatus.events({
 	'keyup textarea#status-text': function(event) {
         //Check value and if 140 characters have been typed, the user can't type anymore
