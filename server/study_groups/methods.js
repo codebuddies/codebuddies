@@ -40,7 +40,9 @@ Meteor.methods({
            id: user._id,
            name: user.username,
            avatar: user.profile.avatar.default,
-           role: 'owner'
+           role: 'owner',
+           status: '',
+           status_modifiedAt: null
          }
        ],
        visibility: true,
@@ -115,7 +117,9 @@ Meteor.methods({
       id: user._id,
       name: user.username,
       avatar: user.profile.avatar.default,
-      role: role
+      role: role,
+      status: '',
+      status_modifiedAt: null
     }
 
     StudyGroups.update(
@@ -413,6 +417,36 @@ Meteor.methods({
     }
 
     StudyGroups.update({_id: data.id}, { $set:{ 'exempt_from_default_permission': data.permission }});
+
+    return true;
+  }
+});
+
+/**
+* update study group member status
+* @function
+* @name updateUserStatusForStudyGroup
+* @param {Object}
+* @return {Boolean} true on success
+*/
+Meteor.methods({
+  updateUserStatusForStudyGroup: function(data) {
+    check(data, {
+      status: String,
+      study_group_id: String
+    });
+
+    if (!this.userId) {
+      throw new Meteor.Error('Members.methods.editStatus.not-logged-in', 'Must be logged in to edit the member status.');
+    }
+
+    const actor = Meteor.user()
+    if (!actor || !Roles.userIsInRole(actor, ['owner','admin', 'moderator', 'member'], data.study_group_id )) {
+      throw new Meteor.Error(403, "Access denied");
+    }
+
+    StudyGroups.update({_id: data.study_group_id, 'members.id': actor._id },
+                      {$set: {'members.$.status': data.status, 'members.$.status_modifiedAt': new Date()} });
 
     return true;
   }
