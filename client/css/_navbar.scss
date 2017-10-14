@@ -33,5 +33,11 @@
       height: 34px;
       margin-top: -4px;
     }
+
+    .dropdown-menu {
+      .fa-li {
+          position: initial;
+      }
+    }
   }
 }
