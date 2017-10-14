@@ -30,6 +30,26 @@ Credit: [Ada Chiu](https://github.com/adachiu).
 ## Why are you building this site?
 Our community spends a lot of time helping each other on [our public Slack](http://codebuddies.slack.com) (P.S. You can get an invite [here](http://codebuddiesmeet.herokuapp.com) if you want to join), but it's hard to schedule screensharing/voice hangout study times via Slack, and it's also hard to know who else is online and available for joining a Hangout to work on something together. The platform we're building solves those issues.
 
+## What is the Slack etiquette for CodeBuddies members?
+
+### General Rules to Follow
+
+- Introduce yourself in the #introduce-yourself channel and please help welcome others there too! The more we know about each other, the better we can connect and collaborate.
+- Check the #announcements channel for notifications about new hangouts that your peers in the community have started or scheduled on the website!
+- If you have a specific learning goal (e.g. complete a book or tutorial, master a specific topic like functional or a specific ruby book or design patterns or blockchain), start a study group on codebuddies.org/study-groups. Invite folks on Slack to join your study group so that you can motivate each other to master that learning goal.
+- We are a pay-it-forward community. If someone here has helped you, please give back by helping someone else!
+
+### Etiquette for Posting Questions
+
+- This is a safe space. No question is too "stupid." But please be specific with your questions so all of us can help you even when you aren't online. Share a code snippet, a link to where you're seeing the issue, a description of what is confusing you, or specifics on what you've tried so far. More often than not, it also helps to paste your error logs into a snippet or text file ([instructions here on how to do that in Slack](https://get.slack.help/hc/en-us/articles/204145658-Create-a-snippet)) to accompany your question/issue.
+- Ask questions in a public channel; you are more likely to receive an answer than if you DM people. Other people in the channel may have had the same issue before and can point you in the right direction - and if not, they will benefit from the answer you receive or work out.
+- When asking for help, please don't ask if anybody is available to help - just ask the question!
+- Please don't cross post the same question in multiple channels. Folks in this community may not be super-chatty at any given moment, but we are reading posts across all chanels. Someone will eventually see (and help) you.
+
+Thanks to everyone who've been more or less following these etiquette rules already! This community is international and distributed across timezones, and it's nice to find that even with our diversity of backgrounds and experience levels and nationalities, we have similar goals and can support each other so easily.
+
+Always a delight to be late-night coding – and suddenly realize that halfway around the world, my hangout collaborator is just having their first cup of coffee.
+
 ##Who are the volunteers so far?
 
 *Note: the list below is incomplete. Please add your name and your contribution.*
