@@ -147,5 +147,6 @@
   "leave_study_group": "Leave this Group",
   "select_study_group": "Please select a group.",
   "settings": "Settings",
-  "start_new_group": "Start a New Group"
+  "start_new_group": "Start a New Group",
+  "create_a_progress_log": "Add New Log"
 }

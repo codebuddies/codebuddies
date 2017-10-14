@@ -54,5 +54,8 @@ Template.studyGroupLearnings.events({
     // increase limit by 5 and update it
     limit += 5;
     instance.limit.set(limit);
+  },
+  "click #newProgressLog": function (event, instance) {
+    Modal.show('newProgressLogModal');
   }
 });
