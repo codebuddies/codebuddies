@@ -59,7 +59,7 @@
           {{! for logged in user}}
           {{else}}
 
-            {{! won''t be visible to cb admin}}
+            {{! won't be visible to cb admin}}
             {{#unless isInRole 'admin' 'CB'}}
               <!-- notification for user-->
               <li><a href="{{pathFor 'user notification'}}"><i class="fa fa-bell" aria-hidden="true"></i> {{#if userNotificationCount}}<small><span class="badge">{{userNotificationCount}}</span></small>{{/if}} </a></li>
