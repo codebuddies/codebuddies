@@ -40,7 +40,9 @@ Meteor.methods({
            id: user._id,
            name: user.username,
            avatar: user.profile.avatar.default,
-           role: 'owner'
+           role: 'owner',
+           status: '',
+           status_CreatedAt: null
          }
        ],
        visibility: true,
@@ -115,7 +117,9 @@ Meteor.methods({
       id: user._id,
       name: user.username,
       avatar: user.profile.avatar.default,
-      role: role
+      role: role,
+      status: '',
+      status_CreatedAt: null
     }
 
     StudyGroups.update(

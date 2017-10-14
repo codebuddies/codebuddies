@@ -1,0 +1,16 @@
+<template name="studyGroupOnlineMembers">
+  <div class="row">
+    <div class="panel panel-default">
+      <div class="panel-body">
+
+        <h3>Online Members</h3>
+        {{#each onlineUsers}}
+            <a href="{{pathFor 'profile' name=name userId=id}}" class="{{#unless currentUser}} continue-popup {{/unless}}">
+              <img src="{{avatar}}" alt="{{name}}" class="img-circle" data-id="{{id}}">
+            </a>
+        {{/each}}
+
+      </div>
+    </div>
+  </div>
+</template>
