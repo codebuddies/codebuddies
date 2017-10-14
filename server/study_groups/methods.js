@@ -421,3 +421,34 @@ Meteor.methods({
     return true;
   }
 });
+
+/**
+* update study group member status
+* @function
+* @name editStatus
+* @param {Object}
+* @return {Boolean} true on success
+*/
+Meteor.methods({
+  editStatus: function(data) {
+    check(data, {
+      user_id: String,
+      status: String,
+      study_group_id: String
+    });
+
+    if (!this.userId) {
+      throw new Meteor.Error('Members.methods.editStatus.not-logged-in', 'Must be logged in to edit the member status.');
+    }
+
+    const actor = Meteor.user()
+    if (!actor || !Roles.userIsInRole(actor, ['owner','admin', 'moderator', 'member'], data.study_group_id )) {
+      throw new Meteor.Error(403, "Access denied");
+    }
+
+    StudyGroups.update({_id: data.study_group_id, 'members.id': Meteor.userId() },
+                      {$set: {'members.$.status': data.status, 'members.$.status_CreatedAt': new Date()} });
+
+    return true;
+  }
+});
