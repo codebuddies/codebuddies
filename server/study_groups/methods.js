@@ -442,7 +442,6 @@ Meteor.methods({
     }
 
     const actor = Meteor.user()
-    console.log(actor);
     if (!actor || !Roles.userIsInRole(actor, ['owner','admin', 'moderator', 'member'], data.study_group_id )) {
       throw new Meteor.Error(403, "Access denied");
     }
