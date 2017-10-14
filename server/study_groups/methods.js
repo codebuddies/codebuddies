@@ -42,7 +42,7 @@ Meteor.methods({
            avatar: user.profile.avatar.default,
            role: 'owner',
            status: '',
-           status_CreatedAt: null
+           status_modifiedAt: null
          }
        ],
        visibility: true,
@@ -119,7 +119,7 @@ Meteor.methods({
       avatar: user.profile.avatar.default,
       role: role,
       status: '',
-      status_CreatedAt: null
+      status_modifiedAt: null
     }
 
     StudyGroups.update(
@@ -425,14 +425,13 @@ Meteor.methods({
 /**
 * update study group member status
 * @function
-* @name editStatus
+* @name updateUserStatusForStudyGroup
 * @param {Object}
 * @return {Boolean} true on success
 */
 Meteor.methods({
-  editStatus: function(data) {
+  updateUserStatusForStudyGroup: function(data) {
     check(data, {
-      user_id: String,
       status: String,
       study_group_id: String
     });
@@ -446,8 +445,8 @@ Meteor.methods({
       throw new Meteor.Error(403, "Access denied");
     }
 
-    StudyGroups.update({_id: data.study_group_id, 'members.id': Meteor.userId() },
-                      {$set: {'members.$.status': data.status, 'members.$.status_CreatedAt': new Date()} });
+    StudyGroups.update({_id: data.study_group_id, 'members.id': actor._id },
+                      {$set: {'members.$.status': data.status, 'members.$.status_modifiedAt': new Date()} });
 
     return true;
   }

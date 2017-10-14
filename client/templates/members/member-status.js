@@ -1,13 +1,10 @@
-
 Template.memberStatus.helpers({
   currentStatus: function(){
-		const studyGroup = StudyGroups.findOne({_id:FlowRouter.getParam('studyGroupId')});
-		if (studyGroup) {
-	    const member =  studyGroup.members
-											.find(m => m.id === Meteor.userId());
-	    return (member && member.status) ? member.status : '';
-		}
-		return '';
+		const members = StudyGroups.findOne({_id:FlowRouter.getParam('studyGroupId')}).members;
+    if (members) {
+      return members.filter( m => m.id == Meteor.userId())[0].status || '';
+    }
+
   }
 });
 
@@ -34,12 +31,11 @@ Template.memberStatus.events({
         return;
       }
       var data = {
-        user_id: Meteor.userId(),
         status: memberStatus,
         study_group_id: FlowRouter.getParam('studyGroupId')
       }
 
-      Meteor.call("editStatus", data, function(error, result) {
+      Meteor.call("updateUserStatusForStudyGroup", data, function(error, result) {
         if (error) {
           console.log(error);
 					return Bert.alert( error.reason, 'danger', 'growl-top-right' );
