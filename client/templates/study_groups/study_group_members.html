@@ -1,4 +1,8 @@
 <template name="studyGroupMembers">
+  {{#if isInRole 'owner, admin, moderator, member ' _id}}
+      {{> memberStatus }}
+  {{/if}}
+
   {{#if isInRole 'owner, admin' _id}}
     <p class="well"><h5>You can modify your members' roles here.</h5>
       <ul>
@@ -9,39 +13,77 @@
         {{else}}
             <li>Only <strong>admins</strong> and <strong>moderators</strong> can schedule hangouts for this group. {{#if isInRole 'owner' _id}}(Change this permission in <strong>Settings</strong>.){{/if}}</li>
         {{/if}}
-        
+
       </ul>
     </p>
   {{/if}}
 
 
-  <div class="row members">
+  <div class="members">
     {{#if isInRole 'owner, admin, moderator' _id}}
 
-      <ul id="members">
+      <table id="members" class="table table-striped table-hover">
+        <thead>
+           <tr>
+               <th></th>
+               <th></th>
+               <th>Current Status</th>
+               <th></th>
+           </tr>
+       </thead>
+       <tbody>
       {{#each members}}
-      <div class="col-md-6">
-        <li>
-          <a href="{{pathFor 'profile' name=name userId=id}}">
-          <img src="{{avatar}}" alt="{{name}}" class="img-circle" data-id="{{id}}"> <strong>{{ name }}</strong></a>
-          <a class="memberDetail btn btn-default pull-right">Modify</a>
-        </li>
-      </div>
+        <tr>
+           <td>
+              <a href="{{pathFor 'profile' name=name userId=id}}">
+                <img src="{{avatar}}" alt="{{name}}" class="img-circle" data-id="{{id}}">
+              </a>
+           </td>
+           <td>
+             <a href="{{pathFor 'profile' name=name userId=id}}">
+                <strong>{{ name }}</strong>
+             </a>
+           </td>
+           <td>
+             <span>{{status}}</span>
+           </td>
+           <td>
+             <a class="memberDetail btn btn-default pull-right">Modify</a>
+           </td>
+         </tr>
       {{/each}}
-      </ul>
+      </tbody>
+      </table>
 
     {{else}}
-      <ul id="members">
+    <table id="members" class="table table-striped table-hover">
+      <thead>
+         <tr>
+             <th></th>
+             <th></th>
+             <th>Current Status</th>
+         </tr>
+     </thead>
+     <tbody>
       {{#each members}}
-        <div class="col-md-6">
-          <li>
-            <a href="{{pathFor 'profile' name=name userId=id}}" class="{{#unless currentUser}} continue-popup {{/unless}}">
-              <img src="{{avatar}}" alt="{{name}}" class="img-circle" data-id="{{id}}"> <strong>{{ name }}</strong>
-            </a>
-          </li>
-        </div>
+        <tr>
+         <td>
+          <a href="{{pathFor 'profile' name=name userId=id}}" class="{{#unless currentUser}} continue-popup {{/unless}}">
+             <img src="{{avatar}}" alt="{{name}}" class="img-circle" data-id="{{id}}">
+           </a>
+         </td>
+         <td>
+           <a href="{{pathFor 'profile' name=name userId=id}}" class="{{#unless currentUser}} continue-popup {{/unless}}">
+              <strong>{{ name }}</strong>
+           </a>
+         </td>
+         <td>
+           <span>{{status}}</span>
+         </td>
+       </tr>
       {{/each}}
-      </ul>
+    </tbody>
+    </table>
     {{/if}}
 
   </div>
