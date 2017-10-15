@@ -1,9 +1,14 @@
 Template.registerHelper('dispDate', function(date) {
+  console.log('date', date);
   return moment(date).format('h:mm a \ Do MMM \'YY');
 });
 
 Template.registerHelper("isActorAdmin", function(actorId){
   return Roles.userIsInRole( actorId, ['admin'], 'CB') ;
+});
+
+Template.registerHelper('dispCustomDate', function(date, format) {
+  return moment(date).format(format);
 });
 
 Template.allNotification.onCreated(function() {
