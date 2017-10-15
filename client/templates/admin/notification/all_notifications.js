@@ -1,5 +1,4 @@
 Template.registerHelper('dispDate', function(date) {
-  console.log('date', date);
   return moment(date).format('h:mm a \ Do MMM \'YY');
 });
 
