@@ -6,6 +6,10 @@ Template.registerHelper("isActorAdmin", function(actorId){
   return Roles.userIsInRole( actorId, ['admin'], 'CB') ;
 });
 
+Template.registerHelper('dispCustomDate', function(date, format) {
+  return moment(date).format(format);
+});
+
 Template.allNotification.onCreated(function() {
     var instance = this;
     instance.flag = new ReactiveVar(false);
