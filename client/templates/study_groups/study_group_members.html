@@ -46,6 +46,9 @@
            </td>
            <td>
              <span>{{status}}</span>
+             {{#if status_modifiedAt }}
+              <small> &nbsp; {{dispCustomDate status_modifiedAt 'dddd, MMM DD, YYYY h:mm a'}} </small>
+             {{/if}}
            </td>
            <td>
              <a class="memberDetail btn btn-default pull-right">Modify</a>
@@ -79,6 +82,9 @@
          </td>
          <td>
            <span>{{status}}</span>
+           {{#if status_modifiedAt }}
+            <small> &nbsp; {{dispCustomDate status_modifiedAt 'dddd, MMM DD, YYYY h:mm a'}} </small>
+           {{/if}}
          </td>
        </tr>
       {{/each}}
