@@ -24,7 +24,7 @@
     <div class="well">
       {{#if isInRole 'owner, admin' _id}}
         <div class="text-center">
-          <p>Your study group doesn't have a description yet.</p>
+          <p class="warning">Your study group doesn't have a description yet.</p>
           <div class="btn btn-default" id="editDescription">Add description</div>
         </div>
       {{else}}
