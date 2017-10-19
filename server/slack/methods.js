@@ -132,3 +132,16 @@ slackNotification = function(hangout, type){
   hangoutAlert(data)
   }
 }//slackNotification();
+
+studyGroupNotification = function(studyGroup, studyGroupId) {
+
+  const username = studyGroup.members[0].name;
+  const studyGroupUrl = Meteor.absoluteUrl(`study-group/${studyGroup.slug}/${studyGroupId}`);
+  const pretext = `@${username} has started a *${studyGroup.title}* study group with the tagline ${studyGroup.tagline}.\nJoin here: ${studyGroupUrl} `;
+
+  console.log(pretext);
+  const data = {
+      text: pretext
+  };
+  hangoutAlert(data);
+}
