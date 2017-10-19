@@ -34,8 +34,10 @@
   	margin-right: 5px;
   }
   .well, .jumbotron {
-    border: 1px solid $danger-red;
   	margin: 0px 0px 10px 0px;
+  }
+  #description-box {
+    border: 1px solid $danger-red;
   }
   .warning {
     color: $danger-red;
