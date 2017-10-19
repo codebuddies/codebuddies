@@ -45,16 +45,13 @@
                  <i class="fa fa-question fa-fw" aria-hidden="true"></i>{{_ "faq"}}
                </a></li>
                <li role="separator" class="divider"></li>
-               <li><a href="https://opencollective.com/codebuddies" target="_blank">
-                 <i class="fa fa-globe fa-fw" aria-hidden="true"></i>Open Collective
-               </a></li>
              </ul>
           </li>
           <!-- Hangouts -->
           <li><a href="{{pathFor 'hangouts'}}">{{_ "browse_hangouts"}} <span class="sr-only">(current)</span></a></li>
           <!-- Study Groups -->
           <li><a href="{{pathFor 'all study groups'}}">Study Groups</a></li>
-
+          <li><a href="https://opencollective.com/codebuddies" target="_blank">Donate </a></li>
           {{! for visitors only}}
           {{#unless currentUser}}
 
@@ -63,7 +60,7 @@
           {{! for logged in user}}
           {{else}}
 
-            {{! won't be visible to cb admin}}
+            {{! wont be visible to cb admin}}
             {{#unless isInRole 'admin' 'CB'}}
               <!-- notification for user-->
               <li><a href="{{pathFor 'user notification'}}"><i class="fa fa-bell" aria-hidden="true"></i> {{#if userNotificationCount}}<small><span class="badge">{{userNotificationCount}}</span></small>{{/if}} </a></li>
