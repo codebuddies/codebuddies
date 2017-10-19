@@ -34,9 +34,11 @@
   	margin-right: 5px;
   }
   .well, .jumbotron {
-    color: $danger-red;
     border: 1px $danger-red;
   	margin: 0px 0px 10px 0px;
+  }
+  .well p {
+    color: $danger-red;
   }
   .card {
     @include breakpoint(medium) { height: 130px; padding: 19px 19px 10px; }
