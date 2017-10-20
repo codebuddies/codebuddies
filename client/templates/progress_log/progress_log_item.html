@@ -1,0 +1,6 @@
+<template name="progressLogItem">
+  <!-- @TODO Style this thing. -->
+  <div class="well">
+    <a href="{{pathFor 'single progress log' logId=_id}}">{{title}}</a> By <a href="{{pathFor 'profile' name=author.username userId=author.id}}" class="{{#unless currentUser}} continue-popup {{/unless}}">{{author.username}}</a>
+  </div>
+</template>
