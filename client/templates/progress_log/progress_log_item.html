@@ -1,6 +1,6 @@
 <template name="progressLogItem">
-  <!-- @TODO CCS Styling -->
+  <!-- @TODO Style this thing. -->
   <div class="well">
-    <a href="">{{title}}</a> By <a href="#">{{author.username}}</a>
+    <a href="">{{title}}</a> By <a href="{{pathFor 'profile' name=author.username userId=author.id}}" class="{{#unless currentUser}} continue-popup {{/unless}}">{{author.username}}</a>
   </div>
 </template>
