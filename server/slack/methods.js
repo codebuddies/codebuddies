@@ -24,7 +24,7 @@ slackNotification = function(hangout, type){
   if (attendees_list.length ==1) {
     nameString += '<@' + attendees_list[0]['name'] + '> has RSVPed!';
   } else if (attendees_list.length == 2) {
-    nameString = '<@' + attendees_list[0]['name'] + '> and <@' + attendees_list[1]['name'] + '> have RSVPed!'; 
+    nameString = '<@' + attendees_list[0]['name'] + '> and <@' + attendees_list[1]['name'] + '> have RSVPed!';
   } else {
     attendees_list.forEach(function(element) {
       if (element!==attendees_list[attendees_List.length-1]){
@@ -133,15 +133,20 @@ slackNotification = function(hangout, type){
   }
 }//slackNotification();
 
+studyGroupAlert = slack.extend({
+    channel: Meteor.settings.slack_alert_channel,
+    icon_emoji: ':notebook:',
+    username: Meteor.settings.slack_studygroup_alert_username
+});
+
 studyGroupNotification = function(studyGroup, studyGroupId) {
 
   const username = studyGroup.members[0].name;
   const studyGroupUrl = Meteor.absoluteUrl(`study-group/${studyGroup.slug}/${studyGroupId}`);
-  const pretext = `@${username} has started a *${studyGroup.title}* study group with the tagline ${studyGroup.tagline}.\nJoin here: ${studyGroupUrl} `;
+  const pretext = `@${username} has started a *${studyGroup.title}* study group with the tagline *${studyGroup.tagline}*.\nJoin here: ${studyGroupUrl} `;
 
   console.log(pretext);
-  const data = {
-      text: pretext
-  };
-  hangoutAlert(data);
+  studyGroupAlert({
+    text: pretext
+  });
 }
