@@ -24,6 +24,6 @@ Meteor.publish("progressLogsByStudyGroupId", function(limit, id){
 Meteor.publish("progressLogsById", function(id){
   check(id, String);
 
-  return ProgressLogs.findOne({_id:id, visibility:{$ne:false} });
+  return ProgressLogs.find({_id:id, visibility:{$ne:false} });
 
 });
