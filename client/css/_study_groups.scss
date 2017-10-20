@@ -137,3 +137,19 @@
     }
   }
 }
+
+/*Progress Log*/
+.log {
+  padding: 20px 0px;
+  h2 {
+      @include font-face(700, 34px, normal, $black);
+      margin: 20px 0px 10px;
+  }
+  span.author {
+      @include font-face(400, 14px, normal, $black);
+  }
+  .log-content {
+      margin-top: 20px;
+      @include font-face(400, 18px, normal, $black);
+  }   
+}
