@@ -148,5 +148,13 @@
   "select_study_group": "Please select a group.",
   "settings": "Settings",
   "start_new_group": "Start a New Group",
-  "create_a_progress_log": "Add New Log"
+  "create_a_progress_log": "Add New Log",
+
+  // Progress log
+  "empty_log_title": "Please enter a title",
+  "empty_log_body" : "Please enter details",
+  "save_log": "Save",
+  "progress_log_created_title": "New Progress log is created",
+  "progress_log_created_text": "Thank you for submiting your progress log"
+
 }

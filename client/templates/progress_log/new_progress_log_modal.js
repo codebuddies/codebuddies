@@ -15,37 +15,34 @@ Template.newProgressLogModal.onRendered(function() {
 Template.newProgressLogModal.events({
   'click #create-progress-log': function(event, template) {
 
+
+
     const title = $('#title').val();
     const description = QuillEditor.generatePlainTextFromDeltas(template.editor.getContents());
     const description_in_quill_delta = template.editor.getContents();
+
+    const study_group_id = this.parent_id;
+    const study_group_title = this.parent_title;
+
 
 
     const data = {
       title: title,
       slug: title.replace(/\s+/g, '-').toLowerCase(),
       description: description,
-      description_in_quill_delta: description_in_quill_delta
+      description_in_quill_delta: description_in_quill_delta,
+      study_group_id : study_group_id,
+      study_group_title: study_group_title
     };
 
 
     if ($.trim(title) == '') {
       $('#title').focus();
-      sweetAlert({
-        title: TAPi18n.__("enter_topic"),
-        confirmButtonText: TAPi18n.__("ok"),
-        type: 'error'
-      });
-      return;
+      return Bert.alert( TAPi18n.__("empty_log_title"), 'warning', 'growl-top-right' );
     }
 
     if ($.trim(description) == '') {
-      $('#description').focus();
-      sweetAlert({
-        title: TAPi18n.__("enter_description"),
-        confirmButtonText: TAPi18n.__("ok"),
-        type: 'error'
-      });
-      return;
+      return Bert.alert( TAPi18n.__("empty_log_body"), 'warning', 'growl-top-right' );
     }
 
 
@@ -53,20 +50,21 @@ Template.newProgressLogModal.events({
 
     console.log(data);
 
-    // Meteor.call('createHangout', data, function(err, result) {
-    //   if (result) {
-    //     Modal.hide();
-    //     sweetAlert({
-    //       title: TAPi18n.__("hangout_created_title"),
-    //       text: TAPi18n.__("hangout_created_message"),
-    //       confirmButtonText: TAPi18n.__("ok"),
-    //       type: 'success',
-    //       closeOnConfirm: true
-    //     });
-    //     FlowRouter.go("hangouts");
-    //   } else {
-    //     console.log(err)
-    //   }
-    // });
+    Meteor.call('createNewProgressLog', data, function(err, result) {
+      if (result) {
+        Modal.hide();
+
+        return Bert.alert({
+          type: 'success',
+          style: 'fixed-top',
+          title: TAPi18n.__("progress_log_created_title"),
+          message: TAPi18n.__("progress_log_created_text"),
+          icon: 'fa-trophy'
+        });
+
+      } else {
+        console.log(err)
+      }
+    });
   }
 });
