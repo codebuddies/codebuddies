@@ -4,15 +4,21 @@ html {
   box-sizing: border-box;
 }
 
-*, *:before, *:after {
+*, *:before,
+*:after {
   -webkit-box-sizing: inherit;
   -moz-box-sizing: inherit;
   box-sizing: inherit;
 }
 
 body {
-  padding: 0;
-  #profile { background: $bg-white;}
+  padding: $padding-zero;
+  margin: $margin-zero;
+  font: normal (#{$font-md} / 1.3) $font-stack;
+  
+  #profile { 
+    background: $bg-white;
+  }
 }
 
 html, body {
@@ -28,10 +34,10 @@ h3 {
 }
 
 small.reminder {
-    display: block;
-    line-height: 1.2;
-    margin: 5px 0px;
-    font-weight: 200;
+  display: block;
+  line-height: 1.2;
+  margin: 5px 0px;
+  font-weight: 200;
 }
 
 #__blaze-root {
@@ -168,7 +174,7 @@ a:hover {
 }
 
 .select2-container--default .select2-selection--multiple {
-  border: 1px solid #ccc;
+  border: 1px solid #cccccc;
 }
 
 .label-primary {

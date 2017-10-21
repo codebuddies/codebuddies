@@ -1,38 +1,46 @@
-// Google Fonts
+// GOOGLE FONTS
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:700,300,400,600,300italic,400italic,600italic,700italic:latin);
 
+// [QUESTION]: Posible to move this variable to `_variables.scss`;
 $open-sans: 'Open Sans', sans-serif;
 
-.fa-microphone-slash { color: $icon-silent;}
-.fa-user { color: $icon-teaching;}
-.fa-users { color: $icon-collab;}
 
+.fa-microphone-slash { color: $icon-silent; }
+.fa-user { color: $icon-teaching; }
+.fa-users { color: $icon-collab; }
 
-a:link:not(.btn-cb2), a:visited:not(.btn-cb2) {
-	color: $dodgerblue;
+a:link:not(.btn-cb2),
+a:visited:not(.btn-cb2) {
+  color: $dodgerblue;
 }
-h4.hangout-date, h5.in-progress, h5.upcoming, h5.completed {
-    display: inline;
-    font-size: 12px;
-    letter-spacing: 0.1px;
-    color: $warm-grey;
-    text-transform: uppercase;
-    font-weight: 500;
+
+h4.hangout-date,
+h5.in-progress, 
+h5.upcoming,
+h5.completed {
+  display: inline;
+  font-size: 12px;
+  letter-spacing: 0.1px;
+  color: $warm-grey;
+  text-transform: uppercase;
+  font-weight: 500;
 }
-h5.in-progress, h5.upcoming {
-    color: $primary-grey;
+
+h5.in-progress,
+h5.upcoming {
+  color: $primary-grey;
 }
+
 .oval {
-	width: 10px;
-	height: 10px;
-	background-color: $danger-red;
+  @include size(10px);
 	@include border-radius(5px);
+  background-color: $danger-red;
 	display: inline-block;
 }
 
-  span.cb-delete:hover {
-    cursor: pointer;
-  }
+span.cb-delete:hover {
+  cursor: pointer;
+}
 .search-message {
-    font-weight: 200;
+  font-weight: 200;
 }

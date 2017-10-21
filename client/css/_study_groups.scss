@@ -112,12 +112,15 @@
   ul {
     list-style: none;
   }
+  
   ul, li a:link, li a:visited {
     color: $white;
   }
+
   li {
     margin-bottom: 10px;
   }
+
   h5 {
     padding-left: 40px;
     color: $white;
