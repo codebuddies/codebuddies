@@ -29,6 +29,12 @@
               {{else}}
                 <button type="button" class="btn btn-default btn-block disabled"><i class="fa fa-refresh fa-spin"></i> {{_ "state_processing"}}</button>
               {{/unless}}
+
+              {{#if alert}}
+                <div class="margin-top-1 align-center alert {{alert.type}}">
+                  <span>{{alert.message}}</span>
+                </div>
+              {{/if}}
             </div>
 
           </form>
