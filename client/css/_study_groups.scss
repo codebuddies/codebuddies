@@ -36,10 +36,8 @@
   .well, .jumbotron {
   	margin: 0px 0px 10px 0px;
   }
-  #description-box {
+  .warning-well {
     border: 1px solid $danger-red;
-  }
-  .warning {
     color: $danger-red;
   }
   .card {
