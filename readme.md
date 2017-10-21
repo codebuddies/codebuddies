@@ -22,6 +22,8 @@ Join us on Slack! You can get your invite by clicking on the Slack invite button
 ## How do I contribute to this project?
 **PLEASE go to _[contributing.md](contributing.md)_ and refer to the contribution steps listed there!** There are also helpful resources there, in case you get stuck. To add yourself as a contributor, please see the [How do I add myself as a contributor?](contributing.md#how-do-i-add-myself-as-a-contributor) section.
 
+Please check out [docs.codebuddies.org](http://docs.codebuddies.org) for the full documentation. 
+
 ## What are you trying to build here?
 
 ![screenshot of what we're building](https://github.com/codebuddiesdotorg/codebuddies/raw/master/public/images/cb-example.png)
@@ -29,6 +31,10 @@ Credit: [Ada Chiu](https://github.com/adachiu).
 
 ## Why are you building this site?
 Our community spends a lot of time helping each other on [our public Slack](http://codebuddies.slack.com) (P.S. You can get an invite [here](http://codebuddiesmeet.herokuapp.com) if you want to join), but it's hard to schedule screensharing/voice hangout study times via Slack, and it's also hard to know who else is online and available for joining a Hangout to work on something together. The platform we're building solves those issues.
+
+<a target='_blank' rel='nofollow' href='https://app.codesponsor.io/link/aUWGFuwrvWrTWuW5exySYqpr/codebuddiesdotorg/codebuddies'>
+  <img alt='Sponsor' width='888' height='68' src='https://app.codesponsor.io/embed/aUWGFuwrvWrTWuW5exySYqpr/codebuddiesdotorg/codebuddies.svg' />
+</a>
 
 ##Who are the volunteers so far?
 
