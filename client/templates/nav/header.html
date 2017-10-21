@@ -16,23 +16,49 @@
       <div class="collapse navbar-collapse" id="cb2-navbar-collapse">
         <ul class="nav navbar-nav navbar-right">
 
+          <li class="dropdown">
+             <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Community<span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu fa-ul">
+               <li><a href="{{pathFor 'about'}}"><i class="fa fa-users fa-fw" aria-hidden="true"></i>
+                 {{_ "about"}}<span class="sr-only">(current)</span>
+               </a></li>
+               <li role="separator" class="divider"></li>
+               <li><a href="https://codebuddies.slack.com" target="_blank">
+                    <i class="fa fa-slack fa-fw" aria-hidden="true"></i>Slack
+                  </a></li>
+               <li role="separator" class="divider"></li>
+               <li><a href="https://github.com/codebuddiesdotorg/codebuddies" target="_blank">
+                 <i class="fa fa-github fa-fw" aria-hidden="true"></i>Github
+               </a></li>
+               <li role="separator" class="divider"></li>
+               <li><a href="https://www.facebook.com/groups/TOPSTUDYGROUP/" target="_blank">
+                 <i class="fa fa-facebook fa-fw" aria-hidden="true"></i>Facebook Group
+               </a></li>
+               <li role="separator" class="divider"></li>
+               <li><a href="https://medium.com/codebuddies" target="_blank">
+                 <i class="fa fa-medium fa-fw" aria-hidden="true"></i>Blog
+               </a></li>
+               <li role="separator" class="divider"></li>
+               <li><a href="{{pathFor 'faq'}}">
+                 <i class="fa fa-question fa-fw" aria-hidden="true"></i>{{_ "faq"}}
+               </a></li>
+             </ul>
+          </li>
+          <!-- Hangouts -->
+          <li><a href="{{pathFor 'hangouts'}}">{{_ "browse_hangouts"}} <span class="sr-only">(current)</span></a></li>
+          <!-- Study Groups -->
+          <li><a href="{{pathFor 'all study groups'}}">Study Groups</a></li>
+          <!-- Donate -->
+          <li><a href="https://opencollective.com/codebuddies" target="_blank">Sponsor Us</a></li>
           {{! for visitors only}}
           {{#unless currentUser}}
-            <li><a href="{{pathFor 'about'}}">{{_ "about"}} <span class="sr-only">(current)</span></a></li>
-            <li><a href="{{pathFor 'faq'}}">{{_ "faq"}}</a></li>
-            <!-- Hangouts -->
-            <li><a href="{{pathFor 'hangouts'}}">{{_ "browse_hangouts"}} <span class="sr-only">(current)</span></a></li>
-            <!-- Study Groups -->
-            <li><a href="{{pathFor 'all study groups'}}">Study Groups</a></li>
 
             <li><a href="#" class="signIn"><button class="btn btn-slack"><img src="/images/slack-icon.png">&nbsp;&nbsp;{{_ "sign_in_with"}} <b>Slack</b></button></a></li>
 
           {{! for logged in user}}
           {{else}}
-            <!-- Hangouts -->
-            <li><a href="{{pathFor 'hangouts'}}">{{_ "browse_hangouts"}} <span class="sr-only">(current)</span></a></li>
-            <!-- Study Groups -->
-            <li><a href="{{pathFor 'all study groups'}}">Study Groups</a></li>
 
             {{! won't be visible to cb admin}}
             {{#unless isInRole 'admin' 'CB'}}
@@ -58,8 +84,6 @@
                   <ul class="dropdown-menu" role="menu">
                     <li><a href="{{pathFor 'my study groups'}}"><i class="fa fa-users fa-fw"></i> {{_ "my_study_groups"}}</a></li>
                     <li><a href="/profile/{{user.username}}/{{user._id}}"><i class="fa fa-user fa-fw"></i> {{_ "profile"}}</a></li>
-                    <li><a href="http://github.com/codebuddiesdotorg/codebuddies"><i class="fa fa-github fa-fw"></i> Github</a></li>
-                    <li><a href="https://codebuddies.slack.com/messages/general" target="_blank"><i class="fa fa-slack fa-fw" aria-hidden="true"></i> Slack</a></li>
                     <li><a href="{{pathFor 'account' name=user.username userId=user._id}}"><i class="fa fa-gear fa-fw"></i> {{_ "settings"}}</a></li>
                     <li><a href="#" id="signOut"><i class="fa fa-sign-out fa-fw"></i> {{_ "sign_out"}}</a></li>
                   </ul>
