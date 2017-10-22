@@ -146,7 +146,7 @@ You can also support us with a monthly donation by [becoming a Backer!](https://
 Thank you to [@distalx](https://twitter.com/distalx), [@alfougy](https://twitter.com/alfougy), and [@mozzadrella](https://twitter.com/mozzadrella) for supporting us on our [Open Collective](http://opencollective.com/codebuddies)!
 
 ### Sponsors
-Thank you to DigitalOcean for sponsoring our hosting, and StickerMule for sponsoring $50 in credits!
+Thank you to DigitalOcean for sponsoring our hosting, MongoDB Atlas for sponsoring our database hosting, and StickerMule for sponsoring $50 in credits!
 
 <a href="https://www.digitalocean.com/" target="_blank"><img src="https://github.com/codebuddiesdotorg/codebuddies/blob/master/public/images/powered_by_digitalocean.png" width="200" alt="Powered by DigitalOcean"/></a>
 
