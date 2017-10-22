@@ -44,18 +44,20 @@
 }
 
 .btn-edit {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 6px 12px;
   border: 1px solid $divider;
   border-radius: 4px;
   color: $bg-white;
-  float: right;
   font-family: $open-sans;
   font-size: 13px;
-  margin-right: 35px;
-  padding: 6px 12px;
   text-decoration: none;
-  i { margin-right: 8px; }
-  &:hover { background: $white; color: $cta-blue;}
-  &.editProfile { color: $white }
+
+  &:hover {
+    background: $white;
+    color: $cta-blue;
+  }
 }
 
 .btn-circle {
