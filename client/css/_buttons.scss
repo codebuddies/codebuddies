@@ -53,9 +53,13 @@
   margin-right: 35px;
   padding: 6px 12px;
   text-decoration: none;
-  i { margin-right: 8px; }
-  &:hover { background: $white; color: $cta-blue;}
-  &.editProfile { color: $white }
+
+  > .fa { margin-right: 8px; }
+
+  &:hover {
+    background: $white;
+    color: $cta-blue;
+  }
 }
 
 .btn-circle {
