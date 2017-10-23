@@ -155,6 +155,8 @@
   "empty_log_body" : "Please enter details",
   "save_log": "Save",
   "progress_log_created_title": "New Progress log is created",
-  "progress_log_created_text": "Thank you for submiting your progress log"
+  "progress_log_created_text": "Thank you for submiting your progress log",
+  "edit_a_progress_log": "Edit Log",
+  "progress_log_updated": "Progress log updated."
 
 }

@@ -115,3 +115,7 @@ Template.registerHelper("isOrganizers", function(role){
 
   return ["owner", "admin", "moderator"].indexOf(role) < 0 ? false : true ;
 });
+
+Template.registerHelper('cleanDateFormat', function(date) {
+  return moment(date).format('Do MMMM  YYYY');
+});

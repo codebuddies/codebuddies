@@ -1,6 +1,19 @@
 import QuillEditor from '../../libs/QuillEditor';
 
-Template.newProgressLogModal.onRendered(function() {
+
+Template.editProgressLogModal.onCreated(function(){
+  let instance = this;
+  instance.quillDelta = new ReactiveVar("OKEY");
+  instance.autorun(function(){
+    instance.subscribe('progressLogsById', instance.data._id);
+    const progressLog = ProgressLogs.findOne({"_id": instance.data._id});
+    instance.quillDelta.set(progressLog.description_in_quill_delta);
+
+  });
+
+});
+
+Template.editProgressLogModal.onRendered(function() {
   let instance = this;
   const editorHostElement = instance.$('[data-editor-progress-log]').get(0);
   instance.editor = QuillEditor.createEditor({
@@ -10,30 +23,30 @@ Template.newProgressLogModal.onRendered(function() {
     }
   });
 
+  instance.editor.setContents("Loading...");
+  Meteor.setTimeout(function () {
+    instance.editor.setContents(instance.quillDelta.get());
+  }, 1500);
+
+
 });
 
-Template.newProgressLogModal.events({
-  'click #createProgressLog': function(event, template) {
-
-
+Template.editProgressLogModal.events({
+  'click #updateProgressLog': function(event, template) {
+    event.preventDefault();
 
     const title = $('#title').val();
     const description = QuillEditor.generatePlainTextFromDeltas(template.editor.getContents());
     const description_in_quill_delta = template.editor.getContents();
 
-    const study_group_id = this.parent_id;
-    const study_group_title = this.parent_title;
-
-
 
     const data = {
+      id: this._id,
       title: title,
       slug: title.replace(/\s+/g, '-').toLowerCase(),
       description: description,
-      description_in_quill_delta: description_in_quill_delta,
-      study_group_id : study_group_id,
-      study_group_title: study_group_title
-    };
+      description_in_quill_delta: description_in_quill_delta
+    }
 
 
     if ($.trim(title) == '') {
@@ -50,15 +63,14 @@ Template.newProgressLogModal.events({
 
     console.log(data);
 
-    Meteor.call('createNewProgressLog', data, function(err, result) {
+    Meteor.call('updateProgressLog', data, function(err, result) {
       if (result) {
         Modal.hide();
 
         return Bert.alert({
           type: 'success',
           style: 'fixed-top',
-          title: TAPi18n.__("progress_log_created_title"),
-          message: TAPi18n.__("progress_log_created_text"),
+          title: TAPi18n.__("progress_log_updated"),
           icon: 'fa-trophy'
         });
 
