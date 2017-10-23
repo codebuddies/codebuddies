@@ -77,6 +77,8 @@
   "teaching_hangout": "Teaching Hangout",
   "collaboration_hangout": "Collaboration Hangout",
   "click_to_load_hangout": "Click to load the hangout",
+  "upcoming_events": "Upcoming Events",
+  "past_events": "Past Events",
   // popup messages
   "you_are_almost_there": "You are almost there!",
   "login_join_hangout": "Please sign in to codebuddies.slack.com to join a hangout",

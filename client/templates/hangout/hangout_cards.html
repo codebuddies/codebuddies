@@ -1,20 +1,23 @@
 <template name="hangoutCards">
   {{#if Template.subscriptionsReady}}
     <div class="row margin-none" id="hangouts">
-      
+
+      <h3 class="col-lg-12">{{_ "upcoming_events"}}</h3>
       {{#each hangouts}}
         <div class="col-lg-4">
           {{> hangoutCard}}
         </div>
       {{/each}}
-      
-     
+
+    </div>
+
+    <div class="row margin-none" id="past_hangouts">
+      <h3 class="col-lg-12">{{_ "past_events"}}</h3>
       {{#each completedHangouts}}
          <div class="col-lg-4">
            {{> hangoutCard}}
         </div>
       {{/each}}
-      
 
     </div>
 
