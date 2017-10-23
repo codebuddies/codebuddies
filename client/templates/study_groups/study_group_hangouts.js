@@ -10,7 +10,13 @@ Template.studyGroupHangouts.onCreated(function() {
    });
 
    instance.loadHangouts = function() {
-     return Hangouts.find({}, {sort: {start: -1}});
+      const now = new Date();
+      return Hangouts.find({'end': { $gte : now }}, {sort: { start: 1 }});
+   }
+
+   instance.loadCompletedHangouts = function() {
+     const now = new Date();
+     return Hangouts.find({'end': {$lt : now}}, {sort: { start: -1 }});
    }
 
 });
@@ -46,9 +52,16 @@ Template.studyGroupHangouts.helpers({
   hangouts:function(){
     return Template.instance().loadHangouts();
   },
+  completedHangouts:function(){
+    return Template.instance().loadCompletedHangouts();
+  },
   status:function(){
     return  Template.instance().flag.get();
   },
+  noHangout: function() {
+    return Template.instance().loadHangouts().count() === 0 &&
+      Template.instance().loadCompletedHangouts().count() === 0;
+  }
 });
 
 Template.studyGroupHangouts.events({
