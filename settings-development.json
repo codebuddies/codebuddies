@@ -27,8 +27,9 @@
   "team_id":"T04AQ6GEY",
   "slack_alert_channel": "#codebuddies-ops",
   "slack_alert_username": "CodeBuddies Alerts",
-  "hangout_reminder_interval": "every 1 hour", 
+  "hangout_reminder_interval": "every 1 hour",
   "root_email":"codebuddiesdotorg@gmail.com",
   "root_username":"CB",
-  "root_gravatar":"http://www.gravatar.com/avatar/"
+  "root_gravatar":"http://www.gravatar.com/avatar/",
+  "slack_studygroup_alert_username": "Study Group Alerts"
 }

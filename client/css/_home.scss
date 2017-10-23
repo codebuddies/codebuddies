@@ -14,6 +14,12 @@
   p.overflowtext {
     color: $secondary-grey;
   }
+  
+  a.link {
+    text-decoration: underline;
+    color: $white;
+    white-space: nowrap;
+  }
 
   .panel-default { 
     border: none;
@@ -36,12 +42,6 @@
       @include font-face(200, 13px, normal, $bg-white);
       line-height: 1.9;
       margin-top: 10px;
-    }
-
-    a {
-      text-decoration: underline;
-      color: $white;
-      white-space: nowrap;
     }
   }
 
