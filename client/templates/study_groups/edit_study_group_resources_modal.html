@@ -11,14 +11,20 @@
             <div class="modal-body">
 
 
-              <div class="form-group">
+              <div class="form-group {{#if isError 'sgResourceTitle'}}has-error{{/if}}">
                 <label  class="control-label">Title</label>
                 <input type="text" class="form-control" id="sgResourceTitle" placeholder="Title">
+                {{#if isError 'sgResourceTitle'}}
+                  <span class="help-block">{{alert.message}}</span>
+                {{/if}}
               </div>
 
-              <div class="form-group">
+              <div class="form-group {{#if isError 'sgResourceURL'}}has-error{{/if}}">
                 <label  class="control-label">URL</label>
                 <input type="text" class="form-control" id="sgResourceURL" placeholder="https://example.com/">
+                {{#if isError 'sgResourceURL'}}
+                  <span class="help-block">{{alert.message}}</span>
+                {{/if}}
               </div>
 
             </div><!--modal body-->
@@ -31,9 +37,11 @@
               {{/unless}}
 
               {{#if alert}}
+              {{#unless alert.elementId}}
                 <div class="margin-top-1 align-center alert {{alert.type}}">
                   <span>{{alert.message}}</span>
                 </div>
+              {{/unless}}
               {{/if}}
             </div>
 

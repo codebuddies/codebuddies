@@ -6,10 +6,13 @@ Template.editStudyGroupResourcesModal.onCreated(function () {
 
 Template.editStudyGroupResourcesModal.helpers({
   processing() {
-    return  Template.instance().processing.get();
+    return Template.instance().processing.get();
   },
   alert() {
     return Template.instance().alert.get();
+  },
+  isError(elementId) {
+    return Template.instance().alert.get().elementId === elementId;
   }
 });
 
@@ -21,11 +24,11 @@ Template.editStudyGroupResourcesModal.events({
 
     if ($.trim(template.find("#sgResourceTitle").value) == '') {
       $('#sgResourceTitle').css({ 'border': '#FF0000 1px solid'});
-      return template.alert.set( { type: "alert-warning", message: "Resource Title" } );
+      return template.alert.set({ type: "alert-warning", elementId:"sgResourceTitle", message: "Please include a link title." });
     }
     if ($.trim(template.find("#sgResourceURL").value) == '') {
       $('#sgResourceURL').css({ 'border': '#FF0000 1px solid'});
-      return template.alert.set( { type: "alert-warning", message: "Resource URL" } );
+      return template.alert.set({ type: "alert-warning", elementId:"sgResourceURL", message: "Please include a link URL." });
     }
 
     let data = {
@@ -38,7 +41,7 @@ Template.editStudyGroupResourcesModal.events({
 
     // console.log(data);
     template.processing.set( true );
-    template.alert.set ( false );
+    template.alert.set( false );
 
     Meteor.call("addResource", data, function(error, result){
       if(error){
