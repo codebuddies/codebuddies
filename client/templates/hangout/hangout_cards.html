@@ -2,21 +2,29 @@
   {{#if Template.subscriptionsReady}}
     <div class="row margin-none" id="hangouts">
 
-      <h3 class="col-lg-12">{{_ "upcoming_events"}}</h3>
+      {{#if liveHangoutsCount }}
+      <h3 class="col-lg-12 hangouts-title">{{_ "upcoming_events"}}</h3>
+      {{/if}}
       {{#each hangouts}}
+        {{#unless isHangoutCompleted end}}
         <div class="col-lg-4">
           {{> hangoutCard}}
         </div>
+        {{/unless}}
       {{/each}}
 
     </div>
 
     <div class="row margin-none" id="past_hangouts">
-      <h3 class="col-lg-12">{{_ "past_events"}}</h3>
-      {{#each completedHangouts}}
+      {{#if pastHangoutsCount }}
+      <h3 class="col-lg-12 hangouts-title">{{_ "past_events"}}</h3>
+      {{/if}}
+      {{#each hangouts}}
+        {{#if isHangoutCompleted end}}
          <div class="col-lg-4">
            {{> hangoutCard}}
         </div>
+        {{/if}}
       {{/each}}
 
     </div>
