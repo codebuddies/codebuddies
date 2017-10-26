@@ -10,15 +10,18 @@ Template.studyGroupHangouts.onCreated(function() {
    });
 
    instance.loadHangouts = function() {
-      const now = new Date();
-      return Hangouts.find({'end': { $gte : now }}, {sort: { start: 1 }});
+     return Hangouts.find({}, {sort: {start: -1}});
    }
 
-   instance.loadCompletedHangouts = function() {
-     const now = new Date();
-     return Hangouts.find({'end': {$lt : now}}, {sort: { start: -1 }});
+   const now = new Date();
+
+   instance.pastHangoutCount = function() {
+     return Hangouts.find({'end': {$lt : now}}).count() || 0;
    }
 
+   instance.liveHangoutCount = function() {
+     return Hangouts.find({'end': {$gte : now}}).count() || 0;
+   }
 });
 
 Template.studyGroupHangouts.onRendered(function() {
@@ -52,15 +55,17 @@ Template.studyGroupHangouts.helpers({
   hangouts:function(){
     return Template.instance().loadHangouts();
   },
-  completedHangouts:function(){
-    return Template.instance().loadCompletedHangouts();
-  },
   status:function(){
     return  Template.instance().flag.get();
   },
-  noHangout: function() {
-    return Template.instance().loadHangouts().count() === 0 &&
-      Template.instance().loadCompletedHangouts().count() === 0;
+  hangoutCount: function() {
+    return Template.instance().loadHangouts().count();
+  },
+  liveHangoutCount:function(){
+    return Template.instance().liveHangoutCount();
+  },
+  pastHangoutCount:function(){
+    return Template.instance().pastHangoutCount();
   }
 });
 

@@ -24,19 +24,27 @@
 
         {{#if Template.subscriptionsReady}}
           <div>
-              {{#if equals noHangout false}}
+              {{#if hangoutCount}}
+                {{#if liveHangoutCount}}
                 <h3 class="col-lg-12">{{_ "upcoming_events"}}</h3>
+                {{/if}}
                 {{#each hangouts}}
-                 <div class="col-md-4">
-                    {{> hangoutCard}}
-                 </div>
+                  {{#unless isHangoutCompleted end }}
+                   <div class="col-md-4">
+                      {{> hangoutCard}}
+                   </div>
+                  {{/unless}}
                  {{/each}}
 
+                {{#if pastHangoutCount}}
                 <h3 class="col-lg-12">{{_ "past_events"}}</h3>
-                {{#each completedHangouts}}
-                 <div class="col-md-4">
-                    {{> hangoutCard}}
-                 </div>
+                {{/if}}
+                {{#each hangouts}}
+                  {{#if isHangoutCompleted end }}
+                   <div class="col-md-4">
+                      {{> hangoutCard}}
+                   </div>
+                   {{/if}}
                 {{/each}}
               {{else}}
                   <h5 class="text-center well margin-top-1">No hangouts yet. Want to start one?</h5>
