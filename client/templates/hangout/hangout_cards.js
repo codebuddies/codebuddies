@@ -14,6 +14,15 @@ Template.hangoutCards.onCreated(function() {
       return Hangouts.find({}, {sort: {start: -1}});
     }
 
+    const now = new Date();
+    instance.liveHangoutsCount = function() {
+        return Hangouts.find({'end': { $gte : now }}).count() || 0;
+    }
+
+    instance.pastHangoutsCount = function() {
+        return Hangouts.find({'end': { $lt : now }}).count() || 0;
+    }
+
     instance.addMoreHangouts = function(){
 
         if(Hangouts.find().count() === instance.limit.get()){
@@ -36,12 +45,10 @@ Template.hangoutCards.helpers({
      return  Template.instance().flag.get();
   },
   liveHangoutsCount: function() {
-      const now = new Date();
-      return Hangouts.find({'end': { $gte : now }}).count() || 0;
+      return Template.instance().liveHangoutsCount();
   },
   pastHangoutsCount: function() {
-      const now = new Date();
-      return Hangouts.find({'end': { $lt : now }}).count() || 0;
+      return Template.instance().pastHangoutsCount();
   }
 });
 
