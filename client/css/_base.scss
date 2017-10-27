@@ -166,6 +166,10 @@ a:hover {
   }
 }
 
+.alert-warning, .alert-info, .alert-success {
+    padding: 10px 15px;
+}
+
 /*Tags cleanup*/
 .select2-container--default .select2-selection--multiple .select2-selection__rendered {
   padding-left: 12px;
@@ -177,4 +181,11 @@ a:hover {
 
 .label-primary {
   margin-top: $margin-base;
+}
+
+/*Progress Log*/
+.editProgressLog, .removeProgressLog {
+    &:hover {
+        cursor: pointer;
+    };
 }

@@ -5,7 +5,7 @@ Template.progressLogItem.helpers({
 });
 
 Template.progressLogItem.events({
-  "click #removeProgressLog" (event, template){
+  "click .removeProgressLog" (event, template){
      event.preventDefault();
      var logId = this._id;
      sweetAlert({
@@ -31,7 +31,7 @@ Template.progressLogItem.events({
         }
       });
   },
-  "click #editProgressLog" (event, template){
+  "click .editProgressLog" (event, template){
      event.preventDefault();
 
      Modal.show('editProgressLogModal', this);

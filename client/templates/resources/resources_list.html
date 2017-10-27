@@ -17,9 +17,9 @@
       {{/each}}
     {{else}}
       {{#if isInRole 'owner, admin, moderator' ../_id}}
-        <h5 class="well">Please add some links that are relevant to this group.</h5>
+        <div class="alert-warning">Please add some links that are relevant to this group.</div>
       {{else}}
-        <p>The organizers have not added links yet.</p>
+        <div class="alert-warning">The organizers have not added links yet.</div>
       {{/if}}
     {{/if}}
   {{else}}

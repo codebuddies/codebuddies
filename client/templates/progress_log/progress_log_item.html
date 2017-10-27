@@ -3,8 +3,8 @@
   <div class="well">
     <a href="{{pathFor 'single progress log' logId=_id}}">{{title}}</a> by <a href="{{pathFor 'profile' name=author.username userId=author.id}}" class="{{#unless currentUser}} continue-popup {{/unless}}">{{author.username}}</a> <small>{{cleanDateFormat created_at}}</small>
     {{#if isAuthor}}
-      <span class="pull-right"><i class="fa fa-trash-o" aria-hidden="true" id="removeProgressLog"></i></span>
-      <span class="pull-right"><i class="fa fa-pencil-square-o" aria-hidden="true" id="editProgressLog"></i> &nbsp;&nbsp;&nbsp;&nbsp;</span>
+      <span class="pull-right"><i class="fa fa-trash-o removeProgressLog" aria-hidden="true"></i></span>
+      <span class="pull-right"><i class="fa fa-pencil-square-o editProgressLog" aria-hidden="true"></i> &nbsp;&nbsp;&nbsp;&nbsp;</span>
     {{/if}}
   </div>
 </template>
