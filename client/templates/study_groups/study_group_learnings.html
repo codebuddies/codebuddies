@@ -1,6 +1,6 @@
 <template name="studyGroupLearnings">
     {{#if isInRole 'owner, admin, moderator, member ' _id}}
-    <span class="alert-success auto-height">Please share something you learned or accomplished.</span>
+    <div class="alert-success auto-height margin-bottom-1">Please share something you learned or accomplished.</div>
       <div class="col-md-3 col-md-offset-9 margin-bottom-1 padding-0">
           <div class="btn btn-cb2 btn-schedule-hangout {{#unless currentUser}} continue-popup {{/unless}}" id="{{#if currentUser}}newProgressLog{{/if}}"  >{{_ "create_a_progress_log"}}</div>
       </div>

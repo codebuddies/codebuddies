@@ -26,11 +26,31 @@ export const tweetHangout = (hangout)=>{
 }
 
 export const tweetLearning = (learning)=>{
-
+    console.log(learning)
   if(Meteor.settings.isModeProduction){
 
     const status = learning.title.truncate(110) + ' ~' + learning.username + ' #TodayILearned' ;
 
+    client.post('statuses/update', {status: status},  function(error, tweet, response) {
+      if(error){
+        // console.log("error",JSON.stringify(error));
+        //throw error;
+      }
+    });
+
+  }
+
+}
+
+export const tweetLog = (log)=>{
+  //console.log(log)
+  //console.log(log._id)
+  //var statusTest = 'New learning logged in the "' + log.study_group.title.truncate(28) + '" group: ' + Meteor.absoluteUrl('log/' + log._id) + ' ' + log.title.truncate(50) + ' #codebuddies';
+  //console.log(statusTest);
+  if(Meteor.settings.isModeProduction){
+
+    const status = 'New learning logged in the "' + log.study_group.title.truncate(28) + '" group: ' + Meteor.absoluteUrl('log/' + log._id) + ' ' + log.title.truncate(50) + ' #codebuddies';
+    
     client.post('statuses/update', {status: status},  function(error, tweet, response) {
       if(error){
         // console.log("error",JSON.stringify(error));

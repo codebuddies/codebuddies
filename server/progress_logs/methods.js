@@ -1,3 +1,5 @@
+import {tweetLog} from '../twitter/methods.js';
+
 /**
 * Create new progress log
 * @function
@@ -42,7 +44,8 @@ Meteor.methods({
     }
 
     ProgressLogs.insert(progressLog);
-
+    var newProgressLog = ProgressLogs.findOne({'title': data.title, 'description': data.description, 'slug': data.slug, 'visibility':{$ne:false}}, {sort:{$natural:-1}})
+    tweetLog(newProgressLog);
     return true;
 
   }
