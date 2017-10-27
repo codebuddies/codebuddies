@@ -81,6 +81,8 @@ Meteor.methods({
 
     Activities.insert(activity);
 
+    // send slack alert
+    studyGroupNotification(studyGroup, studyGroupId);
 
     return true;
 
