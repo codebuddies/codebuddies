@@ -26,7 +26,7 @@ Meteor.methods({
 
     const user = Meteor.user();
 
-    const progressLog = {
+    let progressLog = {
       title: data.title,
       slug: data.slug,
       description: data.description,
@@ -43,9 +43,9 @@ Meteor.methods({
       visibility: true
     }
 
-    ProgressLogs.insert(progressLog);
-    var newProgressLog = ProgressLogs.findOne({'title': data.title, 'description': data.description, 'slug': data.slug, 'visibility':{$ne:false}}, {sort:{$natural:-1}})
-    tweetLog(newProgressLog);
+    const logId = ProgressLogs.insert(progressLog);
+    progressLog._id = logId;
+    tweetLog(progressLog);
     return true;
 
   }
