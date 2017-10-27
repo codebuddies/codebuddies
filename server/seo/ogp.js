@@ -9,6 +9,8 @@ SSR.compileTemplate('seoAbout', Assets.getText('templates/seo/about.html'));
 SSR.compileTemplate('seoFaq', Assets.getText('templates/seo/faq.html'));
 SSR.compileTemplate('seoHangouts', Assets.getText('templates/seo/hangouts.html'));
 SSR.compileTemplate('seoHangout', Assets.getText('templates/seo/hangout.html'));
+SSR.compileTemplate('seoStudyGroups', Assets.getText('templates/seo/studygroups.html'));
+SSR.compileTemplate('seoStudyGroup', Assets.getText('templates/seo/studygroup.html'));
 
 //default fallback meta information
 let defaultMetaData = {
@@ -111,7 +113,7 @@ seoPicker.route('/hangouts', function(params, req, res){
   data.title = 'Hangouts | CodeBuddies';
   data.description = "We're a community learning code via a Slack chatroom, a Facebook Group, and peer-to-peer organized screensharing/pair-programming hangouts. Learning with others helps us learn faster. The project is free, open-sourced, and 100% community-built.";
   data.url = Meteor.absoluteUrl('hangouts');
-
+  data.image = Meteor.absoluteUrl('images/jitsi-example2.jpg');
   //generate a template with meta tags
   const html = SSR.render('seoLayout',{
     template:'seoHangouts',
@@ -136,7 +138,7 @@ seoPicker.route('/hangout/:hangoutId', function(params, req, res){
     data.title = hangout.topic,
     data.description = hangout.description;
     data.url = Meteor.absoluteUrl('hangout/' + hangout._id );
-    data.image = Meteor.absoluteUrl('images/logo-circle.png');
+    data.image = Meteor.absoluteUrl('images/jitsi-example2.jpg');
   }else {
     data.title = '404 | Page Not Found';
     data.description = 'The Page, You are looking for does not exexist';
@@ -147,6 +149,58 @@ seoPicker.route('/hangout/:hangoutId', function(params, req, res){
   //generate a template with meta tags
   const html = SSR.render('seoLayout',{
     template:'seoHangout',
+    data:{data:data}
+  });
+
+  res.end(html);
+
+});
+
+// study-groups
+seoPicker.route('/study-groups', function(params, req, res){
+  //set a meta data
+  let data = defaultMetaData;
+  data.title = 'Study Groups | CodeBuddies';
+  data.description = "Start or join a study group to log your progress, share links, and help each other master a learning goal! Study groups have been created around tutorials, books, concepts, and programming languages.";
+  data.url = Meteor.absoluteUrl('study-groups');
+  data.image = Meteor.absoluteUrl('images/og-sg-md.png');
+
+  //generate a template with meta tags
+  const html = SSR.render('seoLayout',{
+    template:'seoStudyGroups',
+    data:{data:data}
+  });
+
+  res.end(html);
+
+});
+
+
+// Single study-group
+seoPicker.route('/study-group/:studyGroupSlug/:studyGroupId', function(params, req, res){
+  let data = defaultMetaData;
+
+  //featch the hangout details only if it's visible
+  let studyGroup = StudyGroups.findOne({_id:params.studyGroupId, 'visibility':{ $ne: false} });
+
+
+  //set a meta data only if hangout is visible
+  //else set 404 info.
+  if (studyGroup) {
+    data.title = studyGroup.title + ' | CodeBuddies';
+    data.description = studyGroup.introduction || studyGroup.tagline ;
+    data.url = Meteor.absoluteUrl('/study-group/' + params.studyGroupSlug + "/" + studyGroup._id );
+    data.image = Meteor.absoluteUrl('images/og-sg-md.png');
+  }else {
+    data.title = '404 | Page Not Found';
+    data.description = 'The Page, You are looking for does not exexist';
+    data.url = Meteor.absoluteUrl('404');
+    data.image = Meteor.absoluteUrl('images/og-sg-md.png');
+  }
+
+  //generate a template with meta tags
+  const html = SSR.render('seoLayout',{
+    template:'seoStudyGroup',
     data:{data:data}
   });
 

@@ -49,6 +49,12 @@
   color: $bg-white;
   letter-spacing: .2px;
 
+  .profile-avatar {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .username {
     margin-top: 15px;
     margin-bottom: 15px;
