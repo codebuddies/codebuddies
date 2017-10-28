@@ -100,7 +100,7 @@
           </div>
           <div role="tabpanel" class="tab-pane" id="247hangout">
             <div class="text-center">
-              {{#unless isInRole 'owner, moderator, member' _id}}
+              {{#unless isInRole 'owner, admin, moderator, member' _id}}
                 <p>Please join the study group to access the 24/7 hangout.</p>
                 <img src="/images/click_to_load_hangout2.jpg" width="90%" class="load-hangout load-hangout-screenshot">
               {{else}}
