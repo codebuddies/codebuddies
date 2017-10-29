@@ -22,6 +22,8 @@ Join us on Slack! You can get your invite by clicking on the Slack invite button
 ## How do I contribute to this project?
 **PLEASE go to _[contributing.md](contributing.md)_ and refer to the contribution steps listed there!** There are also helpful resources there, in case you get stuck. To add yourself as a contributor, please see the [How do I add myself as a contributor?](contributing.md#how-do-i-add-myself-as-a-contributor) section.
 
+Please check out [docs.codebuddies.org](http://docs.codebuddies.org) for the full documentation. 
+
 ## What are you trying to build here?
 
 ![screenshot of what we're building](https://github.com/codebuddiesdotorg/codebuddies/raw/master/public/images/cb-example.png)
@@ -63,6 +65,8 @@ Our community spends a lot of time helping each other on [our public Slack](http
 - @abhiii5459, http://github.com/abhiii5459 - contributed to PR#239. Working on Fix#203 along with @linda.
 - @sharynneazhar, http://github.com/sharynneazhar - contributed to site fixes and enhancements, particularly the ability for users to edit their profile information
 - @grfraser, https://github.com/grfraser
+- @aewens, https://github.com/aewens - contributed fixes to issues, added hideable study group panels
+- @railsstudent, https://github.com/railsstudent - contributed to PR#639. Worked on check uniqueness of study group name  
 - Add Your Name Above. Refer to ***[contributing.md](contributing.md#how-do-i-add-myself-as-a-contributor)***
 
 If you'd like to help contribute, pick out an [issue](https://github.com/codebuddiesdotorg/codebuddies/issues) (leave a comment on it to indicate your interest!) and say hello in the [#codebuddies-meta](https://codebuddies.slack.com/messages/codebuddies-meta/) channel on Slack. Be sure to read the "how do I contribute" instructions on [contributing.md](contributing.md)!
@@ -142,8 +146,14 @@ You can also support us with a monthly donation by [becoming a Backer!](https://
 Thank you to [@distalx](https://twitter.com/distalx), [@alfougy](https://twitter.com/alfougy), and [@mozzadrella](https://twitter.com/mozzadrella) for supporting us on our [Open Collective](http://opencollective.com/codebuddies)!
 
 ### Sponsors
-Thank you to DigitalOcean for sponsoring our hosting, and StickerMule for sponsoring $50 in credits!
+Thank you to DigitalOcean for sponsoring our hosting, MongoDB Atlas for sponsoring our database hosting, and StickerMule for sponsoring $50 in credits!
 
 <a href="https://www.digitalocean.com/" target="_blank"><img src="https://github.com/codebuddiesdotorg/codebuddies/blob/master/public/images/powered_by_digitalocean.png" width="200" alt="Powered by DigitalOcean"/></a>
 
+<a href="https://www.mongodb.com/cloud/atlas?jmp=codebuddies" target="_blank"><img src="https://github.com/codebuddiesdotorg/codebuddies/blob/staging/public/images/mdb-atlas-reg.png" width="200" alt="Hosted by MongoDB Atlas"/>
+
 <a href="http://stickermule.com" target="_blank"><img src="http://i.imgur.com/WblcveC.png" width="180" alt="Thank you to StickerMule for sponsoring $50 in credits!"></a>
+
+<a target='_blank' rel='nofollow' href='https://app.codesponsor.io/link/aUWGFuwrvWrTWuW5exySYqpr/codebuddiesdotorg/codebuddies'>
+  <img alt='Sponsor' width='888' height='68' src='https://app.codesponsor.io/embed/aUWGFuwrvWrTWuW5exySYqpr/codebuddiesdotorg/codebuddies.svg' />
+</a>

@@ -21,5 +21,11 @@ Template.about.onRendered(function(){
             content: 'This is the popover content. You should be able to mouse over HERE.'
         });
     });
+
+    // Move to the top of the page on render
+    var $window = $(window);
+    if ($window.scrollTop() > 0) {
+      $window.scrollTop(0);
+    }
 	 });
 });

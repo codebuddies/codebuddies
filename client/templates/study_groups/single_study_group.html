@@ -20,7 +20,7 @@
           <div class="text-center">
             <h4>This study group has been archived.</h4>
             <p>
-              <a href="{{pathFor 'all study groups'}}"> Browse more</a> | 
+              <a href="{{pathFor 'all study groups'}}"> Browse more</a> |
               <a href="{{pathFor 'home'}}"> Home</a>
             </p>
           </div>
@@ -58,21 +58,19 @@
                 {{#if isInRole 'owner, admin, moderator' _id}}
                   <div class="btn btn-cb2 btn-schedule-hangout {{#unless currentUser}} continue-popup {{/unless}}" id="{{#if currentUser}}newHangout{{/if}}">{{_ "create_a_hangout"}}</div>
                 {{else}}
-                    {{#if equals exempt_from_default_permission true}}
-                        <div class="btn btn-cb2 btn-schedule-hangout {{#unless currentUser}} continue-popup {{/unless}}" id="{{#if currentUser}}newHangout{{/if}}"  >{{_ "create_a_hangout"}}</div>
+                    {{#if isInRole 'owner, admin, moderator, member' _id}}
+                        {{#if equals exempt_from_default_permission true}}
+                            <div class="btn btn-cb2 btn-schedule-hangout {{#unless currentUser}} continue-popup {{/unless}}" id="{{#if currentUser}}newHangout{{/if}}"  >{{_ "create_a_hangout"}}</div>
+                            {{/if}}
                     {{/if}}
                 {{/if}}
 
               </div>
             </h2>
 
-            {{#if isInRole 'owner, admin, moderator, member ' _id}}
-              {{> hangoutLearned }}
-            {{/if}}
-
             {{> studyGroupInfo}}
 
-
+            {{> studyGroupOnlineMembers}}
 
           </div>
           <div class="col-md-9 study-group-body">
@@ -82,7 +80,7 @@
             <li role="presentation"><a href="#hangouts" aria-controls="hangouts" role="tab" data-toggle="tab">{{_ 'hangouts'}}</a></li>
             <li role="presentation"><a href="#members" aria-controls="members" role="tab" data-toggle="tab">{{_ 'members'}} ({{ members.length }})</a></li>
             <li role="presentation"><a href="#learnings" aria-controls="learnings" role="tab" data-toggle="tab">{{_ 'learnings'}} ({{ learningsCount }})</a></li>
-            <li role="presentation"><a href="#resources" aria-controls="resources" role="tab" data-toggle="tab">{{_ 'resources'}} ({{ resourcesCount }})</a></li>
+            <li role="presentation"><a href="#resources" aria-controls="resources" role="tab" data-toggle="tab">{{_ 'links'}} ({{ resourcesCount }})</a></li>
             {{#if currentUser}}
             <li role="presentation"><a href="#activities" aria-controls="activity" role="tab" data-toggle="tab">{{_ 'activity'}}</a></li>
             {{/if}}
@@ -90,8 +88,8 @@
             <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">{{_ 'settings'}}</a></li>
             {{/if}}
           </ul>
-       
-        
+
+
 
         <br>
 
@@ -102,7 +100,7 @@
           </div>
           <div role="tabpanel" class="tab-pane" id="247hangout">
             <div class="text-center">
-              {{#unless isInRole 'owner, moderator, member' _id}}
+              {{#unless isInRole 'owner, admin, moderator, member' _id}}
                 <p>Please join the study group to access the 24/7 hangout.</p>
                 <img src="/images/click_to_load_hangout2.jpg" width="90%" class="load-hangout load-hangout-screenshot">
               {{else}}

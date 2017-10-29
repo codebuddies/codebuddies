@@ -2,7 +2,7 @@
   .container {
     overflow: auto;
   }
-  .col-lg-4 {
+  .col-lg-4, .col-lg-12 {
     padding: 0px 8px;
   }
   background: $cta-blue;
@@ -13,6 +13,12 @@
   }
   p.overflowtext {
     color: $secondary-grey;
+  }
+  
+  a.link {
+    text-decoration: underline;
+    color: $white;
+    white-space: nowrap;
   }
 
   .panel-default { 
@@ -36,12 +42,6 @@
       @include font-face(200, 13px, normal, $bg-white);
       line-height: 1.9;
       margin-top: 10px;
-    }
-
-    a {
-      text-decoration: underline;
-      color: $white;
-      white-space: nowrap;
     }
   }
 
