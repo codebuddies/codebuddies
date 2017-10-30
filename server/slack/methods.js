@@ -145,8 +145,25 @@ studyGroupNotification = function(studyGroup, studyGroupId) {
   const studyGroupUrl = Meteor.absoluteUrl(`study-group/${studyGroup.slug}/${studyGroupId}`);
   const pretext = `<@${username}> has started a *${studyGroup.title}* study group with the tagline *${studyGroup.tagline}*!\nJoin here: ${studyGroupUrl} `;
 
-  console.log(pretext);
   studyGroupAlert({
     text: pretext
   });
+}
+
+facebookAlert = slack.extend({
+    channel: Meteor.settings.slack_facebook_alert_channel,
+    username: Meteor.settings.slack_alert_username
+});
+
+studyGroupFacebookNotification = function(studyGroup, studyGroupId) {
+  const username = studyGroup.members[0].name;
+  const studyGroupUrl = Meteor.absoluteUrl(`study-group/${studyGroup.slug}/${studyGroupId}`);
+  const pretext = `New study group on CodeBuddies: "${studyGroup.title}" [${studyGroupUrl}] `;
+  facebookAlert({ text: pretext });
+}
+
+hangoutFacebookNotification = function(hangout, type) {
+  const hangoutUrl = Meteor.absoluteUrl(`hangout/${hangout._id}`);
+  const pretext = `<@${hangout.host.name}> has scheduled a ${type} hangout on " ${hangout.topic}"! [${hangoutUrl}] `;
+  facebookAlert({ text: pretext });
 }
