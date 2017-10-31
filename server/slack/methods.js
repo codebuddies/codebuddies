@@ -164,6 +164,10 @@ studyGroupFacebookNotification = function(studyGroup, studyGroupId) {
 
 hangoutFacebookNotification = function(hangout, type) {
   const hangoutUrl = Meteor.absoluteUrl(`hangout/${hangout._id}`);
-  const pretext = `<@${hangout.host.name}> has scheduled a ${type} hangout on " ${hangout.topic}"! [${hangoutUrl}] `;
+  const pretext =
+  `NEW HANGOUT: <@${hangout.host.name}> has scheduled a "${hangout.topic}" hangout in the "${hangout.group.title}" study group!
+
+  Please RSVP here:
+  ${hangoutUrl}`;
   facebookAlert({ text: pretext });
 }
