@@ -158,7 +158,9 @@ facebookAlert = slack.extend({
 studyGroupFacebookNotification = function(studyGroup, studyGroupId) {
   const username = studyGroup.members[0].name;
   const studyGroupUrl = Meteor.absoluteUrl(`study-group/${studyGroup.slug}/${studyGroupId}`);
-  const pretext = `New study group on CodeBuddies: "${studyGroup.title}" [${studyGroupUrl}] `;
+  const pretext = `New study group created on CodeBuddies: "${studyGroup.title}" 
+  
+  Join here: ${studyGroupUrl}`;
   facebookAlert({ text: pretext });
 }
 
