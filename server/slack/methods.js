@@ -158,18 +158,13 @@ facebookAlert = slack.extend({
 studyGroupFacebookNotification = function(studyGroup, studyGroupId) {
   const username = studyGroup.members[0].name;
   const studyGroupUrl = Meteor.absoluteUrl(`study-group/${studyGroup.slug}/${studyGroupId}`);
-  const pretext = `New study group created on CodeBuddies: "${studyGroup.title}" 
-  
-  Join here: ${studyGroupUrl}`;
+  const pretext = `<@${username}> has started a "${studyGroup.title}" study group with the tagline "${studyGroup.tagline}"!\n\nJoin here: ${studyGroupUrl} `;
   facebookAlert({ text: pretext });
 }
 
 hangoutFacebookNotification = function(hangout, type) {
   const hangoutUrl = Meteor.absoluteUrl(`hangout/${hangout._id}`);
   const pretext =
-  `NEW HANGOUT: <@${hangout.host.name}> has scheduled a "${hangout.topic}" hangout in the "${hangout.group.title}" study group!
-
-  Please RSVP here:
-  ${hangoutUrl}`;
+  `NEW HANGOUT: <@${hangout.host.name}> has scheduled a "${hangout.topic}" hangout in the "${hangout.group.title}" study group!\n\nPlease RSVP here: ${hangoutUrl}`;
   facebookAlert({ text: pretext });
 }
