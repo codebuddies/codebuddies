@@ -31,5 +31,6 @@
   "root_email":"codebuddiesdotorg@gmail.com",
   "root_username":"CB",
   "root_gravatar":"http://www.gravatar.com/avatar/",
-  "slack_studygroup_alert_username": "Study Group Alerts"
+  "slack_studygroup_alert_username": "Study Group Alerts",
+  "slack_facebook_alert_channel": "#fb-group-private"
 }
