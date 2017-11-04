@@ -137,7 +137,7 @@ When you are ready, submit a PR on GitHub, and a member from the CodeBuddies com
 
 If you have recently pushed a commit, you should see 'create a pull request' on the master repo. If you do not see it, GitHub provides [documentation on how to create a PR](https://help.github.com/articles/creating-a-pull-request/).
 
-@anbuselvan is working on integrating javascript; automated testing will be available soon in the `dev/testing` branch.
+@anbuselvan is working on integrating javascript; automated testing will be available soon in the `dev/testing` me as a contributor branch.
 
 ### What are merge conflicts, and how do I resolve them?
 Merge conflicts come up when there is a conflict between code that you've written and code that other people have `git push`ed into your branch.
