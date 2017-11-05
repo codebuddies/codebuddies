@@ -1,0 +1,23 @@
+<template name="studyGroupAvailability">
+
+  {{#if isInRole 'owner, admin, moderator' _id}}
+    <div class="page-header">
+      <div class="btn btn-default pull-right" id="addSlot">Add</div>
+    </div>
+  {{/if}}
+
+
+  {{#if Template.subscriptionsReady}}
+
+    {{#each availabilities}}
+      <br> {{author.name}}, {{day}} {{start_hour}} {{start_minute}} TO {{end_hour}} {{end_minute}}
+    {{/each}}
+
+  {{else}}
+
+    {{> loading}}
+
+  {{/if}}
+
+
+</template>
