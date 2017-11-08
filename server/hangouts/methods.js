@@ -123,8 +123,7 @@ Meteor.methods({
         const actor = Meteor.user()
         if (actor._id === data.hostId) {
 
-          Hangouts.up
-          date({_id: data.hangoutId},
+          Hangouts.update({_id: data.hangoutId},
                           {$set: { visibility: false} });
           return true;
 
