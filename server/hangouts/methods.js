@@ -101,6 +101,8 @@ Meteor.methods({
 
 
     slackNotification(hangout, "NEW");
+    hangoutFacebookNotification(hangout, 'NEW');
+
     return true;
   },
   deleteHangout: function (data) {
