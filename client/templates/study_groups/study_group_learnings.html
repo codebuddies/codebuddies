@@ -1,18 +1,24 @@
 <template name="studyGroupLearnings">
     {{#if isInRole 'owner, admin, moderator, member ' _id}}
-        {{> hangoutLearned }}
+      <div class="col-md-3 col-md-offset-9 margin-bottom-1">
+          <div class="btn btn-cb2 btn-schedule-hangout {{#unless currentUser}} continue-popup {{/unless}}" id="{{#if currentUser}}newProgressLog{{/if}}"  >{{_ "create_a_progress_log"}}</div>
+      </div>
     {{/if}}
 
 	{{#if learnings.count}}
 		<div class="status-list">
 			<div class="learnings">
 				{{#each learnings}}
-					{{> learningItem}}
+          {{> progressLogItem}}
 				{{/each}}
 			</div>
 		</div>
 	{{ else }}
-		<h5 class="well margin-top-1">Please share something you learned or accomplished.</h5>
+    {{#if isInRole 'owner, admin, moderator, member ' _id}}
+		  <h5 class="well margin-top-1">Please share something you learned or accomplished.</h5>
+    {{else}}
+      <h5 class="well margin-top-1">There will be more to see here once any member shares their accomplished.</h5>
+    {{/if}}
 	{{/if}}
     {{#if Template.subscriptionsReady}}
     	{{#if hasMoreLearnings}}

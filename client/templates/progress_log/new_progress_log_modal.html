@@ -1,0 +1,36 @@
+<template name="newProgressLogModal">
+
+  <div id="create-hangout-modal" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title text-center">{{_ "create_a_progress_log"}}</h4>
+          <button type="button" class="btn btn-circle btn-outline btn-info pull-right" data-dismiss="modal"><i class="fa fa-times"></i></button>
+        </div>
+        <div class="modal-body">
+
+          <div class="row">
+            <div class="col-md-12">
+              <input id="title" class="form-control" type="text" placeholder="Title">
+            </div>
+          </div>
+          <br>
+
+          <div class="row">
+            <div class="col-md-12">
+              <div data-editor-progress-log></div>
+            </div>
+          </div>
+
+          <br>
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <button id="create-progress-log" class="btn btn-cb2">{{_ "save_log"}}</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</template>
