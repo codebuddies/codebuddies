@@ -64,9 +64,10 @@ Template.editStudyGroupAvailabilitySlotModal.events({
       studyGroupId: this._id,
       studyGroupTitle: this.title,
       studyGroupSlug: this.slug,
-      day: utc_result_start.day,
+      startDay: utc_result_start.day,
       startHour: utc_result_start.hour,
       startMinute: utc_result_start.minute,
+      endDay: utc_result_end.day,
       endHour: utc_result_end.hour,
       endMinute: utc_result_end.minute,
       userTimeZoneOffsetInHours: new Date().getTimezoneOffset() / 60

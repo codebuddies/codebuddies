@@ -10,7 +10,7 @@
   {{#if Template.subscriptionsReady}}
 
     {{#each availabilities}}
-      <br> {{author.name}}, {{day}} {{start_hour}} {{start_minute}} TO {{end_hour}} {{end_minute}}
+      <br> {{author.name}}, {{> availabilitySlotLocal d=start_day h=start_hour m=start_minute}} TO {{> availabilitySlotLocal d=end_day h=end_hour m=end_minute}}
     {{/each}}
 
   {{else}}

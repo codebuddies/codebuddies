@@ -4,9 +4,10 @@ Meteor.methods({
       studyGroupId: String,
       studyGroupTitle: String,
       studyGroupSlug: String,
-      day: Number,
+      startDay: Number,
       startHour: Number,
       startMinute: Number,
+      endDay: Number,
       endHour: Number,
       endMinute: Number,
       userTimeZoneOffsetInHours: Number
@@ -34,9 +35,10 @@ Meteor.methods({
         name: username,
         avatar: avatar
       },
-      day: data.day,
+      start_day: data.startDay,
       start_hour: data.startHour,
       start_minute: data.startMinute,
+      end_day: data.endDay,
       end_hour: data.endHour,
       end_minute: data.endMinute,
       user_tz_offset_hours: data.userTimeZoneOffsetInHours,

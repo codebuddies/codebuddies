@@ -9,7 +9,7 @@ Template.studyGroupAvailability.helpers({
   availabilities (){
     // console.log(Availabilities.find({'study_group.id': FlowRouter.getParam('studyGroupId') }).count());
 
-    return Availabilities.find({'study_group.id': FlowRouter.getParam('studyGroupId') });
+    return Availabilities.find({'study_group.id': FlowRouter.getParam('studyGroupId') }, {sort: {start_day: 1, start_hour: 1, start_minute: 1 } });
   }
 });
 
