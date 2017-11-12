@@ -145,3 +145,7 @@ Template.registerHelper("slotDayString", function(day){
       return "NaN"
   }
 });
+
+Template.registerHelper("isAuthor", function(userId){
+  return Meteor.userId() === userId;
+});
