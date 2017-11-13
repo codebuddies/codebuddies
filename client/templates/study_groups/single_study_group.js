@@ -1,6 +1,7 @@
 Template.singleStudyGroup.onCreated(function() {
   let instance = this;
   instance.studyGroupId = FlowRouter.getParam('studyGroupId');
+  // instance.progressLogCount = new ReactiveVar(0);
   instance.autorun(() => {
       instance.subscribe('studyGroupById', instance.studyGroupId);
   });
@@ -30,7 +31,7 @@ Template.singleStudyGroup.helpers({
     return Resources.find().count();
   },
   learningsCount: function() {
-    return Learnings.find().count();
+    return ReactiveMethod.call('progressLogCountByStudyGroupId', FlowRouter.getParam('studyGroupId') );
   }
 });
 

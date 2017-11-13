@@ -1,0 +1,12 @@
+<template name="singleProgressLog">
+  {{#if Template.subscriptionsReady}}
+    {{#with progressLog}}
+      <h1>ID: {{_id}}</h1>
+      <h1>user: {{author.username}}</h1>
+      <h1>title: {{title}}</h1>
+      <h4>{{description}}</h4>
+    {{/with}}
+  {{else}}
+    {{>loading}}
+  {{/if}}
+</template>

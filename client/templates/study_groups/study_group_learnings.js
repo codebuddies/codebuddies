@@ -17,7 +17,7 @@ Template.studyGroupLearnings.onCreated(function () {
     var studyGroupId = FlowRouter.getParam('studyGroupId');
     //console.log(studyGroupId)
     // subscribe to the learningsByHangoutId publication
-    var subscription = instance.subscribe('learningsByStudyGroupId', limit, studyGroupId);
+    var subscription = instance.subscribe('progressLogsByStudyGroupId', limit, studyGroupId);
     // if subscription is ready, set limit to newLimit
     if (subscription.ready()) {
       //console.log("> Received "+limit+" learnings. \n\n")
@@ -27,8 +27,8 @@ Template.studyGroupLearnings.onCreated(function () {
     }
   });
 
-   instance.learningsForStudyGroup = function() {
-    return Learnings.find({}, {limit: instance.loaded.get(), sort: {created_at: -1}});
+  instance.learningsForStudyGroup = function() {
+    return ProgressLogs.find({}, {limit: instance.loaded.get(), sort: {created_at: -1}});
   }
 
 });
@@ -54,5 +54,13 @@ Template.studyGroupLearnings.events({
     // increase limit by 5 and update it
     limit += 5;
     instance.limit.set(limit);
+  },
+  "click #newProgressLog": function (event, instance) {
+    const SG = {
+      parent_id : this._id,
+      parent_title: this.title,
+      parent_type: "STUDYGROUP"
+    }
+    Modal.show('newProgressLogModal', SG);
   }
 });
