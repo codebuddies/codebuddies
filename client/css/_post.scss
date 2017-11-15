@@ -21,7 +21,7 @@
   p.completed,
   p.status {
     color: $warm-grey;
-    font-weight: 200;
+    font-weight: 600;
     font-size: 16px;
     margin: 10px 0;
   }
@@ -81,9 +81,13 @@
     margin-bottom: 10px;
   }
 
-  ol {
+  .hangoutTips-list {
     padding-left: 16px;
     font-weight: 200;
+
+    &__item {
+      font-size: 14.5px;
+    }
   }
 
   .hangout-status {
