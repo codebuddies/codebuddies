@@ -3,6 +3,7 @@
   {{#if isInRole 'owner, admin, moderator, member' _id}}
     <div class="page-header">
       <div class="btn btn-default pull-right" id="addSlot">Add</div>
+      <br>
     </div>
   {{/if}}
 
@@ -13,14 +14,40 @@
       <div class="col-md-6">
         {{#each availabilities}}
           {{#unless isAuthor author.id}}
-            <br> {{author.name}}, {{> availabilitySlotLocal d=start_day h=start_hour m=start_minute}} TO {{> availabilitySlotLocal d=end_day h=end_hour m=end_minute}}
+            <div class="row">
+              <div class="col-sm-3">
+                {{author.name}}
+              </div>
+              <div class="col-sm-3">
+                {{> availabilitySlotLocal d=start_day h=start_hour m=start_minute}}
+              </div>
+              <div class="col-sm-2">
+                TO
+              </div>
+              <div class="col-sm-3">
+                {{> availabilitySlotLocal d=end_day h=end_hour m=end_minute}}
+              </div>
+            </div>
           {{/unless}}
         {{/each}}
       </div>
       <div class="col-md-6">
         {{#each availabilities}}
           {{#if isAuthor author.id}}
-            <br> {{author.name}}, {{> availabilitySlotLocal d=start_day h=start_hour m=start_minute}} TO {{> availabilitySlotLocal d=end_day h=end_hour m=end_minute}}
+            <div class="row">
+              <div class="col-sm-3">
+                {{author.name}}
+              </div>
+              <div class="col-sm-3">
+                {{> availabilitySlotLocal d=start_day h=start_hour m=start_minute}}
+              </div>
+              <div class="col-sm-2">
+                TO
+              </div>
+              <div class="col-sm-3">
+                {{> availabilitySlotLocal d=end_day h=end_hour m=end_minute}}
+              </div>
+            </div>
           {{/if}}
 
         {{else}}
