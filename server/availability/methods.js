@@ -1,3 +1,10 @@
+/**
+* Add Availability Slot
+* @function
+* @name addAvailabilitySlot
+* @param {Object} data object
+* @return {Boolean} true on success
+*/
 Meteor.methods({
   addAvailabilitySlot:function(data){
     check(data,{
@@ -55,6 +62,13 @@ Meteor.methods({
   }
 });
 
+/**
+* Remove Availability Slot
+* @function
+* @name removeAvailabilitySlot
+* @param {Object} data object
+* @return {Boolean} true on success
+*/
 Meteor.methods({
   removeAvailabilitySlot:function(data){
     check(data,{
