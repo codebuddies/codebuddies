@@ -19,7 +19,7 @@ Meteor.methods({
 
     const loggedInUser =  Meteor.user();
     if (!loggedInUser || !Roles.userIsInRole(loggedInUser,['owner', 'admin', 'moderator', 'member'], data.studyGroupId)) {
-     throw new Meteor.Error('Resources.methods.addResource.accessDenied','Cannot add Resource, Access denied');
+     throw new Meteor.Error('Availabilities.methods.addAvailabilitySlot.accessDenied','Cannot add Slot, Access denied');
     }
     const username = loggedInUser.username;
     const avatar = loggedInUser.profile.avatar.default;
@@ -52,5 +52,26 @@ Meteor.methods({
     if (id) {
       return true
     }
+  }
+});
+
+Meteor.methods({
+  removeAvailabilitySlot:function(data){
+    check(data,{
+      availabilityId: String,
+      studyGroupId: String
+    });
+
+    if (!this.userId) {
+      throw new Meteor.Error("unauthorized", "Unauthorized");
+    }
+
+    const loggedInUser =  Meteor.user();
+    if (!loggedInUser || !Roles.userIsInRole(loggedInUser,['owner', 'admin', 'moderator', 'member'], data.studyGroupId)) {
+     throw new Meteor.Error('Availabilities.methods.removeAvailabilitySlot.accessDenied','Cannot remove slot, Access denied');
+    }
+
+    return Availabilities.remove({_id:data.availabilityId, "author.id": loggedInUser._id });
+
   }
 });

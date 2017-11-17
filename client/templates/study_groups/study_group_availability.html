@@ -12,7 +12,10 @@
 
     <div class="row">
       <div class="col-md-6">
-        {{#each availabilities}}
+        <div class="page-header">
+          <h4>Members Availability information</h4>
+        </div>
+        {{#each groupMemebersAvailabilities}}
           {{#unless isAuthor author.id}}
             <div class="row">
               <div class="col-sm-3">
@@ -29,15 +32,24 @@
               </div>
             </div>
           {{/unless}}
+        {{else}}
+
+          <div class="text-center">
+            <h5>No slots found.</h5>
+            <p>There will be more to see here once other group member add their Availability information.</p>
+          </div>
+
         {{/each}}
       </div>
       <div class="col-md-6">
-        {{#each availabilities}}
+
+        <div class="page-header">
+          <h4>Your Availability information</h4>
+        </div>
+
+        {{#each currentUsersAvailabilities}}
           {{#if isAuthor author.id}}
             <div class="row">
-              <div class="col-sm-3">
-                {{author.name}}
-              </div>
               <div class="col-sm-3">
                 {{> availabilitySlotLocal d=start_day h=start_hour m=start_minute}}
               </div>
@@ -47,10 +59,19 @@
               <div class="col-sm-3">
                 {{> availabilitySlotLocal d=end_day h=end_hour m=end_minute}}
               </div>
+              <div class="col-sm-3">
+                <span id="removeSlot"><i class="fa fa-trash" aria-hidden="true"></i></span>
+              </div>
             </div>
           {{/if}}
 
         {{else}}
+
+          <div class="text-center">
+            <h5>No slots found.</h5>
+            <p>There will be more to see here once you add your Availability information.</p>
+            <div class="btn btn-default" id="addSlot">Add</div>
+          </div>
 
         {{/each}}
       </div>
