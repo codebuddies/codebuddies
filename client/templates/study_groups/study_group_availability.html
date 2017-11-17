@@ -22,6 +22,9 @@
           {{#if isAuthor author.id}}
             <br> {{author.name}}, {{> availabilitySlotLocal d=start_day h=start_hour m=start_minute}} TO {{> availabilitySlotLocal d=end_day h=end_hour m=end_minute}}
           {{/if}}
+
+        {{else}}
+
         {{/each}}
       </div>
     </div>
