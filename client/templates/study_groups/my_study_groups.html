@@ -20,6 +20,7 @@
               <h4>
                 <a href="{{pathFor 'study group' studyGroupSlug=slug studyGroupId=_id}}">  {{title}} </a>
                 <br> <small>{{tagline}}</small> <small><i class="fa fa-users fa-fw"></i>{{members.length}}</small>
+                <small><i class="fa fa-laptop fa-fw"></i>{{ numParticipants _id }}</small>
                 {{#if isInRole 'owner' _id}}
                   <span class="label label-primary pull-right">Owner</span>
                 {{/if}}

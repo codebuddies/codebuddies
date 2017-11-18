@@ -82,3 +82,22 @@ Meteor.publish( 'hangoutSearch', function(searchTerm) {
 
     return Hangouts.search(searchTerm);
 });
+
+Meteor.publish('hangoutParticipants', function(room) {
+  check(room, String);
+  if (room) {
+      return AppStats.find({ hangout_id: room });
+  }
+  return this.ready();
+});
+
+Meteor.publish('allHangoutParticipants', function(hangoutRoomIds) {
+  if (hangoutRoomIds == null || typeof hangoutRoomIds === 'undefined' ||
+    !Array.isArray(hangoutRoomIds) || hangoutRoomIds.length === 0) {
+    return this.ready();
+  }
+  for (let i = 0; i < hangoutRoomIds; i++) {
+    check(hangoutRoomIds[i], String);
+  }
+  return AppStats.find({hangout_id: { $in: hangoutRoomIds } });
+});

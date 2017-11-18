@@ -1,5 +1,9 @@
 Template.hangoutFrame.onCreated(function() {
   let instance = this;
+  instance.joinedHangout = false;
+  instance.autorun(() => {
+    instance.subscribe('hangoutParticipants', Session.get('hangoutRoomId'));
+  });
 
   /**
   * Initialize Jitsi
@@ -31,7 +35,7 @@ Template.hangoutFrame.onCreated(function() {
     $("[id^=" + 'jitsiConference' + "]").css('width', '100%');
     //only show the launch hangout button if Jitsi is not loaded
     $("[id^=" + 'jitsiConference' + "]").length == 1 ? $('.load-hangout').hide() : $('#load-hangout').show();
-    
+
     instance.api.on('readyToClose', () => {
       Bert.alert({
           type: 'success',
@@ -39,6 +43,15 @@ Template.hangoutFrame.onCreated(function() {
           hideDelay: 3500
         });
       FlowRouter.go('all study groups');
+    });
+
+    Meteor.call('joinParticipant', Session.get('hangoutRoomId'),
+      function(error, result) {
+        if (error) {
+          return Bert.alert(error.reason, 'danger', 'growl-top-right');
+        } else {
+          instance.joinedHangout = true;
+        }
     });
   }
 
@@ -88,4 +101,23 @@ Template.hangoutFrame.events({
 Template.hangoutFrame.onDestroyed(function () {
   //Template.instance().disposeJitsi();
   //Remove for now (see: issue 461)
+  const joinedHangout = Template.instance().joinedHangout;
+  if (joinedHangout && joinedHangout === true) {
+    Meteor.call('leaveParticipant', Session.get('hangoutRoomId'),
+      function(error, result) {
+        if (error) {
+          return Bert.alert(error.reason, 'danger', 'growl-top-right' );
+        }
+    });
+  }
+});
+
+Template.hangoutFrame.helpers({
+  numParticipants: function() {
+    const room = AppStats.findOne({ hangout_id: Session.get('hangoutRoomId') });
+    if (room) {
+      return room.participants_count;
+    }
+    return 0;
+  }
 });
