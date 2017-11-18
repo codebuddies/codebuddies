@@ -37,7 +37,10 @@ Template.singleStudyGroup.helpers({
   },
   numParticipants: function() {
       const room = AppStats.findOne({ hangout_id: Template.instance().hangoutRoomId });
-      return room.participants_count || 0;
+      if (room) {
+        return (room && room.participants_count) || 0;
+      }
+      return 0;
   }
 });
 
