@@ -16,6 +16,9 @@ Template.myStudyGroups.onCreated(function() {
   instance.autorun(function () {
     let limit = instance.limit.get();
     instance.subscribe('myStudyGroups', limit);
+
+    const hangoutRoomIds = StudyGroups.find({}, { fields: { _id: 1 } }).map(x => `cb${x._id}`);
+    instance.subscribe('allHangoutParticipants', hangoutRoomIds);
   });
 
   instance.loadStudyGroups = function() {
@@ -58,6 +61,11 @@ Template.myStudyGroups.helpers({
   status:function(){
     return  Template.instance().flag.get();
   },
+  numParticipants: function(studyGroupId) {
+    const hangoutRoomId = `cb${studyGroupId}`;
+    const hangoutRoom = AppStats.findOne({ hangout_id : hangoutRoomId });
+    return (hangoutRoom && hangoutRoom.participants_count) || 0;
+  }
 });
 
 Template.myStudyGroups.events({

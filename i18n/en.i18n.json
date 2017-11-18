@@ -65,7 +65,8 @@
   "yes_end_hangout": "Yes, end it!",
   "no_end_hangout": "No, I was just kidding",
   "end_hangout": "End hangout manually",
-
+  "hangout_participant": "1 person is currently in the 24/7 hangout.",
+  "hangout_participant_plural": "__count__ people are currently in the 24/7 hangout.",
 
   // hangout
   "what_is_a_hangout": "What is a Hangout?",
@@ -79,6 +80,7 @@
   "click_to_load_hangout": "Click to load the hangout",
   "upcoming_events": "Live and upcoming events",
   "past_events": "Past events",
+
   // popup messages
   "you_are_almost_there": "You are almost there!",
   "login_join_hangout": "Please sign in to codebuddies.slack.com to join a hangout",

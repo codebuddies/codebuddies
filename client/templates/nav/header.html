@@ -77,6 +77,19 @@
                   </ul>
               </li>
 
+              {{#if isInRole 'moderator' 'CB'}}
+                <li id="user-drop-down" class="dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                  <i class="fa fa-cogs" aria-hidden="true"></i>
+                  </a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="{{pathFor 'stats'}}">Statistics</a></li>
+                    <li><a href="{{pathFor 'manage user'}}">Manage Users</a></li>
+                    <li><a href="{{pathFor 'notifications'}}">Notifications {{#if notificationCount}}<small><span class="badge">{{notificationCount}}</span></small>{{/if}}</a></li>
+                  </ul>
+                </li>
+              {{/if}}
+
               <li id="user-drop-down" class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                   <img src="{{user.profile.avatar.default}}" class="img-circle"> {{user.username}} <span class="caret"></span>
@@ -89,20 +102,20 @@
                   </ul>
               </li>
 
-              {{else}}
+            {{else}}
 
-              <li id="user-drop-down" class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                <li id="user-drop-down" class="dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                   <i class="fa fa-cogs" aria-hidden="true"></i>
-                </a>
+                  </a>
                   <ul class="dropdown-menu" role="menu">
                     <li><a href="{{pathFor 'stats'}}">Statistics</a></li>
                     <li><a href="{{pathFor 'manage user'}}">Manage Users</a></li>
                     <li><a href="{{pathFor 'notifications'}}">Notifications {{#if notificationCount}}<small><span class="badge">{{notificationCount}}</span></small>{{/if}}</a></li>
                   </ul>
-              </li>
+                </li>
 
-              {{> loginButtons align="right"}}
+                {{> loginButtons align="right"}}
 
             {{/unless}}
 
