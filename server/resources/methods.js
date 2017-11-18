@@ -13,8 +13,8 @@ Meteor.methods({
     }
 
     const loggedInUser =  Meteor.user();
-    if (!loggedInUser || !Roles.userIsInRole(loggedInUser,['owner','admin'], data.studyGroupId)) {
-     throw new Meteor.Error('Resources.methods.addResource.accessDenied','Cannot add Resource, Access denied');
+    if (!loggedInUser || !Roles.userIsInRole(loggedInUser,['owner','admin', 'moderator', 'member'], data.studyGroupId)) {
+     throw new Meteor.Error('Resources.methods.addResource.accessDenied','Cannot add link; access denied');
     }
     const username = loggedInUser.username;
     const avatar = loggedInUser.profile.avatar.default;
