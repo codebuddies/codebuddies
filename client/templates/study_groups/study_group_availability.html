@@ -13,7 +13,7 @@
     <div class="row">
       <div class="col-md-6">
         <div class="page-header">
-          <h4>Members Availability information</h4>
+          <h3>Members' Availability</h3>
         </div>
         {{#each groupMemebersAvailabilities}}
           {{#unless isAuthor author.id}}
@@ -35,8 +35,8 @@
         {{else}}
 
           <div class="text-center">
-            <h5>No slots found.</h5>
-            <p>There will be more to see here once other group member add their Availability information.</p>
+            <div class="alert alert-info">No slots found</div>
+            <p>There will be more to see here once other group members add their availability information.</p>
           </div>
 
         {{/each}}
@@ -44,7 +44,7 @@
       <div class="col-md-6">
 
         <div class="page-header">
-          <h4>Your Availability information</h4>
+          <h3>Your Availability</h3>
         </div>
 
         {{#each currentUsersAvailabilities}}
