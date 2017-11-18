@@ -1,4 +1,4 @@
-#hangouts {
+#hangouts, #past_hangouts {
   .study-group-tag {
     position: absolute;
     top: -4px;
@@ -81,6 +81,11 @@
         @include font-face(400, 12px, normal, $warm-grey);
       }
     }
+  }
+
+  .col-lg-12.hangouts-title {
+    color: #fff;
+    margin-top: 10px;
   }
 }
 

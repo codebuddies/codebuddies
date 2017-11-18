@@ -83,6 +83,7 @@ Meteor.methods({
 
     // send slack alert
     studyGroupNotification(studyGroup, studyGroupId);
+    studyGroupFacebookNotification(studyGroup, studyGroupId);
 
     return true;
 
