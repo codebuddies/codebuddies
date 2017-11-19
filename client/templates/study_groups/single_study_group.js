@@ -2,7 +2,6 @@ Template.singleStudyGroup.onCreated(function() {
   let instance = this;
   instance.studyGroupId = FlowRouter.getParam('studyGroupId');
   instance.hangoutRoomId = `cb${instance.studyGroupId}`;
-  Session.set('hangoutRoomId', instance.hangoutRoomId);
   instance.autorun(() => {
       instance.subscribe('studyGroupById', instance.studyGroupId);
       instance.subscribe('hangoutParticipants', instance.hangoutRoomId);
