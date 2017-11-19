@@ -60,5 +60,39 @@ Template.studyGroupSettings.events({
           }
         })
       });
-  }
+  },
+  "click #transferStudyGroup":function (event, template) {
+
+    const data = {
+      studyGroupId: this._id,
+      newOwnerId: template.find("#studyGroupMemberList").value,
+      studyGroupTitle: this.title,
+      studyGroupSlug: this.slug
+    };
+
+    sweetAlert({
+        type: 'warning',
+        title: TAPi18n.__("delete_hangout_confirm"),
+        text: TAPi18n.__("transfer_study_group"),
+        cancelButtonText: TAPi18n.__("no_transfer_group"),
+        confirmButtonText: TAPi18n.__("yes_transfer_group"),
+        confirmButtonColor: "#d9534f",
+        showCancelButton: true,
+        closeOnConfirm: true,
+      },
+      function() {
+        // disable confirm button to avoid double (or quick) clicking on confirm event
+        swal.disableButtons();
+
+        Meteor.call("transferStudyGroup", data ,function (error, result) {
+          if(error){
+            return Bert.alert( error.reason, 'danger', 'growl-top-right' );
+          }
+          if(result){
+            FlowRouter.go("all study groups");
+            return Bert.alert( 'Study Group transferred', 'success', 'growl-top-right' );
+          }
+        });
+      });
+  },
 });

@@ -454,3 +454,59 @@ Meteor.methods({
     return true;
   }
 });
+
+Meteor.methods({
+  transferStudyGroup: function(data) {
+    check(data, {
+      studyGroupId: String,
+      newOwnerId: String,
+      studyGroupTitle: String,
+      studyGroupSlug: String
+    });
+
+    if (!this.userId) {
+      throw new Meteor.Error('Members.methods.editStatus.not-logged-in', 'Must be logged in to transfer study group.');
+    }
+
+    const actor = Meteor.user()
+    if (!actor || !Roles.userIsInRole(actor, ['owner','admin', 'moderator', 'member'], data.studyGroupId )) {
+      throw new Meteor.Error(403, "Access denied");
+    }
+
+    //Remove old owner and update role of new owner to 'owner'
+    StudyGroups.update({_id: data.studyGroupId, 'members.id': actor._id },
+                     {$set: {'members.$.role': 'member'} });
+    StudyGroups.update({_id: data.studyGroupId, 'members.id': data.newOwnerId },
+                     {$set: {'members.$.role': 'owner'} });
+    Roles.setUserRoles(actor._id, 'member', data.studyGroupId);
+    Roles.setUserRoles(data.newOwnerId, 'owner', data.studyGroupId);
+
+    //activity
+    const activity = {
+      actor: {
+        id: actor._id,
+        name: actor.username,
+        avatar: actor.profile.avatar.default
+      },
+      type: "GROUP_TRANSFERRED",
+      action: "transferred",
+      subject: {
+        id: data.studyGroupId,
+        title: data.studyGroupTitle,
+        slug: data.studyGroupSlug
+      },
+      created_at: new Date(),
+      icon: 'fa-plane',
+      study_group: {
+        id: data.studyGroupId,
+        title: data.studyGroupTitle,
+        slug: data.studyGroupSlug
+      },
+      read: [actor._id]
+    };
+
+    Activities.insert(activity);
+
+    return true;
+  }
+})
