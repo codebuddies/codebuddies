@@ -68,17 +68,16 @@
                 <h3>Participants</h3>
                 <div id="participants">
                   <a href="{{#if currentUser}} {{pathFor 'profile' name=host.name userId=host.id}} {{/if}}" class="{{#unless currentUser}} continue-popup {{/unless}}"><img class="img-circle" src="{{host.avatar}}"></a>
-                
+
                   {{#each attendees}}
                     <a href="{{#if currentUser}} {{pathFor 'profile' name=name userId=id}} {{/if}}" class="{{#unless currentUser}} continue-popup {{/unless}}" ><img class="img-circle" src="{{avatar}}"></a>
                   {{/each}}
                 </div>
               
-                     <h3>HANGOUT ALTERNATIVES</h3>
-             
                       {{# unless isHangoutCompleted end }}
 
                        {{#if isHangoutInProgress start end}}
+                       <h3>HANGOUT ALTERNATIVES</h3>
 
                          {{#if isAttending users}}
 
