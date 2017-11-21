@@ -83,7 +83,6 @@
             <li role="presentation"><a href="#resources" aria-controls="resources" role="tab" data-toggle="tab">{{_ 'links'}} ({{ resourcesCount }})</a></li>
             {{#if currentUser}}
             <li role="presentation"><a href="#activities" aria-controls="activity" role="tab" data-toggle="tab">{{_ 'activity'}}</a></li>
-            <li role="presentation"><a href="#availability" aria-controls="availability" role="tab" data-toggle="tab">{{_ 'availability'}}</a></li>
             {{/if}}
             {{#if isInRole 'owner, moderator ' _id}}
             <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">{{_ 'settings'}}</a></li>
@@ -131,10 +130,6 @@
           <div role="tabpanel" class="tab-pane" id="activities">
             {{> studyGroupActivities}}
           </div><!-- #/Activities -->
-
-          <div role="tabpanel" class="tab-pane" id="availability">
-             {{> studyGroupAvailability}}
-          </div>
 
           {{#if isInRole 'owner, admin' _id}}
             <div role="tabpanel" class="tab-pane" id="settings">
