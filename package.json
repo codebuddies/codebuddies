@@ -20,7 +20,8 @@
     "meteor-node-stubs": "^0.2.3",
     "quill": "^1.0.6",
     "quill-render": "^1.0.5",
-    "twitter": "1.4.0"
+    "twitter": "1.4.0",
+    "uhr": "0.0.2"
   },
   "devDependencies": {
     "cz-conventional-changelog": "2.0.0",
