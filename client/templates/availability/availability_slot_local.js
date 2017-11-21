@@ -2,10 +2,11 @@ import UHR from 'uhr';
 
 Template.availabilitySlotLocal.helpers({
   localSlotTime: function(){
-    const slot = Template.instance().data;
-    let result = UHR(slot.d, slot.h, slot.m, -1)
-    result.hour = result.hour < 10  ? `0${result.hour}` : result.hour;
-    result.minute = result.minute < 10  ? `0${result.minute}` : result.minute;
-    return result;
+    const utcSlot = Template.instance().data;
+
+    let localSlot = UHR(utcSlot.d, utcSlot.h, utcSlot.m, -1)
+    localSlot.hour = localSlot.hour < 10  ? `0${localSlot.hour}` : localSlot.hour;
+    localSlot.minute = localSlot.minute < 10  ? `0${localSlot.minute}` : localSlot.minute;
+    return localSlot;
   }
 });
