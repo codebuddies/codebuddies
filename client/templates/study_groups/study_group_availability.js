@@ -6,7 +6,7 @@ Template.studyGroupAvailability.onCreated(function() {
 });
 
 Template.studyGroupAvailability.helpers({
-  groupMemebersAvailabilities (){
+  groupMembersAvailabilities (){
     return Availabilities.find({'study_group.id': FlowRouter.getParam('studyGroupId'), 'author.id': {$ne: Meteor.userId() } }, {sort: {start_day: 1, start_hour: 1, start_minute: 1 } });
   },
   currentUsersAvailabilities (){
