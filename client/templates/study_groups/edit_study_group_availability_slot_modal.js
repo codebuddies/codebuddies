@@ -3,6 +3,31 @@ import UHR from 'uhr';
 Template.editStudyGroupAvailabilitySlotModal.onCreated(function () {
   let instance = this;
   instance.processing = new ReactiveVar(false);
+
+});
+
+getHour = (slot) =>{
+  return Number(slot.slice(0, -3));
+}
+
+getMinute = (slot, hour) =>{
+  return Number(slot.slice(`${hour}`.length + 1, slot.length ));
+}
+
+Template.editStudyGroupAvailabilitySlotModal.onRendered(function(){
+  let instance = this;
+  instance.$('.timepicker').timepicker({
+      timeFormat: 'H:mm',
+      interval: 60,
+      minTime: '00:00',
+      maxTime: '23:59',
+      defaultTime: '0',
+      startTime: '00:00',
+      dynamic: false,
+      dropdown: true,
+      scrollbar: true,
+      zindex: 99999999
+  });
 });
 
 Template.editStudyGroupAvailabilitySlotModal.helpers({
@@ -15,61 +40,41 @@ Template.editStudyGroupAvailabilitySlotModal.events({
   "submit .updateStudyAvailabilityGroupSlot": function(event, template){
     event.preventDefault();
 
-    $('.form-control').css({ "border": '1px solid #cccccc'});
-
-
-    if ($.trim(template.find("#startHour").value) == 'HH') {
-      return $('#startHour').css({ 'border': '#FF0000 1px solid'});
-    }
-
-    if ($.trim(template.find("#startMinute").value) == 'MM') {
-      return $('#startMinute').css({ 'border': '#FF0000 1px solid'});
-    }
-
-    if ($.trim(template.find("#endHour").value) == 'HH') {
-      return $('#endHour').css({ 'border': '#FF0000 1px solid'});
-    }
-
-    if ($.trim(template.find("#endMinute").value) == 'MM') {
-      return $('#endMinute').css({ 'border': '#FF0000 1px solid'});
-    }
-
-    if (Number(template.find("#startHour").value) > Number(template.find("#endHour").value) ) {
-
-      return $('#endHour').css({ 'border': '#FF0000 1px solid'});
-    }
-
-    if ($.trim(template.find("#startHour").value) == $.trim(template.find("#endHour").value)
-        && $.trim(template.find("#startMinute").value) >= $.trim(template.find("#endMinute").value) ) {
-
-      return $('#endMinute').css({ 'border': '#FF0000 1px solid'});
-    }
-
-    if ($.trim(template.find("#endHour").value) == 24 &&  $.trim(template.find("#endMinute").value) != 00) {
-      return $('#endMinute').css({ 'border': '#FF0000 1px solid'});
-    }
+    $('.timepicker').css({ "border": '1px solid #cccccc'});
 
     const day = Number(template.find("#availabilityDay").value);
-    const start_hour = Number(template.find("#startHour").value);
-    const start_minute = Number(template.find("#startMinute").value);
-    const end_hour = Number(template.find("#endHour").value);
-    const end_minute = Number(template.find("#endMinute").value);
 
-    const utc_result_start = UHR(day, start_hour, start_minute, 1);
-    const utc_result_end = UHR(day, end_hour, end_minute, 1);
-    // console.log("utc_result_start ", utc_result_start);
-    // console.log("utc_result_end ", utc_result_end);
+    const slotStartTime = template.find(".start-time").value;
+    const slotEndTime = template.find(".end-time").value;
+
+    const startHour = getHour(slotStartTime);
+    const endHour = getHour(slotEndTime);
+
+    const startMinute = getMinute(slotStartTime, startHour)
+    const endMinute = getMinute(slotEndTime, endHour)
+
+    if (startHour == endHour && startMinute >= endMinute) {
+      return $('.end-time').css({ 'border': '#FF0000 1px solid'});
+    }
+
+    if (startHour > endHour) {
+      return $('.end-time').css({ 'border': '#FF0000 1px solid'});
+    }
+
+
+    const utcStartSlot = UHR(day, startHour, startMinute, 1);
+    const utcEndSlot = UHR(day, endHour, endMinute, 1);
 
     const data = {
       studyGroupId: this._id,
       studyGroupTitle: this.title,
       studyGroupSlug: this.slug,
-      startDay: utc_result_start.day,
-      startHour: utc_result_start.hour,
-      startMinute: utc_result_start.minute,
-      endDay: utc_result_end.day,
-      endHour: utc_result_end.hour,
-      endMinute: utc_result_end.minute,
+      startDay: utcStartSlot.day,
+      startHour: utcStartSlot.hour,
+      startMinute: utcStartSlot.minute,
+      endDay: utcEndSlot.day,
+      endHour: utcEndSlot.hour,
+      endMinute: utcEndSlot.minute,
       userTimeZoneOffsetInHours: new Date().getTimezoneOffset() / 60
     }
 
