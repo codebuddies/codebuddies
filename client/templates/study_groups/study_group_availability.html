@@ -41,41 +41,44 @@
 
         {{/each}}
       </div>
-      <div class="col-md-6">
 
-        <div class="page-header">
-          <h3>Your Availability</h3>
-        </div>
-
-        {{#each currentUsersAvailabilities}}
-          {{#if isAuthor author.id}}
-            <div class="row row-stripe">
-              <div class="col-sm-3">
-                {{> availabilitySlotLocal d=start_day h=start_hour m=start_minute}}
-              </div>
-              <div class="col-sm-2">
-                TO
-              </div>
-              <div class="col-sm-3">
-                {{> availabilitySlotLocal d=end_day h=end_hour m=end_minute}}
-              </div>
-              <div class="col-sm-3">
-                <span id="removeSlot"><i class="fa fa-trash" aria-hidden="true"></i></span>
-              </div>
-            </div>
-          {{/if}}
-
-        {{else}}
-
-          <div class="text-center">
-            <h5>No slots found.</h5>
-            <p>There will be more to see here once you add your Availability information.</p>
-            <div class="btn btn-default" id="addSlot">Add</div>
+      {{#if isInRole 'owner, admin, moderator, member' _id}}
+        <div class="col-md-6">
+          <div class="page-header">
+            <h3>Your Availability</h3>
           </div>
 
-        {{/each}}
-      </div>
-    </div>
+          {{#each currentUsersAvailabilities}}
+            {{#if isAuthor author.id}}
+              <div class="row row-stripe">
+                <div class="col-sm-3">
+                  {{> availabilitySlotLocal d=start_day h=start_hour m=start_minute}}
+                </div>
+                <div class="col-sm-2">
+                  TO
+                </div>
+                <div class="col-sm-3">
+                  {{> availabilitySlotLocal d=end_day h=end_hour m=end_minute}}
+                </div>
+                <div class="col-sm-3">
+                  <span id="removeSlot"><i class="fa fa-trash" aria-hidden="true"></i></span>
+                </div>
+              </div>
+            {{/if}}
+
+          {{else}}
+
+            <div class="text-center">
+              <h5>No slots found.</h5>
+              <p>There will be more to see here once you add your Availability information.</p>
+              <div class="btn btn-default" id="addSlot">Add</div>
+            </div>
+
+          {{/each}}
+        </div>
+      {{/if}}
+
+    </div><!-- ./row-ends -->
 
 
   {{else}}
