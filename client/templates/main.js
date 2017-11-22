@@ -1,7 +1,3 @@
-// import _ from 'lodash';
-
-import UHR from 'uhr';
-
 if (Meteor.isClient) {
   Meteor.startup(function () {
 
