@@ -7,6 +7,12 @@ if (Meteor.isClient) {
       console = console || {};
       console.log = function(){};
     }
+
+    const defaultLang = 'en'
+    const urlLang = FlowRouter.getQueryParam('lang')
+    const browserLang = (window.navigator.userLanguage || window.navigator.language || '').slice(0,2)
+    TAPi18n.setLanguage(urlLang || browserLang || defaultLang)
+
   });
 }
 

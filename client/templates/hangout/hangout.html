@@ -54,16 +54,56 @@
                  <!-- ./hangout type host and date time -->
           
                 {{> hangoutActionButtons }}
+                
+                {{#if isHangoutInProgress start end}}
+                    {{#if hangoutOwner host.id}}
+                        <div class="hangout-action-buttons"><div id="end-hangout" class="btn btn-cb2 btn-danger">{{_ "end_hangout"}}</div></div> 
+                    {{else}}
+                        {{#if isInRole 'admin,moderator,volunteer' 'CB'}}
+                            <div class="hangout-action-buttons"><div id="end-hangout" class="btn btn-cb2 btn-danger">{{_ 'end_hangout'}}</div></div>
+                        {{/if}}
+                    {{/if}}
+                {{/if}}
 
                 <h3>Participants</h3>
                 <div id="participants">
                   <a href="{{#if currentUser}} {{pathFor 'profile' name=host.name userId=host.id}} {{/if}}" class="{{#unless currentUser}} continue-popup {{/unless}}"><img class="img-circle" src="{{host.avatar}}"></a>
-                
+
                   {{#each attendees}}
                     <a href="{{#if currentUser}} {{pathFor 'profile' name=name userId=id}} {{/if}}" class="{{#unless currentUser}} continue-popup {{/unless}}" ><img class="img-circle" src="{{avatar}}"></a>
                   {{/each}}
                 </div>
+              
+                      {{# unless isHangoutCompleted end }}
 
+                       {{#if isHangoutInProgress start end}}
+                       <h3>HANGOUT ALTERNATIVES</h3>
+
+                         {{#if isAttending users}}
+
+                           <p class="align-center">Want to use Google Hangouts instead?
+                           {{# unless url }}
+                               <div class="google-hangout display-inline">
+                                <div class="g-hangout" data-render="createhangout"
+                                data-initial_apps="[{ app_id : '999356798349', start_data: {{_id}}, 'app_type' : 'LOCAL_APP' }]" data-widget_size="72"></div>
+                               </div>
+                             {{ else }}
+                               <a class="btn btn-cb2 btn-grey btn-success google-hangout-button" href="{{url}}" target="_blank">Launch Google Hangout</a>
+                             {{/unless}}
+                           </p>
+
+                      {{else}}
+                  <!--       {{# unless isHangoutCompleted end}}
+                           <a class="btn btn-cb2 {{#if currentUser}} join-hangout {{else}} continue-popup {{/if}}">{{_ "join_in_session"}}</a>
+                        {{/unless}} -->
+                      {{/if}}
+
+                    {{else}}
+              
+                    {{/if}} <!-- This refers isHangoutInProgress -->
+
+                  {{/unless}}
+                  
                   <h3>Hangout Tips</h3>
 
                    <ol>
@@ -95,43 +135,7 @@
               <span class="label label-pill label-danger">DELETED</span>
             {{else}}
 
-              {{# unless isHangoutCompleted end }}
-
-                {{#if isHangoutInProgress start end}}
-
-                  {{#if isAttending users}}
-
-                    <p class="align-center">Want to use Google Hangouts instead?
-                    {{# unless url }}
-                        <div class="google-hangout display-inline">
-                         <div class="g-hangout" data-render="createhangout"
-                         data-initial_apps="[{ app_id : '999356798349', start_data: {{_id}}, 'app_type' : 'LOCAL_APP' }]" data-widget_size="72"></div>
-                        </div>
-                      {{ else }}
-                        <a class="btn btn-cb2 btn-grey btn-success google-hangout-button" href="{{url}}" target="_blank">Launch Google Hangout</a>
-                      {{/unless}}
-                    </p>
-
-                    {{#if hangoutOwner host.id}}
-                        <div id="end-hangout" class="btn btn-cb2 btn-danger">{{_ "end_hangout"}}</div>
-                    {{else}}
-                        {{#if isInRole 'admin,moderator,volunteer' 'CB'}}
-                            <div id="end-hangout" class="btn btn-cb2 btn-danger">{{_ 'end_hangout'}}</div>
-                        {{/if}}
-                    {{/if}}
-
-              {{else}}
-          <!--       {{# unless isHangoutCompleted end}}
-                   <a class="btn btn-cb2 {{#if currentUser}} join-hangout {{else}} continue-popup {{/if}}">{{_ "join_in_session"}}</a>
-                {{/unless}} -->
-              {{/if}}
-
-            {{else}}
-              
-            {{/if}} <!-- This refers isHangoutInProgress -->
-
-          {{/unless}}
-
+             
         {{/if}} <!-- if equals visibility false -->
 
               {{> hangoutLearned }}

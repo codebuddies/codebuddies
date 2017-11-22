@@ -27,18 +27,22 @@
                <li role="separator" class="divider"></li>
                <li><a href="https://codebuddies.slack.com" target="_blank">
                     <i class="fa fa-slack fa-fw" aria-hidden="true"></i>Slack
+                    <i class="fa fa-external-link fa-fw" aria-hidden="true"></i>
                   </a></li>
                <li role="separator" class="divider"></li>
                <li><a href="https://github.com/codebuddiesdotorg/codebuddies" target="_blank">
                  <i class="fa fa-github fa-fw" aria-hidden="true"></i>Github
+                 <i class="fa fa-external-link fa-fw" aria-hidden="true"></i>
                </a></li>
                <li role="separator" class="divider"></li>
                <li><a href="https://www.facebook.com/groups/TOPSTUDYGROUP/" target="_blank">
                  <i class="fa fa-facebook fa-fw" aria-hidden="true"></i>Facebook Group
+                 <i class="fa fa-external-link fa-fw" aria-hidden="true"></i>
                </a></li>
                <li role="separator" class="divider"></li>
                <li><a href="https://medium.com/codebuddies" target="_blank">
                  <i class="fa fa-medium fa-fw" aria-hidden="true"></i>Blog
+                 <i class="fa fa-external-link fa-fw" aria-hidden="true"></i>
                </a></li>
                <li role="separator" class="divider"></li>
                <li><a href="{{pathFor 'faq'}}">
@@ -51,7 +55,7 @@
           <!-- Study Groups -->
           <li><a href="{{pathFor 'all study groups'}}">Study Groups</a></li>
           <!-- Donate -->
-          <li><a href="https://opencollective.com/codebuddies" target="_blank">Sponsor Us</a></li>
+          <li><a href="https://opencollective.com/codebuddies" target="_blank">Sponsor Us <i class="fa fa-external-link fa-fw" aria-hidden="true"></i></a></li>
           {{! for visitors only}}
           {{#unless currentUser}}
 
@@ -77,6 +81,19 @@
                   </ul>
               </li>
 
+              {{#if isInRole 'moderator' 'CB'}}
+                <li id="user-drop-down" class="dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                  <i class="fa fa-cogs" aria-hidden="true"></i>
+                  </a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="{{pathFor 'stats'}}">Statistics</a></li>
+                    <li><a href="{{pathFor 'manage user'}}">Manage Users</a></li>
+                    <li><a href="{{pathFor 'notifications'}}">Notifications {{#if notificationCount}}<small><span class="badge">{{notificationCount}}</span></small>{{/if}}</a></li>
+                  </ul>
+                </li>
+              {{/if}}
+
               <li id="user-drop-down" class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                   <img src="{{user.profile.avatar.default}}" class="img-circle"> {{user.username}} <span class="caret"></span>
@@ -89,20 +106,20 @@
                   </ul>
               </li>
 
-              {{else}}
+            {{else}}
 
-              <li id="user-drop-down" class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                <li id="user-drop-down" class="dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                   <i class="fa fa-cogs" aria-hidden="true"></i>
-                </a>
+                  </a>
                   <ul class="dropdown-menu" role="menu">
                     <li><a href="{{pathFor 'stats'}}">Statistics</a></li>
                     <li><a href="{{pathFor 'manage user'}}">Manage Users</a></li>
                     <li><a href="{{pathFor 'notifications'}}">Notifications {{#if notificationCount}}<small><span class="badge">{{notificationCount}}</span></small>{{/if}}</a></li>
                   </ul>
-              </li>
+                </li>
 
-              {{> loginButtons align="right"}}
+                {{> loginButtons align="right"}}
 
             {{/unless}}
 

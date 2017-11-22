@@ -129,8 +129,9 @@ a:hover {
   clear: both;
 }
 .clear {
-    clear: both;
+  clear: both;
 }
+
 .padding-none {
   padding: 0px;
 }
@@ -179,4 +180,6 @@ a:hover {
 }
 
 /* stripped row effect*/
-.row-stripe:nth-child(odd) {background: #e0e0e0;}
+.row-stripe:nth-child(odd) {
+  background: #e0e0e0;
+}
