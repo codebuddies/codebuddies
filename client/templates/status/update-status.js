@@ -1,7 +1,8 @@
 //Initialize character counter value
 var workingCounterValue = 140;
-var learnedCounterValue = 140;
+var learnedCounterValue = 280;
 var maxChars = 140;
+var maxLearnedChars = 280;
 
 Template.updateStatus.helpers({
     isWorking: function(type) {
@@ -28,7 +29,7 @@ Template.updateStatus.events({
     'keyup #learned-text': function(event) {
         //Check value and if 140 characters have been typed, the user can't type anymore
         var currentLength = $("#learned-text").val().length;
-        learnedCounterValue = maxChars - currentLength;
+        learnedCounterValue = maxLearnedChars - currentLength;
         $('.learnedCharactersLeft').text(learnedCounterValue);
     },
 
@@ -85,7 +86,7 @@ Template.updateStatus.events({
             }
             Meteor.call("addLearning", data, function(error, result) {});
             $('#learned-text').val('');
-			$('.learnedCharactersLeft').text(140);
+			      $('.learnedCharactersLeft').text(280);
         }
     },
     'click .btn-hangout-status': function(event) {
