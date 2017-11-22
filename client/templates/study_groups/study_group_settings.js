@@ -104,7 +104,7 @@ Template.studyGroupSettings.events({
           }
           if(result){
             // Select the first tab in the study group
-            $('div.study-group-body a[href="#description"]').tab('show')
+            $('div.study-group-body [role="presentation"] a:first').tab('show');
             return Bert.alert(`Study Group transferred to ${newOwnerUsername}`, 'success', 'growl-top-right' );
           }
         });
