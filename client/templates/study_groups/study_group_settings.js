@@ -1,3 +1,16 @@
+Template.studyGroupSettings.helpers({
+    eligibleMembers: function() {
+      const studyGroup = StudyGroups.findOne({ _id: FlowRouter.getParam('studyGroupId')});
+      if (studyGroup) {
+        const availableMembers = (studyGroup.members || [])
+            .filter(m => m.role !== 'owner')
+            .map(m => ({ id: m.id, name: m.name }));
+        return availableMembers;
+      }
+      return [];
+    }
+});
+
 Template.studyGroupSettings.events({
   "click #archiveStudyGroup":function (event, template) {
 
@@ -69,6 +82,7 @@ Template.studyGroupSettings.events({
       studyGroupTitle: this.title,
       studyGroupSlug: this.slug
     };
+    const newOwnerUsername = template.find("#studyGroupMemberList option:selected").text;
 
     sweetAlert({
         type: 'warning',
@@ -89,8 +103,9 @@ Template.studyGroupSettings.events({
             return Bert.alert( error.reason, 'danger', 'growl-top-right' );
           }
           if(result){
-            FlowRouter.go("all study groups");
-            return Bert.alert( 'Study Group transferred', 'success', 'growl-top-right' );
+            // Select the first tab in the study group
+            $('div.study-group-body > ul li:first-child > a').tab('show');
+            return Bert.alert(`Study Group transferred to ${newOwnerUsername}`, 'success', 'growl-top-right' );
           }
         });
       });

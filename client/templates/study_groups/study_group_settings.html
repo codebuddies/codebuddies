@@ -23,5 +23,20 @@
     </div>
   </div>
 
+  {{#if eligibleMembers.length }}
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Transfer Study Group</h3>
+    </div>
+    <div class="panel-body">
+      <select class="form-control" id="studyGroupMemberList">
+        {{#each eligibleMembers}}
+        <option value="{{id}}">{{name}}</option>
+        {{/each}}
+      </select>
+      <div class="btn btn-danger btn-sm margin-top-1" id="transferStudyGroup">Confirm</div>
+    </div>
+  </div>
+  {{/if}}
 
 </template>
