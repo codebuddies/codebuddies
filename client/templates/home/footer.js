@@ -29,7 +29,7 @@ Template.footer.events({
       console.log(error);
     })
     .always(() => {
-      localStorage.setItem('lang', TAPi18n.getLanguage());
+      localStorage.setItem('languageCode', TAPi18n.getLanguage());
     })
   }
 });

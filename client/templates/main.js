@@ -9,11 +9,11 @@ if (Meteor.isClient) {
     }
 
     const defaultLang = 'en'
-    const localStorageLang = localStorage.getItem('lang');
+    const localStorageLang = localStorage.getItem('languageCode');
     const browserLang = (window.navigator.userLanguage || window.navigator.language || '').slice(0,2)
     TAPi18n.setLanguage(localStorageLang || browserLang || defaultLang)
     .fail(console.log)
-    .always(() => localStorage.setItem('lang', TAPi18n.getLanguage()))
+    .always(() => localStorage.setItem('languageCode', TAPi18n.getLanguage()))
   });
 }
 
