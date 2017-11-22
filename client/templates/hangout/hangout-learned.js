@@ -9,9 +9,9 @@ Template.registerHelper("learningOwner", function(ownerid){
 
 Template.hangoutLearned.events({
 	'keyup textarea#learned-text': function(event) {
-        //Check value and if 140 characters have been typed, the user can't type anymore
-        let learnedCounterValue = 140;
-		let maxChars = 140;
+        //Check value and if 280 characters have been typed, the user can't type anymore
+        let learnedCounterValue = 280;
+		    let maxChars = 280;
         var currentLength = $("textarea#learned-text").val().length;
         learnedCounterValue = maxChars - currentLength;
         $('.learnedCharactersLeft').text(learnedCounterValue).append(' <small><em>(Hit enter to submit)</em></small>');
@@ -48,7 +48,7 @@ Template.hangoutLearned.events({
              showConfirmButton: false
            });
            $('#learned-text').val('').blur();
-           $('.learnedCharactersLeft').text(140);
+           $('.learnedCharactersLeft').text(280);
         }
       });
     }
