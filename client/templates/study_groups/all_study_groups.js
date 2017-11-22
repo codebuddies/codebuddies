@@ -78,6 +78,8 @@ Template.allStudyGroups.events({
     template.studyGroupsFilter.set(studyGroupsFilter);
   },
   'click #createGroupButton': function(event) {
-    Modal.show('newStudyGroupModal');
+      if (Meteor.userId()) {
+        Modal.show('newStudyGroupModal');
+      }
   }
 });
