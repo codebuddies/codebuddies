@@ -19,6 +19,8 @@ Template.footer.events({
     event.preventDefault();
     const languageCode = event.target.dataset.langCode
     const languageName = event.target.dataset.langName
+    if (languageCode === TAPi18n.getLanguage())
+      return;
 
     TAPi18n.setLanguage(languageCode)
     .done(() => {
