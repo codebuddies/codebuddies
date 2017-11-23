@@ -225,12 +225,12 @@ li.delete-hangout, li.edit-hangout {
   }
 }
 
-#create-hangout-popup, #createGroupButton, .btn-schedule-hangout {
+#create-hangout-popup, #createGroupButton, .btn-schedule-hangout, .btn-createGroup-notLoggedIn {
   background: $success-green;
   margin: 0 auto;
   max-width: 340px;
 }
-#createGroupButton {
+#createGroupButton, .btn-createGroup-notLoggedIn {
   margin: 10px auto;
 }
 .btn-clear {
