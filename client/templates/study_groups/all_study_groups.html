@@ -8,14 +8,14 @@
               <div class="col-md-12 align-center">
                 <h2>Study Groups</h2>
                 <div class="btn btn-cb2 {{#unless currentUser}} continue-popup btn-createGroup-notLoggedIn {{/unless}}"
-                  id="{{#if currentUser}} createGroupButton {{/if}}"> {{_ "start_new_group"}} </div>
+                  id="{{#if currentUser}}createGroupButton{{/if}}"> {{_ "start_new_group"}} </div>
             </div>
           </div>
       </div>
     </div>
 
     {{> studyGroupsSearchBox}}
-    
+
     {{#if sgSearchMode}}
       {{> studyGroupsSearchResult}}
     {{/if}}
