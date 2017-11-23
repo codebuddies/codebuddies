@@ -469,16 +469,20 @@ Meteor.methods({
     }
 
     const actor = Meteor.user()
-    if (!actor || !Roles.userIsInRole(actor, ['owner','admin', 'moderator', 'member'], data.studyGroupId )) {
+    if (!actor || !Roles.userIsInRole(actor, ['owner'], data.studyGroupId )) {
+      throw new Meteor.Error(403, "Access denied");
+    }
+
+    if (!Roles.userIsInRole(data.newOwnerId, ['admin', 'moderator', 'member'], data.studyGroupId )) {
       throw new Meteor.Error(403, "Access denied");
     }
 
     //Remove old owner and update role of new owner to 'owner'
     StudyGroups.update({_id: data.studyGroupId, 'members.id': actor._id },
-                     {$set: {'members.$.role': 'member'} });
+                     {$set: {'members.$.role': 'admin'} });
     StudyGroups.update({_id: data.studyGroupId, 'members.id': data.newOwnerId },
                      {$set: {'members.$.role': 'owner'} });
-    Roles.setUserRoles(actor._id, 'member', data.studyGroupId);
+    Roles.setUserRoles(actor._id, 'admin', data.studyGroupId);
     Roles.setUserRoles(data.newOwnerId, 'owner', data.studyGroupId);
 
     //activity
