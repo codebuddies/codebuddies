@@ -1,13 +1,31 @@
+Template.studyGroupSettings.onCreated(function() {
+  let instance = this;
+  instance.eligibleMembers = new ReactiveVar(0);
+});
+
+Template.studyGroupSettings.onRendered(function() {
+  let instance = this;
+  instance.autorun(() => {
+    const studyGroup = StudyGroups.findOne({ _id: FlowRouter.getParam('studyGroupId')});
+    let availableMembers = [];
+    if (studyGroup) {
+      availableMembers = (studyGroup.members || [])
+          .filter(m => m.role !== 'owner')
+          .map(m => ({ id: m.id, text: m.name }));
+      instance.eligibleMembers.set(availableMembers.length);
+    }
+    Meteor.setTimeout(function(){
+      instance.$('#studyGroupMemberList', availableMembers).select2({
+        placeholder: TAPi18n.__("select_new_owner"),
+        data: availableMembers
+      });
+    }, 1500);
+  });
+});
+
 Template.studyGroupSettings.helpers({
-    eligibleMembers: function() {
-      const studyGroup = StudyGroups.findOne({ _id: FlowRouter.getParam('studyGroupId')});
-      if (studyGroup) {
-        const availableMembers = (studyGroup.members || [])
-            .filter(m => m.role !== 'owner')
-            .map(m => ({ id: m.id, name: m.name }));
-        return availableMembers;
-      }
-      return [];
+    numEligibleMembers: function() {
+      return Template.instance().eligibleMembers.get();
     }
 });
 
@@ -83,6 +101,8 @@ Template.studyGroupSettings.events({
       studyGroupSlug: this.slug
     };
     const newOwnerUsername = template.find("#studyGroupMemberList option:selected").text;
+    // clear selection
+    $("#studyGroupMemberList").val(null).trigger('change');
 
     sweetAlert({
         type: 'warning',
