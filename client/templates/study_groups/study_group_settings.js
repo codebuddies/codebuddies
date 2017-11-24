@@ -15,6 +15,7 @@ Template.studyGroupSettings.onRendered(function() {
       instance.eligibleMembers.set(availableMembers.length);
     }
     Meteor.setTimeout(function(){
+      console.log('members', studyGroup.members, 'availableMembers', availableMembers);
       instance.$('#studyGroupMemberList', availableMembers).select2({
         placeholder: TAPi18n.__("select_new_owner"),
         data: availableMembers
