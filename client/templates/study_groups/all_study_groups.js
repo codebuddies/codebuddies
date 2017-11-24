@@ -78,6 +78,6 @@ Template.allStudyGroups.events({
     template.studyGroupsFilter.set(studyGroupsFilter);
   },
   'click #createGroupButton': function(event) {
-    Modal.show('newStudyGroupModal');
+      Modal.show('newStudyGroupModal');
   }
 });
