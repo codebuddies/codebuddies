@@ -456,12 +456,10 @@ Meteor.methods({
 });
 
 Meteor.methods({
-  transferStudyGroup: function(data) {
+  transferStudyGroupOwnership: function(data) {
     check(data, {
       studyGroupId: String,
-      newOwnerId: String,
-      studyGroupTitle: String,
-      studyGroupSlug: String
+      newOwnerId: String
     });
 
     if (!this.userId) {
@@ -485,6 +483,11 @@ Meteor.methods({
     Roles.setUserRoles(actor._id, 'admin', data.studyGroupId);
     Roles.setUserRoles(data.newOwnerId, 'owner', data.studyGroupId);
 
+
+    const studyGroup = StudyGroups.findOne({_id: data.studyGroupId });
+
+    const subject = Meteor.users.findOne({_id: data.newOwnerId });
+
     //activity
     const activity = {
       actor: {
@@ -495,16 +498,16 @@ Meteor.methods({
       type: "GROUP_TRANSFERRED",
       action: "transferred",
       subject: {
-        id: data.studyGroupId,
-        title: data.studyGroupTitle,
-        slug: data.studyGroupSlug
+        id: subject._id,
+        name: subject.username,
+        avatar: subject.profile.avatar.default
       },
       created_at: new Date(),
       icon: 'fa-plane',
       study_group: {
-        id: data.studyGroupId,
-        title: data.studyGroupTitle,
-        slug: data.studyGroupSlug
+        id: studyGroup._id,
+        title: studyGroup.title,
+        slug: studyGroup.slug
       },
       read: [actor._id]
     };

@@ -1,7 +1,7 @@
 <template name="studyGroupActivities">
 {{#if Template.subscriptionsReady}}
   {{#each activities}}
-  
+
     {{#if equals type 'GROUP_CREATION'}}
         <p class="activity">
           <i class="fa {{icon}}" aria-hidden="true"> </i>
@@ -29,7 +29,10 @@
     {{#if equals type 'GROUP_TRANSFERRED'}}
         <p class="activity">
           <i class="fa {{icon}}" aria-hidden="true"> </i>
-          <a href="{{pathFor 'profile' name=actor.name userId=actor.id}}"> {{actor.name}} </a>  transferred the group.
+          <a href="{{pathFor 'profile' name=actor.name userId=actor.id}}"> {{actor.name}} </a>
+          transferred the group ownership to
+          <a href="{{pathFor 'profile' name=subject.name userId=subject.id}}"> {{subject.name}} </a>
+
           <small> &nbsp; {{dispDate created_at}} </small>
         </p>
     {{/if}}

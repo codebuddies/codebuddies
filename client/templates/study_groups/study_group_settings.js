@@ -1,27 +1,21 @@
-Template.studyGroupSettings.onCreated(function() {
-  let instance = this;
-  instance.eligibleMembers = new ReactiveVar(0);
-});
-
 Template.studyGroupSettings.onRendered(function() {
   let instance = this;
-  instance.autorun(() => {
-    const studyGroup = StudyGroups.findOne({ _id: FlowRouter.getParam('studyGroupId')});
-    let availableMembers = [];
-    if (studyGroup) {
-      availableMembers = (studyGroup.members || [])
-          .filter(m => m.role !== 'owner')
-          .map(m => ({ id: m.id, text: m.name }));
-      instance.eligibleMembers.set(availableMembers.length);
-    }
+  instance.$('#studyGroupMemberList').prop("disabled", true);
+  const members = instance.data.members;
+  if (members.length > 1) {
+    const eligibleMembers = members
+      .filter((member)=> member.role !== `owner`)
+      .map((member) => { return { id: member.id, text: member.name} });
+
+    instance.$('#studyGroupMemberList').prop("disabled", false);
     Meteor.setTimeout(function(){
-      console.log('members', studyGroup.members, 'availableMembers', availableMembers);
-      instance.$('#studyGroupMemberList', availableMembers).select2({
+      instance.$('#studyGroupMemberList', eligibleMembers).select2({
         placeholder: TAPi18n.__("select_new_owner"),
-        data: availableMembers
+        data: eligibleMembers,
       });
     }, 1500);
-  });
+
+  }
 });
 
 Template.studyGroupSettings.helpers({
@@ -93,17 +87,15 @@ Template.studyGroupSettings.events({
         })
       });
   },
-  "click #transferStudyGroup":function (event, template) {
+  "click #transferOwnership":function (event, template) {
 
     const data = {
       studyGroupId: this._id,
-      newOwnerId: template.find("#studyGroupMemberList").value,
-      studyGroupTitle: this.title,
-      studyGroupSlug: this.slug
+      newOwnerId: template.find("#studyGroupMemberList").value
     };
     const newOwnerUsername = template.find("#studyGroupMemberList option:selected").text;
-    // clear selection
-    $("#studyGroupMemberList").val(null).trigger('change');
+
+    // console.log("data", data);
 
     sweetAlert({
         type: 'warning',
@@ -119,7 +111,7 @@ Template.studyGroupSettings.events({
         // disable confirm button to avoid double (or quick) clicking on confirm event
         swal.disableButtons();
 
-        Meteor.call("transferStudyGroup", data ,function (error, result) {
+        Meteor.call("transferStudyGroupOwnership", data ,function (error, result) {
           if(error){
             return Bert.alert( error.reason, 'danger', 'growl-top-right' );
           }
