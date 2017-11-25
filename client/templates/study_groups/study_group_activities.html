@@ -26,6 +26,13 @@
         </p>
     {{/if}}
 
+    {{#if equals type 'GROUP_TRANSFERRED'}}
+        <p class="activity">
+          <i class="fa {{icon}}" aria-hidden="true"> </i>
+          <a href="{{pathFor 'profile' name=actor.name userId=actor.id}}"> {{actor.name}} </a>  transferred the group.
+          <small> &nbsp; {{dispDate created_at}} </small>
+        </p>
+    {{/if}}
 
   {{else}}
 
