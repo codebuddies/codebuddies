@@ -9,13 +9,13 @@ if (Meteor.isClient) {
     }
 
     const defaultLang = 'en'
-    const urlLang = FlowRouter.getQueryParam('lang')
+    const localStorageLang = localStorage.getItem('languageCode');
     const browserLang = (window.navigator.userLanguage || window.navigator.language || '').slice(0,2)
-    TAPi18n.setLanguage(urlLang || browserLang || defaultLang)
-
+    TAPi18n.setLanguage(localStorageLang || browserLang || defaultLang)
+    .fail(console.log)
+    .always(() => localStorage.setItem('languageCode', TAPi18n.getLanguage()))
   });
 }
-
 
 Template.registerHelper('equals', function (a, b) {
       return a === b;
