@@ -65,7 +65,9 @@
   "yes_end_hangout": "Yes, end it!",
   "no_end_hangout": "No, I was just kidding",
   "end_hangout": "End hangout manually",
-
+  "transfer_study_group": "Transferring study group cannot be undone",
+  "yes_transfer_group": "Yes, transfer it!",
+  "no_transfer_group": "No, I was just kidding",
 
   // hangout
   "what_is_a_hangout": "What is a Hangout?",
@@ -149,6 +151,7 @@
   "select_study_group": "Please select a group.",
   "settings": "Settings",
   "start_new_group": "Start a New Group",
+  "select_new_owner": "Select new owner",
 
   // alerts
   "alert_language_change": "Language changed to %s",
