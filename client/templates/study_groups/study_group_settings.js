@@ -18,12 +18,6 @@ Template.studyGroupSettings.onRendered(function() {
   }
 });
 
-Template.studyGroupSettings.helpers({
-    numEligibleMembers: function() {
-      return Template.instance().eligibleMembers.get();
-    }
-});
-
 Template.studyGroupSettings.events({
   "click #archiveStudyGroup":function (event, template) {
 
