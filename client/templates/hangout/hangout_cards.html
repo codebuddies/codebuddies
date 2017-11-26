@@ -5,7 +5,7 @@
       {{#if liveHangoutsCount }}
       <h3 class="col-lg-12 hangouts-title">{{_ "upcoming_events"}}</h3>
       {{/if}}
-      {{#each hangouts}}
+      {{#each hangouts 1}}
         {{#unless isHangoutCompleted end}}
         <div class="col-lg-4">
           {{> hangoutCard}}
@@ -19,7 +19,7 @@
       {{#if pastHangoutsCount }}
       <h3 class="col-lg-12 hangouts-title">{{_ "past_events"}}</h3>
       {{/if}}
-      {{#each hangouts}}
+      {{#each hangouts -1}}
         {{#if isHangoutCompleted end}}
          <div class="col-lg-4">
            {{> hangoutCard}}
