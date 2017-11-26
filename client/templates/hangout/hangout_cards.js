@@ -10,8 +10,8 @@ Template.hangoutCards.onCreated(function() {
 
     var instance = this;
 
-    instance.loadHangouts = function() {
-      return Hangouts.find({}, {sort: {start: -1}});
+    instance.loadHangouts = function(flag = 1) {
+      return Hangouts.find({}, {sort: {start: flag}});
     }
 
     const now = new Date();
@@ -38,8 +38,8 @@ Template.hangoutCards.onCreated(function() {
 });
 
 Template.hangoutCards.helpers({
-  hangouts:function(){
-    return Template.instance().loadHangouts();
+  hangouts:function(flag){
+    return Template.instance().loadHangouts(flag);
   },
   status:function(){
      return  Template.instance().flag.get();

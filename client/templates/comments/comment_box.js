@@ -76,6 +76,7 @@ Template.commentBox.helpers({
 
 Template.commentBox.events({
   'click .addNewMessage': function(event, template) {
+    event.preventDefault();
     if ($.trim($('#newMessage').val()) == '') {
       sweetAlert({
         title: TAPi18n.__("Comment can't be empty"),
