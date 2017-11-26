@@ -154,6 +154,3 @@ Thank you to DigitalOcean for sponsoring our hosting, MongoDB Atlas for sponsori
 
 <a href="http://stickermule.com" target="_blank"><img src="http://i.imgur.com/WblcveC.png" width="180" alt="Thank you to StickerMule for sponsoring $50 in credits!"></a>
 
-<a target='_blank' rel='nofollow' href='https://app.codesponsor.io/link/aUWGFuwrvWrTWuW5exySYqpr/codebuddiesdotorg/codebuddies'>
-  <img alt='Sponsor' width='888' height='68' src='https://app.codesponsor.io/embed/aUWGFuwrvWrTWuW5exySYqpr/codebuddiesdotorg/codebuddies.svg' />
-</a>
