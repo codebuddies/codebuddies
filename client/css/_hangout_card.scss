@@ -6,7 +6,7 @@
   width: 100%;
   margin: 5px 0px;
   padding: 10px;
-  overflow: scroll;
+  overflow: auto;
 
   p.overflowtext {
     color: $secondary-grey;
@@ -32,7 +32,7 @@
     background: white;
     font-size: 14px;
   }
-  button { 
+  button {
     display: inline;
   }
   .join-now {

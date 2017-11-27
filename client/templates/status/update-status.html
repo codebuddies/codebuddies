@@ -1,6 +1,10 @@
 <template name="updateStatus">
     <div class="status-input">
-        <textarea id="{{type}}-text" rows="3" maxlength="140" placeholder="{{# if isWorking type}}{{_ 'working_on'}}{{else}}{{_ 'accomplished'}}{{/if}}"></textarea>
+        {{#if isWorking type}}
+        <textarea id="{{type}}-text" rows="3" maxlength="140" placeholder="{{_ 'working_on'}}"></textarea>
+        {{else}}
+        <textarea id="{{type}}-text" rows="3" maxlength="280" placeholder="{{_ 'accomplished'}}"></textarea>
+        {{/if}}
     </div>
     <div class="status-actions">
         {{#if isWorking type}}

@@ -1,5 +1,3 @@
-// import _ from 'lodash';
-
 if (Meteor.isClient) {
   Meteor.startup(function () {
 
@@ -9,9 +7,15 @@ if (Meteor.isClient) {
       console = console || {};
       console.log = function(){};
     }
+
+    const defaultLang = 'en'
+    const localStorageLang = localStorage.getItem('languageCode');
+    const browserLang = (window.navigator.userLanguage || window.navigator.language || '').slice(0,2)
+    TAPi18n.setLanguage(localStorageLang || browserLang || defaultLang)
+    .fail(console.log)
+    .always(() => localStorage.setItem('languageCode', TAPi18n.getLanguage()))
   });
 }
-
 
 Template.registerHelper('equals', function (a, b) {
       return a === b;
@@ -114,4 +118,36 @@ Template.registerHelper("canUpdateUserRoleForGroup", function(subjectId, groupId
 Template.registerHelper("isOrganizers", function(role){
 
   return ["owner", "admin", "moderator"].indexOf(role) < 0 ? false : true ;
+});
+
+Template.registerHelper("slotDayString", function(day){
+  switch (day) {
+    case 00:
+      return "MON"
+      break;
+    case 01:
+      return "TUE"
+      break;
+    case 02:
+      return "WED"
+      break;
+    case 03:
+      return "THU"
+      break;
+    case 04:
+      return "FRI"
+      break;
+    case 05:
+      return "SAT"
+      break;
+    case 06:
+      return "SUN"
+      break;
+    default:
+      return "NaN"
+  }
+});
+
+Template.registerHelper("isAuthor", function(userId){
+  return Meteor.userId() === userId;
 });

@@ -1,6 +1,6 @@
 <template name="studyGroupSettings">
-
-   <div class="panel panel-default">
+  <!-- Group permission -->
+  <div class="panel panel-default">
     <div class="panel-heading">
       <h3 class="panel-title">Who can start/schedule a hangout for this group?</h3>
     </div>
@@ -13,6 +13,36 @@
     </div>
   </div>
 
+  <!-- Transfer ownership -->
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Transfer ownership</h3>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-12">
+          <ul>
+            <li>This process irreversible.</li>
+            <li>You will be demoted to the `admin` role.</li>
+          </ul>
+        </div>
+        <div class="col-md-12">
+          <label for="">New owner’s username</label>
+          <select class="form-control" id="studyGroupMemberList" style="width: 100%;">
+            <option></option>
+            <option value="{{id}}">{{name}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="btn btn-danger btn-sm margin-top-1" id="transferOwnership">Confirm</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Archive this study group -->
   <div class="panel panel-default">
     <div class="panel-heading">
       <h3 class="panel-title">Archive this study group</h3>
@@ -22,6 +52,5 @@
       <div class="btn btn-danger btn-sm" id="archiveStudyGroup">Archive Group</div>
     </div>
   </div>
-
 
 </template>
