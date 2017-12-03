@@ -19,8 +19,8 @@ Template.allStudyGroups.onCreated(function() {
     let studyGroupsFilter = instance.studyGroupsFilter.get()
     instance.subscribe('allStudyGroups', limit, studyGroupsFilter);
 
-    const hangoutRoomIds = StudyGroups.find({}, { fields: { _id: 1 } }).map(x => `cb${x._id}`);
-    instance.subscribe('allHangoutParticipants', hangoutRoomIds);
+    const hangoutIds = StudyGroups.find({}, { fields: { _id: 1 } }).map(x => `cb${x._id}`);
+    instance.subscribe('allHangoutParticipants', hangoutIds);
   });
 
   instance.loadStudyGroups = function() {
@@ -73,9 +73,12 @@ Template.allStudyGroups.helpers({
     return Session.get('sgSearchMode');
   },
   numParticipants: function(studyGroupId) {
-    const hangoutRoomId = `cb${studyGroupId}`;
-    const hangoutRoom = AppStats.findOne({ hangout_id : hangoutRoomId });
-    return (hangoutRoom && hangoutRoom.participants_count) || 0;
+    const hangoutId = `cb${studyGroupId}`;
+    const appState = AppStats.findOne({ _id: hangoutId });
+    if (appState && appState.participants ) {
+      return appState.participants.length
+    }
+    return 0;
   }
 });
 

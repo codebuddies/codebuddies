@@ -1,16 +1,17 @@
-Meteor.publish('hangoutParticipants', function(room) {
-  check(room, String);
-  if (room) {
-      return AppStats.find({ hangout_id: room });
+Meteor.publish('hangoutParticipants', function(hangoutId) {
+  check(hangoutId, String);
+  if (hangoutId) {
+    return AppStats.find({ _id: hangoutId });
   }
-  return this.ready();
+  this.ready();
 });
 
-Meteor.publish('allHangoutParticipants', function(hangoutRoomIds) {
-  check(hangoutRoomIds, Match.Maybe([String]));
-  if (hangoutRoomIds == null || typeof hangoutRoomIds === 'undefined' ||
-    !Array.isArray(hangoutRoomIds) || hangoutRoomIds.length === 0) {
-    return this.ready();
+Meteor.publish('allHangoutParticipants', function(hangoutIds) {
+  check(hangoutIds, Match.Maybe([String]));
+
+  if (hangoutIds && hangoutIds.length > 0 ){
+    return AppStats.find({_id: { $in: hangoutIds } });
   }
-  return AppStats.find({hangout_id: { $in: hangoutRoomIds } });
+  this.ready();
+
 });
