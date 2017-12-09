@@ -1,32 +1,54 @@
 
 Meteor.methods({
-  joinParticipant: function(room) {
-    check(room, String);
+  joinParticipant: function(hangoutId) {
+    check(hangoutId, String);
+
+    const actor = Meteor.user()
+    if (!actor) {
+      throw new Meteor.Error(403, "Access denied")
+    }
+
+    const participant = {
+      id: actor._id,
+      username: actor.username,
+      avatar: actor.profile.avatar.default
+    }
+
     AppStats.upsert({
-      hangout_id: room
+      _id: hangoutId
     },
     {
       $setOnInsert: {
-        participants_count: 0
+        hangout_id: hangoutId,
+        type: "PARTICIPANT_COUNT"
       },
-      $inc: {
-        participants_count: 1
+      $addToSet: {
+        participants: {
+          $each: [ participant ]
+        }
       }
     });
   }
 });
 
 Meteor.methods({
-  leaveParticipant: function(room) {
-    check(room, String);
+  leaveParticipant: function(hangoutId) {
+    check(hangoutId, String);
+
+    const actor = Meteor.user()
+    if (!actor) {
+      throw new Meteor.Error(403, "Access denied")
+    }
+
     // Decrement count when participant count is positive
-    AppStats.upsert({ $and: [
-      { hangout_id: room },
-      { participants_count: { $gt: 0 } }
-    ]},
+    AppStats.update({
+      _id: hangoutId
+    },
     {
-      $inc: {
-        participants_count: -1
+      $pull: {
+        participants: {
+          id : actor._id
+        }
       }
     });
   }

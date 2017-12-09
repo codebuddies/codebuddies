@@ -8,10 +8,10 @@
 </div>
 
 <div class="alert alert-info margin-top-1 margin-bottom-1">
-  <p class="align-center">If you're seeing a blank screen, <a href="https://meet.jit.si/cb{{_id}}" target="_blank">join here.</a> (New to Jitsi? Check out <a href="/images/codebuddies_jitsi_diagram.jpg" target="_blank">this diagram</a>.)</p>
+  <p class="align-center">If you're seeing a blank screen, <a href="https://meet.jit.si/cb{{_id}}" target="_blank" id="joinHere">join here.</a> (New to Jitsi? Check out <a href="/images/codebuddies_jitsi_diagram.jpg" target="_blank">this diagram</a>.)</p>
 </div>
   <div id="hangout-container"></div>
-  {{#if numParticipants }}
+  {{#if numParticipants}}
   <div class="margin-top-1 margin-bottom-1">
     <p class="align-center well">{{_ "hangout_participant" count=numParticipants }}</p>
   </div>

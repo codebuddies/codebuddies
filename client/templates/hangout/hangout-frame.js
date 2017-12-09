@@ -1,7 +1,8 @@
 Template.hangoutFrame.onCreated(function() {
   let instance = this;
   instance.joinedHangout = false;
-  instance.room = new ReactiveVar('');
+  instance.room = new ReactiveVar(`cb${instance.data._id}`);
+
   instance.autorun(() => {
     instance.subscribe('hangoutParticipants', instance.room.get());
   });
@@ -27,7 +28,6 @@ Template.hangoutFrame.onCreated(function() {
 
     instance.api = new JitsiMeetExternalAPI(domain, room, width, height, htmlElement, configOverwrite, interfaceConfigOverwrite);
 
-    instance.room.set(room);
     instance.api.executeCommand('displayName', data.username);
     instance.api.executeCommand('toggleChat');
     instance.api.executeCommand('avatarUrl', data.avatar);
@@ -46,8 +46,7 @@ Template.hangoutFrame.onCreated(function() {
       FlowRouter.go('all study groups');
     });
 
-    Meteor.call('joinParticipant', instance.room.get(),
-      function(error, result) {
+    Meteor.call('joinParticipant', instance.room.get(),function(error, result) {
         if (error) {
           return Bert.alert(error.reason, 'danger', 'growl-top-right');
         } else {
@@ -95,7 +94,18 @@ Template.hangoutFrame.events({
       avatar: Meteor.user().profile.avatar.default
     }
     return template.loadJitsi(data);
+  },
+  'click #joinHere': function(event, template){
+    const hangout_id = `cb${this._id}`;
+
+    Meteor.call('joinParticipant', hangout_id,function(error, result) {
+        if (error) {
+          return Bert.alert(error.reason, 'danger', 'growl-top-right');
+        }
+    });
+
   }
+
 });
 
 
@@ -115,9 +125,9 @@ Template.hangoutFrame.onDestroyed(function () {
 
 Template.hangoutFrame.helpers({
   numParticipants: function() {
-    const room = AppStats.findOne({ hangout_id: Template.instance().room.get() });
-    if (room) {
-      return room.participants_count;
+    const appState = AppStats.findOne({ _id: Template.instance().room.get() });
+    if (appState && appState.participants ) {
+      return appState.participants.length
     }
     return 0;
   }
