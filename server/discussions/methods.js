@@ -221,3 +221,66 @@ Meteor.methods({
     return true;
   }
 });
+
+/**
+* subscribe
+* @function
+* @name discussions.subscribe
+* @param { Object } data - Data
+* @return {Boolean} true on success
+*/
+Meteor.methods({
+  'discussions.subscribe':function(data){
+    check(data, {
+      id: String
+    });
+
+    const actor = Meteor.user();
+
+    if (!actor) {
+      throw new Meteor.Error(403, "Access denied");
+    }
+
+    const subscriber = {
+      id: actor._id,
+      username: actor.username,
+      avatar: actor.profile.avatar.default,
+    }
+
+    Discussions.update({_id:data.id}, {
+      $addToSet: {
+        subscribers: subscriber,
+      }
+    });
+
+    return true;
+  }
+});
+/**
+* unsubscribe
+* @function
+* @name discussions.unsubscribe
+* @param { Object } data - Data
+* @return {Boolean} true on success
+*/
+Meteor.methods({
+  'discussions.unsubscribe':function(data){
+    check(data, {
+      id: String
+    });
+
+    const actor = Meteor.user();
+
+    if (!actor) {
+      throw new Meteor.Error(403, "Access denied");
+    }
+
+    Discussions.update({_id:data.id}, {
+      $pull: {
+        subscribers: { id : actor._id }
+      }
+    });
+
+    return true;
+  }
+});

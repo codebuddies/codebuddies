@@ -35,17 +35,19 @@
               {{username}}
             {{/each}}
             <hr>
-            <h5>Notification</h5>
-            {{#if isInCollection subscribers}}
-              <div class="btn btn-sm btn-block btn-default">
-                unsubscribe
-              </div>
-              You’re receiving notifications because you’re subscribed to this thread.
-            {{else}}
-              <div class="btn btn-sm btn-block btn-default">
-                subscribe
-              </div>
-              You’re ignoring this thread.
+            {{#if currentUser}}
+              <h5>Notification</h5>
+              {{#if isInCollection subscribers}}
+                <div class="btn btn-sm btn-block btn-default" id="unsubscribe">
+                  unsubscribe
+                </div>
+                You’re receiving notifications because you’re subscribed to this thread.
+              {{else}}
+                <div class="btn btn-sm btn-block btn-default" id="subscribe">
+                  subscribe
+                </div>
+                You’re ignoring this thread.
+              {{/if}}
             {{/if}}
             <hr>
           </div>
