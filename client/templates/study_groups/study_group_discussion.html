@@ -16,7 +16,20 @@
           <h3>Author</h3>
         </div>
         <div class="col-md-1">
-          <div class="btn btn-default pull-right"><i class="fa fa-filter" aria-hidden="true"></i></div>
+          <div class="dropdown pull-right">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                <span><i class="fa fa-filter" aria-hidden="true"></i></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+              <li class="newest"><a href="#">{{#if equals discussionFilter 'newest'}} <i class="fa fa-check" aria-hidden="true"></i>  {{else}} &nbsp;&nbsp; {{/if}}Newest</a></li>
+              <li role="separator" class="divider"></li>
+              <li class="oldest"><a href="#">{{#if equals discussionFilter 'oldest'}} <i class="fa fa-check" aria-hidden="true"></i>  {{else}} &nbsp;&nbsp; {{/if}}Oldest</a></li>
+              <li role="separator" class="divider"></li>
+              <li class="most-commented"><a href="#">{{#if equals discussionFilter 'most-commented'}} <i class="fa fa-check" aria-hidden="true"></i>  {{else}} &nbsp;&nbsp; {{/if}}Most Commented</a></li>
+              <li role="separator" class="divider"></li>
+              <li class="least-commented"><a href="#">{{#if equals discussionFilter 'least-commented'}} <i class="fa fa-check" aria-hidden="true"></i>  {{else}} &nbsp;&nbsp; {{/if}}Least Commented</a></li>
+            </ul>
+          </div>
         </div>
       </div>
       <hr>
