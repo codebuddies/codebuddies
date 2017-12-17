@@ -1,8 +1,10 @@
 Template.singleStudyGroup.onCreated(function() {
   let instance = this;
   instance.studyGroupId = FlowRouter.getParam('studyGroupId');
+  instance.hangoutId = `cb${instance.studyGroupId}`;
   instance.autorun(() => {
       instance.subscribe('studyGroupById', instance.studyGroupId);
+      instance.subscribe('hangoutParticipants', instance.hangoutId);
   });
 
 });
@@ -31,6 +33,13 @@ Template.singleStudyGroup.helpers({
   },
   learningsCount: function() {
     return Learnings.find().count();
+  },
+  numParticipants: function() {
+    const appState = AppStats.findOne({ _id: Template.instance().hangoutId });
+    if (appState && appState.participants ) {
+      return appState.participants.length
+    }
+    return 0;
   }
 });
 

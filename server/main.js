@@ -130,3 +130,21 @@ Accounts.onCreateUser(function(options, user) {
   }
 
 });
+
+// global users observer for app_stats
+Meteor.users.find({ "status.online": true }).observe({
+  removed: function(user) {
+    //remove participants from active list
+    AppStats.update({"participants.id":user._id},
+      {
+        $pull: {
+          participants: {
+            id : user._id
+          }
+        },
+
+      },
+      {multi: true});
+
+  }
+});

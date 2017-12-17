@@ -4,12 +4,20 @@
       <div class="container">
 
         <div class="row">
-          <div class="col-md-6"> <!-- column 1 -->
+          <div class="col-md-4"> <!-- column 1 -->
             <div class="footer-logo">
               <p href="{{pathFor 'home'}}"><img src="/images/logo.svg"></p>
             </div>
           </div>
           <div class="col-md-2"> <!-- column 2 -->
+            <div class="footer-languages">
+              <p><strong>LANGUAGE</strong></p>
+              {{#each languageSwitcher in languageSwitchers}}
+                  <a href="#" {{languageSwitcher.attributes}}>{{languageSwitcher.name}}</a>
+              {{/each}}
+            </div>
+          </div>
+          <div class="col-md-2"> <!-- column 3 -->
             <div class="footer-links">
               <p><strong>COMMUNITY</strong></p>
                 <a href="/about">About Us</a>
@@ -21,7 +29,7 @@
                 <a href="https://opencollective.com/codebuddies" target="_blank">Open Collective</a>
             </div>
           </div>
-          <div class="col-md-2"> <!-- column 3 -->
+          <div class="col-md-2"> <!-- column 4 -->
             <div class="footer-social">
               <p><strong>CONNECT WITH US</strong></p>
               <span class="footer-icons">
@@ -32,7 +40,7 @@
               </span>
             </div>
           </div>
-          <div class="col-md-2"> <!-- column 4 -->
+          <div class="col-md-2"> <!-- column 5 -->
             <div class="footer-sponsor">
               <p><strong>SPONSOR US</strong></p>
               <p>Our project is free and <strong><a href="https://github.com/codebuddiesdotorg/codebuddies" target="_blank">open-sourced</a></strong>. Help keep this project alive by <a class="sponsor" href="http://opencollective.com/codebuddies" target="_blank"><strong>donating to our Open Collective</strong>.</a></p>
@@ -40,8 +48,7 @@
               <a href="/privacy">Privacy Policy</a>
             </div>
           </div>
-        </div> <!-- ends row -->
-    </div>
+    </div> <!-- ends row -->
   </div>
-
+</div>
 </template>

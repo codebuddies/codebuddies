@@ -144,5 +144,9 @@
   "leave_study_group": "Deja este Grupo de Estudios",
   "select_study_group": "Por favor selecciona un grupo.",
   "settings": "Settings",
-  "start_new_group": "Inicia un nuevo grupo"
+  "start_new_group": "Inicia un nuevo grupo",
+
+  // alerts
+  "alert_language_change": "Idioma cambiado a %s",
+  "alert_language_change_fail": "No se pudo cambiar el idioma a %s"
 }
