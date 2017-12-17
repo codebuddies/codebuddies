@@ -55,7 +55,7 @@ Template.cloneHangoutModal.onRendered(function() {
 
       const groupId = templateInstance.data.hangout.data.group.id || '';
       if (groupId !== '') {
-    -   instance.$(".study-group-single").val(groupId);
+    -   instance.$(".study-group-single").val(groupId).trigger('change');
       }
     },1500)
 

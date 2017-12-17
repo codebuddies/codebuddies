@@ -70,7 +70,7 @@ Template.createHangoutModal.onRendered(function() {
       });
 
       if (typeof instance.studyGroupId !== 'undefined' && instance.studyGroupId !== '') {
-        instance.$(".study-group-single").val(instance.studyGroupId);
+        instance.$(".study-group-single").val(instance.studyGroupId).trigger('change');
       }
     },1500)
 
