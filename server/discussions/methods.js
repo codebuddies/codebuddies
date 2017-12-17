@@ -122,6 +122,8 @@ Meteor.methods({
       id: String
     });
 
+    const actor = Meteor.user();
+
     if (!actor) {
       throw new Meteor.Error(403, "Access denied");
     }
@@ -134,10 +136,10 @@ Meteor.methods({
 
     Discussions.update({_id:data.id}, {
       $addToSet: {
-        up_vots: voter,
+        up_votes: voter,
       },
       $pull: {
-        down_vots: { id : voter.id }
+        down_votes: { id : voter.id }
       }
     });
 
@@ -157,6 +159,9 @@ Meteor.methods({
     check(data, {
       id: String
     });
+
+    const actor = Meteor.user();
+
     if (!actor) {
       throw new Meteor.Error(403, "Access denied");
     }
@@ -169,10 +174,10 @@ Meteor.methods({
 
     Discussions.update({_id:data.id}, {
       $addToSet: {
-        down_vots: voter,
+        down_votes: voter,
       },
       $pull: {
-        up_vots: { id : voter.id }
+        up_votes: { id : voter.id }
       }
     });
 

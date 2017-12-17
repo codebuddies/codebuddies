@@ -49,8 +49,8 @@
         </div>
         <div class="col-md-12">
           <h4>
-            <i class="fa fa-thumbs-o-up" aria-hidden="true" id="upvote"></i> {{up_votes.length}} &nbsp; &nbsp;
-            <i class="fa fa-thumbs-o-down" aria-hidden="true" id="downvote"></i> {{down_votes.length}} &nbsp; &nbsp;
+            <i class="fa fa-thumbs-o-up {{#if isInCollection up_votes}} voted {{else}} upvote {{/if}}" aria-hidden="true"></i> <small>{{up_votes.length}}</small> &nbsp; &nbsp;
+            <i class="fa fa-thumbs-o-down {{#if isInCollection down_votes}} voted {{else}} downvote {{/if}}" aria-hidden="true"></i> <small>{{down_votes.length}}</small> &nbsp; &nbsp;
             <small><i class="fa fa-clock-o" aria-hidden="true"></i> Posted on : {{dispDate created_at}} </small> &nbsp; &nbsp;
             <small><i class="fa fa-comments-o" aria-hidden="true"></i> {{response_count}} </small> &nbsp; &nbsp;
             <small><i class="fa fa-eye" aria-hidden="true"></i> {{views}} </small> &nbsp; &nbsp;

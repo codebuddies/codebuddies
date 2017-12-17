@@ -92,32 +92,32 @@ Template.studyGroupDiscussion.events({
     event.preventDefault();
     // @todo : report it
   },
-  "click #upvote": function(event) {
+  "click .upvote": function(event) {
     event.preventDefault();
     const data = {
       id: this._id
     }
     Meteor.call("discussions.upvote", data, function(error, result){
       if(error){
-        console.log("error", error);
+        Bert.alert( error.reason, 'danger', 'growl-top-right' );
       }
       if(result){
-
+        Bert.alert( 'Voted', 'success', 'growl-top-right' );
       }
     });
   },
-  "click #downvote": function(event) {
+  "click .downvote": function(event) {
     event.preventDefault();
     const data = {
       id: this._id
     }
 
-    Meteor.call("discussions.down", data, function(error, result){
+    Meteor.call("discussions.downvote", data, function(error, result){
       if(error){
-        console.log("error", error);
+        Bert.alert( error.reason, 'danger', 'growl-top-right' );
       }
       if(result){
-
+        Bert.alert( 'Voted', 'success', 'growl-top-right' );
       }
     });
   },
