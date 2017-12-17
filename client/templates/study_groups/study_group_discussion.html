@@ -39,7 +39,7 @@
       <div class="row">
         <div class="col-md-9">
           <h3>{{topic}} {{#if modified_at}}<small>(Edited)</small>{{/if}}</h3>
-          <h4><small>{{#markdown}}{{description}}{{/markdown}}</small></h4>
+          <h4><small>{{truncateIt description '90'}}</small></h4>
         </div>
         <div class="col-md-2">
           <h5>{{author.username}}</h5>

@@ -16,11 +16,11 @@ Template.editDiscussionModal.events({
 
     if ($.trim(template.find("#discussionTopic").value) == '') {
       $('#discussionTopic').css({ 'border': '#FF0000 1px solid'});
-      return Bert.alert( 'Study Group Introduction', 'warning', 'growl-top-right' );
+      return Bert.alert( 'Topic', 'warning', 'growl-top-right' );
     }
-    if ( $("#discussionDescription").val().length > 140) {
+    if ( $.trim(template.find("#discussionDescription").value) == '') {
       $('#discussionDescription').css({ 'border': '#FF0000 1px solid'});
-      return Bert.alert( 'Study Group Introduction', 'warning', 'growl-top-right' );
+      return Bert.alert( 'Description', 'warning', 'growl-top-right' );
     }
 
     // console.log(this);
