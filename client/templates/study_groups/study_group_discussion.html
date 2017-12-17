@@ -6,106 +6,73 @@
     </div>
   {{/if}}
 
+  {{#if Template.subscriptionsReady}}
+    {{#if discussions.count}}
+      <div class="row">
+        <div class="col-md-9">
+          <h3>Topic</h3>
+        </div>
+        <div class="col-md-2">
+          <h3>Author</h3>
+        </div>
+        <div class="col-md-1">
+          <div class="btn btn-default pull-right"><i class="fa fa-filter" aria-hidden="true"></i></div>
+        </div>
+      </div>
+      <hr>
+    {{/if}}
 
+    {{#each discussions}}
+      <div class="row">
+        <div class="col-md-9">
+          <h3>{{topic}} {{#if modified_at}}<small>(Edited)</small>{{/if}}</h3>
+          <h4><small>{{description}}</small></h4>
+        </div>
+        <div class="col-md-2">
+          <h5>{{author.username}}</h5>
+        </div>
+        <div class="col-md-1">
+          <div class="dropdown pull-right">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                <span><i class="fa fa-ellipsis-h" aria-hidden="true"></i></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+              {{#if isAuthor author.id}}
+                <li class="edit-discussion"><a href="#">Edit</a></li>
+                <li class="delete-discussion"><a href="#">Delete</a></li>
+              {{else}}
+                <li class="{{#if currentUser}} report-discussion {{else}} continue-popup {{/if}} "><a href="#">Report</a></li>
+              {{/if}}
+            </ul>
+          </div>
+          <!-- <div class="btn btn-default btn-sm">...</div> -->
+        </div>
+        <div class="col-md-12">
+          <h4>
+            <i class="fa fa-thumbs-o-up" aria-hidden="true"></i> {{up_votes.length}} &nbsp; &nbsp;
+            <i class="fa fa-thumbs-o-down" aria-hidden="true"></i> {{down_votes.length}} &nbsp; &nbsp;
+            <small><i class="fa fa-clock-o" aria-hidden="true"></i> Posted on : {{dispDate created_at}} </small> &nbsp; &nbsp;
+            <small><i class="fa fa-comments-o" aria-hidden="true"></i> {{response_count}} </small> &nbsp; &nbsp;
+            <small><i class="fa fa-eye" aria-hidden="true"></i> {{views}} </small> &nbsp; &nbsp;
+          </h4>
+        </div>
+      </div>
+      <hr>
+    {{else}}
+      <div class="text-center">
+        <div class="alert alert-info">No discussion found</div>
+        <p>There will be more to see here once group members create some discussion.</p>
+      </div>
+    {{/each}}
 
-  <div class="row">
-    <div class="col-md-9">
-      <h3>Topic</h3>
-    </div>
-    <div class="col-md-2">
-      <h3>Author</h3>
-    </div>
-    <div class="col-md-1">
-      <div class="btn btn-default pull-right"><i class="fa fa-filter" aria-hidden="true"></i></div>
-    </div>
-  </div>
-  <hr>
-  <div class="row">
-    <div class="col-md-9">
-      <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
-      <h4><small>Eric Schmidt has seen the future of magazines, and it's on the tablet. At a Magazine Publishers Association.</small></h4>
-    </div>
-    <div class="col-md-2">
-      <h5>distalx</h5>
-    </div>
-    <div class="col-md-1">
-      <div class="btn btn-default btn-sm">...</div>
-    </div>
-    <div class="col-md-12">
-      <h4>
-        <i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 22 &nbsp; &nbsp;
-        <i class="fa fa-thumbs-o-down" aria-hidden="true"></i> 22 &nbsp; &nbsp;
-        <small><i class="fa fa-clock-o" aria-hidden="true"></i> Posted on : 20 Nov @ 9:30am</small> &nbsp; &nbsp;
-        <small><i class="fa fa-comments-o" aria-hidden="true"></i> 397 </small> &nbsp; &nbsp;
-      </h4>
-    </div>
-  </div>
-  <hr>
-  <div class="row">
-    <div class="col-md-9">
-      <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
-      <h6><small>Eric Schmidt has seen the future of magazines, and it's on the tablet. At a Magazine Publishers Association.</small></h6>
-    </div>
-    <div class="col-md-3">
-      <h5>distalx</h5>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12">
-      <h4>
-        <i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 22 &nbsp; &nbsp;
-        <i class="fa fa-thumbs-o-down" aria-hidden="true"></i> 22 &nbsp; &nbsp;
-        <small><i class="fa fa-clock-o" aria-hidden="true"></i> Posted on : 20 Nov @ 9:30am</small> &nbsp; &nbsp;
-        <small><i class="fa fa-comments-o" aria-hidden="true"></i> 397 </small> &nbsp; &nbsp;
-      </h4>
-    </div>
-  </div>
-  <hr>
-  <div class="row">
-    <div class="col-md-9">
-      <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
-      <h4><small>Eric Schmidt has seen the future of magazines, and it's on the tablet. At a Magazine Publishers Association.</small></h4>
-    </div>
-    <div class="col-md-3">
-      <h5>distalx</h5>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12">
-      <h4>
-        <i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 22 &nbsp; &nbsp;
-        <i class="fa fa-thumbs-o-down" aria-hidden="true"></i> 22 &nbsp; &nbsp;
-        <small><i class="fa fa-clock-o" aria-hidden="true"></i> Posted on : 20 Nov @ 9:30am</small> &nbsp; &nbsp;
-        <small><i class="fa fa-comments-o" aria-hidden="true"></i> 397 </small> &nbsp; &nbsp;
-      </h4>
-    </div>
-  </div>
-  <hr>
-  <div class="row">
-    <div class="col-md-9">
-      <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
-      <h6><small>Eric Schmidt has seen the future of magazines, and it's on the tablet. At a Magazine Publishers Association.</small></h6>
-    </div>
-    <div class="col-md-3">
-      <h5>distalx</h5>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12">
-      <h4>
-        <i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 22 &nbsp; &nbsp;
-        <i class="fa fa-thumbs-o-down" aria-hidden="true"></i> 22 &nbsp; &nbsp;
-        <small><i class="fa fa-clock-o" aria-hidden="true"></i> Posted on : 20 Nov @ 9:30am</small> &nbsp; &nbsp;
-        <small><i class="fa fa-comments-o" aria-hidden="true"></i> 397 </small> &nbsp; &nbsp;
-      </h4>
-    </div>
-  </div>
-  <hr>
+    {{#if discussions.count}}
+      {{#if status}}
+        <h5 class="text-center well">You've reached the end of the page.</h5>
+      {{/if}}
+    {{/if}}
 
-
-  <!-- {{#if Template.subscriptionsReady}}
-  {{> else}}
-    {{> loading}}
-  {{/if}} -->
+  {{else}}
+    {{>loading}}
+  {{/if}}
 
 </template>

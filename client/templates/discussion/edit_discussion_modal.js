@@ -1,15 +1,15 @@
-Template.addDiscussionModal.onCreated(function(){
+Template.editDiscussionModal.onCreated(function(){
    const instance = this;
    instance.processing = new ReactiveVar(false);
 });
-Template.addDiscussionModal.helpers({
+Template.editDiscussionModal.helpers({
   processing: function(){
     return Template.instance().processing.get();
   }
 });
 
-Template.addDiscussionModal.events({
-  "submit .addDiscussion": function(event, template){
+Template.editDiscussionModal.events({
+  "submit .editDiscussion": function(event, template){
     event.preventDefault();
 
     $('.form-control').css({ "border": '1px solid #cccccc'});
@@ -25,24 +25,22 @@ Template.addDiscussionModal.events({
 
     // console.log(this);
     const data = {
+      id: this._id,
       topic: $.trim(template.find("#discussionTopic").value),
       description: $.trim(template.find("#discussionDescription").value),
-      groupId: this._id,
-      groupTitle: this.title,
-      groupSlug: this.slug
     }
 
     console.log(data);
     template.processing.set( true );
 
-    Meteor.call("discussions.insert", data, function(error, result){
+    Meteor.call("discussions.update", data, function(error, result){
       if(error){
         template.processing.set( false );
         Bert.alert( error.reason , 'danger', 'growl-top-right' );
       }
       if(result){
         template.processing.set( false );
-        Bert.alert( 'Discussion Created!' , 'success', 'growl-top-right' );
+        Bert.alert( 'Discussion Updated!' , 'success', 'growl-top-right' );
         Modal.hide()
       }
     });
