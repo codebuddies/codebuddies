@@ -26,7 +26,7 @@
       <div class="row">
         <div class="col-md-9">
           <h3>{{topic}} {{#if modified_at}}<small>(Edited)</small>{{/if}}</h3>
-          <h4><small>{{description}}</small></h4>
+          <h4><small>{{#markdown}}{{description}}{{/markdown}}</small></h4>
         </div>
         <div class="col-md-2">
           <h5>{{author.username}}</h5>
@@ -49,8 +49,8 @@
         </div>
         <div class="col-md-12">
           <h4>
-            <i class="fa fa-thumbs-o-up" aria-hidden="true"></i> {{up_votes.length}} &nbsp; &nbsp;
-            <i class="fa fa-thumbs-o-down" aria-hidden="true"></i> {{down_votes.length}} &nbsp; &nbsp;
+            <i class="fa fa-thumbs-o-up" aria-hidden="true" id="upvote"></i> {{up_votes.length}} &nbsp; &nbsp;
+            <i class="fa fa-thumbs-o-down" aria-hidden="true" id="downvote"></i> {{down_votes.length}} &nbsp; &nbsp;
             <small><i class="fa fa-clock-o" aria-hidden="true"></i> Posted on : {{dispDate created_at}} </small> &nbsp; &nbsp;
             <small><i class="fa fa-comments-o" aria-hidden="true"></i> {{response_count}} </small> &nbsp; &nbsp;
             <small><i class="fa fa-eye" aria-hidden="true"></i> {{views}} </small> &nbsp; &nbsp;

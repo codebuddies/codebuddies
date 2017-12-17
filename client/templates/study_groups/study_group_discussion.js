@@ -90,5 +90,35 @@ Template.studyGroupDiscussion.events({
   },
   "click .report-discussion": function(event) {
     event.preventDefault();
+    // @todo : report it
+  },
+  "click #upvote": function(event) {
+    event.preventDefault();
+    const data = {
+      id: this._id
+    }
+    Meteor.call("discussions.upvote", data, function(error, result){
+      if(error){
+        console.log("error", error);
+      }
+      if(result){
+
+      }
+    });
+  },
+  "click #downvote": function(event) {
+    event.preventDefault();
+    const data = {
+      id: this._id
+    }
+
+    Meteor.call("discussions.down", data, function(error, result){
+      if(error){
+        console.log("error", error);
+      }
+      if(result){
+
+      }
+    });
   },
 });
