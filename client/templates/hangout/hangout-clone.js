@@ -53,6 +53,10 @@ Template.cloneHangoutModal.onRendered(function() {
         data: studyGroups
       });
 
+      const groupId = templateInstance.data.hangout.data.group.id || '';
+      if (groupId !== '') {
+    -   instance.$(".study-group-single").val(groupId);
+      }
     },1500)
 
   });
