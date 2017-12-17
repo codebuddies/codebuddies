@@ -38,7 +38,7 @@
     {{#each discussions}}
       <div class="row">
         <div class="col-md-9">
-          <h3>{{topic}} {{#if modified_at}}<small>(Edited)</small>{{/if}}</h3>
+          <h3><a href="{{pathFor 'discussion' discussionId=_id}}">{{topic}}</a> {{#if modified_at}}<small>(Edited)</small>{{/if}}</h3>
           <h4><small>{{truncateIt description '90'}}</small></h4>
         </div>
         <div class="col-md-2">

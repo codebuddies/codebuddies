@@ -213,12 +213,10 @@ Meteor.methods({
 * @return {Boolean} true on success
 */
 Meteor.methods({
-  'discussions.incViewCount':function(data){
-    check(data, {
-      id: String
-    });
+  'discussions.incViewCount':function(id){
+    check(id, String);
 
-    Discussions.update({_id:data.id}, {$inc:{views:1}});
+    Discussions.update({_id:id}, {$inc:{views:1}});
 
     return true;
   }
