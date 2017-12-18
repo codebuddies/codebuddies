@@ -7,10 +7,12 @@ Meteor.startup(function() {
 
 
 Template.hangout.onCreated(function() {
+  let instance = this;
   var title = "CodeBuddies | Hangout";
   DocHead.setTitle(title);
 
-  this.subscribe("hangoutById", FlowRouter.getParam('hangoutId'));
+  instance.subscribe("hangoutById", FlowRouter.getParam('hangoutId'));
+
 });
 
 Template.hangout.rendered = function() {
