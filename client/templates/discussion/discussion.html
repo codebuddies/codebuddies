@@ -1,63 +1,93 @@
 <template name="discussion">
+  <div class="discussion">
+
   <div class="container">
     {{#if Template.subscriptionsReady}}
       {{#with discussion}}
-        <h3>{{topic}}</h3>
-        <h4>
-          <i class="fa fa-thumbs-o-up {{#if isInCollection up_votes}} voted {{else}} upvote {{/if}}" aria-hidden="true"></i> <small>{{up_votes.length}}</small> &nbsp; &nbsp;
-          <i class="fa fa-thumbs-o-down {{#if isInCollection down_votes}} voted {{else}} downvote {{/if}}" aria-hidden="true"></i> <small>{{down_votes.length}}</small> &nbsp; &nbsp;
-          <small><i class="fa fa-clock-o" aria-hidden="true"></i> Posted on : {{dispDate created_at}} </small> &nbsp; &nbsp;
-          <small><i class="fa fa-comments-o" aria-hidden="true"></i> {{response_count}} </small> &nbsp; &nbsp;
-          <small><i class="fa fa-eye" aria-hidden="true"></i> {{views}} </small> &nbsp; &nbsp;
-        </h4>
-        <hr>
+
         <div class="row">
-          <!-- left -->
-          <div class="col-md-8">
+          <div class="col-md-8 discussion-card">
             <div class="row">
-              <div class="col-md-12">
-                <div class="description" style="font-size:17px; text-align:justify; font-weight:400;">
+              <div class="col-md-1">
+                <img src="{{author.avatar}}" alt="{{author.username}}" class="img-circle avatar author-avatar" />
+              </div>
+              <div class="col-md-11">
+                <h3>{{topic}} <small>{{#if modified_at}}(Edited){{/if}} <div class="btn btn-sm btn-default pull-right" id="editDiscussion"> Edit </div> </small> </h3>
+                <div class="description-text">
                   {{#markdown}}{{description}}{{/markdown}}
                 </div>
+                <hr>
+                <h4>
+                  <i class="fa fa-thumbs-o-up {{#if isInCollection up_votes}} upvoted {{else}} upvote {{/if}}" aria-hidden="true"></i> <small>{{up_votes.length}}</small> &nbsp; &nbsp;
+                  <i class="fa fa-thumbs-o-down {{#if isInCollection down_votes}} downvoted {{else}} downvote {{/if}}" aria-hidden="true"></i> <small>{{down_votes.length}}</small> &nbsp; &nbsp;
+                  <small><i class="fa fa-clock-o" aria-hidden="true"></i> Posted on : {{dispDate created_at}} </small> &nbsp; &nbsp;
+                  <small><i class="fa fa-comments-o" aria-hidden="true"></i> {{response_count}} </small> &nbsp; &nbsp;
+                  <small><i class="fa fa-eye" aria-hidden="true"></i> {{views}} </small> &nbsp; &nbsp;
+                  <small><a href="{{pathFor 'study group' studyGroupSlug=study_group.slug studyGroupId=study_group.id}}"><span class="label label-default">{{truncateIt study_group.title '30'}}</span></a></small> &nbsp; &nbsp;
+                </h4>
               </div>
 
             </div>
-            <div class="row">
 
-            </div>
           </div>
-          <!-- left ends -->
 
-          <!-- right -->
           <div class="col-md-3 col-md-offset-1">
-            <h5>Participant</h5>
-            {{#each participants}}
-              {{username}}
-            {{/each}}
-            <hr>
+            <div class="discussion-sidebar">
+              <h5>PEOPLE IN THIS DISCUSSION</h5>
+              <hr>
+              {{#each participants}}
+                <img src="{{avatar}}" alt="{{username}}" class="img-circle avatar author-avatar" />
+              {{/each}}
+            </div>
+
             {{#if currentUser}}
-              <h5>Notification</h5>
-              {{#if isInCollection subscribers}}
-                <div class="btn btn-sm btn-block btn-default" id="unsubscribe">
-                  unsubscribe
-                </div>
-                You’re receiving notifications because you’re subscribed to this thread.
+              <div class="discussion-sidebar">
+                <h5>NOTIFICATION</h5>
+                <hr>
+                {{#if isInCollection subscribers}}
+                  <div class="btn btn-sm btn-block btn-default" id="unsubscribe">
+                    unsubscribe
+                  </div>
+                  You’re receiving notifications because you’re subscribed to this thread.
+                {{else}}
+                  <div class="btn btn-sm btn-block btn-default" id="subscribe">
+                    subscribe
+                  </div>
+                  You’re ignoring this thread.
+                {{/if}}
+              </div>
+
+              <div class="discussion-sidebar">
+                <h5>MY ACTIVE TOPICS</h5>
+                <hr>
+                <p>one</p>
+                <hr>
+                <p>one</p>
+              </div>
+
               {{else}}
-                <div class="btn btn-sm btn-block btn-default" id="subscribe">
-                  subscribe
-                </div>
-                You’re ignoring this thread.
-              {{/if}}
+
+              <div class="discussion-sidebar">
+                <h5>RELATED TOPICS</h5>
+                <hr>
+                <p>one</p>
+                <hr>
+                <p>one</p>
+              </div>
             {{/if}}
-            <hr>
           </div>
-          <!-- right ends -->
 
         </div>
+
+
+
+
 
       {{/with}}
     {{else}}
       {{> loading}}
     {{/if}}
   </div>
+  </div>
+
 </template>

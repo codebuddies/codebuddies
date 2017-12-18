@@ -14,6 +14,10 @@ Template.discussion.helpers({
 
 
 Template.discussion.events({
+  "click #editDiscussion": function(event, template){
+     event.preventDefault();
+     Modal.show("editDiscussionModal", this);
+  },
   "click #subscribe": function(event, template){
      event.preventDefault();
      const data = {
