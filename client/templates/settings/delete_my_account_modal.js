@@ -28,7 +28,7 @@ Template.deleteMyAccountModal.events({
       detail: detail || "Not Specified"
     }
 
-    Meteor.call("deleteUserAcount", data, function(error, result){
+    Meteor.call("deleteUserAccount", data, function(error, result){
       if(error){
         console.log("error", error.error);
       }
