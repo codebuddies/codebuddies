@@ -40,6 +40,7 @@ Template.createHangoutModal.onRendered(function() {
   });
 
   const instance = this;
+  instance.studyGroupId = FlowRouter.getParam('studyGroupId');
   instance.autorun(() => {
 
     let roles = Meteor.user().roles;
@@ -68,6 +69,9 @@ Template.createHangoutModal.onRendered(function() {
         data: studyGroups
       });
 
+      if (typeof instance.studyGroupId !== 'undefined' && instance.studyGroupId !== '') {
+        instance.$(".study-group-single").val(instance.studyGroupId).trigger('change');
+      }
     },1500)
 
   });
