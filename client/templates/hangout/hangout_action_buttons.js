@@ -42,6 +42,7 @@ Template.hangoutActionButtons.events({
     $('#edit-hangout-modal input[value=' + hangout.data.type + ']').prop("checked", true);
     $('#edit-hangout-modal #start-date-time').val(start_time_reverted);
     $('#edit-hangout-modal #end-date-time').val(hangoutDuration);
+    $('#edit-hangout-modal #group').val(hangout.data.group.title);
     //console.log(start_time_reverted);
     //console.log(end_time_reverted);
 
