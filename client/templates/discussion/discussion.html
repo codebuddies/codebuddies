@@ -6,8 +6,10 @@
       {{#with discussion}}
 
         <div class="row">
-          <div class="col-md-8 discussion-card">
-            <div class="row">
+          <!-- main section -->
+          <div class="col-md-8">
+            {{! discussion }}
+            <div class="row discussion-card">
               <div class="col-md-1">
                 <img src="{{author.avatar}}" alt="{{author.username}}" class="img-circle avatar author-avatar" />
               </div>
@@ -26,11 +28,73 @@
                   <small><a href="{{pathFor 'study group' studyGroupSlug=study_group.slug studyGroupId=study_group.id}}"><span class="label label-default">{{truncateIt study_group.title '30'}}</span></a></small> &nbsp; &nbsp;
                 </h4>
               </div>
-
             </div>
 
-          </div>
+            {{! comments }}
 
+            {{#unless responses.count}}
+              <!-- todo filter-->
+
+            {{/unless}}
+            {{#each responses}}
+              <div class="row discussion-card">
+                <div class="col-md-1">
+                  <img src="{{author.avatar}}" alt="{{author.username}}" class="img-circle avatar author-avatar" />
+                </div>
+                <div class="col-md-11">
+                  <div class="description-text">
+                    {{#markdown}}{{text}}{{/markdown}}
+                  </div>
+                  <hr>
+                  <h4>
+                    <small><i class="fa fa-clock-o" aria-hidden="true"></i> Posted on : {{dispDate created_at}} </small> &nbsp; &nbsp;
+                  </h4>
+                  <!-- <h4>
+                    <i class="fa fa-thumbs-o-up {{#if isInCollection up_votes}} upvoted {{else}} upvote {{/if}}" aria-hidden="true"></i> <small>{{up_votes.length}}</small> &nbsp; &nbsp;
+                    <i class="fa fa-thumbs-o-down {{#if isInCollection down_votes}} downvoted {{else}} downvote {{/if}}" aria-hidden="true"></i> <small>{{down_votes.length}}</small> &nbsp; &nbsp;
+                    <small><i class="fa fa-clock-o" aria-hidden="true"></i> Posted on : {{dispDate created_at}} </small> &nbsp; &nbsp;
+                    <small><i class="fa fa-comments-o" aria-hidden="true"></i> {{response_count}} </small> &nbsp; &nbsp;
+                    <small><i class="fa fa-eye" aria-hidden="true"></i> {{views}} </small> &nbsp; &nbsp;
+                    <small><a href="{{pathFor 'study group' studyGroupSlug=study_group.slug studyGroupId=study_group.id}}"><span class="label label-default">{{truncateIt study_group.title '30'}}</span></a></small> &nbsp; &nbsp;
+                  </h4> -->
+                </div>
+              </div>
+            {{/each}}
+
+
+            {{! response }}
+            <div class="row discussion-card">
+              {{#if currentUser}}
+                <div class="col-md-1">
+                  <img src="{{currentUser.profile.avatar.default}}" alt="{{currentUser.username}}" class="img-circle avatar author-avatar" />
+                </div>
+                <div class="col-md-11">
+                  <div>
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs" role="tablist">
+                      <li role="presentation" class="active"><a href="#write" aria-controls="write" role="tab" data-toggle="tab">Write</a></li>
+                      <li role="presentation"><a href="#preview" aria-controls="preview" role="tab" data-toggle="tab">Preview</a></li>
+                    </ul>
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                      <div role="tabpanel" class="tab-pane active" id="write">
+                        <textarea class="form-control" id="discussionResponse" rows="5" cols="70" placeholder="Type your reply here"></textarea>
+                      </div>
+                      <div role="tabpanel" class="tab-pane" id="preview">{{#markdown}}{{discussionResponsePreview}}{{/markdown}}</div>
+                    </div>
+                  </div>
+                  <br>
+                  <div class="btn btn-default pull-right" id="addResponseToDiscussion">Reply</div>
+                </div>
+
+              {{/if}}
+            </div>
+
+
+          </div>
+          <!-- main section ends-->
+
+          <!-- right sidebar -->
           <div class="col-md-3 col-md-offset-1">
             <div class="discussion-sidebar">
               <h5>PEOPLE IN THIS DISCUSSION</h5>
@@ -77,6 +141,7 @@
               </div>
             {{/if}}
           </div>
+          <!-- right sidebar ends -->
 
         </div>
 
