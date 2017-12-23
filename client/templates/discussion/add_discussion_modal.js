@@ -1,14 +1,23 @@
 Template.addDiscussionModal.onCreated(function(){
    const instance = this;
    instance.processing = new ReactiveVar(false);
+   instance.discussionDescriptionPreview = new ReactiveVar('');
 });
+
 Template.addDiscussionModal.helpers({
   processing: function(){
     return Template.instance().processing.get();
+  },
+  discussionDescriptionPreview: function(){
+    return Template.instance().discussionDescriptionPreview.get();
   }
 });
 
 Template.addDiscussionModal.events({
+  "change #discussionDescription": function(event, template){
+    event.preventDefault();
+    template.discussionDescriptionPreview.set(($.trim(template.find("#discussionDescription").value)))
+  },
   "submit .addDiscussion": function(event, template){
     event.preventDefault();
 

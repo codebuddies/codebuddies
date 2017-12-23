@@ -16,7 +16,21 @@
               </div>
               <div class="form-group">
                 <label  class="control-label">Description</label>
-                <textarea name="sgDesc" class="form-control" id="discussionDescription" rows="5" cols="70" placeholder="Description"></textarea>
+                <!-- <textarea class="form-control" id="discussionDescription" rows="5" cols="70" placeholder="Description"></textarea> -->
+                <div>
+                  <!-- Nav tabs -->
+                  <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#write" aria-controls="write" role="tab" data-toggle="tab">Write</a></li>
+                    <li role="presentation"><a href="#preview" aria-controls="preview" role="tab" data-toggle="tab">Preview</a></li>
+                  </ul>
+                  <!-- Tab panes -->
+                  <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="write">
+                      <textarea class="form-control" id="discussionDescription" rows="5" cols="70" placeholder="Description"></textarea>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="preview">{{#markdown}}{{discussionDescriptionPreview}}{{/markdown}}</div>
+                  </div>
+                </div>
               </div>
 
 

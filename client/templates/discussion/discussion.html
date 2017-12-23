@@ -12,7 +12,7 @@
                 <img src="{{author.avatar}}" alt="{{author.username}}" class="img-circle avatar author-avatar" />
               </div>
               <div class="col-md-11">
-                <h3>{{topic}} <small>{{#if modified_at}}(Edited){{/if}} <div class="btn btn-sm btn-default pull-right" id="editDiscussion"> Edit </div> </small> </h3>
+                <h3>{{topic}} <small>{{#if modified_at}}(Edited){{/if}} {{#if isAuthor author.id}}<div class="btn btn-sm btn-default pull-right" id="editDiscussion"> Edit </div>{{/if}} </small> </h3>
                 <div class="description-text">
                   {{#markdown}}{{description}}{{/markdown}}
                 </div>
@@ -57,6 +57,7 @@
                 {{/if}}
               </div>
 
+              {{! @todo display 5 active topics}}
               <div class="discussion-sidebar">
                 <h5>MY ACTIVE TOPICS</h5>
                 <hr>
@@ -66,7 +67,7 @@
               </div>
 
               {{else}}
-
+              {{! @todo if not logged in display 5 related topics}}
               <div class="discussion-sidebar">
                 <h5>RELATED TOPICS</h5>
                 <hr>

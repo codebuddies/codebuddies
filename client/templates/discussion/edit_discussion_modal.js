@@ -1,14 +1,28 @@
 Template.editDiscussionModal.onCreated(function(){
    const instance = this;
    instance.processing = new ReactiveVar(false);
+   instance.discussionDescriptionPreview = new ReactiveVar('');
 });
+
+Template.editDiscussionModal.onRendered(function(){
+  const instance = this;
+  instance.discussionDescriptionPreview.set(instance.data.description)
+});
+
 Template.editDiscussionModal.helpers({
   processing: function(){
     return Template.instance().processing.get();
+  },
+  discussionDescriptionPreview: function(){
+    return Template.instance().discussionDescriptionPreview.get();
   }
 });
 
 Template.editDiscussionModal.events({
+  "change #discussionDescription": function(event, template){
+    event.preventDefault();
+    template.discussionDescriptionPreview.set(($.trim(template.find("#discussionDescription").value)))
+  },
   "submit .editDiscussion": function(event, template){
     event.preventDefault();
 
