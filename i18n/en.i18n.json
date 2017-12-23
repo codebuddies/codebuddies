@@ -155,6 +155,8 @@
   "settings": "Settings",
   "start_new_group": "Start a New Group",
   "select_new_owner": "Select new owner",
+  "discussion": "Discussion",
+  "discussion_topic": "Discussion Topic",
 
   // alerts
   "alert_language_change": "Language changed to %s",
