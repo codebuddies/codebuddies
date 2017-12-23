@@ -5,7 +5,8 @@ Template.homeLoggedOut.onCreated(function(){
   DocHead.addMeta(metaInfo);
 });
 
- Template.homeLoggedOut.rendered = function() {
+
+Template.homeLoggedOut.onRendered(function(){
 
  $('#hangout-tips').click(function() {
     Modal.show('hangoutTips');
@@ -30,8 +31,7 @@ Template.homeLoggedOut.onCreated(function(){
     $('span.slack-text').text('Get Slack Invite');
    });
 
-
-};
+});
 
 
 Template.homeLoggedOut.events({
@@ -42,6 +42,3 @@ Template.homeLoggedOut.events({
     Meteor.loginWithSlack(options);
   }
 });
-
-
-
