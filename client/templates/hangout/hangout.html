@@ -23,7 +23,7 @@
                       <h5 class="in-progress"><span class="oval"></span> LIVE</h5>
                   {{/if}}
 
-                  {{topic}}  
+                  {{topic}}
 
                   {{#if views}}
                     <span class="view"><i class="fa fa-eye" aria-hidden="true" data-toggle="tooltip" title="Views" > </i> {{views}}</span>
@@ -38,7 +38,7 @@
                     <i class="fa {{getHangoutTypeSign type}}"></i> {{type}} hangout <sup><a id="hangout-faq-popup"><i class="fa fa-question-circle"></i></a></sup> started by
                     <a href="{{#if currentUser}} {{pathFor 'profile' name=host.name userId=host.id}} {{/if}}" class="{{#unless currentUser}} continue-popup {{/unless}}">{{host.name}}</a>
                   </p>
-                
+
                    <p class="date-holder">
                     <i class="fa fa-clock-o" aria-hidden="true"></i>
                       <strong>{{getHangoutStartDateDay start}}</strong>
@@ -52,12 +52,12 @@
                       {{/if}}
                   </p>
                  <!-- ./hangout type host and date time -->
-          
+
                 {{> hangoutActionButtons }}
-                
+
                 {{#if isHangoutInProgress start end}}
                     {{#if hangoutOwner host.id}}
-                        <div class="hangout-action-buttons"><div id="end-hangout" class="btn btn-cb2 btn-danger">{{_ "end_hangout"}}</div></div> 
+                        <div class="hangout-action-buttons"><div id="end-hangout" class="btn btn-cb2 btn-danger">{{_ "end_hangout"}}</div></div>
                     {{else}}
                         {{#if isInRole 'admin,moderator,volunteer' 'CB'}}
                             <div class="hangout-action-buttons"><div id="end-hangout" class="btn btn-cb2 btn-danger">{{_ 'end_hangout'}}</div></div>
@@ -73,7 +73,7 @@
                     <a href="{{#if currentUser}} {{pathFor 'profile' name=name userId=id}} {{/if}}" class="{{#unless currentUser}} continue-popup {{/unless}}" ><img class="img-circle" src="{{avatar}}"></a>
                   {{/each}}
                 </div>
-              
+
                       {{# unless isHangoutCompleted end }}
 
                        {{#if isHangoutInProgress start end}}
@@ -99,11 +99,11 @@
                       {{/if}}
 
                     {{else}}
-              
+
                     {{/if}} <!-- This refers isHangoutInProgress -->
 
                   {{/unless}}
-                  
+
                   <h3>Hangout Tips</h3>
 
                    <ol>
@@ -113,7 +113,7 @@
                         <li>Take advantage of the ability to screenshare simultaneously! It is helpful for reading the same code, pair programming, and staying on task.</li>
                         <li>Remember to share what you learned.</li>
                     </ol>
-                  
+
 
           </div>
           <div class="col-md-9 hangout-body">
@@ -127,15 +127,15 @@
               {{#if isAttending users}}
                   {{> hangoutFrame }}
               {{ else }}
-              
+
                 <a class="{{#if currentUser}}{{# unless isHangoutCompleted end}} join-hangout {{/unless }} {{else}} continue-popup {{/if}}"><img src="/images/logo-circle-cropped.png" width="65%" class="load-hangout-screenshot display-block centered margin-top-1"/></a>
-              {{/if}} 
-          
+              {{/if}}
+
             {{#if equals visibility false}}
               <span class="label label-pill label-danger">DELETED</span>
             {{else}}
 
-             
+
         {{/if}} <!-- if equals visibility false -->
 
               {{> hangoutLearned }}
@@ -157,14 +157,14 @@
             {{else}}
 
                 {{> hangoutNotFound}}
-            
+
         {{/with}}
         {{else}}
 
           {{> loading}}
-         
+
         {{/if}}
-      
+
     </div>
   </div>
 </template>
