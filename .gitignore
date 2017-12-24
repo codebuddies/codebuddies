@@ -1,13 +1,25 @@
-settings-production.json
 push.sh
 node_modules
-settings-keys.json
 .DS_Store
 fullchain.pem
-mup.json
 privkey.pem
-settings.json
-npm-debug.log
-my-settings.json
-package.tar.gz
 .clipboard
+package.tar.gz
+
+# json files
+my-settings.json
+mup.json
+settings.json
+settings-keys.json
+settings-production.json
+
+# errors
+npm-debug.log
+yarn-error.log
+
+# lock files
+package-lock.json
+yarn.lock
+
+# personal
+notes.md
