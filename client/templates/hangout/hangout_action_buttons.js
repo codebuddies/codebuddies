@@ -80,6 +80,35 @@ Template.hangoutActionButtons.events({
         });
       }); //sweetAlert
   },
+  'click #end-hangout': function(){
 
+    const data = {
+      hangoutId: this._id,
+    }
 
+    sweetAlert({
+        type: 'warning',
+        title: TAPi18n.__("end_hangout_confirm"),
+        cancelButtonText: TAPi18n.__("no_end_hangout"),
+        confirmButtonText: TAPi18n.__("yes_end_hangout"),
+        confirmButtonColor: "#d9534f",
+        showCancelButton: true,
+        closeOnConfirm: false,
+      },
+      function() {
+        // disable confirm button to avoid double (or quick) clicking on confirm event
+        swal.disableButtons();
+        // if user confirmed/selected yes, let's call the delete hangout method on the server
+
+        Meteor.call('endHangout', data, function(error, result) {
+          if (result) {
+            swal("Poof!", "Your hangout has been successfully ended!", "success");
+          } else {
+            swal("Oops something went wrong!", error.error + "\n Try again", "error");
+          }
+        });
+
+      }); //sweetAlert
+
+  },
 });
