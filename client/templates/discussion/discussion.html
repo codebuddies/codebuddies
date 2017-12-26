@@ -72,15 +72,17 @@
                   <div>
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs" role="tablist">
-                      <li role="presentation" class="active"><a href="#write" aria-controls="write" role="tab" data-toggle="tab">Write</a></li>
-                      <li role="presentation"><a href="#preview" aria-controls="preview" role="tab" data-toggle="tab">Preview</a></li>
+                      <li role="presentation" class="active"><a href="#responseWrite" aria-controls="responseWrite" role="tab" data-toggle="tab">Write</a></li>
+                      <li role="presentation"><a href="#responsePreview" aria-controls="responsePreview" role="tab" data-toggle="tab">Preview</a></li>
                     </ul>
                     <!-- Tab panes -->
                     <div class="tab-content">
-                      <div role="tabpanel" class="tab-pane active" id="write">
+                      <div role="tabpanel" class="tab-pane active" id="responseWrite">
                         <textarea class="form-control" id="discussionResponse" rows="5" cols="70" placeholder="Type your reply here"></textarea>
                       </div>
-                      <div role="tabpanel" class="tab-pane" id="preview">{{#markdown}}{{discussionResponsePreview}}{{/markdown}}</div>
+                      <div role="tabpanel" class="tab-pane preview-pane" id="responsePreview">
+                        {{#markdown}}{{discussionResponsePreview}}{{/markdown}}
+                      </div>
                     </div>
                   </div>
                   <br>

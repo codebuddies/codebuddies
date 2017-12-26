@@ -14,6 +14,8 @@ Template.editDiscussionModal.helpers({
     return Template.instance().processing.get();
   },
   discussionDescriptionPreview: function(){
+    console.log(Template.instance().discussionDescriptionPreview.get());
+
     return Template.instance().discussionDescriptionPreview.get();
   }
 });

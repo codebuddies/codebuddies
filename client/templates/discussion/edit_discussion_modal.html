@@ -20,15 +20,17 @@
                 <div>
                   <!-- Nav tabs -->
                   <ul class="nav nav-tabs" role="tablist">
-                    <li role="presentation" class="active"><a href="#write" aria-controls="write" role="tab" data-toggle="tab">Write</a></li>
-                    <li role="presentation"><a href="#preview" aria-controls="preview" role="tab" data-toggle="tab">Preview</a></li>
+                    <li role="presentation" class="active"><a href="#descriptionWrite" aria-controls="descriptionWrite" role="tab" data-toggle="tab">Write</a></li>
+                    <li role="presentation"><a href="#descriptionPreview" aria-controls="descriptionPreview" role="tab" data-toggle="tab">Preview</a></li>
                   </ul>
                   <!-- Tab panes -->
                   <div class="tab-content">
-                    <div role="tabpanel" class="tab-pane active" id="write">
-                      <textarea name="sgDesc" class="form-control" id="discussionDescription" rows="5" cols="70" placeholder="Description" value="{{description}}"></textarea>
+                    <div role="tabpanel" class="tab-pane active" id="descriptionWrite">
+                      <textarea class="form-control" id="discussionDescription" rows="5" cols="70" placeholder="Description" value="{{description}}"></textarea>
                     </div>
-                    <div role="tabpanel" class="tab-pane" id="preview">{{#markdown}}{{discussionDescriptionPreview}}{{/markdown}}</div>
+                    <div role="tabpanel" class="tab-pane preview-pane" id="descriptionPreview">
+                      {{#markdown}}{{discussionDescriptionPreview}}{{/markdown}}
+                    </div>
                   </div>
                 </div>
 

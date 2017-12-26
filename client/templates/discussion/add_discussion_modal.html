@@ -28,7 +28,9 @@
                     <div role="tabpanel" class="tab-pane active" id="write">
                       <textarea class="form-control" id="discussionDescription" rows="5" cols="70" placeholder="Description"></textarea>
                     </div>
-                    <div role="tabpanel" class="tab-pane" id="preview">{{#markdown}}{{discussionDescriptionPreview}}{{/markdown}}</div>
+                    <div role="tabpanel" class="tab-pane preview-pane" id="preview">
+                      {{#markdown}}{{discussionDescriptionPreview}}{{/markdown}}
+                    </div>
                   </div>
                 </div>
               </div>
