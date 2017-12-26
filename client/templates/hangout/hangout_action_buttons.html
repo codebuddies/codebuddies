@@ -15,7 +15,7 @@
                         {{/unless}}
 
                     {{/if}}
-             
+
 
               {{ else }}
 
@@ -44,7 +44,17 @@
         <a href="#" class="delete-hangout btn btn-cb2 btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i>&nbsp; Delete <span class="label label-info">M</span> </a>
       {{/if}}
     {{/if}}
-        
+
   </div>
+
+  {{#if isHangoutInProgress start end}}
+      {{#if hangoutOwner host.id}}
+          <div class="hangout-action-buttons"><div id="end-hangout" class="btn btn-cb2 btn-danger">{{_ "end_hangout"}}</div></div>
+      {{else}}
+          {{#if isInRole 'admin,moderator,volunteer' 'CB'}}
+              <div class="hangout-action-buttons"><div id="end-hangout" class="btn btn-cb2 btn-danger">{{_ 'end_hangout'}}</div></div>
+          {{/if}}
+      {{/if}}
+  {{/if}}
 </div>
 </template>
