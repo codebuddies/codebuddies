@@ -54,6 +54,13 @@
       color: $white;
       @include font-face(700, 2em, bold, $white);
     }
+    p.key {
+        @include font-face(400, 0.9em, normal, $white);
+        span { margin-right: 10px; display: inline-block;}
+    }
+    .popover-content {
+        @include font-face(400, 0.9em, normal, $black);
+    }
     #hangout-faq-popup {
       color: $white;
     }
