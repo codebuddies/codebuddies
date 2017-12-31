@@ -1,6 +1,6 @@
 <template name="hangoutCard">
     {{#if group}}<a href="{{pathFor 'study group' studyGroupSlug=group.slug studyGroupId=group.id}}"> <span class="study-group-tag label label-default pull-right">{{group.title}}</span> </a>{{/if}}
-    <a href="{{pathFor 'hangout' hangoutId=_id }}" class="hangout-card" data-toggle="popover" data-placement="top" data-content="{{ getDescriptionTruncated description }}">
+    <a href="{{pathFor 'hangout' hangoutId=_id }}" class="hangout-card {{#if isHangoutCompleted end }}completed{{/if}}" data-toggle="popover" data-placement="top" data-content="{{ getDescriptionTruncated description }}">
     <div class="card-header-wrapper">
       <div class="pull-left calendar">
         <h4 class="hangout-topic {{#if isHangoutCompleted end }}completed{{/if}}">{{#if isHangoutCompleted end }}<i class="fa fa-check" aria-hidden="true"></i>{{/if}} {{truncate topic}}</h4>
@@ -33,8 +33,8 @@
             {{/unless}}
        </small>
         <small class="hangout-details details-extra">
-            with {{users.length}} RSVPed
-            {{#if views}} and <i class="fa fa-eye" aria-hidden="true" data-toggle="tooltip" title="Views" > {{views}} views </i> {{/if}}
+            with {{users.length}} RSVPed <br/>
+            {{#if views}} <i class="fa fa-eye" aria-hidden="true" data-toggle="tooltip" title="Views" > {{views}} views </i> {{/if}}
         </small>
     </h4>
 

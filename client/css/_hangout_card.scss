@@ -1,8 +1,11 @@
 .hangout-card {
+  &.completed {
+      height: 160px;
+  }
   border-radius: 0 !important;
   background: $white;
   display: inline-block;
-  height: 200px;
+  height: 230px;
   width: 100%;
   margin: 5px 0px;
   padding: 10px;
@@ -25,7 +28,9 @@
     letter-spacing: 0.2px;
   }
   .hangout-meta {
-    font-size: 14px;
+    font-size: 18px;
+    line-height: 0.8;
+    margin: 0;
   }
   button {
     display: inline;
@@ -60,5 +65,6 @@
   .show-on-hover { display: block; }
   h5.completed.show-on-hover { display: inline-block; line-height: 0.8;}
   .hangout-description { display: none; }
+  .hangout-meta { display: none;}
 }
 
