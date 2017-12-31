@@ -27,5 +27,10 @@ Template.about.onRendered(function(){
     if ($window.scrollTop() > 0) {
       $window.scrollTop(0);
     }
+
+    // display fallback image if image url of contributor is broken
+    $('img.img-circle').on('error', function() {
+       $(this).prop('src', '/images/unknown.png');
+    });
 	 });
 });
