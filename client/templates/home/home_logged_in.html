@@ -6,7 +6,7 @@
         <div class="bg-blue">
             <div class="heading">
               <div class="title">{{_ "join_hangouts"}} </div>
-              <p>Hangouts is where you can learn or work together in real time. By joining a hangout, you can ask questions, share ideas or code-pair on something you're currently working on. <span class="question"><a id="hangout-faq-popup">Learn more</a></span></p>
+              <p>Hangouts is where you can learn or work together in real time. By joining or starting a hangout, you can ask questions, share ideas or code-pair on something you're currently working on. <span class="question"><a id="hangout-faq-popup">Learn more</a></span></p>
               
               <div class="search-area">
   							{{#unless hangoutSearchMode }}
@@ -26,16 +26,12 @@
              </div><!--heading-->
 
             
-
+            <div class="hangouts-area">
           	{{#if hangoutSearchMode}}
 
-							<div class="col-md-12">
-								<div class="panel panel-default">
-									<div class="panel-body">
-									<h4 class="search-message">Showing results for <strong>'{{hangoutSearchTerm}}'</strong></h4>
-									</div>
-								</div>
-							</div>
+                    <div class="search-message">
+					    <h4>Showing results for <strong>'{{hangoutSearchTerm}}'</strong></h4>
+                    </div>
 
                 {{#if searchResults.count}}
 
@@ -49,27 +45,22 @@
 
                 {{else}}
 
-								<div class="col-md-12">
-									<div class="panel panel-default">
-										<div class="panel-body">
-											<h4>Sorry, no results were found.</h4>
-											<p>Please check your spelling, or try another search.</p>
-										</div>
-									</div>
-								</div>
+                        <div class="search-message">
+							<h4>Sorry, no results were found.</h4>
+							<p>Please check your spelling, or try another search.</p>
+                        </div>
+
 
                 {{/if}}<!--searchResults.count-->
 
             {{else}}
 
-              <div class="row">
 
-                <div class="col-md-12">
-                  {{> hangoutCards}}
-                </div>
-              </div>
+        {{> hangoutCards}}
+    
 
             {{/if}}<!--searchMode-->
+        </div>
 
           </div>
       </div><!--col-md-6 col-md-offset-1-->

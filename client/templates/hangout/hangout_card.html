@@ -1,46 +1,44 @@
 <template name="hangoutCard">
     {{#if group}}<a href="{{pathFor 'study group' studyGroupSlug=group.slug studyGroupId=group.id}}"> <span class="study-group-tag label label-default pull-right">{{group.title}}</span> </a>{{/if}}
-    <a href="{{pathFor 'hangout' hangoutId=_id }}" class="hangout-card">
+    <a href="{{pathFor 'hangout' hangoutId=_id }}" class="hangout-card" data-toggle="popover" data-placement="top" data-content="{{ getDescriptionTruncated description }}">
     <div class="card-header-wrapper">
       <div class="pull-left calendar">
-        <h4 class="hangout-date"><i class="fa fa-calendar"></i>  {{getHangoutStartDateTime start}}</h4>
+        <h4 class="hangout-topic {{#if isHangoutCompleted end }}completed{{/if}}">{{#if isHangoutCompleted end }}<i class="fa fa-check" aria-hidden="true"></i>{{/if}} {{truncate topic}}</h4>
+        <h4 class="hangout-date {{#if isHangoutCompleted end }}completed{{/if}}">{{getHangoutStartDateDay start}}</h4>
+        <h4 class="hangout-date {{#if isHangoutCompleted end }}completed{{/if}}">{{getHangoutStartTime start}}</h4>
         {{#if isHangoutInProgress start end}} 
           <h5 class="in-progress"><span class="oval"></span> LIVE</h5>
         {{/if}}
         {{# unless isHangoutCompleted end}}
           {{#unless isHangoutInProgress start end}} 
-            - <h5 class="upcoming">{{upcomingTime start}}</h5>
+            <p class="upcoming">{{upcomingTime start}}</p>
           {{/unless}}
         {{ else }}
             <h5 class="hangout-date completed show-on-hover">{{_ "completed"}}</h5>
         {{/unless}}
       </div>
       <div class="pull-right more-options">
+          <i class="fa {{getHangoutTypeSign type}}"></i>
          {{> hangoutActionBar}}
       </div>
     </div>
+    
+    <h4 class="hangout-meta clear">
+      <small class="hangout-details">
+           Scheduled by
+            {{#unless currentUser}}
+              <a href="#" class="{{#unless currentUser}} continue-popup {{/unless}}">{{host.name}}</a>
+            {{else}}
+              <a href="{{pathFor 'profile' name=host.name userId=host.id}}">{{host.name}}</a>
+            {{/unless}}
+       </small>
+        <small class="hangout-details details-extra">
+            with {{users.length}} RSVPed
+            {{#if views}} and <i class="fa fa-eye" aria-hidden="true" data-toggle="tooltip" title="Views" > {{views}} views </i> {{/if}}
+        </small>
+    </h4>
 
-        <h4 class="hangout-topic {{#if isHangoutCompleted end }}completed{{/if}}">{{truncate topic}}</h4>
-
-        <h4 class="hangout-meta">
-          <small class="hangout-details">
-              <i class="fa {{getHangoutTypeSign type}}"></i> Started by
-                {{#unless currentUser}}
-                  <a href="#" class="{{#unless currentUser}} continue-popup {{/unless}}">{{host.name}}</a>
-                {{else}}
-                  <a href="{{pathFor 'profile' name=host.name userId=host.id}}">{{host.name}}</a>
-                {{/unless}}
-           </small>
-            <small class="hangout-details details-extra">
-                {{users.length}} Joined
-                {{#if views}}| <i class="fa fa-eye" aria-hidden="true" data-toggle="tooltip" title="Views" > {{views}} </i> {{/if}}
-            </small>
-        </h4>
-
-        <div class="hangout-description">
-          <p class="overflowtext">{{ getDescriptionTruncated description }}</p>
-        </div>
-        <div class="rsvp-buttons show-on-hover align-center">
+        <div class="rsvp-buttons align-center">
         {{# unless isHangoutCompleted end}}
             {{#if isHangoutInProgress start end}}
 
@@ -55,7 +53,6 @@
             {{else}}
 
               {{#if isAttending users}}
-                <button class="btn btn-cb2 align-center btn-grey" disabled>{{_ "joined"}}</button>
                 <button id="leave-hangout" class="btn btn-cb2 align-center">{{_ "leave"}}</button>
               {{else}}
 
@@ -67,11 +64,11 @@
               {{/if}}
 
             {{/if}}
-          {{ else }}
-          <i class="fa fa-check" aria-hidden="true"></i>
+
           {{/unless}}
         </div>
-
+        
+        
   </a>
 
 </template>

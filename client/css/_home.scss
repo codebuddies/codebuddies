@@ -52,7 +52,7 @@
     .title {
       margin: 10px 0px 20px;
       color: $white;
-      @include font-face(700, 24px, bold, $white);
+      @include font-face(700, 2em, bold, $white);
     }
     #hangout-faq-popup {
       color: $white;
@@ -433,5 +433,31 @@
   #loadMore {
     width: 50%;
     margin: 20px auto;
+  }
+  .search-message {
+      h4, p { 
+            @include font-face(400, 1em, normal, $white);
+      }
+  }
+  .hangouts-area {
+      margin: 30px 30px;
+      .hangouts-title {
+          @include font-face(400, 1.4em, bold, $white);
+          margin: 10px 0px;
+      }
+      #active_hangouts, #past_hangouts {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-between;
+      div.card {
+          width: 100%;
+          @include breakpoint(small) { width: 49%; }
+          @include breakpoint(xmedium) { width: 49%; }
+          @include breakpoint(medium) { width: 49%; }
+          @include breakpoint(large) { width: 33%; }
+         
+      }
+      }
+      
   }
 }

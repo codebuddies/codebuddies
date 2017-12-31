@@ -1,13 +1,18 @@
+Template.hangoutCard.onRendered(function(){
+    $(function() {
+        $('[data-toggle="popover"]').popover({ trigger: "hover", html: "true" }); 
+    });
+});
 Template.hangoutCard.helpers({
   truncate: function(topic){
     return topic.truncate()
   },
   getDescriptionTruncated: function(description) {
-    if(description.length && description.length > 65){
-      return description.substring(0,65)+"...";
+    if(description.length && description.length > 400){
+      return description.substring(0,400)+"...";
     }
     else {
-      return description.substring(0,65)
+      return description.substring(0,400)
     }
   }
 });

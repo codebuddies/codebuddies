@@ -1,8 +1,12 @@
-#hangouts, #past_hangouts {
+#active_hangouts, #past_hangouts {
   .study-group-tag {
-    position: absolute;
-    top: -4px;
     z-index: 1;
+    color: $cta-blue;
+    background: $white;
+    position: absolute;
+    font-size: 11px;
+    text-align: left;
+    @include box-shadow(0, 12px, 60, rgba(0, 0, 0, .8));
   }
   padding: 0;
 
