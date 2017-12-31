@@ -89,7 +89,7 @@
 }
 
 .btn-slack {
-  @include font-face(400, 1em, normal, $black);
+  @include font-face(400, 15px, normal, $black);
   background-color: $bg-white;
   border: 2px solid $cta-blue;
   border-radius: 6px;
@@ -99,7 +99,7 @@
 }
 
 .btn-slack-join {
-  @include font-face(400, 1em, normal, $primary-grey);
+  @include font-face(400, 15px, normal, $primary-grey);
   @include border-radius(6px);
   background-color: $bg-white;
   height: 36px;
@@ -112,7 +112,7 @@
 }
 
 .btn-cb2 {
-  @include font-face(700, 1em, bold, $bg-white);
+  @include font-face(700, 15px, bold, $bg-white);
   background-color: $cta-blue;
   display: block;
   height: 36px;
@@ -139,7 +139,7 @@
 }
 
 .btn-cb3 {
-  @include font-face(700, 1em, bold, $bg-white);
+  @include font-face(700, 15px, bold, $bg-white);
   background-color: $cta-blue;
   display: block;
   height: 36px;
@@ -187,7 +187,7 @@
 }
 
 .btn-block {
-  @include font-face(700, 13px, bold, $cta-blue);
+  @include font-face(700, 15px, bold, $cta-blue);
   background: $white;
   border: 1px solid $cta-blue;
   margin-top: 10px;
@@ -223,7 +223,7 @@ li.delete-hangout, li.edit-hangout {
   }
   .hangout-action-buttons-other {
       a.btn {
-        @include font-face(200, 1em, light, $black);
+        @include font-face(200, 15px, light, $black);
         background: transparent;
         border: 1px solid $black;
         margin: 10px 0px 0px 0px;
@@ -241,7 +241,7 @@ li.delete-hangout, li.edit-hangout {
 }
 .btn-clear {
   width: 100%;
-  @include font-face(700, 1em, light, $white);
+  @include font-face(700, 15px, light, $white);
   background: $cta-blue;
   border: 1px solid $white;
   &:hover {
