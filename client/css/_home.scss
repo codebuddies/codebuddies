@@ -45,16 +45,30 @@
     }
   }
 
-  .heading {
-    @include font-face(700, 32px, bold, $primary-grey);
-    text-align: center;
+ .heading {
+    padding: 15px 30px;
+    background: #4982A8;
 
     .title {
       margin: 10px 0px 20px;
       color: $white;
+      @include font-face(700, 24px, bold, $white);
     }
     #hangout-faq-popup {
       color: $white;
+    }
+    p { 
+        @include font-face(400, 1.2em, normal, $white);
+        line-height: 1.2;
+        width: 100%;
+        @include breakpoint(small) { width: 70%; }
+        @include breakpoint(xmedium) { width: 70%; }
+        @include breakpoint(medium) { width: 70%; }
+        @include breakpoint(large) { width: 70%; }
+    }
+    a { 
+        @include font-face(400, 1.2em, normal, $white);
+        text-decoration: underline;
     }
   }
 
@@ -84,13 +98,24 @@
   }
 
   .search-area {
-    padding: 30px;
-    overflow: auto;
-
+    margin: 25px 0px;
     .searchTerm {
       font-size: 16px;
       height: 37px;
+      width: 100%;
+      margin-top: 10px;
+      @include breakpoint(small) { width: 45%; }
+      @include breakpoint(xmedium) { width: 45%; }
+      @include breakpoint(medium) { width: 45%; }
+      @include breakpoint(large) { width: 45%; }
+      position: relative;
+      top: 2px;
+      right: 3px;
     }
+    input, p, div {
+        display: inline;
+    }
+    p { padding: 0px 20px;}
   }
 
   .home-ask,
