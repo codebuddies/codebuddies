@@ -45,16 +45,37 @@
     }
   }
 
-  .heading {
-    @include font-face(700, 32px, bold, $primary-grey);
-    text-align: center;
+ .heading {
+    padding: 15px 30px;
+    background: $header-bg;
 
     .title {
       margin: 10px 0px 20px;
       color: $white;
+      @include font-face(700, 2em, bold, $white);
+    }
+    p.key {
+        @include font-face(400, 0.9em, normal, $white);
+        span { margin-right: 10px; display: inline-block;}
+    }
+    .popover-content {
+        @include font-face(400, 0.9em, normal, $black);
     }
     #hangout-faq-popup {
       color: $white;
+    }
+    p { 
+        @include font-face(400, 1.2em, normal, $white);
+        line-height: 1.2;
+        width: 100%;
+        @include breakpoint(small) { width: 70%; }
+        @include breakpoint(xmedium) { width: 70%; }
+        @include breakpoint(medium) { width: 70%; }
+        @include breakpoint(large) { width: 70%; }
+    }
+    a { 
+        @include font-face(400, 1.2em, normal, $white);
+        text-decoration: underline;
     }
   }
 
@@ -84,13 +105,24 @@
   }
 
   .search-area {
-    padding: 30px;
-    overflow: auto;
-
+    margin: 25px 0px;
     .searchTerm {
       font-size: 16px;
       height: 37px;
+      width: 100%;
+      margin-top: 10px;
+      @include breakpoint(small) { width: 45%; }
+      @include breakpoint(xmedium) { width: 45%; }
+      @include breakpoint(medium) { width: 45%; }
+      @include breakpoint(large) { width: 45%; }
+      position: relative;
+      top: 2px;
+      right: 3px;
     }
+    input, p, div {
+        display: inline;
+    }
+    p { padding: 0px 20px;}
   }
 
   .home-ask,
@@ -408,5 +440,31 @@
   #loadMore {
     width: 50%;
     margin: 20px auto;
+  }
+  .search-message {
+      h4, p { 
+            @include font-face(400, 1em, normal, $white);
+      }
+  }
+  .hangouts-area {
+      margin: 30px 30px;
+      .hangouts-title {
+          @include font-face(400, 1.4em, bold, $white);
+          margin: 10px 0px;
+      }
+      #active_hangouts, #past_hangouts {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-between;
+      div.card {
+          width: 100%;
+          @include breakpoint(small) { width: 49%; }
+          @include breakpoint(xmedium) { width: 49%; }
+          @include breakpoint(medium) { width: 49%; }
+          @include breakpoint(large) { width: 33%; }
+         
+      }
+      }
+      
   }
 }
