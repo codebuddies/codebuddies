@@ -16,7 +16,7 @@
         {{> hangoutActionBar}}
       </div>
 
-      <div class="col-md-3">
+      <div class="col-md-4">
         
       {{!-- Group Label --}}
       {{#if group}}<p><a href="{{pathFor 'study group' studyGroupSlug=group.slug studyGroupId=group.id}}"> <span class="label label-default pull-right">{{group.title}}</span> </a>  </p>{{/if}}
@@ -60,7 +60,7 @@
 
     </div>
 
-    <div class="col-md-9">
+    <div class="col-md-8">
 
 
       <p class="status"><label><i class="fa {{getHangoutTypeSign type}}"></i> Started by <a href="{{pathFor 'profile' name=host.name userId=host.id}}" class="{{#unless currentUser}} continue-popup {{/unless}}">{{host.name}}</a></label></p>

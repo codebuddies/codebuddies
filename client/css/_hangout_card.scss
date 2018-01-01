@@ -1,12 +1,16 @@
 .hangout-card {
+  &.completed {
+      height: 160px;
+  }
   border-radius: 0 !important;
   background: $white;
   display: inline-block;
-  height: 180px;
+  height: 230px;
   width: 100%;
   margin: 5px 0px;
   padding: 10px;
-  overflow: auto;
+  overflow: hidden;
+  position: relative;
 
   p.overflowtext {
     color: $secondary-grey;
@@ -21,16 +25,12 @@
     }
   }
   .hangout-date {
-    margin: 0px;
+    letter-spacing: 0.2px;
   }
   .hangout-meta {
-    position: absolute;
-    bottom: 0px;
-    padding-top: 0px;
-    margin-top: 0px;
-    padding-bottom: 10px;
-    background: white;
-    font-size: 14px;
+    font-size: 18px;
+    line-height: 0.8;
+    margin: 0;
   }
   button {
     display: inline;
@@ -51,6 +51,13 @@
   .show-on-hover {
     display: none;
   }
+  .rsvp-buttons {
+      position: absolute;
+      bottom: 0px;
+  }
+  .rsvp-buttons .btn-cb2 {
+      width: 100%;
+  }
 }
 
 .hangout-card:hover {
@@ -58,4 +65,6 @@
   .show-on-hover { display: block; }
   h5.completed.show-on-hover { display: inline-block; line-height: 0.8;}
   .hangout-description { display: none; }
+  .hangout-meta { display: none;}
 }
+
