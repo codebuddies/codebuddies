@@ -15,7 +15,7 @@
   }
   .author-avatar {
     width: 50px;
-    margin: 20px 0 10px
+    margin: 10px -15px 10px
   }
   .upvoted {
     color: #2ABB9C;
@@ -30,6 +30,7 @@
     text-align:justify;
     color: #989c9e;
     line-height: 25px;
+    min-height: 100px;
   }
 
   .discussion-sidebar {

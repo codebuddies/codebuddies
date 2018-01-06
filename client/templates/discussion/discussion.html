@@ -12,6 +12,7 @@
             <div class="row discussion-card">
               <div class="col-md-1">
                 <img src="{{author.avatar}}" alt="{{author.username}}" class="img-circle avatar author-avatar" />
+                <h5 class="pull-right">{{author.username}}</h5>
               </div>
               <div class="col-md-11">
                 <h3>{{topic}} <small>{{#if modified_at}}(Edited){{/if}} {{#if isAuthor author.id}}<div class="btn btn-sm btn-default pull-right" id="editDiscussion"> Edit </div>{{/if}} </small> </h3>
@@ -40,6 +41,7 @@
               <div class="row discussion-card">
                 <div class="col-md-1">
                   <img src="{{author.avatar}}" alt="{{author.username}}" class="img-circle avatar author-avatar" />
+                  <h5 class="pull-right">{{author.username}}</h5>
                 </div>
                 <div class="col-md-11">
                   <div class="description-text">
