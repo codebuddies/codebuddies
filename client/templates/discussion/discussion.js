@@ -122,5 +122,8 @@ Template.discussion.events({
 
 
 
+  },"click #editResponse": function(event, template){
+     event.preventDefault();
+     Modal.show("editResponseModal", this);
   },
 });

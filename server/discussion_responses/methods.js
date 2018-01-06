@@ -7,7 +7,7 @@
 */
 Meteor.methods({
   'discussionResponses.insert':function(data){
-    // @todo : this
+
     check(data, {
       discussion_id: String,
       parent_id: String,
@@ -35,7 +35,8 @@ Meteor.methods({
       author: author,
       created_at: new Date(),
       modified_at: null,
-      visibility: true
+      visibility: true,
+      version: 0
     }
 
 
@@ -55,6 +56,49 @@ Meteor.methods({
     }
 
     // @todo : notify the participants/subscribers
+
+    return true;
+
+  }
+});
+
+/**
+* Update Response
+* @function
+* @name discussionResponse.update
+* @param { Object } data - Data
+* @return {Boolean} true on success
+*/
+Meteor.methods({
+  'discussionResponses.update':function(data){
+
+    check(data, {
+      id: String,
+      text: String,
+    });
+
+    const actor = Meteor.user();
+
+    if (!actor) {
+      throw new Meteor.Error(403, "Access denied");
+    }else {
+
+    }
+
+    const discussionResponse = DiscussionResponses.findOne({"_id": data.id, "author.id": actor._id });
+
+    if (!discussionResponse) {
+      throw new Meteor.Error(403, "Access denied");
+    }
+
+
+    DiscussionResponses.update({_id:data.id}, {
+      $set:{
+        text: data.text,
+        modified_at: new Date()
+      },
+      $inc:{version: 1 }
+    });
 
     return true;
 

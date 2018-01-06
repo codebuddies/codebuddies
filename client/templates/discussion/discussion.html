@@ -50,6 +50,8 @@
                   <hr>
                   <h4>
                     <small><i class="fa fa-clock-o" aria-hidden="true"></i> Posted on : {{dispDate created_at}} </small> &nbsp; &nbsp;
+                    <small>{{#if modified_at}}(Edited){{/if}}</small> &nbsp; &nbsp;
+                    <small>{{#if isAuthor author.id}}<div class="btn btn-sm btn-default pull-right" id="editResponse"> Edit </div>{{/if}} </small>
                   </h4>
                   <!-- <h4>
                     <i class="fa fa-thumbs-o-up {{#if isInCollection up_votes}} upvoted {{else}} upvote {{/if}}" aria-hidden="true"></i> <small>{{up_votes.length}}</small> &nbsp; &nbsp;
