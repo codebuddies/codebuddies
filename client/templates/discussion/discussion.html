@@ -181,22 +181,16 @@
 
                 {{! @todo display 5 active topics}}
                 <div class="discussion-sidebar">
-                  <h5>MY ACTIVE TOPICS</h5>
-                  <hr>
-                  <p>one</p>
-                  <hr>
-                  <p>one</p>
+                  {{> discussionSidebarTopic type='active'}}
                 </div>
 
-                {{else}}
+              {{else}}
+
                 {{! @todo if not logged in display 5 related topics}}
                 <div class="discussion-sidebar">
-                  <h5>RELATED TOPICS</h5>
-                  <hr>
-                  <p>one</p>
-                  <hr>
-                  <p>one</p>
+                  {{> discussionSidebarTopic type='recent'}}
                 </div>
+
               {{/if}}
             </div>
             <!-- right sidebar ends -->

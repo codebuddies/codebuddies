@@ -284,3 +284,53 @@ Meteor.methods({
     return true;
   }
 });
+
+/**
+* get topics for sidebar
+* @function
+* @name discussions.getTopics
+* @param { Object } data - Data
+* @return {cursor}
+*/
+Meteor.methods({
+  'discussions.getTopics':function(data){
+    check(data, {
+      type: String,
+      id: String
+    });
+
+    let query = new Object();
+    query['visibility'] = {$ne:false};
+    query['_id'] = {$ne:data.id};
+
+
+    let options = new Object();
+    options.reactive=false;
+
+    let projection = new Object();
+    projection.fields = {"topic" : 1};
+    projection.limit = 5;
+    projection.sort = {'created_at' : 1};
+
+    let maybe = [];
+
+    switch (data.type) {
+      case "active":
+        const actor = Meteor.user();
+        maybe.push({ 'author.id': actor._id })
+        maybe.push({ 'participants.id': actor._id })
+        query['$or'] = maybe;
+        break;
+      case "recent":
+
+        break;
+      default:
+
+    }
+
+    // console.log(query);
+
+    return Discussions.find(query, projection, options).fetch();
+
+  }
+});
