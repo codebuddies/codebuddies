@@ -1,9 +1,9 @@
-Template.discussionCard.events({
-  "click #editDiscussion": function(event, template){
+Template.discussionResponseCard.events({
+  "click #editResponse": function(event, template){
      event.preventDefault();
-     Modal.show("editDiscussionModal", this);
+     Modal.show("editResponseModal", this);
   },
-  "click #deleteDiscussion": function(event) {
+  "click #deleteDiscussionResponse": function(event) {
     event.preventDefault();
     const data = {
       id: this._id
@@ -21,7 +21,7 @@ Template.discussionCard.events({
         // disable confirm button to avoid double (or quick) clicking on confirm event
         swal.disableButtons();
 
-        Meteor.call('discussions.remove', data, function(error, result) {
+        Meteor.call('discussionResponses.remove', data, function(error, result) {
           if (result) {
             swal("Poof!", "Your Discussion has been successfully deleted!", "success");
           } else {
@@ -31,12 +31,12 @@ Template.discussionCard.events({
 
       }); //sweetAlert
   },
-  "click .upvote": function(event) {
+  "click .rupvote": function(event) {
     event.preventDefault();
     const data = {
       id: this._id
     }
-    Meteor.call("discussions.upvote", data, function(error, result){
+    Meteor.call("discussionResponses.upvote", data, function(error, result){
       if(error){
         Bert.alert( error.reason, 'danger', 'growl-top-right' );
       }
@@ -45,13 +45,13 @@ Template.discussionCard.events({
       }
     });
   },
-  "click .downvote": function(event) {
+  "click .rdownvote": function(event) {
     event.preventDefault();
     const data = {
       id: this._id
     }
 
-    Meteor.call("discussions.downvote", data, function(error, result){
+    Meteor.call("discussionResponses.downvote", data, function(error, result){
       if(error){
         Bert.alert( error.reason, 'danger', 'growl-top-right' );
       }

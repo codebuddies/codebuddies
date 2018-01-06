@@ -1,0 +1,42 @@
+<template name="discussionCard">
+  <div class="row discussion-card">
+    <div class="col-md-1">
+      <img src="{{author.avatar}}" alt="{{author.username}}" class="img-circle avatar author-avatar" />
+      <h5 class="pull-right">{{author.username}}</h5>
+    </div>
+    <div class="col-md-11">
+
+      <h3>
+        {{topic}} <small>{{#if modified_at}}(Edited){{/if}} </small>
+        {{! available actions as a button grouping }}
+        {{#if isAuthor author.id}}
+          <div class="btn-group pull-right" role="group" aria-label="...">
+            <button type="button" class="btn btn-sm btn-default" id="editDiscussion">Edit</button>
+            <div class="btn-group" role="group">
+              <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <li id="deleteDiscussion"><a href="#">Remove</a></li>
+              </ul>
+            </div>
+          </div>
+        {{/if}}
+      </h3>
+
+      <div class="description-text">
+        {{#markdown}}{{description}}{{/markdown}}
+      </div>
+
+      <hr>
+      <h4>
+        <i class="fa fa-thumbs-o-up {{#if isInCollection up_votes}} upvoted {{else}} upvote {{/if}}" aria-hidden="true"></i> <small>{{up_votes.length}}</small> &nbsp; &nbsp;
+        <i class="fa fa-thumbs-o-down {{#if isInCollection down_votes}} downvoted {{else}} downvote {{/if}}" aria-hidden="true"></i> <small>{{down_votes.length}}</small> &nbsp; &nbsp;
+        <small><i class="fa fa-clock-o" aria-hidden="true"></i> Posted on : {{dispDate created_at}} </small> &nbsp; &nbsp;
+        <small><i class="fa fa-comments-o" aria-hidden="true"></i> {{response_count}} </small> &nbsp; &nbsp;
+        <small><i class="fa fa-eye" aria-hidden="true"></i> {{views}} </small> &nbsp; &nbsp;
+      </h4>
+
+    </div>
+  </div>
+</template>
