@@ -41,6 +41,6 @@ Meteor.publish("studyGroupDiscussions", function(studyGroupId, limit, discussion
 Meteor.publish("discussionById", function(discussionId){
   check(discussionId, String);
 
-  return Discussions.find({"_id": discussionId, "visibility": {$ne:false} });
+  return Discussions.find({"_id": discussionId });
 
 });

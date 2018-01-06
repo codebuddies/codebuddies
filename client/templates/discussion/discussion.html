@@ -5,154 +5,220 @@
     {{#if Template.subscriptionsReady}}
       {{#with discussion}}
 
+        <!-- breadcrumb -->
         <div class="row">
-          <!-- main section -->
-          <div class="col-md-8">
-            {{! discussion }}
-            <div class="row discussion-card">
-              <div class="col-md-1">
-                <img src="{{author.avatar}}" alt="{{author.username}}" class="img-circle avatar author-avatar" />
-                <h5 class="pull-right">{{author.username}}</h5>
-              </div>
-              <div class="col-md-11">
-                <h3>{{topic}} <small>{{#if modified_at}}(Edited){{/if}} {{#if isAuthor author.id}}<div class="btn btn-sm btn-default pull-right" id="editDiscussion"> Edit </div>{{/if}} </small> </h3>
-                <div class="description-text">
-                  {{#markdown}}{{description}}{{/markdown}}
-                </div>
-                <hr>
-                <h4>
-                  <i class="fa fa-thumbs-o-up {{#if isInCollection up_votes}} upvoted {{else}} upvote {{/if}}" aria-hidden="true"></i> <small>{{up_votes.length}}</small> &nbsp; &nbsp;
-                  <i class="fa fa-thumbs-o-down {{#if isInCollection down_votes}} downvoted {{else}} downvote {{/if}}" aria-hidden="true"></i> <small>{{down_votes.length}}</small> &nbsp; &nbsp;
-                  <small><i class="fa fa-clock-o" aria-hidden="true"></i> Posted on : {{dispDate created_at}} </small> &nbsp; &nbsp;
-                  <small><i class="fa fa-comments-o" aria-hidden="true"></i> {{response_count}} </small> &nbsp; &nbsp;
-                  <small><i class="fa fa-eye" aria-hidden="true"></i> {{views}} </small> &nbsp; &nbsp;
-                  <small><a href="{{pathFor 'study group' studyGroupSlug=study_group.slug studyGroupId=study_group.id}}"><span class="label label-default">{{truncateIt study_group.title '30'}}</span></a></small> &nbsp; &nbsp;
-                </h4>
-              </div>
-            </div>
+          <div class="col-md-12">
+            <ol class="breadcrumb">
+              <li><a href="{{pathFor 'all study groups'}}">Study Groups</a></li>
+              <li><a href="{{pathFor 'study group' studyGroupSlug=study_group.slug studyGroupId=study_group.id}}">{{truncateIt study_group.title '30'}}</a></li>
+              <li class="active">{{topic}}</li>
+            </ol>
+          </div>
+        </div>
 
-            {{! comments }}
 
-            {{#unless responses.count}}
-              <!-- todo filter-->
+        {{#if visibility}}
 
-            {{/unless}}
-            {{#each responses}}
+
+          <div class="row">
+            <!-- main section -->
+            <div class="col-md-8">
+              {{! discussion }}
               <div class="row discussion-card">
                 <div class="col-md-1">
                   <img src="{{author.avatar}}" alt="{{author.username}}" class="img-circle avatar author-avatar" />
                   <h5 class="pull-right">{{author.username}}</h5>
                 </div>
                 <div class="col-md-11">
-                  <div class="description-text">
-                    {{#markdown}}{{text}}{{/markdown}}
-                  </div>
-                  <hr>
-                  <h4>
-                    <small><i class="fa fa-clock-o" aria-hidden="true"></i> Posted on : {{dispDate created_at}} </small> &nbsp; &nbsp;
-                    <small>{{#if modified_at}}(Edited){{/if}}</small> &nbsp; &nbsp;
-                    <small>{{#if isAuthor author.id}}<div class="btn btn-sm btn-default pull-right" id="editResponse"> Edit </div>{{/if}} </small>
-                  </h4>
-                  <!-- <h4>
-                    <i class="fa fa-thumbs-o-up {{#if isInCollection up_votes}} upvoted {{else}} upvote {{/if}}" aria-hidden="true"></i> <small>{{up_votes.length}}</small> &nbsp; &nbsp;
-                    <i class="fa fa-thumbs-o-down {{#if isInCollection down_votes}} downvoted {{else}} downvote {{/if}}" aria-hidden="true"></i> <small>{{down_votes.length}}</small> &nbsp; &nbsp;
-                    <small><i class="fa fa-clock-o" aria-hidden="true"></i> Posted on : {{dispDate created_at}} </small> &nbsp; &nbsp;
-                    <small><i class="fa fa-comments-o" aria-hidden="true"></i> {{response_count}} </small> &nbsp; &nbsp;
-                    <small><i class="fa fa-eye" aria-hidden="true"></i> {{views}} </small> &nbsp; &nbsp;
-                    <small><a href="{{pathFor 'study group' studyGroupSlug=study_group.slug studyGroupId=study_group.id}}"><span class="label label-default">{{truncateIt study_group.title '30'}}</span></a></small> &nbsp; &nbsp;
-                  </h4> -->
+
+                    <h3>{{topic}} <small>{{#if modified_at}}(Edited){{/if}} </small>
+                      {{! available actions as a button grouping }}
+                      {{#if isAuthor author.id}}
+                        <div class="btn-group pull-right" role="group" aria-label="...">
+                          <button type="button" class="btn btn-sm btn-default" id="editDiscussion">Edit</button>
+                          <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                              <li id="deleteDiscussion"><a href="#">Remove</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                      {{/if}}
+                    </h3>
+                    <div class="description-text">
+                      {{#markdown}}{{description}}{{/markdown}}
+                    </div>
+                    <hr>
+                    <h4>
+                      <i class="fa fa-thumbs-o-up {{#if isInCollection up_votes}} upvoted {{else}} upvote {{/if}}" aria-hidden="true"></i> <small>{{up_votes.length}}</small> &nbsp; &nbsp;
+                      <i class="fa fa-thumbs-o-down {{#if isInCollection down_votes}} downvoted {{else}} downvote {{/if}}" aria-hidden="true"></i> <small>{{down_votes.length}}</small> &nbsp; &nbsp;
+                      <small><i class="fa fa-clock-o" aria-hidden="true"></i> Posted on : {{dispDate created_at}} </small> &nbsp; &nbsp;
+                      <small><i class="fa fa-comments-o" aria-hidden="true"></i> {{response_count}} </small> &nbsp; &nbsp;
+                      <small><i class="fa fa-eye" aria-hidden="true"></i> {{views}} </small> &nbsp; &nbsp;
+                    </h4>
+
                 </div>
               </div>
-            {{/each}}
 
+              {{! comments }}
 
-            {{! response }}
-            <div class="row discussion-card">
-              {{#if currentUser}}
-                <div class="col-md-1">
-                  <img src="{{currentUser.profile.avatar.default}}" alt="{{currentUser.username}}" class="img-circle avatar author-avatar" />
-                </div>
-                <div class="col-md-11">
-                  <div>
-                    <!-- Nav tabs -->
-                    <ul class="nav nav-tabs" role="tablist">
-                      <li role="presentation" class="active"><a href="#responseWrite" aria-controls="responseWrite" role="tab" data-toggle="tab">Write</a></li>
-                      <li role="presentation"><a href="#responsePreview" aria-controls="responsePreview" role="tab" data-toggle="tab">Preview</a></li>
-                    </ul>
-                    <!-- Tab panes -->
-                    <div class="tab-content">
-                      <div role="tabpanel" class="tab-pane active" id="responseWrite">
-                        <textarea class="form-control" id="discussionResponse" rows="5" cols="70" placeholder="Type your reply here"></textarea>
+              {{#unless responses.count}}
+                <!-- todo filter-->
+
+              {{/unless}}
+              {{#each responses}}
+                <div class="row discussion-card">
+                  <div class="col-md-1">
+                    <img src="{{author.avatar}}" alt="{{author.username}}" class="img-circle avatar author-avatar" />
+                    <h5 class="pull-right">{{author.username}}</h5>
+                  </div>
+                  {{#if visibility}}
+
+                    <div class="col-md-11">
+                      {{! available actions as a button grouping }}
+                      {{#if isAuthor author.id}}
+
+                        <div class="btn-group pull-right" role="group" aria-label="...">
+                          <button type="button" class="btn btn-sm btn-default" id="editResponse">Edit</button>
+                          <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                              <li id="deleteDiscussionResponse"><a href="#">Remove</a></li>
+                            </ul>
+                          </div>
+                        </div>
+
+                      {{/if}}
+                      <div class="description-text">
+                        {{#markdown}}{{text}}{{/markdown}}
                       </div>
-                      <div role="tabpanel" class="tab-pane preview-pane" id="responsePreview">
-                        {{#markdown}}{{discussionResponsePreview}}{{/markdown}}
-                      </div>
+                      <hr>
+                      <h4>
+                        <i class="fa fa-thumbs-o-up {{#if isInCollection up_votes}} upvoted {{else}} rupvote {{/if}}" aria-hidden="true"></i> <small>{{up_votes.length}}</small> &nbsp; &nbsp;
+                        <i class="fa fa-thumbs-o-down {{#if isInCollection down_votes}} downvoted {{else}} rdownvote {{/if}}" aria-hidden="true"></i> <small>{{down_votes.length}}</small> &nbsp; &nbsp;
+                        <small><i class="fa fa-clock-o" aria-hidden="true"></i> Posted on : {{dispDate created_at}} </small> &nbsp; &nbsp;
+                        <small>{{#if modified_at}}(Edited){{/if}}</small> &nbsp; &nbsp;
+                      </h4>
+
                     </div>
-                  </div>
-                  <br>
-                  <div class="btn btn-default pull-right" id="addResponseToDiscussion">Reply</div>
+                  {{else}}
+                    <div class="description-text">
+                      {{#markdown}}_[This response is removed]_{{/markdown}}
+                    </div>
+                  {{/if}}
                 </div>
-
-              {{/if}}
-            </div>
-
-
-          </div>
-          <!-- main section ends-->
-
-          <!-- right sidebar -->
-          <div class="col-md-3 col-md-offset-1">
-            <div class="discussion-sidebar">
-              <h5>PEOPLE IN THIS DISCUSSION</h5>
-              <hr>
-              {{#each participants}}
-                <img src="{{avatar}}" alt="{{username}}" class="img-circle avatar author-avatar" />
               {{/each}}
-            </div>
 
-            {{#if currentUser}}
-              <div class="discussion-sidebar">
-                <h5>NOTIFICATION</h5>
-                <hr>
-                {{#if isInCollection subscribers}}
-                  <div class="btn btn-sm btn-block btn-default" id="unsubscribe">
-                    unsubscribe
+
+              {{! response }}
+              <div class="row discussion-card">
+                {{#if currentUser}}
+                  <div class="col-md-1">
+                    <img src="{{currentUser.profile.avatar.default}}" alt="{{currentUser.username}}" class="img-circle avatar author-avatar" />
                   </div>
-                  You’re receiving notifications because you’re subscribed to this thread.
-                {{else}}
-                  <div class="btn btn-sm btn-block btn-default" id="subscribe">
-                    subscribe
+                  <div class="col-md-11">
+                    <form class="response-form">
+                      <div class="form-group">
+                        <div>
+                          <!-- Nav tabs -->
+                          <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active"><a href="#responseWrite" aria-controls="responseWrite" role="tab" data-toggle="tab">Write</a></li>
+                            <li role="presentation"><a href="#responsePreview" aria-controls="responsePreview" role="tab" data-toggle="tab">Preview</a></li>
+                          </ul>
+                          <!-- Tab panes -->
+                          <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane active" id="responseWrite">
+                              <textarea class="form-control" id="discussionResponse" rows="5" cols="70" placeholder="Type your reply here"></textarea>
+                            </div>
+                            <div role="tabpanel" class="tab-pane preview-pane" id="responsePreview">
+                              {{#markdown}}{{discussionResponsePreview}}{{/markdown}}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <button type="submit" class="btn btn-default pull-right">Submit</button>
+                    </form>
                   </div>
-                  You’re ignoring this thread.
+
                 {{/if}}
               </div>
 
-              {{! @todo display 5 active topics}}
+
+            </div>
+            <!-- main section ends-->
+
+            <!-- right sidebar -->
+            <div class="col-md-3 col-md-offset-1">
               <div class="discussion-sidebar">
-                <h5>MY ACTIVE TOPICS</h5>
+                <h5>PEOPLE IN THIS DISCUSSION</h5>
                 <hr>
-                <p>one</p>
-                <hr>
-                <p>one</p>
+                {{#each participants}}
+                  <img src="{{avatar}}" alt="{{username}}" class="img-circle avatar author-avatar" />
+                {{/each}}
               </div>
 
-              {{else}}
-              {{! @todo if not logged in display 5 related topics}}
-              <div class="discussion-sidebar">
-                <h5>RELATED TOPICS</h5>
-                <hr>
-                <p>one</p>
-                <hr>
-                <p>one</p>
-              </div>
-            {{/if}}
+              {{#if currentUser}}
+                <div class="discussion-sidebar">
+                  <h5>NOTIFICATION</h5>
+                  <hr>
+                  {{#if isInCollection subscribers}}
+                    <div class="btn btn-sm btn-block btn-default" id="unsubscribe">
+                      unsubscribe
+                    </div>
+                    You’re receiving notifications because you’re subscribed to this thread.
+                  {{else}}
+                    <div class="btn btn-sm btn-block btn-default" id="subscribe">
+                      subscribe
+                    </div>
+                    You’re ignoring this thread.
+                  {{/if}}
+                </div>
+
+                {{! @todo display 5 active topics}}
+                <div class="discussion-sidebar">
+                  <h5>MY ACTIVE TOPICS</h5>
+                  <hr>
+                  <p>one</p>
+                  <hr>
+                  <p>one</p>
+                </div>
+
+                {{else}}
+                {{! @todo if not logged in display 5 related topics}}
+                <div class="discussion-sidebar">
+                  <h5>RELATED TOPICS</h5>
+                  <hr>
+                  <p>one</p>
+                  <hr>
+                  <p>one</p>
+                </div>
+              {{/if}}
+            </div>
+            <!-- right sidebar ends -->
+
+            <!-- main section ends-->
           </div>
-          <!-- right sidebar ends -->
-
-        </div>
 
 
+        {{else}}
 
+          <div class="jumbotron align-center">
+            <div class="container">
+              <div class="row">
+                  <h1>[-_-]</h1>
+                  <br>
+                  <br>
+                  <h4>This Discussion is removed</h4>
+              </div>
+             </div>
+          </div>
+
+        {{/if}}
 
 
       {{/with}}

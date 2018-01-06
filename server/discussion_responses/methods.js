@@ -36,7 +36,9 @@ Meteor.methods({
       created_at: new Date(),
       modified_at: null,
       visibility: true,
-      version: 0
+      version: 0,
+      up_votes: [],
+      down_votes: []
     }
 
 
@@ -102,5 +104,101 @@ Meteor.methods({
 
     return true;
 
+  }
+});
+
+/**
+* Upvote a Discussion Response
+* @function
+* @name discussionResponses.upvote
+* @param { Object } data - Data
+* @return {Boolean} true on success
+*/
+Meteor.methods({
+  'discussionResponses.upvote':function(data){
+    check(data, {
+      id: String
+    });
+
+    const actor = Meteor.user();
+
+    if (!actor) {
+      throw new Meteor.Error(403, "Access denied");
+    }
+
+    const voter = {
+      id: actor._id,
+      username: actor.username,
+      avatar: actor.profile.avatar.default,
+    }
+
+    DiscussionResponses.update({_id:data.id}, {
+      $addToSet: {
+        up_votes: voter,
+      },
+      $pull: {
+        down_votes: { id : voter.id }
+      }
+    });
+
+    return true
+  }
+});
+
+/**
+* Downvote a Discussion Response
+* @function
+* @name discussionResponses.downvote
+* @param { Object } data - Data
+* @return {Boolean} true on success
+*/
+Meteor.methods({
+  'discussionResponses.downvote':function(data){
+    check(data, {
+      id: String
+    });
+
+    const actor = Meteor.user();
+
+    if (!actor) {
+      throw new Meteor.Error(403, "Access denied");
+    }
+
+    const voter = {
+      id: actor._id,
+      username: actor.username,
+      avatar: actor.profile.avatar.default,
+    }
+
+    DiscussionResponses.update({_id:data.id}, {
+      $addToSet: {
+        down_votes: voter,
+      },
+      $pull: {
+        up_votes: { id : voter.id }
+      }
+    });
+
+    return true
+
+  }
+});
+
+/**
+* Remove a Discussion Responses
+* @function
+* @name discussionResponses.remove
+* @param { Object } data - Data
+* @return {Boolean} true on success
+*/
+Meteor.methods({
+  'discussionResponses.remove':function(data){
+    check(data, {
+      id: String
+    });
+
+    DiscussionResponses.update({_id:data.id}, {$set: {visibility: false}});
+
+    return true
   }
 });
