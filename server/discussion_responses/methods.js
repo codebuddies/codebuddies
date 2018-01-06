@@ -22,15 +22,17 @@ Meteor.methods({
 
     }
 
+    const author = {
+      id: actor._id,
+      username: actor.username,
+      avatar: actor.profile.avatar.default
+    }
+
     const discussionResponse = {
       discussion_id: data.discussion_id,
       parent_id: data.parent_id,
       text: data.text,
-      author: {
-        id: actor._id,
-        username: actor.username,
-        avatar: actor.profile.avatar.default,
-      },
+      author: author,
       created_at: new Date(),
       modified_at: null,
       visibility: true
@@ -39,9 +41,17 @@ Meteor.methods({
 
     const response_id = DiscussionResponses.insert(discussionResponse);
 
-    // @todo : response_count
+
     if (response_id) {
-      Discussions.update({_id: data.discussion_id}, {$inc:{response_count: 1}});
+      Discussions.update({_id: data.discussion_id}, {
+        $addToSet: {
+          subscribers: author,
+          participants: author
+        },
+        $inc: {
+          response_count: 1
+        }
+      });
     }
 
     // @todo : notify the participants/subscribers
