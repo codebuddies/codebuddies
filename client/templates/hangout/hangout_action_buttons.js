@@ -112,12 +112,8 @@ Template.hangoutActionButtons.events({
 
   },
   'click #add-to-icalendar': function(e, hangout) {
-    console.log('in add-to-icalendar');
     console.log(hangout);
-    console.log(e);
-
     if (navigator.userAgent.indexOf('MSIE') > -1 && navigator.userAgent.indexOf('MSIE 10') == -1) {
-      console.log('Unsupported Browser');
       sweetAlert({
           type: 'warning',
           title: 'Unsupported Browser',
@@ -139,45 +135,34 @@ Template.hangoutActionButtons.events({
       const start = `${startDate}T${startTime}`;
       const end = `${endDate}T${endTime}`;
       const current = `${currentDate}T${currentTime}`;
-
-      console.log(start);
-      console.log(end);
-      console.log(current);
-
-      console.log('study group', hangout.data.group);
-
-      const uidDomain = 'default';
-      const prodId = 'Calendar';
       const SEPARATOR = (navigator.appVersion.indexOf('Win') !== -1) ? '\r\n' : '\n';
-
-      let calendarEvent = '';
-      const calendarStart = `BEGIN:VCALENDAR${SEPARATOR}PRODID: ${prodId}${SEPARATOR}VERSION:2.0`;
-      const calendarEnd = `${SEPARATOR}END:VCALENDAR`;
-      console.log(calendarStart);
-      console.log(calendarEnd);
 
       let topic = hangout.data.topic;
       const group = (hangout && hangout.data && hangout.data.group) || null
       if (group.title) {
         topic += `(${group.title})`;
       }
-  //    <a href="https://calendar.google.com/calendar/r/eventedit?text={{topic}}{{#if group}} ({{group.title}}{{/if}})&details={{description}}&location=https://meet.jit.si/cb{{_id}}&dates={{getHangoutGoogleCalendarDate start}}T{{getHangoutGoogleCalendarTime start}}/{{getHangoutGoogleCalendarDate end}}T{{getHangoutGoogleCalendarTime end}}"
       const location = `https://meet.jit.si/cb${hangout.data._id}`;
-
-      var calendarEvent = [
+      const uid = `${Date.now()}@codebuddies.org`;
+      const calendarDetails = [
          'BEGIN:VEVENT',
-         'UID:' + "0@default",
+         `UID:${uid}`,
          'CLASS:PUBLIC',
-         'DESCRIPTION:' + hangout.data.description,
-         'DTSTAMP;VALUE=DATE-TIME:' + current,
-         'DTSTART;VALUE=DATE-TIME:' + start,
-         'DTEND;VALUE=DATE-TIME:' + end,
-         'LOCATION:' + location,
-         'SUMMARY;LANGUAGE=en-us:' + topic,
+         `DESCRIPTION:${hangout.data.description}`,
+         `DTSTAMP;VALUE=DATE-TIME:${current}`,
+         `DTSTART;VALUE=DATE-TIME:${start}`,
+         `DTEND;VALUE=DATE-TIME:${end}`,
+         `LOCATION:${location}`,
+         `SUMMARY;LANGUAGE=en-us:${topic}`,
          'TRANSP:TRANSPARENT',
          'END:VEVENT'
-      ];
-      console.log(calendarEvent);
+      ].join(SEPARATOR);
+      const calendarStart = `BEGIN:VCALENDAR${SEPARATOR}PRODID:Calendar${SEPARATOR}VERSION:2.0`;
+      const calendarEnd = `END:VCALENDAR`;
+
+      const calendarEvent  = `${calendarStart}${SEPARATOR}${calendarDetails}${SEPARATOR}${calendarEnd}`;
+      console.log('calendarEvent', calendarEvent);
+      window.open(`data:text/calendar;charset=utf8,${escape(calendarEvent)}`);
     }
   },
 });
