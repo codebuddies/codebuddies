@@ -43,6 +43,9 @@
   		          <img src='images/india.svg'/>
   		          <img src='images/lithuania.svg'/>
               -->
+                {{#each countries}}
+                   <img src='{{this}}'/>
+                {{/each}}
   		        </div>
   		      </div>
 		      </div>
@@ -78,7 +81,6 @@
 		    <div class="row">
 		    	<div class="col-md-12">
 		    	<h2 class="contributors-title">Core code and community contributors</h2>
-              <div class="core-contributors"></div>
               <!--
 		        	<a rel="popover" class="user-popover" title="@adachiu <a href='https://twitter.com/adachiu_'><i class='fa fa-twitter'></i></a><a href='https://github.com/adachiu' target='_blank'><i class='fa fa-github'></i></a><a href='http://www.adachiu.me'><i class='fa fa-link'></i></a>"  data-content="Ada is a UX designer based in Canada, and is the UX lead for CodeBuddies! She created many high-fidelity mockups for the website, created the logo, wrote HTML/CSS for the site, and offered lots of design advice." data-placement="top" data-toggle="popover">
 		        			<img src="/images/adachiu.jpeg" class="img-circle" alt="adachiu"/>
@@ -108,12 +110,19 @@
 		        			<img src="https://avatars0.githubusercontent.com/u/15113564?v=3&s=460" class="img-circle" alt="foxiae"/>
 		        		</a>
               -->
+            {{#each contributors}}
+              {{#if equals type 'core'}}
+                <a rel="popover" class="user-popover" title="{{title}} {{socialLinks socials}}" data-content="{{intro}}" data-placement="top" data-toggle="popover">
+                  <img src="{{avatar}}" class="img-circle" alt="{{name}}"/>
+                </a>
+              {{/if}}
+            {{/each}}
 		    	</div>
 		        <div class="col-md-12">
 
 
 		        	<h2 class="contributors-title">Other code contributors</h2>
-		        	<div class="contributors code-contributors">
+		        	<div class="contributors">
                 <!--
 		        		<a rel="popover" class="user-popover" title="@abdulhannanali <a href='https://twitter.com/computistic'><i class='fa fa-twitter'></i></a><a href='https://github.com/abdulhannanali'><i class='fa fa-github'></i></a><a href='http://hannanali.tech/'><i class='fa fa-link'></i></a>"  data-content="Hannan Ali is based in Pakistan and is passionate about open-source and coding. He's contributed to #100daysofcode, started working on a Slackbot app for the CB Slack, written for Codebuddies' Medium publication." data-placement="top" data-toggle="popover">
 		        			<img src="/images/abdulhannanali.jpeg" class="img-circle" alt="abdulhannanali"/>
@@ -162,10 +171,17 @@
 		        		</a>
               -->
               <!-- Add Your Name Above! -->
+                {{#each contributors}}
+                  {{#if equals type 'code'}}
+                    <a rel="popover" class="user-popover" title="{{title}} {{socialLinks socials}}" data-content="{{intro}}" data-placement="top" data-toggle="popover">
+                      <img src="{{avatar}}" class="img-circle" alt="{{name}}"/>
+                    </a>
+                  {{/if}}
+                {{/each}}
 		        	</div>
 		        <h2>And everyone who's made a positive impact <br /> on the project and the community</h2>
               <br>
-		        	<div class="contributors other-contributors">
+		        	<div class="contributors">
                 <!--
 		        			<img src="https://avatars0.githubusercontent.com/u/13541047?v=3&s=460" class="img-circle" alt="alex"/>
 
@@ -227,7 +243,12 @@
                  <img src="https://avatars1.githubusercontent.com/u/1159649?v=4&s=460" class="img-circle" alt="Connie Leung"/>
                  <img src="https://avatars2.githubusercontent.com/u/27697439?v=3&s=460" class="img-circle" alt="grfraser"/>
                -->
-		        	</div>
+               {{#each contributors}}
+                 {{#if equals type 'other'}}
+                   <img src="{{avatar}}" class="img-circle" alt="{{name}}"/>
+                 {{/if}}
+               {{/each}}
+              </div>
 
 
 		        </div>

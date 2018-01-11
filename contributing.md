@@ -190,18 +190,21 @@ Once you've submitted your PR, switch to the branch [`adding-contributor`](https
     * example: `@Example, https://github.com/onlyforexample - provided an example on Contributing.md`
   * Commit your changes
 *  **For the [About](https://codebuddies.org/about) Page:**
-  * Open `private/about.json` in your editor of choice
-  * Add the following JSON object in code-contributors JSON array:
+  * Open `imports/data/contributors.json` in your editor of choice
+  * Add the following JSON object in contributors array:
 
 ```
 {
   "title": "ADD_SLACK_HANDLER_HERE",
-  "twitter": "ADD_TWITTER_LINK_HERE",
-  "github": "ADD_GITHUB_LINK_HERE",
-  "blog": "ADD_PERSONAL_SITE_HERE",
-  "content":"ADD INFORMATION ABOUT YOU AND HOW YOU CONTRIBUTED TO CODEBUDDIES",
-  "img": "ADD_IMG_URL_HERE",
-   "alt": "YOUR_NAME"
+  "socials": {
+    "twitter": "ADD_TWITTER_LINK_HERE",
+    "github": "ADD_GITHUB_LINK_HERE",
+    "blog": "ADD_PERSONAL_SITE_HERE"
+  },
+  "intro":"ADD INFORMATION ABOUT YOU AND HOW YOU CONTRIBUTED TO CODEBUDDIES",
+  "avatar": "ADD_IMG_URL_HERE",
+  "name": "YOUR_NAME",
+  "type": "code"
  }
 ```
   * Replace the following values:
