@@ -100,6 +100,18 @@
       "type": "core"
     },
     {
+      "title": "@connie",
+      "socials": {
+        "twitter": "http://twitter.com/con_leung",
+        "github": "http://github.com/railsstudent",
+        "blog": "http://www.blueskyconnie.com/"
+      },
+      "intro": "Connie is a software engineer based in Hong Kong. She has contributed countless features to the CodeBuddies platform.",
+      "avatar": "https://avatars1.githubusercontent.com/u/1159649?v=4&s=460",
+      "name": "Connie",
+      "type": "core"
+    },
+    {
       "title": "@abdulhannanali",
       "socials": {
         "twitter": "http://twitter.com/computistic",
