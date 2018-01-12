@@ -30,6 +30,7 @@
 
             </h2>
 
+
             <!-- hangout group -->
             {{#if group}}
               <p><a href="{{pathFor 'study group' studyGroupSlug=group.slug studyGroupId=group.id}}"> <span class="label label-default">{{group.title}}</span></a></p>
@@ -52,11 +53,15 @@
               {{else}}
                   {{getHangoutEndTime end}}
               {{/if}}
+
+             
             </p>
+            
+             <a href="https://calendar.google.com/calendar/r/eventedit?text={{topic}}{{#if group}} ({{group.title}}{{/if}})&details={{description}}&location=https://meet.jit.si/cb{{_id}}&dates={{getHangoutGoogleCalendarDate start}}T{{getHangoutGoogleCalendarTime start}}/{{getHangoutGoogleCalendarDate end}}T{{getHangoutGoogleCalendarTime end}}" target="_blank" class="btn btn-cb2"><i class="fa fa-calendar" aria-hidden="true"></i> Add to Google Calendar</a>
 
             <!-- hangout actions buttons -->
             {{> hangoutActionButtons }}
-
+            
             <!-- Participants -->
             <h3>Participants</h3>
             <div id="participants">
