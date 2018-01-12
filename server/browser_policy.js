@@ -29,7 +29,9 @@ var trusted = [
   'jitmeet.org',
   '*.jitsi.org',
   'jitsi.org',
-  '*.google-analytics.com'
+  '*.google-analytics.com',
+  '*.twavatar.com',
+  'twavatar.com'
 ];
 
 _.each(trusted, function(origin) {

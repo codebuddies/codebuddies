@@ -40,7 +40,7 @@
         "twitter": "https://twitter.com/distalx",
         "github": "https://github.com/distalx"
       },
-      "intro": "Distalx is a software engineer based in India, and is a lead developer for CodeBuddies. He built the search tool and the permissions feature, implemented Mailchimp and Kadira integration, set up the staging and deployment processes for the app, and fixed countless other bugs.",
+      "intro": "Distalx is a software engineer, and is a lead developer for CodeBuddies. He built the search tool and the permissions feature, implemented Mailchimp and Kadira integration, set up the staging and deployment processes for the app, and fixed countless other bugs.",
       "avatar": "https://avatars1.githubusercontent.com/u/11193792?v=3&s=460",
       "name": "distalx",
       "type": "core"
@@ -71,7 +71,7 @@
     },
     {
       "title": "@bethanyg",
-      "intro": "Bethany is a software developer based in Oakland. She contributed javascript advice and offered useful suggestions for CodeBuddies v2.0.",
+      "intro": "Bethany is a software developer based in the San Francisco Bay Area. She contributed javascript advice and offered useful suggestions for CodeBuddies v2.0.",
       "avatar": "https://avatars2.githubusercontent.com/u/5923094?v=3&s=460",
       "name": "bethanyg",
       "type": "core"

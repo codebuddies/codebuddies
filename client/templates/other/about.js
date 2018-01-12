@@ -44,21 +44,5 @@ Template.about.helpers({
   },
   contributors: function() {
     return c.contributors;
-  },
-  socialLinks: function(socials) {
-    if (socials) {
-      let title = '';
-      if (socials.twitter) {
-        title += `<a href='${socials.twitter}'><i class='fa fa-twitter'></i></a>`;
-      }
-      if (socials.github) {
-        title += `<a href='${socials.github}' target='_blank'><i class='fa fa-github'></i></a>`;
-      }
-      if (socials.blog) {
-        title += `<a href='${socials.blog}' target='_blank'><i class='fa fa-link'></i></a>`;
-      }
-      return title;
-    }
-    return '';
   }
 });

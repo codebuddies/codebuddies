@@ -112,7 +112,11 @@
               -->
             {{#each contributors}}
               {{#if equals type 'core'}}
-                <a rel="popover" class="user-popover" title="{{title}} {{socialLinks socials}}" data-content="{{intro}}" data-placement="top" data-toggle="popover">
+                <a rel="popover" class="user-popover" title="{{title}}
+                {{#if socials.twitter }} <a href='${socials.twitter}' target='_blank'><i class='fa fa-twitter'></i></a> {{/if}}
+                {{#if socials.github }} <a href='${socials.github}' target='_blank'><i class='fa fa-github'></i></a> {{/if}}
+                {{#if socials.blog }} <a href='${socials.blog}' target='_blank'><i class='fa fa-link'></i></a> {{/if}}
+                " data-content="{{intro}}" data-placement="top" data-toggle="popover">
                   <img src="{{avatar}}" class="img-circle" alt="{{name}}"/>
                 </a>
               {{/if}}
@@ -173,7 +177,11 @@
               <!-- Add Your Name Above! -->
                 {{#each contributors}}
                   {{#if equals type 'code'}}
-                    <a rel="popover" class="user-popover" title="{{title}} {{socialLinks socials}}" data-content="{{intro}}" data-placement="top" data-toggle="popover">
+                    <a rel="popover" class="user-popover" title="{{title}}
+                      {{#if socials.twitter }} <a href='${socials.twitter}' target='_blank'><i class='fa fa-twitter'></i></a> {{/if}}
+                      {{#if socials.github }} <a href='${socials.github}' target='_blank'><i class='fa fa-github'></i></a> {{/if}}
+                      {{#if socials.blog }} <a href='${socials.blog}' target='_blank'><i class='fa fa-link'></i></a> {{/if}}
+                    " data-content="{{intro}}" data-placement="top" data-toggle="popover">
                       <img src="{{avatar}}" class="img-circle" alt="{{name}}"/>
                     </a>
                   {{/if}}
