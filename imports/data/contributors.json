@@ -1,0 +1,395 @@
+{
+  "contributors": [
+    {
+      "title": "@adachiu",
+      "socials": {
+        "twitter": "https://twitter.com/adachiu",
+        "github": "https://github.com/adachiu",
+        "blog": "http://www.adachiu.me"
+      },
+      "intro": "Ada is a UX designer based in Canada, and is the UX lead for CodeBuddies! She created many high-fidelity mockups for the website, created the logo, wrote HTML/CSS for the site, and offered lots of design advice.",
+      "avatar": "/images/adachiu.jpeg",
+      "name": "adachiu",
+      "type": "core"
+    },
+    {
+      "title": "@anbuselvan",
+      "socials": {
+        "twitter": "https://twitter.com/anbuselvanp",
+        "blog": "http://anbuselvan.net"
+      },
+      "intro": "Anbuselvan is a senior software engineer based in California interested making the world a better place for everyone and free preliminary education for underprivileged children. He contributed significantly in kickstarting CodeBuddies v2.0's codebase, turning the mockups into MeteorJS reality.",
+      "avatar": "https://avatars3.githubusercontent.com/u/167158?v=3&s=460",
+      "name": "anbuselvan",
+      "type": "core"
+    },
+    {
+      "title": "@linda",
+      "socials": {
+        "twitter": "http://twitter.com/lpnotes",
+        "github": "http://github.com/lpatmo"
+      },
+      "intro": "Linda is the creator of CodeBuddies. She feels like the luckiest person being able to learn with and from the awesome people in this community.",
+      "avatar": "/images/lpnotes.jpg",
+      "name": "lpatmo",
+      "type": "core"
+    },
+    {
+      "title": "@distalx",
+      "socials": {
+        "twitter": "https://twitter.com/distalx",
+        "github": "https://github.com/distalx"
+      },
+      "intro": "Distalx is a software engineer based in India, and is a lead developer for CodeBuddies. He built the search tool and the permissions feature, implemented Mailchimp and Kadira integration, set up the staging and deployment processes for the app, and fixed countless other bugs.",
+      "avatar": "https://avatars1.githubusercontent.com/u/11193792?v=3&s=460",
+      "name": "distalx",
+      "type": "core"
+    },
+    {
+      "title": "@sergeant-q",
+      "socials": {
+        "twitter": "http://twitter.com/_SergeantQ",
+        "github": "http://github.com/sergeant-q",
+        "blog": "http://robertoquezada.com/"
+      },
+      "intro": "Roberto Quezada is a full-stack developer based in Las Vegas. He contributed significantly to the CodeBuddies' codebase, developing the hangout alert notification on Slack and an email reminder for upcoming hangouts.",
+      "avatar": "https://avatars2.githubusercontent.com/u/1451729?v=3&s=460",
+      "name": "sergeant-q",
+      "type": "core"
+    },
+    {
+      "title": "@will",
+      "socials": {
+        "twitter": "http://twitter.com/williamrwilson",
+        "github": "http://github.com/William-R-Wilson",
+        "blog": "http://semanticerror.net"
+      },
+      "intro": "Will is a web developer based in Tennessee. He helps moderate the community, contributed to a number of feature discussions for the app, and wrote code that allows a user to edit and delete a learning from the learnings/accomplishments tracker!",
+      "avatar": "https://avatars0.githubusercontent.com/u/7865866?v=3&s=460",
+      "name": "william-r-wilson",
+      "type": "core"
+    },
+    {
+      "title": "@bethanyg",
+      "intro": "Bethany is a software developer based in Oakland. She contributed javascript advice and offered useful suggestions for CodeBuddies v2.0.",
+      "avatar": "https://avatars2.githubusercontent.com/u/5923094?v=3&s=460",
+      "name": "bethanyg",
+      "type": "core"
+    },
+    {
+      "title": "@wuworkshop",
+      "socials": {
+        "twitter": "http://twitter.com/wuworkshop",
+        "github": "http://github.com/wuworkshop"
+      },
+      "intro": "Alice is a freelance web developer based in New York City. She has been with CodeBuddies almost since the beginning, and is known for being a prolific sharer of useful links. She helps moderate the community and has contributed invaluable feedback to countless issues on the CodeBuddies repo.",
+      "avatar": "https://avatars0.githubusercontent.com/u/605787?v=3&s=460",
+      "name": "wuworkshop",
+      "type": "core"
+    },
+    {
+      "title": "@olivia",
+      "socials": {
+        "twitter": "http://twitter.com/dothecodeolivia",
+        "github": "http://github.com/foxiae",
+        "blog": "http://codemethisolivia.com/"
+      },
+      "intro": "Olivia is a software developer based in Maryland. She helps moderate the community, contributed to a number of feature discussions, and worked on an auto-generating styleguide for CodeBuddies 2.0.",
+      "avatar": "https://avatars0.githubusercontent.com/u/15113564?v=3&s=460",
+      "name": "foxiae",
+      "type": "core"
+    },
+    {
+      "title": "@connie",
+      "socials": {
+        "twitter": "http://twitter.com/con_leung",
+        "github": "http://github.com/railsstudent",
+        "blog": "http://www.blueskyconnie.com/"
+      },
+      "intro": "Connie is a software engineer based in Hong Kong. She has contributed countless features to the CodeBuddies platform.",
+      "avatar": "https://avatars1.githubusercontent.com/u/1159649?v=4&s=460",
+      "name": "Connie",
+      "type": "core"
+    },
+    {
+      "title": "@abdulhannanali",
+      "socials": {
+        "twitter": "http://twitter.com/computistic",
+        "github": "http://github.com/abdulhannanali",
+        "blog": "http://hannanali.tech/"
+      },
+      "intro": "Hannan Ali is based in Pakistan and is passionate about open-source and coding. He's contributed to #100daysofcode, started working on a Slackbot app for the CB Slack, written for Codebuddies' Medium publication.",
+      "avatar": "/images/abdulhannanali.jpeg",
+      "name": "abdulhannanali",
+      "type": "code"
+    },
+    {
+      "title": "@camilleriluke",
+      "intro": "Luke is awesome.",
+      "avatar": "https://avatars2.githubusercontent.com/u/1117126?v=3&s=460",
+      "name": "camilleriluke",
+      "type": "code"
+    },
+    {
+      "title": "@abhiii5459",
+      "socials": {
+        "twitter": "http://twitter.com/abhiii5459",
+        "github": "http://github.com/abhiii5459"
+      },
+      "intro": "Abhi is a software engineer from Bangalore, India. He’s probably the biggest Potternerd you’ve ever met, loves anime and needless to say, coding. His preferred languages for coding are Python, Java and Javascript.",
+      "avatar": "https://avatars2.githubusercontent.com/u/342533?v=3&s=460",
+      "name": "abhiii5459",
+      "type": "code"
+    },
+    {
+      "title": "@sharynneazhar",
+      "intro": "Sharynne is a software developer based in Kansas City. She feels fortunate to have found a community like CodeBuddies that shares her passion for coding. When she's not coding, Sharynne enjoys playing video games and going on various foodventures!",
+      "avatar": "https://avatars3.githubusercontent.com/u/10108593?v=3&s=460",
+      "name": "abhiii5459",
+      "type": "code"
+    },
+    {
+      "title": "@ISPOL",
+      "intro": "Alan Peng is a senior majoring in Computer Science at the University of Connecticut. He enjoys chess and creating games. He helped submit various patches to the CodeBuddies repo in the last two years.",
+      "avatar": "https://avatars2.githubusercontent.com/u/4441258?v=3&s=460",
+      "name": "ISPOL",
+      "type": "code"
+    },
+    {
+      "title": "Prince (@raresight)>",
+      "socials": {
+        "twitter": "http://twitter.com/Prince_SaaS",
+        "github": "http://github.com/leewaygroups",
+        "blog": "https://medium.com/@codeyans"
+      },
+      "intro": "Prince is is a software developer based in Thailand. He's offered great suggestions to the CodeBuddies repo and contributed a bunch of small code fixes, and is published on the CodeBuddies Medium publication.",
+      "avatar": "https://avatars3.githubusercontent.com/u/7301892?v=3&s=460",
+      "name": "leewaygroups",
+      "type": "code"
+    },
+    {
+      "title": "@luxis",
+      "socials": {
+        "twitter": "http://twitter.com/jgarplind",
+        "github": "https://github.com/Luxisapex"
+      },
+      "intro": "Joel is a graduate student based in Sweden. He added a kudos/upvoting system to the learnings and accomplishments tracker on CodeBuddies and committed fixes for a few other bugs as well.",
+      "avatar": "https://avatars1.githubusercontent.com/u/10069144?v=3&s=460",
+      "name": "luxis",
+      "type": "code"
+    },
+    {
+      "title": "@mduca",
+      "socials": {
+        "twitter": "http://twitter.com/mduca",
+        "github": "http://github.com/mduca"
+      },
+      "intro": "Michael is a software developer based in the Bay Area. He contributed to several CodeBuddies' weekly hangouts and helped turn the profile page into a reality.",
+      "avatar": "https://avatars2.githubusercontent.com/u/581692?v=3&s=460",
+      "name": "mduca",
+      "type": "code"
+    },
+    {
+      "title": "@pandawhisperer",
+      "socials": {
+        "twitter": "http://twitter.com/panda_whisperer",
+        "github": "http://github.com/pandawhisperer",
+        "blog": "http://www.pandawhisperer.net/"
+      },
+      "intro": "Christoph is a senior software engineer based in L.A. He took on the invaluable task of figuring out how to connect CodeBuddies with the Google Hangouts API, a feature without which the website could not have been launched.",
+      "avatar": "https://pbs.twavatar.com/profile_images/707973124873003008/eVxjoVL6.jpg",
+      "name": "pandawhisperer",
+      "type": "code"
+    },
+    {
+      "title": "@pdotsani",
+      "intro": "Patrick is a web developer based in the San Francisco Bay Area. He created CodeBuddies' initial sponsor page and offered useful suggestions on other issues.",
+      "avatar": "https://avatars3.githubusercontent.com/u/5272252?v=3&s=460",
+      "name": "pdotsani",
+      "type": "code"
+    },
+    {
+      "title": "@sheldonbarnes",
+      "intro": "Sheldon is a systems consultant based in Indiana. He offered useful feedback to CodeBuddies v2.0 and and contributed to a couple of issues, including a character count limit for the status update and the visibility of the hangout status buttons on the learnings tab.",
+      "avatar": "https://avatars1.githubusercontent.com/u/10457072?v=3&s=460",
+      "name": "sheldonbarnes",
+      "type": "code"
+    },
+    {
+      "title": "@sujilnt",
+      "socials": {
+        "twitter": "http://twitter.com/sujilanto",
+        "github": "http://github.com/sujilnt"
+      },
+      "intro": "Sujil is a UI developer based in Bangalore. He fulfilled pull requests for a number of UI issues in CodeBuddies v2.0.",
+      "avatar": "https://avatars0.githubusercontent.com/u/9514199?v=3&s=460",
+      "name": "sujilnt",
+      "type": "code"
+    },
+    {
+      "title": "@techgeek503",
+      "socials": {
+        "github": "http://github.com/techgeek503"
+      },
+      "intro": "@techgeek503 is a web developer based in [ ]. He added the hangout hover descriptions to the Hangout Creation popup!",
+      "avatar": "https://avatars3.githubusercontent.com/u/13875481?v=3&s=460",
+      "name": "techgeek503",
+      "type": "code"
+    },
+    {
+      "avatar": "https://avatars0.githubusercontent.com/u/13541047?v=3&s=460",
+      "name": "alex",
+      "type": "other"
+    },
+    {
+      "avatar": "https://avatars3.githubusercontent.com/u/6901575?v=3&s=460",
+      "name": "sgtphips",
+      "type": "other"
+    },
+    {
+      "avatar": "https://avatars1.githubusercontent.com/u/8366322?v=3&s=460",
+      "name": "anonRegions",
+      "type": "other"
+    },
+    {
+      "avatar": "https://avatars3.githubusercontent.com/u/1028666?v=3&s=460",
+      "name": "daisukeoka",
+      "type": "other"
+    },
+    {
+      "avatar": "https://avatars3.githubusercontent.com/u/8884298?v=3&s=460",
+      "name": "colbycheeze",
+      "type": "other"
+    },
+    {
+      "avatar": "https://avatars0.githubusercontent.com/u/13990019?v=3&s=460",
+      "name": "imdaveho",
+      "type": "other"
+    },
+    {
+      "avatar": "https://avatars1.githubusercontent.com/u/8206741?v=3&s=460",
+      "name": "judahmeek",
+      "type": "other"
+    },
+    {
+      "avatar": "https://avatars3.githubusercontent.com/u/847179?v=3&s=460",
+      "name": "pirosb3",
+      "type": "other"
+    },
+    {
+      "avatar": "https://avatars2.githubusercontent.com/u/16929450?v=3&s=460",
+      "name": "sbe",
+      "type": "other"
+    },
+    {
+      "avatar": "https://avatars1.githubusercontent.com/u/7963776?v=3&s=460",
+      "name": "kevinmulhern",
+      "type": "other"
+    },
+    {
+      "avatar": "https://avatars0.githubusercontent.com/u/8755434?v=3&s=460",
+      "name": "charlie",
+      "type": "other"
+    },
+    {
+      "avatar": "https://avatars3.githubusercontent.com/u/3340414?v=3&s=460",
+      "name": "cbelsole",
+      "type": "other"
+    },
+    {
+      "avatar": "https://pbs.twimg.com/profile_images/762475443320520704/vm6_z5x1_400x400.jpg",
+      "name": "shethrives",
+      "type": "other"
+    },
+    {
+      "avatar": "https://pbs.twimg.com/profile_images/378800000322065366/f1aebfa323850ee684f3dcb471483144_400x400.jpeg",
+      "name": "russeby",
+      "type": "other"
+    },
+    {
+      "avatar": "https://pbs.twimg.com/profile_images/545058640575483904/EZRQyNiW_400x400.jpeg",
+      "name": "iancmason",
+      "type": "other"
+    },
+    {
+      "avatar": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAV3AAAAJGI2ZjQyNjUxLTBjYjAtNGJlNS1iOWYyLWYyYjQ4NDM0MzBmNQ.jpg",
+      "name": "jackyin",
+      "type": "other"
+    },
+    {
+      "avatar": "https://avatars2.githubusercontent.com/u/8673832?v=3&s=460",
+      "name": "clabruno",
+      "type": "other"
+    },
+    {
+      "avatar": "https://avatars0.githubusercontent.com/u/5085707?v=3&s=460",
+      "name": "muhammedz",
+      "type": "other"
+    },
+    {
+      "avatar": "https://avatars0.githubusercontent.com/u/9161892?v=3&s=460",
+      "name": "bryantt",
+      "type": "other"
+    },
+    {
+      "avatar": "https://avatars3.githubusercontent.com/u/358832?v=3&s=460",
+      "name": "Sacha Greif",
+      "type": "other"
+    },
+    {
+      "avatar": "https://avatars2.githubusercontent.com/u/2608446?v=3&s=460",
+      "name": "Slava Kim",
+      "type": "other"
+    },
+    {
+      "avatar": "https://avatars3.githubusercontent.com/u/611787?v=3&s=460",
+      "name": "Gary Chou",
+      "type": "other"
+    },
+    {
+      "avatar": "https://avatars3.githubusercontent.com/u/5826776?v=3&s=460",
+      "name": "Austin Ewens",
+      "type": "other"
+    },
+    {
+      "avatar": "/images/mattierae.jpg",
+      "name": "mattierae",
+      "type": "other"
+    },
+    {
+      "avatar": "https://pbs.twimg.com/profile_images/650460405660147712/iKndCbUs.jpg",
+      "name": "Eva Gantz",
+      "type": "other"
+    },
+    {
+      "avatar": "https://pbs.twimg.com/profile_images/534874364676562944/tsSdCgqR_400x400.jpeg",
+      "name": "Taurus Omejia",
+      "type": "other"
+    },
+    {
+      "avatar": "https://avatars1.githubusercontent.com/u/3957744?v=3&s=460",
+      "name": "choonggg",
+      "type": "other"
+    },
+    {
+      "avatar": "https://avatars2.githubusercontent.com/u/7064600?v=3&s=460",
+      "name": "curioussavage",
+      "type": "other"
+    },
+    {
+      "avatar": "https://avatars0.githubusercontent.com/u/7821954?v=3&s=460",
+      "name": "Paulie-P",
+      "type": "other"
+    },
+    {
+      "avatar": "https://avatars1.githubusercontent.com/u/1159649?v=4&s=460",
+      "name": "Connie Leung",
+      "type": "other"
+    },
+    {
+      "avatar": "https://avatars2.githubusercontent.com/u/27697439?v=3&s=460",
+      "name": "grfraser",
+      "type": "other"
+    }
+  ]
+}
