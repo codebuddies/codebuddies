@@ -13,6 +13,8 @@ Meteor.methods({
       groupId: String,
       groupTitle: String,
       groupSlug: String,
+      tags: Match.Maybe([String]),
+      channel: String
     });
 
 
@@ -41,6 +43,8 @@ Meteor.methods({
     let discussion = {
       topic: data.topic,
       description: data.description,
+      tags: data.tags,
+      channel: data.channel,
       created_at: new Date(),
       modified_at: null,
       up_votes: [],
@@ -58,6 +62,8 @@ Meteor.methods({
 
     //insert
     discussion._id = Discussions.insert(discussion);
+
+    // @todo: slack alert
 
     // @todo: notification
 

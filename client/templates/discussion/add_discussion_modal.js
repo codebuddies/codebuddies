@@ -2,6 +2,26 @@ Template.addDiscussionModal.onCreated(function(){
    const instance = this;
    instance.processing = new ReactiveVar(false);
    instance.discussionDescriptionPreview = new ReactiveVar('');
+
+   Meteor.setTimeout(function () {
+     const tags = [ 'Below are some popular tags. White spaces are supported.', 'JavaScript', 'Python', 'Go', 'CSS', 'PHP', 'R', 'NodeJS', 'D3', 'MongoDB', 'Meteor', 'Java'];
+     instance.$(".discussion-tags-multiple", tags).select2({
+       placeholder: "Tags (required)",
+       data: tags,
+       tags: false,
+       tokenSeparators: [','],
+       allowClear: true
+     });
+
+     const channels = [ 'Below are some generic channels.', 'none', '#JavaScript', '#python', '#Go-lang', 'CSS', 'PHP', 'R', 'NodeJS', 'D3', 'MongoDB', 'Meteor', 'Java'];
+     instance.$(".slack-channel", channels).select2({
+       placeholder: "Channel (optional)",
+       data: channels,
+       tags: false,
+       allowClear: true
+     });
+   },500)
+
 });
 
 Template.addDiscussionModal.helpers({
@@ -27,6 +47,15 @@ Template.addDiscussionModal.events({
       $('#discussionTopic').css({ 'border': '#FF0000 1px solid'});
       return Bert.alert( 'Topic', 'warning', 'growl-top-right' );
     }
+
+    if (!$(".discussion-tags-multiple").val() ||$(".discussion-tags-multiple").val().length < 1) {
+      return Bert.alert( 'Please save at least 1 tag. ', 'warning', 'growl-top-right' );
+    }
+
+    // if (!$(".slack-channel").val() ||$(".slack-channel").val().length <= 2) {
+    //   return Bert.alert( 'Please save at least 3 tags. ', 'warning', 'growl-top-right' );
+    // }
+
     if ( $.trim(template.find("#discussionDescription").value) == '') {
       $('#discussionDescription').css({ 'border': '#FF0000 1px solid'});
       return Bert.alert( 'Description', 'warning', 'growl-top-right' );
@@ -38,7 +67,9 @@ Template.addDiscussionModal.events({
       description: $.trim(template.find("#discussionDescription").value),
       groupId: this._id,
       groupTitle: this.title,
-      groupSlug: this.slug
+      groupSlug: this.slug,
+      tags: $(".discussion-tags-multiple").val(),
+      channel: $(".slack-channel").val() || 'none'
     }
 
     console.log(data);

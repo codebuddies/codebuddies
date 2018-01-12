@@ -10,9 +10,26 @@
             <div class="modal-body">
 
               <div class="form-group">
-                <label  class="control-label">Discussion Topic</label>
+                <label  class="control-label">Topic</label>
                 <input type="text" class="form-control" id="discussionTopic" placeholder="{{_ 'discussion_topic'}} (required)">
               </div>
+
+              <div class="form-group margin-top-2">
+                <label  class="control-label">Tags</label>
+                <select class="discussion-tags-multiple form-control"  multiple="multiple">
+                  <option></option>
+                </select>
+                <small class="pull-right">Please select at least two tags.</small>
+              </div>
+
+              <div class="form-group margin-top-2">
+                <label  class="control-label">Slack channel</label>
+                <select class="slack-channel form-control">
+                  <option></option>
+                </select>
+                <small class="pull-right">Optional</small>
+              </div>
+
               <div class="form-group">
                 <label  class="control-label">Description</label>
                 <!-- <textarea class="form-control" id="discussionDescription" rows="5" cols="70" placeholder="Description"></textarea> -->
@@ -25,7 +42,7 @@
                   <!-- Tab panes -->
                   <div class="tab-content">
                     <div role="tabpanel" class="tab-pane active" id="write">
-                      <textarea class="form-control" id="discussionDescription" rows="5" cols="70" placeholder="Description"></textarea>
+                      <textarea class="form-control" id="discussionDescription" rows="8" cols="70" placeholder="Description"></textarea>
                     </div>
                     <div role="tabpanel" class="tab-pane preview-pane" id="preview">
                       {{#markdown}}{{discussionDescriptionPreview}}{{/markdown}}
