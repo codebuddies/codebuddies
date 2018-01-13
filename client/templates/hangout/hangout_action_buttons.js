@@ -1,5 +1,45 @@
 import QuillEditor from '../../libs/QuillEditor';
 
+Template.hangoutActionButtons.helpers({
+  icsDownloadLink: function(hangout) {
+    console.log('hangout', hangout);
+    const nowDate = new Date();
+    const startDate = Blaze._globalHelpers.getHangoutGoogleCalendarDate(hangout.start)
+    const startTime = Blaze._globalHelpers.getHangoutGoogleCalendarTime(hangout.start);
+    const endDate = Blaze._globalHelpers.getHangoutGoogleCalendarDate(hangout.end)
+    const endTime = Blaze._globalHelpers.getHangoutGoogleCalendarTime(hangout.end);
+    const currentDate = Blaze._globalHelpers.getHangoutGoogleCalendarDate(nowDate)
+    const currentTime = Blaze._globalHelpers.getHangoutGoogleCalendarTime(nowDate);
+    const start = `${startDate}T${startTime}`;
+    const end = `${endDate}T${endTime}`;
+    const current = `${currentDate}T${currentTime}`;
+    const SEPARATOR = (navigator.appVersion.indexOf('Win') !== -1) ? '\r\n' : '\n';
+
+    let topic = hangout.topic;
+    const group = (hangout && hangout.group) || null
+    if (group.title) {
+      topic += `(${group.title})`;
+    }
+    const location = `https://meet.jit.si/cb${hangout._id}`;
+    const uid = `${Date.now()}@codebuddies.org`;
+    const calendarDetails = [
+       'BEGIN:VEVENT',
+       `UID:${uid}`,
+       'CLASS:PUBLIC',
+       `DESCRIPTION:${hangout.description}`,
+       `DTSTAMP;VALUE=DATE-TIME:${current}`,
+       `DTSTART;VALUE=DATE-TIME:${start}`,
+       `DTEND;VALUE=DATE-TIME:${end}`,
+       `LOCATION:${location}`,
+       `SUMMARY;LANGUAGE=en-us:${topic}`,
+       'TRANSP:TRANSPARENT',
+       'END:VEVENT'
+    ].join(SEPARATOR);
+    const calendarEvent  = `BEGIN:VCALENDAR${SEPARATOR}PRODID:Calendar${SEPARATOR}VERSION:2.0${SEPARATOR}${calendarDetails}${SEPARATOR}END:VCALENDAR`;
+    return `data:text/calendar;charset=utf8,${escape(calendarEvent)}`;
+  }
+})
+
 Template.hangoutActionButtons.events({
   'click .clone-hangout': function(e, hangout) {
 
@@ -110,59 +150,5 @@ Template.hangoutActionButtons.events({
 
       }); //sweetAlert
 
-  },
-  'click #add-to-icalendar': function(e, hangout) {
-    console.log(hangout);
-    if (navigator.userAgent.indexOf('MSIE') > -1 && navigator.userAgent.indexOf('MSIE 10') == -1) {
-      sweetAlert({
-          type: 'warning',
-          title: 'Unsupported Browser',
-          confirmButtonText: 'OK',
-          confirmButtonColor: "#d9534f",
-          showCancelButton: false,
-          closeOnConfirm: false,
-      });
-      return;
-    } else {
-      const startDate = Blaze._globalHelpers.getHangoutGoogleCalendarDate(hangout.data.start)
-      const startTime = Blaze._globalHelpers.getHangoutGoogleCalendarTime(hangout.data.start);
-      const endDate = Blaze._globalHelpers.getHangoutGoogleCalendarDate(hangout.data.end)
-      const endTime = Blaze._globalHelpers.getHangoutGoogleCalendarTime(hangout.data.end);
-
-      const date = new Date();
-      const currentDate = Blaze._globalHelpers.getHangoutGoogleCalendarDate(date)
-      const currentTime = Blaze._globalHelpers.getHangoutGoogleCalendarTime(date);
-      const start = `${startDate}T${startTime}`;
-      const end = `${endDate}T${endTime}`;
-      const current = `${currentDate}T${currentTime}`;
-      const SEPARATOR = (navigator.appVersion.indexOf('Win') !== -1) ? '\r\n' : '\n';
-
-      let topic = hangout.data.topic;
-      const group = (hangout && hangout.data && hangout.data.group) || null
-      if (group.title) {
-        topic += `(${group.title})`;
-      }
-      const location = `https://meet.jit.si/cb${hangout.data._id}`;
-      const uid = `${Date.now()}@codebuddies.org`;
-      const calendarDetails = [
-         'BEGIN:VEVENT',
-         `UID:${uid}`,
-         'CLASS:PUBLIC',
-         `DESCRIPTION:${hangout.data.description}`,
-         `DTSTAMP;VALUE=DATE-TIME:${current}`,
-         `DTSTART;VALUE=DATE-TIME:${start}`,
-         `DTEND;VALUE=DATE-TIME:${end}`,
-         `LOCATION:${location}`,
-         `SUMMARY;LANGUAGE=en-us:${topic}`,
-         'TRANSP:TRANSPARENT',
-         'END:VEVENT'
-      ].join(SEPARATOR);
-      const calendarStart = `BEGIN:VCALENDAR${SEPARATOR}PRODID:Calendar${SEPARATOR}VERSION:2.0`;
-      const calendarEnd = `END:VCALENDAR`;
-
-      const calendarEvent  = `${calendarStart}${SEPARATOR}${calendarDetails}${SEPARATOR}${calendarEnd}`;
-      console.log('calendarEvent', calendarEvent);
-      window.open(`data:text/calendar;charset=utf8,${escape(calendarEvent)}`);
-    }
-  },
+  }
 });
