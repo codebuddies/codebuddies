@@ -10,7 +10,7 @@ Meteor.publish("studyGroupDiscussions", function(studyGroupId, limit, discussion
 
   // projection
   let projection = new Object();
-  projection.fields = {"topic" : 1, 'description':1, "views" : 1, "up_votes" : 1, "down_votes" : 1, "response_count":1, "created_at":1 ,'study_group':1, 'modified_at':1, 'author': 1 };
+  projection.fields = {"topic" : 1, 'tags': 1, 'description':1, "views" : 1, "up_votes" : 1, "down_votes" : 1, "response_count":1, "created_at":1 ,'study_group':1, 'modified_at':1, 'author': 1 };
   projection.limit = limit;
 
   // options
@@ -45,17 +45,24 @@ Meteor.publish("discussionById", function(discussionId){
 
 });
 
-Meteor.publish("allDiscussions", function(limit, discussionFilter){
+Meteor.publish("allDiscussions", function(limit, discussionFilter, tags){
   check(limit, Number);
   check(discussionFilter, String);
+  check(tags, Match.Maybe([String]));
+
 
   // query
   let query = new Object();
   query['visibility'] = {$ne:false};
 
+  //setting tags if any
+  if (! _.isEmpty(tags)) {
+    query['tags'] = {$in: tags}
+  }
+
   // projection
   let projection = new Object();
-  projection.fields = {"topic" : 1, 'description':1, "views" : 1, "up_votes" : 1, "down_votes" : 1, "response_count":1, "created_at":1 ,'study_group':1, 'modified_at':1, 'author': 1 };
+  projection.fields = {"topic" : 1, "tags": 1, 'description':1, "views" : 1, "up_votes" : 1, "down_votes" : 1, "response_count":1, "created_at":1 ,'study_group':1, 'modified_at':1, 'author': 1 };
   projection.limit = limit;
 
   // options

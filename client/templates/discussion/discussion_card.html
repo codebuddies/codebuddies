@@ -24,11 +24,7 @@
         {{/if}}
       </h3>
 
-      <h5>
-        {{#each tag in tags}}
-          <span class="label label-primary"><a href="{{pathFor 'discussions by tag' discussionTag=tag}}">{{tag}}</a></span>
-        {{/each}}
-      </h5>
+      <h5>{{#each tag in tags}} <span class="label label-default select-tag" data-tag="{{tag}}">{{tag}}</span> {{/each}}</h5>
 
       <div class="description-text">
         {{#markdown}}{{description}}{{/markdown}}

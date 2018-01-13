@@ -60,4 +60,9 @@ Template.discussionCard.events({
       }
     });
   },
+  "click .select-tag": function(event, template) {
+    event.preventDefault();
+    const target = $(event.target)
+    FlowRouter.go(`/discussions/?tags[]=${target.data('tag')}`);
+  }
 });

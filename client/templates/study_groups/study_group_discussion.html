@@ -9,13 +9,13 @@
   {{#if Template.subscriptionsReady}}
     {{#if discussions.count}}
       <div class="row">
-        <div class="col-md-9">
+        <div class="col-md-8">
           <h3>Topic</h3>
         </div>
         <div class="col-md-2">
           <h3>Author</h3>
         </div>
-        <div class="col-md-1">
+        <div class="col-md-2">
           <div class="dropdown pull-right">
             <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                 <span><i class="fa fa-filter" aria-hidden="true"></i></span>
@@ -37,28 +37,29 @@
 
     {{#each discussions}}
       <div class="row">
-        <div class="col-md-9">
+        <div class="col-md-8">
           <h3><a href="{{pathFor 'discussion' discussionId=_id}}">{{topic}}</a> {{#if modified_at}}<small>(Edited)</small>{{/if}}</h3>
+          <h5>{{#each tag in tags}} <span class="label label-default" data-tag="{{tag}}">{{tag}}</span> {{/each}}</h5>
           <h4><small>{{truncateIt description '90'}}</small></h4>
         </div>
         <div class="col-md-2">
           <h5>{{author.username}}</h5>
         </div>
-        <div class="col-md-1">
-          <div class="dropdown pull-right">
-            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                <span><i class="fa fa-ellipsis-h" aria-hidden="true"></i></span>
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-              {{#if isAuthor author.id}}
-                <li class="edit-discussion"><a href="#">Edit</a></li>
-                <li class="delete-discussion"><a href="#">Delete</a></li>
-              {{else}}
-                <li class="{{#if currentUser}} report-discussion {{else}} continue-popup {{/if}} "><a href="#">Report</a></li>
-              {{/if}}
-            </ul>
-          </div>
-          <!-- <div class="btn btn-default btn-sm">...</div> -->
+        <div class="col-md-2">
+          {{! available actions as a button grouping }}
+          {{#if isAuthor author.id}}
+            <div class="btn-group pull-right" role="group" aria-label="...">
+              <button type="button" class="btn btn-sm btn-default edit-discussion">Edit</button>
+              <div class="btn-group" role="group">
+                <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu pull-left">
+                  <li class="delete-discussion"><a href="#">Remove</a></li>
+                </ul>
+              </div>
+            </div>
+          {{/if}}
         </div>
         <div class="col-md-12">
           <h4>

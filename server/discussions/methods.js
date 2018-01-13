@@ -86,6 +86,7 @@ Meteor.methods({
       id: String,
       topic: String,
       description: String,
+      tags: Match.Maybe([String])
     });
 
     const actor = Meteor.user();
@@ -105,6 +106,7 @@ Meteor.methods({
       $set:{
         topic: data.topic,
         description: data.description,
+        tags: data.tags,
         modified_at: new Date()
       },
       $inc:{version: 1 }

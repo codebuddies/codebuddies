@@ -1,3 +1,5 @@
+import _ from 'lodash';
+
 Template.allDiscussions.onCreated(function() {
   const title = "CodeBuddies | Discussions";
   const metaInfo = {
@@ -17,6 +19,13 @@ Template.allDiscussions.onCreated(function() {
   instance.autorun(function () {
     let limit = instance.limit.get();
 
+    FlowRouter.watchPathChange();
+    let queryParams = FlowRouter.current().queryParams;
+    let tags = [];
+    if (! _.isEmpty(queryParams)) {
+      tags = queryParams.tags
+    }
+
     let discussionFilter = instance.discussionFilter.get() || 'newest';
     switch (discussionFilter) {
       case 'newest':
@@ -35,12 +44,10 @@ Template.allDiscussions.onCreated(function() {
       projection.sort = {'created_at' : -1};
     }
 
-    instance.subscribe('allDiscussions', limit, discussionFilter);
+    instance.subscribe('allDiscussions', limit, discussionFilter, tags);
   });
 
 
-
-  console.log(projection);
 
   instance.loadDiscussions = function() {
     return Discussions.find({},projection);
@@ -170,6 +177,11 @@ Template.allDiscussions.events({
     event.preventDefault();
     template.discussionFilter.set('least-commented');
   },
+  "click .select-tag": function(event, template) {
+    event.preventDefault();
+    const target = $(event.target)
+    FlowRouter.setQueryParams({tags: [target.data('tag')] });
+  }
 });
 
 Template.allDiscussions.onDestroyed(function(){
