@@ -5,6 +5,7 @@ Template.homeLoggedIn.onCreated(function(){
   DocHead.addMeta(metaInfo);
 
   this.autorun(() => {
+    this.subscribe("userStatus");
     if (!_.isEmpty(Session.get('hangoutSearchTerm'))){
     this.subscribe('hangoutSearch',Session.get('hangoutSearchTerm'));
     }
@@ -64,20 +65,6 @@ Template.homeLoggedIn.events({
   },
   "click #hangout-faq-popup": function() {
     Modal.show('hangoutFAQModal');
-  },
-  "click #statusTabs li.full-width-tab": function(e) {
-    e.preventDefault();
-    console.log(e.target);
-    $(e.target).tab('show');
-    var id = $(e.target).attr('data-id');
-    $('[href=#' + id + id + ']').tab('show');
-  },
-  "click #statusTabs a": function(e) {
-    e.preventDefault();
-    console.log(e.target);
-    $(e.target).parent('a').tab('show');
-    var id = $(e.target).parent('a').attr('data-id');
-    $('[href=#' + id + id + ']').tab('show');
   },
   "click #clearSearch": function(event, template){
     Session.set('hangoutSearchTerm', "");
