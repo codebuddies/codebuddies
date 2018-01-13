@@ -89,3 +89,11 @@ Meteor.publish("allDiscussions", function(limit, discussionFilter, tags){
   return Discussions.find(query, projection, options);
 
 });
+
+Meteor.publish( 'discussionsSearch', function(searchTerm) {
+  check(searchTerm, String);
+    if (_.isEmpty(searchTerm))
+    return this.ready();
+
+    return Discussions.search(searchTerm);
+});

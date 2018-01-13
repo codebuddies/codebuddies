@@ -2,8 +2,12 @@
   <div class="row">
     <div class="col-md-12">
       <ol class="breadcrumb">
-        <li><a href="{{pathFor 'all study groups'}}">Study Groups</a></li>
-        <li><a href="{{pathFor 'study group' studyGroupSlug=study_group.slug studyGroupId=study_group.id}}">{{truncateIt study_group.title '30'}}</a></li>
+        {{#unless equals study_group.id 'CB'}}
+          <li><a href="{{pathFor 'all study groups'}}">Study Groups</a></li>
+          <li><a href="{{pathFor 'study group' studyGroupSlug=study_group.slug studyGroupId=study_group.id}}">{{truncateIt study_group.title '30'}}</a></li>
+        {{else}}
+          <li><a href="{{pathFor 'discussions'}}">Discussions</a></li>
+        {{/unless}}
         <li class="active">{{topic}}</li>
       </ol>
     </div>

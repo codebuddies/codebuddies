@@ -12,92 +12,64 @@
     </div>
   </div>
 
+  {{> discussionSearchBox}}
+
+  {{#if discussionSearchMode}}
+    {{> discussionSearchResult}}
+  {{/if}}
+
   <br>
   <br>
-  <div class="container">
+  {{#unless discussionSearchMode}}
+    <div class="container">
 
-    {{#if Template.subscriptionsReady}}
-      {{#if discussions.count}}
-        <div class="row">
-          <div class="col-md-9">
-            <h4>Topic</h4>
-          </div>
-          <div class="col-md-2">
-            <h4>Author</h4>
-          </div>
-          <div class="col-md-1">
-            <div class="dropdown pull-right">
-              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                  <span><i class="fa fa-filter" aria-hidden="true"></i></span>
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                <li class="newest"><a href="#">{{#if equals discussionFilter 'newest'}} <i class="fa fa-check" aria-hidden="true"></i>  {{else}} &nbsp;&nbsp; {{/if}}Newest</a></li>
-                <li role="separator" class="divider"></li>
-                <li class="oldest"><a href="#">{{#if equals discussionFilter 'oldest'}} <i class="fa fa-check" aria-hidden="true"></i>  {{else}} &nbsp;&nbsp; {{/if}}Oldest</a></li>
-                <li role="separator" class="divider"></li>
-                <li class="most-commented"><a href="#">{{#if equals discussionFilter 'most-commented'}} <i class="fa fa-check" aria-hidden="true"></i>  {{else}} &nbsp;&nbsp; {{/if}}Most Commented</a></li>
-                <li role="separator" class="divider"></li>
-                <li class="least-commented"><a href="#">{{#if equals discussionFilter 'least-commented'}} <i class="fa fa-check" aria-hidden="true"></i>  {{else}} &nbsp;&nbsp; {{/if}}Least Commented</a></li>
-              </ul>
+      {{#if Template.subscriptionsReady}}
+        {{#if discussions.count}}
+          <div class="row">
+            <div class="col-md-8">
+              <h4>Topic</h4>
+            </div>
+            <div class="col-md-2">
+              <h4>Author</h4>
+            </div>
+            <div class="col-md-2">
+              <div class="dropdown pull-right">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    <span><i class="fa fa-filter" aria-hidden="true"></i></span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                  <li class="newest"><a href="#">{{#if equals discussionFilter 'newest'}} <i class="fa fa-check" aria-hidden="true"></i>  {{else}} &nbsp;&nbsp; {{/if}}Newest</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li class="oldest"><a href="#">{{#if equals discussionFilter 'oldest'}} <i class="fa fa-check" aria-hidden="true"></i>  {{else}} &nbsp;&nbsp; {{/if}}Oldest</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li class="most-commented"><a href="#">{{#if equals discussionFilter 'most-commented'}} <i class="fa fa-check" aria-hidden="true"></i>  {{else}} &nbsp;&nbsp; {{/if}}Most Commented</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li class="least-commented"><a href="#">{{#if equals discussionFilter 'least-commented'}} <i class="fa fa-check" aria-hidden="true"></i>  {{else}} &nbsp;&nbsp; {{/if}}Least Commented</a></li>
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
-        <hr>
-      {{/if}}
-
-      {{#each discussions}}
-        <div class="row">
-          <div class="col-md-9">
-            <h4><a href="{{pathFor 'discussion' discussionId=_id}}">{{topic}}</a> {{#if modified_at}}<small>(Edited)</small>{{/if}}</h4>
-            <h5>{{#each tag in tags}} <span class="label label-default select-tag" data-tag="{{tag}}">{{tag}}</span> {{/each}}</h5>
-            <h4><small>{{truncateIt description '90'}}</small></h4>
-          </div>
-          <div class="col-md-2">
-            <h5>{{author.username}}</h5>
-          </div>
-          <div class="col-md-1">
-            <div class="dropdown pull-right">
-              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                  <span><i class="fa fa-ellipsis-h" aria-hidden="true"></i></span>
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                {{#if isAuthor author.id}}
-                  <li class="edit-discussion"><a href="#">Edit</a></li>
-                  <li class="delete-discussion"><a href="#">Delete</a></li>
-                {{else}}
-                  <li class="{{#if currentUser}} report-discussion {{else}} continue-popup {{/if}} "><a href="#">Report</a></li>
-                {{/if}}
-              </ul>
-            </div>
-            <!-- <div class="btn btn-default btn-sm">...</div> -->
-          </div>
-          <div class="col-md-12">
-            <h4>
-              <i class="fa fa-thumbs-o-up {{#if isInCollection up_votes}} voted {{else}} upvote {{/if}}" aria-hidden="true"></i> <small>{{up_votes.length}}</small> &nbsp; &nbsp;
-              <i class="fa fa-thumbs-o-down {{#if isInCollection down_votes}} voted {{else}} downvote {{/if}}" aria-hidden="true"></i> <small>{{down_votes.length}}</small> &nbsp; &nbsp;
-              <small><i class="fa fa-clock-o" aria-hidden="true"></i> Posted on : {{dispDate created_at}} </small> &nbsp; &nbsp;
-              <small><i class="fa fa-comments-o" aria-hidden="true"></i> {{response_count}} </small> &nbsp; &nbsp;
-              <small><i class="fa fa-eye" aria-hidden="true"></i> {{views}} </small> &nbsp; &nbsp;
-            </h4>
-          </div>
-        </div>
-        <hr>
-      {{else}}
-        <div class="text-center">
-          <div class="alert alert-info">No discussion found</div>
-          <p>There will be more to see here once group members start some discussion threads.</p>
-        </div>
-      {{/each}}
-
-      {{#if discussions.count}}
-        {{#if status}}
-          <h5 class="text-center well">You've reached the end of the page.</h5>
+          <hr>
         {{/if}}
+
+        {{#each discussions}}
+          {{> discussionItem}}
+        {{else}}
+          <div class="text-center">
+            <div class="alert alert-info">No discussion found</div>
+            <p>There will be more to see here once group members start some discussion threads.</p>
+          </div>
+        {{/each}}
+
+        {{#if discussions.count}}
+          {{#if status}}
+            <h5 class="text-center well">You've reached the end of the page.</h5>
+          {{/if}}
+        {{/if}}
+
+      {{else}}
+        {{>loading}}
       {{/if}}
-
-    {{else}}
-      {{>loading}}
-    {{/if}}
-  </div>
-
+    </div>
+  {{/unless}}
 </template>
