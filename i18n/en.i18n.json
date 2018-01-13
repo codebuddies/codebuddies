@@ -155,7 +155,10 @@
   "settings": "Settings",
   "start_new_group": "Start a New Group",
   "select_new_owner": "Select new owner",
+
+  // Discussion
   "discussion": "Discussion",
+  "new_discussion": "Start a new Discussion",
   "discussion_topic": "Discussion Topic",
 
   // alerts

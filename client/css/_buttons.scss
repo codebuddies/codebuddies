@@ -244,3 +244,9 @@ li.delete-hangout, li.edit-hangout {
     color: $white;
   }
 }
+
+.standard-header-btn{
+  background: $success-green;
+  margin: 0 auto;
+  max-width: 340px;
+}

@@ -20,7 +20,7 @@ Meteor.methods({
 
     const actor = Meteor.user();
 
-    if (!actor || !Roles.userIsInRole(actor, ['owner','admin','moderator','member'], data.groupId)) {
+    if (!actor || !Roles.userIsInRole(actor, ['owner','admin','moderator','member', 'user'], data.groupId)) {
       throw new Meteor.Error(403, "Access denied");
     }else {
 

@@ -52,9 +52,6 @@ Template.addDiscussionModal.events({
       return Bert.alert( 'Please save at least 1 tag. ', 'warning', 'growl-top-right' );
     }
 
-    // if (!$(".slack-channel").val() ||$(".slack-channel").val().length <= 2) {
-    //   return Bert.alert( 'Please save at least 3 tags. ', 'warning', 'growl-top-right' );
-    // }
 
     if ( $.trim(template.find("#discussionDescription").value) == '') {
       $('#discussionDescription').css({ 'border': '#FF0000 1px solid'});
@@ -72,7 +69,7 @@ Template.addDiscussionModal.events({
       channel: $(".slack-channel").val() || 'none'
     }
 
-    console.log(data);
+    // console.log(data);
     template.processing.set( true );
 
     Meteor.call("discussions.insert", data, function(error, result){
