@@ -31,6 +31,7 @@ Template.hangoutActionButtons.helpers({
        `DTSTART;VALUE=DATE-TIME:${start}`,
        `DTEND;VALUE=DATE-TIME:${end}`,
        `LOCATION:${location}`,
+       `URL:${location}`,
        `SUMMARY;LANGUAGE=en-us:${topic}`,
        'TRANSP:TRANSPARENT',
        'END:VEVENT'
