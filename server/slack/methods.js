@@ -168,3 +168,29 @@ hangoutFacebookNotification = function(hangout, type) {
   `NEW HANGOUT: <@${hangout.host.name}> has scheduled a "${hangout.topic}" hangout in the "${hangout.group.title}" study group!\n\nPlease RSVP here: ${hangoutUrl}`;
   facebookAlert({ text: pretext });
 }
+
+/**
+* slack alert for new discussion
+* @function
+* @name discussionsSlackAlert
+* @param { Object } discussion - Data
+* @return null
+*/
+discussionsSlackAlert = function (discussion) {
+
+  discussionAlert = slack.extend({
+      channel: Meteor.settings.slack_alert_channel,
+      icon_emoji: ':discussion:',
+      username: "Discussion Alerts"
+  });
+
+  const username = discussion.author.username;
+  const discussionURL = Meteor.absoluteUrl(`discussion/${discussion._id}`);
+  const pretext = `<@${username}> _has started a new discussion_ : *${discussion.topic}* \nChime in here: ${discussionURL} `;
+
+  discussionAlert({
+    text: pretext
+  });
+
+
+}

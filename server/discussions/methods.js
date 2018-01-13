@@ -63,7 +63,8 @@ Meteor.methods({
     //insert
     discussion._id = Discussions.insert(discussion);
 
-    // @todo: slack alert
+    // slack alert
+    discussionsSlackAlert(discussion);
 
     // @todo: notification
 
