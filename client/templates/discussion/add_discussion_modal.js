@@ -69,7 +69,7 @@ Template.addDiscussionModal.events({
       groupTitle: this.title,
       groupSlug: this.slug,
       tags: $(".discussion-tags-multiple").val(),
-      channel: $(".slack-channel").val() || 'none'
+      channel: $(".slack-channel").val() || '#announcements'
     }
 
     // console.log(data);
