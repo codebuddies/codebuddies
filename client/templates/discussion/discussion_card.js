@@ -1,9 +1,9 @@
 Template.discussionCard.events({
-  "click #editDiscussion": function(event, template){
+  "click .edit-discussion": function(event, template){
      event.preventDefault();
      Modal.show("editDiscussionModal", this);
   },
-  "click #deleteDiscussion": function(event) {
+  "click .delete-discussion": function(event) {
     event.preventDefault();
     const data = {
       id: this._id

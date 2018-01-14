@@ -11,13 +11,13 @@
         {{! available actions as a button grouping }}
         {{#if isAuthor author.id}}
           <div class="btn-group pull-right" role="group" aria-label="...">
-            <button type="button" class="btn btn-sm btn-default" id="editDiscussion">Edit</button>
+            <button type="button" class="btn btn-sm btn-default edit-discussion">Edit</button>
             <div class="btn-group" role="group">
               <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="caret"></span>
               </button>
               <ul class="dropdown-menu">
-                <li id="deleteDiscussion"><a href="#">Remove</a></li>
+                <li class="delete-discussion"><a href="#">Remove</a></li>
               </ul>
             </div>
           </div>

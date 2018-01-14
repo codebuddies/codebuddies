@@ -96,24 +96,67 @@ Meteor.methods({
       throw new Meteor.Error(403, "Access denied");
     }
 
-    const discussion = Discussions.findOne({"_id": data.id, "author.id": actor._id });
+    const discussion = Discussions.findOne({"_id": data.id });
 
     if (!discussion) {
       throw new Meteor.Error(403, "Access denied");
     }
 
+    if (discussion.author.id === actor._id) {
 
-    Discussions.update({_id:data.id}, {
-      $set:{
-        topic: data.topic,
-        description: data.description,
-        tags: data.tags,
-        modified_at: new Date()
-      },
-      $inc:{version: 1 }
-    });
+      Discussions.update({_id:data.id}, {
+        $set:{
+          topic: data.topic,
+          description: data.description,
+          tags: data.tags,
+          modified_at: new Date()
+        },
+        $inc:{version: 1 }
+      });
 
-    return true
+      return true
+
+
+    } else if (Roles.userIsInRole(actor._id,['admin','moderator'], 'CB')) {
+
+      Discussions.update({_id:data.id}, {
+        $set:{
+          topic: data.topic,
+          description: data.description,
+          tags: data.tags,
+          modified_at: new Date()
+        },
+        $inc:{version: 1 }
+      });
+
+      const notification = {
+        actor: {
+          id: actor._id,
+          username: actor.username,
+        },
+        subject: {
+          id: discussion.author.id,
+          username: discussion.author.username
+        },
+        discussion: {
+          id: discussion._id,
+          topic: discussion.topic
+        },
+        createdAt : new Date(),
+        read:[actor._id],
+        action : "edited",
+        icon : "fa-pencil-square-o",
+        type : "discussion edit",
+      }
+      Notifications.insert(notification);
+
+
+      return true
+
+    } else {
+        throw new Meteor.Error(403, "Access denied");
+    }
+
 
   }
 });
@@ -208,7 +251,58 @@ Meteor.methods({
       id: String
     });
 
-    Discussions.update({_id:data.id}, {$set: {visibility: false}});
+
+
+    const actor = Meteor.user();
+
+    if (!actor) {
+      throw new Meteor.Error(403, "Access denied");
+    }
+
+    const discussion = Discussions.findOne({"_id": data.id });
+
+    if (!discussion) {
+      throw new Meteor.Error(403, "Access denied");
+    }
+
+    if (discussion.author.id === actor._id) {
+
+      Discussions.update({_id:data.id}, {$set: {visibility: false}});
+
+      return true
+
+
+    } else if (Roles.userIsInRole(actor._id,['admin','moderator'], 'CB')) {
+
+      Discussions.update({_id:data.id}, {$set: {visibility: false}});
+
+      const notification = {
+        actor: {
+          id: actor._id,
+          username: actor.username,
+        },
+        subject: {
+          id: discussion.author.id,
+          username: discussion.author.username
+        },
+        discussion: {
+          id: discussion._id,
+          topic: discussion.topic
+        },
+        createdAt : new Date(),
+        read:[actor._id],
+        action : "deleted",
+        icon : "fa-trash-o",
+        type : "discussion delete",
+      }
+      Notifications.insert(notification);
+
+
+      return true
+
+    } else {
+        throw new Meteor.Error(403, "Access denied");
+    }
 
     return true
   }
