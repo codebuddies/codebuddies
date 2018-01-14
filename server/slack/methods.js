@@ -178,8 +178,9 @@ hangoutFacebookNotification = function(hangout, type) {
 */
 discussionsSlackAlert = function (discussion) {
 
+  const channel = Meteor.isDevelopment ? Meteor.settings.slack_alert_channel : discussion.channel;
   discussionAlert = slack.extend({
-      channel: Meteor.settings.slack_alert_channel,
+      channel: channel,
       icon_emoji: ':discussion:',
       username: "Discussion Alerts"
   });

@@ -1,7 +1,7 @@
 // available public slack channels for alert
 export default slack_channels = [
-  "none",
   "#algorithms",
+  "#announcements",
   "#blockchain",
   "#codebuddies-meta",
   "#devops",
