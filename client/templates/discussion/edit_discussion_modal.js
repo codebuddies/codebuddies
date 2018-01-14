@@ -1,3 +1,6 @@
+import discussion_tags from '/imports/data/discussion_tags.js';
+
+
 Template.editDiscussionModal.onCreated(function(){
    const instance = this;
    instance.processing = new ReactiveVar(false);
@@ -9,7 +12,7 @@ Template.editDiscussionModal.onRendered(function(){
   instance.discussionDescriptionPreview.set(instance.data.description)
 
 
-  let tags = [ 'Below are some popular tags. White spaces are supported.', 'JavaScript', 'Python', 'Go', 'CSS', 'PHP', 'R', 'NodeJS', 'D3', 'MongoDB', 'Meteor', 'Java'];
+  let tags = discussion_tags;
 
 
   instance.data.tags.forEach((tag)=> {

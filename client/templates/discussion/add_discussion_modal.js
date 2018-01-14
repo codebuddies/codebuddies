@@ -1,10 +1,13 @@
+import discussion_tags from '/imports/data/discussion_tags.js';
+import slack_channels from '/imports/data/slack_channels.js';
+
 Template.addDiscussionModal.onCreated(function(){
    const instance = this;
    instance.processing = new ReactiveVar(false);
    instance.discussionDescriptionPreview = new ReactiveVar('');
-
+   console.log(discussion_tags.length);
    Meteor.setTimeout(function () {
-     const tags = [ 'Below are some popular tags. White spaces are supported.', 'JavaScript', 'Python', 'Go', 'CSS', 'PHP', 'R', 'NodeJS', 'D3', 'MongoDB', 'Meteor', 'Java'];
+     const tags = discussion_tags;
      instance.$(".discussion-tags-multiple", tags).select2({
        placeholder: "Tags (required)",
        data: tags,
@@ -13,7 +16,7 @@ Template.addDiscussionModal.onCreated(function(){
        allowClear: true
      });
 
-     const channels = [ 'Below are some generic channels.', 'none', '#JavaScript', '#python', '#Go-lang', 'CSS', 'PHP', 'R', 'NodeJS', 'D3', 'MongoDB', 'Meteor', 'Java'];
+     const channels = slack_channels;
      instance.$(".slack-channel", channels).select2({
        placeholder: "Channel (optional)",
        data: channels,
