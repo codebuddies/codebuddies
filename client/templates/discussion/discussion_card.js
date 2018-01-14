@@ -64,5 +64,9 @@ Template.discussionCard.events({
     event.preventDefault();
     const target = $(event.target)
     FlowRouter.go(`/discussions/?tags[]=${target.data('tag')}`);
-  }
+  },
+  "click .report-discussion": function(event) {
+    event.preventDefault();
+    Modal.show('reportDiscussionModal', this)
+  },
 });

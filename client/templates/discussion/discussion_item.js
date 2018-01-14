@@ -33,7 +33,7 @@ Template.discussionItem.events({
   },
   "click .report-discussion": function(event) {
     event.preventDefault();
-    // @todo : report it
+    Modal.show('reportDiscussionModal', this)
   },
   "click .upvote": function(event) {
     event.preventDefault();

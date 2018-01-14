@@ -16,6 +16,9 @@
         {{#if equals type 'reported hangout'}}
           <p class="alert {{#if hasBeenSeen}}  {{else}} markAsRead alert-info{{/if}}"><i class="fa {{icon}}" aria-hidden="true"> </i> {{#if isActorAdmin actorId}} {{actorUsername}} {{else}} <a href="{{pathFor 'user by id'}}/{{actorId}}"> {{actorUsername}}  </a>  {{/if}} {{action}} <a href="{{pathFor 'user by id'}}/{{subjectId}}"> {{subjectUsername}}'s </a> <a href="{{pathFor 'hangout'}}/{{hangoutId}}"> hangout </a><i> {{matter}}</i> {{dispDate createdAt}} </p>
         {{/if}}
+        {{#if equals type 'reported discussion'}}
+          <p class="alert {{#if hasBeenSeen}}  {{else}} markAsRead alert-info{{/if}}"><i class="fa {{icon}}" aria-hidden="true"> </i> {{#if isActorAdmin actor.username}} {{actor.username}} {{else}} <a href="{{pathFor 'user by id'}}/{{actor.id}}"> {{actor.username}}  </a>  {{/if}} {{action}} <a href="{{pathFor 'user by id'}}/{{subject.id}}"> {{subject.username}}'s </a> discussion  <a href="{{pathFor 'discussion' discussionId=discussion.id}}"> <b>{{discussion.topic}}</b> &nbsp;&nbsp; </a><i> {{matter}}</i>{{dispDate createdAt}} </p>
+        {{/if}}
         {{#if equals type 'hangout edit'}}
           <p class="alert {{#if hasBeenSeen}}  {{else}} markAsRead alert-info{{/if}}"><i class="fa {{icon}}" aria-hidden="true"> </i> {{#if isActorAdmin actorId}} {{actorUsername}} {{else}} <a href="{{pathFor 'user by id'}}/{{actorId}}"> {{actorUsername}}  </a>  {{/if}} {{action}} <a href="{{pathFor 'user by id'}}/{{subjectId}}"> {{subjectUsername}}'s </a> <a href="{{pathFor 'hangout'}}/{{hangoutId}}"> hangout </a><i>. </i> {{dispDate createdAt}} </p>
         {{/if}}

@@ -343,3 +343,53 @@ Meteor.methods({
 
   }
 });
+
+/**
+* report discussion
+* @function
+* @name discussions.report
+* @param { Object } data - Data
+* @return Boolean
+*/
+Meteor.methods({
+  'discussions.report': function(data){
+    check(data, {
+      discussionId: String,
+      discussionTopic: String,
+      category: String,
+      reporterId: String
+    });
+
+    const actor = Meteor.user();
+    const author = Discussions.findOne({_id:data.discussionId}).author;
+    if(data.reporterId !== actor._id){
+      throw new Meteor.Error(500, "You are trying do something fishy.")
+    }
+
+    const matter = " as " + data.category + ".";
+
+    const notification = {
+      actor :{
+        id: actor._id,
+        username: actor.username ,
+      },
+      subject: {
+        id: author.id,
+        username: author.username
+      },
+      discussion: {
+        id: data.discussionId,
+        topic: data.discussionTopic
+      },
+      createdAt : new Date(),
+      read:[actor._id],
+      action : 'reported',
+      matter : matter,
+      icon : 'fa-exclamation-circle',
+      type : 'reported discussion'
+    }
+
+    Notifications.insert(notification);
+    return true;
+  },
+});

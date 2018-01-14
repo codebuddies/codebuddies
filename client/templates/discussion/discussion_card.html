@@ -21,6 +21,25 @@
               </ul>
             </div>
           </div>
+        {{else}}
+          <div class="btn-group pull-right" role="group" aria-label="...">
+            <div class="btn-group" role="group">
+              <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu pull-left">
+                <li class="{{#unless currentUser}} continue-popup {{else}} report-discussion {{/unless}}"><a href="#">Report</a></li>
+                {{#if isInRole 'admin,moderator,volunteer' 'CB'}}
+                  <li role="separator" class="divider"></li>
+                  <li class="edit-discussion"><a href="#">Edit <span class="label label-info">M</span> </a></li>
+                {{/if}}
+                {{#if isInRole 'admin,moderator' 'CB'}}
+                  <li role="separator" class="divider"></li>
+                  <li class="delete-discussion"><a href="#">Remove <span class="label label-info">M</span> </a></li>
+                {{/if}}
+              </ul>
+            </div>
+          </div>
         {{/if}}
       </h3>
 
