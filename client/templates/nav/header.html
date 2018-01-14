@@ -48,14 +48,19 @@
                <li><a href="{{pathFor 'faq'}}">
                  <i class="fa fa-question fa-fw" aria-hidden="true"></i>{{_ "faq"}}
                </a></li>
+               <!-- Donate -->
+               <li><a href="https://opencollective.com/codebuddies" target="_blank">
+                 Sponsor Us <i class="fa fa-external-link fa-fw" aria-hidden="true"></i>
+               </a></li>
              </ul>
           </li>
           <!-- Hangouts -->
           <li><a href="{{pathFor 'hangouts'}}">{{_ "browse_hangouts"}} <span class="sr-only">(current)</span></a></li>
           <!-- Study Groups -->
           <li><a href="{{pathFor 'all study groups'}}">Study Groups</a></li>
-          <!-- Donate -->
-          <li><a href="https://opencollective.com/codebuddies" target="_blank">Sponsor Us <i class="fa fa-external-link fa-fw" aria-hidden="true"></i></a></li>
+          <!-- Discussions -->
+          <li><a href="{{pathFor 'discussions'}}">Discussions</a></li>
+
           {{! for visitors only}}
           {{#unless currentUser}}
 
