@@ -42,6 +42,7 @@ Template.hangoutActionButtons.events({
     $('#edit-hangout-modal input[value=' + hangout.data.type + ']').prop("checked", true);
     $('#edit-hangout-modal #start-date-time').val(start_time_reverted);
     $('#edit-hangout-modal #end-date-time').val(hangoutDuration);
+    $('#edit-hangout-modal #group').val(hangout.data.group.title);
     //console.log(start_time_reverted);
     //console.log(end_time_reverted);
 
@@ -79,6 +80,35 @@ Template.hangoutActionButtons.events({
         });
       }); //sweetAlert
   },
+  'click #end-hangout': function(){
 
+    const data = {
+      hangoutId: this._id,
+    }
 
+    sweetAlert({
+        type: 'warning',
+        title: TAPi18n.__("end_hangout_confirm"),
+        cancelButtonText: TAPi18n.__("no_end_hangout"),
+        confirmButtonText: TAPi18n.__("yes_end_hangout"),
+        confirmButtonColor: "#d9534f",
+        showCancelButton: true,
+        closeOnConfirm: false,
+      },
+      function() {
+        // disable confirm button to avoid double (or quick) clicking on confirm event
+        swal.disableButtons();
+        // if user confirmed/selected yes, let's call the delete hangout method on the server
+
+        Meteor.call('endHangout', data, function(error, result) {
+          if (result) {
+            swal("Poof!", "Your hangout has been successfully ended!", "success");
+          } else {
+            swal("Oops something went wrong!", error.error + "\n Try again", "error");
+          }
+        });
+
+      }); //sweetAlert
+
+  },
 });

@@ -30,7 +30,7 @@
                 {{/if}}
                 {{#each hangouts}}
                   {{#unless isHangoutCompleted end }}
-                   <div class="col-md-4">
+                   <div class="col-md-6">
                       {{> hangoutCard}}
                    </div>
                   {{/unless}}
@@ -41,7 +41,7 @@
                 {{/if}}
                 {{#each hangouts}}
                   {{#if isHangoutCompleted end }}
-                   <div class="col-md-4">
+                   <div class="col-md-6">
                       {{> hangoutCard}}
                    </div>
                    {{/if}}

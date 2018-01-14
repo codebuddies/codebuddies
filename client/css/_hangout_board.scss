@@ -1,19 +1,20 @@
 #hangout-board {
+    .study-group-tag {
+        z-index: 1;
+        color: rgb(30, 144, 255);
+        position: absolute;
+        font-size: 11px;
+        background: rgb(255, 255, 255);
+    }
   .hangout-card {
     background: $bg-white;
     cursor: pointer;
     display: inline-block;
-    height: 180px;
+    height: 230px;
     padding: 10px;
     position: relative;
     z-index: 0;
     @include box-shadow(0, 12px, 60px, rgba(0, 0, 0, .5));
-
-    .hangout-details {
-      bottom: 0px;
-      position: absolute;
-      width: 250px;
-    }
 
     .hangout-date {
       margin: 0;

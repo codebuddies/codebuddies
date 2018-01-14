@@ -43,6 +43,16 @@ Template.registerHelper("getHangoutTypeSign", function(hangoutType){
   }
 });
 
+Template.registerHelper("getHangoutGoogleCalendarDate", function(date){
+  const tz = TimezonePicker.detectedZone();
+  return moment(date).tz(tz).format('YYYYMMDD');
+});
+
+Template.registerHelper("getHangoutGoogleCalendarTime", function(date){
+  const tz = TimezonePicker.detectedZone();
+  return moment(date).tz(tz).format('HHmmss');
+});
+
 Template.registerHelper("getHangoutStartDateTime", function(date){
   const tz = TimezonePicker.detectedZone();
   return moment(date).tz(tz).format('dddd MMMM Do YYYY, h:mm a z');
