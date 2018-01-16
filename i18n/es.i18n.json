@@ -76,6 +76,8 @@
   "teaching_hangout": "Hangout de Enseñanza",
   "collaboration_hangout": "Hangout de Colaboración",
   "click_to_load_hangout": "Da click para cargar el hangout",
+  "add_to_icalendar": " Add to iCalendar",
+
   // popup messages
   "you_are_almost_there": "¡Ya casi estás ahí!",
   "login_join_hangout": "Por favor entra a tu cuenta para unirte al Hangout.",

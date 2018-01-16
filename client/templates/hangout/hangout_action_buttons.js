@@ -1,5 +1,46 @@
 import QuillEditor from '../../libs/QuillEditor';
 
+Template.hangoutActionButtons.helpers({
+  icsDownloadLink: function(hangout) {
+    console.log('hangout', hangout);
+    const nowDate = new Date();
+    const startDate = Blaze._globalHelpers.getHangoutGoogleCalendarDate(hangout.start)
+    const startTime = Blaze._globalHelpers.getHangoutGoogleCalendarTime(hangout.start);
+    const endDate = Blaze._globalHelpers.getHangoutGoogleCalendarDate(hangout.end)
+    const endTime = Blaze._globalHelpers.getHangoutGoogleCalendarTime(hangout.end);
+    const currentDate = Blaze._globalHelpers.getHangoutGoogleCalendarDate(nowDate)
+    const currentTime = Blaze._globalHelpers.getHangoutGoogleCalendarTime(nowDate);
+    const start = `${startDate}T${startTime}`;
+    const end = `${endDate}T${endTime}`;
+    const current = `${currentDate}T${currentTime}`;
+    const SEPARATOR = (navigator.appVersion.indexOf('Win') !== -1) ? '\r\n' : '\n';
+
+    let topic = hangout.topic;
+    const group = (hangout && hangout.group) || null
+    if (group.title) {
+      topic += `(${group.title})`;
+    }
+    const location = `https://meet.jit.si/cb${hangout._id}`;
+    const uid = `${Date.now()}@codebuddies.org`;
+    const calendarDetails = [
+       'BEGIN:VEVENT',
+       `UID:${uid}`,
+       'CLASS:PUBLIC',
+       `DESCRIPTION:${hangout.description}`,
+       `DTSTAMP;VALUE=DATE-TIME:${current}`,
+       `DTSTART;VALUE=DATE-TIME:${start}`,
+       `DTEND;VALUE=DATE-TIME:${end}`,
+       `LOCATION:${location}`,
+       `URL:${location}`,
+       `SUMMARY;LANGUAGE=en-us:${topic}`,
+       'TRANSP:TRANSPARENT',
+       'END:VEVENT'
+    ].join(SEPARATOR);
+    const calendarEvent  = `BEGIN:VCALENDAR${SEPARATOR}PRODID:Calendar${SEPARATOR}VERSION:2.0${SEPARATOR}${calendarDetails}${SEPARATOR}END:VCALENDAR`;
+    return `data:text/calendar;charset=utf8,${escape(calendarEvent)}`;
+  }
+})
+
 Template.hangoutActionButtons.events({
   'click .clone-hangout': function(e, hangout) {
 
@@ -110,5 +151,5 @@ Template.hangoutActionButtons.events({
 
       }); //sweetAlert
 
-  },
+  }
 });
