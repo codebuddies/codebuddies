@@ -85,6 +85,7 @@
   "upcoming_events": "Live and upcoming Hangouts",
   "past_events": "Past Hangouts",
   "add_to_icalendar": " Add to iCalendar",
+  "deleted": "DELETED",
 
   // popup messages
   "you_are_almost_there": "You are almost there!",
