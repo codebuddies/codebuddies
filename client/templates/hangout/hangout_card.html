@@ -11,7 +11,7 @@
         {{/if}}
         {{# unless isHangoutCompleted end}}
           {{#unless isHangoutInProgress start end}} 
-            <p class="upcoming">{{upcomingTime start}}</p>
+            <p class="upcoming">{{#if equals visibility false}}{{_ "deleted"}}{{else}}{{upcomingTime start}}{{/if}}</p>
           {{/unless}}
         {{ else }}
             <h5 class="hangout-date completed show-on-hover">{{_ "completed"}}</h5>
