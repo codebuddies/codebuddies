@@ -1,7 +1,7 @@
 <template name="statusList">
   <div class="status-list">
-    {{# if isWorking type}} 
-      {{#unless currentUser}}  
+    {{#if isWorking type}}
+      {{#unless currentUser}}
         <p class="align-center">Please <a href="#" class="signIn">sign in to codebuddies.slack.com</a> to see current users online. (<a href="http://codebuddiesmeet.herokuapp.com" target="_blank">Get account</a>)</p>
       {{else}}
           <div class="title">{{_ "learning_message" count=usersOnlineCount}}</div>
