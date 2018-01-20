@@ -63,17 +63,17 @@ slackNotification = function(hangout, type){
      var rem_hours = Math.floor((hours_whole - days*24));
 
      if(hours == 1){   //Singular
-         var time_left = 'Starts in '+hours +' hr & '+rem+' mins!';
+         time_left = 'Starts in '+hours +' hr & '+rem+' mins!';
      }
      else if(hours > 1 && hours < 24 ) {    //Plural
-         var time_left = 'Starts in '+hours +' hrs & '+rem+' mins!';
+         time_left = 'Starts in '+hours +' hrs & '+rem+' mins!';
      }
 
      else if(hours >=24 && days == 1){
-         var time_left = 'Starts in '+days +' day, '+rem_hours+' hrs & '+rem+' mins!';
+         time_left = 'Starts in '+days +' day, '+rem_hours+' hrs & '+rem+' mins!';
      }
      else if(hours >=24 && days > 1){
-       var time_left = 'Starts in '+days +' days, '+rem_hours+' hrs & '+rem+' mins!';
+         time_left = 'Starts in '+days +' days, '+rem_hours+' hrs & '+rem+' mins!';
      }
   }
 
@@ -82,10 +82,10 @@ slackNotification = function(hangout, type){
 
      if(minutes >= 0 && minutes < 1)
      {
-       var time_left = 'Hangout starts now!';
+       time_left = 'Hangout starts now!';
      }
      else {
-       var time_left = 'Starts in '+(rem+1)+' mins!';
+       time_left = 'Starts in '+(rem+1)+' mins!';
      }
   }
 
@@ -165,6 +165,6 @@ studyGroupFacebookNotification = function(studyGroup, studyGroupId) {
 hangoutFacebookNotification = function(hangout, type) {
   const hangoutUrl = Meteor.absoluteUrl(`hangout/${hangout._id}`);
   const pretext =
-  `NEW HANGOUT: <@${hangout.host.name}> has scheduled a "${hangout.topic}" hangout in the "${hangout.group.title}" study group!\n\nPlease RSVP here: ${hangoutUrl}`;
+  `<@${hangout.host.name}> has scheduled a ${hangout.type} hangout with the topic "${hangout.topic}" in the "${hangout.group.title}" study group!\n\nWHEN:\n ${time_left} \n\nRSVP:\n ${hangoutUrl}\n\nDESCRIPTION:\n ${hangout.description}`;
   facebookAlert({ text: pretext });
 }
