@@ -1,0 +1,20 @@
+%default-header-background {
+  background: linear-gradient(
+    to top,
+    rgba(30, 144, 255, 0.5) 0%,
+    rgba(3, 87, 232, 0.8) 100%),
+    url(/images/language-logos.svg) center repeat;
+}
+
+.section-header {
+  @extend %default-header-background;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  color: #fff;
+  text-align: center;
+}
+
+.section-body {
+  margin-top: 3em;
+  margin-bottom: 3em;
+}
