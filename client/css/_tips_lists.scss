@@ -1,4 +1,13 @@
-.tips-lists li {
-  margin-bottom: 1rem;
-  line-height: 1.8;
+ul.tips-lists {
+	list-style: none;
+	li {
+  		margin-bottom: 1rem;
+  	  line-height: 1.8;
+	 }
+	 label { 
+	 	font-weight: 400;
+	 }
+	input[type=checkbox] { 
+		width: 20px;
+	}
 }
