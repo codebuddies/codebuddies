@@ -1,13 +1,18 @@
-ul.tips-lists {
-	list-style: none;
-	li {
-  		margin-bottom: 1rem;
-  	  line-height: 1.8;
-	 }
-	 label { 
-	 	font-weight: 400;
-	 }
-	input[type=checkbox] { 
-		width: 20px;
+.tips-lists { padding-left: 0px; }
+
+.tips-lists-list {
+	margin-bottom: 1rem;
+	line-height: 1.8;
+
+	> label {
+		font-weight: 400;
+
+		&:hover { cursor: pointer }
+
+		> input[type=checkbox] { width: 20px; }
 	}
+
+	> img { width: 100% }
 }
+
+.tips-lists.has-no-bullet-points { list-style: none; }
