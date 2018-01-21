@@ -1,16 +1,21 @@
 <template name="allStudyGroups">
   <div id="study-groups">
+    <div class="container-fluid section-header">
+      <div class="col-md-8 col-md-offset-2">
+        <h1>Study Groups</h1>
+        <p>
+          Create study groups as motivation to accomplish common learning goals. Ideally, people who are interested in the same topic would come together and learn and hold each other accountable to learning goals both small and large.
+        </p>
 
+        <button type="button" class="btn btn-cb2 {{#unless currentUser}} continue-popup btn-createGroup-notLoggedIn {{/unless}}"
+          id="{{#if currentUser}}createGroupButton{{/if}}">
+          {{_ "start_new_group" }}
+        </button>
 
-    <div class="section study-groups-top">
-        <div class="container">
-          <div class="row">
-              <div class="col-md-12 align-center">
-                <h2>Study Groups</h2>
-                <div class="btn btn-cb2 {{#unless currentUser}} continue-popup btn-createGroup-notLoggedIn {{/unless}}"
-                  id="{{#if currentUser}}createGroupButton{{/if}}"> {{_ "start_new_group"}} </div>
-            </div>
-          </div>
+        <a href="{{pathFor 'study group tips'}}"
+           class="btn btn-outline">
+          Study Group Tips
+        </a>
       </div>
     </div>
 

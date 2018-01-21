@@ -11,7 +11,16 @@
   padding-top: 100px;
   padding-bottom: 100px;
   color: #fff;
+  font-size: 18px;
   text-align: center;
+
+  & .btn {
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  & .btn-outline { border: 1px solid #fff; }
 }
 
 .section-body {
