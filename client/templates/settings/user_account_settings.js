@@ -5,7 +5,11 @@ Template.userAccountSettings.onCreated(function() {
 
   // instance.flag = new ReactiveVar(false);
   instance.emails_preference = new ReactiveVar([]);
+<<<<<<< HEAD
   instance.selected_emails_preference = new ReactiveVar([]);
+=======
+  instance.selected_email_preference = new ReactiveVar([]);
+>>>>>>> fb0d7492795c409ee49a302fafe7d26b24b9411a
 });
 
 Template.userAccountSettings.onRendered(function () {
@@ -40,12 +44,21 @@ Template.userAccountSettings.events({
   },
   'change [name="email_preference"]': function ( event, template ) {
 
+<<<<<<< HEAD
     const selected_emails_preference = template.findAll( "input[name=email_preference]:checked");
     let results = selected_emails_preference.map((item)=>{
       return item.defaultValue;
     })
 
     template.selected_emails_preference.set(results)
+=======
+    const selected_email_preference = template.findAll( "input[name=email_preference]:checked");
+    let results = selected_email_preference.map((item)=>{
+      return item.defaultValue;
+    })
+
+    template.selected_email_preference.set(results)
+>>>>>>> fb0d7492795c409ee49a302fafe7d26b24b9411a
   },
   "click #updateEmailsPreference": function(event, template){
 
