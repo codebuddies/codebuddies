@@ -161,3 +161,10 @@ Template.registerHelper("slotDayString", function(day){
 Template.registerHelper("isAuthor", function(userId){
   return Meteor.userId() === userId;
 });
+
+Template.registerHelper('inList', function(list, item) {
+  if (list) {
+    return list.indexOf(item) != -1;
+  }
+    return false;
+});
