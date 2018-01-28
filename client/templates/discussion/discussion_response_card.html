@@ -1,0 +1,54 @@
+<template name="discussionResponseCard">
+  <div class="row discussion-card">
+    <div class="col-md-1">
+      <img src="{{author.avatar}}" alt="{{author.username}}" class="img-circle avatar author-avatar" />
+      <!-- <h5 class="pull-right">{{author.username}}</h5> -->
+    </div>
+    {{#if visibility}}
+
+      <div class="col-md-11">
+        <h5>
+          {{author.username}}
+          {{! available actions as a button grouping }}
+          {{#if isAuthor author.id}}
+
+            <div class="btn-group pull-right" role="group" aria-label="...">
+              <button type="button" class="btn btn-xs btn-default" id="editResponse">Edit</button>
+              <div class="btn-group" role="group">
+                <button type="button" class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                  <li id="deleteDiscussionResponse"><a href="#">Remove</a></li>
+                </ul>
+              </div>
+            </div>
+
+          {{/if}}
+        </h5>
+        <div class="description-text">
+          {{#markdown}}{{text}}{{/markdown}}
+        </div>
+        <hr>
+        <h4>
+          <i class="fa fa-thumbs-o-up {{#if isInCollection up_votes}} upvoted {{else}} rupvote {{/if}}" aria-hidden="true"></i> <small>{{up_votes.length}}</small> &nbsp; &nbsp;
+          <i class="fa fa-thumbs-o-down {{#if isInCollection down_votes}} downvoted {{else}} rdownvote {{/if}}" aria-hidden="true"></i> <small>{{down_votes.length}}</small> &nbsp; &nbsp;
+          <small><i class="fa fa-clock-o" aria-hidden="true"></i> Posted on : {{dispDate created_at}} </small> &nbsp; &nbsp;
+          <small>{{#if modified_at}}(Edited){{/if}}</small> &nbsp; &nbsp;
+        </h4>
+
+      </div>
+    {{else}}
+      <div class="col-md-11">
+        <h5>{{author.username}}</h5>
+        <div class="description-text">
+          {{#markdown}}_[This response is removed]_{{/markdown}}
+        </div>
+        <hr>
+        <h4>
+          <small><i class="fa fa-clock-o" aria-hidden="true"></i> Posted on : {{dispDate created_at}} </small> &nbsp; &nbsp;
+        </h4>
+      </div>
+    {{/if}}
+  </div>
+</template>

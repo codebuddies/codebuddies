@@ -15,7 +15,7 @@ Template.commentBox.onRendered(function(){
   }
 });
 Template.commentBox.helpers({
-  discussion : function(){
+  comments : function(){
     FlowRouter.watchPathChange();
 
     var query = new Object();
