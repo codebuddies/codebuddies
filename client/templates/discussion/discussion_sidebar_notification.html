@@ -1,0 +1,17 @@
+<template name="discussionSidebarNotification">
+  <div class="discussion-sidebar">
+    <h5>NOTIFICATION</h5>
+    <hr>
+    {{#if isInCollection subscribers}}
+      <div class="btn btn-sm btn-block btn-default" id="unsubscribe">
+        unsubscribe
+      </div>
+      You will be notified about updates to this thread.
+    {{else}}
+      <div class="btn btn-sm btn-block btn-default" id="subscribe">
+        subscribe
+      </div>
+      You will not receive notifications about this thread.
+    {{/if}}
+  </div>
+</template>

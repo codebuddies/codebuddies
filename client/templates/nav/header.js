@@ -33,5 +33,14 @@ Template.header.events({
   },
   'click #newStudyGroup': function(event) {
     Modal.show('newStudyGroupModal');
+  },
+  "click #newDiscussion" (event, template){
+     const data = {
+       _id: "CB",
+       title: "CB",
+       slug: "CB"
+     }
+
+     Modal.show("addDiscussionModal", data);
   }
 });

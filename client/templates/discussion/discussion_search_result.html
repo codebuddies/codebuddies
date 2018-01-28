@@ -1,0 +1,41 @@
+<template name="discussionSearchResult">
+  <div class="container margin-top-2">
+    <div class="page-header align-center">
+      <h4 class="search-message">
+        Showing results for <strong>'{{discussionSearchTerm}}'</strong>
+      </h4>
+    </div>
+
+
+      {{#if searchResults.count}}
+        <div class="row">
+          <div class="col-md-9">
+            <h4>Topic</h4>
+          </div>
+          <div class="col-md-2">
+            <h4>Author</h4>
+          </div>
+        </div>
+        <hr>
+
+        <div class="row">
+          {{#each searchResults}}
+            {{> discussionItem}}
+          {{/each}}
+        </div>
+
+      {{else}}
+
+        <div class="col-md-12">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <h4>Sorry, no results were found.</h4>
+              <p>Please check your spelling, or try another search.</p>
+            </div>
+          </div>
+        </div>
+
+      {{/if}}
+
+  </div>
+</template>
