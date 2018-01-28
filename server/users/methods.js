@@ -1,3 +1,5 @@
+import { check, Match } from 'meteor/check'
+
 Meteor.methods({
   getUserDetails : function(userId){
     check(userId, String);
@@ -50,5 +52,29 @@ Meteor.methods({
   getHangoutsJoinedCount: function(userId) {
     check(userId, String);
     return Hangouts.find({users:{$elemMatch:{$eq:userId}},'visibility':{$ne:false}}).count();
+  }
+});
+
+/**
+* Update Emails Preferences
+* @function
+* @name updateEmailsPreference
+* @param { Object } - data
+* @return {Boolean} true on success
+*/
+Meteor.methods({
+  updateEmailsPreference:function(data){
+    check(data,{
+      emails_preference: Match.Maybe([String])
+    });
+    if (!this.userId) {
+      throw new Meteor.Error('users.methods.updateEmailsPreference.not-logged-in', 'Must be logged in.');
+    }
+
+    Meteor.users.update({_id: Meteor.userId()},
+                        {$set: { emails_preference: data.emails_preference } } );
+
+    return true;
+
   }
 });

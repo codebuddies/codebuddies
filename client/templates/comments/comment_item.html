@@ -1,4 +1,4 @@
-<template name="discussionItem">
+<template name="commentItem">
   <div class="row">
     <div class="col-md-2">
       <a href="{{pathFor 'profile' name=authorName userId=authorId}}"><img src="{{#if authorAvatar}}{{authorAvatar}}{{else}}/default-avatar.png{{/if}}"  class="img-circle"/></a>
@@ -29,7 +29,7 @@
       {{#if child}}
         <div class="panel-body">
           {{#each child}}
-            {{> discussionItem}}
+            {{> commentItem}}
           {{/each}}
         </div>
       {{/if}}

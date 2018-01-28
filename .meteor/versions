@@ -69,6 +69,7 @@ less@2.7.9
 livedata@1.0.18
 localstorage@1.0.12
 logging@1.1.17
+markdown@1.0.12
 matb33:bootstrap-base@10.0.0
 matb33:bootstrap-popovers@10.0.0
 matb33:bootstrap-tooltip@10.0.0

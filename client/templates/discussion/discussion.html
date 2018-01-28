@@ -1,0 +1,69 @@
+<template name="discussion">
+  <div class="discussion">
+
+  <div class="container">
+    {{#if Template.subscriptionsReady}}
+      {{#with discussion}}
+
+        <!-- breadcrumb -->
+        {{> discussionBreadcrumb}}
+
+
+        {{#if visibility}}
+
+
+          <div class="row">
+            <!-- main section -->
+            <div class="col-md-8">
+              {{! discussion_card}}
+              {{> discussionCard}}
+
+              {{! comments }}
+              {{> discussionResponsesList}}
+
+              {{! response }}
+              {{> discussionNewResponse}}
+            </div>
+            <!-- main section ends-->
+
+            <!-- right sidebar -->
+            <div class="col-md-3 col-md-offset-1">
+
+              {{> discussionSidebarParticipantList}}
+
+
+              {{#if currentUser}}
+
+                {{> discussionSidebarNotification}}
+
+                {{! @todo display 5 active topics}}
+                {{> discussionSidebarTopic type='active'}}
+
+              {{else}}
+
+                {{! @todo if not logged in display 5 related topics}}
+                {{> discussionSidebarTopic type='recent'}}
+
+
+              {{/if}}
+            </div>
+            <!-- right sidebar ends -->
+
+          </div>
+
+
+        {{else}}
+
+          {{> discussionRemoved}}
+
+        {{/if}}
+
+
+      {{/with}}
+    {{else}}
+      {{> loading}}
+    {{/if}}
+  </div>
+  </div>
+
+</template>

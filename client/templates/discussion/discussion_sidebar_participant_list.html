@@ -1,0 +1,9 @@
+<template name="discussionSidebarParticipantList">
+  <div class="discussion-sidebar">
+    <h5>PEOPLE IN THIS DISCUSSION</h5>
+    <hr>
+    {{#each participants}}
+      <img src="{{avatar}}" alt="{{username}}" class="img-circle avatar author-avatar" />
+    {{/each}}
+  </div>
+</template>
