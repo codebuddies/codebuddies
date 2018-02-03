@@ -1,0 +1,111 @@
+<template name="studyGroupDiscussion">
+  {{#if isInRole 'owner, admin, moderator, member' _id}}
+    <div class="page-header">
+      <div class="btn btn-default pull-right" id="addDiscussion">Add</div>
+      <br>
+    </div>
+  {{/if}}
+
+  {{#if Template.subscriptionsReady}}
+    {{#if discussions.count}}
+      <div class="row">
+        <div class="col-md-8">
+          <h3>Topic</h3>
+        </div>
+        <div class="col-md-2">
+          <h3>Author</h3>
+        </div>
+        <div class="col-md-2">
+          <div class="dropdown pull-right">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                <span><i class="fa fa-filter" aria-hidden="true"></i></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+              <li class="newest"><a href="#">{{#if equals discussionFilter 'newest'}} <i class="fa fa-check" aria-hidden="true"></i>  {{else}} &nbsp;&nbsp; {{/if}}Newest</a></li>
+              <li role="separator" class="divider"></li>
+              <li class="oldest"><a href="#">{{#if equals discussionFilter 'oldest'}} <i class="fa fa-check" aria-hidden="true"></i>  {{else}} &nbsp;&nbsp; {{/if}}Oldest</a></li>
+              <li role="separator" class="divider"></li>
+              <li class="most-commented"><a href="#">{{#if equals discussionFilter 'most-commented'}} <i class="fa fa-check" aria-hidden="true"></i>  {{else}} &nbsp;&nbsp; {{/if}}Most Commented</a></li>
+              <li role="separator" class="divider"></li>
+              <li class="least-commented"><a href="#">{{#if equals discussionFilter 'least-commented'}} <i class="fa fa-check" aria-hidden="true"></i>  {{else}} &nbsp;&nbsp; {{/if}}Least Commented</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <hr>
+    {{/if}}
+
+    {{#each discussions}}
+      <div class="row">
+        <div class="col-md-8">
+          <h3><a href="{{pathFor 'discussion' discussionId=_id}}">{{topic}}</a> {{#if modified_at}}<small>(Edited)</small>{{/if}}</h3>
+          <h5>{{#each tag in tags}} <span class="label label-default" data-tag="{{tag}}">{{tag}}</span> {{/each}}</h5>
+          <h4><small>{{truncateIt description '90'}}</small></h4>
+        </div>
+        <div class="col-md-2">
+          <h5>{{author.username}}</h5>
+        </div>
+        <div class="col-md-2">
+          {{! available actions as a button grouping }}
+          {{#if isAuthor author.id}}
+            <div class="btn-group pull-right" role="group" aria-label="...">
+              <button type="button" class="btn btn-sm btn-default edit-discussion">Edit</button>
+              <div class="btn-group" role="group">
+                <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu pull-left">
+                  <li class="delete-discussion"><a href="#">Remove</a></li>
+                </ul>
+              </div>
+            </div>
+          {{else}}
+            <div class="btn-group pull-right" role="group" aria-label="...">
+              <div class="btn-group" role="group">
+                <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu pull-left">
+                  <li class="{{#unless currentUser}} continue-popup {{else}} report-discussion {{/unless}}"><a href="#">Report</a></li>
+                  {{#if isInRole 'admin,moderator,volunteer' 'CB'}}
+                    <li role="separator" class="divider"></li>
+                    <li class="edit-discussion"><a href="#">Edit <span class="label label-info">M</span> </a></li>
+                  {{/if}}
+                  {{#if isInRole 'admin,moderator' 'CB'}}
+                    <li role="separator" class="divider"></li>
+                    <li class="delete-discussion"><a href="#">Remove <span class="label label-info">M</span> </a></li>
+                  {{/if}}
+                </ul>
+              </div>
+            </div>
+          {{/if}}
+        </div>
+        <div class="col-md-12">
+          <h4>
+            <i class="fa fa-thumbs-o-up {{#if isInCollection up_votes}} voted {{else}} upvote {{/if}}" aria-hidden="true"></i> <small>{{up_votes.length}}</small> &nbsp; &nbsp;
+            <i class="fa fa-thumbs-o-down {{#if isInCollection down_votes}} voted {{else}} downvote {{/if}}" aria-hidden="true"></i> <small>{{down_votes.length}}</small> &nbsp; &nbsp;
+            <small><i class="fa fa-clock-o" aria-hidden="true"></i> Posted on : {{dispDate created_at}} </small> &nbsp; &nbsp;
+            <small><i class="fa fa-comments-o" aria-hidden="true"></i> {{response_count}} </small> &nbsp; &nbsp;
+            <small><i class="fa fa-eye" aria-hidden="true"></i> {{views}} </small> &nbsp; &nbsp;
+          </h4>
+        </div>
+      </div>
+      <hr>
+    {{else}}
+      <div class="text-center">
+        <div class="alert alert-info">No discussion found</div>
+        <p>There will be more to see here once group members start some discussion threads.</p>
+      </div>
+    {{/each}}
+
+    {{#if discussions.count}}
+      {{#if status}}
+        <h5 class="text-center well">You've reached the end of the page.</h5>
+      {{/if}}
+    {{/if}}
+
+  {{else}}
+    {{>loading}}
+  {{/if}}
+
+</template>
