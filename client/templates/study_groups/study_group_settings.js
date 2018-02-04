@@ -21,7 +21,7 @@ Template.studyGroupSettings.onRendered(function() {
 
   }
 
-  /* populate slack channel dropdowns */
+  /* populate slack channel dropdown */
   const channelArray = slack_channels.map(c => ({ id: c, text: c }));
   instance.$('#hangoutChannelList', channelArray).select2({
     placeholder: TAPi18n.__("select_channel"),
@@ -30,6 +30,10 @@ Template.studyGroupSettings.onRendered(function() {
     maximumSelectionLength: 3,
     tokenSeparators: [',']
   });
+
+  /* display selected channels */
+  instance.$('#hangoutChannelList').val(instance.data.hangoutChannels);
+  instance.$('#hangoutChannelList').trigger('change');
 });
 
 Template.studyGroupSettings.events({
