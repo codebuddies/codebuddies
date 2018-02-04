@@ -517,3 +517,26 @@ Meteor.methods({
     return true;
   }
 })
+
+Meteor.methods({
+  saveHangoutChannel: function(data) {
+    check(data, {
+      studyGroupId: String,
+      hangoutChannels: Match.Maybe([String])
+    });
+
+    if (!this.userId) {
+      throw new Meteor.Error('Members.methods.editStatus.not-logged-in', 'Must be logged in to save hangout channels.');
+    }
+
+    const actor = Meteor.user()
+    if (!actor || !Roles.userIsInRole(actor, ['owner'], data.studyGroupId )) {
+      throw new Meteor.Error(403, "Access denied");
+    }
+
+    //Remove old owner and update role of new owner to 'owner'
+    StudyGroups.update({_id: data.studyGroupId },
+                     {$set: {'hangoutChannels': data.hangoutChannels} });
+    return true;
+  }
+})
