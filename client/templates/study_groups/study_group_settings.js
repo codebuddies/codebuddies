@@ -1,6 +1,7 @@
 Template.studyGroupSettings.onRendered(function() {
   let instance = this;
   instance.$('#studyGroupMemberList').prop("disabled", true);
+  instance.$('#transferOwnership').prop("disabled", true);
   const members = instance.data.members;
   if (members.length > 1) {
     const eligibleMembers = members
@@ -8,6 +9,7 @@ Template.studyGroupSettings.onRendered(function() {
       .map((member) => { return { id: member.id, text: member.name} });
 
     instance.$('#studyGroupMemberList').prop("disabled", false);
+    instance.$('#transferOwnership').prop("disabled", false);
     Meteor.setTimeout(function(){
       instance.$('#studyGroupMemberList', eligibleMembers).select2({
         placeholder: TAPi18n.__("select_new_owner"),
