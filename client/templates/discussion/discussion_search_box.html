@@ -1,0 +1,12 @@
+<template name="discussionSearchBox">
+
+  <div class="row margin-top-2">
+    <div class="col-md-6 col-md-offset-3">
+      <input type="text" class="form-control" id="discussionSearchBox" placeholder="&#128269; Search" value="{{discussionSearchTerm}}">
+      {{#if discussionSearchMode}}
+        <button id="clearSearch" class="btn btn-block">Clear</button>
+      {{/if}}
+    </div>
+  </div>
+
+</template>

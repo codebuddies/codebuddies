@@ -1,0 +1,63 @@
+<template name="discussionCard">
+  <div class="row discussion-card">
+    <div class="col-md-1">
+      <img src="{{author.avatar}}" alt="{{author.username}}" class="img-circle avatar author-avatar" />
+      <h5 class="pull-right">{{author.username}}</h5>
+    </div>
+    <div class="col-md-11">
+
+      <h3>
+        {{topic}} <small>{{#if modified_at}}(Edited){{/if}} </small>
+        {{! available actions as a button grouping }}
+        {{#if isAuthor author.id}}
+          <div class="btn-group pull-right" role="group" aria-label="...">
+            <button type="button" class="btn btn-sm btn-default edit-discussion">Edit</button>
+            <div class="btn-group" role="group">
+              <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <li class="delete-discussion"><a href="#">Remove</a></li>
+              </ul>
+            </div>
+          </div>
+        {{else}}
+          <div class="btn-group pull-right" role="group" aria-label="...">
+            <div class="btn-group" role="group">
+              <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu pull-left">
+                <li class="{{#unless currentUser}} continue-popup {{else}} report-discussion {{/unless}}"><a href="#">Report</a></li>
+                {{#if isInRole 'admin,moderator,volunteer' 'CB'}}
+                  <li role="separator" class="divider"></li>
+                  <li class="edit-discussion"><a href="#">Edit <span class="label label-info">M</span> </a></li>
+                {{/if}}
+                {{#if isInRole 'admin,moderator' 'CB'}}
+                  <li role="separator" class="divider"></li>
+                  <li class="delete-discussion"><a href="#">Remove <span class="label label-info">M</span> </a></li>
+                {{/if}}
+              </ul>
+            </div>
+          </div>
+        {{/if}}
+      </h3>
+
+      <h5>{{#each tag in tags}} <span class="label label-default select-tag" data-tag="{{tag}}">{{tag}}</span> {{/each}}</h5>
+
+      <div class="description-text">
+        {{#markdown}}{{description}}{{/markdown}}
+      </div>
+
+      <hr>
+      <h4>
+        <i class="fa fa-thumbs-o-up {{#if isInCollection up_votes}} voted {{else}} upvote {{/if}}" aria-hidden="true"></i> <small>{{up_votes.length}}</small> &nbsp; &nbsp;
+        <i class="fa fa-thumbs-o-down {{#if isInCollection down_votes}} voted {{else}} downvote {{/if}}" aria-hidden="true"></i> <small>{{down_votes.length}}</small> &nbsp; &nbsp;
+        <small><i class="fa fa-clock-o" aria-hidden="true"></i> Posted on : {{dispDate created_at}} </small> &nbsp; &nbsp;
+        <small><i class="fa fa-comments-o" aria-hidden="true"></i> {{response_count}} </small> &nbsp; &nbsp;
+        <small><i class="fa fa-eye" aria-hidden="true"></i> {{views}} </small> &nbsp; &nbsp;
+      </h4>
+
+    </div>
+  </div>
+</template>
