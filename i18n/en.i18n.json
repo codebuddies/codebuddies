@@ -84,6 +84,8 @@
   "click_to_load_hangout": "Click to load the hangout",
   "upcoming_events": "Live and upcoming Hangouts",
   "past_events": "Past Hangouts",
+  "add_to_icalendar": " Add to iCalendar",
+  "deleted": "DELETED",
 
   // popup messages
   "you_are_almost_there": "You are almost there!",
@@ -156,6 +158,16 @@
   "settings": "Settings",
   "start_new_group": "Start a New Group",
   "select_new_owner": "Select new owner",
+
+  // Discussion
+  "discussion": "Discussion",
+  "new_discussion": "Start a new Discussion",
+  "discussion_topic": "Discussion Topic",
+  "report_this_discussion": "Report This Discussion",
+  "report_discussion_message" : "We'll review the Discussion and remove anything that doesn't follow the Code Buddies Standards. We may also warn or disable the person responsible.",
+  "report_a_discussion" : "Report",
+  "discussion_has_been_reported" : "Reported Successfully.",
+  "discussion_reported_message" : "We appreciate your assistance in maintaining the quality of this community.",
 
   // alerts
   "alert_language_change": "Language changed to %s",

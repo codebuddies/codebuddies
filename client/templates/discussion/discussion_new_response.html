@@ -1,0 +1,33 @@
+<template name="discussionNewResponse">
+  {{#if currentUser}}
+    <div class="row discussion-card">
+      <div class="col-md-1">
+        <img src="{{currentUser.profile.avatar.default}}" alt="{{currentUser.username}}" class="img-circle avatar author-avatar" />
+      </div>
+      <div class="col-md-11">
+        <form class="response-form">
+          <div class="form-group">
+            <div>
+              <!-- Nav tabs -->
+              <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#responseWrite" aria-controls="responseWrite" role="tab" data-toggle="tab">Write</a></li>
+                <li role="presentation"><a href="#responsePreview" aria-controls="responsePreview" role="tab" data-toggle="tab">Preview</a></li>
+              </ul>
+              <!-- Tab panes -->
+              <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="responseWrite">
+                  <textarea class="form-control" id="discussionResponse" rows="5" cols="70" placeholder="Type your reply here"></textarea>
+                </div>
+                <div role="tabpanel" class="tab-pane preview-pane" id="responsePreview">
+                  {{#markdown}}{{discussionResponsePreview}}{{/markdown}}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-default pull-right">Submit</button>
+        </form>
+      </div>
+    </div>
+  {{/if}}
+</template>

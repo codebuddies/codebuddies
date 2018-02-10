@@ -161,3 +161,20 @@ Template.registerHelper("slotDayString", function(day){
 Template.registerHelper("isAuthor", function(userId){
   return Meteor.userId() === userId;
 });
+
+Template.registerHelper('inList', function(list, item) {
+  if (list) {
+    return list.indexOf(item) != -1;
+  }
+  return false;
+});
+
+Template.registerHelper('isInCollection', function(collection) {
+  const actor = _.find(collection, function(item) { return item.id === Meteor.userId() ; });
+  return actor ? true : false;
+});
+
+
+Template.registerHelper("truncateIt", function(text, length){
+  return text.truncate(length)
+});
