@@ -158,7 +158,7 @@
   "settings": "Settings",
   "start_new_group": "Start a New Group",
   "select_new_owner": "Select new owner",
-  "new_hangout_slack_channel": "Slack Channel(s) to send New Hangout Notification",
+  "new_hangout_slack_channel": "Send New Hangout Notifications to the Following Slack Channel(s)",
   "select_channel": "Select at most 3 slack channels",
 
   // Discussion
