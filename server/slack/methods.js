@@ -8,13 +8,17 @@
  * @since 0.0.1
  */
 
-hangoutAlert = slack.extend({
-    channel: Meteor.settings.slack_alert_channel,
-    icon_emoji: ':bell:',
-    username: Meteor.settings.slack_alert_username
-});
+ hangoutChannelAlert = function(channel) {
+   return slack.extend({
+       channel: channel,
+       icon_emoji: ':bell:',
+       username: Meteor.settings.slack_alert_username
+   });
+ }
 
-slackNotification = function(hangout, type){
+hangoutAlert = hangoutChannelAlert(Meteor.settings.slack_alert_channel);
+
+slackNotification = function(hangout, type, hangoutChannels){
 
   let fallback, pretext;
 
@@ -129,7 +133,12 @@ slackNotification = function(hangout, type){
 
   if(minutes >= 0)
   {
-  hangoutAlert(data)
+    hangoutAlert(data)
+    if (hangoutChannels != null && hangoutChannels.length > 0) {
+        hangoutChannels
+          .filter(channel => channel !== null && typeof channel !== 'undefined' && channel !== '')
+          .forEach(channel => hangoutChannelAlert(channel)(data));
+    }
   }
 }//slackNotification();
 
