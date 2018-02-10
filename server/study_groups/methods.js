@@ -534,7 +534,7 @@ Meteor.methods({
       throw new Meteor.Error(403, "Access denied");
     }
 
-    //Remove old owner and update role of new owner to 'owner'
+    //Update the list of Slack channels that will receive notifications when a hangout is scheduled in this group
     StudyGroups.update({_id: data.studyGroupId },
                      {$set: {'hangoutChannels': data.hangoutChannels} });
     return true;
