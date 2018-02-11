@@ -13,6 +13,23 @@
     </div>
   </div>
 
+  <!-- New Hangout Notification Slack Channels -->
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">{{_ "new_hangout_slack_channel"}}</h3>
+    </div>
+    <div class="panel-body">
+      <select class="form-control" id="hangoutChannelList" style="width: 100%;" multiple="multiple">
+        <option value="{{id}}">{{text}}</option>
+      </select>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="btn btn-danger btn-sm margin-top-1" id="hangoutChannel">Save</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Transfer ownership -->
   <div class="panel panel-default">
     <div class="panel-heading">
@@ -36,7 +53,7 @@
       </div>
       <div class="row">
         <div class="col-md-12">
-          <div class="btn btn-danger btn-sm margin-top-1" id="transferOwnership">Confirm</div>
+          <button class="btn btn-danger btn-sm margin-top-1" id="transferOwnership">Confirm</button>
         </div>
       </div>
     </div>
