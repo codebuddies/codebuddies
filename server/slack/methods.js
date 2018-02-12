@@ -8,13 +8,17 @@
  * @since 0.0.1
  */
 
-hangoutAlert = slack.extend({
-    channel: Meteor.settings.slack_alert_channel,
-    icon_emoji: ':bell:',
-    username: Meteor.settings.slack_alert_username
-});
+ hangoutChannelAlert = function(channel) {
+   return slack.extend({
+       channel: channel,
+       icon_emoji: ':bell:',
+       username: Meteor.settings.slack_alert_username
+   });
+ }
 
-slackNotification = function(hangout, type){
+hangoutAlert = hangoutChannelAlert(Meteor.settings.slack_alert_channel);
+
+slackNotification = function(hangout, type, hangoutChannels){
 
   let fallback, pretext;
 
@@ -129,7 +133,12 @@ slackNotification = function(hangout, type){
 
   if(minutes >= 0)
   {
-  hangoutAlert(data)
+    hangoutAlert(data)
+    if (hangoutChannels != null && hangoutChannels.length > 0) {
+        hangoutChannels
+          .filter(channel => channel !== null && typeof channel !== 'undefined' && channel !== '')
+          .forEach(channel => hangoutChannelAlert(channel)(data));
+    }
   }
 }//slackNotification();
 
@@ -167,4 +176,31 @@ hangoutFacebookNotification = function(hangout, type) {
   const pretext =
   `<@${hangout.host.name}> has scheduled a ${hangout.type} hangout with the topic "${hangout.topic}" in the "${hangout.group.title}" study group!\n\nWHEN:\n ${time_left} \n\nRSVP:\n ${hangoutUrl}\n\nDESCRIPTION:\n ${hangout.description}`;
   facebookAlert({ text: pretext });
+}
+
+/**
+* slack alert for new discussion
+* @function
+* @name discussionsSlackAlert
+* @param { Object } discussion - Data
+* @return null
+*/
+discussionsSlackAlert = function (discussion) {
+
+  const channel = Meteor.isDevelopment ? Meteor.settings.slack_alert_channel : discussion.channel;
+  discussionAlert = slack.extend({
+      channel: channel,
+      icon_emoji: ':discussion:',
+      username: "Discussion Alerts"
+  });
+
+  const username = discussion.author.username;
+  const discussionURL = Meteor.absoluteUrl(`discussion/${discussion._id}`);
+  const pretext = `<@${username}> _has started a new discussion_ : *${discussion.topic}* \nChime in here: ${discussionURL} `;
+
+  discussionAlert({
+    text: pretext
+  });
+
+
 }

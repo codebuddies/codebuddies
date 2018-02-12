@@ -1,13 +1,13 @@
-![CodeBuddies logo](https://github.com/codebuddiesdotorg/codebuddies/raw/master/public/images/cb-readme.jpg)
+![CodeBuddies logo](https://github.com/codebuddies/codebuddies/raw/master/public/images/cb-readme.jpg)
 
 # CodeBuddies Hangouts Platform v2.0 - from scratch
 
 
 [![slack in](http://codebuddiesmeet.herokuapp.com/badge.svg?style=flat-square)](http://codebuddiesmeet.herokuapp.com/)
-[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat-square)](https://github.com/codebuddiesdotorg/codebuddies/issues)
+[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat-square)](https://github.com/codebuddies/codebuddies/issues)
 [![first-timers-only](https://img.shields.io/badge/first--timers--only-friendly-blue.svg?style=flat-square)](http://www.firsttimersonly.com/)
-[![Issue Stats](https://img.shields.io/issuestats/i/github/codebuddiesdotorg/codebuddies.svg?maxAge=2592000&style=flat-square)]()
-[![Issue Stats](https://img.shields.io/issuestats/p/github/codebuddiesdotorg/codebuddies.svg?maxAge=2592000&style=flat-square)]()
+[![Issue Stats](https://img.shields.io/issuestats/i/github/codebuddies/codebuddies.svg?maxAge=2592000&style=flat-square)]()
+[![Issue Stats](https://img.shields.io/issuestats/p/github/codebuddies/codebuddies.svg?maxAge=2592000&style=flat-square)]()
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0)
 
 # FAQ
@@ -22,11 +22,11 @@ Join us on Slack! You can get your invite by clicking on the Slack invite button
 ## How do I contribute to this project?
 **PLEASE go to _[contributing.md](contributing.md)_ and refer to the contribution steps listed there!** There are also helpful resources there, in case you get stuck. To add yourself as a contributor, please see the [How do I add myself as a contributor?](contributing.md#how-do-i-add-myself-as-a-contributor) section.
 
-Please check out [docs.codebuddies.org](http://docs.codebuddies.org) for the full documentation. 
+Please check out [docs.codebuddies.org](http://docs.codebuddies.org) for the full documentation.
 
 ## What are you trying to build here?
 
-![screenshot of what we're building](https://github.com/codebuddiesdotorg/codebuddies/raw/master/public/images/cb-example.png)
+![screenshot of what we're building](https://github.com/codebuddies/codebuddies/raw/master/public/images/cb-example.png)
 Credit: [Ada Chiu](https://github.com/adachiu).
 
 ## Why are you building this site?
@@ -69,7 +69,7 @@ Our community spends a lot of time helping each other on [our public Slack](http
 - @railsstudent, https://github.com/railsstudent - contributed to PR#639. Worked on check uniqueness of study group name  
 - Add Your Name Above. Refer to ***[contributing.md](contributing.md#how-do-i-add-myself-as-a-contributor)***
 
-If you'd like to help contribute, pick out an [issue](https://github.com/codebuddiesdotorg/codebuddies/issues) (leave a comment on it to indicate your interest!) and say hello in the [#codebuddies-meta](https://codebuddies.slack.com/messages/codebuddies-meta/) channel on Slack. Be sure to read the "how do I contribute" instructions on [contributing.md](contributing.md)!
+If you'd like to help contribute, pick out an [issue](https://github.com/codebuddies/codebuddies/issues) (leave a comment on it to indicate your interest!) and say hello in the [#codebuddies-meta](https://codebuddies.slack.com/messages/codebuddies-meta/) channel on Slack. Be sure to read the "how do I contribute" instructions on [contributing.md](contributing.md)!
 
 P.S. We'll schedule hangouts to do code walkthroughs or code show and tells occasionally, and announce it in the #codebuddies-meta channel on Slack. The goal is to help everyone who wants to contribute to this app learn quickly through collaboration. You can also request a code walkthrough as well. The list of contributors above contains a good mix of full-time developers and as well as people contributing to an open-sourced project for the first time.
 
@@ -148,9 +148,8 @@ Thank you to [@distalx](https://twitter.com/distalx), [@alfougy](https://twitter
 ### Sponsors
 Thank you to DigitalOcean for sponsoring our hosting, MongoDB Atlas for sponsoring our database hosting, and StickerMule for sponsoring $50 in credits!
 
-<a href="https://www.digitalocean.com/" target="_blank"><img src="https://github.com/codebuddiesdotorg/codebuddies/blob/master/public/images/powered_by_digitalocean.png" width="200" alt="Powered by DigitalOcean"/></a>
+<a href="https://www.digitalocean.com/" target="_blank"><img src="https://github.com/codebuddies/codebuddies/blob/master/public/images/powered_by_digitalocean.png" width="200" alt="Powered by DigitalOcean"/></a>
 
-<a href="https://www.mongodb.com/cloud/atlas?jmp=codebuddies" target="_blank"><img src="https://github.com/codebuddiesdotorg/codebuddies/blob/staging/public/images/mdb-atlas-reg.png" width="200" alt="Hosted by MongoDB Atlas"/>
+<a href="https://www.mongodb.com/cloud/atlas?jmp=codebuddies" target="_blank"><img src="https://github.com/codebuddies/codebuddies/blob/staging/public/images/mdb-atlas-reg.png" width="200" alt="Hosted by MongoDB Atlas"/>
 
 <a href="http://stickermule.com" target="_blank"><img src="http://i.imgur.com/WblcveC.png" width="180" alt="Thank you to StickerMule for sponsoring $50 in credits!"></a>
-

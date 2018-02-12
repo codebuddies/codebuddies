@@ -1,0 +1,71 @@
+<template name="addDiscussionModal">
+  <div class="modal fade">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <form class="addDiscussion">
+
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+
+              <div class="form-group">
+                <label  class="control-label">Topic</label>
+                <input type="text" class="form-control" id="discussionTopic" placeholder="{{_ 'discussion_topic'}} (required)">
+              </div>
+
+              <div class="form-group margin-top-2">
+                <label  class="control-label">Tags</label>
+                <select class="discussion-tags-multiple form-control"  multiple="multiple">
+                  <option></option>
+                </select>
+                <small class="pull-right">Please select at least one tag.</small>
+              </div>
+
+              <div class="form-group margin-top-2">
+                <label  class="control-label">Slack channel</label>
+                <select class="slack-channel form-control">
+                  <option></option>
+                </select>
+                <small class="pull-right">Optional</small>
+              </div>
+
+              <div class="form-group">
+                <label  class="control-label">Description</label>
+                <!-- <textarea class="form-control" id="discussionDescription" rows="5" cols="70" placeholder="Description"></textarea> -->
+                <div>
+                  <!-- Nav tabs -->
+                  <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#write" aria-controls="write" role="tab" data-toggle="tab">Write</a></li>
+                    <li role="presentation"><a href="#preview" aria-controls="preview" role="tab" data-toggle="tab">Preview</a></li>
+                  </ul>
+                  <!-- Tab panes -->
+                  <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="write">
+                      <textarea class="form-control" id="discussionDescription" rows="8" cols="70" placeholder="Description"></textarea>
+                    </div>
+                    <div role="tabpanel" class="tab-pane preview-pane" id="preview">
+                      {{#markdown}}{{discussionDescriptionPreview}}{{/markdown}}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+            </div><!--modal body-->
+
+            <div class="modal-footer clear">
+              {{#unless processing}}
+                <button id="submit" class="btn btn-default btn-block">Save</button>
+              {{else}}
+                <button type="button" class="btn btn-default btn-block disabled"><i class="fa fa-refresh fa-spin"></i> {{_ "state_processing"}}</button>
+              {{/unless}}
+            </div>
+
+          </form>
+
+      </div><!--modal content-->
+    </div><!--modal dialog-->
+  </div>
+
+</template>

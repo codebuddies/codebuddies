@@ -29,7 +29,7 @@
                     <i class="fa fa-slack fa-fw" aria-hidden="true"></i>{{_ "slack"}}
                   </a></li>
                <li role="separator" class="divider"></li>
-               <li><a href="https://github.com/codebuddiesdotorg/codebuddies" target="_blank">
+               <li><a href="https://github.com/codebuddies/codebuddies" target="_blank">
                  <i class="fa fa-github fa-fw" aria-hidden="true"></i>Github
                  <i class="fa fa-external-link fa-fw" aria-hidden="true"></i>
                </a></li>
@@ -47,14 +47,21 @@
                <li><a href="{{pathFor 'faq'}}">
                  <i class="fa fa-question fa-fw" aria-hidden="true"></i>{{_ "faq"}}
                </a></li>
+               <!-- Donate -->
+               <li><a href="https://opencollective.com/codebuddies" target="_blank">
+                 Sponsor Us <i class="fa fa-external-link fa-fw" aria-hidden="true"></i>
+               </a></li>
              </ul>
           </li>
           <!-- Hangouts -->
           <li><a href="{{pathFor 'hangouts'}}">{{_ "browse_hangouts"}} <span class="sr-only">(current)</span></a></li>
           <!-- Study Groups -->
           <li><a href="{{pathFor 'all study groups'}}">Study Groups</a></li>
-          <!-- Donate -->
-          <li><a href="https://opencollective.com/codebuddies" target="_blank">Sponsor Us <i class="fa fa-external-link fa-fw" aria-hidden="true"></i></a></li>
+          <!-- Discussions -->
+          {{!-- <!-- comment out temporarily -->
+			  <li><a href="{{pathFor 'discussions'}}">Discussions</a></li>
+		  --}}
+
           {{! for visitors only}}
           {{#unless currentUser}}
 
@@ -75,8 +82,10 @@
                   <ul class="dropdown-menu" role="menu">
                     <!-- pop up for new hangout -->
                     <li id="newHangout"><a href="#">{{_ "new_hangout"}}</a></li>
-                      <!-- pop up for new studygroup -->
+                    <!-- pop up for new studygroup -->
                     <li id="newStudyGroup"><a href="#">{{_ "new_study_group"}}</a></li>
+                    <!-- pop up for new discussion -->
+                    <li id="newDiscussion"><a href="#">{{_ "new_discussion"}}</a></li>
                   </ul>
               </li>
 

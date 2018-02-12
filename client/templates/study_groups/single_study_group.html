@@ -84,6 +84,7 @@
             {{#if currentUser}}
               <li role="presentation"><a href="#activities" aria-controls="activity" role="tab" data-toggle="tab">{{_ 'activity'}}</a></li>
               <li role="presentation"><a href="#availability" aria-controls="availability" role="tab" data-toggle="tab">{{_ 'availability'}}</a></li>
+              {{!--<li role="presentation"><a href="#discussion" aria-controls="discussion" role="tab" data-toggle="tab">{{_ 'discussion'}}</a></li>--}}
             {{/if}}
             {{#if isInRole 'owner, moderator ' _id}}
             <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">{{_ 'settings'}}</a></li>
@@ -134,7 +135,11 @@
 
             <div role="tabpanel" class="tab-pane" id="availability">
                {{> studyGroupAvailability}}
-            </div>
+            </div><!-- #/availability -->
+
+            <div role="tabpanel" class="tab-pane" id="discussion">
+               {{> studyGroupDiscussion}}
+            </div><!-- #/discussion -->
           {{/if}}
 
           {{#if isInRole 'owner, admin' _id}}
