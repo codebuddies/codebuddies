@@ -102,7 +102,9 @@
   }
 
   .btn-join-study-group,
-  .btn-leave-study-group {
+  .btn-leave-study-group,
+  .btn-join-study-group-1,
+  .btn-leave-study-group-1 {
     @include font-face(700, 12px, bold, $bg-white);
     background-color: $cta-blue;
     display: block;
