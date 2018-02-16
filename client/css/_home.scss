@@ -261,7 +261,9 @@
         max-height: 200px;
         flex: 1 1 auto;
       }
-
+	  .hangout-details {
+	  	display: none;
+	  }
       .hangout-image-inner {
         display: flex;
         align-items: center;
