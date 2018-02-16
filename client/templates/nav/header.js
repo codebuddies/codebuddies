@@ -14,7 +14,7 @@ Template.header.helpers({
 });
 
 Template.header.events({
-  'click .signIn': function(event) {
+  'click .signInSlack': function(event) {
     var options = {
       requestPermissions: ['identify', 'users:read']
     };
@@ -42,5 +42,16 @@ Template.header.events({
      }
 
      Modal.show("addDiscussionModal", data);
-  }
+  },
+  'click .signInGithub': function(event) {
+    var options = {
+      requestPermissions: ['read:user', 'user:email']
+    };
+    Meteor.loginWithGithub(options, function(err) {
+      if (!err) {
+        FlowRouter.go("hangouts");
+      }
+    });
+
+  },
 });
