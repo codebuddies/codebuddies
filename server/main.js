@@ -9,10 +9,21 @@ Meteor.startup(function() {
     service : 'slack'
   });
 
+  Accounts.loginServiceConfiguration.remove({
+    service : 'github'
+  });
+
   Accounts.loginServiceConfiguration.insert({
     service     : 'slack',
     "clientId" : Meteor.settings.slack_clientid,
     "secret" : Meteor.settings.slack_clientsecret,
+    "loginStyle" : "popup"
+  });
+
+  Accounts.loginServiceConfiguration.insert({
+    service     : 'github',
+    "clientId" : Meteor.settings.github_clientid,
+    "secret" : Meteor.settings.github_clientsecret,
     "loginStyle" : "popup"
   });
 
@@ -92,7 +103,30 @@ let generateGravatarURL = (email) => {
 
 Accounts.onCreateUser(function(options, user) {
 
-  if (user.services.slack){
+  console.log('onCreateUser');
+  console.log('main.js', options, user);
+  console.log(JSON.stringify(user));
+  if (user.services) {
+    const service = _.keys(user.services)[0];
+    const email = user.services[service].email;
+    if (email != null) {
+      const existingUser = Meteor.users.findOne({'email': email});
+      if (existingUser) {
+       //  if (!existingUser.services) {
+       //    existingUser.services = { resume: { loginTokens: [] }};
+       //  }
+       //  if (!existingUser.services.resume) {
+       //   existingUser.services.resume = { loginTokens: [] };
+       // }
+       //  existingUser.services[service] = user.services[service];
+        console.log('remove existing user', existingUser._id);
+        Meteor.users.remove({_id: existingUser._id})
+      }
+    }
+  }
+
+  if (user.services.slack) {
+    console.log('slack');
     Roles.setRolesOnUserObj(user, ['user'], 'CB');
     const user_info = loggingInUserInfo(user);
     const pickField = filterForSlackLogins(user_info.user)
@@ -129,6 +163,19 @@ Accounts.onCreateUser(function(options, user) {
     return user;
   }
 
+  if (user.services.github) {
+    console.log('github');
+    const avatar = generateGravatarURL(user.services.github.email);
+    const profile = {
+      avatar
+    };
+    Roles.setRolesOnUserObj(user, ['user'], 'CB');
+    user.username = user.services.github.username;
+    user.email = user.services.github.email;
+    user.profile = profile;
+    console.log(user);
+    return user;
+  }
 });
 
 // global users observer for app_stats
