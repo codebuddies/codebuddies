@@ -103,24 +103,22 @@ let generateGravatarURL = (email) => {
 
 Accounts.onCreateUser(function(options, user) {
 
-  console.log('onCreateUser');
-  console.log('main.js', options, user);
-  console.log(JSON.stringify(user));
   if (user.services) {
     const service = _.keys(user.services)[0];
+    console.log(service);
     const email = user.services[service].email;
     if (email != null) {
       const existingUser = Meteor.users.findOne({'email': email});
       if (existingUser) {
-       //  if (!existingUser.services) {
-       //    existingUser.services = { resume: { loginTokens: [] }};
-       //  }
-       //  if (!existingUser.services.resume) {
-       //   existingUser.services.resume = { loginTokens: [] };
-       // }
-       //  existingUser.services[service] = user.services[service];
-        console.log('remove existing user', existingUser._id);
-        Meteor.users.remove({_id: existingUser._id})
+        if (!existingUser.services) {
+          existingUser.services = { resume: { loginTokens: [] }};
+        }
+        if (!existingUser.services.resume) {
+         existingUser.services.resume = { loginTokens: [] };
+       }
+        existingUser.services[service] = user.services[service];
+        user = existingUser;
+        Meteor.users.remove({_id: existingUser._id});
       }
     }
   }
