@@ -111,6 +111,13 @@
     margin: 10px 0;
     height: 30px;
   }
+
+  .btn-leave-study-group,
+  .btn-leave-study-group-1 {
+    &:hover {
+      background-color: $danger-red;
+    }
+  }
 }
 
 .newStudyGroup {
