@@ -24,7 +24,7 @@ Template.allStudyGroups.onCreated(function() {
   });
 
   instance.loadStudyGroups = function() {
-    return StudyGroups.find({}, {sort: {createdAt: 1}});
+    return StudyGroups.find({}, {sort: {title: 1}});
   }
 
 
