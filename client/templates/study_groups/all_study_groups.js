@@ -24,7 +24,7 @@ Template.allStudyGroups.onCreated(function() {
   });
 
   instance.loadStudyGroups = function() {
-    return StudyGroups.find({}, {sort: {createdAt: 1}});
+    return StudyGroups.find({}, {sort: {title: 1}});
   }
 
 
@@ -90,5 +90,40 @@ Template.allStudyGroups.events({
   },
   'click #createGroupButton': function(event) {
       Modal.show('newStudyGroupModal');
+  },
+  'click .btn-leave-study-group': function(event, template) {
+    event.preventDefault();
+    let data = {
+      studyGroupId: this._id,
+      studyGroupTitle: this.title,
+      studyGroupSlug: this.slug
+    }
+
+    Meteor.call("leaveStudyGroup", data, function(error, result) {
+      if(error) {
+        return Bert.alert( error.reason, 'danger', 'growl-top-right' );
+      }
+      if(result){
+        return Bert.alert( 'You have left the study group!', 'success', 'growl-top-right' );
+      }
+    });
+  },
+  'click .btn-join-study-group': function(event, template) {
+    event.preventDefault();
+    let data = {
+      studyGroupId: this._id,
+      studyGroupTitle: this.title,
+      studyGroupSlug: this.slug
+    }
+
+    Meteor.call("joinStudyGroup", data, function(error, result){
+      if(error){
+        return Bert.alert( error.reason, 'danger', 'growl-top-right' );
+      }
+      if(result){
+        return Bert.alert( 'You have joined the study group!', 'success', 'growl-top-right' );
+
+      }
+    });
   }
 });
