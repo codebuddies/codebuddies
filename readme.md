@@ -32,7 +32,7 @@ Credit: [Ada Chiu](https://github.com/adachiu).
 ## Why are you building this site?
 Our community spends a lot of time helping each other on [our public Slack](http://codebuddies.slack.com) (P.S. You can get an invite [here](http://codebuddiesmeet.herokuapp.com) if you want to join), but it's hard to schedule screensharing/voice hangout study times via Slack, and it's also hard to know who else is online and available for joining a Hangout to work on something together. The platform we're building solves those issues.
 
-##Who are the volunteers so far?
+## Who are the volunteers so far?
 
 *Note: the list below is incomplete. Please add your name and your contribution.*
 
