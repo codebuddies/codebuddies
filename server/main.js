@@ -101,36 +101,37 @@ let generateGravatarURL = (email) => {
 }
 
 
+let swapUserIfExists = function (email, service, user) {
+
+    const existingUser = Meteor.users.findOne({'email': email});
+
+    if (existingUser) {
+      if (!existingUser.services) {
+        existingUser.services = { resume: { loginTokens: [] }};
+      }
+
+      existingUser.services[service] = user.services[service];
+      user = existingUser;
+      Meteor.users.remove({_id: existingUser._id});
+    }
+
+
+    return user;
+
+}
+
 Accounts.onCreateUser(function(options, user) {
 
-  if (user.services) {
-    const service = _.keys(user.services)[0];
-    console.log(service);
-    const email = user.services[service].email;
-    if (email != null) {
-      const existingUser = Meteor.users.findOne({'email': email});
-      if (existingUser) {
-        if (!existingUser.services) {
-          existingUser.services = { resume: { loginTokens: [] }};
-        }
-        if (!existingUser.services.resume) {
-         existingUser.services.resume = { loginTokens: [] };
-       }
-        existingUser.services[service] = user.services[service];
-        user = existingUser;
-        Meteor.users.remove({_id: existingUser._id});
-      }
-    }
-  }
+  const service = _.keys(user.services)[0];
 
-  if (user.services.slack) {
-    console.log('slack');
+  if (service === 'slack') {
     Roles.setRolesOnUserObj(user, ['user'], 'CB');
     const user_info = loggingInUserInfo(user);
     const pickField = filterForSlackLogins(user_info.user)
 
+    const email = pickField.email;
+
     if(Meteor.settings.isModeProduction){
-      const email = pickField.email;
       const merge_vars = {
           "FNAME": pickField.profile.firstname,
           "LNAME": pickField.profile.lastname,
@@ -146,23 +147,13 @@ Accounts.onCreateUser(function(options, user) {
     user.username = pickField.username;
     user.profile = pickField.profile;
     user.email = pickField.email;
-    return user;
+
+    return  swapUserIfExists(email, service, user)
   }
 
-  if(user.services.password){
-    const avatar = generateGravatarURL(options.email);
-    const profile = {
-      avatar:avatar
-    }
+  if (service === 'github') {
+    const email = user.services.github.email;
 
-    user.username = user.username;
-    user.profile = profile;
-    user.email = options.email;
-    return user;
-  }
-
-  if (user.services.github) {
-    console.log('github');
     const avatar = generateGravatarURL(user.services.github.email);
     const profile = {
       avatar
@@ -171,9 +162,24 @@ Accounts.onCreateUser(function(options, user) {
     user.username = user.services.github.username;
     user.email = user.services.github.email;
     user.profile = profile;
-    console.log(user);
+
+    return swapUserIfExists(email, service, user)
+  }
+
+
+  if (service === 'password') {
+    const avatar = generateGravatarURL(options.email);
+    const profile = {
+      avatar:avatar
+    }
+
+    user.username = user.username;
+    user.profile = profile;
+    user.email = options.email;
+
     return user;
   }
+
 });
 
 // global users observer for app_stats
