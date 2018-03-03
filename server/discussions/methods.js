@@ -58,6 +58,9 @@ Meteor.methods({
       participants: [author],
       author: author,
       study_group: study_group,
+      email_notifications: {
+        initial: false
+      }
     }
 
     //insert

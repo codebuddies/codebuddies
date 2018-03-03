@@ -88,6 +88,11 @@ Meteor.methods({
         id: group._id,
         title: group.title,
         slug: group.slug
+      },
+      email_notifications: {
+        initial: false,
+        reminder: false,
+        follow_up: false
       }
     }
 
