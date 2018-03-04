@@ -18,7 +18,7 @@
     "mailchimp-api": "^2.0.7",
     "md5": "^2.2.1",
     "meteor-node-stubs": "^0.2.3",
-    "moment": "2.21.0",
+    "moment": "^2.21.0",
     "quill": "^1.0.6",
     "quill-render": "^1.0.5",
     "twitter": "1.4.0",
