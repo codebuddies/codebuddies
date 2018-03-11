@@ -37,6 +37,10 @@
                 {{/if}}
 
               </h4>
+
+              {{#if isInRole 'admin, moderator, member' _id }}
+                  <button class="btn btn-leave-study-group">{{_ "leave_study_group"}}</button>
+              {{/if}}
             </div>
           {{/each}}
 

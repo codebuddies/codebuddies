@@ -261,12 +261,17 @@
         max-height: 200px;
         flex: 1 1 auto;
       }
-
+	  .hangout-details {
+	  	display: none;
+	  }
       .hangout-image-inner {
         display: flex;
         align-items: center;
         justify-content: center;
         height: 200px;
+      }
+      .hangout-details {
+        display: none;
       }
 
       img {

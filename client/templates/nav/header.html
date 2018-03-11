@@ -29,7 +29,7 @@
                     <i class="fa fa-slack fa-fw" aria-hidden="true"></i>{{_ "slack"}}
                   </a></li>
                <li role="separator" class="divider"></li>
-               <li><a href="https://github.com/codebuddiesdotorg/codebuddies" target="_blank">
+               <li><a href="https://github.com/codebuddies/codebuddies" target="_blank">
                  <i class="fa fa-github fa-fw" aria-hidden="true"></i>Github
                  <i class="fa fa-external-link fa-fw" aria-hidden="true"></i>
                </a></li>
@@ -58,7 +58,9 @@
           <!-- Study Groups -->
           <li><a href="{{pathFor 'all study groups'}}">Study Groups</a></li>
           <!-- Discussions -->
-          <li><a href="{{pathFor 'discussions'}}">Discussions</a></li>
+          {{!-- <!-- comment out temporarily -->
+			  <li><a href="{{pathFor 'discussions'}}">Discussions</a></li>
+		  --}}
 
           {{! for visitors only}}
           {{#unless currentUser}}
