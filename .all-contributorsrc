@@ -10,16 +10,12 @@
   "commit": true,
   "contributors": [
     {
-      "login": "doc",
-      "name": "Mark",
-      "avatar_url": "https://avatars0.githubusercontent.com/u/40158?v=4",
-      "profile": "https://github.com/doc",
+      "login": "distalx",
+      "name": "distalx",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/11193792?v=4",
+      "profile": "https://github.com/distalx",
       "contributions": [
-        "question",
-        "blog",
-        "bug",
-        "code",
-        "doc"
+        "code"
       ]
     }
   ]
