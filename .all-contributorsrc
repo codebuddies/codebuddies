@@ -10,12 +10,21 @@
   "commit": true,
   "contributors": [
     {
-      "login": "code",
-      "name": "codegent",
-      "avatar_url": "https://avatars1.githubusercontent.com/u/7318?v=4",
-      "profile": "http://www.codegent.com",
+      "login": "lpatmo",
+      "name": "Linda",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/4512699?v=4",
+      "profile": "http://twitter.com/lpnotes",
       "contributions": [
-        "code"
+        "question",
+        "blog",
+        "bug",
+        "code",
+        "doc",
+        "eventOrganizing",
+        "fundingFinding",
+        "ideas",
+        "review",
+        "talk"
       ]
     }
   ]
