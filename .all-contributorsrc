@@ -37,6 +37,23 @@
         "code",
         "review"
       ]
+    },
+    {
+      "login": "distalx",
+      "name": "distalx",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/11193792?v=4",
+      "profile": "https://github.com/distalx",
+      "contributions": [
+        "question",
+        "bug",
+        "code",
+        "doc",
+        "eventOrganizing",
+        "ideas",
+        "infra",
+        "review",
+        "tool"
+      ]
     }
   ]
 }
