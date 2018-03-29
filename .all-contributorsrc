@@ -137,6 +137,17 @@
         "ideas",
         "review"
       ]
+    },
+    {
+      "login": "oliikit",
+      "name": "Olivia Brundage",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/15113564?v=4",
+      "profile": "https://codemethisolivia.com",
+      "contributions": [
+        "question",
+        "doc",
+        "ideas"
+      ]
     }
   ]
 }
