@@ -241,6 +241,15 @@
         "code",
         "ideas"
       ]
+    },
+    {
+      "login": "sheldonbarnes",
+      "name": "Sheldon Barnes",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/10457072?v=4",
+      "profile": "https://github.com/sheldonbarnes",
+      "contributions": [
+        "code"
+      ]
     }
   ]
 }
