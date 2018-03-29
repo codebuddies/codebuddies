@@ -88,6 +88,18 @@
         "financial",
         "ideas"
       ]
+    },
+    {
+      "login": "sergeant-q",
+      "name": "Roberto C Quezada",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/1451729?v=4",
+      "profile": "http://www.robertoquezada.com",
+      "contributions": [
+        "question",
+        "code",
+        "ideas",
+        "review"
+      ]
     }
   ]
 }
