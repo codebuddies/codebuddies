@@ -221,6 +221,16 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "PandaWhisperer",
+      "name": "Christoph Wagner",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/749244?v=4",
+      "profile": "http://www.pandawhisperer.net",
+      "contributions": [
+        "question",
+        "code"
+      ]
     }
   ]
 }
