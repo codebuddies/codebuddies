@@ -706,6 +706,16 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "elimisteve",
+      "name": "Steve Phillips",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/139603?v=4",
+      "profile": "https://tryingtobeawesome.com/",
+      "contributions": [
+        "question",
+        "blog"
+      ]
     }
   ]
 }
