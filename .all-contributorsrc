@@ -308,6 +308,15 @@
         "ideas",
         "review"
       ]
+    },
+    {
+      "login": "Oliver84",
+      "name": "Oliver Acevedo",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/5189557?v=4",
+      "profile": "https://github.com/Oliver84",
+      "contributions": [
+        "code"
+      ]
     }
   ]
 }
