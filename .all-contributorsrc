@@ -716,6 +716,15 @@
         "question",
         "blog"
       ]
+    },
+    {
+      "login": "dmost1",
+      "name": "dmost1",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/20757320?v=4",
+      "profile": "https://github.com/dmost1",
+      "contributions": [
+        "code"
+      ]
     }
   ]
 }
