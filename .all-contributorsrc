@@ -578,6 +578,17 @@
         "financial",
         "ideas"
       ]
+    },
+    {
+      "login": "julianjohannesen",
+      "name": "Julian Johannesen",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/252081?v=4",
+      "profile": "http://www.nonprofitvote.org",
+      "contributions": [
+        "code",
+        "eventOrganizing",
+        "ideas"
+      ]
     }
   ]
 }
