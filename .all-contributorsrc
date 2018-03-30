@@ -557,6 +557,16 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "newswim",
+      "name": "Dan Minshew",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/6667096?v=4",
+      "profile": "http://twitter.com/newswim",
+      "contributions": [
+        "code",
+        "eventOrganizing"
+      ]
     }
   ]
 }
