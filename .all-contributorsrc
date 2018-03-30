@@ -567,6 +567,17 @@
         "code",
         "eventOrganizing"
       ]
+    },
+    {
+      "login": "arturolei",
+      "name": "Arthur",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/4889231?v=4",
+      "profile": "https://twitter.com/thenoblethunder",
+      "contributions": [
+        "code",
+        "financial",
+        "ideas"
+      ]
     }
   ]
 }
