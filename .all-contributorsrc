@@ -958,6 +958,17 @@
         "question",
         "eventOrganizing"
       ]
+    },
+    {
+      "login": "yipnm123",
+      "name": "Judi",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/28884498?v=4",
+      "profile": "https://github.com/yipnm123",
+      "contributions": [
+        "question",
+        "eventOrganizing",
+        "tutorial"
+      ]
     }
   ]
 }
