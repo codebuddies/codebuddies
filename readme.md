@@ -34,46 +34,6 @@ Credit: [Ada Chiu](https://github.com/adachiu).
 ## Why are you building this site?
 Our community spends a lot of time helping each other on [our public Slack](http://codebuddies.slack.com) (P.S. You can get an invite [here](http://codebuddiesmeet.herokuapp.com) if you want to join), but it's hard to schedule screensharing/voice hangout study times via Slack, and it's also hard to know who else is online and available for joining a Hangout to work on something together. The platform we're building solves those issues.
 
-## Who are the volunteers so far?
-
-*Note: the list below is incomplete. Please add your name and your contribution.*
-
-- @linda, https://github.com/lpatmo - contributed to various issues
-- @sbe, https://github.com/sbe - contributed to discussion on features
-- @abdulhannanali, https://github.com/abdulhannanali - contributed to the start of a #todayilearned slackbot
-- @bethanyg, https://github.com/bethanyg - contributed good advice and discussion on features
-- @mattierae, https://github.com/mattierae - contributed awesome balsamiq mockups
-- @adachiu, https://github.com/adachiu - contributed awesome high-quality designs for almost every page of the app, lead the design and UX thinking
-- @wuworkshop, https://github.com/wuworkshop - contributed advice on a huge number of issues and helped organize the git process flow
-- @Richardh, https://github.com/studentrik
-- @anbuselvan, https://github.com/anbuselvan - contributed code for the foundations of the app, including hangout/learning creation and Slack authentication.
-- @husam, https://github.com/hudat
-- @ccr, https://github.com/Iccr
-- @ghazi, https://github.com/ghmoha
-- @mualth, https://github.com/maudem
-- @oliver84, https://github.com/Oliver84
-- @selfspunwebs, https://github.com/anonRegions
-- @luxis, https://github.com/Luxisapex - contributed to various issues, including the "kudos" feature which lets users upvote learnings
-- @sergeant-q, https://github.com/sergeant-q - contributed fixes for issues, including hangout deletion and email notification for cancelled hangouts, and improved thinking on process steps for how to collaborate on this app
-- @daisukeoka, https://github.com/daisukeokaoss
-- @adanot, https://github.com/adanot
-- @sheldonbarnes, https://github.com/sheldonbarnes - contributed fixes to issues, including textarea word limit
-- @howdoicomputer, https://github.com/howdoicomputer
-- @mduca, https://github.com/mduca - contributed to discussions on features
-- @alex, http://github.com/nestevez7 - contributed to discussion on features
-- @will, http://github.com/William-R-Wilson - contributed fixes to issues, including ability to edit/trash learnings
-- @anon user(s) - contributed fixes to bugs, including security measures, re-touching of the kudos layout, and scrolling pagination
-- @olivia, http://github.com/foxiae - contributed to discussions on features
-- @abhiii5459, http://github.com/abhiii5459 - contributed to PR#239. Working on Fix#203 along with @linda.
-- @sharynneazhar, http://github.com/sharynneazhar - contributed to site fixes and enhancements, particularly the ability for users to edit their profile information
-- @grfraser, https://github.com/grfraser
-- @aewens, https://github.com/aewens - contributed fixes to issues, added hideable study group panels
-- @railsstudent, https://github.com/railsstudent - contributed to PR#639. Worked on check uniqueness of study group name  
-- Add Your Name Above. Refer to ***[contributing.md](contributing.md#how-do-i-add-myself-as-a-contributor)***
-
-If you'd like to help contribute, pick out an [issue](https://github.com/codebuddies/codebuddies/issues) (leave a comment on it to indicate your interest!) and say hello in the [#codebuddies-meta](https://codebuddies.slack.com/messages/codebuddies-meta/) channel on Slack. Be sure to read the "how do I contribute" instructions on [contributing.md](contributing.md)!
-
-P.S. We'll schedule hangouts to do code walkthroughs or code show and tells occasionally, and announce it in the #codebuddies-meta channel on Slack. The goal is to help everyone who wants to contribute to this app learn quickly through collaboration. You can also request a code walkthrough as well. The list of contributors above contains a good mix of full-time developers and as well as people contributing to an open-sourced project for the first time.
 
 ## Support CodeBuddies
 
@@ -156,7 +116,8 @@ Thank you to DigitalOcean for sponsoring our hosting, MongoDB Atlas for sponsori
 
 <a href="http://stickermule.com" target="_blank"><img src="http://i.imgur.com/WblcveC.png" width="180" alt="Thank you to StickerMule for sponsoring $50 in credits!"></a>
 
-## Contributors
+## Who are the contributors so far?
+Note: if you think you should be on this list, please fill out [this form](https://docs.google.com/forms/d/e/1FAIpQLSfw7HrMhCIaxASH6sQosLL6QZq2OfoivWD6nV4fsVrMvTUqNg/viewform).
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore -->
