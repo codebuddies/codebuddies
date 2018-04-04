@@ -2,7 +2,6 @@ import QuillEditor from '../../libs/QuillEditor';
 
 Template.hangoutActionButtons.helpers({
   icsDownloadLink: function(hangout) {
-    console.log('hangout', hangout);
     const nowDate = new Date();
     const startDate = Blaze._globalHelpers.getHangoutGoogleCalendarDate(hangout.start)
     const startTime = Blaze._globalHelpers.getHangoutGoogleCalendarTime(hangout.start);
@@ -17,7 +16,7 @@ Template.hangoutActionButtons.helpers({
 
     let topic = hangout.topic;
     const group = (hangout && hangout.group) || null
-    if (group.title) {
+    if (group && group.title) {
       topic += `(${group.title})`;
     }
     const location = `https://meet.jit.si/cb${hangout._id}`;
@@ -37,7 +36,7 @@ Template.hangoutActionButtons.helpers({
        'END:VEVENT'
     ].join(SEPARATOR);
     const calendarEvent  = `BEGIN:VCALENDAR${SEPARATOR}PRODID:Calendar${SEPARATOR}VERSION:2.0${SEPARATOR}${calendarDetails}${SEPARATOR}END:VCALENDAR`;
-    return `data:text/calendar;charset=utf8,${escape(calendarEvent)}`;
+    return `data:text/calendar;charset=utf8,${encodeURIComponent(calendarEvent)}`;
   }
 })
 
