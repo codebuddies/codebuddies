@@ -1,7 +1,7 @@
 ![CodeBuddies logo](https://github.com/codebuddies/codebuddies/raw/master/public/images/cb-readme.jpg)
 
 # CodeBuddies Hangouts Platform v2.0 - from scratch
-#edit
+
 
 [![slack in](http://codebuddiesmeet.herokuapp.com/badge.svg?style=flat-square)](http://codebuddiesmeet.herokuapp.com/)
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat-square)](https://github.com/codebuddies/codebuddies/issues)
