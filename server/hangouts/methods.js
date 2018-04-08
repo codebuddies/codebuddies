@@ -99,7 +99,11 @@ Meteor.methods({
     //tweet new hangout
     tweetHangout(hangout);
 
-    const { hangoutChannels } = StudyGroups.findOne({ _id: group._id }, { fields: { hangoutChannels: 1 }});
+    let hangoutChannels = [];
+    if (group._id !== 'CB') {
+      const studyGroup = StudyGroups.findOne({ _id: group._id }, { fields: { hangoutChannels: 1 }});
+      hangoutChannels = studyGroup && studyGroup.hangoutChannels || [];
+    }
     slackNotification(hangout, "NEW", hangoutChannels);
     hangoutFacebookNotification(hangout, 'NEW');
 
