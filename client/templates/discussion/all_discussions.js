@@ -103,7 +103,12 @@ Template.allDiscussions.helpers({
 
 Template.allDiscussions.events({
   "click #addDiscussion" (event, template){
-     Modal.show("addDiscussionModal", this);
+    const data = {
+      _id: "CB",
+      title: "CB",
+      slug: "CB"
+    }
+    Modal.show("addDiscussionModal", data);
   },
   "click .newest": function(event, template) {
     event.preventDefault();
