@@ -553,11 +553,6 @@
       "type": "other"
     },
     {
-      "avatar": "https://avatars0.githubusercontent.com/u/9161892?v=3&s=460",
-      "name": "bryantt",
-      "type": "other"
-    },
-    {
       "avatar": "https://avatars3.githubusercontent.com/u/358832?v=3&s=460",
       "name": "Sacha Greif",
       "type": "other"
@@ -611,6 +606,11 @@
       "avatar": "https://avatars2.githubusercontent.com/u/27697439?v=3&s=460",
       "name": "grfraser",
       "type": "other"
+    },
+    {
+      "avatar": "/images/abdulhannanali.jpeg",
+      "name": "abdulhannanali",
+      "type": "other"   
     }
   ]
 }
