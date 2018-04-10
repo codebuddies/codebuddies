@@ -25,6 +25,21 @@ Template.hangout.helpers({
   },
   hangout: function() {
       return Hangouts.findOne({_id: FlowRouter.getParam('hangoutId')});
+  },
+  encodedText: function(str) {
+      return encodeURIComponent(str);
+  },
+  googleCalendarUrl: function(hangout) {
+    const { _id: id, topic, description, group, start, end } = hangout;
+    const startDate = Blaze._globalHelpers.getHangoutGoogleCalendarDate(start);
+    const startTime = Blaze._globalHelpers.getHangoutGoogleCalendarTime(start);
+    const endDate = Blaze._globalHelpers.getHangoutGoogleCalendarDate(end);
+    const endTime = Blaze._globalHelpers.getHangoutGoogleCalendarTime(end);
+    const groupTitle = group ? `(${group.title})` : '';
+    const calendarUrl = `https://calendar.google.com/calendar/r/eventedit?text=${encodeURIComponent(topic)} ${groupTitle}&details=${encodeURIComponent(description)}`;
+    const location = `https://meet.jit.si/cb${id}`;
+    const dates =  `${startDate}T${startTime}/${endDate}T${endTime}`;
+    return `${calendarUrl}&location=${location}&dates=${dates}`;
   }
 });
 Template.hangout.events({
