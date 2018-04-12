@@ -463,6 +463,60 @@
       "type": "code"
     },
     {
+      "title": "@rmorabia",
+      "socials": {
+        "github": "http://github.com/rmorabia"
+      },
+      "contribution": "Helped out with answering questions & community involvement in Slack.",
+      "avatar": "https://avatars1.githubusercontent.com/u/749244?s=460&v=4",
+      "name": "Radhika Morabia",
+      "type": "slack"
+    },
+    {
+      "title": "@rmorabia",
+      "socials": {
+        "github": "http://github.com/rmorabia"
+      },
+      "location": "Los Angeles, USA",
+      "contribution": " Contributed to Greetbot resources, and made tiny fixes to the core code.",
+      "avatar": "https://avatars1.githubusercontent.com/u/3877076?s=460&v=4",
+      "name": "Radhika Morabia",
+      "type": "code"
+    },
+    {
+      "title": "@cs-cordero",
+      "socials": {
+        "github": "http://github.com/cs-cordero"
+      },
+      "location": "New York, USA",
+      "contribution": "Helped out on #reactjs #javascript #python #algorithms.",
+      "avatar": "https://avatars2.githubusercontent.com/u/15971666?s=460&v=4",
+      "name": "Christopher Cordero",
+      "type": "slack"
+    },
+    {
+      "title": "@kvie",
+      "socials": {
+        "github": "http://github.com/kvie"
+      },
+      "location": "Berkeley, USA",
+      "contribution": "Welcomed new users, posted resources to slack, scheduled hangouts and started study groups.",
+      "avatar": "https://avatars3.githubusercontent.com/u/33008125?s=460&v=4",
+      "name": "Karyme Virginia",
+      "type": "slack"
+    },
+    {
+      "title": "@codeluggage",
+      "socials": {
+        "github": "http://github.com/codeluggage"
+      },
+      "location": "New York, USA",
+      "contribution": "Helping out with #javascript, #reactjs and teach through gifs.",
+      "avatar": "https://avatars3.githubusercontent.com/u/1154150?s=460&v=4",
+      "name": "Matias Forbord",
+      "type": "slack"
+    },
+    {
       "avatar": "https://avatars0.githubusercontent.com/u/13541047?v=3&s=460",
       "name": "alex",
       "type": "other"
