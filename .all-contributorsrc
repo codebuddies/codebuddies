@@ -970,6 +970,15 @@
         "eventOrganizing",
         "tutorial"
       ]
+    },
+    {
+      "login": "cs-cordero",
+      "name": "Christopher Sabater Cordero",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/15971666?v=4",
+      "profile": "https://github.com/cs-cordero",
+      "contributions": [
+        "question"
+      ]
     }
   ]
 }
