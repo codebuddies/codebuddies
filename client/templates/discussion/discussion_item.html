@@ -6,7 +6,7 @@
       <h4><small>{{truncateIt description '90'}}</small></h4>
     </div>
     <div class="col-md-2">
-      <h5>{{author.username}}</h5>
+      <h5><a href="{{pathFor 'profile' name=author.username userId=author.id}}">{{author.username}}</a></h5>
     </div>
     <div class="col-md-2">
       {{! available actions as a button grouping }}
