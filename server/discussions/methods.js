@@ -423,9 +423,11 @@ Meteor.methods({
     switch (data.type) {
       case "active":
         const actor = Meteor.user();
-        maybe.push({ 'author.id': actor._id })
-        maybe.push({ 'participants.id': actor._id })
-        query['$or'] = maybe;
+        if (actor) {
+          maybe.push({ 'author.id': actor._id })
+          maybe.push({ 'participants.id': actor._id })
+          query['$or'] = maybe;
+        }
         break;
       case "recent":
 

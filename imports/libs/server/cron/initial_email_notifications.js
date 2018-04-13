@@ -47,22 +47,27 @@ async function initialEmailNotificationsForHangouts() {
 
           if (eligible_recipients) {
 
-            const mail_data = {
-               to: eligible_recipients,
-               from: Meteor.settings.email_from,
-               subject: `${listOfNewHangouts[0].group.title} New Hangouts`
-             }
+            eligible_recipients.forEach((recipient)=>{
 
-             // private/email/new_hangout.html
-             const template_name = 'new_hangout';
+              const mail_data = {
+                 to: recipient,
+                 from: Meteor.settings.email_from,
+                 subject: `${listOfNewHangouts[0].group.title} New Hangouts`
+               }
 
-             const template_data = {
-               hangouts: listOfNewHangouts,
-               group: listOfNewHangouts[0].group,
-               base_url: Meteor.absoluteUrl()
-             }
+               // private/email/new_hangout.html
+               const template_name = 'new_hangout';
 
-            CBMailer(mail_data, template_name, template_data);
+               const template_data = {
+                 hangouts: listOfNewHangouts,
+                 group: listOfNewHangouts[0].group,
+                 base_url: Meteor.absoluteUrl()
+               }
+
+              CBMailer(mail_data, template_name, template_data);
+            })
+
+
             // set intial flag for email_notifications true
             listOfNewHangouts.forEach(function(hangout){
               Hangouts.update({_id:hangout._id}, {$set:{
@@ -100,22 +105,25 @@ async function initialEmailNotificationsForDiscussions() {
 
           if (eligible_recipients) {
 
-            const mail_data = {
-               to: eligible_recipients,
-               from: Meteor.settings.email_from,
-               subject: `${listOfDiscussions[0].study_group.title} New Discussions`
-             }
+            eligible_recipients.forEach((recipient)=>{
 
-             // private/email/new_discussion.html
-             const template_name = 'new_discussion';
+              const mail_data = {
+                 to: recipient,
+                 from: Meteor.settings.email_from,
+                 subject: `${listOfDiscussions[0].study_group.title} New Discussions`
+               }
 
-             const template_data = {
-               discussions: listOfDiscussions,
-               group: listOfDiscussions[0].study_group,
-               base_url: Meteor.absoluteUrl()
-             }
+               // private/email/new_discussion.html
+               const template_name = 'new_discussion';
 
-            CBMailer(mail_data, template_name, template_data);
+               const template_data = {
+                 discussions: listOfDiscussions,
+                 group: listOfDiscussions[0].study_group,
+                 base_url: Meteor.absoluteUrl()
+               }
+
+              CBMailer(mail_data, template_name, template_data);
+            })
 
             // set intial flag for email_notifications true
             listOfDiscussions.forEach(function(discussion){
@@ -147,25 +155,28 @@ async function initialEmailNotificationsForResponses() {
         let recipients = await getDiscussionSubscribers(discussionId);
 
         if (recipients && recipients.length) {
+          
+          recipients.forEach((recipient)=>{
+            const discussion = Discussions.findOne({_id:discussionId});
 
-          const discussion = Discussions.findOne({_id:discussionId});
+            const mail_data = {
+              to: recipient,
+              from: Meteor.settings.email_from,
+              subject: `${discussion.topic}`
+            }
 
-          const mail_data = {
-            to: recipients,
-            from: Meteor.settings.email_from,
-            subject: `${discussion.topic}`
-          }
+            // private/email/new_discussion_response.html
+            const template_name = 'new_discussion_response';
 
-          // private/email/new_discussion_response.html
-          const template_name = 'new_discussion_response';
+            const template_data = {
+              discussion: discussion,
+              discussionResponses: listOfResponses,
+              base_url: Meteor.absoluteUrl()
+            }
 
-          const template_data = {
-            discussion: discussion,
-            discussionResponses: listOfResponses,
-            base_url: Meteor.absoluteUrl()
-          }
+            CBMailer(mail_data, template_name, template_data);
+          })
 
-          CBMailer(mail_data, template_name, template_data);
 
           // set intial flag for email_notifications true
           listOfResponses.forEach(function(responses){
@@ -198,27 +209,32 @@ async function initialEmailNotificationsForNewMembers() {
         let recipients = await getGroupOrganizers(studyGroupId);
 
         if (recipients && recipients.length) {
+
           // get eligible recipients
           const eligible_recipients = await getEligibleRecipients('new_member', recipients)
 
+
           if (eligible_recipients) {
 
-            const mail_data = {
-               to: eligible_recipients,
-               from: Meteor.settings.email_from,
-               subject: `${listOfActivities[0].study_group.title} New Members`
-             }
+            eligible_recipients.forEach((recipient)=>{
 
-             // private/email/new_member.html
-             const template_name = 'new_member';
+              const mail_data = {
+                 to: recipient,
+                 from: Meteor.settings.email_from,
+                 subject: `${listOfActivities[0].study_group.title} New Members`
+               }
 
-             const template_data = {
-               activities: listOfActivities,
-               group: listOfActivities[0].study_group,
-               base_url: Meteor.absoluteUrl()
-             }
+               // private/email/new_member.html
+               const template_name = 'new_member';
 
-             CBMailer(mail_data, template_name, template_data);
+               const template_data = {
+                 activities: listOfActivities,
+                 group: listOfActivities[0].study_group,
+                 base_url: Meteor.absoluteUrl()
+               }
+
+               CBMailer(mail_data, template_name, template_data);
+            })
 
              // set intial flag for email_notifications true
              listOfActivities.forEach(function(activity){
@@ -234,11 +250,13 @@ async function initialEmailNotificationsForNewMembers() {
   }
 }
 
-function initialEmailNotifications() {
-  initialEmailNotificationsForHangouts();
-  initialEmailNotificationsForDiscussions();
-  initialEmailNotificationsForNewMembers();
-  initialEmailNotificationsForResponses();
+async function initialEmailNotifications() {
+
+  await initialEmailNotificationsForHangouts();
+  await initialEmailNotificationsForDiscussions();
+  await initialEmailNotificationsForNewMembers();
+  await initialEmailNotificationsForResponses();
+
 }
 
 export {

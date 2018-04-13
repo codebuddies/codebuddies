@@ -92,8 +92,8 @@ SyncedCron.add({
     schedule: function(parser) {
         // set interval in settings-{environemt}.json. For production, should be set to 'every 1 hour'
         // testing
-        if (debug) {
-          return parser.text('Every 1 min');
+        if (Meteor.settings.public.isModeDebug) {
+          return parser.text('Every 4 min');
         }
         return parser.text('Every 40 min');
     },

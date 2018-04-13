@@ -1,5 +1,5 @@
 import { Meteor } from 'meteor/meteor';
-import {SSR} from 'meteor/meteorhacks:ssr';
+import { SSR } from 'meteor/meteorhacks:ssr';
 import { Email } from 'meteor/email';
 
 /**
@@ -27,7 +27,6 @@ export const CBMailer = function(mail_data, template_name, template_data) {
     Email.send(mail);
   } catch (e) {
     console.log(e);
-
   }
 
 }
