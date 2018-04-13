@@ -5,7 +5,9 @@
   "scripts": {
     "meteor:dev": "meteor --settings settings-development.json",
     "meteor:prod": "meteor --settings settings-production.json",
-    "test:full-app": "meteor test --full-app --driver-package=practicalmeteor:mocha --settings=settings-development.json --port 3100"
+    "test:full-app": "meteor test --full-app --driver-package=practicalmeteor:mocha --settings=settings-development.json --port 3100",
+	"contributors:add": "all-contributors add",
+	"contributors:generate": "all-contributors generate"
   },
   "dependencies": {
     "babel-runtime": "6.23.0",
@@ -25,6 +27,7 @@
     "uhr": "0.0.2"
   },
   "devDependencies": {
+    "all-contributors-cli": "^4.11.1",
     "cz-conventional-changelog": "2.0.0",
     "faker": "3.1.0"
   },

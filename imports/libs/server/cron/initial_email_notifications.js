@@ -46,6 +46,7 @@ async function initialEmailNotificationsForHangouts() {
           const eligible_recipients = await getEligibleRecipients('new_hangout', recipients)
 
           if (eligible_recipients) {
+
             eligible_recipients.forEach((recipient)=>{
 
               const mail_data = {
@@ -124,7 +125,6 @@ async function initialEmailNotificationsForDiscussions() {
               CBMailer(mail_data, template_name, template_data);
             })
 
-
             // set intial flag for email_notifications true
             listOfDiscussions.forEach(function(discussion){
               Discussions.update({_id:discussion._id}, {$set:{
@@ -155,7 +155,7 @@ async function initialEmailNotificationsForResponses() {
         let recipients = await getDiscussionSubscribers(discussionId);
 
         if (recipients && recipients.length) {
-
+          
           recipients.forEach((recipient)=>{
             const discussion = Discussions.findOne({_id:discussionId});
 
@@ -176,7 +176,6 @@ async function initialEmailNotificationsForResponses() {
 
             CBMailer(mail_data, template_name, template_data);
           })
-
 
 
           // set intial flag for email_notifications true
@@ -236,9 +235,6 @@ async function initialEmailNotificationsForNewMembers() {
 
                CBMailer(mail_data, template_name, template_data);
             })
-
-
-
 
              // set intial flag for email_notifications true
              listOfActivities.forEach(function(activity){
