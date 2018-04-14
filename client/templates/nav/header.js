@@ -16,7 +16,7 @@ Template.header.helpers({
 Template.header.events({
   'click .signInSlack': function(event) {
     var options = {
-      requestPermissions: ['identity.basic', 'identity.email', 'identity.avatar']
+      requestPermissions: ['identity.basic', 'identity.email']
     };
     Meteor.loginWithSlack(options, function() {
         FlowRouter.go("hangouts");

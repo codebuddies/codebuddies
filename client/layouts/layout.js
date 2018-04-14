@@ -14,7 +14,7 @@ Template.layout.events({
       },
       function(){
         var options = {
-          requestPermissions: ['identify.basic', 'identity.email', 'identity.avatar']
+          requestPermissions: ['identity.basic', 'identity.email']
         };
         Meteor.loginWithSlack(options);
       });
