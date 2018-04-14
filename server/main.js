@@ -80,7 +80,8 @@ let filterForSlackLogins = (user) => {
         default: user.profile.image_72,
         image_192: user.profile.image_192,
         image_512: user.profile.image_512
-      }
+      },
+      complete: false
     }
     const email = user.profile.email;
 
@@ -100,6 +101,20 @@ let generateGravatarURL = (email) => {
   }
 }
 
+let getRandomUsername = function (username) {
+  const adjectiveList = ['adorable', 'elegant', 'mighty', 'brave', 'fancy', 'fearless', 'magnificent', 'bewildered', 'fierce', 'lazy', 'mysterious', 'worried', 'curious', 'weird', 'cryptic' ];
+  return `${adjectiveList[Math.floor(Math.random() * adjectiveList.length)]}${username}`;
+}
+
+let swapUsernameIfExists = function (username) {
+  const usernameExists = Meteor.users.findOne({'username': username});
+  if (usernameExists) {
+    return swapUsernameIfExists(getRandomUsername(username));
+  }else {
+    return username;
+  }
+}
+
 
 let swapUserIfExists = function (email, service, user) {
 
@@ -113,11 +128,12 @@ let swapUserIfExists = function (email, service, user) {
       existingUser.services[service] = user.services[service];
       user = existingUser;
       Meteor.users.remove({_id: existingUser._id});
+
+    } else {
+      user.username = swapUsernameIfExists(user.username);
     }
 
-
     return user;
-
 }
 
 Accounts.onCreateUser(function(options, user) {
@@ -169,8 +185,10 @@ Accounts.onCreateUser(function(options, user) {
 
     const avatar = generateGravatarURL(user.services.github.email);
     const profile = {
-      avatar
+      avatar: avatar,
+      complete: false
     };
+
     Roles.setRolesOnUserObj(user, ['user'], 'CB');
     user.username = user.services.github.username;
     user.email = user.services.github.email;
@@ -183,7 +201,8 @@ Accounts.onCreateUser(function(options, user) {
   if (service === 'password') {
     const avatar = generateGravatarURL(options.email);
     const profile = {
-      avatar:avatar
+      avatar:avatar,
+      complete: true
     }
 
     user.username = user.username;
