@@ -121,33 +121,46 @@ let swapUserIfExists = function (email, service, user) {
 }
 
 Accounts.onCreateUser(function(options, user) {
+  // console.log(JSON.stringify(options));
+  // console.log(user);
+  //
+  // console.log(options.slack.tokens.user.name);
+  // console.log(options.slack.tokens.user.email);
 
   const service = _.keys(user.services)[0];
 
   if (service === 'slack') {
     Roles.setRolesOnUserObj(user, ['user'], 'CB');
-    const user_info = loggingInUserInfo(user);
-    const pickField = filterForSlackLogins(user_info.user)
+    // const user_info = loggingInUserInfo(user);
+    // const pickField = filterForSlackLogins(user_info.user)
+    const username = options.slack.tokens.user.name;
+    const email = options.slack.tokens.user.email;
+    const avatar = generateGravatarURL(email);
 
-    const email = pickField.email;
+    const profile = {
+      avatar
+    };
 
-    if(Meteor.settings.isModeProduction){
-      const merge_vars = {
-          "FNAME": pickField.profile.firstname,
-          "LNAME": pickField.profile.lastname,
-          "TZ": pickField.profile.time_zone,
-          "TZ_LABEL": pickField.profile.time_zone_label,
-          "TZ_OFFSET": pickField.profile.time_zone_offset,
-          "USERNAME": pickField.username
-      }
+    user.username = username;
+    user.email = email;
+    user.profile = profile;
+    // if(Meteor.settings.isModeProduction){
+    //   const merge_vars = {
+    //       "FNAME": pickField.profile.firstname,
+    //       "LNAME": pickField.profile.lastname,
+    //       "TZ": pickField.profile.time_zone,
+    //       "TZ_LABEL": pickField.profile.time_zone_label,
+    //       "TZ_OFFSET": pickField.profile.time_zone_offset,
+    //       "USERNAME": pickField.username
+    //   }
+    //
+    //   addUserToMailingList(email,merge_vars);
+    // }
 
-      addUserToMailingList(email,merge_vars);
-    }
-
-    user.username = pickField.username;
-    user.profile = pickField.profile;
-    user.email = pickField.email;
-
+    // user.username = pickField.username;
+    // user.profile = pickField.profile;
+    // user.email = pickField.email;
+    //
     return  swapUserIfExists(email, service, user)
   }
 
