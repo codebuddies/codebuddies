@@ -1,9 +1,8 @@
 <template name="discussionSidebarParticipantList">
   <div class="discussion-sidebar">
     <h5>PEOPLE IN THIS DISCUSSION</h5>
-    <hr>
     {{#each participants}}
-      <img src="{{avatar}}" alt="{{username}}" class="img-circle avatar author-avatar" />
+       <a href="{{pathFor 'profile' name=username userId=id}}"><img src="{{avatar}}" alt="{{username}}" class="img-circle avatar author-avatar" /></a>
     {{/each}}
   </div>
 </template>

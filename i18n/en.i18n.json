@@ -71,6 +71,7 @@
   "no_transfer_group": "No, I was just kidding",
   "hangout_participant": "1 person is currently in the 24/7 hangout.",
   "hangout_participant_plural": "__count__ people are currently in the 24/7 hangout.",
+  "add_google_calendar": "Add to Google Calendar",
 
   // hangout
   "what_is_a_hangout": "What is a Hangout?",

@@ -157,7 +157,10 @@ Meteor.methods({
         title: data.studyGroupTitle,
         slug: data.studyGroupSlug
       },
-      read: [user._id]
+      read: [user._id],
+      email_notifications: {
+        initial: false
+      }
     }
 
     Activities.insert(activity);
