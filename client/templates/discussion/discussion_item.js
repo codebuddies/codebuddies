@@ -10,7 +10,7 @@ Template.discussionItem.events({
     }
     sweetAlert({
         type: 'warning',
-        title: "Are you sure ?",
+        title: "Are you sure?",
         cancelButtonText: TAPi18n.__("no_delete_hangout"),
         confirmButtonText: TAPi18n.__("yes_delete_hangout"),
         confirmButtonColor: "#d9534f",

@@ -68,3 +68,9 @@
   .hangout-meta { display: none;}
 }
 
+.card {
+  div.popover {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
+}

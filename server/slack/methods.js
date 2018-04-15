@@ -196,7 +196,7 @@ discussionsSlackAlert = function (discussion) {
 
   const username = discussion.author.username;
   const discussionURL = Meteor.absoluteUrl(`discussion/${discussion._id}`);
-  const pretext = `<@${username}> _has started a new discussion_ : *${discussion.topic}* \nChime in here: ${discussionURL} `;
+  const pretext = `<@${username}> _has started a new discussion_: *${discussion.topic}* \nChime in here: ${discussionURL} `;
 
   discussionAlert({
     text: pretext
