@@ -13,6 +13,7 @@ Template.allDiscussions.onCreated(function() {
   let instance = this;
   instance.limit = new ReactiveVar(10);
   instance.flag = new ReactiveVar(false);
+  instance.tags = new ReactiveVar([]);
   instance.discussionFilter = new ReactiveVar('newest');
 
   let projection = new Object();
@@ -22,8 +23,10 @@ Template.allDiscussions.onCreated(function() {
     FlowRouter.watchPathChange();
     let queryParams = FlowRouter.current().queryParams;
     let tags = [];
+    instance.tags.set(tags)
     if (! _.isEmpty(queryParams)) {
       tags = queryParams.tags
+      instance.tags.set(tags)
     }
 
     let discussionFilter = instance.discussionFilter.get() || 'newest';
@@ -92,12 +95,20 @@ Template.allDiscussions.helpers({
   },
   discussionSearchMode: function(){
     return Session.get('discussionSearchMode');
+  },
+  tags: function(){
+    return Template.instance().tags.get();
   }
 });
 
 Template.allDiscussions.events({
   "click #addDiscussion" (event, template){
-     Modal.show("addDiscussionModal", this);
+    const data = {
+      _id: "CB",
+      title: "CB",
+      slug: "CB"
+    }
+    Modal.show("addDiscussionModal", data);
   },
   "click .newest": function(event, template) {
     event.preventDefault();
@@ -114,6 +125,10 @@ Template.allDiscussions.events({
   "click .least-commented": function(event, template) {
     event.preventDefault();
     template.discussionFilter.set('least-commented');
+  },
+  "click .clear-tags": function(event, template) {
+    event.preventDefault();
+    FlowRouter.go('/discussions');
   },
 });
 

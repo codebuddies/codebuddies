@@ -3,7 +3,7 @@ import mcapi from 'mailchimp-api';
 if(Meteor.settings.isModeProduction){
 
   mc = new mcapi.Mailchimp(Meteor.settings.private.mailchimp.apiKey);
-
+    // @TODO: legacy code remove this.
     addUserToMailingList = (email, merge_vars) => {
     mc.lists.subscribe({id:Meteor.settings.private.mailchimp.listId,
                         email:{email:email},
@@ -29,8 +29,10 @@ if(Meteor.settings.isModeProduction){
 
   };
 
-
-
+  // @TODO:
+  // legacy code
+  // this is still being used if someone archive their account.
+  // remove this once migrate to other services.
   removeUserFromMailingList = (email) => {
     mc.lists.unsubscribe({"id":Meteor.settings.private.mailchimp.listId,
                           "email": {

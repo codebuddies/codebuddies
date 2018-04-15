@@ -38,7 +38,10 @@ Meteor.methods({
       visibility: true,
       version: 0,
       up_votes: [],
-      down_votes: []
+      down_votes: [],
+      email_notifications: {
+        initial: false
+      }
     }
 
 
