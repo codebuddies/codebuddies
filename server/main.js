@@ -28,10 +28,10 @@ Meteor.startup(function() {
   });
 
   smtp = {
-    username: Meteor.settings.sparkpost_username,
-    password: Meteor.settings.sparkpost_password,
-    server: Meteor.settings.sparkpost_host,
-    port: Meteor.settings.sparkpost_port
+    username: Meteor.settings.private.smtp.username,
+    password: Meteor.settings.private.smtp.password,
+    server: Meteor.settings.private.smtp.server,
+    port: Meteor.settings.private.smtp.port
   }
 
   process.env.MAIL_URL = 'smtp://' + encodeURIComponent(smtp.username) + ':' + encodeURIComponent(smtp.password) + '@' + encodeURIComponent(smtp.server) + ':' + smtp.port;
