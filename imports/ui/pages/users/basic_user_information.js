@@ -17,16 +17,16 @@ Template.basicUserInformation.events({
 
     if ($.trim(template.find("#fName").value) == '' ) {
       $('#fName').css({ "border": '#FF0000 1px solid'});
-      return Bert.alert('Firstname can\'t be empty', 'warning', 'growl-top-right' );
+      return Bert.alert('First name can\'t be empty', 'warning', 'growl-top-right' );
     }
 
     if ($.trim(template.find("#lName").value) == '' ) {
       $('#lName').css({ "border": '#FF0000 1px solid'});
-      return Bert.alert( 'Lastname can\'t be empty', 'warning', 'growl-top-right' );
+      return Bert.alert( 'Last name can\'t be empty', 'warning', 'growl-top-right' );
     }
     if ($.trim(template.find("#username").value) == '' ) {
       $('#username').css({ "border": '#FF0000 1px solid'});
-      return Bert.alert( 'username can\'t be empty', 'warning', 'growl-top-right' );
+      return Bert.alert( 'Username can\'t be empty', 'warning', 'growl-top-right' );
     }
     if (template.find("#username").value.match(usernameRegex) == null) {
       $('#username').css({ "border": '#FF0000 1px solid'});
@@ -38,7 +38,7 @@ Template.basicUserInformation.events({
     }
     if ( $("#username").val().length < 4) {
       $('#username').css({ 'border': '#FF0000 1px solid'});
-      return Bert.alert( 'Username must be at least 4 characters', 'warning', 'growl-top-right' );
+      return Bert.alert( 'Username must be at least 4 characters.', 'warning', 'growl-top-right' );
     }
 
     const data = {
@@ -57,7 +57,7 @@ Template.basicUserInformation.events({
          template.processing.set( false );
          Bert.alert({
            type: 'success',
-           message: 'Welcome to Codebuddies',
+           message: 'Welcome to CodeBuddies',
            icon: 'fa-check-circle',
            hideDelay: 6500
          });

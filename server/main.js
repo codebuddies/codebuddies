@@ -57,41 +57,6 @@ Meteor.startup(function() {
 
 });
 
-var loggingInUserInfo = function(user) {
-  var response = HTTP.get("https://slack.com/api/users.info",
-    {params:
-      {token: user.services.slack.accessToken,
-       user: user.services.slack.id,
-       scope: "users:read"
-      }
-    });
-  return response.data.ok && response.data;
-};
-
-let filterForSlackLogins = (user) => {
-    const username = user.name;
-    const profile = {
-      time_zone: user.tz,
-      time_zone_label: user.tz_label,
-      time_zone_offset: user.tz_offset,
-      firstname: user.profile.first_name,
-      lastname: user.profile.last_name,
-      avatar: {
-        default: user.profile.image_72,
-        image_192: user.profile.image_192,
-        image_512: user.profile.image_512
-      },
-      complete: false
-    }
-    const email = user.profile.email;
-
-    return filterdFields = {
-      username: username,
-      profile: profile,
-      email : email
-    }
-}
-
 let generateGravatarURL = (email) => {
   const gravatarHash = md5(email.toLowerCase());
   return{
@@ -137,32 +102,22 @@ let swapUserIfExists = function (email, service, user) {
 }
 
 Accounts.onCreateUser(function(options, user) {
-
   const service = _.keys(user.services)[0];
 
   if (service === 'slack') {
+
+    const username = options.slack.tokens.user.name;
+    const email = options.slack.tokens.user.email;
+    const avatar = generateGravatarURL(email);
+
+    const profile = {
+      avatar: avatar,
+      complete: false
+    };
     Roles.setRolesOnUserObj(user, ['user'], 'CB');
-    const user_info = loggingInUserInfo(user);
-    const pickField = filterForSlackLogins(user_info.user)
-
-    const email = pickField.email;
-
-    if(Meteor.settings.isModeProduction){
-      const merge_vars = {
-          "FNAME": pickField.profile.firstname,
-          "LNAME": pickField.profile.lastname,
-          "TZ": pickField.profile.time_zone,
-          "TZ_LABEL": pickField.profile.time_zone_label,
-          "TZ_OFFSET": pickField.profile.time_zone_offset,
-          "USERNAME": pickField.username
-      }
-
-      addUserToMailingList(email,merge_vars);
-    }
-
-    user.username = pickField.username;
-    user.profile = pickField.profile;
-    user.email = pickField.email;
+    user.username = username;
+    user.email = email;
+    user.profile = profile;
 
     return  swapUserIfExists(email, service, user)
   }

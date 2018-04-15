@@ -71,7 +71,7 @@ Template.hangoutItem.events({
       },
       function(){
         var options = {
-          requestPermissions: ['identify', 'users:read']
+          requestPermissions: ['identity.basic', 'identity.email']
         };
         Meteor.loginWithSlack(options);
       }
@@ -103,7 +103,7 @@ Template.hangoutItem.events({
       },
       function(){
         var options = {
-          requestPermissions: ['identify', 'users:read']
+          requestPermissions: ['identity.basic', 'identity.email']
         };
         Meteor.loginWithSlack(options);
       }
