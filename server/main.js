@@ -9,10 +9,21 @@ Meteor.startup(function() {
     service : 'slack'
   });
 
+  Accounts.loginServiceConfiguration.remove({
+    service : 'github'
+  });
+
   Accounts.loginServiceConfiguration.insert({
     service     : 'slack',
     "clientId" : Meteor.settings.slack_clientid,
     "secret" : Meteor.settings.slack_clientsecret,
+    "loginStyle" : "popup"
+  });
+
+  Accounts.loginServiceConfiguration.insert({
+    service     : 'github',
+    "clientId" : Meteor.settings.github_clientid,
+    "secret" : Meteor.settings.github_clientsecret,
     "loginStyle" : "popup"
   });
 
@@ -46,40 +57,6 @@ Meteor.startup(function() {
 
 });
 
-var loggingInUserInfo = function(user) {
-  var response = HTTP.get("https://slack.com/api/users.info",
-    {params:
-      {token: user.services.slack.accessToken,
-       user: user.services.slack.id,
-       scope: "users:read"
-      }
-    });
-  return response.data.ok && response.data;
-};
-
-let filterForSlackLogins = (user) => {
-    const username = user.name;
-    const profile = {
-      time_zone: user.tz,
-      time_zone_label: user.tz_label,
-      time_zone_offset: user.tz_offset,
-      firstname: user.profile.first_name,
-      lastname: user.profile.last_name,
-      avatar: {
-        default: user.profile.image_72,
-        image_192: user.profile.image_192,
-        image_512: user.profile.image_512
-      }
-    }
-    const email = user.profile.email;
-
-    return filterdFields = {
-      username: username,
-      profile: profile,
-      email : email
-    }
-}
-
 let generateGravatarURL = (email) => {
   const gravatarHash = md5(email.toLowerCase());
   return{
@@ -89,43 +66,91 @@ let generateGravatarURL = (email) => {
   }
 }
 
+let getRandomUsername = function (username) {
+  const adjectiveList = ['adorable', 'elegant', 'mighty', 'brave', 'fancy', 'fearless', 'magnificent', 'bewildered', 'fierce', 'lazy', 'mysterious', 'worried', 'curious', 'weird', 'cryptic' ];
+  return `${adjectiveList[Math.floor(Math.random() * adjectiveList.length)]}${username}`;
+}
 
-Accounts.onCreateUser(function(options, user) {
+let swapUsernameIfExists = function (username) {
+  const usernameExists = Meteor.users.findOne({'username': username});
+  if (usernameExists) {
+    return swapUsernameIfExists(getRandomUsername(username));
+  }else {
+    return username;
+  }
+}
 
-  if (user.services.slack){
-    Roles.setRolesOnUserObj(user, ['user'], 'CB');
-    const user_info = loggingInUserInfo(user);
-    const pickField = filterForSlackLogins(user_info.user)
 
-    if(Meteor.settings.isModeProduction){
-      const email = pickField.email;
-      const merge_vars = {
-          "FNAME": pickField.profile.firstname,
-          "LNAME": pickField.profile.lastname,
-          "TZ": pickField.profile.time_zone,
-          "TZ_LABEL": pickField.profile.time_zone_label,
-          "TZ_OFFSET": pickField.profile.time_zone_offset,
-          "USERNAME": pickField.username
+let swapUserIfExists = function (email, service, user) {
+
+    const existingUser = Meteor.users.findOne({'email': email});
+
+    if (existingUser) {
+      if (!existingUser.services) {
+        existingUser.services = { resume: { loginTokens: [] }};
       }
 
-      addUserToMailingList(email,merge_vars);
+      existingUser.services[service] = user.services[service];
+      user = existingUser;
+      Meteor.users.remove({_id: existingUser._id});
+
+    } else {
+      user.username = swapUsernameIfExists(user.username);
     }
 
-    user.username = pickField.username;
-    user.profile = pickField.profile;
-    user.email = pickField.email;
     return user;
+}
+
+Accounts.onCreateUser(function(options, user) {
+  const service = _.keys(user.services)[0];
+
+  if (service === 'slack') {
+
+    const username = options.slack.tokens.user.name;
+    const email = options.slack.tokens.user.email;
+    const avatar = generateGravatarURL(email);
+
+    const profile = {
+      avatar: avatar,
+      complete: false
+    };
+    Roles.setRolesOnUserObj(user, ['user'], 'CB');
+    user.username = username;
+    user.email = email;
+    user.profile = profile;
+
+    return  swapUserIfExists(email, service, user)
   }
 
-  if(user.services.password){
+  if (service === 'github') {
+    const email = user.services.github.email;
+
+    const avatar = generateGravatarURL(user.services.github.email);
+    const profile = {
+      avatar: avatar,
+      complete: false
+    };
+
+    Roles.setRolesOnUserObj(user, ['user'], 'CB');
+    user.username = user.services.github.username;
+    user.email = user.services.github.email;
+    user.profile = profile;
+
+    return swapUserIfExists(email, service, user)
+  }
+
+
+  if (service === 'password') {
     const avatar = generateGravatarURL(options.email);
     const profile = {
-      avatar:avatar
+      avatar:avatar,
+      complete: true
     }
 
     user.username = user.username;
     user.profile = profile;
     user.email = options.email;
+
     return user;
   }
 

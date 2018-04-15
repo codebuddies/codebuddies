@@ -1,6 +1,6 @@
 Template.hangoutCard.onRendered(function(){
     $(function() {
-        $('[data-toggle="popover"]').popover({ trigger: "hover", html: "true" }); 
+        $('[data-toggle="popover"]').popover({ trigger: "hover", html: "true" });
     });
 });
 Template.hangoutCard.helpers({
@@ -64,7 +64,7 @@ Template.hangoutCard.events({
       },
       function(){
         var options = {
-          requestPermissions: ['identify', 'users:read']
+          requestPermissions: ['identity.basic', 'identity.email']
         };
         Meteor.loginWithSlack(options);
       }
@@ -96,7 +96,7 @@ Template.hangoutCard.events({
       },
       function(){
         var options = {
-          requestPermissions: ['identify', 'users:read']
+          requestPermissions: ['identity.basic', 'identity.email']
         };
         Meteor.loginWithSlack(options);
       }
@@ -112,6 +112,3 @@ Template.hangoutCard.events({
     }
   }
 });
-
-
-

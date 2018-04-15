@@ -88,7 +88,8 @@
   }
 }
 
-.btn-slack {
+.btn-slack,
+.btn-github {
   @include font-face(400, 15px, normal, $black);
   background-color: $bg-white;
   border: 2px solid $cta-blue;

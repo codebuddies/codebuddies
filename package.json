@@ -6,8 +6,8 @@
     "meteor:dev": "meteor --settings settings-development.json",
     "meteor:prod": "meteor --settings settings-production.json",
     "test:full-app": "meteor test --full-app --driver-package=practicalmeteor:mocha --settings=settings-development.json --port 3100",
-	"contributors:add": "all-contributors add",
-	"contributors:generate": "all-contributors generate"
+	  "contributors:add": "all-contributors add",
+	  "contributors:generate": "all-contributors generate"
   },
   "dependencies": {
     "babel-runtime": "6.23.0",
