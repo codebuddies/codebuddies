@@ -46,20 +46,7 @@ Template.homeLoggedIn.events({
    }
   },
   "click #create-hangout-popup": function() {
-    if (!Meteor.userId()) {
-      sweetAlert({
-        title: TAPi18n.__("login_create_hangout_title"),
-        text: TAPi18n.__("login_create_hangout_message"),
-        confirmButtonText: TAPi18n.__("sign_in_with_slack"),
-        type: 'info'
-      },
-      function(){
-        var options = {
-          requestPermissions: ['identity.basic', 'identity.email']
-        };
-        Meteor.loginWithSlack(options);
-      });
-    } else {
+    if (Meteor.userId()) {
       Modal.show('createHangoutModal');
     }
   },
