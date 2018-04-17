@@ -1,14 +1,14 @@
 <template name="discussionResponseCard">
   <div class="row discussion-card">
     <div class="col-md-1">
-      <img src="{{author.avatar}}" alt="{{author.username}}" class="img-circle avatar author-avatar" />
+      <a href="{{pathFor 'profile' name=author.username userId=author.id}}"><img src="{{author.avatar}}" alt="{{author.username}}" class="img-circle avatar author-avatar" /></a>
       <!-- <h5 class="pull-right">{{author.username}}</h5> -->
     </div>
     {{#if visibility}}
 
       <div class="col-md-11">
         <h5>
-          {{author.username}}
+          <a href="{{pathFor 'profile' name=author.username userId=author.id}}">{{author.username}}</a>
           {{! available actions as a button grouping }}
           {{#if isAuthor author.id}}
 
@@ -33,20 +33,20 @@
         <h4>
           <i class="fa fa-thumbs-o-up {{#if isInCollection up_votes}} upvoted {{else}} rupvote {{/if}}" aria-hidden="true"></i> <small>{{up_votes.length}}</small> &nbsp; &nbsp;
           <i class="fa fa-thumbs-o-down {{#if isInCollection down_votes}} downvoted {{else}} rdownvote {{/if}}" aria-hidden="true"></i> <small>{{down_votes.length}}</small> &nbsp; &nbsp;
-          <small><i class="fa fa-clock-o" aria-hidden="true"></i> Posted on : {{dispDate created_at}} </small> &nbsp; &nbsp;
+          <small><i class="fa fa-clock-o" aria-hidden="true"></i> Posted on: {{dispDate created_at}} </small> &nbsp; &nbsp;
           <small>{{#if modified_at}}(Edited){{/if}}</small> &nbsp; &nbsp;
         </h4>
 
       </div>
     {{else}}
       <div class="col-md-11">
-        <h5>{{author.username}}</h5>
+        <h5><a href="{{pathFor 'profile' name=author.username userId=author.id}}">{{author.username}}</a></h5>
         <div class="description-text">
-          {{#markdown}}_[This response is removed]_{{/markdown}}
+          {{#markdown}}_[This response has been removed]_{{/markdown}}
         </div>
         <hr>
         <h4>
-          <small><i class="fa fa-clock-o" aria-hidden="true"></i> Posted on : {{dispDate created_at}} </small> &nbsp; &nbsp;
+          <small><i class="fa fa-clock-o" aria-hidden="true"></i> Posted on: {{dispDate created_at}} </small> &nbsp; &nbsp;
         </h4>
       </div>
     {{/if}}
