@@ -8,6 +8,7 @@ Meteor.methods({
       username: String,
       hangout_id: Match.Optional(String),
       study_group_id: Match.Optional(String),
+      optOutTweet: Match.Optional(Boolean)
     })
 
 
@@ -30,7 +31,9 @@ Meteor.methods({
       Learnings.insert(learning);
 
       //tweet user learning
-      tweetLearning(learning);
+      if (data.optOutTweet === true) {
+        tweetLearning(learning);
+      }
       return true;
     } catch (e) {
       console.log('learning error', e.toString());

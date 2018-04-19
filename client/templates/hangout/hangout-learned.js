@@ -29,12 +29,14 @@ Template.hangoutLearned.events({
         });
         return;
       }
+      let optOutTweet = $('#chkOptOutTweet').is(':checked');
       var data = {
         user_id: Meteor.userId(),
         username: Meteor.user().username,
         title: learningStatus,
         hangout_id: FlowRouter.getParam('hangoutId'),
-        study_group_id: FlowRouter.getParam('studyGroupId')
+        study_group_id: FlowRouter.getParam('studyGroupId'),
+        optOutTweet
       }
       Meteor.call("addLearning", data, function(error, result) {
         if (error) {
