@@ -31,7 +31,7 @@ Meteor.methods({
       Learnings.insert(learning);
 
       //tweet user learning
-      if (data.optOutTweet === true) {
+      if (data.optOutTweet === false) {
         tweetLearning(learning);
       }
       return true;
