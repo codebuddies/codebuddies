@@ -8,15 +8,15 @@
         <!-- Nav tabs -->
         <ul class="nav nav-tabs" role="tablist">
           <li role="presentation" class="active"><a href="#account" aria-controls="account" role="tab" data-toggle="tab">Account</a></li>
-
+          <li role="presentation"><a href="#notification" aria-controls="notification" role="tab" data-toggle="tab">Notification</a></li>
         </ul>
+        <br>
+        <br>
 
         <!-- Tab panes -->
         <div class="tab-content">
 
           <div role="tabpanel" class="tab-pane active" id="account">
-            <br>
-            <br>
             <div class="panel panel-default">
               <div class="panel-heading">
                 <h3 class="panel-title">Delete account</h3>
@@ -28,7 +28,117 @@
             </div>
           </div>
 
-        </div><!-- ./Tab panes -->
+          <div role="tabpanel" class="tab-pane" id="notification">
+
+            <div class="page-header">
+              <h3 class="panel-title">Email Notifications</h3>
+              <h5>Control when and how often CodeBuddies sends emails to you.</h5>
+            </div>
+
+
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">Hangout</h3>
+              </div>
+              <div class="panel-body">
+
+                <label class="control-label">Email me when</label>
+
+
+                <div class="checkbox">
+                  <label>
+                  <input type="checkbox" name="email_preference" value="join_hangout" checked="{{#if inList emails_preference 'join_hangout'}}checked{{/if}}">
+
+                    I join a Hangout.
+
+                  </label>
+                </div>
+
+                <div class="checkbox">
+                  <label>
+                  <input type="checkbox" name="email_preference" value="rsvp_to_hangout" checked="{{#if inList emails_preference 'rsvp_to_hangout'}}checked{{/if}}">
+                    Someone joins My Hangout
+                  </label>
+                </div>
+
+                <div class="checkbox">
+                  <label>
+                  <input type="checkbox" name="email_preference" value="delete_hangout" checked="{{#if inList emails_preference 'delete_hangout'}}checked{{/if}}">
+                    Hangout, I'm attending gets Deleted.
+                  </label>
+                </div>
+
+              </div>
+            </div>
+
+
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">Study Groups</h3>
+              </div>
+              <div class="panel-body">
+
+                <label class="control-label">Email me when</label>
+
+                <div class="checkbox">
+                  <label>
+                  <input type="checkbox" name="email_preference" value="new_member" checked="{{#if inList emails_preference 'new_member'}}checked{{/if}}">
+                    Someone joins My Study Group.
+                  </label>
+                </div>
+
+                <div class="checkbox">
+                  <label>
+                  <input type="checkbox" name="email_preference" value="new_hangout" checked="{{#if inList emails_preference 'new_hangout'}}checked{{/if}}">
+                    Someone creates a new Hangout in My Study Group.
+                  </label>
+                </div>
+
+                <div class="checkbox">
+                  <label>
+                  <input type="checkbox" name="email_preference" value="new_discussion" checked="{{#if inList emails_preference 'new_discussion'}}checked{{/if}}">
+                    Someone creates a new Discussion in My Study Group.
+                  </label>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">Newsletter & Updates</h3>
+              </div>
+              <div class="panel-body">
+
+                <label class="control-label">Email me with</label>
+
+
+                <div class="checkbox">
+                  <label>
+                  <input type="checkbox" name="email_preference" value="bi_weekly_newsletter" checked="{{#if inList emails_preference 'bi_weekly_newsletter'}}checked{{/if}}">
+                    A bi-weekly Newsletter
+                  </label>
+                </div>
+
+                <div class="checkbox">
+                  <label>
+                  <input type="checkbox" name="email_preference" value="monthly_update" checked="{{#if inList emails_preference 'monthly_update'}}checked{{/if}}">
+                    A Monthly Updates Regarding My Study Groups.
+                  </label>
+                </div>
+
+              </div>
+            </div>
+
+
+            <div class="btn btn-default pull-right" id="{{#unless preferences_modified}}updateEmailsPreference{{/unless}}" disabled="{{#if preferences_modified}}disabled{{/if}}">Save</div> &nbsp; &nbsp; &nbsp;
+
+
+          </div>
+
+        </div>
+        <!-- ./Tab panes -->
+
 
       </div><!-- ./panel-body-->
     </div><!-- ./panel-->

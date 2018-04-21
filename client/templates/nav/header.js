@@ -14,9 +14,9 @@ Template.header.helpers({
 });
 
 Template.header.events({
-  'click .signIn': function(event) {
+  'click .signInSlack': function(event) {
     var options = {
-      requestPermissions: ['identify', 'users:read']
+      requestPermissions: ['identity.basic', 'identity.email']
     };
     Meteor.loginWithSlack(options, function() {
         FlowRouter.go("hangouts");
@@ -33,5 +33,25 @@ Template.header.events({
   },
   'click #newStudyGroup': function(event) {
     Modal.show('newStudyGroupModal');
-  }
+  },
+  "click #newDiscussion" (event, template){
+     const data = {
+       _id: "CB",
+       title: "CB",
+       slug: "CB"
+     }
+
+     Modal.show("addDiscussionModal", data);
+  },
+  'click .signInGithub': function(event) {
+    var options = {
+      requestPermissions: ['read:user', 'user:email']
+    };
+    Meteor.loginWithGithub(options, function(err) {
+      if (!err) {
+        FlowRouter.go("hangouts");
+      }
+    });
+
+  },
 });

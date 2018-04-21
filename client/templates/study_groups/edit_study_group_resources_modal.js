@@ -1,11 +1,18 @@
 Template.editStudyGroupResourcesModal.onCreated(function () {
   let instance = this;
   instance.processing = new ReactiveVar(false);
+  instance.alert = new ReactiveVar(false);
 });
 
 Template.editStudyGroupResourcesModal.helpers({
   processing() {
-    return  Template.instance().processing.get();
+    return Template.instance().processing.get();
+  },
+  alert() {
+    return Template.instance().alert.get();
+  },
+  isError(elementId) {
+    return Template.instance().alert.get().elementId === elementId;
   }
 });
 
@@ -17,11 +24,11 @@ Template.editStudyGroupResourcesModal.events({
 
     if ($.trim(template.find("#sgResourceTitle").value) == '') {
       $('#sgResourceTitle').css({ 'border': '#FF0000 1px solid'});
-      return Bert.alert( 'Resource Title', 'warning', 'growl-top-right' );
+      return template.alert.set({ type: "alert-warning", elementId:"sgResourceTitle", message: "Please include a link title." });
     }
     if ($.trim(template.find("#sgResourceURL").value) == '') {
       $('#sgResourceURL').css({ 'border': '#FF0000 1px solid'});
-      return Bert.alert( 'Resource URL', 'warning', 'growl-top-right' );
+      return template.alert.set({ type: "alert-warning", elementId:"sgResourceURL", message: "Please include a link URL." });
     }
 
     let data = {
@@ -34,11 +41,12 @@ Template.editStudyGroupResourcesModal.events({
 
     // console.log(data);
     template.processing.set( true );
+    template.alert.set( false );
 
     Meteor.call("addResource", data, function(error, result){
       if(error){
         template.processing.set( false );
-        Bert.alert( error.reason, 'danger', 'growl-top-right' );
+        template.alert.set( { type: "alert-danger", message: error.reason } );
       }
       if(result){
         template.processing.set( false );

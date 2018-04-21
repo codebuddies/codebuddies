@@ -17,6 +17,7 @@
   "faq": "FAQ",
   "terms_of_service": "Terms of Service",
   "profile": "Profile",
+  "slack": "Slack",
 
   // status messages
   "i_am_working_on": "I'm working on ...",
@@ -31,7 +32,7 @@
   "accomplished": "What did you learn or accomplish just now?",
   "upcoming_time": "Starting __time__",
   "mastered_x_days_ago": "HANGOUT HAS ENDED",
-  "completed": "hangout has ended",
+  "completed": "Hangout has ended",
   "completed_long": "THIS HANGOUT HAS BEEN COMPLETED",
   //COMPLETED __days__ days ago, COMPLETED __days__ days ago, COMPLETED today __time__
   "mastered_x_days_ago_plural": "HANGOUT HAS ENDED",
@@ -42,15 +43,15 @@
   // buttons
   "save_changes": "Save changes",
   "update": "Update",
-  "join_hangouts" : "Join Hangouts",
+  "join_hangouts" : "Hangouts",
   "create_a_hangout": "Schedule a Hangout",
   "clone_a_hangout": "Schedule this Hangout",
   "join": "RSVP",
   "join_long": "Launch the Hangout",
-  "rsvp": "RSVP",
+  "rsvp": "RSVP to this Hangout",
   "rsvp_long": "RSVP to this Hangout",
   "joined": "JOINED",
-  "leave": "REMOVE RSVP",
+  "leave": "Remove RSVP",
   "join_in_session": "Click to RSVP",
   "load_more": "Load more...",
   "load_page": "Load page __start__/__total__",
@@ -61,11 +62,16 @@
   "no_delete_group": "No, I was just kidding",
   "yes_delete_learning": "Yes, please!",
   "no_delete_learning": "No thanks!",
-  "launch" : "JOIN NOW",
+  "launch" : "Join Now",
   "yes_end_hangout": "Yes, end it!",
   "no_end_hangout": "No, I was just kidding",
   "end_hangout": "End hangout manually",
-
+  "transfer_study_group": "Transferring study group cannot be undone",
+  "yes_transfer_group": "Yes, transfer it!",
+  "no_transfer_group": "No, I was just kidding",
+  "hangout_participant": "1 person is currently in the 24/7 hangout.",
+  "hangout_participant_plural": "__count__ people are currently in the 24/7 hangout.",
+  "add_google_calendar": "Add to Google Calendar",
 
   // hangout
   "what_is_a_hangout": "What is a Hangout?",
@@ -77,8 +83,11 @@
   "teaching_hangout": "Teaching Hangout",
   "collaboration_hangout": "Collaboration Hangout",
   "click_to_load_hangout": "Click to load the hangout",
-  "upcoming_events": "Live and upcoming events",
-  "past_events": "Past events",
+  "upcoming_events": "Live and upcoming Hangouts",
+  "past_events": "Past Hangouts",
+  "add_to_icalendar": " Add to iCalendar",
+  "deleted": "DELETED",
+
   // popup messages
   "you_are_almost_there": "You are almost there!",
   "login_join_hangout": "Please sign in to codebuddies.slack.com to join a hangout",
@@ -86,7 +95,7 @@
   "login_create_hangout_title": "You are pretty awesome, you know! Just one more step",
   "login_create_hangout_message": "Please sign in to codebuddies.slack.com to create a hangout",
   "you_are_awesome": "You are awesome!",
-  "looking_forward_to_see_you": "Looking forward to see you.",
+  "looking_forward_to_see_you": "Looking forward to seeing you.",
   "remove_owner_from_hangout": "Hey! You can't remove yourself from your Hangout.",
   "delete_hangout_confirm": "Are you sure?",
   "delete_hangout_text": "Note: All participants will be notified via email of cancellation",
@@ -158,6 +167,23 @@
   "progress_log_created_title": "New learning/accomplishment logged!",
   "progress_log_created_text": "Thank you for sharing!",
   "edit_a_progress_log": "Edit Log",
-  "progress_log_updated": "Progress log updated!"
+  "progress_log_updated": "Progress log updated!",
 
+  "select_new_owner": "Select new owner",
+  "new_hangout_slack_channel": "Send New Hangout Notifications to the Following Slack Channel(s)",
+  "select_channel": "Select at most 3 slack channels",
+
+  // Discussion
+  "discussion": "Discussion",
+  "new_discussion": "Start a new Discussion",
+  "discussion_topic": "Discussion Topic",
+  "report_this_discussion": "Report This Discussion",
+  "report_discussion_message" : "We'll review the Discussion and remove anything that doesn't follow the Code Buddies Standards. We may also warn or disable the person responsible.",
+  "report_a_discussion" : "Report",
+  "discussion_has_been_reported" : "Reported Successfully.",
+  "discussion_reported_message" : "We appreciate your assistance in maintaining the quality of this community.",
+
+  // alerts
+  "alert_language_change": "Language changed to %s",
+  "alert_language_change_fail": "Could not change language to %s"
 }

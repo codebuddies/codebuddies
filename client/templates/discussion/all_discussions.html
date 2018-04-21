@@ -1,0 +1,88 @@
+<template name="allDiscussions">
+  <div id="study-groups">
+    <div class="section study-groups-top">
+        <div class="container">
+          <div class="row">
+              <div class="col-md-12 align-center">
+                <h2>Discussions</h2>
+                <div class="btn btn-cb2 standard-header-btn {{#unless currentUser}} continue-popup btn-createGroup-notLoggedIn {{/unless}}" id="{{#if currentUser}}addDiscussion{{/if}}"> {{_ "new_discussion"}} </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  {{> discussionSearchBox}}
+
+  {{#if tags.length}}
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h5>
+            Tags: {{#each tag in tags}} <span class="label label-default pointer">{{tag}}</span> {{/each}}
+            <span class="label label-warning clear-tags pointer"> clear tags</span>
+          </h5>
+        </div>
+      </div>
+    </div>
+
+  {{/if}}
+  {{#if discussionSearchMode}}
+    {{> discussionSearchResult}}
+  {{/if}}
+
+  <br>
+  <br>
+  {{#unless discussionSearchMode}}
+    <div class="container">
+
+      {{#if Template.subscriptionsReady}}
+        {{#if discussions.count}}
+          <div class="row">
+            <div class="col-md-8">
+              <h4>Topic</h4>
+            </div>
+            <div class="col-md-2">
+              <h4>Author</h4>
+            </div>
+            <div class="col-md-2">
+              <div class="dropdown pull-right">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    <span><i class="fa fa-filter" aria-hidden="true"></i></span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                  <li class="newest"><a href="#">{{#if equals discussionFilter 'newest'}} <i class="fa fa-check" aria-hidden="true"></i>  {{else}} &nbsp;&nbsp; {{/if}}Newest</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li class="oldest"><a href="#">{{#if equals discussionFilter 'oldest'}} <i class="fa fa-check" aria-hidden="true"></i>  {{else}} &nbsp;&nbsp; {{/if}}Oldest</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li class="most-commented"><a href="#">{{#if equals discussionFilter 'most-commented'}} <i class="fa fa-check" aria-hidden="true"></i>  {{else}} &nbsp;&nbsp; {{/if}}Most Commented</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li class="least-commented"><a href="#">{{#if equals discussionFilter 'least-commented'}} <i class="fa fa-check" aria-hidden="true"></i>  {{else}} &nbsp;&nbsp; {{/if}}Least Commented</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <hr>
+        {{/if}}
+
+        {{#each discussions}}
+          {{> discussionItem}}
+        {{else}}
+          <div class="text-center">
+            <div class="alert alert-info">No discussion found</div>
+            <p>There will be more to see here once group members start some discussion threads.</p>
+          </div>
+        {{/each}}
+
+        {{#if discussions.count}}
+          {{#if status}}
+            <h5 class="text-center well">You've reached the end of the page.</h5>
+          {{/if}}
+        {{/if}}
+
+      {{else}}
+        {{>loading}}
+      {{/if}}
+    </div>
+  {{/unless}}
+</template>

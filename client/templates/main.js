@@ -1,5 +1,3 @@
-// import _ from 'lodash';
-
 if (Meteor.isClient) {
   Meteor.startup(function () {
 
@@ -9,9 +7,15 @@ if (Meteor.isClient) {
       console = console || {};
       console.log = function(){};
     }
+
+    const defaultLang = 'en'
+    const localStorageLang = localStorage.getItem('languageCode');
+    const browserLang = (window.navigator.userLanguage || window.navigator.language || '').slice(0,2)
+    TAPi18n.setLanguage(localStorageLang || browserLang || defaultLang)
+    .fail(console.log)
+    .always(() => localStorage.setItem('languageCode', TAPi18n.getLanguage()))
   });
 }
-
 
 Template.registerHelper('equals', function (a, b) {
       return a === b;
@@ -39,6 +43,16 @@ Template.registerHelper("getHangoutTypeSign", function(hangoutType){
   }
 });
 
+Template.registerHelper("getHangoutGoogleCalendarDate", function(date){
+  const tz = TimezonePicker.detectedZone();
+  return moment(date).tz(tz).format('YYYYMMDD');
+});
+
+Template.registerHelper("getHangoutGoogleCalendarTime", function(date){
+  const tz = TimezonePicker.detectedZone();
+  return moment(date).tz(tz).format('HHmmss');
+});
+
 Template.registerHelper("getHangoutStartDateTime", function(date){
   const tz = TimezonePicker.detectedZone();
   return moment(date).tz(tz).format('dddd MMMM Do YYYY, h:mm a z');
@@ -62,13 +76,6 @@ Template.registerHelper("getHangoutEndDateTime", function(date){
 Template.registerHelper("getHangoutEndTime", function(date){
   const tz = TimezonePicker.detectedZone();
   return moment(date).tz(tz).format('h:mm a z')
-});
-
-Template.registerHelper("displaySlackSignInBtn", function(){
-    var options = {
-      requestPermissions: ['identify', 'users:read']
-    };
-    Meteor.loginWithSlack(options);
 });
 
 Template.registerHelper('isHangoutUpcoming', function(startDate) {
@@ -118,4 +125,52 @@ Template.registerHelper("isOrganizers", function(role){
 
 Template.registerHelper('cleanDateFormat', function(date) {
   return moment(date).format('Do MMMM  YYYY');
+});
+Template.registerHelper("slotDayString", function(day){
+  switch (day) {
+    case 00:
+      return "MON"
+      break;
+    case 01:
+      return "TUE"
+      break;
+    case 02:
+      return "WED"
+      break;
+    case 03:
+      return "THU"
+      break;
+    case 04:
+      return "FRI"
+      break;
+    case 05:
+      return "SAT"
+      break;
+    case 06:
+      return "SUN"
+      break;
+    default:
+      return "NaN"
+  }
+});
+
+Template.registerHelper("isAuthor", function(userId){
+  return Meteor.userId() === userId;
+});
+
+Template.registerHelper('inList', function(list, item) {
+  if (list) {
+    return list.indexOf(item) != -1;
+  }
+  return false;
+});
+
+Template.registerHelper('isInCollection', function(collection) {
+  const actor = _.find(collection, function(item) { return item.id === Meteor.userId() ; });
+  return actor ? true : false;
+});
+
+
+Template.registerHelper("truncateIt", function(text, length){
+  return text.truncate(length)
 });

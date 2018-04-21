@@ -5,43 +5,18 @@ Template.homeLoggedOut.onCreated(function(){
   DocHead.addMeta(metaInfo);
 });
 
- Template.homeLoggedOut.rendered = function() {
-
- $('#hangout-tips').click(function() {
-    Modal.show('hangoutTips');
-  });
-
-  $('.join-info').click(function() {
-    Modal.show('joinInfo');
-  });
-
-  $(function() {
-  		$('.hangout-details').hide();
-		$('.hangout-card-homepage').hover(function() {
-     		 $(this).find('.hangout-details').show();
-     		 $(this).find('.hangout-image').hide();
-     		 $(this).addClass('shadow-effect');
-  		}, function(){
-      		$(this).find('.hangout-details').hide();
-     		 $(this).find('.hangout-image').show();
-     		 $(this).removeClass('shadow-effect');
- 		 });
-
-    $('span.slack-text').text('Get Slack Invite');
-   });
-
-
-};
-
 
 Template.homeLoggedOut.events({
   'click .signIn': function(event) {
     var options = {
-      requestPermissions: ['identify', 'users:read']
+      requestPermissions: ['identity.basic', 'identity.email']
     };
     Meteor.loginWithSlack(options);
+  },
+  'click .signInGithub': function(event) {
+    var options = {
+      requestPermissions: ['read:user', 'user:email']
+    };
+    Meteor.loginWithGithub(options);
   }
 });
-
-
-

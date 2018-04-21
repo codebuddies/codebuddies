@@ -88,8 +88,9 @@
   }
 }
 
-.btn-slack {
-  @include font-face(400, 16px, normal, $black);
+.btn-slack,
+.btn-github {
+  @include font-face(400, 15px, normal, $black);
   background-color: $bg-white;
   border: 2px solid $cta-blue;
   border-radius: 6px;
@@ -99,14 +100,20 @@
 }
 
 .btn-slack-join {
-  @include font-face(400, 16px, normal, $primary-grey);
+  @include font-face(400, 15px, normal, $primary-grey);
   @include border-radius(6px);
   background-color: $bg-white;
   height: 36px;
 }
 
+#leave-hangout {
+    background: $white;
+    color: $cta-blue;
+    border: 1px solid $cta-blue;
+}
+
 .btn-cb2 {
-  @include font-face(700, 16px, bold, $bg-white);
+  @include font-face(700, 15px, bold, $bg-white);
   background-color: $cta-blue;
   display: block;
   height: 36px;
@@ -133,7 +140,7 @@
 }
 
 .btn-cb3 {
-  @include font-face(700, 16px, bold, $bg-white);
+  @include font-face(700, 15px, bold, $bg-white);
   background-color: $cta-blue;
   display: block;
   height: 36px;
@@ -181,14 +188,17 @@
 }
 
 .btn-block {
-  @include font-face(700, 13px, bold, $cta-blue);
+  @include font-face(700, 15px, bold, $cta-blue);
   background: $white;
   border: 1px solid $cta-blue;
   margin-top: 10px;
   &:hover {
-    color: $white;
-    background: $cta-blue;
+    color: $cta-blue;
+    background: $white;
     border: 1px solid $cta-blue;
+    position: relative;
+    top: -1px;
+    left: -1px;
   }
 }
 
@@ -217,7 +227,7 @@ li.delete-hangout, li.edit-hangout {
   }
   .hangout-action-buttons-other {
       a.btn {
-        @include font-face(200, 16px, light, $black);
+        @include font-face(200, 15px, light, $black);
         background: transparent;
         border: 1px solid $black;
         margin: 10px 0px 0px 0px;
@@ -225,17 +235,17 @@ li.delete-hangout, li.edit-hangout {
   }
 }
 
-#create-hangout-popup, #createGroupButton, .btn-schedule-hangout {
+#create-hangout-popup, #createGroupButton, .btn-schedule-hangout, .btn-createGroup-notLoggedIn {
   background: $success-green;
   margin: 0 auto;
   max-width: 340px;
 }
-#createGroupButton {
+#createGroupButton, .btn-createGroup-notLoggedIn {
   margin: 10px auto;
 }
 .btn-clear {
   width: 100%;
-  @include font-face(700, 16px, light, $white);
+  @include font-face(700, 15px, light, $white);
   background: $cta-blue;
   border: 1px solid $white;
   &:hover {
@@ -243,4 +253,10 @@ li.delete-hangout, li.edit-hangout {
     border: 1px solid $white;
     color: $white;
   }
+}
+
+.standard-header-btn{
+  background: $success-green;
+  margin: 0 auto;
+  max-width: 340px;
 }

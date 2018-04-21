@@ -17,6 +17,7 @@
   "faq": "FAQ",
   "terms_of_service": "Términos de Servicio",
   "profile": "Perfil",
+  "slack": "Slack",
 
   // status messages
   "i_am_working_on": "Estoy trabajando en ...",
@@ -63,7 +64,7 @@
   "yes_end_hangout": "Sí, termínalo!",
   "no_end_hangout": "No, sólo bromeaba",
   "end_hangout": "TERMINAR HANGOUT",
-
+  "add_google_calendar": "Add to Google Calendar",
 
   // hangout
   "what_is_a_hangout": "¿Qué es un Hangout?",
@@ -75,6 +76,8 @@
   "teaching_hangout": "Hangout de Enseñanza",
   "collaboration_hangout": "Hangout de Colaboración",
   "click_to_load_hangout": "Da click para cargar el hangout",
+  "add_to_icalendar": " Add to iCalendar",
+
   // popup messages
   "you_are_almost_there": "¡Ya casi estás ahí!",
   "login_join_hangout": "Por favor entra a tu cuenta para unirte al Hangout.",
@@ -144,5 +147,9 @@
   "leave_study_group": "Deja este Grupo de Estudios",
   "select_study_group": "Por favor selecciona un grupo.",
   "settings": "Settings",
-  "start_new_group": "Inicia un nuevo grupo"
+  "start_new_group": "Inicia un nuevo grupo",
+
+  // alerts
+  "alert_language_change": "Idioma cambiado a %s",
+  "alert_language_change_fail": "No se pudo cambiar el idioma a %s"
 }

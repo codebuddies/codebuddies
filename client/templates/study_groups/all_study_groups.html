@@ -1,15 +1,21 @@
 <template name="allStudyGroups">
   <div id="study-groups">
+    <div class="container-fluid section-header">
+      <div class="col-md-8 col-md-offset-2">
+        <h1>Study Groups</h1>
+        <p>
+          Create study groups as motivation to accomplish common learning goals. Ideally, people who are interested in the same topic would come together and learn and hold each other accountable to learning goals of all sizes.
+        </p>
 
+        <button type="button" class="btn btn-cb2 {{#unless currentUser}} continue-popup btn-createGroup-notLoggedIn {{/unless}}"
+          id="{{#if currentUser}}createGroupButton{{/if}}">
+          {{_ "start_new_group" }}
+        </button>
 
-    <div class="section study-groups-top">
-        <div class="container">
-          <div class="row">
-              <div class="col-md-12 align-center">
-                <h2>Study Groups</h2>
-                <div class="btn btn-cb2" id="createGroupButton"> {{_ "start_new_group"}} </div>
-            </div>
-          </div>
+        <a href="{{pathFor 'study group owners guide'}}"
+           class="btn btn-outline">
+          Study Group Owners' Guide
+        </a>
       </div>
     </div>
 
@@ -33,6 +39,9 @@
                 <h4>
                   <a href="{{pathFor 'study group' studyGroupSlug=slug studyGroupId=_id}}">  {{title}} </a>
                   <br> <small>{{tagline}}</small> <small><i class="fa fa-users fa-fw"></i>{{members.length}}</small>
+                  {{#if numParticipants _id}}
+                  <small><i class="fa fa-laptop fa-fw"></i>{{ numParticipants _id }}</small>
+                  {{/if}}
                   {{#if isInRole 'owner' _id}}
                     <span class="label label-primary pull-right">Owner</span>
                   {{/if}}
@@ -47,6 +56,14 @@
                   {{/if}}
 
                 </h4>
+
+                {{#unless isInRole 'owner, admin, moderator, member' _id }}
+                    <button class="btn btn-join-study-group">{{_ "join_study_group"}}</button>
+                {{/unless}}
+
+                {{#if isInRole 'admin, moderator, member' _id }}
+                    <button class="btn btn-leave-study-group">{{_ "leave_study_group"}}</button>
+                {{/if}}
               </div>
               </div>
             {{/each}}

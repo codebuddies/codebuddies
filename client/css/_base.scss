@@ -2,6 +2,7 @@ html {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  font-size: 16px;
 }
 
 *, *:before, *:after {
@@ -12,6 +13,8 @@ html {
 
 body {
   padding: 0;
+  font-size: 1rem;
+  line-height: 1.5;
   #profile { background: $bg-white;}
 }
 
@@ -42,7 +45,7 @@ small.reminder {
   color: $white;
 }
 
-p.warning { 
+p.warning {
   text-align: center;
   color: $hangout-silent;
   margin:10px;
@@ -132,6 +135,10 @@ a:hover {
   overflow: auto;
   clear: both;
 }
+.clear {
+  clear: both;
+}
+
 .padding-none {
   padding: 0px;
 }
@@ -185,7 +192,19 @@ a:hover {
 
 /*Progress Log*/
 .editProgressLog, .removeProgressLog {
-    &:hover {
-        cursor: pointer;
-    };
+  &:hover {
+      cursor: pointer;
+  };
+}
+/* stripped row effect*/
+.row-stripe:nth-child(odd) {
+  background: #e0e0e0;
+}
+
+.voted {
+  color: $cta-blue;
+}
+
+.pointer {
+  cursor: pointer;
 }

@@ -1,7 +1,8 @@
 //Initialize character counter value
 var workingCounterValue = 140;
-var learnedCounterValue = 140;
+var learnedCounterValue = 280;
 var maxChars = 140;
+var maxLearnedChars = 280;
 
 Template.updateStatus.helpers({
     isWorking: function(type) {
@@ -28,7 +29,7 @@ Template.updateStatus.events({
     'keyup #learned-text': function(event) {
         //Check value and if 140 characters have been typed, the user can't type anymore
         var currentLength = $("#learned-text").val().length;
-        learnedCounterValue = maxChars - currentLength;
+        learnedCounterValue = maxLearnedChars - currentLength;
         $('.learnedCharactersLeft').text(learnedCounterValue);
     },
 
@@ -50,23 +51,7 @@ Template.updateStatus.events({
 			$('.charactersLeft').text(140);
     },
     'click #update-learned-btn': function(event) {
-        if (!Meteor.userId()) {
-            sweetAlert({
-                imageUrl: '/images/slack-signin-example.jpg',
-                imageSize: '140x120',
-                showCancelButton: true,
-                title: TAPi18n.__("you_are_almost_there"),
-                html: TAPi18n.__("continue_popup_text"),
-                confirmButtonText: TAPi18n.__("sign_in_with_slack"),
-                cancelButtonText: TAPi18n.__("not_now")
-            },
-            function(){
-              var options = {
-                requestPermissions: ['identify', 'users:read']
-              };
-              Meteor.loginWithSlack(options);
-            });
-        } else {
+        if (Meteor.userId()) {
             var learningStatus = $('#learned-text').val();
 
             if ($.trim(learningStatus) == '') {
@@ -85,7 +70,7 @@ Template.updateStatus.events({
             }
             Meteor.call("addLearning", data, function(error, result) {});
             $('#learned-text').val('');
-			$('.learnedCharactersLeft').text(140);
+			      $('.learnedCharactersLeft').text(280);
         }
     },
     'click .btn-hangout-status': function(event) {

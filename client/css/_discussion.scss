@@ -1,0 +1,57 @@
+.discussion {
+  background-color: #ECF0F1;
+  .discussion-card {
+    background-color: #FFFFFF;
+    margin: 20px 0 20px;
+    padding: 10px;
+  }
+  h3 {
+    margin: 20px 0 10px;
+    size: 18 px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    line-height: 1.1;
+    color: #363838;
+  }
+  .author-avatar {
+    width: 50px;
+    margin-top: 10px;
+  }
+  .upvoted {
+    color: #2ABB9C;
+  }
+  .downvoted {
+    color: #D97A7B;
+  }
+
+  .description-text {
+    font-size:15px;
+    margin-top: 35px;
+    font-family: 'Open Sans Light', sans-serif;
+    text-align:justify;
+    color: #989c9e;
+    line-height: 25px;
+    min-height: 100px;
+  }
+
+  .discussion-sidebar {
+    background-color: #FFFFFF;
+    margin: 20px 0 20px;
+    padding: 20px;
+    h5 {
+      margin: 10px 0 10px;
+      size: 18 px;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 400;
+      line-height: 1.1;
+      color: #363838;
+    }
+
+  }
+
+
+}
+
+.preview-pane {
+  padding: 6px 12px;
+}

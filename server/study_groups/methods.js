@@ -83,6 +83,7 @@ Meteor.methods({
 
     // send slack alert
     studyGroupNotification(studyGroup, studyGroupId);
+    studyGroupFacebookNotification(studyGroup, studyGroupId);
 
     return true;
 
@@ -156,7 +157,10 @@ Meteor.methods({
         title: data.studyGroupTitle,
         slug: data.studyGroupSlug
       },
-      read: [user._id]
+      read: [user._id],
+      email_notifications: {
+        initial: false
+      }
     }
 
     Activities.insert(activity);
@@ -453,3 +457,89 @@ Meteor.methods({
     return true;
   }
 });
+
+Meteor.methods({
+  transferStudyGroupOwnership: function(data) {
+    check(data, {
+      studyGroupId: String,
+      newOwnerId: String
+    });
+
+    if (!this.userId) {
+      throw new Meteor.Error('Members.methods.editStatus.not-logged-in', 'Must be logged in to transfer study group.');
+    }
+
+    const actor = Meteor.user()
+    if (!actor || !Roles.userIsInRole(actor, ['owner'], data.studyGroupId )) {
+      throw new Meteor.Error(403, "Access denied");
+    }
+
+    if (!Roles.userIsInRole(data.newOwnerId, ['admin', 'moderator', 'member'], data.studyGroupId )) {
+      throw new Meteor.Error(403, "Access denied");
+    }
+
+    //Remove old owner and update role of new owner to 'owner'
+    StudyGroups.update({_id: data.studyGroupId, 'members.id': actor._id },
+                     {$set: {'members.$.role': 'admin'} });
+    StudyGroups.update({_id: data.studyGroupId, 'members.id': data.newOwnerId },
+                     {$set: {'members.$.role': 'owner'} });
+    Roles.setUserRoles(actor._id, 'admin', data.studyGroupId);
+    Roles.setUserRoles(data.newOwnerId, 'owner', data.studyGroupId);
+
+
+    const studyGroup = StudyGroups.findOne({_id: data.studyGroupId });
+
+    const subject = Meteor.users.findOne({_id: data.newOwnerId });
+
+    //activity
+    const activity = {
+      actor: {
+        id: actor._id,
+        name: actor.username,
+        avatar: actor.profile.avatar.default
+      },
+      type: "GROUP_TRANSFERRED",
+      action: "transferred",
+      subject: {
+        id: subject._id,
+        name: subject.username,
+        avatar: subject.profile.avatar.default
+      },
+      created_at: new Date(),
+      icon: 'fa-plane',
+      study_group: {
+        id: studyGroup._id,
+        title: studyGroup.title,
+        slug: studyGroup.slug
+      },
+      read: [actor._id]
+    };
+
+    Activities.insert(activity);
+
+    return true;
+  }
+})
+
+Meteor.methods({
+  saveHangoutChannel: function(data) {
+    check(data, {
+      studyGroupId: String,
+      hangoutChannels: Match.Maybe([String])
+    });
+
+    if (!this.userId) {
+      throw new Meteor.Error('Members.methods.editStatus.not-logged-in', 'Must be logged in to save hangout channels.');
+    }
+
+    const actor = Meteor.user()
+    if (!actor || !Roles.userIsInRole(actor, ['owner'], data.studyGroupId )) {
+      throw new Meteor.Error(403, "Access denied");
+    }
+
+    //Update the list of Slack channels that will receive notifications when a hangout is scheduled in this group
+    StudyGroups.update({_id: data.studyGroupId },
+                     {$set: {'hangoutChannels': data.hangoutChannels} });
+    return true;
+  }
+})

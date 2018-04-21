@@ -8,7 +8,7 @@
         <div class="row">
           {{#each searchResults}}
             <div class="col-md-4">
-            <div class="well">
+            <div class="well card">
               <h4>
                 <a href="{{pathFor 'study group' studyGroupSlug=slug studyGroupId=_id}}">  {{title}} </a>
                 <br> <small>{{tagline}}</small> <small><i class="fa fa-users fa-fw"></i>{{members.length}}</small>
@@ -26,6 +26,14 @@
                 {{/if}}
 
               </h4>
+
+              {{#unless isInRole 'owner, admin, moderator, member' _id }}
+                  <button class="btn btn-join-study-group-1">{{_ "join_study_group"}}</button>
+              {{/unless}}
+
+              {{#if isInRole 'admin, moderator, member' _id }}
+                  <button class="btn btn-leave-study-group-1">{{_ "leave_study_group"}}</button>
+              {{/if}}
             </div>
             </div>
           {{/each}}

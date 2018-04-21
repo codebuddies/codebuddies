@@ -1,3 +1,5 @@
+import { check, Match } from 'meteor/check'
+
 Meteor.methods({
   getUserDetails : function(userId){
     check(userId, String);
@@ -50,5 +52,73 @@ Meteor.methods({
   getHangoutsJoinedCount: function(userId) {
     check(userId, String);
     return Hangouts.find({users:{$elemMatch:{$eq:userId}},'visibility':{$ne:false}}).count();
+  }
+});
+
+/**
+* Update Emails Preferences
+* @function
+* @name updateEmailsPreference
+* @param { Object } - data
+* @return {Boolean} true on success
+*/
+Meteor.methods({
+  updateEmailsPreference:function(data){
+    check(data,{
+      emails_preference: Match.Maybe([String])
+    });
+    if (!this.userId) {
+      throw new Meteor.Error('users.methods.updateEmailsPreference.not-logged-in', 'Must be logged in.');
+    }
+
+    Meteor.users.update({_id: Meteor.userId()},
+                        {$set: { emails_preference: data.emails_preference } } );
+
+    return true;
+
+  }
+});
+
+
+/**
+* Update Basic Information
+* @function
+* @name updateEmailsPreference
+* @param { Object } - data
+* @return {Boolean} true on success
+*/
+Meteor.methods({
+  updateBasicInformation:function(data){
+    check(data,{
+      firstname: String,
+      lastname: String,
+      username: String
+    });
+
+    const actorId = Meteor.userId();
+    if (!actorId) {
+      throw new Meteor.Error('users.methods.updateBasicInformation.not-logged-in', 'Must be logged in.');
+    }
+
+    // Check username is unique
+    const regex = new RegExp(`^${data.username}$`, 'i');
+    const isUsernameInUse = Meteor.users.findOne({ '_id': { $ne: actorId }, 'username': regex });
+    if (isUsernameInUse) {
+      throw new Meteor.Error('Users.methods.updateBasicInformation.username-is-already-in-use', 'Username is already in user.');
+    }
+
+    Meteor.users.update({_id: actorId},
+      {
+        $set: {
+          'username': data.username,
+          'profile.firstname': data.firstname,
+          'profile.lastname': data.lastname,
+          'profile.complete': true
+        }
+      }
+    );
+
+    return true;
+
   }
 });

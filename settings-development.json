@@ -12,17 +12,19 @@
       "consumer_secret": "k05UXe9j4En8PeZ1m9qfjGgud76KutvlJ2T55qNftuT7VwhvbK",
       "access_token_key": "2770917768-WmbE99Qj7SUz0IAVNjHXACYIYgyWS2hCHt7ROB7",
       "access_token_secret": "b1e7icigIxXcIXupJDapAjujfJdzSmvgd98Um6d15BbYw"
+    },
+    "smtp": {
+      "username": "SMTP_Injection",
+      "password": "262d2acea308cdd96213d83c97fc7ba8ab3873c1",
+      "server": "smtp.sparkpostmail.com",
+      "port": "587"
     }
   },
   "isModeProduction": false,
-  "seeder":false,
+  "seeder": false,
   "slack_clientid": "4364220508.48656557590",
   "slack_clientsecret": "33e0c6dda98e994f194efdc9b6d35c46",
   "slack": "https://hooks.slack.com/services/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",
-  "sparkpost_username": "SMTP_Injection",
-  "sparkpost_password": "262d2acea308cdd96213d83c97fc7ba8ab3873c1",
-  "sparkpost_host": "smtp.sparkpostmail.com",
-  "sparkpost_port": 587,
   "email_from": "linda@codebuddies.org",
   "team_id":"T04AQ6GEY",
   "slack_alert_channel": "#codebuddies-ops",
@@ -31,5 +33,8 @@
   "root_email":"codebuddiesdotorg@gmail.com",
   "root_username":"CB",
   "root_gravatar":"http://www.gravatar.com/avatar/",
-  "slack_studygroup_alert_username": "Study Group Alerts"
+  "slack_studygroup_alert_username": "Study Group Alerts",
+  "slack_facebook_alert_channel": "#fb-group-private",
+  "github_clientid": "fba6a99da8ddc60fe7f6",
+  "github_clientsecret": "a447f020986a5b85b3d5b4b550eaf932809d12cc"
 }

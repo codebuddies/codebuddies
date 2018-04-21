@@ -108,7 +108,7 @@
 
 
   .btn-danger {
-    background: $danger-red;
+    background: $end-hangout-color;
   }
 
   .google-hangout {
@@ -122,8 +122,8 @@
   }
 
   #end-hangout {
-    margin-top: 5px;
-    width: 300px;
+    margin-top: 10px;
+    width: 100%;
   }
 
   #hangout-button-wrapper {
@@ -155,12 +155,6 @@
       text-align: center;
       a {
         display: inline-block;
-      }
-      a#joined-hangout {
-        width: 35%;
-      }
-      a#leave-hangout {
-        width: 60%
       }
     }
   }

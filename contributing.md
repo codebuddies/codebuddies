@@ -28,7 +28,7 @@
 
 # The More Detailed Steps on Contributing:
 1. Say hello on the [#codebuddies-meta](https://codebuddies.slack.com/messages/codebuddies-meta/) channel in the Slack. Feel free to ask questions here, or to ask for someone to review your pull request. (If you don't have an account with codebuddies.slack.com, please visit [codebuddies.org](http://codebuddies.org) to sign up.)
-2. Install Meteor! On mac, you should use this command: 
+2. Install Meteor! On mac, you should use this command:
 
    `curl "https://install.meteor.com/?release=1.4.4.2" | sh`
 
@@ -36,21 +36,21 @@ On Windows, you should run the official installer [here](https://www.meteor.com/
 
 3. Please star this repository! We need to reach 100 stars so that we can apply to the [Open Collective](https://opencollective.com/opensource/apply).
   [Edit - We're already there! But still star this repo, so others can hear about what we're doing!]
-  
+
 4. Fork this repository! Once you have a copy of this repo on your own account, clone this repo to your computer by typing in something like:
 
-  `git clone https://github.com/codebuddiesdotorg/codebuddies.git`
+  `git clone https://github.com/codebuddies/codebuddies.git`
 
   (Replace the URL with your own repository URL path.)
-  
+
 5. Run `cd codebuddies`. Then, set up this repository as an upstream branch using:
-  * `git remote add upstream https://github.com/codebuddiesdotorg/codebuddies.git`
+  * `git remote add upstream https://github.com/codebuddies/codebuddies.git`
 
   Now, whenever you want to sync with the owner repository. Do the following:
   * `git fetch upstream`
   * `git checkout staging`
   * `git merge upstream/staging`
-  
+
   Note: You can type `git remote -v` to check which repositories your `origin` and `upstream` are pointing to.
 
 6. Type `meteor npm install` to install the initial meteor packages (you have to do this once!).
@@ -59,11 +59,11 @@ On Windows, you should run the official installer [here](https://www.meteor.com/
   * (`meteor npm run meteor:dev` can also run the app, but will likely [use up your CPU](https://github.com/meteor/meteor/issues/4314).)
   * Also note: if you see an error in your terminal asking you to `meteor npm install --save faker`, please run that command!
 
-8.Look at some of the [open issues](https://github.com/codebuddiesdotorg/codebuddies/issues) and identify one that sparks your interest.
+8.Look at some of the [open issues](https://github.com/codebuddies/codebuddies/issues) and identify one that sparks your interest.
 
 If you want to work on the issue, leave a comment on it saying that you're working on it!
 
-Then, create a new branch by typing `git checkout -b BRANCHNAME`. Replace BRANCHNAME with what you want to name the branch. Conventionally, you should use the issue number in your branch name. For example, if you decided to work on issue https://github.com/codebuddiesdotorg/codebuddies/issues/491, you should type `git checkout -b issue-491` to create a branch named `issue-491`.
+Then, create a new branch by typing `git checkout -b BRANCHNAME`. Replace BRANCHNAME with what you want to name the branch. Conventionally, you should use the issue number in your branch name. For example, if you decided to work on issue https://github.com/codebuddies/codebuddies/issues/491, you should type `git checkout -b issue-491` to create a branch named `issue-491`.
 
 9. If you have any questions about the issue you're looking at, you can leave a comment in there, or ask in the [#codebuddies-meta Slack channel](https://codebuddies.slack.com/messages/codebuddies-meta). Read below for more instructions about how to work with branches.
 10. Type `git branch -a` to see a list of all the branches besides `staging`, the default branch you're in. Note that if you want to switch to an already-created branch, you would type `git checkout BRANCHNAME`. You can read more about how to create a new branch to work on an issue below.
@@ -71,7 +71,7 @@ Then, create a new branch by typing `git checkout -b BRANCHNAME`. Replace BRANCH
 12. Submit your Pull Request! See some tips on [how to create the perfect pull request](https://github.com/blog/1943-how-to-write-the-perfect-pull-request).
 13. (Optional) Add yourself as a contributor, if you haven't done so already. Steps are listed [below](#how-do-i-add-myself-as-a-contributor).
 
-If you see a bug in the app or have a feature request, feel free to [create a new issue](https://github.com/codebuddiesdotorg/codebuddies/issues/new) on the Github repo!
+If you see a bug in the app or have a feature request, feel free to [create a new issue](https://github.com/codebuddies/codebuddies/issues/new) on the Github repo!
 
 
 # Common Questions
@@ -89,7 +89,7 @@ If you have any problems getting the app to start, feel free to ask in the #trou
 
   `git checkout -b NAME_OF_NEW_BRANCH`
 
-  So for example, if you wanted to work on issue #29 [github.com/codebuddiesdotorg/codebuddies/issues/29](https://github.com/codebuddiesdotorg/codebuddies/issues/29), you should type:
+  So for example, if you wanted to work on issue #29 [github.com/codebuddies/codebuddies/issues/29](https://github.com/codebuddies/codebuddies/issues/29), you should type:
 
     `git checkout -b fix/issue-29-limit-140-characters`
 
@@ -107,9 +107,9 @@ Now we can make commits to our branch (`git commit -am "commit message"`) and `g
 
 Finally, when you're finished working on the fix or feature in your branch, you'll need to submit a pull request!
 
-Click on the "pull request" button by going to https://github.com/codebuddiesdotorg/codebuddies/pulls and clicking on "new pull request." Next, select your branch, and submit.
+Click on the "pull request" button by going to https://github.com/codebuddies/codebuddies/pulls and clicking on "new pull request." Next, select your branch, and submit.
 
-One of the github maintainers (@linda or someone else) will look over your pull request and accept it after it is reviewed by volunteer contributors. Note that for best practice, the PR [may get "squashed" into one commit](http://softwareengineering.stackexchange.com/questions/263164/why-squash-git-commits-for-pull-requests). If you prefer that the merge not be squashed into one commit, just let us know in the PR! 
+One of the github maintainers (@linda or someone else) will look over your pull request and accept it after it is reviewed by volunteer contributors. Note that for best practice, the PR [may get "squashed" into one commit](http://softwareengineering.stackexchange.com/questions/263164/why-squash-git-commits-for-pull-requests). If you prefer that the merge not be squashed into one commit, just let us know in the PR!
 
 *Note 1* - If you've picked out an issue to work on, make sure you let people know that you're continuing working on it, if the fix happens to take 2 days or longer. An update every two dates by way of a comment on the issue will do. Doesn't necessarily have to be a fix. In case you're unable to continue on the issue for some reason, just let people know that as well so that someone else can claim it. If you do not update within a couple of days, it will be assumed that the issue is not being attended to and will be up for grabs.
 
@@ -177,7 +177,7 @@ When the app is run locally, there are no hangouts seeded by default. Hence to b
 ### How do I add myself as a contributor?
 *Make sure you have recently `git pull` from `master` before continuing.*
 
-Once you've submitted your PR, switch to the branch [`adding-contributor`](https://github.com/codebuddiesdotorg/codebuddies/tree/adding-contributor). Then, you can add yourself to both the README.md and on our About page. Keeping a separate branch for adding yourself as a contributor will alleviate most merge conflicts.
+Once you've submitted your PR, switch to the branch [`adding-contributor`](https://github.com/codebuddies/codebuddies/tree/adding-contributor). Then, you can add yourself to both the README.md and on our About page. Keeping a separate branch for adding yourself as a contributor will alleviate most merge conflicts.
 
 * Switch to contributor's branch
   * `git checkout adding-contributor`
@@ -190,25 +190,30 @@ Once you've submitted your PR, switch to the branch [`adding-contributor`](https
     * example: `@Example, https://github.com/onlyforexample - provided an example on Contributing.md`
   * Commit your changes
 *  **For the [About](https://codebuddies.org/about) Page:**
-  * Open `client/templates/other/about.html` in your editor of choice
-  * Add the following code above the comment "Add Your Name Above!" (NB: Best to `cmd + f` this line.):
+  * Open `imports/data/contributors.json` in your editor of choice
+  * Add the following JSON object in contributors array:
 
-```html
-<a rel="popover" class="user-popover" title="ADD_SLACK_HANDLER_HERE
-  <a href='ADD_TWITTER_LINK_HERE'><i class='fa fa-twitter'></i></a>
-  <a href='ADD_GITHUB_LINK_HERE'><i class='fa fa-github'></i></a>
-  <a href='ADD_PERSONAL_SITE_HERE'><i class='fa fa-link'></i></a>"  
-  data-content="ADD INFORMATION ABOUT YOU AND HOW YOU CONTRIBUTED TO CODEBUDDIES" data-placement="top" data-toggle="popover">
-  <img src="ADD_IMG_URL_HERE" class="img-circle" alt="YOUR_NAME"/>
-</a>
+```
+{
+  "title": "ADD_SLACK_HANDLER_HERE",
+  "socials": {
+    "twitter": "ADD_TWITTER_LINK_HERE",
+    "github": "ADD_GITHUB_LINK_HERE",
+    "blog": "ADD_PERSONAL_SITE_HERE"
+  },
+  "intro":"ADD INFORMATION ABOUT YOU AND HOW YOU CONTRIBUTED TO CODEBUDDIES",
+  "avatar": "ADD_IMG_URL_HERE",
+  "name": "YOUR_NAME",
+  "type": "code"
+ }
 ```
   * Replace the following values:
     * **ADD_SLACK_HANDLER_HERE** - replace with your Slack handler (e.g., @sample)
     * **ADD_TWITTER_LINK_HERE** - replace with your Twitter link
-      * If you don't have a Twitter account, delete `<a href='ADD_TWITTER_LINK_HERE'><i class='fa fa-twitter'></i></a>`
+      * If you don't have a Twitter account, delete `"twitter": "ADD_TWITTER_LINK_HERE"`
     * **ADD_GITHUB_LINK_HERE** - replace with your GitHub link
     * **ADD_PERSONAL_SITE_HERE** - replace with your actual site
-      * If you don't have a personal site, delete `<a href='ADD_PERSONAL_SITE_HERE'><i class='fa fa-link'></i></a>`
+      * If you don't have a personal site, delete `"blog": "ADD_PERSONAL_SITE_HERE"`
     * **ADD INFORMATION ABOUT YOU AND HOW YOU CONTRIBUTED TO CODEBUDDIES** - replace this with the requested information!
     * **ADD_IMG_URL_HERE** - replace with a image URL of yourself! (Can be your GitHub profile picture.)
   * Commit and push your changes!

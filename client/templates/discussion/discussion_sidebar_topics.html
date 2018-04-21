@@ -1,0 +1,25 @@
+<template name="discussionSidebarTopic">
+  <div class="discussion-sidebar">
+    {{#if equals type 'active'}}
+      {{#if activeTopics.length}}
+        <h5>MY ACTIVE TOPICS</h5>
+      {{else}}
+        <h5>RECENT TOPICS</h5>
+      {{/if}}
+    {{else}}
+      <h5>RECENT TOPICS</h5>
+    {{/if}}
+    <hr>
+    {{#each activeTopics}}
+      <p>
+        <a href="{{pathFor 'discussion' discussionId=_id}}">{{truncateIt topic '30'}}</a>
+      </p>
+    {{else}}
+      {{#each recentTopics}}
+        <p>
+          <a href="{{pathFor 'discussion' discussionId=_id}}">{{truncateIt topic '30'}}</a>
+        </p>
+      {{/each}}
+    {{/each}}
+  </div>
+</template>

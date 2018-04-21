@@ -5,33 +5,35 @@
       <div class="col-md-8 padding-none">
         <div class="bg-blue">
             <div class="heading">
-              <div class="title">{{_ "join_hangouts"}} <span class="question"><a id="hangout-faq-popup"><i class="fa fa-question-circle fa-2x"></i></a></span> </div>
-            </div><!--heading-->
+              <div class="title">{{_ "join_hangouts"}} </div>
+              <p>Hangouts is where you can learn or work together in real time. By joining or starting a hangout, you can ask questions, share ideas or code-pair on something you're currently working on. <span class="question"><a id="hangout-faq-popup">Learn more</a></span></p>
 
-            <div class="search-area bg-blue">
-              <div class="col-md-7">
-                  <input type="text" class="form-control searchTerm" name="searchTerm" placeholder="&#128269; Search" id="searchBox" value="{{hangoutSearchTerm}}">
-              </div>
-							{{#unless hangoutSearchMode }}
-	              <div class="col-md-5">
-	                <div class="btn btn-cb2 {{#unless currentUser}} continue-popup {{/unless}}" id="create-hangout-popup"> {{_ "create_a_hangout"}} </div>
-	              </div>
-							{{else}}
-								<div class="col-md-5">
-									<div class="btn btn-default btn-clear" id="clearSearch"> Clear </div>
-								</div>
-							{{/unless}}
-            </div><!-- inner row-->
+              <div class="search-area">
+  							{{#unless hangoutSearchMode }}
+  	                <div class="btn btn-cb2  btn-schedule-hangout {{#unless currentUser}} continue-popup {{else}} create-hangout-popup {{/unless}}"> {{_ "create_a_hangout"}} </div>
 
+  							{{else}}
+
+  									<div class="btn btn-default btn-clear" id="clearSearch"> Clear </div>
+
+  							{{/unless}}
+                      <p>or</p>
+                      <input type="text" class="form-control searchTerm" name="searchTerm" placeholder="&#128269; Search by topic" id="searchBox" value="{{hangoutSearchTerm}}">
+
+              </div><!-- inner row-->
+              <p class="key">
+                      <span><i class="fa fa-microphone-slash text-danger-color"></i> Silent Hangout <i class="fa fa-question-circle" data-toggle="popover" data-placement="top" data-content="Studying with others is always more fun, even if no one's talking out loud. Screenshare to keep yourself on task/away from Facebook and YouTube, and also because it's fun to glance at what other people are working on. You can still check in about struggles and successes by typing in the hangout chatbox. <br /> <br /> Turn video and microphone off."></i></span>
+                      <span><i class="fa fa-user text-warning-color"></i> Teaching Hangout <i class="fa fa-question-circle" data-toggle="popover" data-placement="top" data-content="Start a teaching hangout to get practice explaining something you want to master. <br /> <br /> Screenshare for best results."></i></span>
+                      <span><i class="fa fa-users text-success-color"></i> Collaboration Hangout <i class="fa fa-question-circle" data-toggle="popover" data-placement="top" data-content="Start a collaboration hangout to invite others of all levels to learn something with you. Pick a tutorial or a project and jump right in; no one needs to be an expert to join, but code pairing or discussing a topic out loud accelerates learning. <br /> <br /> Mute yourself when you're not talking and turn video off."></i></span>
+              </p>
+             </div><!--heading-->
+
+            <div class="hangouts-area">
           	{{#if hangoutSearchMode}}
 
-							<div class="col-md-12">
-								<div class="panel panel-default">
-									<div class="panel-body">
-									<h4 class="search-message">Showing results for <strong>'{{hangoutSearchTerm}}'</strong></h4>
-									</div>
-								</div>
-							</div>
+                    <div class="search-message">
+					    <h4>Showing results for <strong>'{{hangoutSearchTerm}}'</strong></h4>
+                    </div>
 
                 {{#if searchResults.count}}
 
@@ -45,56 +47,42 @@
 
                 {{else}}
 
-								<div class="col-md-12">
-									<div class="panel panel-default">
-										<div class="panel-body">
-											<h4>Sorry, no results were found.</h4>
-											<p>Please check your spelling, or try another search.</p>
-										</div>
-									</div>
-								</div>
+                        <div class="search-message">
+							<h4>Sorry, no results were found.</h4>
+							<p>Please check your spelling, or try another search.</p>
+                        </div>
+
 
                 {{/if}}<!--searchResults.count-->
 
             {{else}}
 
-              <div class="row">
 
-                <div class="col-md-12">
-                  {{> hangoutCards}}
-                </div>
-              </div>
+        {{> hangoutCards}}
 
             {{/if}}<!--searchMode-->
+        </div>
 
           </div>
       </div><!--col-md-6 col-md-offset-1-->
 
       <div class="col-md-4 padding-none">
         <div class="full-width-tabs">
-          <ul id="statusTabs" class="nav nav-tabs" role="tablist">
-            <li class="active full-width-tab"><a data-id="A" href="#A"><span class="tab-title">{{_ "i_am_working_on"}}</span></a></li>
-            <li class="full-width-tab"><a data-id="B" href="#B"><span class="tab-title">{{_ "today_i_learned"}}</span></a></li>
+          <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="full-width-tab active"><a href="#userStatusList" aria-controls="userStatusList" role="tab" data-toggle="tab">{{_ "i_am_working_on"}}</a></li>
+            <li role="presentation" class="full-width-tab"><a href="#userLearningList" aria-controls="userLearningList" role="tab" data-toggle="tab">{{_ "today_i_learned"}}</a></li>
           </ul>
-        </div>
-        <div class="tab-content status-fields">
-          <div role="tabpanel" class="tab-pane active" id="A">
-            {{> updateStatus type="working"}}
-          </div>
-          <div role="tabpanel" class="tab-pane" id="B">
-            {{> updateStatus type="learned"}}
-          </div>
-        </div>
-        <ul id="statusListTabs" style="display: none;" class="nav nav-tabs" role="tablist">
-          <li class="active"><a href="#AA"></a></li>
-          <li><a href="#BB"></a></li>
-        </ul>
-        <div class="tab-content status-data">
-          <div role="tabpanel" class="tab-pane active" id="AA">
-            {{> statusList type="working"}}
-          </div>
-          <div role="tabpanel" class="tab-pane" id="BB">
-            {{> statusList type="learned"}}
+
+          <!-- Tab panes -->
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="userStatusList">
+              {{> updateStatus type="working"}}
+              {{> statusList type="working"}}
+            </div>
+            <div role="tabpanel" class="tab-pane" id="userLearningList">
+              {{> updateStatus type="learned"}}
+              {{> statusList type="learned"}}
+            </div>
           </div>
         </div>
       </div>

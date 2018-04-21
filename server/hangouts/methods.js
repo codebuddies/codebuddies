@@ -88,6 +88,11 @@ Meteor.methods({
         id: group._id,
         title: group.title,
         slug: group.slug
+      },
+      email_notifications: {
+        initial: false,
+        reminder: false,
+        follow_up: false
       }
     }
 
@@ -99,8 +104,14 @@ Meteor.methods({
     //tweet new hangout
     tweetHangout(hangout);
 
+    let hangoutChannels = [];
+    if (group._id !== 'CB') {
+      const studyGroup = StudyGroups.findOne({ _id: group._id }, { fields: { hangoutChannels: 1 }});
+      hangoutChannels = studyGroup && studyGroup.hangoutChannels || [];
+    }
+    slackNotification(hangout, "NEW", hangoutChannels);
+    hangoutFacebookNotification(hangout, 'NEW');
 
-    slackNotification(hangout, "NEW");
     return true;
   },
   deleteHangout: function (data) {
@@ -123,8 +134,7 @@ Meteor.methods({
         const actor = Meteor.user()
         if (actor._id === data.hostId) {
 
-          Hangouts.up
-          date({_id: data.hangoutId},
+          Hangouts.update({_id: data.hangoutId},
                           {$set: { visibility: false} });
           return true;
 

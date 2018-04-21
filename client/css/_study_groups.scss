@@ -1,4 +1,4 @@
-#study-groups {
+  #study-groups {
   h2 {
     margin: 10px 0px;
     @include font-face(600, 24px, normal, $black);
@@ -7,7 +7,7 @@
     text-transform: uppercase;
     margin: 20px 0 10px 0;
     @include font-face(700, 14px, bold, $black);
-  } 
+  }
   .tab-pane h3 {
     margin: 0px 0px 10px 0px;
   }
@@ -41,8 +41,8 @@
     color: $danger-red;
   }
   .card {
-    @include breakpoint(medium) { height: 130px; padding: 19px 19px 10px; }
-    @include breakpoint(large) { height: 130px; padding: 19px 19px 10px; }
+    @include breakpoint(medium) { height: 160px; padding: 19px 19px 10px; }
+    @include breakpoint(large) { height: 160px; padding: 19px 19px 10px; }
   }
   p {
   	margin: 10px 0px;
@@ -99,6 +99,24 @@
     -o-transform: rotate(90deg);
     -ms-transform: rotate(90deg);
     transform: rotate(90deg);
+  }
+
+  .btn-join-study-group,
+  .btn-leave-study-group,
+  .btn-join-study-group-1,
+  .btn-leave-study-group-1 {
+    @include font-face(700, 12px, bold, $bg-white);
+    background-color: $cta-blue;
+    display: block;
+    margin: 10px 0;
+    height: 30px;
+  }
+
+  .btn-leave-study-group,
+  .btn-leave-study-group-1 {
+    &:hover {
+      background-color: $danger-red;
+    }
   }
 }
 

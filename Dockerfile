@@ -1,0 +1,1 @@
+FROM codebuddiesdotorg/minimeteor

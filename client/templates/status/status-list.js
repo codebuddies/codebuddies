@@ -41,9 +41,6 @@ Template.statusList.helpers({
   learnedUsersCount: function() {
     return Learnings.find({}).count();
   },
-  // learnings: function() {
-  //   return Learnings.find({}, { sort: { timestamp: -1 }});
-  // },
   learnings: function () {
     return Template.instance().learnings();
   },
@@ -54,23 +51,20 @@ Template.statusList.helpers({
 });
 
 Template.statusList.events({
-'click #load-more-learnings': function (event, instance) {
-    event.preventDefault();
+  'click #load-more-learnings': function (event, instance) {
+      event.preventDefault();
 
-    // get current value for limit, i.e. how many posts are currently displayed
-    var limit = instance.limit.get();
+      // get current value for limit, i.e. how many posts are currently displayed
+      var limit = instance.limit.get();
 
-    // increase limit by 5 and update it
-    limit += 5;
-    instance.limit.set(limit);
-  },
-'click .signIn': function(event) {
-    var options = {
-      requestPermissions: ['identify', 'users:read']
-    };
-    Meteor.loginWithSlack(options);
-}
-
+      // increase limit by 5 and update it
+      limit += 5;
+      instance.limit.set(limit);
+    },
+  'click .signIn': function(event) {
+      var options = {
+        requestPermissions: ['identity.basic', 'identity.email']
+      };
+      Meteor.loginWithSlack(options);
+  }
 });
-
-

@@ -6,19 +6,30 @@ $open-sans: 'Open Sans', sans-serif;
 .fa-microphone-slash { color: $icon-silent; }
 .fa-user { color: $icon-teaching; }
 .fa-users { color: $icon-collab; }
+.fa-laptop { color: $icon-collab; }
 
 a { color: $dodgerblue; }
 
 h4.hangout-date,
 h5.in-progress,
-h5.upcoming,
 h5.completed {
   display: inline;
-  font-size: 12px;
-  letter-spacing: 0.1px;
-  color: $warm-grey;
-  text-transform: uppercase;
+  font-size: 1em;
+  letter-spacing: 1;
+  color: $black;
   font-weight: 500;
+  line-height: 1.2;
+}
+h4.completed {
+  color: $warm-grey;
+}
+h4.hangout-date {
+  display: block;
+  margin: 2px;
+}
+.upcoming {
+    font-style: italic;
+    font-weight: 400;
 }
 
 h5.in-progress,

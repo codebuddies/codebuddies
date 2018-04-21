@@ -76,13 +76,15 @@
           <div class="col-md-9 study-group-body">
           <ul class="nav nav-tabs" role="tablist">
             <li role="presentation" class="active"><a href="#description" aria-controls="description" role="tab" data-toggle="tab">{{_ 'description'}}</a></li>
-            <li role="presentation"><a href="#247hangout" aria-controls="247hangout" role="tab" data-toggle="tab">{{_ 'twentyforseven'}}</a></li>
+            <li role="presentation"><a href="#247hangout" aria-controls="247hangout" role="tab" data-toggle="tab">{{_ 'twentyforseven'}}  {{#if numParticipants}}<span class="badge">{{numParticipants}}</span>{{/if}}</a></li>
             <li role="presentation"><a href="#hangouts" aria-controls="hangouts" role="tab" data-toggle="tab">{{_ 'hangouts'}}</a></li>
             <li role="presentation"><a href="#members" aria-controls="members" role="tab" data-toggle="tab">{{_ 'members'}} ({{ members.length }})</a></li>
             <li role="presentation"><a href="#learnings" aria-controls="learnings" role="tab" data-toggle="tab">{{_ 'learnings'}} ({{ learningsCount }})</a></li>
             <li role="presentation"><a href="#resources" aria-controls="resources" role="tab" data-toggle="tab">{{_ 'links'}} ({{ resourcesCount }})</a></li>
             {{#if currentUser}}
-            <li role="presentation"><a href="#activities" aria-controls="activity" role="tab" data-toggle="tab">{{_ 'activity'}}</a></li>
+              <li role="presentation"><a href="#activities" aria-controls="activity" role="tab" data-toggle="tab">{{_ 'activity'}}</a></li>
+              <li role="presentation"><a href="#availability" aria-controls="availability" role="tab" data-toggle="tab">{{_ 'availability'}}</a></li>
+              <li role="presentation"><a href="#discussion" aria-controls="discussion" role="tab" data-toggle="tab">{{_ 'discussion'}}</a></li>
             {{/if}}
             {{#if isInRole 'owner, moderator ' _id}}
             <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">{{_ 'settings'}}</a></li>
@@ -126,10 +128,19 @@
           <div role="tabpanel" class="tab-pane" id="learnings">
             {{> studyGroupLearnings}}
           </div>
+          {{#if currentUser}}
+            <div role="tabpanel" class="tab-pane" id="activities">
+              {{> studyGroupActivities}}
+            </div><!-- #/Activities -->
 
-          <div role="tabpanel" class="tab-pane" id="activities">
-            {{> studyGroupActivities}}
-          </div><!-- #/Activities -->
+            <div role="tabpanel" class="tab-pane" id="availability">
+               {{> studyGroupAvailability}}
+            </div><!-- #/availability -->
+
+            <div role="tabpanel" class="tab-pane" id="discussion">
+               {{> studyGroupDiscussion}}
+            </div><!-- #/discussion -->
+          {{/if}}
 
           {{#if isInRole 'owner, admin' _id}}
             <div role="tabpanel" class="tab-pane" id="settings">
