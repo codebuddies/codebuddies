@@ -89,11 +89,6 @@ Template.hangout.events({
       });
     }
   },
-  'click #create-hangout-popup': function() {
-    if (Meteor.userId()) {
-      Modal.show('createHangoutModal');
-    }
-  },
   "click #hangout-faq-popup": function() {
     Modal.show('hangoutFAQModal');
   }
