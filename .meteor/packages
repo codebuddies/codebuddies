@@ -53,8 +53,6 @@ kadira:blaze-layout
 ian:accounts-ui-bootstrap-3
 meteorhacks:picker
 matb33:bootstrap-popovers
-browser-policy@1.1.0
-practicalmeteor:mocha
 erasaur:meteor-lodash
 themeteorchef:bert
 shell-server@0.3.1
@@ -62,3 +60,5 @@ markdown@1.0.12
 accounts-github@1.4.1
 dynamic-import
 standard-minifier-js
+practicalmeteor:chai
+browser-policy

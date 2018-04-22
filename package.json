@@ -3,11 +3,20 @@
   "version": "1.0.0",
   "license": "GNU General Public License, Version 3",
   "scripts": {
+    "test": "meteor test --once --driver-package meteortesting:mocha",
     "meteor:dev": "meteor --settings settings-development.json",
-    "meteor:prod": "meteor --settings settings-production.json",
-    "test:full-app": "meteor test --full-app --driver-package=practicalmeteor:mocha --settings=settings-development.json --port 3100",
+    "test:chrome":
+      "TEST_BROWSER_DRIVER=chrome meteor test --once --driver-package meteortesting:mocha",
+    "test:full-app":
+      "TEST_BROWSER_DRIVER=chrome meteor test --full-app --once --driver-package meteortesting:mocha  --settings settings-development.json",
+    "test:watch":
+      "TEST_WATCH=1 meteor test --driver-package meteortesting:mocha --port 3100",
     "contributors:add": "all-contributors add",
-    "contributors:generate": "all-contributors generate"
+    "contributors:generate": "all-contributors generate",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,json,css}": ["prettier --write", "git add"]
   },
   "dependencies": {
     "@babel/runtime": "7.0.0-beta.44",
@@ -29,8 +38,14 @@
   },
   "devDependencies": {
     "all-contributors-cli": "^4.11.1",
+    "chromedriver": "2.37.0",
     "cz-conventional-changelog": "2.0.0",
-    "faker": "3.1.0"
+    "faker": "3.1.0",
+    "husky": "^0.14.3",
+    "lint-staged": "^7.0.4",
+    "nightmare": "3.0.1",
+    "prettier": "^1.12.1",
+    "selenium-webdriver": "3.0.0-beta-2"
   },
   "config": {
     "commitizen": {
