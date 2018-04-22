@@ -51,23 +51,7 @@ Template.updateStatus.events({
 			$('.charactersLeft').text(140);
     },
     'click #update-learned-btn': function(event) {
-        if (!Meteor.userId()) {
-            sweetAlert({
-                imageUrl: '/images/slack-signin-example.jpg',
-                imageSize: '140x120',
-                showCancelButton: true,
-                title: TAPi18n.__("you_are_almost_there"),
-                html: TAPi18n.__("continue_popup_text"),
-                confirmButtonText: TAPi18n.__("sign_in_with_slack"),
-                cancelButtonText: TAPi18n.__("not_now")
-            },
-            function(){
-              var options = {
-                requestPermissions: ['identity.basic', 'identity.email']
-              };
-              Meteor.loginWithSlack(options);
-            });
-        } else {
+        if (Meteor.userId()) {
             var learningStatus = $('#learned-text').val();
 
             if ($.trim(learningStatus) == '') {
