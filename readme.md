@@ -11,7 +11,7 @@
 [![Issue Stats](https://img.shields.io/issuestats/i/github/codebuddies/codebuddies.svg?maxAge=2592000&style=flat-square)]()
 [![Issue Stats](https://img.shields.io/issuestats/p/github/codebuddies/codebuddies.svg?maxAge=2592000&style=flat-square)]()
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0)
-
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 # FAQ
 
 ## What is CodeBuddies?
@@ -140,4 +140,3 @@ Note: if you think you should be on this list, please fill out [this form](https
 Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds/all-contributors#emoji-key)):
 
 This project follows the [all-contributors](https://github.com/kentcdodds/all-contributors) specification. Contributions of any kind welcome!
-
