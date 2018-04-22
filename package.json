@@ -6,7 +6,7 @@
     "test": "meteor test --once --driver-package meteortesting:mocha",
     "meteor:dev": "meteor --settings settings-development.json",
     "test:chrome": "TEST_BROWSER_DRIVER=chrome meteor test --once --driver-package meteortesting:mocha",
-    "test:full-app": "TEST_BROWSER_DRIVER=chrome meteor test --full-app --once --driver-package meteortesting:mocha",
+    "test:full-app": "TEST_BROWSER_DRIVER=chrome meteor test --full-app --once --driver-package meteortesting:mocha  --settings settings-development.json",
     "test:watch": "TEST_WATCH=1 meteor test --driver-package meteortesting:mocha --port 3100",
     "contributors:add": "all-contributors add",
     "contributors:generate": "all-contributors generate"
