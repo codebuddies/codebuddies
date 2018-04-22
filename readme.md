@@ -34,7 +34,6 @@ Credit: [Ada Chiu](https://github.com/adachiu).
 ## Why are you building this site?
 Our community spends a lot of time helping each other on [our public Slack](http://codebuddies.slack.com) (P.S. You can get an invite [here](http://codebuddiesmeet.herokuapp.com) if you want to join), but it's hard to schedule screensharing/voice hangout study times via Slack, and it's also hard to know who else is online and available for joining a Hangout to work on something together. The platform we're building solves those issues.
 
-
 ## Support CodeBuddies
 
 You can help keep this project alive by [becoming a
@@ -141,3 +140,4 @@ Note: if you think you should be on this list, please fill out [this form](https
 Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds/all-contributors#emoji-key)):
 
 This project follows the [all-contributors](https://github.com/kentcdodds/all-contributors) specification. Contributions of any kind welcome!
+

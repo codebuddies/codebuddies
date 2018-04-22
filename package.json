@@ -5,13 +5,14 @@
   "scripts": {
     "test": "meteor test --once --driver-package meteortesting:mocha",
     "meteor:dev": "meteor --settings settings-development.json",
-    "meteor:prod": "meteor --settings settings-production.json",
-    "test:full-app": "meteor test --once --full-app --driver-package meteortesting:mocha",
+    "test:chrome": "TEST_BROWSER_DRIVER=chrome meteor test --once --driver-package meteortesting:mocha",
+    "test:full-app": "TEST_BROWSER_DRIVER=chrome meteor test --full-app --once --driver-package meteortesting:mocha",
     "test:watch": "TEST_WATCH=1 meteor test --driver-package meteortesting:mocha --port 3100",
     "contributors:add": "all-contributors add",
     "contributors:generate": "all-contributors generate"
   },
   "dependencies": {
+    "@babel/runtime": "7.0.0-beta.44",
     "babel-runtime": "6.23.0",
     "bcrypt": "1.0.2",
     "body-parser": "^1.15.2",
