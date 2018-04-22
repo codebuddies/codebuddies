@@ -29,7 +29,7 @@ export const tweetLearning = (learning)=>{
 
   if(Meteor.settings.isModeProduction){
 
-    const status = learning.title.truncate(250) + ' ~' + learning.username + ' #TodayILearned' ;
+    const status = learning.title.replace('@', ' ').truncate(250) + ' ~' + learning.username + ' #TodayILearned' ;
 
     client.post('statuses/update', {status: status},  function(error, tweet, response) {
       if(error){
