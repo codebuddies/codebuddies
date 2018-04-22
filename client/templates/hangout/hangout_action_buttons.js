@@ -120,6 +120,9 @@ Template.hangoutActionButtons.events({
         });
       }); //sweetAlert
   },
+  'click .create-hangout-popup': function() {
+    Modal.show('createHangoutModal');
+  },
   'click #end-hangout': function(){
 
     const data = {
