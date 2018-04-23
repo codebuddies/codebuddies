@@ -158,6 +158,17 @@
   "select_study_group": "Please select a group.",
   "settings": "Settings",
   "start_new_group": "Start a New Group",
+  "create_a_progress_log": "Write New Log",
+
+  // Progress log
+  "empty_log_title": "Please enter a title",
+  "empty_log_body" : "Please enter details",
+  "save_log": "Save",
+  "progress_log_created_title": "New learning/accomplishment logged!",
+  "progress_log_created_text": "Thank you for sharing!",
+  "edit_a_progress_log": "Edit Log",
+  "progress_log_updated": "Progress log updated!",
+
   "select_new_owner": "Select new owner",
   "new_hangout_slack_channel": "Send New Hangout Notifications to the Following Slack Channel(s)",
   "select_channel": "Select at most 3 slack channels",

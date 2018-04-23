@@ -14,8 +14,8 @@
                 </div>
             {{/if}}
         {{else}}
-          <div class="col-md-12 well">
-            <p>If you'd like to schedule a hangout for this study group, <strong>please ask an organizer</strong> to make you an organizer or change the permission settings of the group.</p>
+          <div class="alert-info">
+            If you'd like to schedule a hangout for this study group, <strong>please ask an organizer</strong> to make you an organizer or change the permission settings of the group.
           </div>
         {{/if}}
       {{/if}}
@@ -47,12 +47,12 @@
                    {{/if}}
                 {{/each}}
               {{else}}
-                  <h5 class="text-center well margin-top-1">No hangouts yet. Want to start one?</h5>
+                  <div class="alert-warning">No hangouts have been scheduled by group members yet.</div>
               {{/if}}
           </div>
 
           {{#if status}}
-            <h5 class="text-center well">You've reached the end of the page.</h5>
+            <div class="alert-warning">You've reached the end of the page.</div>
           {{/if}}
 
         {{else}}

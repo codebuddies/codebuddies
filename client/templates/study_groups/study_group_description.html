@@ -21,16 +21,17 @@
 
   {{else}}
 
-    <div class="well warning-well">
       {{#if isInRole 'owner, admin' _id}}
+       <div class="well">
         <div class="text-center">
           <p>Your study group doesn't have a description yet.</p>
           <div class="btn btn-default" id="editDescription">Add description</div>
         </div>
+        </div>
       {{else}}
-        <p>This study group doesn't have a description yet.</p>
+        <div class="alert-warning">The creator of the study group needs to add a description.</div>
       {{/if}}
-    </div>
+   
 
   {{/if}}
   

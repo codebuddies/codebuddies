@@ -126,6 +126,10 @@ a:hover {
   margin-top: 20px;
 }
 
+.padding-0 {
+  padding: 0px;
+}
+
 .well {
   margin: 10px 0px;
   overflow: auto;
@@ -169,6 +173,10 @@ a:hover {
   }
 }
 
+.alert-warning, .alert-info, .alert-success, .alert-danger {
+    padding: 10px 15px;
+}
+
 /*Tags cleanup*/
 .select2-container--default .select2-selection--multiple .select2-selection__rendered {
   padding-left: 12px;
@@ -182,6 +190,12 @@ a:hover {
   margin-top: $margin-base;
 }
 
+/*Progress Log*/
+.editProgressLog, .removeProgressLog {
+  &:hover {
+      cursor: pointer;
+  };
+}
 /* stripped row effect*/
 .row-stripe:nth-child(odd) {
   background: #e0e0e0;

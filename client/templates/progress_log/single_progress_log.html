@@ -1,0 +1,21 @@
+<template name="singleProgressLog">
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+          {{#if Template.subscriptionsReady}}
+            {{#with progressLog}}
+             <div class="log">
+              <h2>{{title}}</h2>
+              <span class="author">Logged by <a href="/profile/{{author.username}}/{{author.id}}">{{author.username}}</a> in the <a href="/study-group/{{study_group.title}}/{{study_group.id}}">{{study_group.title}}</a> group</span>
+                  <div class="log-content">
+                      <h4>{{description}}</h4>
+                  </div>
+              </div>
+            {{/with}}
+          {{else}}
+            {{>loading}}
+          {{/if}}
+         </div>
+    </div>
+</div>
+</template>
