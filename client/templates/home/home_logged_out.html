@@ -1,6 +1,32 @@
 <template name="homeLoggedOut">
   <div class="section home-top">
     <div class="container">
+      <div class="statistic-row">
+        <div class="statistic-circle">
+          <div class="statistic-content">
+            <p class="total">{{hangoutsCount}}</p>
+            <p class="category">hangouts organized</p>
+          </div>
+        </div>
+        <div class="statistic-circle">
+          <div class="statistic-content">
+            <p class="total">{{ learningsCount }}</p>
+            <p class="category">learnings reported</p>
+          </div>
+        </div>
+        <div class="statistic-circle">
+          <div class="statistic-content">
+            <p class="total">{{ studyGroupCount }}</p>
+            <p class="category">study groups</p>
+          </div>
+        </div>
+        <div class="statistic-circle">
+          <div class="statistic-content">
+            <p class="total">{{ discussionCount }}</p>
+            <p class="category">discussions</p>
+          </div>
+        </div>
+      </div>
       <div class="row">
         <div class="col-md-12">
 
