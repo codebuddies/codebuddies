@@ -2,6 +2,7 @@
   <div class="hangout-action-buttons">
 
     {{# unless isHangoutCompleted end }}
+      <a href="{{ googleCalendarUrl this }}" rel="noopener" target="_blank" class="btn btn-block"><i class="fa fa-calendar" aria-hidden="true"></i> {{_ "add_google_calendar"}}</a>
       <a href="{{ icsDownloadLink this }}" download="hangout.ics" class="btn btn-block"><i class="fa fa-calendar" aria-hidden="true"></i>{{_ "add_to_icalendar"}}</a>
     {{/ unless }}
 
