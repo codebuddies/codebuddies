@@ -60,5 +60,4 @@ markdown@1.0.12
 accounts-github@1.4.1
 dynamic-import
 standard-minifier-js
-practicalmeteor:chai
 browser-policy
