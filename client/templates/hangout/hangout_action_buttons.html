@@ -24,7 +24,7 @@
 
                 <div class="completed align-center margin-top-1">
                   {{#if isAttending users}}
-                      <p>Thanks for joining! This hangout has ended. Would you like to start another one?</p> <div class="btn btn-cb2 margin-top-1 {{#unless currentUser}} continue-popup {{/unless}}" id="create-hangout-popup"> {{_ "create_a_hangout"}} </div>
+                      <p>Thanks for joining! This hangout has ended. Would you like to start another one?</p> <div class="btn btn-cb2 margin-top-1 {{#unless currentUser}} continue-popup  {{else}} create-hangout-popup {{/unless}}"> {{_ "create_a_hangout"}} </div> 
                   {{else}}
                       <p>Sorry, this hangout has ended. Why not start your own?</p>
                       <div class="btn btn-cb2 margin-top-1 btn-schedule-hangout {{#unless currentUser}} continue-popup {{else}} create-hangout-popup {{/unless}}">
