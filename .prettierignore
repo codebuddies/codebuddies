@@ -1,0 +1,8 @@
+.meteor
+meteor
+settings-production.json
+settings-staging.json
+settings-development.json
+package-lock.json
+package.json
+all-contributors
