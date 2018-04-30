@@ -1,0 +1,61 @@
+<template name="coworking">
+  <div id="coworking">
+      
+
+
+  <div class="section coworking-top">
+      <div class="container">
+        <div class="row">
+            <div class="col-md-12 align-center">
+              <div id="hangout-button-wrapper">
+                <p class="warning chrome-firefox-warning">Warning: Please load this page using Chrome <img src="/images/chrome.ico" width="25"/> or Firefox <img src="/images/firefox.ico" width="25"/> to avoid technical issues</p>
+                <div class="silentHangoutDescription">
+                    <h2>Silent Coworking Hangout</h2>
+                    <p>Rules</p>
+                </div>
+                <button class="margin-top-1 margin-bottom-1 click-text btn btn-cb2 load-hangout">{{_ "continue"}}</button>
+
+              </div>
+
+
+                <div id="hangout-container"></div>
+        
+                <span id="post_id" class="hide">{{_id}}</span>
+              
+          </div>
+        </div>
+    </div>
+  </div>
+
+  <div class="section faq-middle">
+      <div class="container container-large">
+        <div class="row">
+
+            <div class="col-md-3">
+            <h3>Rules</h3>
+              <br>
+                <ul>
+                  <li><a href="http://codebuddies.slack.com" target="_blank">Slack</a> (<a href="http://codebuddiesmeet.herokuapp.com" target="_blank" >Get your invite</a>)</li>
+                  <li><a href="https://www.facebook.com/groups/TOPSTUDYGROUP/" target="_blank">Facebook Group</a></li>
+                  <li><a href="https://github.com/codebuddies/codebuddies">Github</a> - <a href="https://github.com/codebuddies/codebuddies/blob/master/contributing.md" target="_blank">Contributing.md</a>, <a href="https://github.com/codebuddies/codebuddies/pulls" target="_blank">Pull Requests</a>
+                  </li>
+                  <li><a href="http://twitter.com/codebuddiesmeet" target="_blank">@codebuddiesmeet</a></li>
+                  <li><a href="http://opencollective.com/codebuddies">Open Collective</a></li>
+                </ul>
+                 <p class="align-center">If you're seeing a blank screen, <a href="https://meet.jit.si/codebuddies-silenthangout" target="_blank" id="joinHere">join here.</a> (New to Jitsi? Check out <a href="/images/codebuddies_jitsi_diagram.jpg" target="_blank">this diagram</a>.)</p>
+                     </div>
+            <div class="col-md-9">
+                {{> hangoutLearned}}
+
+                
+           </div>
+          </div>
+        </div>
+    </div>
+
+   
+
+  </div><!--coworking-->
+
+
+</template>
