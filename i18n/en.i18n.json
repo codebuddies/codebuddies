@@ -18,7 +18,7 @@
   "terms_of_service": "Terms of Service",
   "profile": "Profile",
   "slack": "Slack",
-  "continue": "Agree and continue!",
+  "continue": "Agree and continue",
 
   // status messages
   "i_am_working_on": "I'm working on ...",
@@ -29,7 +29,7 @@
   "learning_message_plural": "__count__ people are online learning",
   "accomplishment_message": "__count__ learning",
   "accomplishment_message_plural": "__count__ learnings",
-  "working_on": "Please type what you're working on right now!",
+  "working_on": "What are you working on right now?",
   "accomplished": "What did you learn or accomplish just now?",
   "upcoming_time": "Starting __time__",
   "mastered_x_days_ago": "HANGOUT HAS ENDED",

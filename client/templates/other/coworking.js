@@ -14,9 +14,9 @@ Template.coworking.onCreated(function() {
    */
   instance.loadJitsi = function(data) {
     const domain = "meet.jit.si";
-    let room = "cb-coworking";
+    let room = "codebuddies-silent-hangout";
     let width = "100%";
-    let height = 550;
+    let height = 400;
     let configOverwrite = { startVideoMuted: 1 };
     let interfaceConfigOverwrite = {};
     let htmlElement = document.getElementById("hangout-container");
@@ -32,9 +32,11 @@ Template.coworking.onCreated(function() {
     );
 
     instance.api.executeCommand("displayName", data.username);
-    instance.api.executeCommand("toggleChat");
     instance.api.executeCommand("avatarUrl", data.avatar);
-    let jitsiParticipants = instance.api.getNumberOfParticipants();
+    instance.api.executeCommand("toggleAudio");
+    instance.api.executeCommand("toggleVideo");
+    instance.api.executeCommand("toggleChat");
+    instance.api.executeCommand("toggleShareScreen");
 
     $("[id^=" + "jitsiConference" + "]").css("width", "100%");
     //only show the launch hangout button if Jitsi is not loaded

@@ -1,9 +1,8 @@
 <template name="hangoutLearned">
 	<div class="margin-bottom-1">
-		<input type="checkbox" id="chkOptOutTweet" checked>
-		<label>When checked, message will <strong>NOT</strong> tweet out.</label>
 	<textarea id="learned-text" rows="3" maxlength="280" class="form-control {{#unless currentUser}} continue-popup {{/unless}}" placeholder="What did you learn or accomplish?"></textarea>
-	<p>Your learnings will be auto-tweeted on <a href="http://twitter.com/codebuddiesmeet" target="_blank">@codebuddiesmeet</a>.</p>
+	<input type="checkbox" id="chkOptInTweet">
+	<label id="twitterWarning">Tweet this learning automatically out to <a href="http://twitter.com/codebuddiesmeet" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i>codebuddiesmeet</a></label>
 	<span class="learnedCharactersLeft">{{learnedCharacterCount}}</span>
 	</div>
 </template>

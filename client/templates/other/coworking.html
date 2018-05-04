@@ -6,16 +6,27 @@
   <div class="section coworking-top">
       <div class="container">
         <div class="row">
-            <div class="col-md-12 align-center">
-              <div id="hangout-button-wrapper">
-                <p class="warning chrome-firefox-warning">Warning: Please load this page using Chrome <img src="/images/chrome.ico" width="25"/> or Firefox <img src="/images/firefox.ico" width="25"/> to avoid technical issues</p>
-                <div class="silentHangoutDescription">
-                    <h2>Silent Coworking Hangout</h2>
-                    <p>Rules</p>
+            <div class="col-md-4 align-center">
+                <div id="hangout-button-wrapper">
+                  <p class="warning chrome-firefox-warning">Warning: Please load this page using Chrome <img src="/images/chrome.ico" width="25"/> or Firefox <img src="/images/firefox.ico" width="25"/> to avoid technical issues</p>
+                  <div class="silentHangoutDescription">
+                      <h2>Global Silent Hangout</h2>
+                      <div class="silentHangoutExplanation">
+                          <p>This is a space for silent productivity. <strong>Rules:</strong></p>
+                          <ol id="rules">
+                              <li>Share what you are working on! <i class="fa fa-arrow-down"></i></li>
+                              <li>Make sure your your mic <i class="fa fa-microphone-slash text-danger-color"></i> and video <i class="fa fa-video-camera text-danger-color"></i> are <strong>muted</strong> after you join.</li>
+                              <li>If you meet a potential study partner here or want to use the mic to talk about a specific topic, <a class="create-hangout-popup">click here</a> to start a spontaneous hangout.</li>
+                              <li>Recommended but optional: screenshare for maximum productivity.</li>
+                          </ol>
+                      </div>
+                   </div>
+                
+                  <button class="btn btn-cb2 btn-schedule-hangout load-hangout">{{_ "continue"}}</button>
                 </div>
-                <button class="margin-top-1 margin-bottom-1 click-text btn btn-cb2 load-hangout">{{_ "continue"}}</button>
-
-              </div>
+            </div>
+            <div class="col-md-8 align-center">
+              
 
 
                 <div id="hangout-container"></div>
@@ -30,24 +41,13 @@
   <div class="section faq-middle">
       <div class="container container-large">
         <div class="row">
-
-            <div class="col-md-3">
-            <h3>Rules</h3>
-              <br>
-                <ul>
-                  <li><a href="http://codebuddies.slack.com" target="_blank">Slack</a> (<a href="http://codebuddiesmeet.herokuapp.com" target="_blank" >Get your invite</a>)</li>
-                  <li><a href="https://www.facebook.com/groups/TOPSTUDYGROUP/" target="_blank">Facebook Group</a></li>
-                  <li><a href="https://github.com/codebuddies/codebuddies">Github</a> - <a href="https://github.com/codebuddies/codebuddies/blob/master/contributing.md" target="_blank">Contributing.md</a>, <a href="https://github.com/codebuddies/codebuddies/pulls" target="_blank">Pull Requests</a>
-                  </li>
-                  <li><a href="http://twitter.com/codebuddiesmeet" target="_blank">@codebuddiesmeet</a></li>
-                  <li><a href="http://opencollective.com/codebuddies">Open Collective</a></li>
-                </ul>
-                 <p class="align-center">If you're seeing a blank screen, <a href="https://meet.jit.si/codebuddies-silenthangout" target="_blank" id="joinHere">join here.</a> (New to Jitsi? Check out <a href="/images/codebuddies_jitsi_diagram.jpg" target="_blank">this diagram</a>.)</p>
-                     </div>
-            <div class="col-md-9">
+            <div class="col-md-4">
+                {{> updateStatus type="working"}}
+                {{> statusList type="working"}}
+            </div>
+            <div class="col-md-8">
                 {{> hangoutLearned}}
-
-                
+                {{> statusList type="learnings"}}
            </div>
           </div>
         </div>

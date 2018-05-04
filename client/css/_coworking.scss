@@ -1,51 +1,37 @@
 #coworking {
   p, li {
-    @include font-face(400, 16px, normal, $primary-grey);
     line-height: 27px;
+    @include font-face(200, 16px, normal, $white);
   }
-
-  .flags img {
-    @include border-radius(3px);
-    width: 51px;
+  #working-text {
+      border: 5px solid $cta-blue;
   }
-
+  div.silentHangoutDescription {
+      max-width: 500px;
+      margin: 0px auto;
+      p, li {
+          text-align: left;
+      }
+      a {
+          text-decoration: underline;
+          @include font-face(200, 16px, normal, $white);
+      }
+  }
+  #silentHangoutExplanation {
+      border: 5px solid $white;
+      padding: 10px;
+      margin-bottom: 10px;
+  }
   .coworking-top {
-    background: linear-gradient(to top, rgba(30, 144, 255, .5) 0%, rgba(30, 144, 255, .5) 0%, rgba(30, 144, 255, .5) 0%, rgba(30, 144, 255, .55) 18%, rgba(30, 144, 255, .64) 46%, rgba(3, 87, 232, .8) 100%), url(/images/language-logos.svg) center repeat;
-    padding: 100px 0;
+    background: $cta-blue;
     h2 { @include font-face(700, 32px, bold, $bg-white); }
+    padding: 20px;
+    margin-bottom: 10px;
   }
-
-  .faq-middle {
-    background: $bg-white;
-    padding: 50px 0;
+  textarea#learned-text {
+      border: 5px solid $cta-blue;
+      padding: 20px;
+      @include font-face(400, 16px, normal, $primary-grey);
+      border-radius: 0px;
   }
-
-  .faq-hangout {
-    background: $bg-lightgrey;
-    padding: 100px 0;
-  }
-
-  .divider {
-    border-top: 1px solid $secondary-grey;
-    opacity: .2;
-  }
-
-  .faq-bottom {
-    background: $bg-white;
-    padding: 50px 0;
-  }
-
-  [data-toggle="popover"] {
-    display: inline-block;
-  }
-
-  a.user-popover {
-    .popover { margin-top: -10px;}
-    .popover:hover {
-      cursor: default;
-    }
-  }
-
-  h3.popover-title { margin-top: 0;}
-  h3 { font-weight: 200;}
-}
+ }
