@@ -70,5 +70,11 @@ Template.statusList.events({
       requestPermissions: ["identity.basic", "identity.email"]
     };
     Meteor.loginWithSlack(options);
+  },
+  "click .signInGithub": function(event) {
+    var options = {
+      requestPermissions: ["read:user", "user:email"]
+    };
+    Meteor.loginWithGithub(options);
   }
 });

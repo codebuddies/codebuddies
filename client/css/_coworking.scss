@@ -1,7 +1,6 @@
 #coworking {
   p, li {
-    line-height: 27px;
-    @include font-face(200, 16px, normal, $white);
+    line-height: 1.2;
   }
   #working-text {
       border: 5px solid $cta-blue;
@@ -9,18 +8,29 @@
   div.silentHangoutDescription {
       max-width: 500px;
       margin: 0px auto;
+      h2 {
+          margin-bottom: 15px;
+      }
+      p {
+        @include font-face(400, 16px, normal, $white);
+      }
+  }
+  .silentHangoutExplanation {
+      padding: 10px;
+      max-width: 500px;
+      margin-bottom: 10px;
+      background: $white;
       p, li {
           text-align: left;
+          @include font-face(400, 18px, normal, $primary-grey);
+      }
+      strong {
+          color: $primary-grey;
       }
       a {
           text-decoration: underline;
-          @include font-face(200, 16px, normal, $white);
+          @include font-face(400, 18px, normal, $primary-grey);
       }
-  }
-  #silentHangoutExplanation {
-      border: 5px solid $white;
-      padding: 10px;
-      margin-bottom: 10px;
   }
   .coworking-top {
     background: $cta-blue;
@@ -30,8 +40,8 @@
   }
   textarea#learned-text {
       border: 5px solid $cta-blue;
-      padding: 20px;
-      @include font-face(400, 16px, normal, $primary-grey);
+      padding: 15px;
+      @include font-face(400, 18px, normal, $primary-grey);
       border-radius: 0px;
   }
  }

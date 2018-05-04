@@ -97,6 +97,9 @@ Template.coworking.events({
       avatar: Meteor.user().profile.avatar.default
     };
     return template.loadJitsi(data);
+  },
+  "click .create-hangout-popup": function() {
+    Modal.show("createHangoutModal");
   }
 });
 

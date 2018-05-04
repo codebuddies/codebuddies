@@ -1,8 +1,7 @@
 <template name="hangoutLearned">
 	<div class="margin-bottom-1">
 	<textarea id="learned-text" rows="3" maxlength="280" class="form-control {{#unless currentUser}} continue-popup {{/unless}}" placeholder="What did you learn or accomplish?"></textarea>
-	<input type="checkbox" id="chkOptInTweet">
-	<label id="twitterWarning">Tweet this learning automatically out to <a href="http://twitter.com/codebuddiesmeet" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i>codebuddiesmeet</a></label>
+	<label id="twitterWarning"><input type="checkbox" id="chkOptInTweet"> Tweet this message automatically out on <a href="http://twitter.com/codebuddiesmeet" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i>codebuddiesmeet</a></label>
 	<span class="learnedCharactersLeft">{{learnedCharacterCount}}</span>
 	</div>
 </template>
