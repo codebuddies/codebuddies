@@ -9,15 +9,14 @@ Template.homeLoggedOut.onCreated(function() {
   DocHead.addMeta(metaInfo);
 
   let instance = this;
-  instance.studyGroupCount = new ReactiveVar(0);
-  instance.discussionCount = new ReactiveVar(0);
-  instance.learningsCount = new ReactiveVar(0);
-  instance.hangoutsCount = new ReactiveVar(0);
+  instance.data.studyGroupCount = new ReactiveVar(0);
+  instance.data.discussionCount = new ReactiveVar(0);
+  instance.data.learningsCount = new ReactiveVar(0);
+  instance.data.hangoutsCount = new ReactiveVar(0);
   Meteor.call("getOverallStats", null, function(error, result) {
     if (error) {
       console.log(error);
     } else {
-      console.log(result);
       const {
         studyGroupCount = 0,
         discussionCount = 0,
@@ -25,10 +24,10 @@ Template.homeLoggedOut.onCreated(function() {
         hangoutsCount = 0
       } =
         result || {};
-      instance.studyGroupCount.set(studyGroupCount);
-      instance.discussionCount.set(discussionCount);
-      instance.learningsCount.set(learningsCount);
-      instance.hangoutsCount.set(hangoutsCount);
+      instance.data.studyGroupCount.set(studyGroupCount);
+      instance.data.discussionCount.set(discussionCount);
+      instance.data.learningsCount.set(learningsCount);
+      instance.data.hangoutsCount.set(hangoutsCount);
     }
   });
 });
@@ -45,20 +44,5 @@ Template.homeLoggedOut.events({
       requestPermissions: ["read:user", "user:email"]
     };
     Meteor.loginWithGithub(options);
-  }
-});
-
-Template.homeLoggedOut.helpers({
-  studyGroupCount: function() {
-    return Template.instance().studyGroupCount.get();
-  },
-  discussionCount: function() {
-    return Template.instance().discussionCount.get();
-  },
-  learningsCount: function() {
-    return Template.instance().learningsCount.get();
-  },
-  hangoutsCount: function() {
-    return Template.instance().hangoutsCount.get();
   }
 });
