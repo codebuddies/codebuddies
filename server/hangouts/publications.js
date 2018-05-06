@@ -58,14 +58,3 @@ Meteor.publish("hangoutSearch", function(searchTerm) {
 
   return Hangouts.search(searchTerm);
 });
-
-Meteor.publish("visibleHangouts", function() {
-  if (this.userId) {
-    return Hangouts.find(
-      { visibility: { $ne: false } },
-      { fields: { email_addresses: 0 } }
-    );
-  }
-
-  this.ready();
-});

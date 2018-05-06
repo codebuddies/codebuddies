@@ -9,28 +9,28 @@ Template.homeLoggedOut.onCreated(function() {
   DocHead.addMeta(metaInfo);
 
   let instance = this;
-  instance.autorun(function() {
-    instance.subscribe("allStudyGroups", 0, "");
-    instance.subscribe("allDiscussions", 0, "");
-    instance.subscribe("learnings", 0);
-    instance.subscribe("visibleHangouts");
+  instance.studyGroupCount = new ReactiveVar(0);
+  instance.discussionCount = new ReactiveVar(0);
+  instance.learningsCount = new ReactiveVar(0);
+  instance.hangoutsCount = new ReactiveVar(0);
+  Meteor.call("getOverallStats", null, function(error, result) {
+    if (error) {
+      console.log(error);
+    } else {
+      console.log(result);
+      const {
+        studyGroupCount = 0,
+        discussionCount = 0,
+        learningsCount = 0,
+        hangoutsCount = 0
+      } =
+        result || {};
+      instance.studyGroupCount.set(studyGroupCount);
+      instance.discussionCount.set(discussionCount);
+      instance.learningsCount.set(learningsCount);
+      instance.hangoutsCount.set(hangoutsCount);
+    }
   });
-
-  instance.studyGroupCount = function() {
-    return StudyGroups.find({}).count();
-  };
-
-  instance.discussionCount = function() {
-    return Discussions.find({}).count();
-  };
-
-  instance.learningsCount = function() {
-    return Learnings.find({}).count();
-  };
-
-  instance.hangoutsCount = function() {
-    return Hangouts.find({}).count();
-  };
 });
 
 Template.homeLoggedOut.events({
@@ -50,15 +50,15 @@ Template.homeLoggedOut.events({
 
 Template.homeLoggedOut.helpers({
   studyGroupCount: function() {
-    return Template.instance().studyGroupCount();
+    return Template.instance().studyGroupCount.get();
   },
   discussionCount: function() {
-    return Template.instance().discussionCount();
+    return Template.instance().discussionCount.get();
   },
   learningsCount: function() {
-    return Template.instance().learningsCount();
+    return Template.instance().learningsCount.get();
   },
   hangoutsCount: function() {
-    return Template.instance().hangoutsCount();
+    return Template.instance().hangoutsCount.get();
   }
 });
