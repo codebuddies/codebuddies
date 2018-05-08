@@ -16,7 +16,7 @@ Template.coworking.onCreated(function() {
     const domain = "meet.jit.si";
     let room = "codebuddies-silent-hangout";
     let width = "100%";
-    let height = 400;
+    let height = 560;
     let configOverwrite = { startVideoMuted: 1 };
     let interfaceConfigOverwrite = {};
     let htmlElement = document.getElementById("hangout-container");

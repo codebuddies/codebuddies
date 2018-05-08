@@ -22,7 +22,8 @@
       background: $white;
       p, li {
           text-align: left;
-          @include font-face(400, 18px, normal, $primary-grey);
+          @include font-face(200, 18px, normal, $primary-grey);
+          line-height: 1.4;
       }
       strong {
           color: $primary-grey;
