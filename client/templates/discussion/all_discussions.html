@@ -14,6 +14,19 @@
 
   {{> discussionSearchBox}}
 
+  {{#if tags.length}}
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h5>
+            Tags: {{#each tag in tags}} <span class="label label-default pointer">{{tag}}</span> {{/each}}
+            <span class="label label-warning clear-tags pointer"> clear tags</span>
+          </h5>
+        </div>
+      </div>
+    </div>
+
+  {{/if}}
   {{#if discussionSearchMode}}
     {{> discussionSearchResult}}
   {{/if}}

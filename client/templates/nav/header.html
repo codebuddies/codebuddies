@@ -48,6 +48,7 @@
                  <i class="fa fa-question fa-fw" aria-hidden="true"></i>{{_ "faq"}}
                </a></li>
                <!-- Donate -->
+			   <li role="separator" class="divider"></li>
                <li><a href="https://opencollective.com/codebuddies" target="_blank">
                  Sponsor Us <i class="fa fa-external-link fa-fw" aria-hidden="true"></i>
                </a></li>
@@ -58,14 +59,22 @@
           <!-- Study Groups -->
           <li><a href="{{pathFor 'all study groups'}}">Study Groups</a></li>
           <!-- Discussions -->
-          {{!-- <!-- comment out temporarily -->
-			  <li><a href="{{pathFor 'discussions'}}">Discussions</a></li>
-		  --}}
+          <!-- comment out temporarily -->
+			    <li><a href="{{pathFor 'discussions'}}">Discussions</a></li>
 
           {{! for visitors only}}
           {{#unless currentUser}}
 
-            <li><a href="#" class="signIn"><button class="btn btn-slack"><img src="/images/slack-icon.png">&nbsp;&nbsp;{{_ "sign_in_with"}} <b>Slack</b></button></a></li>
+            <li id="login-drop-down" class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                Sign In <span class="caret"></span>
+              </a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="#" class="signInSlack"><button class="btn btn-slack"><img src="/images/slack-icon.png">&nbsp;&nbsp;{{_ "sign_in_with"}} <b>Slack</b></button></a></li>
+                  <li role="separator" class="divider"></li>
+                  <li><a href="#" class="signInGithub"><button class="btn btn-github"><i class="fa fa-github fa-fw"></i>&nbsp;&nbsp;{{_ "sign_in_with"}} <b>Github</b></button></a></li>
+                </ul>
+            </li>
 
           {{! for logged in user}}
           {{else}}

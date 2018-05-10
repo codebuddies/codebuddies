@@ -78,13 +78,6 @@ Template.registerHelper("getHangoutEndTime", function(date){
   return moment(date).tz(tz).format('h:mm a z')
 });
 
-Template.registerHelper("displaySlackSignInBtn", function(){
-    var options = {
-      requestPermissions: ['identify', 'users:read']
-    };
-    Meteor.loginWithSlack(options);
-});
-
 Template.registerHelper('isHangoutUpcoming', function(startDate) {
   return startDate > new Date() ? true : false;
 });

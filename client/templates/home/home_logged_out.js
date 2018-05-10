@@ -9,8 +9,14 @@ Template.homeLoggedOut.onCreated(function(){
 Template.homeLoggedOut.events({
   'click .signIn': function(event) {
     var options = {
-      requestPermissions: ['identify', 'users:read']
+      requestPermissions: ['identity.basic', 'identity.email']
     };
     Meteor.loginWithSlack(options);
+  },
+  'click .signInGithub': function(event) {
+    var options = {
+      requestPermissions: ['read:user', 'user:email']
+    };
+    Meteor.loginWithGithub(options);
   }
 });

@@ -1,11 +1,10 @@
 <template name="discussionCard">
   <div class="row discussion-card">
     <div class="col-md-1">
-      <img src="{{author.avatar}}" alt="{{author.username}}" class="img-circle avatar author-avatar" />
-      <h5 class="pull-right">{{author.username}}</h5>
+      <a href="{{pathFor 'profile' name=author.username userId=author.id}}"><img src="{{author.avatar}}" alt="{{author.username}}" class="img-circle avatar author-avatar" /></a>
     </div>
     <div class="col-md-11">
-
+      <h5><a href="{{pathFor 'profile' name=author.username userId=author.id}}">{{author.username}}</a></h5>
       <h3>
         {{topic}} <small>{{#if modified_at}}(Edited){{/if}} </small>
         {{! available actions as a button grouping }}
@@ -43,7 +42,7 @@
         {{/if}}
       </h3>
 
-      <h5>{{#each tag in tags}} <span class="label label-default select-tag" data-tag="{{tag}}">{{tag}}</span> {{/each}}</h5>
+      <h5>{{#each tag in tags}} <span class="label label-default select-tag pointer" data-tag="{{tag}}">{{tag}}</span> {{/each}}</h5>
 
       <div class="description-text">
         {{#markdown}}{{description}}{{/markdown}}
@@ -51,9 +50,9 @@
 
       <hr>
       <h4>
-        <i class="fa fa-thumbs-o-up {{#if isInCollection up_votes}} voted {{else}} upvote {{/if}}" aria-hidden="true"></i> <small>{{up_votes.length}}</small> &nbsp; &nbsp;
-        <i class="fa fa-thumbs-o-down {{#if isInCollection down_votes}} voted {{else}} downvote {{/if}}" aria-hidden="true"></i> <small>{{down_votes.length}}</small> &nbsp; &nbsp;
-        <small><i class="fa fa-clock-o" aria-hidden="true"></i> Posted on : {{dispDate created_at}} </small> &nbsp; &nbsp;
+        <i class="fa fa-thumbs-o-up {{#unless currentUser}} continue-popup {{else}} {{#if isInCollection up_votes}} voted {{else}} upvote {{/if}} {{/unless}}" aria-hidden="true"></i> <small>{{up_votes.length}}</small> &nbsp; &nbsp;
+        <i class="fa fa-thumbs-o-down {{#unless currentUser}} continue-popup {{else}} {{#if isInCollection down_votes}} voted {{else}} downvote {{/if}} {{/unless}}" aria-hidden="true"></i> <small>{{down_votes.length}}</small> &nbsp; &nbsp;
+        <small><i class="fa fa-clock-o" aria-hidden="true"></i> Posted on: {{dispDate created_at}} </small> &nbsp; &nbsp;
         <small><i class="fa fa-comments-o" aria-hidden="true"></i> {{response_count}} </small> &nbsp; &nbsp;
         <small><i class="fa fa-eye" aria-hidden="true"></i> {{views}} </small> &nbsp; &nbsp;
       </h4>

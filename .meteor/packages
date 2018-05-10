@@ -4,29 +4,29 @@
 # 'meteor add' and 'meteor remove' will edit this file for you,
 # but you can also edit it by hand.
 
-meteor-base@1.0.4             # Packages every Meteor app needs to have
-mobile-experience@1.0.4       # Packages for a great mobile UX
-mongo@1.1.17                   # The database Meteor supports right now
+meteor-base@1.3.0             # Packages every Meteor app needs to have
+mobile-experience@1.0.5       # Packages for a great mobile UX
+mongo@1.4.2                   # The database Meteor supports right now
 blaze-html-templates    # Compile .html files into Meteor Blaze views
 session@1.1.7                 # Client-side reactive dictionary for your app
 jquery@1.11.10                  # Helpful client-side library
 tracker@1.1.3                 # Meteor's client-side reactive programming library
 
-es5-shim@4.6.15                # ECMAScript 5 compatibility for older browsers.
-ecmascript@0.7.3              # Enable ECMAScript2015+ syntax in app code
+es5-shim@4.7.0                # ECMAScript 5 compatibility for older browsers.
+ecmascript@0.10.6              # Enable ECMAScript2015+ syntax in app code
 
 twbs:bootstrap
 mizzao:user-status
-accounts-password@1.3.6
+accounts-password@1.5.0
 fourseven:scss
-check@1.2.5
-ejson@1.0.13
+check@1.3.0
+ejson@1.1.0
 fortawesome:fontawesome
 momentjs:moment
-accounts-base@1.2.17
+accounts-base@1.4.2
 accounts-oauth@1.1.15
 arillo:flow-router-helpers
-http@1.2.12
+http@1.4.0
 acemtp:accounts-slack
 reactive-var@1.0.11
 simple:reactive-method
@@ -38,7 +38,7 @@ copleykj:livestamp
 mrt:moment-timezone
 joshowens:timezone-picker
 msavin:mongol
-email@1.2.1
+email@1.2.3
 meteorhacks:ssr
 sacha:spin
 georgediab:slack-notify
@@ -47,17 +47,19 @@ percolate:synced-cron@=1.3.0
 gadicohen:sitemaps
 kadira:dochead
 alanning:roles
-random@1.0.10
+random@1.1.0
 kadira:flow-router
 kadira:blaze-layout
 ian:accounts-ui-bootstrap-3
 meteorhacks:picker
 matb33:bootstrap-popovers
-browser-policy@1.1.0
-practicalmeteor:mocha
 erasaur:meteor-lodash
 themeteorchef:bert
-shell-server
-
-abernix:standard-minifier-js@1.2.2
-markdown
+shell-server@0.3.1
+markdown@1.0.12
+accounts-github@1.4.1
+dynamic-import
+standard-minifier-js
+browser-policy
+meteortesting:mocha
+practicalmeteor:chai

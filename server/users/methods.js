@@ -78,3 +78,47 @@ Meteor.methods({
 
   }
 });
+
+
+/**
+* Update Basic Information
+* @function
+* @name updateEmailsPreference
+* @param { Object } - data
+* @return {Boolean} true on success
+*/
+Meteor.methods({
+  updateBasicInformation:function(data){
+    check(data,{
+      firstname: String,
+      lastname: String,
+      username: String
+    });
+
+    const actorId = Meteor.userId();
+    if (!actorId) {
+      throw new Meteor.Error('users.methods.updateBasicInformation.not-logged-in', 'Must be logged in.');
+    }
+
+    // Check username is unique
+    const regex = new RegExp(`^${data.username}$`, 'i');
+    const isUsernameInUse = Meteor.users.findOne({ '_id': { $ne: actorId }, 'username': regex });
+    if (isUsernameInUse) {
+      throw new Meteor.Error('Users.methods.updateBasicInformation.username-is-already-in-use', 'Username is already in user.');
+    }
+
+    Meteor.users.update({_id: actorId},
+      {
+        $set: {
+          'username': data.username,
+          'profile.firstname': data.firstname,
+          'profile.lastname': data.lastname,
+          'profile.complete': true
+        }
+      }
+    );
+
+    return true;
+
+  }
+});

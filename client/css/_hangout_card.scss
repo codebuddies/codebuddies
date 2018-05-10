@@ -1,6 +1,6 @@
 .hangout-card {
   &.completed {
-      height: 160px;
+      height: 185px;
   }
   border-radius: 0 !important;
   background: $white;
@@ -68,3 +68,9 @@
   .hangout-meta { display: none;}
 }
 
+.card {
+  div.popover {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
+}

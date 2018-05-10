@@ -1,0 +1,49 @@
+<template name="basicUserInformation">
+  <div class="container">
+    <div class="page-header">
+      <h4>Welcome to CodeBuddies. Thank you for signing up!</h4>
+      <h4> <small>Let’s get your basic information taken care of before we move further.</small></h4>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label class=" control-label">First name <span>*</span>  </label>
+          <input type="text" class="form-control" id="fName">
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label class=" control-label">Last name <span>*</span> </label>
+          <input type="text" class="form-control" id="lName">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label class=" control-label">Username<span>*</span></label>
+          <input type="email" class="form-control" id="username" value="{{currentUser.username}}">
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label class=" control-label">Email<span>*</span> </label>
+          <input type="email" class="form-control" id="email" disabled value="{{currentUser.email}}">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        {{#unless instance.processing.get}}
+          <button type="submit" class="btn btn-primary btn-block" id="saveAndContinue">Save & Continue</button>
+        {{else}}
+          <button type="button" class="btn btn-primary btn-block disabled"><i class="fa fa-refresh fa-spin"></i> Processing </button>
+        {{/unless}}
+      </div>
+    </div>
+
+  </div>
+  <br>
+  <br>
+</template>
