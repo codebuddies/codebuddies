@@ -9,10 +9,10 @@ Template.homeLoggedOut.onCreated(function() {
   DocHead.addMeta(metaInfo);
 
   let instance = this;
-  instance.data.studyGroupCount = new ReactiveVar(0);
-  instance.data.discussionCount = new ReactiveVar(0);
-  instance.data.learningsCount = new ReactiveVar(0);
-  instance.data.hangoutsCount = new ReactiveVar(0);
+  instance.studyGroupCount = new ReactiveVar(0);
+  instance.discussionCount = new ReactiveVar(0);
+  instance.learningsCount = new ReactiveVar(0);
+  instance.hangoutsCount = new ReactiveVar(0);
   Meteor.call("getOverallStats", null, function(error, result) {
     if (error) {
       console.log(error);
@@ -24,10 +24,12 @@ Template.homeLoggedOut.onCreated(function() {
         hangoutsCount = 0
       } =
         result || {};
-      instance.data.studyGroupCount.set(studyGroupCount);
-      instance.data.discussionCount.set(discussionCount);
-      instance.data.learningsCount.set(learningsCount);
-      instance.data.hangoutsCount.set(hangoutsCount);
+      console.log(studyGroupCount);
+
+      instance.studyGroupCount.set(studyGroupCount);
+      instance.discussionCount.set(discussionCount);
+      instance.learningsCount.set(learningsCount);
+      instance.hangoutsCount.set(hangoutsCount);
     }
   });
 });
