@@ -174,6 +174,7 @@
   "new_hangout_slack_channel":
     "Send New Hangout Notifications to the Following Slack Channel(s)",
   "select_channel": "Select at most 3 slack channels",
+  "study_groups": "study groups",
 
   // Discussion
   "discussion": "Discussion",
@@ -186,6 +187,9 @@
   "discussion_has_been_reported": "Reported Successfully.",
   "discussion_reported_message":
     "We appreciate your assistance in maintaining the quality of this community.",
+  "discussions": "discussions",
+  "hangouts_organized": "hangouts organized",
+  "learnings_reported": "learnings reported",
 
   // alerts
   "alert_language_change": "Language changed to %s",
