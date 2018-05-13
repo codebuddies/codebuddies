@@ -18,24 +18,16 @@
                                   <li>Work on anything!</li>
                                   <li>Mute your mic <i class="fa fa-microphone-slash text-danger-color"></i> and video <i class="fa fa-video-camera text-danger-color"></i>.</li>
                                   <li>Recommended (but optional): screenshare to maximize productivity.</li>
-                                  {{#if currentUser}}<li><a class="create-hangout-popup {{#unless currentUser}} continue-popup {{/unless}}">Start a new hangout</a> if you meet a potential collaborator or want to discuss a topic out loud.</li>{{/if}}
+                                  {{#if currentUser}}<li><button class="btn btn-cb2 btn-schedule-hangout create-hangout-popup {{#unless currentUser}} continue-popup {{/unless}}">Start a new hangout</button> if you meet a potential collaborator or want to discuss a topic out loud.</li>{{/if}}
                               <li>Type what you are working on below! <i class="fa fa-arrow-down"></i></li>
                           </ol>
                       </div>
                    </div>
-                
-                  <button class="btn btn-cb2 btn-continue load-hangout {{#unless currentUser}} continue-popup {{/unless}}">{{_ "continue"}}</button>
+                  
+                  {{> hangoutFrame hroom=''}}
                 </div>
             </div>
-            <div class="col-md-12 align-center">
-              
-                <img src="/images/jitsi-screenshot-2018.jpg" width="100%" class="load-hangout">
 
-                <div id="hangout-container"></div>
-        
-                <span id="post_id" class="hide">{{_id}}</span>
-              
-          </div>
         </div>
     </div>
   </div>

@@ -45,4 +45,7 @@
       @include font-face(400, 18px, normal, $primary-grey);
       border-radius: 0px;
   }
+  button.btn-schedule-hangout {
+      display: inline;
+  }
  }
