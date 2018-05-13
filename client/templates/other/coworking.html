@@ -1,17 +1,13 @@
 <template name="coworking">
   <div id="coworking">
-      
-
-
   <div class="section coworking-top">
       <div class="container">
         <div class="row">
             <div class="col-md-12 align-center">
-                <div id="hangout-button-wrapper">
-                  <p class="warning chrome-firefox-warning">Warning: Please load this page using Chrome <img src="/images/chrome.ico" width="25"/> or Firefox <img src="/images/firefox.ico" width="25"/> to avoid technical issues</p>
+                <div>
                   <div class="silentHangoutDescription">
                       <h2>Global Silent Coworking</h2>
-                      <p>24/7 space for silent productivity.</p>
+                      <p>24/7 space for silent productivity</p>
                       <div class="silentHangoutExplanation">
                           <h3 class="slanted">Rules</h3>
                           <ol id="rules">
@@ -23,8 +19,8 @@
                           </ol>
                       </div>
                    </div>
-                  
-                  {{> hangoutFrame hroom=''}}
+                  {{> hangoutFrame hroom='' huser='guest' havatar='https://codebuddies.org/images/logo-circle.svg' htype='silent'}}
+                  <i class="fa fa-spinner fa-spin" style="font-size:24px"></i>
                 </div>
             </div>
 

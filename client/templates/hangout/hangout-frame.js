@@ -105,9 +105,9 @@ Template.hangoutFrame.events({
   "click .load-hangout": function(event, template) {
     const data = {
       room: this._id || template.data.hroom,
-      username: Meteor.user().username,
-      type: this.type,
-      avatar: Meteor.user().profile.avatar.default
+      username: template.data.huser || Meteor.user().username,
+      type: template.data.htype || this.type,
+      avatar: template.data.havatar || Meteor.user().profile.avatar.default
     };
     return template.loadJitsi(data);
   },

@@ -2,6 +2,9 @@
   p, li {
     line-height: 1.2;
   }
+  p.warning {
+      color: $white;
+  }
   #working-text {
       border: 5px solid $cta-blue;
   }
@@ -12,7 +15,8 @@
           margin-bottom: 15px;
       }
       p {
-        @include font-face(400, 16px, normal, $white);
+        @include font-face(400, 18px, normal, $white);
+        margin: 20px;
       }
   }
   .silentHangoutExplanation {
