@@ -13,14 +13,6 @@
       "access_token_key": "2770917768-WmbE99Qj7SUz0IAVNjHXACYIYgyWS2hCHt7ROB7",
       "access_token_secret": "b1e7icigIxXcIXupJDapAjujfJdzSmvgd98Um6d15BbYw"
     },
-    "montiapm": {
-      "KADIRA_APP_ID": "KADIRA_APP_ID",
-      "KADIRA_APP_SECRET": "KADIRA_APP_SECRET"
-    },
-    "kadira": {
-      "appId": "app-id",
-      "appSecret": "app-secret"
-    },
     "smtp": {
       "username": "SMTP_Injection",
       "password": "262d2acea308cdd96213d83c97fc7ba8ab3873c1",

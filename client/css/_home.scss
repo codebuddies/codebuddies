@@ -14,14 +14,14 @@
   p.overflowtext {
     color: $secondary-grey;
   }
-
+  
   a.link {
     text-decoration: underline;
     color: $white;
     white-space: nowrap;
   }
 
-  .panel-default {
+  .panel-default { 
     border: none;
   }
 
@@ -64,7 +64,7 @@
     #hangout-faq-popup {
       color: $white;
     }
-    p {
+    p { 
         @include font-face(400, 1.2em, normal, $white);
         line-height: 1.2;
         width: 100%;
@@ -73,7 +73,7 @@
         @include breakpoint(medium) { width: 70%; }
         @include breakpoint(large) { width: 70%; }
     }
-    a {
+    a { 
         @include font-face(400, 1.2em, normal, $white);
         text-decoration: underline;
     }
@@ -447,7 +447,7 @@
     margin: 20px auto;
   }
   .search-message {
-      h4, p {
+      h4, p { 
             @include font-face(400, 1em, normal, $white);
       }
   }
@@ -467,56 +467,9 @@
           @include breakpoint(xmedium) { width: 49%; }
           @include breakpoint(medium) { width: 49%; }
           @include breakpoint(large) { width: 33%; }
-
+         
       }
       }
-
-  }
-
-  .statistic-row {
-    display: flex;
-    flex-flow: wrap;
-    justify-content: center;
-    align-items: center;
-
-    min-height: 300px;
-    margin-bottom: 30px;
-  }
-
-  .statistic-circle {
-    width: 250px;
-    height: 250px;
-
-    border: 10px solid white;
-    border-radius: 50%;
-    margin: 0.5em;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .statistic-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-
-    > p {
-      color: white;
-      text-align: center;
-      padding: 10px 0;
-
-      &.total {
-        font-size: 4em;
-        font-weight: bold;
-      }
-
-      &.category {
-        font-size: 2em;
-      }
-    }
+      
   }
 }
