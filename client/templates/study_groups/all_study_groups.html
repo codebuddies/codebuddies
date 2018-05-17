@@ -58,7 +58,7 @@
                 </h4>
 
                 {{#unless isInRole 'owner, admin, moderator, member' _id }}
-                    <button class="btn btn-join-study-group {{#unless currentUser}} continue-popup {{else}} join-study-group {{/unless}}">{{_ "join_study_group"}}</button>
+                    <button class="btn btn-join-study-group">{{_ "join_study_group"}}</button>
                 {{/unless}}
 
                 {{#if isInRole 'admin, moderator, member' _id }}
