@@ -1,0 +1,53 @@
+<template name="coworking">
+  <div id="coworking">
+  <div class="section coworking-top">
+      <div class="container">
+        <div class="row">
+            <div class="col-md-12 align-center">
+                <div>
+                  <div class="silentHangoutDescription">
+                      <h2>Global Silent Coworking</h2>
+                      <p>24/7 space for silent productivity</p>
+                      <div class="silentHangoutExplanation">
+                          <h3 class="slanted">Rules</h3>
+                          <ol id="rules">
+                                  <li>Work on anything!</li>
+                                  <li>Mute your mic <i class="fa fa-microphone-slash text-danger-color"></i> and video <i class="fa fa-video-camera text-danger-color"></i>.</li>
+                                  <li>Recommended (but optional): screenshare to maximize productivity.</li>
+                                  {{#if currentUser}}<li><button class="btn btn-cb2 btn-schedule-hangout create-hangout-popup {{#unless currentUser}} continue-popup {{/unless}}">Start a new hangout</button> if you meet a potential collaborator or want to discuss a topic out loud.</li>{{/if}}
+                              <li>Type what you are working on below! <i class="fa fa-arrow-down"></i></li>
+                          </ol>
+                      </div>
+                   </div>
+                  {{> hangoutFrame hroom='' huser='guest' havatar='https://codebuddies.org/images/logo-circle.svg' htype='silent'}}
+                  <i class="fa fa-spinner fa-spin" style="font-size:24px"></i>
+                </div>
+            </div>
+
+        </div>
+    </div>
+  </div>
+
+  <div class="section faq-middle">
+      <div class="container container-large">
+        <div class="row">
+            <div class="col-md-4">
+                {{> updateStatus type="working"}}
+                {{> statusList type="working"}}
+            </div>
+            <div class="col-md-8">
+                {{#if currentUser}}
+                    {{> hangoutLearned}}
+                    {{> statusList type="learnings"}}
+                {{/if}}
+           </div>
+          </div>
+        </div>
+    </div>
+
+   
+
+  </div><!--coworking-->
+
+
+</template>

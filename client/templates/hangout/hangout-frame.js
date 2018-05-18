@@ -4,121 +4,136 @@ Template.hangoutFrame.onCreated(function() {
   instance.room = new ReactiveVar(`cb${instance.data._id}`);
 
   instance.autorun(() => {
-    instance.subscribe('hangoutParticipants', instance.room.get());
+    instance.subscribe("hangoutParticipants", instance.room.get());
   });
 
   /**
-  * Initialize Jitsi
-  * @function
-  * @name loadJitsi
-  * @param {data.room} room - The hangout _id.
-  * @param {data.username} username - The username of the user.
-  * @param {data.type} type - Hangout type (silent, teaching, collaboration).
-  * @param {data.avatar} avatar - Avatar image of the user from Slack.
-  */
-  instance.loadJitsi = function(data){
-
+   * Initialize Jitsi
+   * @function
+   * @name loadJitsi
+   * @param {data.room} room - The hangout _id.
+   * @param {data.username} username - The username of the user.
+   * @param {data.type} type - Hangout type (silent, teaching, collaboration).
+   * @param {data.avatar} avatar - Avatar image of the user from Slack.
+   */
+  instance.loadJitsi = function(data) {
     const domain = "meet.jit.si";
-    let room = 'cb' + data.room;
-    let width = '100%';
+    let room = "cb" + data.room;
+    let width = "100%";
     let height = 550;
     let configOverwrite = { startVideoMuted: 0 };
     let interfaceConfigOverwrite = {};
     let htmlElement = document.getElementById("hangout-container");
 
-    instance.api = new JitsiMeetExternalAPI(domain, room, width, height, htmlElement, configOverwrite, interfaceConfigOverwrite);
+    instance.api = new JitsiMeetExternalAPI(
+      domain,
+      room,
+      width,
+      height,
+      htmlElement,
+      configOverwrite,
+      interfaceConfigOverwrite
+    );
 
-    instance.api.executeCommand('displayName', data.username);
-    instance.api.executeCommand('toggleChat');
-    instance.api.executeCommand('avatarUrl', data.avatar);
+    instance.api.executeCommand("displayName", data.username);
+    instance.api.executeCommand("toggleChat");
+    instance.api.executeCommand("avatarUrl", data.avatar);
     let jitsiParticipants = instance.api.getNumberOfParticipants();
 
-    $("[id^=" + 'jitsiConference' + "]").css('width', '100%');
+    $("[id^=" + "jitsiConference" + "]").css("width", "100%");
     //only show the launch hangout button if Jitsi is not loaded
-    $("[id^=" + 'jitsiConference' + "]").length == 1 ? $('.load-hangout').hide() : $('#load-hangout').show();
+    $("[id^=" + "jitsiConference" + "]").length == 1
+      ? $(".load-hangout").hide()
+      : $("#load-hangout").show();
 
-    instance.api.on('readyToClose', () => {
+    instance.api.on("readyToClose", () => {
       Bert.alert({
-          type: 'success',
-          message: 'Thanks for joining the hangout!',
-          hideDelay: 3500
-        });
-      FlowRouter.go('all study groups');
+        type: "success",
+        message: "Thanks for joining the hangout!",
+        hideDelay: 3500
+      });
+      FlowRouter.go("all study groups");
     });
 
-    Meteor.call('joinParticipant', instance.room.get(),function(error, result) {
-        if (error) {
-          return Bert.alert(error.reason, 'danger', 'growl-top-right');
-        } else {
-          instance.joinedHangout = true;
-        }
+    Meteor.call("joinParticipant", instance.room.get(), function(
+      error,
+      result
+    ) {
+      if (error) {
+        return Bert.alert(error.reason, "danger", "growl-top-right");
+      } else {
+        instance.joinedHangout = true;
+      }
     });
-  }
+  };
 
   /**
-  * Dispose of Jitsi
-  * @function
-  * @name disposeJitsi
-  */
-  instance.disposeJitsi= function(){
+   * Dispose of Jitsi
+   * @function
+   * @name disposeJitsi
+   */
+  instance.disposeJitsi = function() {
     instance.api.dispose();
-  }
-
+  };
 });
 
 Template.hangoutFrame.onRendered(function() {
-    /**
-  * Display warning if
-  * user is not using
-  * Chrome or Firefox
-  */
+  /**
+   * Display warning if
+   * user is not using
+   * Chrome or Firefox
+   */
 
-  if (!!window.chrome && !!window.chrome.webstore || typeof InstallTrigger !== 'undefined') {
+  if (
+    (!!window.chrome && !!window.chrome.webstore) ||
+    typeof InstallTrigger !== "undefined"
+  ) {
     //console.log('using firefox or chrome')
-    $('p.chrome-firefox-warning').hide();
+    $("p.chrome-firefox-warning").hide();
   } else {
     //console.log('a different browser')
-     $('p.chrome-firefox-warning').show();
+    $("p.chrome-firefox-warning").show();
   }
 
   //Google Hangout support
-  $('head').append('<script src="https://apis.google.com/js/platform.js" async defer></script>');
+  $("head").append(
+    '<script src="https://apis.google.com/js/platform.js" async defer></script>'
+  );
 });
 
 Template.hangoutFrame.events({
-  'click .load-hangout': function(event, template){
+  "click .load-hangout": function(event, template) {
     const data = {
-      room: this._id,
-      username: Meteor.user().username,
-      type: this.type,
-      avatar: Meteor.user().profile.avatar.default
-    }
+      room: this._id || template.data.hroom,
+      username: template.data.huser || Meteor.user().username,
+      type: template.data.htype || this.type,
+      avatar: template.data.havatar || Meteor.user().profile.avatar.default
+    };
     return template.loadJitsi(data);
   },
-  'click #joinHere': function(event, template){
+  "click #joinHere": function(event, template) {
     const hangout_id = `cb${this._id}`;
 
-    Meteor.call('joinParticipant', hangout_id,function(error, result) {
-        if (error) {
-          return Bert.alert(error.reason, 'danger', 'growl-top-right');
-        }
+    Meteor.call("joinParticipant", hangout_id, function(error, result) {
+      if (error) {
+        return Bert.alert(error.reason, "danger", "growl-top-right");
+      }
     });
-
   }
-
 });
 
-
-Template.hangoutFrame.onDestroyed(function () {
+Template.hangoutFrame.onDestroyed(function() {
   //Template.instance().disposeJitsi();
   //Remove for now (see: issue 461)
   const joinedHangout = Template.instance().joinedHangout;
   if (joinedHangout && joinedHangout === true) {
-    Meteor.call('leaveParticipant', Template.instance().room.get(),
-      function(error, result) {
-        if (error) {
-          return Bert.alert(error.reason, 'danger', 'growl-top-right' );
-        }
+    Meteor.call("leaveParticipant", Template.instance().room.get(), function(
+      error,
+      result
+    ) {
+      if (error) {
+        return Bert.alert(error.reason, "danger", "growl-top-right");
+      }
     });
   }
 });
@@ -126,8 +141,8 @@ Template.hangoutFrame.onDestroyed(function () {
 Template.hangoutFrame.helpers({
   numParticipants: function() {
     const appState = AppStats.findOne({ _id: Template.instance().room.get() });
-    if (appState && appState.participants ) {
-      return appState.participants.length
+    if (appState && appState.participants) {
+      return appState.participants.length;
     }
     return 0;
   }

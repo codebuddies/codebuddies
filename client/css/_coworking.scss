@@ -1,0 +1,55 @@
+#coworking {
+  p, li {
+    line-height: 1.2;
+  }
+  p.warning {
+      color: $white;
+  }
+  #working-text {
+      border: 5px solid $cta-blue;
+  }
+  div.silentHangoutDescription {
+      max-width: 500px;
+      margin: 0px auto;
+      h2 {
+          margin-bottom: 15px;
+      }
+      p {
+        @include font-face(400, 18px, normal, $white);
+        margin: 20px;
+      }
+  }
+  .silentHangoutExplanation {
+      padding: 10px;
+      max-width: 500px;
+      margin-bottom: 10px;
+      background: $white;
+      p, li {
+          text-align: left;
+          @include font-face(200, 18px, normal, $primary-grey);
+          line-height: 1.4;
+      }
+      strong {
+          color: $primary-grey;
+      }
+      a {
+          text-decoration: underline;
+          @include font-face(400, 18px, normal, $primary-grey);
+      }
+  }
+  .coworking-top {
+    background: $cta-blue;
+    h2 { @include font-face(700, 32px, bold, $bg-white); }
+    padding: 20px;
+    margin-bottom: 10px;
+  }
+  textarea#learned-text {
+      border: 5px solid $cta-blue;
+      padding: 15px;
+      @include font-face(400, 18px, normal, $primary-grey);
+      border-radius: 0px;
+  }
+  button.btn-schedule-hangout {
+      display: inline;
+  }
+ }
