@@ -12,9 +12,9 @@ a { color: $dodgerblue; }
 
 
 h3.slanted {
-  @include font-face(700, 18px, italic, $white);
+  @include font-face(700, 18px, italic, $cta-blue);
   margin: 5px;
-  background: $cta-blue;
+  background: $white;
   padding: 5px;
   width: 100px;
   text-align: center;
