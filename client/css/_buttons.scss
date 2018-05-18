@@ -120,8 +120,8 @@
   @include font-face(700, 15px, bold, $bg-white);
   background-color: $cta-blue;
   display: block;
-  height: 36px;
   margin: 10px auto;
+  white-space: normal;
 
   &:hover {
     color: $white;
