@@ -9,29 +9,24 @@
       border: 5px solid $cta-blue;
   }
   div.silentHangoutDescription {
-      max-width: 500px;
-      margin: 0px auto;
       h2 {
-          margin-bottom: 15px;
+          margin: 15px;
       }
       p {
-        @include font-face(400, 18px, normal, $white);
+        @include font-face(200, 22px, normal, $white);
         margin: 20px;
+      }
+      ol {
+          text-align: left;
+          @include font-face(200, 18px, normal, $white);
+          li {
+              line-height: 1.8;
+          }
       }
   }
   .silentHangoutExplanation {
       padding: 10px;
-      max-width: 500px;
       margin-bottom: 10px;
-      background: $white;
-      p, li {
-          text-align: left;
-          @include font-face(200, 18px, normal, $primary-grey);
-          line-height: 1.4;
-      }
-      strong {
-          color: $primary-grey;
-      }
       a {
           text-decoration: underline;
           @include font-face(400, 18px, normal, $primary-grey);

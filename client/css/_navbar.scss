@@ -1,10 +1,10 @@
 .banner-notification {
-    background: orange;
-    color: $white;
+    background: $banner;
+    color: $primary-grey;
     padding: 5px;
     text-align: center;
     a {
-        color: $white;
+        color: $primary-grey;
         text-decoration: underline;
     }
 }
