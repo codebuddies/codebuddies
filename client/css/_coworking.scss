@@ -12,6 +12,11 @@
       h2 {
           margin: 15px;
       }
+      h3 {
+          text-align: left;
+          margin: 10px;
+          color: $white;
+      }
       p {
         @include font-face(200, 22px, normal, $white);
         margin: 20px;
