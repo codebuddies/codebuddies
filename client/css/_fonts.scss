@@ -10,19 +10,6 @@ $open-sans: 'Open Sans', sans-serif;
 
 a { color: $dodgerblue; }
 
-
-h3.slanted {
-  @include font-face(700, 18px, italic, $cta-blue);
-  margin: 5px;
-  background: $white;
-  padding: 5px;
-  width: 100px;
-  text-align: center;
-  -webkit-transform: skew(-15deg);
-  	   -moz-transform: skew(-15deg);
-  	     -o-transform: skew(-15deg);
-}
-
 h4.hangout-date,
 h5.in-progress,
 h5.completed {
