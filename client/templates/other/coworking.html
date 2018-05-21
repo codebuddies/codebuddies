@@ -1,37 +1,31 @@
 <template name="coworking">
   <div id="coworking">
-  <div class="section coworking-top">
-      <div class="container">
-        <div class="row">
-            <div class="col-md-12 align-center">
-                <div>
-                  <div class="silentHangoutDescription">
-                      <h2>24/7 space for silent productivity</h2>
-                      <p>Yep, a global silent coworking hangout</p>
-                      <div class="silentHangoutExplanation">
-                          <h3>Rules</h3>
-                          <ol id="rules">
-                                  <li>The goal is to be productive with silent focus partners. You can work on anything!</li>
-                                  <li>Mute your mic <i class="fa fa-microphone-slash text-danger-color"></i>. Please mute your video <i class="fa fa-video-camera text-danger-color"></i> too.</li>
-                                  <li>Recommended (but optional): screenshare to maximize productivity.</li>
-                                  {{#if currentUser}}<li><button class="btn btn-cb2 btn-schedule-hangout create-hangout-popup {{#unless currentUser}} continue-popup {{/unless}}">Start a new hangout</button> if you meet a potential collaborator or want to discuss a topic out loud.</li>{{/if}}
-                              <li>Type what you are working on in the chat! <i class="fa fa-arrow-down"></i></li>
-                          </ol>
-                      </div>
-                   </div>
-                  {{> hangoutFrame hroom='' huser='guest' havatar='https://codebuddies.org/images/logo-circle.svg' htype='silent'}}
-                  
-                </div>
-            </div>
+  
+      <div class="wrapper">
+          <div class="coworking-top">
+              <h2>24/7 space for silent productivity</h2>
+              <p>Yep, a global silent coworking hangout</p>
+          </div>
 
-        </div>
-    </div>
-  </div>
+      </div>
 
-  <div class="section faq-middle">
+  <div class="section">
       <div class="container container-large">
         <div class="row">
             <div class="col-md-12">
+                <div id="description">
+                    <div id="silentHangoutExplanation">
+                        <h3>Rules</h3>
+                        <ol id="rules">
+                                <li>The goal is to be productive with silent focus partners. You can work on anything!</li>
+                                <li>Mute your mic <i class="fa fa-microphone-slash text-danger-color"></i>. Please mute your video <i class="fa fa-video-camera text-danger-color"></i> too.</li>
+                                <li>Recommended (but optional): screenshare to maximize productivity.</li>
+                                {{#if currentUser}}<li><button class="btn btn-cb2 btn-schedule-hangout create-hangout-popup {{#unless currentUser}} continue-popup {{/unless}}">Start a new hangout</button> if you meet a potential collaborator or want to discuss a topic out loud.</li>{{/if}}
+                            <li>Type what you are working on in the chat below <i class="fa fa-arrow-down"></i></li>
+                        </ol>
+                    </div>
+                 </div>
+                {{> hangoutFrame hroom='' huser='guest' havatar='https://codebuddies.org/images/logo-circle.svg' htype='silent'}}
                 {{#if currentUser}}
                     {{> hangoutLearned}}
                     {{> statusList type="learnings"}}
