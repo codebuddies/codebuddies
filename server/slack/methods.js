@@ -59,6 +59,16 @@ slackNotification = function(hangout, type, hangoutChannels) {
       hangout.type
     }* hangout has been scheduled by a fellow CodeBuddies member!`;
   }
+  if (type === "UPDATE") {
+    fallback = `Update: hangout ${hangout.topic} has been revised to start on ${
+      hangout.start
+    } and finish on ${hangout.end}. Visit ${Meteor.absoluteUrl(
+      "hangout/" + hangout._id
+    )}`;
+    pretext = `Reminder! ${hangout.type} hangout: *${
+      hangout.topic
+    }* is scheduled at a different time!`;
+  }
 
   let date_start, now_value, now_formatted_time, difference, minutes;
   date_start = moment.utc(hangout.start);
