@@ -52,6 +52,7 @@ gadicohen:sitemaps@0.0.26
 geojson-utils@1.0.10
 georgediab:slack-notify@0.1.0
 github-oauth@1.2.0
+harrison:papa-parse@1.1.7
 hot-code-push@1.0.4
 html-tools@1.0.11
 htmljs@1.0.11
