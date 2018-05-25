@@ -215,13 +215,25 @@ studyGroupFacebookNotification = function(studyGroup, studyGroupId) {
 
 hangoutFacebookNotification = function(hangout, type) {
   const hangoutUrl = Meteor.absoluteUrl(`hangout/${hangout._id}`);
-  const pretext = `A CodeBuddies member has scheduled a ${
-    hangout.type
-  } hangout with the topic "${hangout.topic}" in the "${
-    hangout.group.title
-  }" study group!\n\nWHEN:\n ${time_left} \n\nRSVP:\n ${hangoutUrl}\n\nDESCRIPTION:\n ${
-    hangout.description
-  }`;
+  let pretext = "";
+  if (type === "NEW") {
+    pretext = `A CodeBuddies member has scheduled a ${
+      hangout.type
+    } hangout with the topic "${hangout.topic}" in the "${
+      hangout.group.title
+    }" study group!\n\nWHEN:\n ${time_left} \n\nRSVP:\n ${hangoutUrl}\n\nDESCRIPTION:\n ${
+      hangout.description
+    }`;
+  }
+  if (type === "UPDATE") {
+    pretext = `A CodeBuddies member has *rescheduled* a ${
+      hangout.type
+    } hangout with the topic "${hangout.topic}" in the "${
+      hangout.group.title
+    }" study group!\n\nWHEN:\n ${time_left} \n\nRSVP:\n ${hangoutUrl}\n\nDESCRIPTION:\n ${
+      hangout.description
+    }`;
+  }
   facebookAlert({ text: pretext });
 };
 
