@@ -1,3 +1,5 @@
+import { initialEmailNotifications } from '../../imports/libs/server/cron/initial_email_notifications.js'
+
 /**
  * Cron job function for hangout email reminders
  * @author Roberto Quezada [sgtquezada@gmail.com]
@@ -46,7 +48,7 @@ hangoutReminder = function() {
           // update hourly reminder to true
           Hangouts.update({_id: hangout._id},
                           {$set: {hourly_reminder_sent: true}});
-      } 
+      }
 
       if ((time_diff_ended < 0) && hangout.followup_email_sent == false) {
         console.log("found a hangout that just ended")
@@ -81,5 +83,22 @@ SyncedCron.add({
     job: function() {
         var hangoutReminderSchedule = hangoutReminder();
         return hangoutReminderSchedule;
+    }
+});
+
+// cron job for email notification
+SyncedCron.add({
+    name: 'initial email',
+    schedule: function(parser) {
+        // set interval in settings-{environemt}.json. For production, should be set to 'every 1 hour'
+        // testing
+        if (Meteor.settings.public.isModeDebug) {
+          return parser.text('Every 4 min');
+        }
+        return parser.text('Every 40 min');
+    },
+    job: function() {
+        var emailNotification = initialEmailNotifications();
+        return emailNotification;
     }
 });

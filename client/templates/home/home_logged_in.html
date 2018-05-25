@@ -10,7 +10,7 @@
 
               <div class="search-area">
   							{{#unless hangoutSearchMode }}
-  	                <div class="btn btn-cb2 {{#unless currentUser}} continue-popup {{/unless}}" id="create-hangout-popup"> {{_ "create_a_hangout"}} </div>
+  	                <div class="btn btn-cb2  btn-schedule-hangout {{#unless currentUser}} continue-popup {{else}} create-hangout-popup {{/unless}}"> {{_ "create_a_hangout"}} </div>
 
   							{{else}}
 

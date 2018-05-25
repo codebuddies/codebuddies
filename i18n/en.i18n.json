@@ -5,12 +5,12 @@
   "sign_in_with_slack": "Sign in with Slack",
 
   //home
-  "jumbotron_subtitle": "We're __count__ people who help each other by sharing knowledge",
+  "jumbotron_subtitle":
+    "We're __count__ people who help each other by sharing knowledge",
   "slack_title": "Slack chatroom",
   //profile page
   "send_profile_message": "Send __username__ a message",
   "chat": "Chat",
-
 
   // other pages
   "about": "About",
@@ -18,6 +18,7 @@
   "terms_of_service": "Terms of Service",
   "profile": "Profile",
   "slack": "Slack",
+  "continue": "Agree and continue",
 
   // status messages
   "i_am_working_on": "I'm working on ...",
@@ -28,7 +29,7 @@
   "learning_message_plural": "__count__ people are online learning",
   "accomplishment_message": "__count__ learning",
   "accomplishment_message_plural": "__count__ learnings",
-  "working_on": "Please type what you're working on right now!",
+  "working_on": "What are you working on right now?",
   "accomplished": "What did you learn or accomplish just now?",
   "upcoming_time": "Starting __time__",
   "mastered_x_days_ago": "HANGOUT HAS ENDED",
@@ -39,11 +40,10 @@
   "mastered_today_time": "HANGOUT HAS ENDED",
   "delete_learning_confirm": "Are you sure you want to delete this learning?",
 
-
   // buttons
   "save_changes": "Save changes",
   "update": "Update",
-  "join_hangouts" : "Hangouts",
+  "join_hangouts": "Hangouts",
   "create_a_hangout": "Schedule a Hangout",
   "clone_a_hangout": "Schedule this Hangout",
   "join": "RSVP",
@@ -62,21 +62,25 @@
   "no_delete_group": "No, I was just kidding",
   "yes_delete_learning": "Yes, please!",
   "no_delete_learning": "No thanks!",
-  "launch" : "Join Now",
+  "launch": "Join Now",
   "yes_end_hangout": "Yes, end it!",
   "no_end_hangout": "No, I was just kidding",
   "end_hangout": "End hangout manually",
   "transfer_study_group": "Transferring study group cannot be undone",
   "yes_transfer_group": "Yes, transfer it!",
   "no_transfer_group": "No, I was just kidding",
-  "hangout_participant": "1 person is currently in the 24/7 hangout.",
-  "hangout_participant_plural": "__count__ people are currently in the 24/7 hangout.",
+  "hangout_participant": "Someone is currently in the 24/7 hangout.",
+  "hangout_participant_plural":
+    "__count__ people are currently in the 24/7 hangout.",
+  "add_google_calendar": "Add to Google Calendar",
 
   // hangout
   "what_is_a_hangout": "What is a Hangout?",
   "loading_hangouts": "Loading Hangouts... please wait.",
-  "create_hangout_hint": "Your scheduled study session will appear on the home page immediately. After you propose a study session, you can always go back and change the time, title, or description.",
-  "clone_hangout_hint": "Your scheduled study session will appear on the home page immediately. After you propose a study session, you can always go back and change the time, title, or description.",
+  "create_hangout_hint":
+    "Your scheduled study session will appear on the home page immediately. After you propose a study session, you can always go back and change the time, title, or description.",
+  "clone_hangout_hint":
+    "Your scheduled study session will appear on the home page immediately. After you propose a study session, you can always go back and change the time, title, or description.",
   "edit_hangout_hint": "Your Hangout will be updated.",
   "silent_hangout": "Silent Hangout",
   "teaching_hangout": "Teaching Hangout",
@@ -89,17 +93,24 @@
 
   // popup messages
   "you_are_almost_there": "You are almost there!",
-  "login_join_hangout": "Please sign in to codebuddies.slack.com to join a hangout",
-  "login_update_status": "Please sign in to codebuddies.slack.com to update your status",
-  "login_create_hangout_title": "You are pretty awesome, you know! Just one more step",
-  "login_create_hangout_message": "Please sign in to codebuddies.slack.com to create a hangout",
+  "login_join_hangout":
+    "Please sign in to codebuddies.slack.com to join a hangout",
+  "login_update_status":
+    "Please sign in to codebuddies.slack.com to update your status",
+  "login_create_hangout_title":
+    "You are pretty awesome, you know! Just one more step",
+  "login_create_hangout_message":
+    "Please sign in to codebuddies.slack.com to create a hangout",
   "you_are_awesome": "You are awesome!",
   "looking_forward_to_see_you": "Looking forward to seeing you.",
-  "remove_owner_from_hangout": "Hey! You can't remove yourself from your Hangout.",
+  "remove_owner_from_hangout":
+    "Hey! You can't remove yourself from your Hangout.",
   "delete_hangout_confirm": "Are you sure?",
-  "delete_hangout_text": "Note: All participants will be notified via email of cancellation",
-  "continue_popup_text":"Please sign in using your <a href=\"http://codebuddies.slack.com\" target=\"blank\">codebuddies.slack.com</a> team. <br /> (No CodeBuddies Slack account? <a href=\"http://codebuddiesmeet.herokuapp.com\" target=\"_blank\">Get your invite here</a>!)",
-  "not_now":"Not Now",
+  "delete_hangout_text":
+    "Note: All participants will be notified via email of cancellation",
+  "continue_popup_text":
+    "Please sign in using your <a href=\"http://codebuddies.slack.com\" target=\"blank\">codebuddies.slack.com</a> team. <br /> (No CodeBuddies Slack account? <a href=\"http://codebuddiesmeet.herokuapp.com\" target=\"_blank\">Get your invite here</a>!)",
+  "not_now": "Not Now",
   "continue_with_slack": "Sign in with Slack",
   "end_hangout_confirm": "Are you sure?",
   "archive_final_warning": "Archiving this group cannot be undone",
@@ -113,23 +124,25 @@
   "enter_description": "Please fill in the Hangout description",
 
   // report hangout modal - popup message
-  "report_this_hangout":"Report This Hangout",
-  "report hangout category spam" : "Spam",
+  "report_this_hangout": "Report This Hangout",
+  "report hangout category spam": "Spam",
   "report hangout category abusive": "Abusive",
-  "report hangout category inappropriate" : "Inappropriate",
-  "report hangout category offensive" : "Offensive",
-  "report_a_hangout" : "Report",
-  "report_hangout_message" : "We'll review the Hangout and remove anything that doesn't follow the Code Buddies Standards. We may also warn or disable the person responsible.",
-  "hangout_has_been_reported" : "Reported Successfully.",
-  "hangout_reported_message" : "We appreciate your assistance in maintaining the quality of this community.",
+  "report hangout category inappropriate": "Inappropriate",
+  "report hangout category offensive": "Offensive",
+  "report_a_hangout": "Report",
+  "report_hangout_message":
+    "We'll review the Hangout and remove anything that doesn't follow the Code Buddies Standards. We may also warn or disable the person responsible.",
+  "hangout_has_been_reported": "Reported Successfully.",
+  "hangout_reported_message":
+    "We appreciate your assistance in maintaining the quality of this community.",
 
   // admin header
-  "manage_user" : "Manage Users",
-  "notification" : "Notification",
+  "manage_user": "Manage Users",
+  "notification": "Notification",
 
   //visitor
-  "sign_in_to_continue" : "Please sign in to continue.",
-  "browse_hangouts" : "Hangouts",
+  "sign_in_to_continue": "Please sign in to continue.",
+  "browse_hangouts": "Hangouts",
 
   //Study groups
   "new_hangout": "Schedule a Hangout",
@@ -158,18 +171,25 @@
   "settings": "Settings",
   "start_new_group": "Start a New Group",
   "select_new_owner": "Select new owner",
-  "new_hangout_slack_channel": "Send New Hangout Notifications to the Following Slack Channel(s)",
+  "new_hangout_slack_channel":
+    "Send New Hangout Notifications to the Following Slack Channel(s)",
   "select_channel": "Select at most 3 slack channels",
+  "study_groups": "study groups",
 
   // Discussion
   "discussion": "Discussion",
   "new_discussion": "Start a new Discussion",
   "discussion_topic": "Discussion Topic",
   "report_this_discussion": "Report This Discussion",
-  "report_discussion_message" : "We'll review the Discussion and remove anything that doesn't follow the Code Buddies Standards. We may also warn or disable the person responsible.",
-  "report_a_discussion" : "Report",
-  "discussion_has_been_reported" : "Reported Successfully.",
-  "discussion_reported_message" : "We appreciate your assistance in maintaining the quality of this community.",
+  "report_discussion_message":
+    "We'll review the Discussion and remove anything that doesn't follow the Code Buddies Standards. We may also warn or disable the person responsible.",
+  "report_a_discussion": "Report",
+  "discussion_has_been_reported": "Reported Successfully.",
+  "discussion_reported_message":
+    "We appreciate your assistance in maintaining the quality of this community.",
+  "discussions": "discussions",
+  "hangouts_organized": "hangouts organized",
+  "learnings_reported": "learnings reported",
 
   // alerts
   "alert_language_change": "Language changed to %s",

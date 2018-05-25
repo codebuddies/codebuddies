@@ -1,6 +1,32 @@
 <template name="homeLoggedOut">
   <div class="section home-top">
     <div class="container">
+      <div class="statistic-row">
+        <div class="statistic-circle">
+          <div class="statistic-content">
+            <p class="total">{{ instance.hangoutsCount.get }}</p>
+            <p class="category">{{_ "hangouts_organized"}}</p>
+          </div>
+        </div>
+        <div class="statistic-circle">
+          <div class="statistic-content">
+            <p class="total">{{ instance.learningsCount.get }}</p>
+            <p class="category">{{_ "learnings_reported"}}</p>
+          </div>
+        </div>
+        <div class="statistic-circle">
+          <div class="statistic-content">
+            <p class="total">{{ instance.studyGroupCount.get }}</p>
+            <p class="category">{{_ "study_groups"}}</p>
+          </div>
+        </div>
+        <div class="statistic-circle">
+          <div class="statistic-content">
+            <p class="total">{{ instance.discussionCount.get }}</p>
+            <p class="category">{{_ "discussions"}}</p>
+          </div>
+        </div>
+      </div>
       <div class="row">
         <div class="col-md-12">
 
@@ -12,8 +38,8 @@
               <div class="slack-invite">
                 <script async defer src="https://codebuddiesmeet.herokuapp.com/slackin.js?large"></script>
               </div>
-              <p>Already have an account with us? <a href="#" class="signIn link">Sign in.</a>
-              <br />Select <strong>CodeBuddies</strong> or sign into the <strong>codebuddies</strong>.slack.com team.</p>
+              <p>Sign in with <a href="#" class="signIn link">Slack</a> or <a href="#" class="signInGithub link">Github</a>.
+              <br />If Slack, sign in to the <strong>codebuddies</strong>.slack.com team.</p>
             </div>
           </div>
           <div class="row">
@@ -208,10 +234,8 @@
         <div class="col-md-12">
           <h2>Start learning with us now!</h2>
           <div class="join-slack">
-            <div class="slack-invite">
-              <script async defer src="https://codebuddiesmeet.herokuapp.com/slackin.js?large"></script>
-            </div>
-            <p>Already have an account with us? <a href="#" class="signIn link">Sign in.</a>
+            <p>Get your Slack invite <a href="https://codebuddiesmeet.herokuapp.com" class="link" target="_blank">here</a>.
+            <br />Sign in with <a href="#" class="signIn link">Slack</a> or <a href="#" class="signInGithub link">Github</a>.
             <br />Select <strong>CodeBuddies</strong> or sign into the <strong>codebuddies</strong>.slack.com team.</p>
           </div>
         </div>

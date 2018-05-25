@@ -1,19 +1,17 @@
-Template.statusList.onCreated(function () {
-   var instance = this;
-
+Template.statusList.onCreated(function() {
+  var instance = this;
   // initialize the reactive variables
   instance.loaded = new ReactiveVar(0);
   instance.limit = new ReactiveVar(5);
 
-  instance.autorun(function () {
-
+  instance.autorun(function() {
     // get the limit
     var limit = instance.limit.get();
 
     //console.log("Asking for "+limit+" learnings…")
 
     // subscribe to the posts publication
-    var subscription = instance.subscribe('learnings', limit);
+    var subscription = instance.subscribe("learnings", limit);
 
     // if subscription is ready, set limit to newLimit
     if (subscription.ready()) {
@@ -24,47 +22,59 @@ Template.statusList.onCreated(function () {
     }
   });
   instance.learnings = function() {
-    return Learnings.find({}, {limit: instance.loaded.get(), sort: {created_at: -1}});
-  }
-
+    return Learnings.find(
+      {},
+      { limit: instance.loaded.get(), sort: { created_at: -1 } }
+    );
+  };
 });
 Template.statusList.helpers({
-  usersOnlineCount:function(){
+  usersOnlineCount: function() {
     return Meteor.users.find({ "status.online": true }).count();
   },
-  usersOnline:function(){
+  usersOnline: function() {
     return Meteor.users.find({ "status.online": true });
   },
   isWorking: function(type) {
-    return type == 'working';
+    return type == "working";
   },
   learnedUsersCount: function() {
     return Learnings.find({}).count();
   },
-  learnings: function () {
+  learnings: function() {
     return Template.instance().learnings();
   },
   // are there more posts to show?
-  hasMoreLearnings: function () {
-    return Template.instance().learnings().count() >= Template.instance().limit.get();
+  hasMoreLearnings: function() {
+    return (
+      Template.instance()
+        .learnings()
+        .count() >= Template.instance().limit.get()
+    );
   }
 });
 
 Template.statusList.events({
-  'click #load-more-learnings': function (event, instance) {
-      event.preventDefault();
+  "click #load-more-learnings": function(event, instance) {
+    event.preventDefault();
 
-      // get current value for limit, i.e. how many posts are currently displayed
-      var limit = instance.limit.get();
+    // get current value for limit, i.e. how many posts are currently displayed
+    var limit = instance.limit.get();
 
-      // increase limit by 5 and update it
-      limit += 5;
-      instance.limit.set(limit);
-    },
-  'click .signIn': function(event) {
-      var options = {
-        requestPermissions: ['identify', 'users:read']
-      };
-      Meteor.loginWithSlack(options);
+    // increase limit by 5 and update it
+    limit += 5;
+    instance.limit.set(limit);
+  },
+  "click .signIn": function(event) {
+    var options = {
+      requestPermissions: ["identity.basic", "identity.email"]
+    };
+    Meteor.loginWithSlack(options);
+  },
+  "click .signInGithub": function(event) {
+    var options = {
+      requestPermissions: ["read:user", "user:email"]
+    };
+    Meteor.loginWithGithub(options);
   }
 });
