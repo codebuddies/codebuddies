@@ -1,1 +1,1 @@
-FROM codebuddiesdotorg/minimeteor
+FROM aedm/minimeteor

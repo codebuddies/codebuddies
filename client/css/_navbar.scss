@@ -1,3 +1,13 @@
+.banner-notification {
+    background: $banner;
+    color: $primary-grey;
+    padding: 5px;
+    text-align: center;
+    a {
+        color: $primary-grey;
+        text-decoration: underline;
+    }
+}
 .navbar {
   margin-bottom: 0;
 
