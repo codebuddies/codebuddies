@@ -21,11 +21,6 @@
           text-align: left;
           margin: 10px;
       }
-      h3 {
-          text-align: left;
-          margin: 10px;
-          color: $white;
-      }
       p {
         @include font-face(200, 22px, normal, $black);
         margin: 10px;
