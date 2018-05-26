@@ -1,3 +1,20 @@
+.banner-notification {
+    background: $banner;
+    color: $primary-grey;
+    border-top: 1px solid $white;
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+    a {
+        color: $primary-grey;
+        text-decoration: underline;
+    }
+    button {
+        display: inline;
+        text-decoration: none;
+    }
+    label { font-weight: 400; }
+}
 .navbar {
   margin-bottom: 0;
 

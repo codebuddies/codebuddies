@@ -1,5 +1,7 @@
 <template name="header">
   {{> connectionBanner}}
+  <div class="banner-notification">New: <a href="/coworking"><i class="fa fa-desktop"></i> 24/7 space for silent productivity</a> and <i class="fa fa-connectdevelop"></i> <a href="http://bit.ly/codebuddies-connect" target="_blank">CodeBuddies Connect</a></div>
+  {{# unless user.profile.privacyResponse}}{{#if currentUser}}{{> privacyAgreement}}{{/if}}{{/unless}}
   <nav class="navbar navbar-default navbar-static-top" role="navigation">
     <div class="container">
       <!-- Brand and toggle get grouped for better mobile display -->

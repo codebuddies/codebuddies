@@ -2,7 +2,8 @@
   <div class="status-list">
     {{#if isWorking type}}
       {{#unless currentUser}}
-        <p class="align-center">Please <a href="#" class="signIn">sign in to codebuddies.slack.com</a> to see current users online. (<a href="http://codebuddiesmeet.herokuapp.com" target="_blank">Get account</a>)</p>
+        <p class="align-center">Please <a href="#" class="signIn">sign in with <i class="fa fa-slack"></i> Slack</a> or <a href="#" class="signInGithub link">sign in with <i class="fa fa-github"></i> Github</a> to see the current users online.</p>
+        <p><i class="fa fa-slack"></i><a href="http://codebuddiesmeet.herokuapp.com" target="_blank"> Join the CodeBuddies Slack</a></p>
       {{else}}
           <div class="title">{{_ "learning_message" count=usersOnlineCount}}</div>
           {{#each usersOnline}}

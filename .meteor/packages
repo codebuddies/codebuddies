@@ -61,3 +61,8 @@ accounts-github@1.4.1
 dynamic-import
 standard-minifier-js
 browser-policy
+montiapm:agent
+mongo-livedata
+meteorhacks:meteorx
+lmieulet:meteor-coverage
+harrison:papa-parse
