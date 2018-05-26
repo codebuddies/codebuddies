@@ -2,7 +2,7 @@
 import { UnsubscribeLinks } from "../../../imports/api/unsubscribe_links/unsubscribe_links";
 Template.unsubscribeFromMailingList.onCreated(function() {
   const instance = this;
-  instance.processing = new ReactiveVar(true);
+  instance.processing = new ReactiveVar(false);
   instance.subscribe(
     "unsubscribe.link",
     FlowRouter.getParam("unsubscribeLinkId")
