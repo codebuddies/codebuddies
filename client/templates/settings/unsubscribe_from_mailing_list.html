@@ -7,7 +7,7 @@
             {{#if valid}}
 
               <h5>
-                Are you want to unsubscribe from
+                Are you sure you want to unsubscribe from
                 {{#if equals email_type 'new_member'}} "New Member" {{/if}}
                 {{#if equals email_type 'new_hangout'}} "New Hangout" {{/if}}
                 {{#if equals email_type 'new_discussion'}} "New Discussion" {{/if}}
@@ -24,7 +24,7 @@
 
             {{else}}
               <i class="fa fa-exclamation-triangle fa-4x" aria-hidden="true"></i>
-              <h5>This link has been expired.</h5>
+              <h5>This link has expired.</h5>
             {{/if}}
           {{/with}}
         {{else}}
