@@ -65,9 +65,9 @@ slackNotification = function(hangout, type, hangoutChannels) {
     } and finish on ${hangout.end}. Visit ${Meteor.absoluteUrl(
       "hangout/" + hangout._id
     )}`;
-    pretext = `Reminder! ${hangout.type} hangout: *${
+    pretext = `Update: ${hangout.type} hangout: *${
       hangout.topic
-    }* is scheduled at a different time!`;
+    }* has been scheduled at a different time!`;
   }
 
   let date_start, now_value, now_formatted_time, difference, minutes;
