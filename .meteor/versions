@@ -68,7 +68,7 @@ lai:collection-extensions@0.2.1_1
 launch-screen@1.1.1
 less@2.7.12
 livedata@1.0.18
-lmieulet:meteor-coverage@1.1.4
+lmieulet:meteor-coverage@2.0.2
 localstorage@1.2.0
 logging@1.1.20
 markdown@1.0.12
