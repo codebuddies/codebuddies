@@ -4,10 +4,16 @@
     background-size: cover;
     background-position: 0 -160px;
     height: 450px;
-    h2 { @include font-face(700, 4em, bold, $bg-white); text-align: center; margin: 0px; padding-top: 50px; text-shadow: 4px 4px $black;
-}
-    p { @include font-face(700, 2em, bold, $bg-white); text-align: center; padding-top: 30px; text-shadow: 4px 4px $black;
-}
+    h2 { 
+         @include font-face(700, 3em, bold, $bg-white); text-align: center; margin: 0px; padding-top: 50px; text-shadow: 4px 4px $black; overflow-wrap: break-word;
+    }
+    p { 
+        @include font-face(700, 1.5em, bold, $bg-white); text-align: center; padding-top: 30px; text-shadow: 4px 4px $black;
+    }
+    @include breakpoint(medium) {
+       h2 { font-size: 4em; }
+       p { font-size: 2em; }
+    }
   }
   .section {
       margin-top: 10px;
