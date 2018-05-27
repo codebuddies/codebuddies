@@ -59,6 +59,16 @@ slackNotification = function(hangout, type, hangoutChannels) {
       hangout.type
     }* hangout has been scheduled by a fellow CodeBuddies member!`;
   }
+  if (type === "UPDATE") {
+    fallback = `Update: hangout ${hangout.topic} has been revised to start on ${
+      hangout.start
+    } and finish on ${hangout.end}. Visit ${Meteor.absoluteUrl(
+      "hangout/" + hangout._id
+    )}`;
+    pretext = `Update: ${hangout.type} hangout: *${
+      hangout.topic
+    }* has been scheduled at a different time!`;
+  }
 
   let date_start, now_value, now_formatted_time, difference, minutes;
   date_start = moment.utc(hangout.start);
@@ -205,13 +215,25 @@ studyGroupFacebookNotification = function(studyGroup, studyGroupId) {
 
 hangoutFacebookNotification = function(hangout, type) {
   const hangoutUrl = Meteor.absoluteUrl(`hangout/${hangout._id}`);
-  const pretext = `A CodeBuddies member has scheduled a ${
-    hangout.type
-  } hangout with the topic "${hangout.topic}" in the "${
-    hangout.group.title
-  }" study group!\n\nWHEN:\n ${time_left} \n\nRSVP:\n ${hangoutUrl}\n\nDESCRIPTION:\n ${
-    hangout.description
-  }`;
+  let pretext = "";
+  if (type === "NEW") {
+    pretext = `A CodeBuddies member has scheduled a ${
+      hangout.type
+    } hangout with the topic "${hangout.topic}" in the "${
+      hangout.group.title
+    }" study group!\n\nWHEN:\n ${time_left} \n\nRSVP:\n ${hangoutUrl}\n\nDESCRIPTION:\n ${
+      hangout.description
+    }`;
+  }
+  if (type === "UPDATE") {
+    pretext = `A CodeBuddies member has *rescheduled* a ${
+      hangout.type
+    } hangout with the topic "${hangout.topic}" in the "${
+      hangout.group.title
+    }" study group!\n\nWHEN:\n ${time_left} \n\nRSVP:\n ${hangoutUrl}\n\nDESCRIPTION:\n ${
+      hangout.description
+    }`;
+  }
   facebookAlert({ text: pretext });
 };
 

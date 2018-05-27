@@ -1,0 +1,37 @@
+<template name="unsubscribeFromMailingList">
+  <div class="jumbotron align-center">
+    <div class="container">
+      <div class="row">
+        {{#if Template.subscriptionsReady}}
+          {{#with unsubscribeLink}}
+            {{#if valid}}
+
+              <h5>
+                Are you sure you want to unsubscribe from
+                {{#if equals email_type 'new_member'}} "New Member" {{/if}}
+                {{#if equals email_type 'new_hangout'}} "New Hangout" {{/if}}
+                {{#if equals email_type 'new_discussion'}} "New Discussion" {{/if}}
+                {{#if equals email_type 'new_discussion_response'}} discussion <i>{{discussion_topic}}'s</i> {{/if}}
+                email notifications?
+              </h5>
+
+              {{#unless instance.processing.get}}
+                <div class="btn btn-primary" id="updateEmailPreferences"> Yes </div>
+                <div class="btn btn-default" id="cancel"> No </div>
+              {{else}}
+                <button type="button" class="btn btn-primary btn-block disabled"><i class="fa fa-refresh fa-spin"></i> Processing </button>
+              {{/unless}}
+
+            {{else}}
+              <i class="fa fa-exclamation-triangle fa-4x" aria-hidden="true"></i>
+              <h5>This link has expired.</h5>
+            {{/if}}
+          {{/with}}
+        {{else}}
+          {{> loading}}
+        {{/if}}
+
+      </div>
+     </div>
+  </div>
+</template>

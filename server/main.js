@@ -1,4 +1,5 @@
 import md5 from "md5";
+import "/imports/startup/server";
 
 Meteor.startup(function() {
   // fire off cron jobs
