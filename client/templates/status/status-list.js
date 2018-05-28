@@ -3,6 +3,7 @@ Template.statusList.onCreated(function() {
   // initialize the reactive variables
   instance.loaded = new ReactiveVar(0);
   instance.limit = new ReactiveVar(5);
+  instance.totalNumberOfLearnings = new ReactiveVar(0);
 
   instance.autorun(function() {
     // get the limit
@@ -20,6 +21,16 @@ Template.statusList.onCreated(function() {
     } else {
       //console.log("> Subscription is not ready yet. \n\n");
     }
+
+    // get total number of learnings
+    Meteor.call("getTotalNumberOfLearnings", function(error, result) {
+      if (error) {
+        console.log("error", error);
+      }
+      if (result) {
+        instance.totalNumberOfLearnings.set(result);
+      }
+    });
   });
   instance.learnings = function() {
     return Learnings.find(
@@ -39,7 +50,7 @@ Template.statusList.helpers({
     return type == "working";
   },
   learnedUsersCount: function() {
-    return Learnings.find({}).count();
+    return Template.instance().totalNumberOfLearnings.get();
   },
   learnings: function() {
     return Template.instance().learnings();

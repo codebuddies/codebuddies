@@ -105,7 +105,8 @@ Template.hangoutFrame.events({
   "click .load-hangout": function(event, template) {
     const data = {
       room: this._id || template.data.hroom,
-      username: Meteor.user().username || template.data.huser,
+      username:
+        (Meteor.user() && Meteor.user().username) || template.data.huser,
       type: template.data.htype || this.type,
       avatar: template.data.havatar || Meteor.user().profile.avatar.default
     };
