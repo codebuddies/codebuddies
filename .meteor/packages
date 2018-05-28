@@ -68,7 +68,7 @@ lmieulet:meteor-coverage
 harrison:papa-parse
 stylus@=2.513.14
 practicalmeteor:chai
-
 meteortesting:browser-tests
 meteortesting:mocha
 practicalmeteor:mocha-core
+
