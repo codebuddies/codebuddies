@@ -83,6 +83,8 @@ meteorhacks:meteorx@1.4.1
 meteorhacks:picker@1.0.3
 meteorhacks:ssr@2.2.0
 meteorspark:util@0.2.0
+meteortesting:browser-tests@1.0.0
+meteortesting:mocha@1.0.0
 meteortoys:toykit@2.2.1
 minifier-js@2.3.4
 minimongo@1.4.4
