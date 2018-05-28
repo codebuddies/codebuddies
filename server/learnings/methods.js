@@ -124,3 +124,15 @@ Meteor.methods({
     );
   }
 });
+
+/**
+ * Get Total number of learnings.
+ * @function
+ * @name getTotalNumberOfLearnings
+ * @return { Number } learning count
+ */
+Meteor.methods({
+  getTotalNumberOfLearnings() {
+    return Learnings.find().count();
+  }
+});
