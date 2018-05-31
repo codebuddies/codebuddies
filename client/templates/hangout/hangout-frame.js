@@ -21,7 +21,7 @@ Template.hangoutFrame.onCreated(function() {
     let room = "cb" + data.room;
     let width = "100%";
     let height = 550;
-    let configOverwrite = { startVideoMuted: 0 };
+    let configOverwrite = { startWithVideoMuted: true };
     let interfaceConfigOverwrite = {};
     let htmlElement = document.getElementById("hangout-container");
 
