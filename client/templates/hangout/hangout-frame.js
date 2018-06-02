@@ -1,7 +1,8 @@
 Template.hangoutFrame.onCreated(function() {
   let instance = this;
-  instance.joinedHangout = false;
-  instance.room = new ReactiveVar(`cb${instance.data._id}`);
+  instance.room = new ReactiveVar(
+    `cb${instance.data._id || instance.data.hroom}`
+  );
 
   instance.autorun(() => {
     instance.subscribe("hangoutParticipants", instance.room.get());
@@ -55,14 +56,9 @@ Template.hangoutFrame.onCreated(function() {
       FlowRouter.go("all study groups");
     });
 
-    Meteor.call("joinParticipant", instance.room.get(), function(
-      error,
-      result
-    ) {
+    Meteor.call("joinParticipant", room, function(error, result) {
       if (error) {
         return Bert.alert(error.reason, "danger", "growl-top-right");
-      } else {
-        instance.joinedHangout = true;
       }
     });
   };
@@ -113,25 +109,9 @@ Template.hangoutFrame.events({
     return template.loadJitsi(data);
   },
   "click #joinHere": function(event, template) {
-    const hangout_id = `cb${this._id}`;
+    const hangout_id = `cb${this._id || template.data.hroom}`;
 
     Meteor.call("joinParticipant", hangout_id, function(error, result) {
-      if (error) {
-        return Bert.alert(error.reason, "danger", "growl-top-right");
-      }
-    });
-  }
-});
-
-Template.hangoutFrame.onDestroyed(function() {
-  //Template.instance().disposeJitsi();
-  //Remove for now (see: issue 461)
-  const joinedHangout = Template.instance().joinedHangout;
-  if (joinedHangout && joinedHangout === true) {
-    Meteor.call("leaveParticipant", Template.instance().room.get(), function(
-      error,
-      result
-    ) {
       if (error) {
         return Bert.alert(error.reason, "danger", "growl-top-right");
       }
@@ -146,5 +126,12 @@ Template.hangoutFrame.helpers({
       return appState.participants.length;
     }
     return 0;
+  }
+});
+
+Template.hangoutFrame.onDestroyed(function() {
+  const hangoutId = Template.instance().room.get();
+  if (hangoutId) {
+    Meteor.call("leaveParticipant", hangoutId);
   }
 });

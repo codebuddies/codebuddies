@@ -1,6 +1,6 @@
 <template name="coworking">
   <div id="coworking">
-  
+
       <div class="wrapper">
           <div class="coworking-top">
               <h2>24/7 space for silent productivity</h2>
@@ -25,7 +25,7 @@
                         </ol>
                     </div>
                  </div>
-                {{> hangoutFrame hroom='' huser='guest' havatar='https://codebuddies.org/images/logo-circle.svg' htype='silent'}}
+                {{> hangoutFrame hroom='coworking' huser='guest' havatar='https://codebuddies.org/images/logo-circle.svg' htype='silent'}}
                 {{#if currentUser}}
                     {{> hangoutLearned}}
                     {{> statusList type="learnings"}}
@@ -35,7 +35,7 @@
         </div>
     </div>
 
-   
+
 
   </div><!--coworking-->
 
