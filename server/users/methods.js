@@ -39,9 +39,9 @@ Meteor.methods({
           "profile.social.github": profileInfo.github,
           "profile.social.facebook": profileInfo.facebook,
           "profile.social.linkedin": profileInfo.linkedin,
-          "profile.social.patreon": profileInfo.patreon,
-          "profile.social.nonprofit": profileInfo.nonprofit,
-          "profile.social.buymeacoffee": profileInfo.buymeacoffee
+          "profile.support_links.patreon": profileInfo.patreon,
+          "profile.support_links.nonprofit": profileInfo.nonprofit,
+          "profile.support_links.buymeacoffee": profileInfo.buymeacoffee
         }
       }
     );
@@ -174,5 +174,31 @@ Meteor.methods({
     );
 
     return true;
+  }
+});
+
+/**
+ * get users support link
+ * @function
+ * @name users.getSupportLinks
+ * @param { String } - userId
+ * @return {Object}
+ */
+
+Meteor.methods({
+  "users.getSupportLink"(userId) {
+    check(userId, String);
+
+    const user = Meteor.users.findOne(
+      { _id: userId },
+      { fields: { "profile.support_links": 1 } }
+    );
+    if (user && user.profile && user.profile.support_links) {
+      console.log("here");
+
+      return user.profile.support_links;
+    } else {
+      return null;
+    }
   }
 });

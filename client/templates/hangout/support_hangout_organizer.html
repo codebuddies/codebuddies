@@ -1,0 +1,42 @@
+<template name="supportHangoutOrganizer">
+    {{#with supportLinks}}
+      <div class="alert alert-warning margin-top-1 margin-bottom-1 alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+        Did you learn a lot in this hangout?
+        {{# if buymeacoffee}}
+           <br> You can show the hangout organizer your appreciation by buying them a coffee! &nbsp; &nbsp;
+          <a href="https://www.buymeacoffee.com/{{buymeacoffee}}" target="_blank">
+            <i class="fa fa-coffee" aria-hidden="true"></i>
+          </a>
+        {{/if}}
+        {{# if patreon}}
+          <br>  You can support them on patreon ! &nbsp; &nbsp;
+          <a href="{{patreon}}" target="_blank">
+          <i class="fab fa-patreon"></i>
+          </a>
+        {{/if}}
+        {{# if nonprofit}}
+          <br>  You can support their cause ! &nbsp; &nbsp;
+          <a href="{{nonprofit}}" target="_blank">
+            <i class="fa fa-heart-o" aria-hidden="true"></i>
+          </a>
+        {{/if}}
+      </div>
+    {{else}}
+      {{#if equals currentUser._id instance.data.organizerId}}
+      <div class="alert alert-warning margin-top-1 margin-bottom-1 alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <p>
+           <i class="fa fa-coffee" aria-hidden="true"></i> Set up your Buy Me A Coffee or Patreon links so that the community can tip you for being a great hangout organizer!
+           <a href="#" id='editProfileInfo'>edit profile</a>
+        </p>
+        <p>
+          You can also choose to feature a non-profit people can donate to.
+        </p>
+      </div>
+      {{/if}}
+
+    {{/with}}
+
+</template>

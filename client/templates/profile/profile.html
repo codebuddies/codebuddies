@@ -62,24 +62,26 @@
                     <i class="fa fa-linkedin" aria-hidden="true"></i>
                   </a>
                 {{/if}}
-                {{# if profile.social.buymeacoffee}}
-                  <a href="https://www.buymeacoffee.com/{{profile.social.buymeacoffee}}" target="_blank">
-                    <i class="fa fa-coffee" aria-hidden="true"></i>
-                  </a>
-                {{/if}}
-                {{# if profile.social.patreon}}
-                  <a href="{{profile.social.patreon}}" target="_blank">
-                    <i class="fab fa-patreon"></i>
-                  </a>
-                {{/if}}
-                {{# if profile.social.nonprofit}}
-                  <a href="{{profile.social.nonprofit}}" target="_blank">
-                    <i class="fa fa-heart-o" aria-hidden="true"></i>
-                  </a>
-                {{/if}}
                 {{# if profile.website}}
                   <a href="{{profile.website}}" target="_blank">
                     <i class="fa fa-globe" aria-hidden="true"></i>
+                  </a>
+                {{/if}}
+              </div>
+              <div class="social-icons">
+                {{# if profile.support_links.buymeacoffee}}
+                  <a href="https://www.buymeacoffee.com/{{profile.support_links.buymeacoffee}}" target="_blank">
+                    <i class="fa fa-coffee" aria-hidden="true"></i>
+                  </a>
+                {{/if}}
+                {{# if profile.support_links.patreon}}
+                  <a href="{{profile.support_links.patreon}}" target="_blank">
+                  <i class="fab fa-patreon"></i>
+                  </a>
+                {{/if}}
+                {{# if profile.support_links.nonprofit}}
+                  <a href="{{profile.support_links.nonprofit}}" target="_blank">
+                    <i class="fa fa-heart-o" aria-hidden="true"></i>
                   </a>
                 {{/if}}
               </div>
