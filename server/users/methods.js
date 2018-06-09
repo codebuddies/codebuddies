@@ -16,9 +16,13 @@ Meteor.methods({
       twitter: String,
       github: String,
       facebook: String,
-      linkedin: String
+      linkedin: String,
+      buymeacoffee: String,
+      patreon: String,
+      nonprofit: String
     };
-    check(profileInfo, pattern);
+
+    // check(profileInfo, pattern);
     if (!this.userId) {
       throw new Meteor.Error(
         "users.methods.setUserProfile.not-logged-in",
@@ -34,7 +38,10 @@ Meteor.methods({
           "profile.social.twitter": profileInfo.twitter,
           "profile.social.github": profileInfo.github,
           "profile.social.facebook": profileInfo.facebook,
-          "profile.social.linkedin": profileInfo.linkedin
+          "profile.social.linkedin": profileInfo.linkedin,
+          "profile.social.patreon": profileInfo.patreon,
+          "profile.social.nonprofit": profileInfo.nonprofit,
+          "profile.social.buymeacoffee": profileInfo.buymeacoffee
         }
       }
     );

@@ -3,6 +3,10 @@
   <section class="profile-top">
     <div class="container">
       <div class="row">
+
+        {{#if instance.isProfileModeEdit}}
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        {{/if}}
         {{#if editMode}}
           {{#with userInfo}}
             {{> profileEdit}}
@@ -13,7 +17,7 @@
               <img src="{{#if profile.avatar.image_192 }} {{profile.avatar.image_192}} {{else}} {{profile.avatar.default}} {{/if}}" class="img-circle avatar profile-avatar" alt="profile image"/>
 
               {{#if isCurrentUserProfile currentUser}}
-                <a href="#profileEdit" class="btn-edit editProfile">
+                <a href="#" class="btn-edit editProfile">
                   <i class="fa fa-pencil" aria-hidden="true"></i>
                   {{_ "Edit Profile"}}
                 </a>
@@ -56,6 +60,21 @@
                 {{# if profile.social.linkedin}}
                   <a href="https://www.linkedin.com/in/{{profile.social.linkedin}}" target="_blank">
                     <i class="fa fa-linkedin" aria-hidden="true"></i>
+                  </a>
+                {{/if}}
+                {{# if profile.social.buymeacoffee}}
+                  <a href="https://www.buymeacoffee.com/{{profile.social.buymeacoffee}}" target="_blank">
+                    <i class="fa fa-coffee" aria-hidden="true"></i>
+                  </a>
+                {{/if}}
+                {{# if profile.social.patreon}}
+                  <a href="{{profile.social.patreon}}" target="_blank">
+                    <i class="fab fa-patreon"></i>
+                  </a>
+                {{/if}}
+                {{# if profile.social.nonprofit}}
+                  <a href="{{profile.social.nonprofit}}" target="_blank">
+                    <i class="fa fa-heart-o" aria-hidden="true"></i>
                   </a>
                 {{/if}}
                 {{# if profile.website}}
