@@ -2,7 +2,17 @@ Meteor.methods({
   joinParticipant: function(hangoutId) {
     check(hangoutId, String);
 
-    const actor = "guest" || Meteor.user();
+    // for guest user.
+    const guestUser = {
+      _id: "guest",
+      username: "username",
+      profile: {
+        avatar: {
+          default: "https://codebuddies.org/images/logo-circle.svg"
+        }
+      }
+    };
+    const actor = Meteor.user() || guestUser;
     if (!actor) {
       throw new Meteor.Error(403, "Access denied");
     }
@@ -10,9 +20,7 @@ Meteor.methods({
     const participant = {
       id: actor._id,
       username: "guest" || actor.username,
-      avatar:
-        "ttps://codebuddies.org/images/logo-circle.svg" ||
-        actor.profile.avatar.default
+      avatar: actor.profile.avatar.default
     };
 
     AppStats.upsert(
@@ -38,7 +46,8 @@ Meteor.methods({
   leaveParticipant: function(hangoutId) {
     check(hangoutId, String);
 
-    const actor = "guest" || Meteor.user();
+    // for guest user
+    const actor = Meteor.user() || { _id: "guest" };
     if (!actor) {
       throw new Meteor.Error(403, "Access denied");
     }
