@@ -32,7 +32,9 @@ var trusted = [
   "*.google-analytics.com",
   "*.twavatar.com",
   "twavatar.com",
-  "*.fontawesome.com"
+  "*.fontawesome.com",
+  "*.jsdelivr.net",
+  "*.kxcdn.com"
 ];
 
 _.each(trusted, function(origin) {
