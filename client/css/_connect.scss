@@ -1,0 +1,36 @@
+#connect {
+  .connect-top {
+    background: linear-gradient(to top, rgba(30, 144, 255, .5) 0%, rgba(30, 144, 255, .5) 0%, rgba(30, 144, 255, .5) 0%, rgba(30, 144, 255, .55) 18%, rgba(30, 144, 255, .64) 46%, rgba(3, 87, 232, .8) 100%), url(/images/language-logos.svg) center repeat;
+    padding: 100px 0;
+    h2 { @include font-face(700, 32px, bold, $bg-white); text-align: center; }
+    }
+    p {  @include font-face(700, 18px, bold, $bg-white); text-align: center; }
+    form#connect { 
+        display: flex;
+        justify-content: center;
+        label { 
+            display: block;
+            background: $cta-dark;
+            color: $white;
+            padding: 10px;
+           
+        }
+        input[type="radio"] { display: none; }
+        label:hover {
+            cursor: pointer;
+            background: $cta-blue;
+        }
+        input[type="radio"]:checked + label {
+            background: $cta-blue;
+        }
+        section {
+            flex-direction: row;
+            display: inline-block;
+            margin: 10px;
+        }
+       #partner, #project, #feedback, #mentor {
+            display: none;
+        }
+    }
+
+ }
