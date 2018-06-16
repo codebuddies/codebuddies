@@ -194,8 +194,6 @@ Meteor.methods({
       { fields: { "profile.support_links": 1 } }
     );
     if (user && user.profile && user.profile.support_links) {
-      console.log("here");
-
       return user.profile.support_links;
     } else {
       return null;
