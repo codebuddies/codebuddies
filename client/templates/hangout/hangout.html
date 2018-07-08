@@ -55,7 +55,7 @@
               {{/if}}
 
 
-            </p>          
+            </p>
             <!-- hangout actions buttons -->
             {{> hangoutActionButtons }}
 
@@ -95,6 +95,7 @@
               <a class="{{#if currentUser}}{{# unless isHangoutCompleted end}} join-hangout {{/unless }} {{else}} continue-popup {{/if}}"><img src="/images/logo-circle-cropped.png" width="65%" class="load-hangout-screenshot display-block centered margin-top-1"/></a>
             {{/if}}
 
+            {{> supportHangoutOrganizer organizerId=host.id}}
             <h3>Goals of hangout {{> hangoutActionBar }}</h3>
             <p id="hangout-description" class="margin-1">
               {{{formatDescription this}}}
