@@ -61,5 +61,14 @@ accounts-github@1.4.1
 dynamic-import
 standard-minifier-js
 browser-policy
-meteortesting:mocha
+montiapm:agent
+mongo-livedata
+meteorhacks:meteorx
+lmieulet:meteor-coverage
+harrison:papa-parse
+stylus@=2.513.14
 practicalmeteor:chai
+meteortesting:browser-tests
+meteortesting:mocha
+practicalmeteor:mocha-core
+
