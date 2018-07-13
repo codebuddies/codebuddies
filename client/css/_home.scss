@@ -434,6 +434,67 @@
     padding-bottom: 100px;
   }
 
+  .home-testimonials {
+    background: $bg-white;
+    text-align: center;
+
+    h2 {
+      text-align: center;
+      margin: 100px 0px 10px 0px;
+    }
+
+    h3 {
+      @include font-face(700, 18px, bold, $primary-grey);
+    }
+
+    p {
+      padding: 35px;
+    }
+
+    padding-bottom: 100px;
+  }
+
+  .testimonial-bubble {
+    background-color: $bg-lightgrey;
+    border-radius: 25px;
+    margin: 60px 20px;
+    position: relative;
+  }
+
+  /*testimonial-bubble triangle*/
+  .bubble-left:after {
+    content: "";
+    position: absolute;
+    bottom: -25px;
+    right: 50px;
+    border-width: 25px 25px 0;
+    border-style: solid;
+    border-color: $bg-lightgrey transparent;
+  }
+
+  .bubble-right:after {
+    content: "";
+    position: absolute;
+    bottom: -25px;
+    left: 50px;
+    border-width: 25px 25px 0;
+    border-style: solid;
+    border-color: $bg-lightgrey transparent;
+  }
+
+  .testimonial {
+    font-size: 1.35em;
+    line-height: 1.1em;
+    text-align: left;
+  }
+
+  .quote-icons {
+    color: $warm-grey;
+    float: left;
+    padding: 20px 10px 90px 20px;
+    font-size: 1.2em;
+  }
+
   .home-ask {
     padding: 60px 0px;
     text-align: center;
