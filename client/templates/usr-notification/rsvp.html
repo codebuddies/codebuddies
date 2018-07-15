@@ -14,9 +14,9 @@
           {{#each notifications}}
             {{#if anyAttendees count}}
               {{#if isSingular count}}
-                <p class="alert {{#if seen}}  {{else}} markAsRead alert-info{{/if}}"><i class="fa fa-bell" aria-hidden="true"> </i> 1 person RSVPed to your <a href="{{pathFor 'hangout'}}/{{hangoutId}}"> Hangout. </a> {{dispDate date}}</p>
+                <p class="alert {{#if seen}}  {{else}} markAsRead alert-info{{/if}}"><i class="fas fa-bell" aria-hidden="true"> </i> 1 person RSVPed to your <a href="{{pathFor 'hangout'}}/{{hangoutId}}"> Hangout. </a> {{dispDate date}}</p>
                 {{else}}
-                <p class="alert {{#if seen}}  {{else}} markAsRead alert-info{{/if}}"><i class="fa fa-bell" aria-hidden="true"> </i> {{count}} people RSVPed to your <a href="{{pathFor 'hangout'}}/{{hangoutId}}"> Hangout. </a> {{dispDate date}} </p>
+                <p class="alert {{#if seen}}  {{else}} markAsRead alert-info{{/if}}"><i class="fas fa-bell" aria-hidden="true"> </i> {{count}} people RSVPed to your <a href="{{pathFor 'hangout'}}/{{hangoutId}}"> Hangout. </a> {{dispDate date}} </p>
               {{/if}}
             {{/if}}
 

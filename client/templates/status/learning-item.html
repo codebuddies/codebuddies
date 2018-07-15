@@ -4,7 +4,7 @@
           <div class="kudo-holder display-inline">
               <label class="kudo-count {{#unless currentUser}} continue-popup {{/unless}}">
 
-                <i class="fa fa-angle-up fa-2x btn-{{#if buttonStatus}}un{{/if}}like  btn-learning btn-xs"></i>
+                <i class="fas fa-angle-up fa-2x btn-{{#if buttonStatus}}un{{/if}}like  btn-learning btn-xs"></i>
 
               <p class="align-center">{{kudos}}</p>
             </label>
@@ -16,7 +16,7 @@
              <a href="{{pathFor 'profile' name=username userId=userId}}" class="{{#unless currentUser}} continue-popup {{/unless}}"><span class="username">{{username}}</span></a>
               <label class="status">
                   {{#if isOwner}}
-                    <span class="{{#unless currentUser}} continue-popup {{else}} delete-learning {{/unless}}"><i class="fa fa-trash-o"></i></span> <a class="{{#unless currentUser}} continue-popup {{else}} edit-learning {{/unless}}">(Edit)</a>
+                    <span class="{{#unless currentUser}} continue-popup {{else}} delete-learning {{/unless}}"><i class="far fa-trash-alt"></i></span> <a class="{{#unless currentUser}} continue-popup {{else}} edit-learning {{/unless}}">(Edit)</a>
                   {{/if}}
               </label>
               <p class="learning-title">{{{ learningTitle }}}</p>

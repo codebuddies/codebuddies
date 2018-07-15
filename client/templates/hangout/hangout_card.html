@@ -3,14 +3,14 @@
     <a href="{{pathFor 'hangout' hangoutId=_id }}" class="hangout-card {{#if isHangoutCompleted end }}completed{{/if}}" data-toggle="popover" data-placement="top" data-content="{{ getDescriptionTruncated description }}">
     <div class="card-header-wrapper">
       <div class="pull-left calendar">
-        <h4 class="hangout-topic {{#if isHangoutCompleted end }}completed{{/if}}">{{#if isHangoutCompleted end }}<i class="fa fa-check" aria-hidden="true"></i>{{/if}} {{truncate topic}}</h4>
+        <h4 class="hangout-topic {{#if isHangoutCompleted end }}completed{{/if}}">{{#if isHangoutCompleted end }}<i class="fas fa-check" aria-hidden="true"></i>{{/if}} {{truncate topic}}</h4>
         <h4 class="hangout-date {{#if isHangoutCompleted end }}completed{{/if}}">{{getHangoutStartDateDay start}}</h4>
         <h4 class="hangout-date {{#if isHangoutCompleted end }}completed{{/if}}">{{getHangoutStartTime start}}</h4>
-        {{#if isHangoutInProgress start end}} 
+        {{#if isHangoutInProgress start end}}
           <h5 class="in-progress"><span class="oval"></span> LIVE</h5>
         {{/if}}
         {{# unless isHangoutCompleted end}}
-          {{#unless isHangoutInProgress start end}} 
+          {{#unless isHangoutInProgress start end}}
             <p class="upcoming">{{#if equals visibility false}}{{_ "deleted"}}{{else}}{{upcomingTime start}}{{/if}}</p>
           {{/unless}}
         {{ else }}
@@ -18,11 +18,11 @@
         {{/unless}}
       </div>
       <div class="pull-right more-options">
-          <i class="fa {{getHangoutTypeSign type}}"></i>
+          <i class="fas {{getHangoutTypeSign type}}"></i>
          {{> hangoutActionBar}}
       </div>
     </div>
-    
+
     <h4 class="hangout-meta clear">
       <small class="hangout-details">
            Scheduled by
@@ -34,7 +34,7 @@
        </small>
         <small class="hangout-details details-extra">
             with {{users.length}} RSVPed <br/>
-            {{#if views}} <i class="fa fa-eye" aria-hidden="true" data-toggle="tooltip" title="Views" > {{views}} views </i> {{/if}}
+            {{#if views}} <i class="far fa-eye" aria-hidden="true" data-toggle="tooltip" title="Views" > {{views}} views </i> {{/if}}
         </small>
     </h4>
 
@@ -67,8 +67,8 @@
 
           {{/unless}}
         </div>
-        
-        
+
+
   </a>
 
 </template>

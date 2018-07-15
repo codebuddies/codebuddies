@@ -45,7 +45,7 @@ ejson@1.1.0
 email@1.2.3
 erasaur:meteor-lodash@4.0.0
 es5-shim@4.7.3
-fortawesome:fontawesome@4.7.0
+fortawesome:fontawesome@4.4.0_1
 fourseven:scss@3.13.0
 gadicohen:robots-txt@0.0.10
 gadicohen:sitemaps@0.0.26
