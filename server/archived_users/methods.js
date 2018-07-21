@@ -16,17 +16,20 @@ Meteor.methods({
 
     const user = Meteor.users.findOne({ _id: userId });
     let accessToken = null;
-    let result = null;
+    let resultSlack = null;
+    let resultGithub = null;
     if (user.services.slack && user.services.slack.accessToken) {
       accessToken = user.services.slack.accessToken;
       //removing access for codebuddies slack app
-      result = authRevoke(accessToken);
-    } else if (user.services.github && user.services.github.accessToken) {
-      accessToken = user.services.github.accessToken;
-      result = githubAuthRevoke(accessToken);
+      resultSlack = authRevoke(accessToken);
     }
 
-    if (result && result.ok) {
+    if (user.services.github && user.services.github.accessToken) {
+      accessToken = user.services.github.accessToken;
+      resultGithub = githubAuthRevoke(accessToken);
+    }
+
+    if ((resultSlack && resultSlack.ok) || (resultGithub && resultGithub.ok)) {
       //archiving user and incident report
       const auid = ArchivedUsers.insert({
         user: user,
