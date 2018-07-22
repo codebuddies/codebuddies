@@ -491,3 +491,22 @@ Meteor.methods({
     return true;
   }
 });
+
+Meteor.methods({
+  "discussions.archive": function(userId) {
+    check(userId, String);
+
+    if (this.userId !== userId) {
+      throw new Meteor.Error(
+        "Discussion.methods.removeDiscussions.not-logged-in",
+        "Must be logged in to Remove Discussions."
+      );
+    }
+
+    return Discussions.update(
+      { "author.id": userId },
+      { $set: { visibility: false } },
+      { multi: true }
+    );
+  }
+});

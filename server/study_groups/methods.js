@@ -599,3 +599,29 @@ Meteor.methods({
     return true;
   }
 });
+
+Meteor.methods({
+  removeStudyGroups: function(userId) {
+    check(userId, String);
+
+    if (this.userId !== userId) {
+      throw new Meteor.Error(
+        "StudyGroup.methods.removeStudyGroups.not-logged-in",
+        "Must be logged in to Remove Study Groups."
+      );
+    }
+
+    return StudyGroups.update(
+      {
+        members: {
+          $elemMatch: {
+            id: userId,
+            role: "owner"
+          }
+        }
+      },
+      { $set: { visibility: false } },
+      { multi: true }
+    );
+  }
+});
