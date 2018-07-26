@@ -70,3 +70,4 @@ practicalmeteor:chai
 meteortesting:browser-tests
 meteortesting:mocha
 practicalmeteor:mocha-core
+percolate:migrations
