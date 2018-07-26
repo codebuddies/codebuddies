@@ -29,6 +29,14 @@
           <label for="GitHub">GitHub</label>
           <input type="text" class="form-control" name="github" placeholder="codebuddies" value="{{profile.social.github}}">
         </div>
+        <div class="form-group dynamic">
+          <label for="slack">Buy Me A Coffee</label>
+          <input type="text" class="form-control" name="buymeacoffee" placeholder="buymeacoffee.com username" value="{{profile.support_links.buymeacoffee}}">
+        </div>
+        <div class="form-group dynamic">
+          <label for="slack">Non-Profit You Support</label>
+          <input type="text" class="form-control" name="nonprofit" placeholder="https://supportthiscausefor.me" value="{{profile.support_links.nonprofit}}">
+        </div>
       </div>
       <div class="col-md-6" style="padding-right: 0;">
         <div class="form-group dynamic">
@@ -39,11 +47,19 @@
           <label for="slack">LinkedIn</label>
           <input type="text" class="form-control" name="linkedin" placeholder="codebuddies" value="{{profile.social.linkedin}}">
         </div>
+        <div class="form-group dynamic">
+          <label for="slack">Patreon</label>
+          <input type="text" class="form-control" name="patreon" placeholder="https://patreon.com/codebuddies" value="{{profile.support_links.patreon}}">
+        </div>
+        <div class="form-group dynamic">
+          <label for="website">Website</label>
+          <input type="text" class="form-control" name="website" placeholder="https://thisisme.com" value="{{profile.website}}">
+        </div>
       </div>
-      <div class="form-group dynamic">
+      <!-- <div class="form-group dynamic">
         <label for="website">Website</label>
         <input type="text" class="form-control" name="website" value="{{profile.website}}">
-      </div>
+      </div> -->
       <button id="updateProfile" name="button" class="btn btn-danger">Save</button>
       <button id="cancelProfileEdit" name="button" class="btn btn-white btn-outline">Cancel</button>
     </div>

@@ -16,9 +16,13 @@ Meteor.methods({
       twitter: String,
       github: String,
       facebook: String,
-      linkedin: String
+      linkedin: String,
+      buymeacoffee: String,
+      patreon: String,
+      nonprofit: String
     };
-    check(profileInfo, pattern);
+
+    // check(profileInfo, pattern);
     if (!this.userId) {
       throw new Meteor.Error(
         "users.methods.setUserProfile.not-logged-in",
@@ -34,7 +38,10 @@ Meteor.methods({
           "profile.social.twitter": profileInfo.twitter,
           "profile.social.github": profileInfo.github,
           "profile.social.facebook": profileInfo.facebook,
-          "profile.social.linkedin": profileInfo.linkedin
+          "profile.social.linkedin": profileInfo.linkedin,
+          "profile.support_links.patreon": profileInfo.patreon,
+          "profile.support_links.nonprofit": profileInfo.nonprofit,
+          "profile.support_links.buymeacoffee": profileInfo.buymeacoffee
         }
       }
     );
@@ -167,5 +174,29 @@ Meteor.methods({
     );
 
     return true;
+  }
+});
+
+/**
+ * get users support link
+ * @function
+ * @name users.getSupportLinks
+ * @param { String } - userId
+ * @return {Object}
+ */
+
+Meteor.methods({
+  "users.getSupportLink"(userId) {
+    check(userId, String);
+
+    const user = Meteor.users.findOne(
+      { _id: userId },
+      { fields: { "profile.support_links": 1 } }
+    );
+    if (user && user.profile && user.profile.support_links) {
+      return user.profile.support_links;
+    } else {
+      return null;
+    }
   }
 });
