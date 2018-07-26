@@ -18,10 +18,9 @@ ecmascript@0.10.6              # Enable ECMAScript2015+ syntax in app code
 twbs:bootstrap
 mizzao:user-status
 accounts-password@1.5.0
-fourseven:scss
+fourseven:scss@4.9.0
 check@1.3.0
 ejson@1.1.0
-fortawesome:fontawesome
 momentjs:moment
 accounts-base@1.4.2
 accounts-oauth@1.1.15
@@ -71,4 +70,3 @@ practicalmeteor:chai
 meteortesting:browser-tests
 meteortesting:mocha
 practicalmeteor:mocha-core
-

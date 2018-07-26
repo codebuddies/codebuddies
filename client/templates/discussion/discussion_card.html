@@ -50,11 +50,11 @@
 
       <hr>
       <h4>
-        <i class="fa fa-thumbs-o-up {{#unless currentUser}} continue-popup {{else}} {{#if isInCollection up_votes}} voted {{else}} upvote {{/if}} {{/unless}}" aria-hidden="true"></i> <small>{{up_votes.length}}</small> &nbsp; &nbsp;
-        <i class="fa fa-thumbs-o-down {{#unless currentUser}} continue-popup {{else}} {{#if isInCollection down_votes}} voted {{else}} downvote {{/if}} {{/unless}}" aria-hidden="true"></i> <small>{{down_votes.length}}</small> &nbsp; &nbsp;
-        <small><i class="fa fa-clock-o" aria-hidden="true"></i> Posted on: {{dispDate created_at}} </small> &nbsp; &nbsp;
-        <small><i class="fa fa-comments-o" aria-hidden="true"></i> {{response_count}} </small> &nbsp; &nbsp;
-        <small><i class="fa fa-eye" aria-hidden="true"></i> {{views}} </small> &nbsp; &nbsp;
+        <i class="far fa-thumbs-up {{#unless currentUser}} continue-popup {{else}} {{#if isInCollection up_votes}} voted {{else}} upvote {{/if}} {{/unless}}" aria-hidden="true"></i> <small>{{up_votes.length}}</small> &nbsp; &nbsp;
+        <i class="far fa-thumbs-down {{#unless currentUser}} continue-popup {{else}} {{#if isInCollection down_votes}} voted {{else}} downvote {{/if}} {{/unless}}" aria-hidden="true"></i> <small>{{down_votes.length}}</small> &nbsp; &nbsp;
+        <small><i class="far fa-clock" aria-hidden="true"></i> Posted on: {{dispDate created_at}} </small> &nbsp; &nbsp;
+        <small><i class="far fa-comments" aria-hidden="true"></i> {{response_count}} </small> &nbsp; &nbsp;
+        <small><i class="far fa-eye" aria-hidden="true"></i> {{views}} </small> &nbsp; &nbsp;
       </h4>
 
     </div>

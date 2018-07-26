@@ -5,7 +5,7 @@
       <div class="col-md-12">
         <label class="name">
         {{#if isHangoutInProgress start end}}
-          &nbsp; &nbsp;<i class="fa fa-dot-circle-o fa text-danger faa-burst animated"></i> &nbsp;
+          &nbsp; &nbsp;<i class="far fa-dot-circle fa text-danger faa-burst animated"></i> &nbsp;
           <a href="{{pathFor 'hangout' hangoutId=_id }}" class="hangout-topic {{# if isHangoutCompleted end }}completed{{/if}}"> {{topic}} </a>
         {{ else }}
           <a href="{{pathFor 'hangout' hangoutId=_id }}" class="hangout-topic {{# if isHangoutCompleted end }}completed{{/if}}"> {{topic}} </a>
@@ -17,7 +17,7 @@
       </div>
 
       <div class="col-md-4">
-        
+
       {{!-- Group Label --}}
       {{#if group}}<p><a href="{{pathFor 'study group' studyGroupSlug=group.slug studyGroupId=group.id}}"> <span class="label label-default pull-right">{{group.title}}</span> </a>  </p>{{/if}}
 
@@ -53,7 +53,7 @@
 
             {{/if}}
           {{else}}
-            <p class="completed"><i class="fa fa-check" aria-hidden="true"></i> {{_ "completed"}}</p>
+            <p class="completed"><i class="fas fa-check" aria-hidden="true"></i> {{_ "completed"}}</p>
           {{/unless}}
 
         {{/if}} <!-- if equals visibility false -->
@@ -63,8 +63,8 @@
     <div class="col-md-8">
 
 
-      <p class="status"><label><i class="fa {{getHangoutTypeSign type}}"></i> Started by <a href="{{pathFor 'profile' name=host.name userId=host.id}}" class="{{#unless currentUser}} continue-popup {{/unless}}">{{host.name}}</a></label></p>
-      <p class="status"><label><i class="fa fa-calendar fa-lg"></i> {{getHangoutStartDateTime start}} -
+      <p class="status"><label><i class="fas {{getHangoutTypeSign type}}"></i> Started by <a href="{{pathFor 'profile' name=host.name userId=host.id}}" class="{{#unless currentUser}} continue-popup {{/unless}}">{{host.name}}</a></label></p>
+      <p class="status"><label><i class="far fa-calendar-alt fa-lg"></i> {{getHangoutStartDateTime start}} -
 
         {{#if isHangoutEndTimeTBA start end}}
           To Be Announced
@@ -72,7 +72,7 @@
           {{getHangoutEndDateTime end}}
         {{/if}}
           |
-         {{users.length}} Joined  {{#if views}} | <i class="fa fa-eye" aria-hidden="true" data-toggle="tooltip" title="Views" ></i> {{views}} {{/if}}</label> </p>
+         {{users.length}} Joined  {{#if views}} | <i class="far fa-eye" aria-hidden="true" data-toggle="tooltip" title="Views" ></i> {{views}} {{/if}}</label> </p>
       <p class="overflowtext">{{ getDescriptionTruncated description }}</p>
     </div>
 
