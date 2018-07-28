@@ -239,7 +239,7 @@ Meteor.methods({
         slug: data.studyGroupSlug
       },
       created_at: new Date(),
-      icon: "fa-sign-out",
+      icon: "fa-sign-out-alt",
       study_group: {
         id: data.studyGroupId,
         title: data.studyGroupTitle,

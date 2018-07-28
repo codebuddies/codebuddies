@@ -36,15 +36,15 @@
               <small class="label label-danger">Archived</small>
             {{/if}}
             <div id="hide-sidebar">
-              <a href="#" class="pull-right"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
+              <a href="#" class="pull-right"><i class="fas fa-times-circle" aria-hidden="true"></i></a>
             </div>
 
             <h2>{{title}}
                 {{#if isInRole 'owner, admin' _id}}
-                  <div class="btn btn-default pull-right" id="editTitle"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></div>
+                  <div class="btn btn-default pull-right" id="editTitle"><i class="fas fa-edit" aria-hidden="true"></i></div>
                 {{/if}}
 
-              <h5><i class="fa fa-map-pin" aria-hidden="true"></i> {{tagline}}</h5>
+              <h5><i class="fas fa-map-pin" aria-hidden="true"></i> {{tagline}}</h5>
 
               <div class="margin-top-1">
                 {{#unless isInRole 'owner, admin, moderator, member' _id}}
