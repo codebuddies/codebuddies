@@ -14,7 +14,6 @@ tracker@1.2.0                 # Meteor's client-side reactive programming librar
 es5-shim@4.8.0                # ECMAScript 5 compatibility for older browsers.
 ecmascript@0.11.1              # Enable ECMAScript2015+ syntax in app code
 
-mizzao:user-status
 accounts-password@1.5.1
 fourseven:scss@4.9.0
 check@1.3.1
@@ -71,3 +70,4 @@ practicalmeteor:mocha-core
 underscore
 twbs:bootstrap@=3.3.5
 percolate:migrations
+

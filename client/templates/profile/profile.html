@@ -85,6 +85,23 @@
                   </a>
                 {{/if}}
               </div>
+              <div class="social-icons">
+                {{# if profile.support_links.buymeacoffee}}
+                  <a href="https://www.buymeacoffee.com/{{profile.support_links.buymeacoffee}}" target="_blank" alt="Buy me a coffee">
+                    <i class="fa fa-coffee" aria-hidden="true"></i> 
+                  </a>
+                {{/if}}
+                {{# if profile.support_links.patreon}}
+                  <a href="{{profile.support_links.patreon}}" target="_blank" alt="Support me on Patreon">
+                  <i class="fab fa-patreon"></i> 
+                  </a>
+                {{/if}}
+                {{# if profile.support_links.nonprofit}}
+                  <a href="{{profile.support_links.nonprofit}}" target="_blank" alt="A non-profit I support">
+                    <i class="fa fa-heart-o" aria-hidden="true"></i> 
+                  </a>
+                {{/if}}
+              </div>
             {{/with}}
           </div>
         {{/if}}
