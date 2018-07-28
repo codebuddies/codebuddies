@@ -31,9 +31,9 @@
         </div>
         <hr>
         <h4>
-          <i class="fa fa-thumbs-o-up {{#if isInCollection up_votes}} upvoted {{else}} rupvote {{/if}}" aria-hidden="true"></i> <small>{{up_votes.length}}</small> &nbsp; &nbsp;
-          <i class="fa fa-thumbs-o-down {{#if isInCollection down_votes}} downvoted {{else}} rdownvote {{/if}}" aria-hidden="true"></i> <small>{{down_votes.length}}</small> &nbsp; &nbsp;
-          <small><i class="fa fa-clock-o" aria-hidden="true"></i> Posted on: {{dispDate created_at}} </small> &nbsp; &nbsp;
+          <i class="far fa-thumbs-up {{#if isInCollection up_votes}} upvoted {{else}} rupvote {{/if}}" aria-hidden="true"></i> <small>{{up_votes.length}}</small> &nbsp; &nbsp;
+          <i class="far fa-thumbs-down {{#if isInCollection down_votes}} downvoted {{else}} rdownvote {{/if}}" aria-hidden="true"></i> <small>{{down_votes.length}}</small> &nbsp; &nbsp;
+          <small><i class="far fa-clock" aria-hidden="true"></i> Posted on: {{dispDate created_at}} </small> &nbsp; &nbsp;
           <small>{{#if modified_at}}(Edited){{/if}}</small> &nbsp; &nbsp;
         </h4>
 
@@ -46,7 +46,7 @@
         </div>
         <hr>
         <h4>
-          <small><i class="fa fa-clock-o" aria-hidden="true"></i> Posted on: {{dispDate created_at}} </small> &nbsp; &nbsp;
+          <small><i class="far fa-clock" aria-hidden="true"></i> Posted on: {{dispDate created_at}} </small> &nbsp; &nbsp;
         </h4>
       </div>
     {{/if}}

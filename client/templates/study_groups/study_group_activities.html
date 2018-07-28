@@ -4,7 +4,7 @@
 
     {{#if equals type 'GROUP_CREATION'}}
         <p class="activity">
-          <i class="fa {{icon}}" aria-hidden="true"> </i>
+          <i class="fas {{icon}}" aria-hidden="true"> </i>
           <a href="{{pathFor 'profile' name=actor.name userId=actor.id}}"> {{actor.name}} </a>  created the group.
           <small> &nbsp; {{dispDate created_at}} </small>
         </p>
@@ -12,7 +12,7 @@
 
     {{#if equals type 'USER_JOIN'}}
         <p class="activity">
-          <i class="fa {{icon}}" aria-hidden="true"> </i>
+          <i class="fas {{icon}}" aria-hidden="true"> </i>
           <a href="{{pathFor 'profile' name=actor.name userId=actor.id}}"> {{actor.name}} </a>  joined the group.
           <small> &nbsp; {{dispDate created_at}} </small>
         </p>
@@ -20,7 +20,7 @@
 
     {{#if equals type 'USER_LEAVE'}}
         <p class="activity">
-          <i class="fa {{icon}}" aria-hidden="true"> </i>
+          <i class="fas {{icon}}" aria-hidden="true"> </i>
           <a href="{{pathFor 'profile' name=actor.name userId=actor.id}}"> {{actor.name}} </a>  left the group.
           <small> &nbsp; {{dispDate created_at}} </small>
         </p>
@@ -28,7 +28,7 @@
 
     {{#if equals type 'GROUP_TRANSFERRED'}}
         <p class="activity">
-          <i class="fa {{icon}}" aria-hidden="true"> </i>
+          <i class="fas {{icon}}" aria-hidden="true"> </i>
           <a href="{{pathFor 'profile' name=actor.name userId=actor.id}}"> {{actor.name}} </a>
           transferred the group ownership to
           <a href="{{pathFor 'profile' name=subject.name userId=subject.id}}"> {{subject.name}} </a>

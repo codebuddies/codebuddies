@@ -1,6 +1,6 @@
 <template name="header">
   {{> connectionBanner}}
-  <div class="banner-notification">New: <a href="/coworking"><i class="fa fa-desktop"></i> 24/7 space for silent productivity</a> and <i class="fa fa-connectdevelop"></i> <a href="http://bit.ly/codebuddies-connect" target="_blank">CodeBuddies Connect</a></div>
+  <div class="banner-notification">New: <a href="/coworking"><i class="fas fa-desktop"></i> 24/7 space for silent productivity</a> and <i class="fab fa-connectdevelop"></i> <a href="http://bit.ly/codebuddies-connect" target="_blank">CodeBuddies Connect</a></div>
   {{# unless user.profile.privacyResponse}}{{#if currentUser}}{{> privacyAgreement}}{{/if}}{{/unless}}
   <nav class="navbar navbar-default navbar-static-top" role="navigation">
     <div class="container">
@@ -23,36 +23,36 @@
               Community<span class="caret"></span>
             </a>
             <ul class="dropdown-menu fa-ul">
-               <li><a href="{{pathFor 'about'}}"><i class="fa fa-users fa-fw" aria-hidden="true"></i>
+               <li><a href="{{pathFor 'about'}}"><i class="fas fa-users fa-fw" aria-hidden="true"></i>
                  {{_ "about"}}<span class="sr-only">(current)</span>
                </a></li>
                <li role="separator" class="divider"></li>
                <li><a href="{{pathFor 'slack'}}">
-                    <i class="fa fa-slack fa-fw" aria-hidden="true"></i>{{_ "slack"}}
+                    <i class="fab fa-slack-hash fa-fw" aria-hidden="true"></i>{{_ "slack"}}
                   </a></li>
                <li role="separator" class="divider"></li>
                <li><a href="https://github.com/codebuddies/codebuddies" target="_blank">
-                 <i class="fa fa-github fa-fw" aria-hidden="true"></i>Github
-                 <i class="fa fa-external-link fa-fw" aria-hidden="true"></i>
+                 <i class="fab fa-github fa-fw" aria-hidden="true"></i>Github
+                 <i class="fas fa-external-link-alt fa-fw" aria-hidden="true"></i>
                </a></li>
                <li role="separator" class="divider"></li>
                <li><a href="https://www.facebook.com/groups/TOPSTUDYGROUP/" target="_blank">
-                 <i class="fa fa-facebook fa-fw" aria-hidden="true"></i>Facebook Group
-                 <i class="fa fa-external-link fa-fw" aria-hidden="true"></i>
+                 <i class="fab fa-facebook-f fa-fw" aria-hidden="true"></i>Facebook Group
+                 <i class="fas fa-external-link-alt fa-fw" aria-hidden="true"></i>
                </a></li>
                <li role="separator" class="divider"></li>
                <li><a href="https://medium.com/codebuddies" target="_blank">
-                 <i class="fa fa-medium fa-fw" aria-hidden="true"></i>Blog
-                 <i class="fa fa-external-link fa-fw" aria-hidden="true"></i>
+                 <i class="fab fa-medium fa-fw" aria-hidden="true"></i>Blog
+                 <i class="fas fa-external-link-alt fa-fw" aria-hidden="true"></i>
                </a></li>
                <li role="separator" class="divider"></li>
                <li><a href="{{pathFor 'faq'}}">
-                 <i class="fa fa-question fa-fw" aria-hidden="true"></i>{{_ "faq"}}
+                 <i class="fas fa-question fa-fw" aria-hidden="true"></i>{{_ "faq"}}
                </a></li>
                <!-- Donate -->
 			   <li role="separator" class="divider"></li>
                <li><a href="https://opencollective.com/codebuddies" target="_blank">
-                 Sponsor Us <i class="fa fa-external-link fa-fw" aria-hidden="true"></i>
+                 Sponsor Us <i class="fas fa-external-link-alt fa-fw" aria-hidden="true"></i>
                </a></li>
              </ul>
           </li>
@@ -74,7 +74,7 @@
                 <ul class="dropdown-menu" role="menu">
                   <li><a href="#" class="signInSlack"><button class="btn btn-slack"><img src="/images/slack-icon.png">&nbsp;&nbsp;{{_ "sign_in_with"}} <b>Slack</b></button></a></li>
                   <li role="separator" class="divider"></li>
-                  <li><a href="#" class="signInGithub"><button class="btn btn-github"><i class="fa fa-github fa-fw"></i>&nbsp;&nbsp;{{_ "sign_in_with"}} <b>Github</b></button></a></li>
+                  <li><a href="#" class="signInGithub"><button class="btn btn-github"><i class="fab fa-github fa-fw"></i>&nbsp;&nbsp;{{_ "sign_in_with"}} <b>Github</b></button></a></li>
                 </ul>
             </li>
 
@@ -84,11 +84,11 @@
             {{! won't be visible to cb admin}}
             {{#unless isInRole 'admin' 'CB'}}
               <!-- notification for user-->
-              <li><a href="{{pathFor 'user notification'}}"><i class="fa fa-bell" aria-hidden="true"></i> {{#if userNotificationCount}}<small><span class="badge">{{userNotificationCount}}</span></small>{{/if}} </a></li>
+              <li><a href="{{pathFor 'user notification'}}"><i class="fas fa-bell" aria-hidden="true"></i> {{#if userNotificationCount}}<small><span class="badge">{{userNotificationCount}}</span></small>{{/if}} </a></li>
               <!-- dropdown for user-->
               <li id="user-drop-down" class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                  <i class="fa fa-plus" aria-hidden="true"></i> <span class="caret"></span>
+                  <i class="fas fa-plus" aria-hidden="true"></i> <span class="caret"></span>
                 </a>
                   <ul class="dropdown-menu" role="menu">
                     <!-- pop up for new hangout -->
@@ -103,7 +103,7 @@
               {{#if isInRole 'moderator' 'CB'}}
                 <li id="user-drop-down" class="dropdown">
                   <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                  <i class="fa fa-cogs" aria-hidden="true"></i>
+                  <i class="fas fa-cogs" aria-hidden="true"></i>
                   </a>
                   <ul class="dropdown-menu" role="menu">
                     <li><a href="{{pathFor 'stats'}}">Statistics</a></li>
@@ -118,10 +118,10 @@
                   <img src="{{user.profile.avatar.default}}" class="img-circle"> {{user.username}} <span class="caret"></span>
                 </a>
                   <ul class="dropdown-menu" role="menu">
-                    <li><a href="{{pathFor 'my study groups'}}"><i class="fa fa-users fa-fw"></i> {{_ "my_study_groups"}}</a></li>
-                    <li><a href="/profile/{{user.username}}/{{user._id}}"><i class="fa fa-user fa-fw"></i> {{_ "profile"}}</a></li>
-                    <li><a href="{{pathFor 'account' name=user.username userId=user._id}}"><i class="fa fa-gear fa-fw"></i> {{_ "settings"}}</a></li>
-                    <li><a href="#" id="signOut"><i class="fa fa-sign-out fa-fw"></i> {{_ "sign_out"}}</a></li>
+                    <li><a href="{{pathFor 'my study groups'}}"><i class="fas fa-users fa-fw"></i> {{_ "my_study_groups"}}</a></li>
+                    <li><a href="/profile/{{user.username}}/{{user._id}}"><i class="fas fa-user fa-fw"></i> {{_ "profile"}}</a></li>
+                    <li><a href="{{pathFor 'account' name=user.username userId=user._id}}"><i class="fas fa-cog fa-fw"></i> {{_ "settings"}}</a></li>
+                    <li><a href="#" id="signOut"><i class="fas fa-sign-out-alt fa-fw"></i> {{_ "sign_out"}}</a></li>
                   </ul>
               </li>
 
@@ -129,7 +129,7 @@
 
                 <li id="user-drop-down" class="dropdown">
                   <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                  <i class="fa fa-cogs" aria-hidden="true"></i>
+                  <i class="fas fa-cogs" aria-hidden="true"></i>
                   </a>
                   <ul class="dropdown-menu" role="menu">
                     <li><a href="{{pathFor 'stats'}}">Statistics</a></li>
