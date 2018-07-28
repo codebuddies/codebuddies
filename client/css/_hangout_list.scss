@@ -107,7 +107,7 @@
 
   label {
     input[type="radio"] {
-      ~ i.far {
+      ~ i.fas {
         &.fa-circle {
           color: $primary-grey;
           display: inline;
@@ -119,7 +119,7 @@
         }
       }
 
-      &:checked ~ i.far {
+      &:checked ~ i.fas {
         &.fa-circle {
           display: none;
         }
@@ -136,7 +136,7 @@
       padding-left: 10px;
     }
 
-    &:hover input[type="radio"] ~ i.far {
+    &:hover input[type="radio"] ~ i.fas {
       color: $cta-blue;
     }
   }

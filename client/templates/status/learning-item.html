@@ -16,7 +16,7 @@
              <a href="{{pathFor 'profile' name=username userId=userId}}" class="{{#unless currentUser}} continue-popup {{/unless}}"><span class="username">{{username}}</span></a>
               <label class="status">
                   {{#if isOwner}}
-                    <span class="{{#unless currentUser}} continue-popup {{else}} delete-learning {{/unless}}"><i class="far fa-trash-alt"></i></span> <a class="{{#unless currentUser}} continue-popup {{else}} edit-learning {{/unless}}">(Edit)</a>
+                    <span class="{{#unless currentUser}} continue-popup {{else}} delete-learning {{/unless}}"><i class="fas fa-trash-alt"></i></span> <a class="{{#unless currentUser}} continue-popup {{else}} edit-learning {{/unless}}">(Edit)</a>
                   {{/if}}
               </label>
               <p class="learning-title">{{{ learningTitle }}}</p>
