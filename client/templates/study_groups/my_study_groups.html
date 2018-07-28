@@ -19,9 +19,9 @@
             <div class="well">
               <h4>
                 <a href="{{pathFor 'study group' studyGroupSlug=slug studyGroupId=_id}}">  {{title}} </a>
-                <br> <small>{{tagline}}</small> <small><i class="fa fa-users fa-fw"></i>{{members.length}}</small>
+                <br> <small>{{tagline}}</small> <small><i class="fas fa-users fa-fw"></i>{{members.length}}</small>
                 {{#if numParticipants _id}}
-                <small><i class="fa fa-laptop fa-fw"></i>{{ numParticipants _id }}</small>
+                <small><i class="fas fa-laptop fa-fw"></i>{{ numParticipants _id }}</small>
                 {{/if}}
                 {{#if isInRole 'owner' _id}}
                   <span class="label label-primary pull-right">Owner</span>

@@ -59,24 +59,24 @@
   .footer-social {
 
     a {display: inline-block;}
-    .fa {font-size: 20px; padding-right: 10px;}
+    .fa, .fab, .fas {font-size: 20px; padding-right: 10px;}
   }
 
   .footer-icons {
     @include breakpoint(tiny) {
-      .fa {padding: 0 5px;}
+      .fa, .fab, .fas {padding: 0 5px;}
     }
 
     @include breakpoint(xsmall) {
-      .fa {padding: 0 5px;}
+      .fa, .fab, .fas {padding: 0 5px;}
      }
 
     @include breakpoint(small) {
-      .fa {padding: 0 5px;}
+      .fa, .fab, .fas {padding: 0 5px;}
     }
 
     @include breakpoint(xmedium) {
-      .fa {padding: 0 5px;}
+      .fa, .fab, .fas {padding: 0 5px;}
     }
   }
 

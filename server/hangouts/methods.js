@@ -284,7 +284,7 @@ Meteor.methods({
         createdAt: new Date(),
         read: [loggedInUser._id],
         action: "edited",
-        icon: "fa-pencil-square-o",
+        icon: "fa-edit",
         type: "hangout edit"
       };
       Notifications.insert(notification);

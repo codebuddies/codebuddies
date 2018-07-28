@@ -19,14 +19,14 @@
               {{/if}} <!-- ./if equals visibility false -->
               <!-- close sidebar -->
               <div id="hide-sidebar">
-                <a href="#" class="pull-right"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
+                <a href="#" class="pull-right"><i class="fas fa-times-circle" aria-hidden="true"></i></a>
               </div>
 
               {{#if isHangoutInProgress start end}} <h5 class="in-progress"><span class="oval"></span> LIVE</h5> {{/if}}
 
               {{topic}}
 
-              {{#if views}} <span class="view"><i class="fa fa-eye" aria-hidden="true" data-toggle="tooltip" title="Views" > </i> {{views}}</span> {{/if}}
+              {{#if views}} <span class="view"><i class="far fa-eye" aria-hidden="true" data-toggle="tooltip" title="Views" > </i> {{views}}</span> {{/if}}
 
             </h2>
 
@@ -37,13 +37,13 @@
             {{/if}}
             <!-- hangout type host -->
             <p class="status">
-              <i class="fa {{getHangoutTypeSign type}}"></i> {{type}} hangout <sup><a id="hangout-faq-popup"><i class="fa fa-question-circle"></i></a></sup> started by
+              <i class="fas {{getHangoutTypeSign type}}"></i> {{type}} hangout <sup><a id="hangout-faq-popup"><i class="fas fa-question-circle"></i></a></sup> started by
               <a href="{{#if currentUser}} {{pathFor 'profile' name=host.name userId=host.id}} {{/if}}" class="{{#unless currentUser}} continue-popup {{/unless}}">{{host.name}}</a>
             </p>
 
             <!--  hangout date time -->
             <p class="date-holder">
-              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              <i class="far fa-clock" aria-hidden="true"></i>
               <strong>{{getHangoutStartDateDay start}}</strong>
               <br />
 
@@ -83,7 +83,7 @@
           <div class="col-md-9 hangout-body">
             {{# unless isHangoutCompleted end}}
               <p class="upcoming align-center margin-top-1 load-hangout">
-                  <i class="fa fa-dot-circle-o fa text-danger faa-burst animated"></i>{{upcomingTime start}}
+                  <i class="far fa-dot-circle fa text-danger faa-burst animated"></i>{{upcomingTime start}}
               </p>
             {{ else }}
               <p class="upcoming align-center margin-top-1">Sorry, this hangout has ended.</p>

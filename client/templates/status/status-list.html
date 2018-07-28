@@ -2,8 +2,8 @@
   <div class="status-list">
     {{#if isWorking type}}
       {{#unless currentUser}}
-        <p class="align-center">Please <a href="#" class="signIn">sign in with <i class="fa fa-slack"></i> Slack</a> or <a href="#" class="signInGithub link">sign in with <i class="fa fa-github"></i> Github</a> to see the current users online.</p>
-        <p><i class="fa fa-slack"></i><a href="http://codebuddiesmeet.herokuapp.com" target="_blank"> Join the CodeBuddies Slack</a></p>
+        <p class="align-center">Please <a href="#" class="signIn">sign in with <i class="fab fa-slack-hash"></i> Slack</a> or <a href="#" class="signInGithub">sign in with <i class="fab fa-github"></i> Github</a> to see the current users online.</p>
+        <p><i class="fab fa-slack-hash"></i><a href="http://codebuddiesmeet.herokuapp.com" target="_blank"> Join the CodeBuddies Slack</a></p>
       {{else}}
           <div class="title">{{_ "learning_message" count=usersOnlineCount}}</div>
           {{#each usersOnline}}
