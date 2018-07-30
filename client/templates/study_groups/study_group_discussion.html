@@ -18,16 +18,16 @@
         <div class="col-md-2">
           <div class="dropdown pull-right">
             <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                <span><i class="fa fa-filter" aria-hidden="true"></i></span>
+                <span><i class="fas fa-filter" aria-hidden="true"></i></span>
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-              <li class="newest"><a href="#">{{#if equals discussionFilter 'newest'}} <i class="fa fa-check" aria-hidden="true"></i>  {{else}} &nbsp;&nbsp; {{/if}}Newest</a></li>
+              <li class="newest"><a href="#">{{#if equals discussionFilter 'newest'}} <i class="fas fa-check" aria-hidden="true"></i>  {{else}} &nbsp;&nbsp; {{/if}}Newest</a></li>
               <li role="separator" class="divider"></li>
-              <li class="oldest"><a href="#">{{#if equals discussionFilter 'oldest'}} <i class="fa fa-check" aria-hidden="true"></i>  {{else}} &nbsp;&nbsp; {{/if}}Oldest</a></li>
+              <li class="oldest"><a href="#">{{#if equals discussionFilter 'oldest'}} <i class="fas fa-check" aria-hidden="true"></i>  {{else}} &nbsp;&nbsp; {{/if}}Oldest</a></li>
               <li role="separator" class="divider"></li>
-              <li class="most-commented"><a href="#">{{#if equals discussionFilter 'most-commented'}} <i class="fa fa-check" aria-hidden="true"></i>  {{else}} &nbsp;&nbsp; {{/if}}Most Commented</a></li>
+              <li class="most-commented"><a href="#">{{#if equals discussionFilter 'most-commented'}} <i class="fas fa-check" aria-hidden="true"></i>  {{else}} &nbsp;&nbsp; {{/if}}Most Commented</a></li>
               <li role="separator" class="divider"></li>
-              <li class="least-commented"><a href="#">{{#if equals discussionFilter 'least-commented'}} <i class="fa fa-check" aria-hidden="true"></i>  {{else}} &nbsp;&nbsp; {{/if}}Least Commented</a></li>
+              <li class="least-commented"><a href="#">{{#if equals discussionFilter 'least-commented'}} <i class="fas fa-check" aria-hidden="true"></i>  {{else}} &nbsp;&nbsp; {{/if}}Least Commented</a></li>
             </ul>
           </div>
         </div>
@@ -82,11 +82,11 @@
         </div>
         <div class="col-md-12">
           <h4>
-            <i class="fa fa-thumbs-o-up {{#if isInCollection up_votes}} voted {{else}} upvote {{/if}}" aria-hidden="true"></i> <small>{{up_votes.length}}</small> &nbsp; &nbsp;
-            <i class="fa fa-thumbs-o-down {{#if isInCollection down_votes}} voted {{else}} downvote {{/if}}" aria-hidden="true"></i> <small>{{down_votes.length}}</small> &nbsp; &nbsp;
-            <small><i class="fa fa-clock-o" aria-hidden="true"></i> Posted on : {{dispDate created_at}} </small> &nbsp; &nbsp;
-            <small><i class="fa fa-comments-o" aria-hidden="true"></i> {{response_count}} </small> &nbsp; &nbsp;
-            <small><i class="fa fa-eye" aria-hidden="true"></i> {{views}} </small> &nbsp; &nbsp;
+            <i class="fas fa-thumbs-up {{#if isInCollection up_votes}} voted {{else}} upvote {{/if}}" aria-hidden="true"></i> <small>{{up_votes.length}}</small> &nbsp; &nbsp;
+            <i class="fas fa-thumbs-down {{#if isInCollection down_votes}} voted {{else}} downvote {{/if}}" aria-hidden="true"></i> <small>{{down_votes.length}}</small> &nbsp; &nbsp;
+            <small><i class="fas fa-clock" aria-hidden="true"></i> Posted on : {{dispDate created_at}} </small> &nbsp; &nbsp;
+            <small><i class="fas fa-comments" aria-hidden="true"></i> {{response_count}} </small> &nbsp; &nbsp;
+            <small><i class="fas fa-eye" aria-hidden="true"></i> {{views}} </small> &nbsp; &nbsp;
           </h4>
         </div>
       </div>

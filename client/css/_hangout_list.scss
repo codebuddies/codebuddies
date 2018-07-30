@@ -107,24 +107,24 @@
 
   label {
     input[type="radio"] {
-      ~ i.fa {
-        &.fa-circle-o {
+      ~ i.fas {
+        &.fa-circle {
           color: $primary-grey;
           display: inline;
           outline: none;
         }
 
-        &.fa-dot-circle-o {
+        &.fa-dot-circle {
           display: none;
         }
       }
 
-      &:checked ~ i.fa {
-        &.fa-circle-o {
+      &:checked ~ i.fas {
+        &.fa-circle {
           display: none;
         }
 
-        &.fa-dot-circle-o {
+        &.fa-dot-circle {
           color: $cta-blue;
           display: inline;
         }
@@ -136,7 +136,7 @@
       padding-left: 10px;
     }
 
-    &:hover input[type="radio"] ~ i.fa {
+    &:hover input[type="radio"] ~ i.fas {
       color: $cta-blue;
     }
   }

@@ -152,7 +152,7 @@ Meteor.methods({
         createdAt: new Date(),
         read: [actor._id],
         action: "edited",
-        icon: "fa-pencil-square-o",
+        icon: "fa-edit",
         type: "discussion edit"
       };
       Notifications.insert(notification);
@@ -294,7 +294,7 @@ Meteor.methods({
         createdAt: new Date(),
         read: [actor._id],
         action: "deleted",
-        icon: "fa-trash-o",
+        icon: "fa-trash-alt",
         type: "discussion delete"
       };
       Notifications.insert(notification);
