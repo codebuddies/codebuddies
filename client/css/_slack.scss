@@ -18,6 +18,17 @@
   .slack-middle {
     background: $bg-white;
     padding: 50px 0;
+    }
+
+  .etiquette {
+    h1 { margin-top: 60px; margin-right: 0px; margin-bottom: 20px; margin-left: 0px;
+      font-size: 34px; font-weight: 700; letter-spacing: -.03rem}
+    h2 { font-size: 27px; font-weight: 600; line-height: 33px; letter-spacing: -1px; margin-right: 0px;
+      margin-bottom: 0px; margin-left: 0px;}
+    h3 { font-size: 15px; font-weight: 800; line-height: 22px; min-height: 22px;
+      text-transform: uppercase; letter-spacing: 1px; margin-top: 0px; margin-right: 0px;
+      margin-bottom: 0px; margin-left: 0px;}
+    hr {margin-top: 1.9em}
   }
 
   .slack-hangout {
@@ -27,6 +38,8 @@
 
   .divider {
     border-top: 1px solid $secondary-grey;
+    width: 60px;
+    margin-bottom: 1.65em;
     opacity: .2;
   }
 
