@@ -4,33 +4,34 @@
     padding: 100px 0;
     h2 { @include font-face(700, 32px, bold, $bg-white); text-align: center; }
     }
-    p {  @include font-face(700, 18px, bold, $bg-white); text-align: center; }
-    form#connect { 
-        display: flex;
-        justify-content: center;
-        label { 
-            display: block;
-            background: $cta-dark;
-            color: $white;
-            padding: 10px;
+    p {  
+        @include font-face(700, 18px, bold, $bg-white); text-align: center; }
+        form#connect { 
+            display: flex;
+            justify-content: center;
+            label { 
+                display: block;
+                background: $cta-dark;
+                color: $white;
+                padding: 10px;
            
-        }
-        input[type="radio"] { display: none; }
-        label:hover {
-            cursor: pointer;
-            background: $cta-blue;
-        }
-        input[type="radio"]:checked + label {
-            background: $cta-blue;
-        }
-        section {
-            flex-direction: row;
-            display: inline-block;
-            margin: 10px;
-        }
-       #partner, #project, #feedback, #mentor {
-            display: none;
-        }
+            }
+            input[type="radio"] { display: none; }
+            label:hover {
+                cursor: pointer;
+                background: $cta-blue;
+            }
+            input[type="radio"]:checked + label {
+                background: $cta-blue;
+            }
+            section {
+                flex-direction: row;
+                display: inline-block;
+                margin: 10px;
+            }
+           #partner, #project, #feedback, #mentor {
+                display: none;
+            }
     }
 
  }
