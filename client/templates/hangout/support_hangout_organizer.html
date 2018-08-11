@@ -4,7 +4,6 @@
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 
         Did you learn a lot in this hangout?
-
            <br> You can show the hangout organizer your appreciation by:
             <ul>
                {{# if buymeacoffee}}
@@ -14,13 +13,11 @@
                     <li><i class="fas fa-arrow-right" aria-hidden="true"></i> <a href="{{patreon}}" target="_blank">supporting them on Patreon <i class="fab fa-patreon"></i></a></li>
                 {{/if}}
                 {{# if nonprofit}}
-                    <li><i class="fas fa-arrow-right" aria-hidden="true"></i> <a href="{{nonprofit}}" target="_blank">supporting a non-profit they champion <i class="far fa-heart" aria-hidden="true"></i></a></li>
+                    <li><i class="fas fa-arrow-right" aria-hidden="true"></i> <a href="{{nonprofit}}" target="_blank">supporting a non-profit they champion <i class="fas fa-heart" aria-hidden="true"></i></a></li>
                 {{/if}}
             </ul>
         </div>
     {{else}}
-
-
       {{#if equals currentUser._id instance.data.organizerId}}
       <div class="alert alert-warning margin-top-1 margin-bottom-1 alert-dismissible">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>

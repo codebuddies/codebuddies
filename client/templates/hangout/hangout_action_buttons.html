@@ -2,8 +2,8 @@
   <div class="hangout-action-buttons">
 
     {{# unless isHangoutCompleted end }}
-      <a href="{{ googleCalendarUrl this }}" rel="noopener" target="_blank" class="btn btn-block"><i class="far fa-calendar-alt" aria-hidden="true"></i> {{_ "add_google_calendar"}}</a>
-      <a href="{{ icsDownloadLink this }}" download="hangout.ics" class="btn btn-block"><i class="far fa-calendar-alt" aria-hidden="true"></i>{{_ "add_to_icalendar"}}</a>
+      <a href="{{ googleCalendarUrl this }}" rel="noopener" target="_blank" class="btn btn-block"><i class="fas fa-calendar-alt" aria-hidden="true"></i> {{_ "add_google_calendar"}}</a>
+      <a href="{{ icsDownloadLink this }}" download="hangout.ics" class="btn btn-block"><i class="fas fa-calendar-alt" aria-hidden="true"></i>{{_ "add_to_icalendar"}}</a>
     {{/ unless }}
 
     {{# unless isHangoutCompleted end }}
@@ -35,16 +35,16 @@
     {{/ unless }}
 
   <div class="hangout-action-buttons-other">
-    <a href="#" class="{{#if currentUser}} clone-hangout {{else}} continue-popup {{/if}} btn btn-cb2"><i class="far fa-clone" aria-hidden="true"></i> Duplicate</a>
+    <a href="#" class="{{#if currentUser}} clone-hangout {{else}} continue-popup {{/if}} btn btn-cb2"><i class="fas fa-clone" aria-hidden="true"></i> Duplicate</a>
     {{#if hangoutOwner host.id}}
       <a href="#" class="edit-hangout btn btn-cb2">Edit Details</a>
-      <a href="#" class="delete-hangout btn btn-cb2"><i class="far fa-trash-alt" aria-hidden="true"></i> Cancel Hangout</a>
+      <a href="#" class="delete-hangout btn btn-cb2"><i class="fas fa-trash-alt" aria-hidden="true"></i> Cancel Hangout</a>
     {{else}}
       {{#if isInRole 'admin,moderator,volunteer' 'CB'}}
           <a href="#" class="edit-hangout btn btn-cb2">Edit Details<span class="label label-info">M</span> </a>
       {{/if}}
       {{#if isInRole 'admin,moderator' 'CB'}}
-        <a href="#" class="delete-hangout btn btn-cb2 btn-danger"><i class="far fa-trash-alt" aria-hidden="true"></i>&nbsp; Delete <span class="label label-info">M</span> </a>
+        <a href="#" class="delete-hangout btn btn-cb2 btn-danger"><i class="fas fa-trash-alt" aria-hidden="true"></i>&nbsp; Delete <span class="label label-info">M</span> </a>
       {{/if}}
     {{/if}}
 
