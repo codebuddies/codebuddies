@@ -18,7 +18,7 @@
           {{#if isInRole 'admin, moderator' 'CB'}}
             <li id="user-drop-down" class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                <i class="fa fa-cogs" aria-hidden="true"></i>
+                <i class="fas fa-cogs" aria-hidden="true"></i>
               </a>
                 <ul class="dropdown-menu" role="menu">
                   <li><a href="{{pathFor 'stats'}}">Statistics</a></li>
@@ -37,10 +37,10 @@
                   <img src="{{user.profile.avatar.default}}" class="img-circle"> {{user.username}} <span class="caret"></span>
                 </a>
                   <ul class="dropdown-menu" role="menu">
-                    <li><a href="{{pathFor 'my study groups'}}"><i class="fa fa-users fa-fw"></i> {{_ "my_study_groups"}}</a></li>
-                    <li><a href="/profile/{{user.username}}/{{user._id}}"><i class="fa fa-user fa-fw"></i> {{_ "profile"}}</a></li>
-                    <li><a href="{{pathFor 'account' name=user.username userId=user._id}}"><i class="fa fa-gear fa-fw"></i> {{_ "settings"}}</a></li>
-                    <li><a href="#" id="signOut"><i class="fa fa-sign-out fa-fw"></i> {{_ "sign_out"}}</a></li>
+                    <li><a href="{{pathFor 'my study groups'}}"><i class="fas fa-users fa-fw"></i> {{_ "my_study_groups"}}</a></li>
+                    <li><a href="/profile/{{user.username}}/{{user._id}}"><i class="fas fa-user fa-fw"></i> {{_ "profile"}}</a></li>
+                    <li><a href="{{pathFor 'account' name=user.username userId=user._id}}"><i class="fas fa-cog fa-fw"></i> {{_ "settings"}}</a></li>
+                    <li><a href="#" id="signOut"><i class="fas fa-sign-out-alt fa-fw"></i> {{_ "sign_out"}}</a></li>
                   </ul>
               </li>
             {{/if}}

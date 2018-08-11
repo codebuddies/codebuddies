@@ -1,7 +1,8 @@
 Template.hangoutFrame.onCreated(function() {
   let instance = this;
-  instance.joinedHangout = false;
-  instance.room = new ReactiveVar(`cb${instance.data._id}`);
+  instance.room = new ReactiveVar(
+    `cb${instance.data._id || instance.data.hroom}`
+  );
 
   instance.autorun(() => {
     instance.subscribe("hangoutParticipants", instance.room.get());
@@ -21,7 +22,7 @@ Template.hangoutFrame.onCreated(function() {
     let room = "cb" + data.room;
     let width = "100%";
     let height = 550;
-    let configOverwrite = { startVideoMuted: 0 };
+    let configOverwrite = { startWithVideoMuted: true };
     let interfaceConfigOverwrite = {};
     let htmlElement = document.getElementById("hangout-container");
 
@@ -55,14 +56,9 @@ Template.hangoutFrame.onCreated(function() {
       FlowRouter.go("all study groups");
     });
 
-    Meteor.call("joinParticipant", instance.room.get(), function(
-      error,
-      result
-    ) {
+    Meteor.call("joinParticipant", room, function(error, result) {
       if (error) {
         return Bert.alert(error.reason, "danger", "growl-top-right");
-      } else {
-        instance.joinedHangout = true;
       }
     });
   };
@@ -105,32 +101,17 @@ Template.hangoutFrame.events({
   "click .load-hangout": function(event, template) {
     const data = {
       room: this._id || template.data.hroom,
-      username: template.data.huser || Meteor.user().username,
+      username:
+        (Meteor.user() && Meteor.user().username) || template.data.huser,
       type: template.data.htype || this.type,
       avatar: template.data.havatar || Meteor.user().profile.avatar.default
     };
     return template.loadJitsi(data);
   },
   "click #joinHere": function(event, template) {
-    const hangout_id = `cb${this._id}`;
+    const hangout_id = `cb${this._id || template.data.hroom}`;
 
     Meteor.call("joinParticipant", hangout_id, function(error, result) {
-      if (error) {
-        return Bert.alert(error.reason, "danger", "growl-top-right");
-      }
-    });
-  }
-});
-
-Template.hangoutFrame.onDestroyed(function() {
-  //Template.instance().disposeJitsi();
-  //Remove for now (see: issue 461)
-  const joinedHangout = Template.instance().joinedHangout;
-  if (joinedHangout && joinedHangout === true) {
-    Meteor.call("leaveParticipant", Template.instance().room.get(), function(
-      error,
-      result
-    ) {
       if (error) {
         return Bert.alert(error.reason, "danger", "growl-top-right");
       }
@@ -145,5 +126,12 @@ Template.hangoutFrame.helpers({
       return appState.participants.length;
     }
     return 0;
+  }
+});
+
+Template.hangoutFrame.onDestroyed(function() {
+  const hangoutId = Template.instance().room.get();
+  if (hangoutId) {
+    Meteor.call("leaveParticipant", hangoutId);
   }
 });

@@ -3,6 +3,10 @@
   <section class="profile-top">
     <div class="container">
       <div class="row">
+
+        {{#if instance.isProfileModeEdit}}
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        {{/if}}
         {{#if editMode}}
           {{#with userInfo}}
             {{> profileEdit}}
@@ -13,19 +17,19 @@
               <img src="{{#if profile.avatar.image_192 }} {{profile.avatar.image_192}} {{else}} {{profile.avatar.default}} {{/if}}" class="img-circle avatar profile-avatar" alt="profile image"/>
 
               {{#if isCurrentUserProfile currentUser}}
-                <a href="#profileEdit" class="btn-edit editProfile">
-                  <i class="fa fa-pencil" aria-hidden="true"></i>
+                <a href="#" class="btn-edit editProfile">
+                  <i class="fas fa-pencil-alt" aria-hidden="true"></i>
                   {{_ "Edit Profile"}}
                 </a>
                 <a href="#downloadData" class="btn-edit downloadData">
-                  <i class="fa fa-download" aria-hidden="true"></i>
+                  <i class="fas fa-download" aria-hidden="true"></i>
                   {{_ "Download my data"}}
                 </a>
               {{/if}}
 
               <h3 class="username">
                 {{#if status.online}}
-                  <i class="fa fa-circle online-now" aria-hidden="true"></i>
+                  <i class="fas fa-circle online-now" aria-hidden="true"></i>
                 {{/if}}
                 {{username}}
               </h3>
@@ -34,33 +38,67 @@
               <div class="social-icons">
                 {{# if userInfo.username }}
                   <a href="https://codebuddies.slack.com/messages/{{userInfo.username}}/" target="_blank">
-                    <i class="fa fa-slack" aria-hidden="true"></i>
+                    <i class="fab fa-slack-hash" aria-hidden="true"></i>
                   </a>
                 {{/if}}
 
                 {{# if profile.social.twitter}}
                   <a href="https://twitter.com/{{profile.social.twitter}}" target="_blank">
-                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
                   </a>
                 {{/if}}
                 {{# if profile.social.facebook}}
                   <a href="https://www.facebook.com/{{profile.social.facebook}}" target="_blank">
-                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                    <i class="fab fa-facebook-f" aria-hidden="true"></i>
                   </a>
                 {{/if}}
                 {{# if profile.social.github}}
                   <a href="https://github.com/{{profile.social.github}}" target="_blank">
-                    <i class="fa fa-github" aria-hidden="true"></i>
+                    <i class="fab fa-github" aria-hidden="true"></i>
                   </a>
                 {{/if}}
                 {{# if profile.social.linkedin}}
                   <a href="https://www.linkedin.com/in/{{profile.social.linkedin}}" target="_blank">
-                    <i class="fa fa-linkedin" aria-hidden="true"></i>
+                    <i class="fab fa-linkedin" aria-hidden="true"></i>
                   </a>
                 {{/if}}
                 {{# if profile.website}}
                   <a href="{{profile.website}}" target="_blank">
-                    <i class="fa fa-globe" aria-hidden="true"></i>
+                    <i class="fas fa-globe" aria-hidden="true"></i>
+                  </a>
+                {{/if}}
+              </div>
+              <div class="social-icons">
+                {{# if profile.support_links.buymeacoffee}}
+                  <a href="https://www.buymeacoffee.com/{{profile.support_links.buymeacoffee}}" target="_blank" alt="Buy me a coffee">
+                    <i class="fas fa-coffee" aria-hidden="true"></i>
+                  </a>
+                {{/if}}
+                {{# if profile.support_links.patreon}}
+                  <a href="{{profile.support_links.patreon}}" target="_blank" alt="Support me on Patreon">
+                  <i class="fab fa-patreon"></i>
+                  </a>
+                {{/if}}
+                {{# if profile.support_links.nonprofit}}
+                  <a href="{{profile.support_links.nonprofit}}" target="_blank" alt="A non-profit I support">
+                    <i class="fas fa-heart" aria-hidden="true"></i>
+                  </a>
+                {{/if}}
+              </div>
+              <div class="social-icons">
+                {{# if profile.support_links.buymeacoffee}}
+                  <a href="https://www.buymeacoffee.com/{{profile.support_links.buymeacoffee}}" target="_blank" alt="Buy me a coffee">
+                    <i class="fa fa-coffee" aria-hidden="true"></i> 
+                  </a>
+                {{/if}}
+                {{# if profile.support_links.patreon}}
+                  <a href="{{profile.support_links.patreon}}" target="_blank" alt="Support me on Patreon">
+                  <i class="fab fa-patreon"></i> 
+                  </a>
+                {{/if}}
+                {{# if profile.support_links.nonprofit}}
+                  <a href="{{profile.support_links.nonprofit}}" target="_blank" alt="A non-profit I support">
+                    <i class="fa fa-heart-o" aria-hidden="true"></i> 
                   </a>
                 {{/if}}
               </div>
