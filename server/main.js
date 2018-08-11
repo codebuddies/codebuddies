@@ -2,6 +2,9 @@ import md5 from "md5";
 import "/imports/startup/server";
 
 Meteor.startup(function() {
+  // migration
+  Migrations.migrateTo("latest");
+
   // fire off cron jobs
   SyncedCron.start();
 
