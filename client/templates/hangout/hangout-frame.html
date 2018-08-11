@@ -17,5 +17,19 @@
   </div>
   {{/if}}
   <span id="post_id" class="hide">{{_id}}</span>
+  
+  <div id="external">
+   <label><input type="checkbox" id="external-checkbox"> Use an external platform to host the hangout</label>
+   <div id="external-fields">
+       <p>
+           <label>Button text</label>
+           <input type="text" placeholder="e.g. Join us on Zoom" class="form-control">
+       </p>
+       <p>
+           <label>URL</label>
+           <input type="text" placeholder="Input a Zoom, Google Hangout, Twitch, etc. URL that starts with https://" class="form-control">
+       </p>
+   </div>
+  </div>
 
 </template>

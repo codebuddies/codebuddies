@@ -88,8 +88,6 @@ meteortesting:mocha@1.0.0
 meteortoys:toykit@2.2.1
 minifier-js@2.3.5
 minimongo@1.4.4
-mizzao:timesync@0.5.0
-mizzao:user-status@0.6.7
 mobile-experience@1.0.5
 mobile-status-bar@1.0.14
 modern-browsers@0.1.2
