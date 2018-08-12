@@ -62,7 +62,24 @@
                   <input type="radio" name='hangout-type' value="collaboration"><i class="fas fa-circle fa-2x"></i><i class="fas fa-dot-circle fa-2x"></i><span> <i class="fas fa-users text-success-color type"></i><span class="title">{{_ "collaboration_hangout"}}</span></span>
                 </label>
               </div>
+              <div id="external">
+               <label><input type="checkbox" id="external-checkbox"> Use external platform to host hangout</label>
+               <div id="external-fields" style="display: none;">
+                   <p>
+                       <label>Button text</label>
+                       <input type="text" placeholder="e.g. Join us on Zoom" class="form-control">
+                   </p>
+                   <p>
+                       <label>URL</label>
+                       <input type="text" placeholder="Input a Zoom, Google Hangout, Twitch, etc. URL that starts with https://" class="form-control">
+                   </p>
+                   <p>
+                       <a class="btn btn-cb2 btn-default-size" id="newStudyGroup">{{_ "submit"}}</a>
+                   </p>
+               </div>
+              </div>
             </div>
+            
           </div>
           <br>
           <div class="row">

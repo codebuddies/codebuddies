@@ -67,6 +67,19 @@
                   <input  type="radio" name='hangout-type' value="collaboration"><i class="fas fa-circle fa-2x"></i><i class="fas fa-dot-circle fa-2x"></i><span> <i class="fas fa-users text-success-color type"></i><span class="title">{{_ "collaboration_hangout"}}</span></span>
                 </label>
               </div>
+              <hr />
+              <div id="external">
+               <label><input type="checkbox" id="external-checkbox" name="externalCheckbox"> Use external platform to host hangout</label>
+               <div id="external-fields" style="display: none;">
+                   <p>
+                       <input type="text" name="externalButtonText" id="externalButtonText" placeholder="Button text e.g. Join us on Zoom" class="form-control">
+                   </p>
+                   <p>
+                       <label>URL</label>
+                       <input type="text" name="externalURL" id="externalURL" placeholder="Zoom, Twitch, Google Hangout etc. URL" class="form-control">
+                   </p>
+               </div>
+              </div>
               <div class="descriptionHide" id="d1">
                 <span>Create a silent hangout to motivate yourself to get through a tutorial with others who are learning from the same tutorial, or create one for a fun silent coworking experience.</span>
               </div>

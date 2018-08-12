@@ -128,7 +128,10 @@ Meteor.methods({
         initial: false,
         reminder: false,
         follow_up: false
-      }
+      },
+      externalCheckbox: data.externalCheckbox,
+      externalButtonText: data.externalButtonText,
+      externalURL: data.externalURL
     };
 
     // console.log(hangout);
