@@ -116,9 +116,6 @@ Template.hangoutFrame.events({
         return Bert.alert(error.reason, "danger", "growl-top-right");
       }
     });
-  },
-  "click input#external-checkbox": function(event) {
-    $("#external-fields").toggle();
   }
 });
 
