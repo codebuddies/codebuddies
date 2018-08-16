@@ -128,7 +128,10 @@ Meteor.methods({
         initial: false,
         reminder: false,
         follow_up: false
-      }
+      },
+      externalCheckbox: data.externalCheckbox,
+      externalButtonText: data.externalButtonText,
+      externalURL: data.externalURL
     };
 
     // console.log(hangout);
@@ -244,7 +247,10 @@ Meteor.methods({
             start: data.start,
             end: data.end,
             duration: data.duration,
-            type: data.type
+            type: data.type,
+            externalCheckbox: data.externalCheckbox,
+            externalButtonText: data.externalButtonText,
+            externalURL: data.externalURL
           }
         }
       );
@@ -270,7 +276,10 @@ Meteor.methods({
             start: data.start,
             end: data.end,
             duration: data.duration,
-            type: data.type
+            type: data.type,
+            externalCheckbox: data.externalCheckbox,
+            externalButtonText: data.externalButtonText,
+            externalURL: data.externalURL
           }
         }
       );

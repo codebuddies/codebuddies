@@ -90,6 +90,9 @@
   "past_events": "Past Hangouts",
   "add_to_icalendar": " Add to iCalendar",
   "deleted": "DELETED",
+  "external_button_text":
+    "Please input button text for your external hangout platform",
+  "external_URL": "Please input a URL for your external hangout platform",
 
   // popup messages
   "you_are_almost_there": "You are almost there!",

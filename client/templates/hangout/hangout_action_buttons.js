@@ -75,6 +75,14 @@ Template.hangoutActionButtons.events({
       // console.log(hangout.data._id + ' this is a cloned hangout id');
       Session.set("hangoutId", hangout.data._id);
       Modal.show("cloneHangoutModal", { hangout });
+      $("#clone-hangout-modal input#external-checkbox").prop(
+        "checked",
+        hangout.data.externalCheckbox
+      );
+      $("#clone-hangout-modal #externalButtonText").val(
+        hangout.data.externalButtonText
+      );
+      $("#clone-hangout-modal #externalURL").val(hangout.data.externalURL);
       $("#clone-hangout-modal #topic").val(hangout.data.topic);
       $("#clone-hangout-modal input[value=" + hangout.data.type + "]").prop(
         "checked",
@@ -114,6 +122,14 @@ Template.hangoutActionButtons.events({
       "checked",
       true
     );
+    $("#edit-hangout-modal input#external-checkbox").prop(
+      "checked",
+      hangout.data.externalCheckbox
+    );
+    $("#edit-hangout-modal #externalButtonText").val(
+      hangout.data.externalButtonText
+    );
+    $("#edit-hangout-modal #externalURL").val(hangout.data.externalURL);
     $("#edit-hangout-modal #start-date-time").val(start_time_reverted);
     $("#edit-hangout-modal #end-date-time").val(hangoutDuration);
     $("#edit-hangout-modal #group").val(hangout.data.group.title);
