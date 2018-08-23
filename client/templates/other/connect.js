@@ -14,5 +14,8 @@ Template.connect.onRendered(function() {});
 Template.connect.events({
   'click label[for="partner"]': function() {
     $("section#partner").fadeIn();
+  },
+  'click input[value*="Algorithms"]': function() {
+    $("section#partnerPairing, #submit").fadeIn();
   }
 });
