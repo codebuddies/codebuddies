@@ -9,18 +9,20 @@
         form#connect { 
             display: flex;
             justify-content: center;
-            label { 
+            label {
                 display: block;
+            }
+            label.choice { 
                 background: $cta-dark;
                 color: $white;
                 padding: 10px;
            
             }
-            input[type="radio"] { display: none; }
-            label:hover {
+            label.choice:hover {
                 cursor: pointer;
                 background: $cta-blue;
             }
+            input[type="radio"] { display: none; }
             input[type="radio"]:checked + label {
                 background: $cta-blue;
             }
@@ -28,8 +30,9 @@
                 flex-direction: row;
                 display: inline-block;
                 margin: 10px;
+                max-width: 400px;
             }
-           #partner, #project, #feedback, #mentor {
+           section:not(:first-child) {
                 display: none;
             }
     }
