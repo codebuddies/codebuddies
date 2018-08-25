@@ -264,3 +264,30 @@ discussionsSlackAlert = function(discussion) {
     text: pretext
   });
 };
+
+/**
+ * slack alert for when someone joins the 24/7
+ * co-working hangout
+ * @function
+ * @name coworkingSlackAlert
+ * @param { String } username
+ * @return null
+ */
+coworkingSlackAlert = function(username = "guest") {
+  const channel = Meteor.isDevelopment
+    ? Meteor.settings.slack_alert_channel
+    : "#coworking";
+  coworkingAlert = slack.extend({
+    channel: channel,
+    icon_emoji: ":coworking:",
+    username: "Coworking 24/7"
+  });
+  const jitsiRoom =
+    "https://meet.jit.si/cbcoworking#config.startWithVideoMuted=true";
+
+  const pretext = `*${username}* _has joined the_ <${jitsiRoom}|24/7 coworking room>.`;
+
+  coworkingAlert({
+    text: pretext
+  });
+};
