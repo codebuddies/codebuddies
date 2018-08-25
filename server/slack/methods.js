@@ -285,7 +285,7 @@ coworkingSlackAlert = function(username = "guest") {
   const jitsiRoom =
     "https://meet.jit.si/cbcoworking#config.startWithVideoMuted=true";
 
-  const pretext = `*${username}* _has joined the_ <${jitsiRoom}|24/7 coworking room>.`;
+  const pretext = `*${username}* _has joined the_ <${jitsiRoom}|24/7 silent coworking> room.`;
 
   coworkingAlert({
     text: pretext
