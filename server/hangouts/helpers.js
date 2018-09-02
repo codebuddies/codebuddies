@@ -117,6 +117,10 @@ const Helpers = {
       slackNotification(hangout, type, hangoutChannels);
       hangoutFacebookNotification(hangout, type);
     }
+  },
+
+  getUpcomingHangoutCounts() {
+    return Hangouts.find({ end: { $gte: new Date() } }).count();
   }
 };
 

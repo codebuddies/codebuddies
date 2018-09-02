@@ -53,5 +53,8 @@ const ActionsTable = [
   },
   {
     command: "create hangout"
+  },
+  {
+    command: "list hangout"
   }
 ];
