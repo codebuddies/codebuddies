@@ -13,7 +13,8 @@ Picker.route("/callback/hangout/:_id", function(params, req, res) {
     result
   ) {
     if (err) {
-      res.statusCode = 404;
+      console.log("/callback/hangout/:_id", err);
+      res.statusCode = 500; // Internal Server Error
     } else {
       res.statusCode = 200;
     }

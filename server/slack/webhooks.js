@@ -9,7 +9,7 @@ const webhooks = {
     const { slackAppToken } = Meteor.settings;
 
     if (!token || token !== slackAppToken) {
-      res.statusCode = 404;
+      res.statusCode = 401; // Unauthorized
       res.end();
       return;
     }
@@ -27,7 +27,7 @@ const webhooks = {
       webhooks.processEvent(event);
       return;
     }
-    res.statusCode = 404;
+    res.statusCode = 406; // Not Acceptable
     res.end();
   },
 
