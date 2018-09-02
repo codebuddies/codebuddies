@@ -3,9 +3,9 @@ import SlackAPI from "/server/slack/slack-api.js";
 
 const webhooks = {
   handleNewEvent(params, req, res) {
-    console.log("webhooks.handleNewEvent");
     const { token, type, challenge, event } = req.body || {};
     const { slackAppToken } = Meteor.settings;
+    console.log("webhooks.handleNewEvent", type, event);
 
     if (!token || token !== slackAppToken) {
       console.log("webhooks.handleNewEvent[Unauthorized]");
@@ -18,6 +18,13 @@ const webhooks = {
       console.log("webhooks.handleNewEvent[url_verification]");
       res.statusCode = 200;
       res.write(challenge);
+      res.end();
+      return;
+    }
+
+    // Don't do anything if bot posted any message
+    if (event && event.bot_id) {
+      res.statusCode = 200;
       res.end();
       return;
     }
@@ -38,7 +45,7 @@ const webhooks = {
   // Find Meteor user whos email is same as slack's one
   // If Meteor user's and slack user's have same email then create hangout
   processEvent(event) {
-    console.log("webhook.processEvent", event);
+    console.log("webhook.processEvent");
     const { user: slackUserId, text, type, channel, ts } = event || {};
     if (type !== "message") return;
     const slackUser = SlackAPI.getUser(slackUserId);
@@ -54,11 +61,12 @@ const webhooks = {
     if (!user)
       return console.log("slackWebhooks.processEvent: meteor user not found");
 
-    webhooks.createHangout(user, text);
+    webhooks.createHangout(user, text, channel);
   },
 
-  createHangout(user, text) {
-    console.log("webhooks.createHangout", user, text);
+  createHangout(user, text, channel) {
+    console.log("webhooks.createHangout", text, channel);
+    SlackAPI.postMessage(channel, "webhooks.createHangout");
     // ToDo
     // 1. Parse the text and get hangout start/end time, title
     // 2. Create hangout
