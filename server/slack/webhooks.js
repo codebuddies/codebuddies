@@ -2,6 +2,7 @@ import { HTTP } from "meteor/http";
 import SlackAPI from "/server/slack/slack-api.js";
 import Parser from "/server/slack/message-parser.js";
 import moment from "moment-timezone";
+import HangoutHelper from "/server/hangouts/helpers.js";
 
 const BOT_ID = Meteor.settings.cbJarvisId;
 
@@ -89,9 +90,10 @@ const webhooks = {
 
     const data = {
       topic: action.title,
-      slug: ation.title,
-      start: startDate.toISOString(),
-      end: endDate.toISOString(),
+      slug: action.title,
+      start: startDate.toDate(),
+      end: endDate.toDate(),
+      description: action.title + "(Created from slack)",
       duration: duration,
       type: "silent",
       groupId: "CB",
@@ -100,11 +102,22 @@ const webhooks = {
       externalURL: ""
     };
 
-    // Create hangout here
-    SlackAPI.postMessage(channel, "Hangout created successfully");
+    try {
+      HangoutHelper.createHangout(data, user);
+      let replyMsg = `Hangout created successfully for ${duration} minutes, starting from`;
+      replyMsg +=
+        startDate.format(" ddd, MMM Do YYYY, h:mm a ") + slackUserTimeZone;
+      SlackAPI.postMessage(channel, replyMsg);
+    } catch (err) {
+      SlackAPI.postMessage(channel, "Ops! something went wrong.");
+      console.error(err);
+    }
   },
 
-  listHangout() {}
+  listHangout(channel) {
+    const count = HangoutHelper.getUpcomingHangoutCounts();
+    SlackAPI.postMessage(channel, `${count} hangouts are scheduled currently.`);
+  }
 };
 
 export default webhooks;
