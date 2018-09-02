@@ -1,5 +1,8 @@
 import { HTTP } from "meteor/http";
 import SlackAPI from "/server/slack/slack-api.js";
+import Parser from "/server/slack/message-parser.js";
+
+const BOT_ID = Meteor.settings.cbJarvisId;
 
 const webhooks = {
   handleNewEvent(params, req, res) {
@@ -30,7 +33,6 @@ const webhooks = {
     }
 
     if (type === "event_callback" && event) {
-      console.log("webhooks.handleNewEvent[event_callback]");
       res.statusCode = 200;
       res.end();
       webhooks.processEvent(event);
@@ -47,26 +49,40 @@ const webhooks = {
   processEvent(event) {
     console.log("webhook.processEvent");
     const { user: slackUserId, text, type, channel, ts } = event || {};
-    if (type !== "message") return;
-    const slackUser = SlackAPI.getUser(slackUserId);
-    if (!slackUser)
-      return console.error("slackWebhooks.processEvent: slack user not found");
-    const slackUserEmail = slackUser.profile && slackUser.profile.email;
-    const slackUserTimeZone = slackUser.tz;
-    if (!slackUserEmail)
-      return console.error(
-        "slackWebhooks.processEvent: slack user email not found"
-      );
-    const user = Meteor.users.findOne({ email: slackUserEmail });
-    if (!user)
-      return console.log("slackWebhooks.processEvent: meteor user not found");
+    if (type !== "message" || !text || text.indexOf(`@${BOT_ID}`) < 0) return;
+    const action = Parser.parse(text);
 
-    webhooks.createHangout(user, text, channel);
+    if (action.reply) {
+      SlackAPI.postMessage(channel, action.reply);
+    }
+
+    if (action.command === "create hangout") {
+      const slackUser = SlackAPI.getUser(slackUserId);
+      if (!slackUser)
+        return console.error(
+          "slackWebhooks.processEvent[slack user not found]"
+        );
+      const slackUserEmail = slackUser.profile && slackUser.profile.email;
+      const slackUserTimeZone = slackUser.tz;
+      if (!slackUserEmail)
+        return console.error(
+          "slackWebhooks.processEvent[slack user email not found]"
+        );
+      const user = Meteor.users.findOne({ email: slackUserEmail });
+      if (!user)
+        return console.error(
+          "slackWebhooks.processEvent[meteor user not found]"
+        );
+      webhooks.createHangout(user, text, channel);
+    }
+
+    if (action.command === "list hangout") {
+    }
   },
 
   createHangout(user, text, channel) {
-    console.log("webhooks.createHangout", text, channel);
-    SlackAPI.postMessage(channel, "webhooks.createHangout");
+    //console.log("webhooks.createHangout", text, channel);
+    //SlackAPI.postMessage(channel, "webhooks.createHangout");
     // ToDo
     // 1. Parse the text and get hangout start/end time, title
     // 2. Create hangout

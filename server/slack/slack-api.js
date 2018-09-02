@@ -29,8 +29,9 @@ const SlackAPI = {
       }
     };
     const response = HTTP.call("POST", URLS.POST_MESSAGE, options);
-    console.log("SlackAPI.postMessage[response]:", response && response.data);
-    return;
+    const { ok, error } = (response && response.data) || {};
+    console.log("SlackAPI.postMessage[response]:", { ok, error });
+    return response.data;
   }
 };
 
