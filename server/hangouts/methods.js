@@ -19,7 +19,6 @@ Meteor.methods({
       })
     );
 
-    console.log(data);
     if (!this.userId) {
       throw new Meteor.Error(
         "Hangout.methods.createHangout.not-logged-in",
