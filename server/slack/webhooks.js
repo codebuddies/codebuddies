@@ -1,20 +1,21 @@
 import { HTTP } from "meteor/http";
-
-const SLACK_USER_URL = "https://slack.com/api/users.info";
+import SlackAPI from "/server/slack/slack-api.js";
 
 const webhooks = {
   handleNewEvent(params, req, res) {
-    console.log("webhooks.handleNewEvent", req.headers);
+    console.log("webhooks.handleNewEvent");
     const { token, type, challenge, event } = req.body || {};
     const { slackAppToken } = Meteor.settings;
 
     if (!token || token !== slackAppToken) {
+      console.log("webhooks.handleNewEvent[Unauthorized]");
       res.statusCode = 401; // Unauthorized
       res.end();
       return;
     }
 
     if (type === "url_verification" && challenge) {
+      console.log("webhooks.handleNewEvent[url_verification]");
       res.statusCode = 200;
       res.write(challenge);
       res.end();
@@ -22,11 +23,13 @@ const webhooks = {
     }
 
     if (type === "event_callback" && event) {
+      console.log("webhooks.handleNewEvent[event_callback]");
       res.statusCode = 200;
       res.end();
       webhooks.processEvent(event);
       return;
     }
+    console.log("webhooks.handleNewEvent[Not Acceptable]");
     res.statusCode = 406; // Not Acceptable
     res.end();
   },
@@ -38,7 +41,7 @@ const webhooks = {
     console.log("webhook.processEvent", event);
     const { user: slackUserId, text, type, channel, ts } = event || {};
     if (type !== "message") return;
-    const slackUser = webhooks.getSlackUser(slackUserId);
+    const slackUser = SlackAPI.getUser(slackUserId);
     if (!slackUser)
       return console.error("slackWebhooks.processEvent: slack user not found");
     const slackUserEmail = slackUser.profile && slackUser.profile.email;
@@ -55,21 +58,11 @@ const webhooks = {
   },
 
   createHangout(user, text) {
+    console.log("webhooks.createHangout", user, text);
     // ToDo
     // 1. Parse the text and get hangout start/end time, title
     // 2. Create hangout
     // 3. Send message back to slack channel, hangout created Successfully
-  },
-
-  getSlackUser(slackUserId) {
-    const options = {
-      params: {
-        user: slackUserId,
-        token: Meteor.settings.slackOauthToken
-      }
-    };
-    const response = HTTP.call("POST", SLACK_USER_URL, options);
-    return response && response.data && response.data.user;
   }
 };
 
