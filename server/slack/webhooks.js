@@ -114,8 +114,7 @@ const webhooks = {
     try {
       const hangoutId = HangoutHelper.createHangout(data, user);
       const hangoutUrl = Meteor.absoluteUrl("hangout/" + hangoutId);
-      const time =
-        startDate.format("ddd, MMM Do YYYY, h:mm a ") + slackUserTimeZone;
+      const time = startDate.format("ddd, MMM Do YYYY, h:mm A (z)");
 
       let replyMsg = `Hangout created successfully for ${duration} minutes, starting from ${time}.`;
       replyMsg += ` Go to ${hangoutUrl} to edit or join the hangout.`;
