@@ -28,7 +28,11 @@ const Parser = {
   },
 
   getDate(text) {
-    return Chrono.parseDate(text, new Date());
+    const result = Chrono.parse(text, new Date(), { forwardDate: true });
+    if (!result || !result.length || !result[0].start) return;
+    const start = result[0].start.date();
+    const end = result[0].end && result[0].end.date();
+    return { start, end };
   },
 
   getAction(text) {
@@ -43,8 +47,10 @@ export default Parser;
 const ActionsTable = [
   {
     command: "help",
-    reply: `Supported Actions: create hangout, list hangout.
-      Try: "create hangout, tomorrow at 6 pm, YOUR HANGOUT TITLE"
+    reply: `Supported Actions: create hangout, list hangout. Example:
+      "create hangout, tomorrow at 6 pm, YOUR HANGOUT TITLE"
+      "create hangout, today from 9 to 10pm, YOUR HANGOUT TITLE"
+      "create hangout, next sunday from 7:30 to 9 pm, YOUR HANGOUT TITLE"
     `
   },
   {

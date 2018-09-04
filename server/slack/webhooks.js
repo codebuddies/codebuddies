@@ -81,12 +81,21 @@ const webhooks = {
       );
     }
 
-    const duration = 25; // Default hangout 25 min
+    const DEFAULT_DURATION = 25; // Default hangout 25 min
+
+    const startString = moment(action.date.start).format("YYYY-MM-DDTHH:mm:ss");
+    const endString = action.date.end
+      ? moment(action.date.end).format("YYYY-MM-DDTHH:mm:ss")
+      : moment(action.date.start)
+          .add(DEFAULT_DURATION, "minutes")
+          .format("YYYY-MM-DDTHH:mm:ss");
+
     // Use user's timezone
     const startDate = moment
-      .tz(moment(action.date).format("YYYY-MM-DDTHH:mm:ss"), slackUserTimeZone)
+      .tz(startString, slackUserTimeZone)
       .startOf("minute");
-    const endDate = startDate.clone().add(duration, "minutes");
+    const endDate = moment.tz(endString, slackUserTimeZone).startOf("minute");
+    const duration = endDate.diff(startDate, "minutes");
 
     const data = {
       topic: action.title,
