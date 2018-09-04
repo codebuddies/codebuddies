@@ -102,6 +102,7 @@ const Helpers = {
     //tweet new hangout
     tweetHangout(hangout);
     Helpers.sendNotifications(hangout, group);
+    return hangout_id;
   },
 
   sendNotifications(hangout, group, type = "NEW") {

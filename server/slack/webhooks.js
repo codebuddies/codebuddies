@@ -103,10 +103,14 @@ const webhooks = {
     };
 
     try {
-      HangoutHelper.createHangout(data, user);
-      let replyMsg = `Hangout created successfully for ${duration} minutes, starting from`;
-      replyMsg +=
-        startDate.format(" ddd, MMM Do YYYY, h:mm a ") + slackUserTimeZone;
+      const hangoutId = HangoutHelper.createHangout(data, user);
+      const hangoutUrl = Meteor.absoluteUrl("hangout/" + hangoutId);
+      const time =
+        startDate.format("ddd, MMM Do YYYY, h:mm a ") + slackUserTimeZone;
+
+      let replyMsg = `Hangout created successfully for ${duration} minutes, starting from ${time}.`;
+      replyMsg += ` Go to ${hangoutUrl} to edit or join the hangout.`;
+
       SlackAPI.postMessage(channel, replyMsg);
     } catch (err) {
       SlackAPI.postMessage(channel, "Ops! something went wrong.");
