@@ -120,8 +120,15 @@ const Helpers = {
     }
   },
 
-  getUpcomingHangoutCounts() {
-    return Hangouts.find({ end: { $gte: new Date() } }).count();
+  getUpcomingHangoutCounts(userId) {
+    if (userId) {
+      return Hangouts.find({
+        "host.id": userId,
+        end: { $gte: new Date() }
+      }).count();
+    } else {
+      return Hangouts.find({ end: { $gte: new Date() } }).count();
+    }
   }
 };
 

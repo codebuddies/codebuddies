@@ -5,6 +5,8 @@ import moment from "moment-timezone";
 import HangoutHelper from "/server/hangouts/helpers.js";
 
 const BOT_ID = Meteor.settings.cbJarvisId;
+const MAX_ALLOWED_HANGOUT_PER_DAY = 5;
+const DEFAULT_DURATION = 25; // Default hangout duration in minutes
 
 const webhooks = {
   handleNewEvent(params, req, res) {
@@ -81,7 +83,16 @@ const webhooks = {
       );
     }
 
-    const DEFAULT_DURATION = 25; // Default hangout 25 min
+    const totalHangouts = HangoutHelper.getUpcomingHangoutCounts(user._id);
+    const limitExceeded = totalHangouts >= MAX_ALLOWED_HANGOUT_PER_DAY;
+    const isProduction = Meteor.settings.isModeProduction;
+
+    if (limitExceeded && isProduction) {
+      return SlackAPI.postMessage(
+        channel,
+        "You are not allowed to create more hangouts today."
+      );
+    }
 
     const startString = moment(action.date.start).format("YYYY-MM-DDTHH:mm:ss");
     const endString = action.date.end
