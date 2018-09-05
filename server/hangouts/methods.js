@@ -1,19 +1,4 @@
-import { tweetHangout } from "../twitter/methods.js";
-
-function sendNotifications(hangout, group, type = "NEW") {
-  if (hangout && group) {
-    let hangoutChannels = [];
-    if (group._id !== "CB") {
-      const studyGroup = StudyGroups.findOne(
-        { _id: group._id },
-        { fields: { hangoutChannels: 1 } }
-      );
-      hangoutChannels = (studyGroup && studyGroup.hangoutChannels) || [];
-    }
-    slackNotification(hangout, type, hangoutChannels);
-    hangoutFacebookNotification(hangout, type);
-  }
-}
+import Helpers from "./helpers.js";
 
 Meteor.methods({
   createHangout: function(data) {
@@ -34,7 +19,6 @@ Meteor.methods({
       })
     );
 
-    const loggedInUser = Meteor.user();
     if (!this.userId) {
       throw new Meteor.Error(
         "Hangout.methods.createHangout.not-logged-in",
@@ -42,106 +26,8 @@ Meteor.methods({
       );
     }
 
-    let group;
-    //check for group
-    if (data.groupId == "CB") {
-      group = { _id: "CB", title: "CB", slug: "CB" };
-    } else {
-      const temp_item = StudyGroups.findOne(
-        { _id: data.groupId },
-        { exempt_from_default_permission: 1 }
-      );
-
-      // check for exempt_from_default_permission
-      if (temp_item && temp_item.exempt_from_default_permission) {
-        //check if user is a member
-        if (
-          !loggedInUser ||
-          !Roles.userIsInRole(
-            loggedInUser,
-            ["owner", "admin", "moderator", "member"],
-            data.groupId
-          )
-        ) {
-          throw new Meteor.Error(403, "Access denied");
-        } else {
-          group = StudyGroups.findOne(
-            { _id: data.groupId },
-            { title: 1, slug: 1 }
-          );
-        }
-      } else {
-        //check if user has permission
-        if (
-          !loggedInUser ||
-          !Roles.userIsInRole(
-            loggedInUser,
-            ["owner", "admin", "moderator"],
-            data.groupId
-          )
-        ) {
-          throw new Meteor.Error(403, "Access denied");
-        } else {
-          group = StudyGroups.findOne(
-            { _id: data.groupId },
-            { title: 1, slug: 1 }
-          );
-        }
-      }
-    } // if ends
-
-    let createdAt = new Date();
-    let createdAtPlusTwoHour = new Date(
-      createdAt.getTime() + 2 * 1000 * 60 * 60
-    );
-    const reminder = data.start <= createdAtPlusTwoHour ? true : false;
-
-    var hangout = {
-      topic: data.topic,
-      slug: data.slug,
-      description: data.description,
-      description_in_quill_delta: data.description_in_quill_delta,
-      start: data.start,
-      end: data.end,
-      duration: data.duration,
-      type: data.type,
-      host: {
-        id: loggedInUser._id,
-        name: loggedInUser.username,
-        avatar: loggedInUser.profile.avatar.default
-      },
-      attendees: [],
-      email_addresses: [loggedInUser.email],
-      users: [loggedInUser._id],
-      day_reminder_sent: reminder,
-      hourly_reminder_sent: reminder,
-      followup_email_sent: false,
-      views: 0,
-      visibility: true,
-      created_at: createdAt,
-      group: {
-        id: group._id,
-        title: group.title,
-        slug: group.slug
-      },
-      email_notifications: {
-        initial: false,
-        reminder: false,
-        follow_up: false
-      },
-      externalCheckbox: data.externalCheckbox,
-      externalButtonText: data.externalButtonText,
-      externalURL: data.externalURL
-    };
-
-    // console.log(hangout);
-
-    const hangout_id = Hangouts.insert(hangout);
-    hangout._id = hangout_id;
-
-    //tweet new hangout
-    tweetHangout(hangout);
-    sendNotifications(hangout, group);
+    const loggedInUser = Meteor.user();
+    Helpers.createHangout(data, loggedInUser);
 
     return true;
   },
@@ -258,7 +144,7 @@ Meteor.methods({
       if (isDateTimeChange) {
         group = StudyGroups.findOne({ _id: hangout.group.id }, {});
         savedHangout = Hangouts.findOne({ _id: data.hangoutId });
-        sendNotifications(savedHangout, group, "UPDATE");
+        Helpers.sendNotifications(savedHangout, group, "UPDATE");
       }
 
       return true;
@@ -301,7 +187,7 @@ Meteor.methods({
       if (isDateTimeChange) {
         group = StudyGroups.findOne({ _id: hangout.group.id }, {});
         savedHangout = Hangouts.findOne({ _id: data.hangoutId });
-        sendNotifications(savedHangout, group, "UPDATE");
+        Helpers.sendNotifications(savedHangout, group, "UPDATE");
       }
 
       return true;
