@@ -22,7 +22,7 @@ const Parser = {
       }
       action.title = segments[2];
       action.date = Parser.getDate(segments[1]);
-      if (!action.date) action.reply = "Date unrecognized, Try Again.";
+      if (!action.date) action.reply = "Date unrecognized. Please try Again.";
     }
     return action;
   },
@@ -47,10 +47,11 @@ export default Parser;
 const ActionsTable = [
   {
     command: "help",
-    reply: `Supported Actions: create hangout, list hangout. Example:
+    reply: `Supported Actions: create hangout, list hangouts. Examples:
       "create hangout, tomorrow at 6 pm, YOUR HANGOUT TITLE"
-      "create hangout, today from 9 to 10pm, YOUR HANGOUT TITLE"
-      "create hangout, next sunday from 7:30 to 9 pm, YOUR HANGOUT TITLE"
+      "create hangout, today from 9 to 10pm, teaching intermediate git for practice"
+      "create hangout, next sunday from 7:30 to 9 pm, pairing on algorithms",
+      "create hangout, in 2 hours, studying python from the Official Python tutorial"
     `
   },
   {
@@ -61,6 +62,6 @@ const ActionsTable = [
     command: "create hangout"
   },
   {
-    command: "list hangout"
+    command: "list hangouts"
   }
 ];

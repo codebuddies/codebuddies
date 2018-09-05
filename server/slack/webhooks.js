@@ -57,7 +57,8 @@ const webhooks = {
 
     if (action.command === "create hangout")
       return webhooks.createHangout(slackUserId, action, channel);
-    if (action.command === "list hangout") return webhooks.listHangout(channel);
+    if (action.command === "list hangouts" || action.command === "list hangout")
+      return webhooks.listHangout(channel);
   },
 
   // First get User and it's email and it's timezone from slack API
@@ -79,7 +80,7 @@ const webhooks = {
       console.error("slackWebhooks.processEvent[meteor user not found]");
       return SlackAPI.postMessage(
         channel,
-        "Your account not found on codebuddies.org"
+        "Your account was not found on codebuddies.org"
       );
     }
 
@@ -113,7 +114,7 @@ const webhooks = {
       slug: action.title,
       start: startDate.toDate(),
       end: endDate.toDate(),
-      description: action.title + "(Created from slack)",
+      description: action.title + " (Created via Slack)",
       duration: duration,
       type: "silent",
       groupId: "CB",
@@ -127,12 +128,12 @@ const webhooks = {
       const hangoutUrl = Meteor.absoluteUrl("hangout/" + hangoutId);
       const time = startDate.format("ddd, MMM Do YYYY, h:mm A (z)");
 
-      let replyMsg = `Hangout created successfully for ${duration} minutes, starting from ${time}.`;
-      replyMsg += ` Go to ${hangoutUrl} to edit or join the hangout.`;
+      let replyMsg = `Hangout created successfully! It will last for ${duration} minutes, starting from :calendar: ${time}.`;
+      replyMsg += `\n Go to ${hangoutUrl} to edit or join the hangout.`;
 
       SlackAPI.postMessage(channel, replyMsg);
     } catch (err) {
-      SlackAPI.postMessage(channel, "Ops! something went wrong.");
+      SlackAPI.postMessage(channel, "Oops! something went wrong.");
       console.error(err);
     }
   },
