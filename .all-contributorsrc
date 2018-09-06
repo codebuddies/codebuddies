@@ -999,6 +999,25 @@
         "question",
         "example"
       ]
+    },
+    {
+      "login": "gauravchl",
+      "name": "Gaurav Chikhale",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/3471415?v=4",
+      "profile": "https://gauravchl.com",
+      "contributions": [
+        "code",
+        "video"
+      ]
+    },
+    {
+      "login": "peoray",
+      "name": "Emmanuel Raymond",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/23735423?v=4",
+      "profile": "http://medium.com/@peoray",
+      "contributions": [
+        "code"
+      ]
     }
   ]
 }
