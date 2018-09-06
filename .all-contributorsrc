@@ -999,6 +999,21 @@
         "question",
         "example"
       ]
+    },
+    {
+      "login": "billglover",
+      "name": "Bill Glover",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/94501?v=4",
+      "profile": "http://billglover.co.uk/",
+      "contributions": [
+        "question",
+        "blog",
+        "bug",
+        "code",
+        "eventOrganizing",
+        "ideas",
+        "video"
+      ]
     }
   ]
 }
