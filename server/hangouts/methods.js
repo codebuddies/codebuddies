@@ -25,8 +25,7 @@ Meteor.methods({
         "Must be logged in to create new hangout."
       );
     }
-
-
+    
     const loggedInUser = Meteor.user();
     Helpers.createHangout(data, loggedInUser);
 

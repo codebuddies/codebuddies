@@ -1,5 +1,5 @@
 ![CodeBuddies logo](https://github.com/codebuddies/codebuddies/raw/master/public/images/cb-readme.jpg)
-[![All Contributors](https://img.shields.io/badge/all_contributors-102-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-103-orange.svg?style=flat-square)](#contributors)
 [![All Contributors](https://img.shields.io/badge/all_contributors-0-orange.svg?style=flat-square)](#contributors)
 
 # CodeBuddies Hangouts Platform v2.0 - from scratch
