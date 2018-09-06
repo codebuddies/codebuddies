@@ -26,6 +26,7 @@ Meteor.methods({
       );
     }
 
+
     const loggedInUser = Meteor.user();
     Helpers.createHangout(data, loggedInUser);
 
