@@ -22,6 +22,7 @@ const Parser = {
       }
       action.title = segments[2];
       action.date = Parser.getDate(segments[1]);
+      console.log("DEBUG[Chrono]", message, segments, action.date);
       if (!action.date) action.reply = "Date unrecognized. Please try Again.";
     }
     return action;
