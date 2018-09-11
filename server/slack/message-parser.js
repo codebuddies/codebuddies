@@ -9,12 +9,11 @@ const Parser = {
       .split(",")
       .map(item => item.trim())
       .filter(Boolean);
-    if (!segments.length) return ActionsTable[0];
+    if (!segments.length) return Parser.getAction("help");
     const action = Parser.getAction(segments[0]);
-    if (!action) return ActionsTable[0];
+    if (!action) return Parser.getAction("help");
 
     if (action.command === "create hangout") {
-      console.log("DEBUG[Chrono] 1", message, segments);
       if (!segments[2] || !segments[1]) {
         action.reply = !segments[1]
           ? "Date is required for hangout. Try Again."
@@ -23,7 +22,6 @@ const Parser = {
       }
       action.title = segments[2];
       action.date = Parser.getDate(segments[1]);
-      console.log("DEBUG[Chrono] 2", action.date);
       if (!action.date) action.reply = "Date unrecognized. Please try Again.";
     }
     return action;
@@ -38,9 +36,10 @@ const Parser = {
   },
 
   getAction(text) {
-    return ActionsTable.find(
+    const { command, reply } = ActionsTable.find(
       item => text.toLowerCase().indexOf(item.command) > -1
     );
+    return { command, reply };
   }
 };
 
