@@ -209,6 +209,34 @@
       "type": "code"
     },
     {
+      "title": "@gauravchl",
+      "socials": {
+        "twitter": "https://twitter.com/gauravchl",
+        "github": "https://github.com/gauravchl",
+        "blog": "https://gauravchl.com"
+      },
+      "contribution":
+        "Created a way for users to schedule hangouts directly from Slack, and worked on additional fixes.",
+      "location": "India",
+      "avatar": "https://avatars0.githubusercontent.com/u/3471415?s=460&v=4",
+      "name": "Gaurav Chikhale",
+      "type": "code"
+    },
+    {
+      "title": "@peoray",
+      "socials": {
+        "twitter": "https://twitter.com/super_raay",
+        "github": "https://github.com/peoray",
+        "blog": "http://medium.com/@peoray"
+      },
+      "contribution":
+        "Added additional message to the greetbot that welcomes users to Slack",
+      "location": "Lagos, Nigeria",
+      "avatar": "https://avatars1.githubusercontent.com/u/23735423?s=460&v=4",
+      "name": "Emmanuel Raymond",
+      "type": "code"
+    },
+    {
       "title": "@sergeant-q",
       "socials": {
         "twitter": "http://twitter.com/_SergeantQ",
