@@ -9,9 +9,9 @@ const Parser = {
       .split(",")
       .map(item => item.trim())
       .filter(Boolean);
-    if (!segments.length) return ActionsTable[0];
+    if (!segments.length) return Parser.getAction("help");
     const action = Parser.getAction(segments[0]);
-    if (!action) return ActionsTable[0];
+    if (!action) return Parser.getAction("help");
 
     if (action.command === "create hangout") {
       if (!segments[2] || !segments[1]) {
@@ -36,9 +36,10 @@ const Parser = {
   },
 
   getAction(text) {
-    return ActionsTable.find(
+    const { command, reply } = ActionsTable.find(
       item => text.toLowerCase().indexOf(item.command) > -1
     );
+    return { command, reply };
   }
 };
 
