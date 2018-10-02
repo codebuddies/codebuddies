@@ -137,7 +137,10 @@ Meteor.methods({
     check(data, {
       firstname: String,
       lastname: String,
-      username: String
+      username: String,
+      intro: String,
+      skillsHelpOthersWith: String,
+      skillsWantToImprove: String
     });
 
     const actorId = Meteor.userId();
@@ -168,6 +171,9 @@ Meteor.methods({
           username: data.username,
           "profile.firstname": data.firstname,
           "profile.lastname": data.lastname,
+          "profile.intro": data.intro,
+          "profile.skillHelpOthersWith": data.skillsHelpOthersWith,
+          "profile.skillWantToImprove": data.skillsWantToImprove,
           "profile.complete": true
         }
       }
