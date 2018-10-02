@@ -6,20 +6,14 @@
         <p>
           Create study groups as motivation to accomplish common learning goals. Ideally, people who are interested in the same topic would come together and learn and hold each other accountable to learning goals of all sizes.
         </p>
-
-        <button type="button" class="btn btn-cb2 {{#unless currentUser}} continue-popup btn-createGroup-notLoggedIn {{/unless}}"
-          id="{{#if currentUser}}createGroupButton{{/if}}">
-          {{_ "start_new_group" }}
-        </button>
-
         <a href="{{pathFor 'study group owners guide'}}"
            class="btn btn-outline">
           Study Group Owners' Guide
         </a>
       </div>
     </div>
-
     {{> studyGroupsSearchBox}}
+
 
     {{#if sgSearchMode}}
       {{> studyGroupsSearchResult}}
@@ -80,6 +74,9 @@
             <div class="well well--end-of-page">
               <h5 class="text-center">You've reached the end of the page.</h5>
             </div>
+            <button type="button" class="btn btn-cb2 {{#unless currentUser}} continue-popup btn-createGroup-notLoggedIn {{/unless}}" id="{{#if currentUser}}createGroupButton{{/if}}">
+      {{_ "start_new_group" }}
+            </button>
         {{/if}}
 
       </div>
