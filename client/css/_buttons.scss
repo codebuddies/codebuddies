@@ -251,7 +251,9 @@ li.delete-hangout, li.edit-hangout {
   max-width: 340px;
 }
 #createGroupButton, .btn-createGroup-notLoggedIn {
-  margin: 10px auto;
+  display:inline;
+  margin: 0 2%;
+  border: 1px solid white;
 }
 .btn-clear {
   width: 100%;
