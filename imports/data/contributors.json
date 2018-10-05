@@ -617,6 +617,19 @@
       "type": "code"
     },
     {
+      "title": "@codemzy",
+      "socials": {
+        "twitter": "http://twitter.com/codemzy",
+        "github": "http://github.com/codemzy"
+      },
+      "location": "England, UK",
+      "contribution":
+        "Added a text field for learnings to the profile page",
+      "avatar": "https://avatars3.githubusercontent.com/u/13764272?s=460&v=4",
+      "name": "Emma",
+      "type": "code"
+    },
+    {
       "avatar": "https://avatars0.githubusercontent.com/u/13541047?v=3&s=460",
       "name": "alex",
       "type": "other"
