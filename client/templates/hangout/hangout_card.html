@@ -7,7 +7,7 @@
         <h4 class="hangout-date {{#if isHangoutCompleted end }}completed{{/if}}">{{getHangoutStartDateDay start}}</h4>
         <h4 class="hangout-date {{#if isHangoutCompleted end }}completed{{/if}}">{{getHangoutStartTime start}}</h4>
         {{#if isHangoutInProgress start end}}
-          <h5 class="in-progress"><span class="oval"></span> LIVE</h5>
+          <h5 class="in-progress"><span class="oval"></span> LIVE NOW</h5>
         {{/if}}
         {{# unless isHangoutCompleted end}}
           {{#unless isHangoutInProgress start end}}
