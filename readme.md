@@ -108,7 +108,6 @@ Thank you to [@distalx](https://twitter.com/distalx), [@alfougy](https://twitter
 
 ### Sponsors
 Thank you to DigitalOcean for sponsoring our hosting, MongoDB Atlas for sponsoring our database hosting, and StickerMule for sponsoring $50 in credits!
-
 <a href="https://www.digitalocean.com/" target="_blank"><img src="https://github.com/codebuddies/codebuddies/blob/master/public/images/powered_by_digitalocean.png" width="200" alt="Powered by DigitalOcean"/></a>
 
 <a href="https://www.mongodb.com/cloud/atlas?jmp=codebuddies" target="_blank"><img src="https://github.com/codebuddies/codebuddies/blob/staging/public/images/mdb-atlas-reg.png" width="200" alt="Hosted by MongoDB Atlas"/>
