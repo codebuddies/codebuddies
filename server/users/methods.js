@@ -11,6 +11,8 @@ Meteor.methods({
 
   setUserProfile: function(profileInfo) {
     var pattern = {
+      firstname: String,
+      lastname: String,
       bio: String,
       website: String,
       twitter: String,
@@ -33,6 +35,8 @@ Meteor.methods({
       { _id: Meteor.userId() },
       {
         $set: {
+          "profile.firstname": profileInfo.firstname,
+          "profile.lastname": profileInfo.lastname,
           "profile.bio": profileInfo.bio,
           "profile.website": profileInfo.website,
           "profile.social.twitter": profileInfo.twitter,
