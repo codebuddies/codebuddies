@@ -209,6 +209,34 @@
       "type": "code"
     },
     {
+      "title": "@gauravchl",
+      "socials": {
+        "twitter": "https://twitter.com/gauravchl",
+        "github": "https://github.com/gauravchl",
+        "blog": "https://gauravchl.com"
+      },
+      "contribution":
+        "Created a way for users to schedule hangouts directly from Slack, and worked on additional fixes.",
+      "location": "India",
+      "avatar": "https://avatars0.githubusercontent.com/u/3471415?s=460&v=4",
+      "name": "Gaurav Chikhale",
+      "type": "code"
+    },
+    {
+      "title": "@peoray",
+      "socials": {
+        "twitter": "https://twitter.com/super_raay",
+        "github": "https://github.com/peoray",
+        "blog": "http://medium.com/@peoray"
+      },
+      "contribution":
+        "Added additional message to the greetbot that welcomes users to Slack",
+      "location": "Lagos, Nigeria",
+      "avatar": "https://avatars1.githubusercontent.com/u/23735423?s=460&v=4",
+      "name": "Emmanuel Raymond",
+      "type": "code"
+    },
+    {
       "title": "@sergeant-q",
       "socials": {
         "twitter": "http://twitter.com/_SergeantQ",
@@ -573,6 +601,19 @@
       "contribution": "Contributed to small fixes.",
       "avatar": "https://avatars1.githubusercontent.com/u/22895284?s=460&v=4",
       "name": "Bogdan Covrig",
+      "type": "code"
+    },
+    {
+      "title": "@poshakajay",
+      "socials": {
+        "twitter": "https://twitter.com/poshakajay",
+        "github": "https://github.com/AjayPoshak"
+      },
+      "intro":
+        "Ajay contributes to web whenever possible because he thinks that web is the key to change the world. He got excited about doing open source during Hacktoberfest and made some tiny contributions.",
+      "contribution": "Small contributions during Hacktoberfest",
+      "avatar": "https://avatars3.githubusercontent.com/u/7375457?s=460&v=4",
+      "name": "Ajay Poshak",
       "type": "code"
     },
     {

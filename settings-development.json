@@ -23,7 +23,7 @@
     },
     "smtp": {
       "username": "SMTP_Injection",
-      "password": "262d2acea308cdd96213d83c97fc7ba8ab3873c1",
+      "password": "539bf41e8ff8dcf43afeebb32d68c38470eefabb",
       "server": "smtp.sparkpostmail.com",
       "port": "587"
     }
@@ -44,5 +44,8 @@
   "slack_studygroup_alert_username": "Study Group Alerts",
   "slack_facebook_alert_channel": "#fb-group-private",
   "github_clientid": "fba6a99da8ddc60fe7f6",
-  "github_clientsecret": "a447f020986a5b85b3d5b4b550eaf932809d12cc"
+  "github_clientsecret": "a447f020986a5b85b3d5b4b550eaf932809d12cc",
+  "slackAppToken": "XXX",
+  "slackOauthToken": "xoxa-1234",
+  "cbJarvisId": "1234"
 }

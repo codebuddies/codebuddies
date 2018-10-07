@@ -5,7 +5,7 @@ Meteor.methods({
     // for guest user.
     const guestUser = {
       _id: "guest",
-      username: "username",
+      username: "guest",
       profile: {
         avatar: {
           default: "https://codebuddies.org/images/logo-circle.svg"
@@ -19,7 +19,7 @@ Meteor.methods({
 
     const participant = {
       id: actor._id,
-      username: "guest" || actor.username,
+      username: actor.username,
       avatar: actor.profile.avatar.default
     };
 
@@ -39,6 +39,10 @@ Meteor.methods({
         }
       }
     );
+
+    if (hangoutId == "cbcoworking") {
+      coworkingSlackAlert(participant.username);
+    }
   }
 });
 

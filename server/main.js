@@ -158,6 +158,16 @@ Accounts.onCreateUser(function(options, user) {
     user.username = user.services.github.username;
     user.email = user.services.github.email;
     user.profile = profile;
+    user.emails_preference = [
+      "join_hangout",
+      "rsvp_to_hangout",
+      "delete_hangout",
+      "new_member",
+      "new_hangout",
+      "new_discussion",
+      "bi_weekly_newsletter",
+      "monthly_update"
+    ];
 
     return swapUserIfExists(email, service, user);
   }
@@ -172,6 +182,16 @@ Accounts.onCreateUser(function(options, user) {
     user.username = user.username;
     user.profile = profile;
     user.email = options.email;
+    user.emails_preference = [
+      "join_hangout",
+      "rsvp_to_hangout",
+      "delete_hangout",
+      "new_member",
+      "new_hangout",
+      "new_discussion",
+      "bi_weekly_newsletter",
+      "monthly_update"
+    ];
 
     return user;
   }

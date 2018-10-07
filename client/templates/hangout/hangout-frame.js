@@ -126,6 +126,9 @@ Template.hangoutFrame.helpers({
       return appState.participants.length;
     }
     return 0;
+  },
+  room: function() {
+    return Template.instance().room.get();
   }
 });
 
