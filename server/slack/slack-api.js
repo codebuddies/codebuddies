@@ -36,7 +36,7 @@ const SlackAPI = {
   },
 
   inviteUser(email) {
-    const SLACK_TOKEN = Meteor.settings.slackAppToken;
+    const SLACK_TOKEN = Meteor.settings.slackOauthToken;
     const QUERY_PARAMS = `email=${email}&token=${SLACK_TOKEN}&set_active=true`;
     const slackInviteUseUrl = `${URLS.SLACK_INVITE}?${QUERY_PARAMS}`;
     const response = HTTP.call("GET", slackInviteUseUrl);
