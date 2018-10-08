@@ -604,6 +604,32 @@
       "type": "code"
     },
     {
+      "title": "@poshakajay",
+      "socials": {
+        "twitter": "https://twitter.com/poshakajay",
+        "github": "https://github.com/AjayPoshak"
+      },
+      "intro":
+        "Ajay contributes to web whenever possible because he thinks that web is the key to change the world. He got excited about doing open source during Hacktoberfest and made some tiny contributions.",
+      "contribution": "Small contributions during Hacktoberfest",
+      "avatar": "https://avatars3.githubusercontent.com/u/7375457?s=460&v=4",
+      "name": "Ajay Poshak",
+      "type": "code"
+    },
+    {
+      "title": "@codemzy",
+      "socials": {
+        "twitter": "http://twitter.com/codemzy",
+        "github": "http://github.com/codemzy"
+      },
+      "location": "England, UK",
+      "contribution":
+        "Added a text field for learnings to the profile page",
+      "avatar": "https://avatars3.githubusercontent.com/u/13764272?s=460&v=4",
+      "name": "Emma",
+      "type": "code"
+    },
+    {
       "avatar": "https://avatars0.githubusercontent.com/u/13541047?v=3&s=460",
       "name": "alex",
       "type": "other"
