@@ -23,7 +23,7 @@
     },
     "smtp": {
       "username": "SMTP_Injection",
-      "password": "262d2acea308cdd96213d83c97fc7ba8ab3873c1",
+      "password": "539bf41e8ff8dcf43afeebb32d68c38470eefabb",
       "server": "smtp.sparkpostmail.com",
       "port": "587"
     }
