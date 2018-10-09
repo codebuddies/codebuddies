@@ -1,5 +1,5 @@
 import { check, Match } from "meteor/check";
-
+import { UnsubscribeLinks } from "../../imports/api/unsubscribe_links/unsubscribe_links";
 Meteor.methods({
   getUserDetails: function(userId) {
     check(userId, String);
@@ -11,6 +11,8 @@ Meteor.methods({
 
   setUserProfile: function(profileInfo) {
     var pattern = {
+      firstname: String,
+      lastname: String,
       bio: String,
       website: String,
       twitter: String,
@@ -33,6 +35,8 @@ Meteor.methods({
       { _id: Meteor.userId() },
       {
         $set: {
+          "profile.firstname": profileInfo.firstname,
+          "profile.lastname": profileInfo.lastname,
           "profile.bio": profileInfo.bio,
           "profile.website": profileInfo.website,
           "profile.social.twitter": profileInfo.twitter,
@@ -190,7 +194,6 @@ Meteor.methods({
  * @param { String } - userId
  * @return {Object}
  */
-
 Meteor.methods({
   "users.getSupportLink"(userId) {
     check(userId, String);
@@ -204,5 +207,24 @@ Meteor.methods({
     } else {
       return null;
     }
+  }
+});
+
+/**
+ * get users email Preferences
+ * @function
+ * @name users.getEmailPreferences
+ * @param { String } - unsubscribeLinkId
+ * @return { Array } - array of current preference.
+ */
+Meteor.methods({
+  async "users.getEmailPreferences"(unsubscribeLinkId) {
+    check(unsubscribeLinkId, String);
+
+    const { recipient_id = null } =
+      (await UnsubscribeLinks.findOne({ _id: unsubscribeLinkId })) || {};
+    const user = await Meteor.users.findOne({ _id: recipient_id });
+
+    return (user && user.emails_preference) || [];
   }
 });

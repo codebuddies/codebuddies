@@ -8,17 +8,21 @@ import { check } from "meteor/check";
  * @return { Boolean } true if unsubscribed
  */
 Meteor.methods({
-  "unsubscribe.me"(linkId) {
-    check(linkId, String);
+  "unsubscribe.me"(data) {
+    check(data, {
+      linkId: String,
+      emails_preference: [String]
+    });
 
+    const { linkId, emails_preference } = data;
     // fetch the link details
-    const {
-      recipient_id,
-      email_type,
-      discussion_id
-    } = UnsubscribeLinks.findOne({ _id: linkId });
+    const { recipient_id, valid } = UnsubscribeLinks.findOne({ _id: linkId });
 
-    const emails_preference = [
+    if (!valid) {
+      throw new Meteor.Error("unsubscribe.me", "Link expired.");
+    }
+
+    const default_emails_preference = [
       "join_hangout",
       "rsvp_to_hangout",
       "delete_hangout",
@@ -29,25 +33,16 @@ Meteor.methods({
       "monthly_update"
     ];
 
-    if (email_type === "new_discussion_response") {
-      //unsubscribe from discussion
-      Discussions.update(
-        { _id: discussion_id },
-        {
-          $pull: {
-            subscribers: { id: recipient_id }
-          }
-        }
-      );
-    }
+    emails_preference.forEach(item => {
+      if (default_emails_preference.indexOf(item) == -1) {
+        throw new Meteor.Error("unsubscribe.me", "invalid preference.");
+      }
+    });
 
-    if (emails_preference.indexOf(email_type) != -1) {
-      //update email emails_preference
-      Meteor.users.update(
-        { _id: recipient_id },
-        { $pull: { emails_preference: email_type } }
-      );
-    }
+    Meteor.users.update(
+      { _id: recipient_id },
+      { $set: { emails_preference: emails_preference } }
+    );
 
     //update link status
     UnsubscribeLinks.update({ _id: linkId }, { $set: { valid: false } });
