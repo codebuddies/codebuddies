@@ -1,5 +1,6 @@
 import md5 from "md5";
 import "/imports/startup/server";
+import SlackAPI from "./slack/slack-api";
 
 Meteor.startup(function() {
   // migration
@@ -120,6 +121,7 @@ let swapUserIfExists = function(email, service, user) {
     Meteor.users.remove({ _id: existingUser._id });
   } else {
     user.username = swapUsernameIfExists(user.username);
+    SlackAPI.inviteUser(user.email);
   }
 
   return user;
@@ -193,6 +195,7 @@ Accounts.onCreateUser(function(options, user) {
       "monthly_update"
     ];
 
+    SlackAPI.inviteUser(user.email);
     return user;
   }
 });
