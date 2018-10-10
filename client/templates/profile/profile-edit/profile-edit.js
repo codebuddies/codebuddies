@@ -21,10 +21,12 @@ Template.profileEdit.events({
 
   "click #updateProfile": function() {
     var profileInfo = {
-      firstname:  $('input[name="firstname"]').val(),
-      lastname:  $('input[name="lastname"]').val(),
+      firstname: $('input[name="firstname"]').val(),
+      lastname: $('input[name="lastname"]').val(),
       location: $('input[name="location"]').val(),
       bio: $("#bio-text").val(),
+      skillsHelpOthersWith: $("#skills-help-text").val(),
+      skillsWantToImprove: $("#skills-improve-text").val(),
       website: $('input[name="website"]').val(),
       twitter: $('input[name="twitter"]').val(),
       github: $('input[name="github"]').val(),
@@ -43,7 +45,9 @@ Template.profileEdit.events({
     $('input[name="lastname"]').val("");
     $('input[name="location"]').val("");
     $("#bio-text").val("");
-    $('input[name="website"]').val();
+    $("#skills-improve-text").val(""),
+      $("#skills-help-text").val(""),
+      $('input[name="website"]').val();
     $('input[name="twitter"]').val("");
     $('input[name="github"]').val("");
     $('input[name="facebook"]').val("");
