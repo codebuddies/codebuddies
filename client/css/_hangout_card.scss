@@ -1,8 +1,15 @@
 .hangout-card {
   &.completed {
-      height: 185px;
+    height: 280px;
+
+    @media screen and (min-width: 482px) and (max-width: 603px) {
+      height: 380px;
+    }
   }
 
+  @media screen and (min-width: 482px) and (max-width: 520px) {
+    height: 350px;
+  }
   @media screen and (max-width: 389px) {
     height: 320px;
   }
@@ -58,16 +65,24 @@
     width: 65%;
   }
   .card-header-wrapper {
+    // flex parent
     display: flex;
     padding: 5px 0px;
     align-items: center;
     width: 100%;
 
     .left-section {
+      // flex child
       width: 60%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: flex;
+      // also a flex container/parent
     }
 
     .right-section {
+      // flex child, also a flex parent
       width: 40%;
       display: flex;
       align-items: center;
@@ -75,10 +90,10 @@
     }
 
     .icon-spacing {
-      padding: 0px 15px;
+      padding: 0px 8px;
 
-      @media screen and (max-width: 720px) {
-        padding: 0px 8px;
+      @media screen and (max-width: 339px) {
+        padding: 0px 2px;
       }
     }
 
@@ -87,11 +102,16 @@
     }
   }
   .hangout-title-tag {
+    // flex child for .left-section flex container
     font-size: 95%;
     border: 2px solid #1e90ff;
     border-radius: 4px;
     padding: 2px 12px;
     font-weight: bold;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   div.calendar {
     width: 80%;

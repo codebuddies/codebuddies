@@ -9,11 +9,8 @@
       <div class="card-header-wrapper">
         <div class="left-section">
           {{#if group}}
-            <a href="{{pathFor 'study group' studyGroupSlug=group.slug studyGroupId=group.id}}">
-              <!-- class="study-group-tag label label-default pull-right" -->
-              <span class="hangout-title-tag">
+            <a class="hangout-title-tag" href="{{pathFor 'study group' studyGroupSlug=group.slug studyGroupId=group.id}}">
                 {{group.title}}
-              </span>
             </a>
           {{/if}}
         </div>
