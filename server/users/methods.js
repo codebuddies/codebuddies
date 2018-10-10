@@ -142,7 +142,7 @@ Meteor.methods({
       firstname: String,
       lastname: String,
       username: String,
-      intro: String,
+      bio: String,
       skillsHelpOthersWith: String,
       skillsWantToImprove: String
     });
@@ -175,7 +175,7 @@ Meteor.methods({
           username: data.username,
           "profile.firstname": data.firstname,
           "profile.lastname": data.lastname,
-          "profile.intro": data.intro,
+          "profile.bio": data.bio,
           "profile.skillHelpOthersWith": data.skillsHelpOthersWith,
           "profile.skillWantToImprove": data.skillsWantToImprove,
           "profile.complete": true
