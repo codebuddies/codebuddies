@@ -31,7 +31,7 @@
     line-height: 30px;
     margin-top: 6px;
     margin-bottom: 10px;
-    @include font-face(600, 24px, normal, $black);
+    @include font-face(600, 20px, normal, $black);
     text-align: left;
     text-transform: capitalize;
     &.completed {
