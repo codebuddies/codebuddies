@@ -37,7 +37,7 @@ Meteor.publish( 'allStudyGroups', function(limit, studyGroupsFilter) {
 
   let projection = new Object();
 
-  projection.fields = {"title" : 1, 'tagline':1, "slug" : 1, members: 1 };
+  projection.fields = {"title" : 1, 'tagline':1, "slug" : 1, "createdAt" : 1, members: 1 };
   projection.limit = limit;
 
   let options = new Object();
