@@ -44,6 +44,7 @@ Meteor.methods({
       tagline: data.tagline,
       tags: data.tags,
       createdAt: new Date(),
+      updatedAt: new Date(),
       members: [
         {
           id: user._id,
@@ -340,7 +341,11 @@ Meteor.methods({
     StudyGroups.update(
       { _id: data.id },
       {
-        $set: { introduction: data.introduction, description: data.description }
+        $set: {
+          introduction: data.introduction,
+          description: data.description,
+          updatedAt: new Date()
+        }
       }
     );
 
@@ -374,7 +379,14 @@ Meteor.methods({
 
     StudyGroups.update(
       { _id: data.id },
-      { $set: { title: data.title, tagline: data.tagline, tags: data.tags } }
+      {
+        $set: {
+          title: data.title,
+          tagline: data.tagline,
+          tags: data.tags,
+          updatedAt: new Date()
+        }
+      }
     );
 
     return true;
