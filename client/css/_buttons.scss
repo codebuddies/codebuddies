@@ -219,6 +219,10 @@ li.delete-hangout, li.edit-hangout {
   }
 }
 
+.delete-hangout.btn.btn-cb2.btn-danger {
+  color: $white;
+}
+
 #btn-load-more, #load-more-learnings {
   color: $cta-blue;
   margin: 10px 0;
