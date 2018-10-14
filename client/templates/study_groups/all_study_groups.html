@@ -1,86 +1,91 @@
 <template name="allStudyGroups">
   <div id="study-groups">
     <div class="container-fluid section-header">
-      <div class="col-md-8 col-md-offset-2">
-        <h1>Study Groups</h1>
-        <p>
-          Create study groups as motivation to accomplish common learning goals. Ideally, people who are interested in the same topic would come together and learn and hold each other accountable to learning goals of all sizes.
-        </p>
-
-        <button type="button" class="btn btn-cb2 {{#unless currentUser}} continue-popup btn-createGroup-notLoggedIn {{/unless}}"
-          id="{{#if currentUser}}createGroupButton{{/if}}">
-          {{_ "start_new_group" }}
-        </button>
-
-        <a href="{{pathFor 'study group owners guide'}}"
-           class="btn btn-outline">
-          Study Group Owners' Guide
-        </a>
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <h1>Study Groups</h1>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+          <p>
+              Create study groups as motivation to accomplish common learning goals. Ideally, people who are interested in the same topic would come together and learn and hold each other accountable to learning goals of all sizes.
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <a href="{{pathFor 'study group owners guide'}}"
+              class="btn btn-outline">
+              Study Group Owners' Guide
+          </a>
+          <button type="button" class="btn btn-cb2 {{#unless currentUser}} continue-popup btn-createGroup-notLoggedIn {{/unless}}" id="{{#if currentUser}}createGroupButton{{/if}}">
+      {{_ "start_new_group" }}
+          </button>
+        </div>
       </div>
     </div>
-
     {{> studyGroupsSearchBox}}
+
 
     {{#if sgSearchMode}}
       {{> studyGroupsSearchResult}}
     {{/if}}
 
-
     {{#unless sgSearchMode}}
       <div class="container margin-top-2">
 
-        {{#if Template.subscriptionsReady}}
-          {{#if studyGroups.count}}
+        {{#if studyGroups.count}}
           <div class="row">
             {{#each studyGroups}}
 
               <div class="col-md-4">
-              <div class="well card">
-                <h4>
-                  <a href="{{pathFor 'study group' studyGroupSlug=slug studyGroupId=_id}}">  {{title}} </a>
-                  <br> <small>{{tagline}}</small> <small><i class="fas fa-users fa-fw"></i>{{members.length}}</small>
-                  {{#if numParticipants _id}}
-                  <small><i class="fas fa-laptop fa-fw"></i>{{ numParticipants _id }}</small>
-                  {{/if}}
-                  {{#if isInRole 'owner' _id}}
-                    <span class="label label-primary pull-right">Owner</span>
-                  {{/if}}
-                  {{#if isInRole 'admin' _id}}
-                    <span class="label label-primary pull-right">Admin</span>
-                  {{/if}}
-                  {{#if isInRole 'moderator' _id}}
-                    <span class="label label-primary pull-right">Moderator</span>
-                  {{/if}}
-                  {{#if isInRole 'member' _id}}
-                    <span class="label label-primary pull-right">Member</span>
-                  {{/if}}
+                <div class="well card">
+                  <h4>
+                    <a href="{{pathFor 'study group' studyGroupSlug=slug studyGroupId=_id}}">  {{title}} </a>
+                    <br> <small>{{tagline}}</small> <small><i class="fas fa-users fa-fw"></i>{{members.length}}</small>
+                    {{#if numParticipants _id}}
+                    <small><i class="fas fa-laptop fa-fw"></i>{{ numParticipants _id }}</small>
+                    {{/if}}
+                    {{#if isInRole 'owner' _id}}
+                      <span class="label label-primary pull-right">Owner</span>
+                    {{/if}}
+                    {{#if isInRole 'admin' _id}}
+                      <span class="label label-primary pull-right">Admin</span>
+                    {{/if}}
+                    {{#if isInRole 'moderator' _id}}
+                      <span class="label label-primary pull-right">Moderator</span>
+                    {{/if}}
+                    {{#if isInRole 'member' _id}}
+                      <span class="label label-primary pull-right">Member</span>
+                    {{/if}}
+                  </h4>
 
-                </h4>
+                  {{#unless isInRole 'owner, admin, moderator, member' _id }}
+                      <button class="btn btn-join-study-group {{#unless currentUser}} continue-popup {{else}} join-study-group {{/unless}}">{{_ "join_study_group"}}</button>
+                  {{/unless}}
 
-                {{#unless isInRole 'owner, admin, moderator, member' _id }}
-                    <button class="btn btn-join-study-group {{#unless currentUser}} continue-popup {{else}} join-study-group {{/unless}}">{{_ "join_study_group"}}</button>
-                {{/unless}}
-
-                {{#if isInRole 'admin, moderator, member' _id }}
-                    <button class="btn btn-leave-study-group">{{_ "leave_study_group"}}</button>
-                {{/if}}
+                  {{#if isInRole 'admin, moderator, member' _id }}
+                      <button class="btn btn-leave-study-group">{{_ "leave_study_group"}}</button>
+                  {{/if}}
+                </div>
               </div>
-              </div>
+
             {{/each}}
-            </div>
-          {{else}}
-
-          {{/if}}
-
-        {{else}}
-          {{> loading}}
-        {{/if}}<!-- ./Template.subscriptionsReady -->
-
-        {{#if status}}
-            <div class="well well--end-of-page">
-              <h5 class="text-center">You've reached the end of the page.</h5>
-            </div>
+          </div>
         {{/if}}
+
+        {{#unless Template.subscriptionsReady}}
+          {{> loading}}
+        {{/unless}}
+
+        <div class="row">
+          <div class="col-sm-6 col-sm-offset-3">
+            {{#unless status}}
+              <button id="loadMoreStudyGroups" class="btn btn-default btn-block btn-load-more">Load More</button>
+            {{else}}
+              <h5 class="align-center">There are no more study groups.</h5>
+            {{/unless}}
+          </div>
+        </div>
 
       </div>
     {{/unless}}
