@@ -3,8 +3,12 @@
     z-index: 1;
     color: $cta-blue;
     background: $white;
-    position: absolute;
+    border: 1px solid $cta-blue;
+    position: relative;
+    left: 10px;
+    top: 35px;
     font-size: 11px;
+    float: left !important;  //temporary solution. html element needs pull-left class instead of pull-right
   }
   padding: 0;
   .hangout-item {
