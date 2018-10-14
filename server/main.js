@@ -1,5 +1,6 @@
 import md5 from "md5";
 import "/imports/startup/server";
+import { sendWelcomeMessage } from "/imports/libs/server/user/welcome_email";
 import SlackAPI from "./slack/slack-api";
 
 Meteor.startup(function() {
@@ -128,9 +129,11 @@ let swapUserIfExists = function(email, service, user) {
 };
 
 Accounts.onCreateUser(function(options, user) {
+  console.log("New user: ", user, options);
   const service = _.keys(user.services)[0];
 
   if (service === "slack") {
+    console.log("Sign in with Slack");
     const username = options.slack.tokens.user.name;
     const email = options.slack.tokens.user.email;
     const avatar = generateGravatarURL(email);
@@ -144,10 +147,12 @@ Accounts.onCreateUser(function(options, user) {
     user.email = email;
     user.profile = profile;
 
-    return swapUserIfExists(email, service, user);
+    user = swapUserIfExists(email, service, user);
+    console.log("Slack user: ", user);
   }
 
   if (service === "github") {
+    console.log("Sign in with Github.");
     const email = user.services.github.email;
 
     const avatar = generateGravatarURL(user.services.github.email);
@@ -171,10 +176,12 @@ Accounts.onCreateUser(function(options, user) {
       "monthly_update"
     ];
 
-    return swapUserIfExists(email, service, user);
+    user = swapUserIfExists(email, service, user);
+    console.log("Github user: ", user);
   }
 
   if (service === "password") {
+    console.log("Sign in with password: ");
     const avatar = generateGravatarURL(options.email);
     const profile = {
       avatar: avatar,
@@ -196,8 +203,12 @@ Accounts.onCreateUser(function(options, user) {
     ];
 
     SlackAPI.inviteUser(user.email);
-    return user;
+    user = user;
+    console.log("Password user: ", user);
   }
+
+  sendWelcomeMessage(user);
+  return user;
 });
 
 // global users observer for app_stats
