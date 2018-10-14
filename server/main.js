@@ -129,11 +129,9 @@ let swapUserIfExists = function(email, service, user) {
 };
 
 Accounts.onCreateUser(function(options, user) {
-  console.log("New user: ", user, options);
   const service = _.keys(user.services)[0];
 
   if (service === "slack") {
-    console.log("Sign in with Slack");
     const username = options.slack.tokens.user.name;
     const email = options.slack.tokens.user.email;
     const avatar = generateGravatarURL(email);
@@ -148,11 +146,9 @@ Accounts.onCreateUser(function(options, user) {
     user.profile = profile;
 
     user = swapUserIfExists(email, service, user);
-    console.log("Slack user: ", user);
   }
 
   if (service === "github") {
-    console.log("Sign in with Github.");
     const email = user.services.github.email;
 
     const avatar = generateGravatarURL(user.services.github.email);
@@ -177,11 +173,9 @@ Accounts.onCreateUser(function(options, user) {
     ];
 
     user = swapUserIfExists(email, service, user);
-    console.log("Github user: ", user);
   }
 
   if (service === "password") {
-    console.log("Sign in with password: ");
     const avatar = generateGravatarURL(options.email);
     const profile = {
       avatar: avatar,
@@ -204,7 +198,6 @@ Accounts.onCreateUser(function(options, user) {
 
     SlackAPI.inviteUser(user.email);
     user = user;
-    console.log("Password user: ", user);
   }
 
   sendWelcomeMessage(user);

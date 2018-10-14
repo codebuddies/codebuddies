@@ -9,7 +9,6 @@ import moment from "moment";
  * @name welcomeEmailToNewUsers
  */
 function sendWelcomeMessage(user) {
-  console.log("Send message to user: ", user);
   if (user && user.email) {
     const mail_data = {
       to: user.email,
