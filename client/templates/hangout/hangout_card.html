@@ -47,7 +47,6 @@
         <h5 class="hangout-date completed show-on-hover">{{_ "completed"}}</h5>
         {{/unless}}
 
-      </div>
 
       <h4 class="hangout-meta clear">
         <small class="hangout-details">
@@ -63,13 +62,14 @@
               {{#if views}} <i class="fas fa-eye" aria-hidden="true" data-toggle="tooltip" title="Views" > {{views}} views </i> {{/if}}
           </small>
       </h4>
+    </div>
 
       <div class="rsvp-buttons align-center">
         {{# unless isHangoutCompleted end}}
           {{#if isHangoutInProgress start end}}
 
             {{#if isAttending users}}
-                <a class="btn btn-cb2 btn-grey btn-success join-now" href="{{pathFor 'hangout' hangoutId=_id }}">{{_ "launch"}}</a>
+                <!-- <a class="btn btn-cb2 btn-grey btn-success join-now" href="{{pathFor 'hangout' hangoutId=_id }}">{{_ "launch"}}</a> -->
             {{else}}
               {{# unless isHangoutCompleted end}}
                 <button class="btn btn-cb2 join-hangout {{#unless currentUser}} continue-popup {{/unless}}">{{_ "join_in_session"}}</button>
