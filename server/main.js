@@ -1,5 +1,6 @@
 import md5 from "md5";
 import "/imports/startup/server";
+import { sendWelcomeMessage } from "/imports/libs/server/user/welcome_email";
 import SlackAPI from "./slack/slack-api";
 
 Meteor.startup(function() {
@@ -144,7 +145,7 @@ Accounts.onCreateUser(function(options, user) {
     user.email = email;
     user.profile = profile;
 
-    return swapUserIfExists(email, service, user);
+    user = swapUserIfExists(email, service, user);
   }
 
   if (service === "github") {
@@ -171,7 +172,7 @@ Accounts.onCreateUser(function(options, user) {
       "monthly_update"
     ];
 
-    return swapUserIfExists(email, service, user);
+    user = swapUserIfExists(email, service, user);
   }
 
   if (service === "password") {
@@ -196,8 +197,11 @@ Accounts.onCreateUser(function(options, user) {
     ];
 
     SlackAPI.inviteUser(user.email);
-    return user;
+    user = user;
   }
+
+  sendWelcomeMessage(user);
+  return user;
 });
 
 // global users observer for app_stats
