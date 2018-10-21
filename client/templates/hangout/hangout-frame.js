@@ -122,7 +122,10 @@ Template.hangoutFrame.events({
 Template.hangoutFrame.helpers({
   numParticipants: function() {
     const appState = AppStats.findOne({ _id: Template.instance().room.get() });
-    if (appState && appState.participants) {
+    // Check if this page has `coworking` in its URL
+    const isCoworkingPg = window.location.pathname.indexOf("coworking") > -1;
+    // Hide message on `/coworking` page
+    if (appState && appState.participants && !isCoworkingPg) {
       return appState.participants.length;
     }
     return 0;
