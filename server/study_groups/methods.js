@@ -144,6 +144,9 @@ Meteor.methods({
             $each: [member],
             $sort: { name: 1 }
           }
+        },
+        $set: {
+          updatedAt: new Date()
         }
       }
     );

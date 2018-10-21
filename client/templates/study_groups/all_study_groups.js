@@ -61,31 +61,6 @@ Template.allStudyGroups.helpers({
       return appState.participants.length;
     }
     return 0;
-  },
-  getUpdatedAtTime: function(updatedAt) {
-    let returnTime = null;
-    let timeNow = new Date().getTime();
-    let lastUpdateTime = updatedAt.getTime();
-    const diffInSeconds = Math.round((timeNow - lastUpdateTime) / 1000);
-    const diffInMins = Math.round((timeNow - lastUpdateTime) / (1000 * 60));
-    const diffInHours = Math.round((timeNow - lastUpdateTime) / (1000 * 3600));
-    const diffInDays = Math.round(
-      (timeNow - lastUpdateTime) / (1000 * 3600 * 24)
-    );
-
-    if (diffInDays) {
-      returnTime = `${diffInDays} ${diffInDays > 1 ? "days" : "day"} ago`;
-    } else if (diffInHours) {
-      returnTime = `${diffInHours} ${diffInHours > 1 ? "hours" : "hour"} ago`;
-    } else if (diffInMins) {
-      returnTime = `${diffInMins} ${diffInMins > 1 ? "minutes" : "minute"} ago`;
-    } else {
-      returnTime = `${diffInSeconds} ${
-        diffInSeconds > 1 ? "seconds" : "second"
-      } ago`;
-    }
-
-    return returnTime;
   }
 });
 

@@ -32,6 +32,12 @@ Template.registerHelper("cleanDateFormatCalendar", function(date) {
   return moment(date).calendar();
 });
 
+Template.registerHelper("relativeTime", function(date) {
+  return moment(date)
+    .startOf("minute")
+    .fromNow();
+});
+
 Template.registerHelper("isUserCommentAuthor", function(authorId) {
   return Meteor.userId() === authorId ? true : false;
 });
