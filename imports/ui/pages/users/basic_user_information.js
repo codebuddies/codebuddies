@@ -119,6 +119,7 @@ Template.basicUserInformation.events({
           icon: "fa-check-circle",
           hideDelay: 6500
         });
+        FlowRouter.go("/welcome");
       }
     });
   }
