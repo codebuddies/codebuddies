@@ -73,6 +73,6 @@ Template.learningItem.events({
           "error"
         );
       }
-    });
+    );
   }
 });

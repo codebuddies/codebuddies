@@ -35,7 +35,7 @@
   "slack": "https://hooks.slack.com/services/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",
   "email_from": "linda@codebuddies.org",
   "team_id":"T04AQ6GEY",
-  "slack_alert_channel": "#codebuddies-ops",
+  "slack_alert_channel": "#codebuddies-test-hang",
   "slack_alert_username": "CodeBuddies Alerts",
   "hangout_reminder_interval": "every 1 hour",
   "root_email":"robert.mcelvenny@gmail.com",
