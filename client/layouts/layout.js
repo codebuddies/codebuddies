@@ -22,7 +22,7 @@ Template.layout.events({
           result.dismiss === "esc" ||
           result.dismiss === "overlay"
         ) {
-          swal("Okay", "You can sign in with slack at anytime.", "info");
+          swal("Okay", "Sign in with slack at anytime.", "info");
         } else {
           swal(
             "Oops! Something went wrong",
