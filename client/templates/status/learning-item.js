@@ -45,7 +45,7 @@ Template.learningItem.events({
   "click .delete-learning": function(event, learningId) {
     var learningId = this._id;
     swal({
-      title: TAPi18n.__("delete_learning_confirm"),
+      text: TAPi18n.__("delete_learning_confirm"),
       showCancelButton: true,
       cancelButtonText: TAPi18n.__("no_delete_learning"),
       confirmButtonText: TAPi18n.__("yes_delete_learning"),
