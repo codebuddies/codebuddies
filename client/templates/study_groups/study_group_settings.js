@@ -43,7 +43,7 @@ Template.studyGroupSettings.events({
 
     swal({
       type: "warning",
-      text: TAPi18n.__("delete_hangout_confirm"),
+      text: TAPi18n.__("archive_final_warning"),
       cancelButtonText: TAPi18n.__("no_delete_group"),
       confirmButtonText: TAPi18n.__("yes_delete_group"),
       confirmButtonColor: "#d9534f",
@@ -116,8 +116,7 @@ Template.studyGroupSettings.events({
 
     swal({
       type: "warning",
-      text: TAPi18n.__("delete_hangout_confirm"),
-      // text: TAPi18n.__("transfer_study_group"),
+      text: TAPi18n.__("transfer_study_group"),
       cancelButtonText: TAPi18n.__("no_transfer_group"),
       confirmButtonText: TAPi18n.__("yes_transfer_group"),
       confirmButtonColor: "#d9534f",
