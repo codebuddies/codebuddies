@@ -102,7 +102,6 @@ Template.cloneHangoutModal.events({
     );
     const externalButtonText = $('input[name="externalButtonText"]').val();
     const externalURL = $('input[name="externalURL"]').val();
-    alert(externalURL);
 
     const data = {
       topic: topic,
