@@ -43,7 +43,6 @@ Template.studyGroupSettings.events({
 
     swal({
       type: "warning",
-      title: TAPi18n.__("delete_hangout_confirm"),
       text: TAPi18n.__("archive_final_warning"),
       cancelButtonText: TAPi18n.__("no_delete_group"),
       confirmButtonText: TAPi18n.__("yes_delete_group"),
@@ -52,19 +51,25 @@ Template.studyGroupSettings.events({
     }).then(result => {
       swal.disableButtons();
 
-      Meteor.call("archiveStudyGroup", studyGroupId, function(error) {
-        if (error) {
-          return Bert.alert(error.reason, "danger", "growl-top-right");
-        }
-        if (result) {
+      if (result.value) {
+        Meteor.call("archiveStudyGroup", studyGroupId, function(error) {
           FlowRouter.go("all study groups");
+          swal("Poof!", "Your study group has been archived", "success");
           return Bert.alert(
             "Study Group Archived",
             "success",
             "growl-top-right"
           );
-        }
-      });
+        });
+      } else if (
+        result.dismiss === "cancel" ||
+        result.dismiss === "esc" ||
+        result.dismiss === "overlay"
+      ) {
+        swal("Phew!", "No changes made", "info");
+      } else {
+        return Bert.alert(error.reason, "danger", "growl-top-right");
+      }
     });
   },
   "change #hangoutPermission": function(event, template) {
@@ -76,23 +81,28 @@ Template.studyGroupSettings.events({
 
     swal({
       type: "warning",
-      title: TAPi18n.__("delete_hangout_confirm"),
+      text: TAPi18n.__("delete_hangout_confirm"),
       cancelButtonText: TAPi18n.__("no_delete_group"),
       confirmButtonText: TAPi18n.__("yes_delete_learning"),
       confirmButtonColor: "#d9534f",
-      showCancelButton: true,
-      closeOnConfirm: true
+      showCancelButton: true
     }).then(result => {
       swal.disableButtons();
 
-      Meteor.call("updateHangoutCreationPermission", data, function(error) {
-        if (error) {
-          return Bert.alert(error.reason, "danger", "growl-top-right");
-        }
-        if (result) {
+      if (result.value) {
+        Meteor.call("updateHangoutCreationPermission", data, function(error) {
+          swal("Yay!", "Permissions have been successfully updated", "success");
           return Bert.alert("Permission updated", "success", "growl-top-right");
-        }
-      });
+        });
+      } else if (
+        result.dismiss === "cancel" ||
+        result.dismiss === "esc" ||
+        result.dismiss === "overlay"
+      ) {
+        swal("Phew!", "No changes made", "info");
+      } else {
+        return Bert.alert(error.reason, "danger", "growl-top-right");
+      }
     });
   },
   "click #transferOwnership": function(event, template) {
@@ -104,11 +114,8 @@ Template.studyGroupSettings.events({
       "#studyGroupMemberList option:selected"
     ).text;
 
-    // console.log("data", data);
-
     swal({
       type: "warning",
-      title: TAPi18n.__("delete_hangout_confirm"),
       text: TAPi18n.__("transfer_study_group"),
       cancelButtonText: TAPi18n.__("no_transfer_group"),
       confirmButtonText: TAPi18n.__("yes_transfer_group"),
@@ -116,20 +123,26 @@ Template.studyGroupSettings.events({
       showCancelButton: true
     }).then(result => {
       swal.disableButtons();
-      Meteor.call("transferStudyGroupOwnership", data, function(error) {
-        if (error) {
-          return Bert.alert(error.reason, "danger", "growl-top-right");
-        }
-        if (result) {
-          // Select the first tab in the study group
+
+      if (result.value) {
+        Meteor.call("transferStudyGroupOwnership", data, function(error) {
           $('div.study-group-body [role="presentation"] a:first').tab("show");
+          swal("Poof!", "Your Study Group has been transferred", "success");
           return Bert.alert(
             `Study Group transferred to ${newOwnerUsername}`,
             "success",
             "growl-top-right"
           );
-        }
-      });
+        });
+      } else if (
+        result.dismiss === "cancel" ||
+        result.dismiss === "esc" ||
+        result.dismiss === "overlay"
+      ) {
+        swal("Phew!", "No changes made", "info");
+      } else {
+        return Bert.alert(error.reason, "danger", "growl-top-right");
+      }
     });
   },
   "click #hangoutChannel": function(event, template) {
@@ -139,7 +152,7 @@ Template.studyGroupSettings.events({
     };
     swal({
       type: "warning",
-      title: TAPi18n.__("delete_hangout_confirm"),
+      text: TAPi18n.__("delete_hangout_confirm"),
       cancelButtonText: TAPi18n.__("no_delete_group"),
       confirmButtonText: TAPi18n.__("yes_delete_learning"),
       confirmButtonColor: "#d9534f",
@@ -147,18 +160,23 @@ Template.studyGroupSettings.events({
     }).then(result => {
       swal.disableButtons();
 
-      Meteor.call("saveHangoutChannel", data, function(error) {
-        if (error) {
-          return Bert.alert(error.reason, "danger", "growl-top-right");
-        }
-        if (result.value) {
+      if (result.value) {
+        Meteor.call("saveHangoutChannel", data, function(error) {
           return Bert.alert(
-            `Hangout channels are saved`,
+            `Hangout channels saved`,
             "success",
             "growl-top-right"
           );
-        }
-      });
+        });
+      } else if (
+        result.dismiss === "cancel" ||
+        result.dismiss === "esc" ||
+        result.dismiss === "overlay"
+      ) {
+        swal("Phew!", "No changes made", "info");
+      } else {
+        return Bert.alert(error.reason, "danger", "growl-top-right");
+      }
     });
   }
 });
