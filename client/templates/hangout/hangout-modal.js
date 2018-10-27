@@ -137,7 +137,7 @@ Template.createHangoutModal.events({
     };
 
     if ($.trim(start) == "") {
-      sweetAlert({
+      swal({
         title: TAPi18n.__("select_start_time"),
         confirmButtonText: TAPi18n.__("ok"),
         type: "error"
@@ -147,7 +147,7 @@ Template.createHangoutModal.events({
 
     if ($.trim(topic) == "") {
       $("#topic").focus();
-      sweetAlert({
+      swal({
         title: TAPi18n.__("enter_topic"),
         confirmButtonText: TAPi18n.__("ok"),
         type: "error"
@@ -157,7 +157,7 @@ Template.createHangoutModal.events({
 
     if ($.trim(description) == "") {
       $("#description").focus();
-      sweetAlert({
+      swal({
         title: TAPi18n.__("enter_description"),
         confirmButtonText: TAPi18n.__("ok"),
         type: "error"
@@ -167,7 +167,7 @@ Template.createHangoutModal.events({
 
     if ($.trim(groupId) == "") {
       $(".study-group-single").focus();
-      sweetAlert({
+      swal({
         title: TAPi18n.__("select_study_group"),
         confirmButtonText: TAPi18n.__("ok"),
         type: "error"
@@ -176,7 +176,7 @@ Template.createHangoutModal.events({
 
     if (externalCheckbox == true && $.trim(externalButtonText) == "") {
       $("#externalButtonText").focus();
-      sweetAlert({
+      swal({
         title: TAPi18n.__("external_button_text"),
         confirmButtonText: TAPi18n.__("ok"),
         type: "error"
@@ -186,7 +186,7 @@ Template.createHangoutModal.events({
 
     if (externalCheckbox == true && $.trim(externalURL) == "") {
       $("#externalURL").focus();
-      sweetAlert({
+      swal({
         title: TAPi18n.__("external_URL"),
         confirmButtonText: TAPi18n.__("ok"),
         type: "error"
@@ -199,7 +199,7 @@ Template.createHangoutModal.events({
     Meteor.call("createHangout", data, function(err, result) {
       if (result) {
         Modal.hide();
-        sweetAlert({
+        swal({
           title: TAPi18n.__("hangout_created_title"),
           text: TAPi18n.__("hangout_created_message"),
           confirmButtonText: TAPi18n.__("ok"),

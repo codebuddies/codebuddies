@@ -70,7 +70,7 @@ Template.editHangoutModal.events({
     Meteor.call("editHangout", data, function(err, result) {
       if (result) {
         Modal.hide();
-        sweetAlert({
+        swal({
           title: TAPi18n.__("hangout_edited_title"),
           text: TAPi18n.__("hangout_created_message"),
           confirmButtonText: TAPi18n.__("ok"),

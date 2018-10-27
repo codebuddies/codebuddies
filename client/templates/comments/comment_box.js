@@ -77,7 +77,7 @@ Template.commentBox.events({
   "click .addNewMessage": function(event, template) {
     event.preventDefault();
     if ($.trim($("#newMessage").val()) == "") {
-      sweetAlert({
+      swal({
         title: TAPi18n.__("Comment can't be empty"),
         // text: TAPi18n.__("login_create_hangout_message"),
         confirmButtonText: TAPi18n.__("ok"),
@@ -191,7 +191,7 @@ Template.commentBox.events({
     event.preventDefault();
 
     if ($.trim($("#commentReply").val()) == "") {
-      sweetAlert({
+      swal({
         title: TAPi18n.__("Comment can't be empty"),
         // text: TAPi18n.__("login_create_hangout_message"),
         confirmButtonText: TAPi18n.__("ok"),

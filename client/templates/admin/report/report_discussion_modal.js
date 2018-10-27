@@ -1,6 +1,5 @@
 Template.reportDiscussionModal.events({
-  'click #report-hangout': function(event, template) {
-
+  "click #report-hangout": function(event, template) {
     const data = {
       discussionId: template.data._id,
       discussionTopic: template.data.topic,
@@ -8,18 +7,17 @@ Template.reportDiscussionModal.events({
       reporterId: Meteor.userId()
     };
 
-    Meteor.call('discussions.report', data, function(err, result) {
+    Meteor.call("discussions.report", data, function(err, result) {
       if (result) {
         Modal.hide();
-        sweetAlert({
+        swal({
           title: TAPi18n.__("discussion_has_been_reported"),
           text: TAPi18n.__("discussion_reported_message"),
           confirmButtonText: TAPi18n.__("ok"),
-          type: 'success',
+          type: "success",
           closeOnConfirm: true
         });
       }
     });
   }
-
 });

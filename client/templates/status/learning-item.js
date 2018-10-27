@@ -44,35 +44,34 @@ Template.learningItem.events({
 
   "click .delete-learning": function(event, learningId) {
     var learningId = this._id;
-    swal(
-      {
-        title: TAPi18n.__("delete_learning_confirm"),
-        showCancelButton: true,
-        cancelButtonText: TAPi18n.__("no_delete_learning"),
-        confirmButtonText: TAPi18n.__("yes_delete_learning"),
-        confirmButtonColor: "#d9534f",
-        closeOnConfirm: false,
-        closeOnCancel: true,
-        type: "warning"
-      },
-      function(isConfirm) {
-        if (isConfirm) {
-          Meteor.call("deleteLearning", learningId, Meteor.userId(), function(
-            error,
-            result
-          ) {
-            if (result) {
-              swal("Poof!", "Your learning was deleted!");
-            } else {
-              swal(
-                "Oops!  Something went wrong",
-                error.error,
-                +"\n Try again!",
-                "error"
-              );
-            }
-          });
-        }
+    swal({
+      title: TAPi18n.__("delete_learning_confirm"),
+      showCancelButton: true,
+      cancelButtonText: TAPi18n.__("no_delete_learning"),
+      confirmButtonText: TAPi18n.__("yes_delete_learning"),
+      confirmButtonColor: "#d9534f",
+      type: "warning"
+    }).then(result => {
+      console.log(result);
+      if (result.value) {
+        Meteor.call("deleteLearning", learningId, Meteor.userId(), function(
+          error
+        ) {
+          swal("Poof!", "Your learning was deleted!", "success");
+        });
+      } else if (
+        result.dismiss === "cancel" ||
+        result.dismiss === "esc" ||
+        result.dismiss === "overlay"
+      ) {
+        swal("Phew!", "No changes made", "info");
+      } else {
+        swal(
+          "Oops! Something went wrong",
+          error.error,
+          +"\n Try again",
+          "error"
+        );
       }
     );
   }
