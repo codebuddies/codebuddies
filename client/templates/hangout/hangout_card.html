@@ -47,21 +47,6 @@
         <h5 class="hangout-date completed show-on-hover">{{_ "completed"}}</h5>
         {{/unless}}
 
-
-      <h4 class="hangout-meta clear">
-        <small class="hangout-details">
-            Scheduled by
-              {{#unless currentUser}}
-                <a href="#" class="{{#unless currentUser}} continue-popup {{/unless}}">{{host.name}}</a>
-              {{else}}
-                <a href="{{pathFor 'profile' name=host.name userId=host.id}}">{{host.name}}</a>
-              {{/unless}}
-        </small>
-          <small class="hangout-details details-extra">
-              with {{users.length}} RSVPed <br/>
-              {{#if views}} <i class="fas fa-eye" aria-hidden="true" data-toggle="tooltip" title="Views" > {{views}} views </i> {{/if}}
-          </small>
-      </h4>
     </div>
 
       <div class="rsvp-buttons align-center">
