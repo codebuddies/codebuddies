@@ -29,15 +29,15 @@ Template.allStudyGroups.onCreated(function() {
     return StudyGroups.find({}, { sort: { createdAt: flag } });
   };
 
-  instance.addMoreStudyGroups = function(){
-    if(StudyGroups.find().count() == instance.limit.get()){
+  instance.addMoreStudyGroups = function() {
+    if (StudyGroups.find().count() == instance.limit.get()) {
       instance.limit.set(instance.limit.get() + 9);
-    } else{
-      if(StudyGroups.find().count() < instance.limit.get()){
+    } else {
+      if (StudyGroups.find().count() < instance.limit.get()) {
         instance.flag.set(true);
       }
     }
-  }
+  };
 });
 
 Template.allStudyGroups.helpers({
@@ -117,7 +117,7 @@ Template.allStudyGroups.events({
       });
     }
   },
-  "click #loadMoreStudyGroups" : function(event, template){
+  "click #loadMoreStudyGroups": function(event, template) {
     template.addMoreStudyGroups();
   }
 });

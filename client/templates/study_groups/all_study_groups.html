@@ -42,6 +42,9 @@
                   <h4>
                     <a href="{{pathFor 'study group' studyGroupSlug=slug studyGroupId=_id}}">  {{title}} </a>
                     <br> <small>{{tagline}}</small> <small><i class="fas fa-users fa-fw"></i>{{members.length}}</small>
+                    {{#if updatedAt}}
+                    <br> <small><b>Last Activity: </b> {{ relativeTime updatedAt }}</small>
+                    {{/if}}
                     {{#if numParticipants _id}}
                     <small><i class="fas fa-laptop fa-fw"></i>{{ numParticipants _id }}</small>
                     {{/if}}
