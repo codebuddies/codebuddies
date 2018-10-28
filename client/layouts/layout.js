@@ -3,26 +3,36 @@ Template.layout.events({
     event.preventDefault();
     if (!Meteor.userId()) {
       swal({
-        imageUrl: "/images/slack-signin-example.jpg",
-        imageSize: "140x120",
         title: TAPi18n.__("you_are_almost_there"),
-        html: TAPi18n.__("continue_popup_text"),
+        html: TAPi18n.__("signup_or_signin"),
         showCancelButton: true,
-        confirmButtonText: TAPi18n.__("continue_with_slack"),
-        cancelButtonText: TAPi18n.__("not_now")
+        showConfirmButton: true,
+        showCloseButton: true,
+        confirmButtonText: "Slack",
+        cancelButtonText: "Github",
+        confirmButtonColor: "#3AAF85",
+        cancelButtonColor: "#333"
       }).then((result, error) => {
-        var options = {
+        var slackOptions = {
           requestPermissions: ["identity.basic", "identity.email"]
         };
-
+        var githubOptions = {
+          requestPermissions: ["read:user", "user:email"]
+        };
         if (result.value) {
-          Meteor.loginWithSlack(options);
-        } else if (
-          result.dismiss === "cancel" ||
-          result.dismiss === "esc" ||
-          result.dismiss === "overlay"
-        ) {
-          swal("Okay", "Sign in with slack at anytime.", "info");
+          Meteor.loginWithSlack(slackOptions);
+        } else if (result.dismiss === "cancel") {
+          Meteor.loginWithGithub(githubOptions, function(err) {
+            if (!err) {
+              FlowRouter.go("hangouts");
+            }
+          });
+        } else if (result.dismiss === "esc" || result.dismiss === "overlay") {
+          swal(
+            "No worries!",
+            "Sign up or sign in with Slack or Github at any time.",
+            "info"
+          );
         } else {
           swal(
             "Oops! Something went wrong",
@@ -33,5 +43,6 @@ Template.layout.events({
         }
       });
     }
-  }
+  },
+  "click .signInGithub": function(event) {}
 });
