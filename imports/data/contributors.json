@@ -623,8 +623,7 @@
         "github": "http://github.com/codemzy"
       },
       "location": "England, UK",
-      "contribution":
-        "Added a text field for learnings to the profile page",
+      "contribution": "Added a text field for learnings to the profile page",
       "avatar": "https://avatars3.githubusercontent.com/u/13764272?s=460&v=4",
       "name": "Emma",
       "type": "code"
@@ -784,6 +783,34 @@
       "avatar": "/images/abdulhannanali.jpeg",
       "name": "abdulhannanali",
       "type": "other"
+    },
+    {
+      "title": "@9jaswag",
+      "socials": {
+        "twitter": "https://twitter.com/developia_",
+        "github": "https://github.com/9jaswag"
+      },
+      "location": "Lagos, Nigeria",
+      "intro": "Chuks is a software developer from Lagos, Nigeria.",
+      "contribution": "Submitted PRs.",
+      "avatar": "https://avatars2.githubusercontent.com/u/8125356?s=460&v=4",
+      "name": "Chuks Opia",
+      "type": "code"
+    },
+    {
+      "title": "@mahamshahid18",
+      "socials": {
+        "github": "http://github.com/mahamshahid18",
+        "blog": "https://mahamshahid18.github.io"
+      },
+      "location": "Islamabad, Pakistan",
+      "intro":
+        "Maham is a software engineer from Pakistan. She has contributed with some fixes and feature additions to the CodeBuddies platform.",
+      "contribution":
+        "Fixed the design of hangout cards. Also added in the feature to show last activity on study group cards",
+      "avatar": "https://avatars1.githubusercontent.com/u/12479952?s=460&v=4",
+      "name": "Maham Shahid",
+      "type": "code"
     }
   ]
 }

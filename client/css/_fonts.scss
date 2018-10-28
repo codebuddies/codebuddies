@@ -37,6 +37,11 @@ h5.upcoming {
     color: $primary-grey;
 }
 
+h5.in-progress {
+  font-weight: bold;
+  color: #777;
+}
+
 .oval {
 	@include border-radius(5px);
 	width: 10px;
