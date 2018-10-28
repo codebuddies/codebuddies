@@ -95,7 +95,11 @@ Template.hangoutActionBar.events({
       swal.disableButtons();
       if (result.value) {
         Meteor.call("deleteHangout", data, function(error) {
-          swal("Poof!", "Your hangout has been success delete!", "success");
+          swal(
+            "Poof!",
+            "Your hangout has been successfully deleted!",
+            "success"
+          );
         });
       } else if (
         result.dismiss === "cancel" ||
