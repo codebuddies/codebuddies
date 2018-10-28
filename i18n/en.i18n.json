@@ -96,6 +96,8 @@
 
   // popup messages
   "you_are_almost_there": "You are almost there!",
+  "signup_or_signin":
+    "<strong>Sign up</strong> or <strong>sign in</strong> with <i class='fab fa-slack-hash'></i> or <i class='fab fa-github'></i><br /><img src='/images/slack-signin-example.jpg' class='signin-example slack'><img src='/images/github-signin-example.jpg' class='signin-example'>",
   "login_join_hangout":
     "Please sign in to codebuddies.slack.com to join a hangout",
   "login_update_status":
