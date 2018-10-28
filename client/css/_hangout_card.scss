@@ -15,13 +15,19 @@
   }
   border-radius: 0 !important;
   background: $white;
-  display: inline-block;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-between;
   height: 300px;
   width: 100%;
   margin: 5px 0px;
   padding: 15px 20px;
   overflow: hidden;
   position: relative;
+
+  .card-details {
+    flex: 1;
+  }
 
   p.overflowtext {
     color: $secondary-grey;
@@ -31,7 +37,7 @@
     line-height: 30px;
     margin-top: 6px;
     margin-bottom: 10px;
-    @include font-face(600, 20px, normal, $black);
+    @include font-face(600, 20px, normal, $dodgerblue);
     text-align: left;
     text-transform: capitalize;
     &.completed {
@@ -124,11 +130,11 @@
     display: none;
   }
   .rsvp-buttons {
-      position: absolute;
-      bottom: 0px;
+    width: 100%;
   }
   .rsvp-buttons .btn-cb2 {
-      width: 100%;
+    padding: 5px 15px;
+    width: 100%;
   }
 }
 
