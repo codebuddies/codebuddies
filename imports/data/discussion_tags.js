@@ -38,6 +38,6 @@ export default discussion_tags  = [
   "sql-lite",
   "vuejs",
   "virtual-reality",
-  "wordpress"
-
+  "wordpress",
+  "mud"
 ]

@@ -29,5 +29,6 @@ export default slack_channels = [
   "#security",
   "#vuejs",
   "#wordpress",
-  "#water-cooler"
+  "#water-cooler",
+  "#mud"
 ]
