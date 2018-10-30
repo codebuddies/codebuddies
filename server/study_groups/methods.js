@@ -44,6 +44,7 @@ Meteor.methods({
       tagline: data.tagline,
       tags: data.tags,
       createdAt: new Date(),
+      updatedAt: new Date(),
       members: [
         {
           id: user._id,
@@ -143,6 +144,9 @@ Meteor.methods({
             $each: [member],
             $sort: { name: 1 }
           }
+        },
+        $set: {
+          updatedAt: new Date()
         }
       }
     );
@@ -204,14 +208,7 @@ Meteor.methods({
     };
 
     //check if the user is a member
-    if (
-      !user ||
-      !Roles.userIsInRole(
-        user,
-        ["admin", "member", "moderator"],
-        data.studyGroupId
-      )
-    ) {
+    if (!user || !Roles.userIsInRole(user, ["admin", "member", "moderator"], data.studyGroupId)) {
       throw new Meteor.Error(
         "StudyGroups.methods.leaveStudyGroup.not-logged-in",
         "Sorry, you cannot leave this group."
@@ -220,10 +217,7 @@ Meteor.methods({
 
     const memberId = user._id;
 
-    StudyGroups.update(
-      { _id: data.studyGroupId },
-      { $pull: { members: { id: memberId } } }
-    );
+    StudyGroups.update({ _id: data.studyGroupId }, { $pull: { members: { id: memberId } } });
 
     //remove privilege for user
     Roles.setUserRoles(memberId, [], data.studyGroupId);
@@ -280,10 +274,7 @@ Meteor.methods({
     const actor = Meteor.user();
 
     //check if user is owner or admin
-    if (
-      !actor ||
-      !Roles.userIsInRole(actor, ["owner", "admin"], data.studyGroupId)
-    ) {
+    if (!actor || !Roles.userIsInRole(actor, ["owner", "admin"], data.studyGroupId)) {
       throw new Meteor.Error(
         403,
         "Sorry, you are an admin in this group. If you want to leave, please ask another admin to make you a member."
@@ -340,7 +331,11 @@ Meteor.methods({
     StudyGroups.update(
       { _id: data.id },
       {
-        $set: { introduction: data.introduction, description: data.description }
+        $set: {
+          introduction: data.introduction,
+          description: data.description,
+          updatedAt: new Date()
+        }
       }
     );
 
@@ -374,7 +369,14 @@ Meteor.methods({
 
     StudyGroups.update(
       { _id: data.id },
-      { $set: { title: data.title, tagline: data.tagline, tags: data.tags } }
+      {
+        $set: {
+          title: data.title,
+          tagline: data.tagline,
+          tags: data.tags,
+          updatedAt: new Date()
+        }
+      }
     );
 
     return true;
@@ -410,10 +412,7 @@ Meteor.methods({
     });
 
     //remove hangouts
-    Hangouts.update(
-      { "group.id": studyGroupId },
-      { $set: { visibility: false } }
-    );
+    Hangouts.update({ "group.id": studyGroupId }, { $set: { visibility: false } });
 
     return true;
   }
@@ -441,10 +440,7 @@ Meteor.methods({
       throw new Meteor.Error(403, "Access denied");
     }
 
-    StudyGroups.update(
-      { _id: data.id },
-      { $set: { exempt_from_default_permission: data.permission } }
-    );
+    StudyGroups.update({ _id: data.id }, { $set: { exempt_from_default_permission: data.permission } });
 
     return true;
   }
@@ -472,14 +468,7 @@ Meteor.methods({
     }
 
     const actor = Meteor.user();
-    if (
-      !actor ||
-      !Roles.userIsInRole(
-        actor,
-        ["owner", "admin", "moderator", "member"],
-        data.study_group_id
-      )
-    ) {
+    if (!actor || !Roles.userIsInRole(actor, ["owner", "admin", "moderator", "member"], data.study_group_id)) {
       throw new Meteor.Error(403, "Access denied");
     }
 
@@ -505,10 +494,7 @@ Meteor.methods({
     });
 
     if (!this.userId) {
-      throw new Meteor.Error(
-        "Members.methods.editStatus.not-logged-in",
-        "Must be logged in to transfer study group."
-      );
+      throw new Meteor.Error("Members.methods.editStatus.not-logged-in", "Must be logged in to transfer study group.");
     }
 
     const actor = Meteor.user();
@@ -516,21 +502,12 @@ Meteor.methods({
       throw new Meteor.Error(403, "Access denied");
     }
 
-    if (
-      !Roles.userIsInRole(
-        data.newOwnerId,
-        ["admin", "moderator", "member"],
-        data.studyGroupId
-      )
-    ) {
+    if (!Roles.userIsInRole(data.newOwnerId, ["admin", "moderator", "member"], data.studyGroupId)) {
       throw new Meteor.Error(403, "Access denied");
     }
 
     //Remove old owner and update role of new owner to 'owner'
-    StudyGroups.update(
-      { _id: data.studyGroupId, "members.id": actor._id },
-      { $set: { "members.$.role": "admin" } }
-    );
+    StudyGroups.update({ _id: data.studyGroupId, "members.id": actor._id }, { $set: { "members.$.role": "admin" } });
     StudyGroups.update(
       { _id: data.studyGroupId, "members.id": data.newOwnerId },
       { $set: { "members.$.role": "owner" } }
@@ -580,10 +557,7 @@ Meteor.methods({
     });
 
     if (!this.userId) {
-      throw new Meteor.Error(
-        "Members.methods.editStatus.not-logged-in",
-        "Must be logged in to save hangout channels."
-      );
+      throw new Meteor.Error("Members.methods.editStatus.not-logged-in", "Must be logged in to save hangout channels.");
     }
 
     const actor = Meteor.user();
@@ -592,10 +566,7 @@ Meteor.methods({
     }
 
     //Update the list of Slack channels that will receive notifications when a hangout is scheduled in this group
-    StudyGroups.update(
-      { _id: data.studyGroupId },
-      { $set: { hangoutChannels: data.hangoutChannels } }
-    );
+    StudyGroups.update({ _id: data.studyGroupId }, { $set: { hangoutChannels: data.hangoutChannels } });
     return true;
   }
 });

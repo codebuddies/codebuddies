@@ -41,7 +41,7 @@
       <a href="#" class="delete-hangout btn btn-cb2"><i class="fas fa-trash-alt" aria-hidden="true"></i> Cancel Hangout</a>
     {{else}}
       {{#if isInRole 'admin,moderator,volunteer' 'CB'}}
-          <a href="#" class="edit-hangout btn btn-cb2">Edit Details<span class="label label-info">M</span> </a>
+          <a href="#" class="edit-hangout btn btn-cb2">Edit Details <span class="label label-info">M</span> </a>
       {{/if}}
       {{#if isInRole 'admin,moderator' 'CB'}}
         <a href="#" class="delete-hangout btn btn-cb2 btn-danger"><i class="fas fa-trash-alt" aria-hidden="true"></i>&nbsp; Delete <span class="label label-info">M</span> </a>

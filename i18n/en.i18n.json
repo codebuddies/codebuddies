@@ -5,8 +5,7 @@
   "sign_in_with_slack": "Sign in with Slack",
 
   //home
-  "jumbotron_subtitle":
-    "We're __count__ people who help each other by sharing knowledge",
+  "jumbotron_subtitle": "We're __count__ people who help each other by sharing knowledge",
   "slack_title": "Slack chatroom",
   //profile page
   "send_profile_message": "Send __username__ a message",
@@ -22,7 +21,7 @@
 
   // status messages
   "i_am_working_on": "I'm working on ...",
-  "today_i_learned": "Today I learned ...",
+  "today_i_learned": "Today I Learned ...",
   "start_a_hangout": "Start a Hangout",
   "edit_a_hangout": "Edit your Hangout",
   "learning_message": "__count__ person is online learning",
@@ -70,8 +69,7 @@
   "yes_transfer_group": "Yes, transfer it!",
   "no_transfer_group": "No, I was just kidding",
   "hangout_participant": "Someone is currently in the 24/7 hangout.",
-  "hangout_participant_plural":
-    "__count__ people are currently in the 24/7 hangout.",
+  "hangout_participant_plural": "__count__ people are currently in the 24/7 hangout.",
   "add_google_calendar": "Add to Google Calendar",
 
   // hangout
@@ -90,27 +88,22 @@
   "past_events": "Past Hangouts",
   "add_to_icalendar": " Add to iCalendar",
   "deleted": "DELETED",
-  "external_button_text":
-    "Please input button text for your external hangout platform",
+  "external_button_text": "Please input button text for your external hangout platform",
   "external_URL": "Please input a URL for your external hangout platform",
 
   // popup messages
   "you_are_almost_there": "You are almost there!",
-  "login_join_hangout":
-    "Please sign in to codebuddies.slack.com to join a hangout",
-  "login_update_status":
-    "Please sign in to codebuddies.slack.com to update your status",
-  "login_create_hangout_title":
-    "You are pretty awesome, you know! Just one more step",
-  "login_create_hangout_message":
-    "Please sign in to codebuddies.slack.com to create a hangout",
+  "signup_or_signin":
+    "<strong>Sign up</strong> or <strong>sign in</strong> with <i class='fab fa-slack-hash'></i> or <i class='fab fa-github'></i><br /><img src='/images/slack-signin-example.jpg' class='signin-example slack'><img src='/images/github-signin-example.jpg' class='signin-example'>",
+  "login_join_hangout": "Please sign in to codebuddies.slack.com to join a hangout",
+  "login_update_status": "Please sign in to codebuddies.slack.com to update your status",
+  "login_create_hangout_title": "You are pretty awesome, you know! Just one more step",
+  "login_create_hangout_message": "Please sign in to codebuddies.slack.com to create a hangout",
   "you_are_awesome": "You are awesome!",
   "looking_forward_to_see_you": "Looking forward to seeing you.",
-  "remove_owner_from_hangout":
-    "Hey! You can't remove yourself from your Hangout.",
+  "remove_owner_from_hangout": "Hey! You can't remove yourself from your Hangout.",
   "delete_hangout_confirm": "Are you sure?",
-  "delete_hangout_text":
-    "Note: All participants will be notified via email of cancellation",
+  "delete_hangout_text": "Note: All participants will be notified via email of cancellation",
   "continue_popup_text":
     "Please sign in using your <a href=\"http://codebuddies.slack.com\" target=\"blank\">codebuddies.slack.com</a> team. <br /> (No CodeBuddies Slack account? <a href=\"http://codebuddiesmeet.herokuapp.com\" target=\"_blank\">Get your invite here</a>!)",
   "not_now": "Not Now",
@@ -136,8 +129,7 @@
   "report_hangout_message":
     "We'll review the Hangout and remove anything that doesn't follow the Code Buddies Standards. We may also warn or disable the person responsible.",
   "hangout_has_been_reported": "Reported Successfully.",
-  "hangout_reported_message":
-    "We appreciate your assistance in maintaining the quality of this community.",
+  "hangout_reported_message": "We appreciate your assistance in maintaining the quality of this community.",
 
   // admin header
   "manage_user": "Manage Users",
@@ -174,8 +166,7 @@
   "settings": "Settings",
   "start_new_group": "Start a New Group",
   "select_new_owner": "Select new owner",
-  "new_hangout_slack_channel":
-    "Send New Hangout Notifications to the Following Slack Channel(s)",
+  "new_hangout_slack_channel": "Send New Hangout Notifications to the Following Slack Channel(s)",
   "select_channel": "Select at most 3 slack channels",
   "study_groups": "study groups",
 
@@ -188,8 +179,7 @@
     "We'll review the Discussion and remove anything that doesn't follow the Code Buddies Standards. We may also warn or disable the person responsible.",
   "report_a_discussion": "Report",
   "discussion_has_been_reported": "Reported Successfully.",
-  "discussion_reported_message":
-    "We appreciate your assistance in maintaining the quality of this community.",
+  "discussion_reported_message": "We appreciate your assistance in maintaining the quality of this community.",
   "discussions": "discussions",
   "hangouts_organized": "hangouts organized",
   "learnings_reported": "learnings reported",

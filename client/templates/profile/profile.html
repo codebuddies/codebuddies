@@ -15,7 +15,17 @@
           <div class="col-sm-12 text-center">
             {{#with userInfo}}
               <img src="{{#if profile.avatar.image_192 }} {{profile.avatar.image_192}} {{else}} {{profile.avatar.default}} {{/if}}" class="img-circle avatar profile-avatar" alt="profile image"/>
-
+              {{#if profile.firstname }}
+                <span>
+                  {{ profile.firstname }}
+                </span>
+              {{/if}}
+              {{#if profile.lastname }}
+                <span>
+                  {{ profile.lastname }}
+                </span>
+              {{/if}}
+              <br/>
               {{#if isCurrentUserProfile currentUser}}
                 <a href="#" class="btn-edit editProfile">
                   <i class="fas fa-pencil-alt" aria-hidden="true"></i>
@@ -134,8 +144,10 @@
         <div class="col-md-6 profile-learnings">
           <div class="box">
             <h3>#TodayILearned</h3>
+            <!-- add learnings here-->
+            {{> hangoutLearned }}
           </div>
-
+          <!-- display learnings-->
           {{> profileLearnings }}
 
         </div>

@@ -232,7 +232,7 @@
 
     .shadow-effect {
       @include box-shadow(0, 12px, 60, rgba(0, 0, 0, .5));
-      border: 2px solid #fff !important;
+      border: 2px solid $white !important;
     }
 
     %hangout-cards {
