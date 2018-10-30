@@ -45,7 +45,7 @@ Template.conversation.onRendered(function() {
 });
 Template.conversation.helpers({
   messages() {
-    //“round” all the createdAt dates to the minute (using _.map)
+    //"round" all the createdAt dates to the minute (using _.map)
     //group all messages by createdAt (using _.groupBy)
     //remove the createdAt property for all but the first item (using _.each on the list of groups, then _.map again on the grouped-together messages, the latter removing the property when the index > 0)
     //then flatten that out into an array again (using _.values, then _.flatten)
@@ -55,12 +55,12 @@ Template.conversation.helpers({
       Messages.find({ conversation_id: FlowRouter.getParam("conversationId") }, { sort: { sent: 1 } }).fetch()
     )
       .map(m => {
-        m.round_date = moment(m.sent)
+        m.from_now = moment(m.sent)
           .startOf("minute")
           .fromNow();
         return m;
       })
-      .groupBy("round_date")
+      .groupBy("from_now")
       .forEach((i, key) => {
         return _.map(i, (m, key) => {
           if (key > 0) {
@@ -111,7 +111,9 @@ Template.conversation.events({
         console.log("error", error);
       }
       if (result) {
-        $("#chatbox").scrollTop($("#chatbox")[0].scrollHeight);
+        Meteor.setTimeout(function() {
+          $("#chatbox").scrollTop($("#chatbox")[0].scrollHeight);
+        }, 200);
         $("#messge-body").val("");
       }
     });

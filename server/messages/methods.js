@@ -57,3 +57,48 @@ Meteor.methods({
     return Messages.insert(message);
   }
 });
+
+/**
+ * report message
+ * @function
+ * @name messages.report
+ * @param { Object } data - Data
+ * @return Boolean
+ */
+Meteor.methods({
+  "messages.report": function(data) {
+    check(data, {
+      messageId: String,
+      category: String
+    });
+
+    const actor = Meteor.user();
+    const message = Messages.findOne({ _id: data.messageId });
+    const { from: author } = message;
+    if (!actor) {
+      throw new Meteor.Error(500, "You are trying do something fishy.");
+    }
+
+    const matter = " as " + data.category + ".";
+
+    const notification = {
+      actor: {
+        id: actor._id,
+        username: actor.username
+      },
+      subject: {
+        id: author.id,
+        username: author.username
+      },
+      message: message,
+      createdAt: new Date(),
+      read: [actor._id],
+      action: "reported",
+      matter: matter,
+      icon: "fa-exclamation-circle",
+      type: "reported message"
+    };
+    Notifications.insert(notification);
+    return true;
+  }
+});

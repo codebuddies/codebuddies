@@ -7,15 +7,7 @@
             <i class="fas fa-arrow-left fa-xs"></i> Back
           </small>
         </a>
-
         Conversations
-        <!-- <div class="pull-right">
-          <form>
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Search">
-            </div>
-          </form>
-        </div> -->
       </h4>
     </div>
 
@@ -27,7 +19,9 @@
         <div style="overflow-y: scroll; height:350px ;" id="chatbox">
           {{#each messages}}
             {{#if sent}}
-              <h5 class="text-center"> <small> {{relativeTimeInMinute sent}} </small> </h5>
+              <h5 class="text-center">
+                <small > {{relativeTimeInMinute sent}} </small>
+              </h5>
             {{/if}}
             {{> message_bubble}}
           {{else}}
