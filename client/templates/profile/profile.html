@@ -25,6 +25,11 @@
                   <i class="fas fa-download" aria-hidden="true"></i>
                   {{_ "Download my data"}}
                 </a>
+              {{else}}
+                <div class="btn-edit loadConversation">
+                  <i class="far fa-envelope" aria-hidden="true"></i>
+                  {{_ "message"}}
+                </div>
               {{/if}}
 
               <h3 class="username">
@@ -41,6 +46,10 @@
                     <i class="fab fa-slack-hash" aria-hidden="true"></i>
                   </a>
                 {{/if}}
+
+                <a href="" target="_blank">
+                  <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                </a>
 
                 {{# if profile.social.twitter}}
                   <a href="https://twitter.com/{{profile.social.twitter}}" target="_blank">
@@ -88,17 +97,17 @@
               <div class="social-icons">
                 {{# if profile.support_links.buymeacoffee}}
                   <a href="https://www.buymeacoffee.com/{{profile.support_links.buymeacoffee}}" target="_blank" alt="Buy me a coffee">
-                    <i class="fa fa-coffee" aria-hidden="true"></i> 
+                    <i class="fa fa-coffee" aria-hidden="true"></i>
                   </a>
                 {{/if}}
                 {{# if profile.support_links.patreon}}
                   <a href="{{profile.support_links.patreon}}" target="_blank" alt="Support me on Patreon">
-                  <i class="fab fa-patreon"></i> 
+                  <i class="fab fa-patreon"></i>
                   </a>
                 {{/if}}
                 {{# if profile.support_links.nonprofit}}
                   <a href="{{profile.support_links.nonprofit}}" target="_blank" alt="A non-profit I support">
-                    <i class="fa fa-heart-o" aria-hidden="true"></i> 
+                    <i class="fa fa-heart-o" aria-hidden="true"></i>
                   </a>
                 {{/if}}
               </div>

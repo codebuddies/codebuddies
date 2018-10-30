@@ -1,0 +1,13 @@
+<template name="message_bubble">
+  <div class="row ib-clear">
+    <div class="{{#if isAuthor from.id }}   col-md-11 col-md-offset-1 {{else}} col-md-11 {{/if}}">
+      <div class="{{#if isAuthor from.id }}  ib-from-me {{else}} ib-from-them {{/if}}">
+      <!-- <div class="panel panel-default"> -->
+        <!-- <div class="panel-body"> -->
+          <p>{{#markdown}}{{body}}{{/markdown}}</p>
+        <!-- </div> -->
+      <!-- </div> -->
+      </div>
+    </div>
+  </div>
+</template>
