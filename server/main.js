@@ -166,6 +166,7 @@ Accounts.onCreateUser(function(options, user) {
       "new_member",
       "new_hangout",
       "new_discussion",
+      "new_direct_message",
       "bi_weekly_newsletter",
       "monthly_update"
     ];
@@ -190,6 +191,7 @@ Accounts.onCreateUser(function(options, user) {
       "new_member",
       "new_hangout",
       "new_discussion",
+      "new_direct_message",
       "bi_weekly_newsletter",
       "monthly_update"
     ];
