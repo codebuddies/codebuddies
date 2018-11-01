@@ -1,5 +1,7 @@
 import md5 from "md5";
 import "/imports/startup/server";
+import { sendWelcomeMessage } from "/imports/libs/server/user/welcome_email";
+import SlackAPI from "./slack/slack-api";
 
 Meteor.startup(function() {
   // migration
@@ -120,6 +122,7 @@ let swapUserIfExists = function(email, service, user) {
     Meteor.users.remove({ _id: existingUser._id });
   } else {
     user.username = swapUsernameIfExists(user.username);
+    SlackAPI.inviteUser(user.email);
   }
 
   return user;
@@ -142,7 +145,7 @@ Accounts.onCreateUser(function(options, user) {
     user.email = email;
     user.profile = profile;
 
-    return swapUserIfExists(email, service, user);
+    user = swapUserIfExists(email, service, user);
   }
 
   if (service === "github") {
@@ -158,8 +161,18 @@ Accounts.onCreateUser(function(options, user) {
     user.username = user.services.github.username;
     user.email = user.services.github.email;
     user.profile = profile;
+    user.emails_preference = [
+      "join_hangout",
+      "rsvp_to_hangout",
+      "delete_hangout",
+      "new_member",
+      "new_hangout",
+      "new_discussion",
+      "bi_weekly_newsletter",
+      "monthly_update"
+    ];
 
-    return swapUserIfExists(email, service, user);
+    user = swapUserIfExists(email, service, user);
   }
 
   if (service === "password") {
@@ -172,9 +185,23 @@ Accounts.onCreateUser(function(options, user) {
     user.username = user.username;
     user.profile = profile;
     user.email = options.email;
+    user.emails_preference = [
+      "join_hangout",
+      "rsvp_to_hangout",
+      "delete_hangout",
+      "new_member",
+      "new_hangout",
+      "new_discussion",
+      "bi_weekly_newsletter",
+      "monthly_update"
+    ];
 
-    return user;
+    SlackAPI.inviteUser(user.email);
+    user = user;
   }
+
+  sendWelcomeMessage(user);
+  return user;
 });
 
 // global users observer for app_stats

@@ -70,6 +70,15 @@ Meteor.methods({
     //insert
     discussion._id = Discussions.insert(discussion);
 
+    StudyGroups.update(
+      { _id: study_group.id },
+      {
+        $set: {
+          updatedAt: new Date()
+        }
+      }
+    );
+
     // slack alert
     discussionsSlackAlert(discussion);
 

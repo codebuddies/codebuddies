@@ -177,7 +177,7 @@
   color: $white;
 
   &.btn-unlike {
-    color: $cta-blue;
+    color: $cta-red;
   }
 
   &.btn-like {
@@ -219,6 +219,10 @@ li.delete-hangout, li.edit-hangout {
   }
 }
 
+.delete-hangout.btn.btn-cb2.btn-danger {
+  color: $white;
+}
+
 #btn-load-more, #load-more-learnings {
   color: $cta-blue;
   margin: 10px 0;
@@ -251,7 +255,9 @@ li.delete-hangout, li.edit-hangout {
   max-width: 340px;
 }
 #createGroupButton, .btn-createGroup-notLoggedIn {
-  margin: 10px auto;
+  display:inline;
+  margin: 0 2%;
+  border: 1px solid white;
 }
 .btn-clear {
   width: 100%;
@@ -269,4 +275,8 @@ li.delete-hangout, li.edit-hangout {
   background: $success-green;
   margin: 0 auto;
   max-width: 340px;
+}
+
+.btn-load-more {
+    margin: 20px auto;
 }

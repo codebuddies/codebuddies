@@ -1,48 +1,42 @@
 <template name="hangoutCards">
-  {{#if Template.subscriptionsReady}}
-  <h3 class="hangouts-title">{{_ "upcoming_events"}}</h3>
-    <div id="active_hangouts">
 
-      {{#if liveHangoutsCount }}
-      {{/if}}
-      {{#each hangouts 1}}
-        {{#unless isHangoutCompleted end}}
-        <div class="card">
-          {{> hangoutCard}}
-        </div>
-        {{/unless}}
-      {{/each}}
-
-    </div>
-
-    <h3 class="hangouts-title">{{_ "past_events"}}</h3>
-    <div id="past_hangouts">
-      {{#if pastHangoutsCount }}
-      
-      {{/if}}
-      {{#each hangouts -1}}
-        {{#if isHangoutCompleted end}}
-         <div class="card">
-           {{> hangoutCard}}
-        </div>
-        {{/if}}
-      {{/each}}
-
-    </div>
-
-    {{#unless status}}
-
-      <div class="clear">
-        <button id="loadMore" class="btn btn-default btn-block">Load More</button>
-      </div>
-
-    {{else}}
-        <h5 class="align-center color-white">There are no more hangouts.</h5>
-    {{/unless}}
-
-  {{else}}
-
-    {{> loading}}
-
+  {{#if liveHangoutsCount }}
+    <h3 class="hangouts-title">{{_ "upcoming_events"}}</h3>
   {{/if}}
+
+  <div id="active_hangouts">
+    {{#each hangouts 1}}
+      {{#unless isHangoutCompleted end}}
+      <div class="card">
+        {{> hangoutCard}}
+      </div>
+      {{/unless}}
+    {{/each}}
+  </div>
+
+  {{#if pastHangoutsCount }}
+    <h3 class="hangouts-title">{{_ "past_events"}}</h3>
+  {{/if}}
+
+  <div id="past_hangouts">
+    {{#each hangouts -1}}
+      {{#if isHangoutCompleted end}}
+       <div class="card">
+         {{> hangoutCard}}
+      </div>
+      {{/if}}
+    {{/each}}
+  </div>
+
+  {{#unless status}}
+    <div class="clear">
+      <button id="loadMore" class="btn btn-default btn-block">Load More</button>
+    </div>
+  {{else}}
+      <h5 class="align-center color-white">There are no more hangouts.</h5>
+  {{/unless}}
+
+  {{#unless Template.subscriptionsReady}}
+    {{> loading}}
+  {{/unless}}
 </template>

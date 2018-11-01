@@ -99,6 +99,15 @@ const Helpers = {
     const hangout_id = Hangouts.insert(hangout);
     hangout._id = hangout_id;
 
+    StudyGroups.update(
+      { _id: data.groupId },
+      {
+        $set: {
+          updatedAt: new Date()
+        }
+      }
+    );
+
     //tweet new hangout
     tweetHangout(hangout);
     Helpers.sendNotifications(hangout, group);

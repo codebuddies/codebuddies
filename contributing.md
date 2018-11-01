@@ -175,51 +175,7 @@ When the app is run locally, there are no hangouts seeded by default. Hence to b
 4. Now you can see that fake data is seeded to the app.
 
 ### How do I add myself as a contributor?
-*Make sure you have recently `git pull` from `master` before continuing.*
-
-Once you've submitted your PR, switch to the branch [`adding-contributor`](https://github.com/codebuddies/codebuddies/tree/adding-contributor). Then, you can add yourself to both the README.md and on our About page. Keeping a separate branch for adding yourself as a contributor will alleviate most merge conflicts.
-
-* Switch to contributor's branch
-  * `git checkout adding-contributor`
-* Merge master's changes into branch
-  * `git merge master`
-* **For the README.md:**
-  * Open `readme.md` in your editor of choice.
-  * Go to [How do I contribute to this project?](/readme.md#how-do-i-contribute-to-this-project) in the readme
-  * Add your GitHub handler, GitHub profile page, and what you worked on _above the line "Add Your Name Above"_
-    * example: `@Example, https://github.com/onlyforexample - provided an example on Contributing.md`
-  * Commit your changes
-*  **For the [About](https://codebuddies.org/about) Page:**
-  * Open `imports/data/contributors.json` in your editor of choice
-  * Add the following JSON object in contributors array:
-
-```
-{
-  "title": "ADD_SLACK_HANDLER_HERE",
-  "socials": {
-    "twitter": "ADD_TWITTER_LINK_HERE",
-    "github": "ADD_GITHUB_LINK_HERE",
-    "blog": "ADD_PERSONAL_SITE_HERE"
-  },
-  "intro":"ADD INFORMATION ABOUT YOU AND HOW YOU CONTRIBUTED TO CODEBUDDIES",
-  "avatar": "ADD_IMG_URL_HERE",
-  "name": "YOUR_NAME",
-  "type": "code"
- }
-```
-  * Replace the following values:
-    * **ADD_SLACK_HANDLER_HERE** - replace with your Slack handler (e.g., @sample)
-    * **ADD_TWITTER_LINK_HERE** - replace with your Twitter link
-      * If you don't have a Twitter account, delete `"twitter": "ADD_TWITTER_LINK_HERE"`
-    * **ADD_GITHUB_LINK_HERE** - replace with your GitHub link
-    * **ADD_PERSONAL_SITE_HERE** - replace with your actual site
-      * If you don't have a personal site, delete `"blog": "ADD_PERSONAL_SITE_HERE"`
-    * **ADD INFORMATION ABOUT YOU AND HOW YOU CONTRIBUTED TO CODEBUDDIES** - replace this with the requested information!
-    * **ADD_IMG_URL_HERE** - replace with a image URL of yourself! (Can be your GitHub profile picture.)
-  * Commit and push your changes!
-* [Submit a PR](https://help.github.com/articles/creating-a-pull-request/)! (You may link it to your issues' PR, so the code reviewer can review your contributors additions as well.)
-* **Remember not to delete this branch, so that others can use this branch as well!**
-
+First of all, thank you! Please read [https://docs.codebuddies.org/code-contribution/recognition](https://docs.codebuddies.org/code-contribution/recognition) for instructions.
 
 ### Helpful Reminders:
 1. Remember, you can always check which branch you are in by typing `git branch` or `git branch -a` to see all the branches that exist.

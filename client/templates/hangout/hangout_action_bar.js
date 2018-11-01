@@ -82,38 +82,39 @@ Template.hangoutActionBar.events({
       hostUsername: this.host.name
     };
 
-    sweetAlert(
-      {
-        type: "warning",
-        title: TAPi18n.__("delete_hangout_confirm"),
-        text: TAPi18n.__("delete_hangout_text"),
-        cancelButtonText: TAPi18n.__("no_delete_hangout"),
-        confirmButtonText: TAPi18n.__("yes_delete_hangout"),
-        confirmButtonColor: "#d9534f",
-        showCancelButton: true,
-        closeOnConfirm: false
-      },
-      function() {
-        // disable confirm button to avoid double (or quick) clicking on confirm event
-        swal.disableButtons();
-        // if user confirmed/selected yes, let's call the delete hangout method on the server
-
-        Meteor.call("deleteHangout", data, function(error, result) {
-          if (result) {
-            swal(
-              "Poof!",
-              "Your hangout has been successfully deleted!",
-              "success"
-            );
-          } else {
-            swal(
-              "Oops something went wrong!",
-              error.error + "\n Try again",
-              "error"
-            );
-          }
+    swal({
+      type: "warning",
+      title: TAPi18n.__("delete_hangout_confirm"),
+      text: TAPi18n.__("delete_hangout_text"),
+      cancelButtonText: TAPi18n.__("no_delete_hangout"),
+      confirmButtonText: TAPi18n.__("yes_delete_hangout"),
+      confirmButtonColor: "#d9534f",
+      showCancelButton: true,
+      closeOnConfirm: false
+    }).then(result => {
+      swal.disableButtons();
+      if (result.value) {
+        Meteor.call("deleteHangout", data, function(error) {
+          swal(
+            "Poof!",
+            "Your hangout has been successfully deleted!",
+            "success"
+          );
         });
+      } else if (
+        result.dismiss === "cancel" ||
+        result.dismiss === "esc" ||
+        result.dismiss === "overlay"
+      ) {
+        swal("Phew!", "No changes made", "info");
+      } else {
+        swal(
+          "Oops! Something went wrong",
+          error.error,
+          +"\n Try again",
+          "error"
+        );
       }
-    ); //sweetAlert
+    }); //sweetAlert 2
   }
 });
