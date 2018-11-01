@@ -23,7 +23,7 @@ html, body {
 }
 
 h2 {
-  margin: 0 0 30px;
+  margin: 30px 0px;
 }
 
 h3 {
@@ -212,4 +212,17 @@ label#twitterWarning {
   &.slack {
     border: 5px solid $slack;
   }
+}
+
+ol li {
+  margin: 20px 0px;
+}
+
+figure {
+  margin: 20px 0px;
+}
+
+figcaption {
+  text-align: center;
+  font-style: italic;
 }
