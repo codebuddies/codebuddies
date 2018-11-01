@@ -136,7 +136,7 @@
     }
 
     p {
-      @include font-face(200, 16px, normal, $bg-white);
+      @include font-face(200, 18px, normal, $bg-white);
       line-height: 27px;
     }
 
@@ -540,13 +540,13 @@
     justify-content: center;
     align-items: center;
 
-    min-height: 300px;
-    margin-bottom: 30px;
+    min-height: 150px;
+    margin-bottom: 15px;
   }
 
   .statistic-circle {
-    width: 250px;
-    height: 250px;
+    width: 150px;
+    height: 150px;
 
     border: 10px solid white;
     border-radius: 50%;
@@ -568,15 +568,15 @@
     > p {
       color: white;
       text-align: center;
-      padding: 10px 0;
+      padding: 0px  ;
 
       &.total {
-        font-size: 4em;
+        font-size: 2em;
         font-weight: bold;
       }
 
       &.category {
-        font-size: 2em;
+        font-size: 1em;
       }
     }
   }
