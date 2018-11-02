@@ -10,6 +10,7 @@
   //profile page
   "send_profile_message": "Send __username__ a message",
   "chat": "Chat",
+  "message": "Message",
 
   // other pages
   "about": "About",
