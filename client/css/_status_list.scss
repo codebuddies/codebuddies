@@ -80,12 +80,9 @@
 
     .kudo-count {
       @include font-face(400, 15px, normal, $primary-grey);
-    }
+    }  
     .learning-holder {
       max-width: 90%;
-      .learning-title {
-        white-space: pre-line;
-      }
     }
   }
 }
