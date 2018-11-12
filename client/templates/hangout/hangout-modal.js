@@ -55,18 +55,11 @@ Template.createHangoutModal.onRendered(function() {
     let studyGroupsKeys = [];
 
     Object.entries(roles).forEach(([key, value]) => {
-      if (
-        value.includes("owner") ||
-        value.includes("admin") ||
-        (value.includes("moderator") && key !== "CB")
-      ) {
+      if (value.includes("owner") || value.includes("admin") || (value.includes("moderator") && key !== "CB")) {
         studyGroupsKeys.push(key);
       } else if (value.includes("member") && key !== "CB") {
         // check for exempt_from_default_permission
-        if (
-          StudyGroups.findOne({ _id: key }) &&
-          StudyGroups.findOne({ _id: key }).exempt_from_default_permission
-        ) {
+        if (StudyGroups.findOne({ _id: key }) && StudyGroups.findOne({ _id: key }).exempt_from_default_permission) {
           studyGroupsKeys.push(key);
         }
       }
@@ -83,10 +76,7 @@ Template.createHangoutModal.onRendered(function() {
         data: studyGroups
       });
 
-      if (
-        typeof instance.studyGroupId !== "undefined" &&
-        instance.studyGroupId !== ""
-      ) {
+      if (typeof instance.studyGroupId !== "undefined" && instance.studyGroupId !== "") {
         instance
           .$(".study-group-single")
           .val(instance.studyGroupId)
@@ -103,9 +93,7 @@ Template.createHangoutModal.events({
   "click #create-hangout": function(e, template) {
     const templateInstance = template;
     const topic = $("#topic").val();
-    const description = QuillEditor.generatePlainTextFromDeltas(
-      templateInstance.editor.getContents()
-    );
+    const description = QuillEditor.generatePlainTextFromDeltas(templateInstance.editor.getContents());
     const description_in_quill_delta = templateInstance.editor.getContents();
     const start = $("#start-date-time").val();
     const startDate = new Date(start);
@@ -113,9 +101,7 @@ Template.createHangoutModal.events({
     const duration = Number($("#end-date-time").val()) || 1440;
     const end = new Date(startDate.getTime() + 1000 * 60 * duration);
     const groupId = $(".study-group-single").val();
-    const externalCheckbox = $('input[name="externalCheckbox"]').prop(
-      "checked"
-    );
+    const externalCheckbox = $('input[name="externalCheckbox"]').prop("checked");
     const externalButtonText = $('input[name="externalButtonText"]').val();
     const externalURL = $('input[name="externalURL"]').val();
 

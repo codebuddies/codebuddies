@@ -95,9 +95,7 @@ let getRandomUsername = function(username) {
     "weird",
     "cryptic"
   ];
-  return `${
-    adjectiveList[Math.floor(Math.random() * adjectiveList.length)]
-  }${username}`;
+  return `${adjectiveList[Math.floor(Math.random() * adjectiveList.length)]}${username}`;
 };
 
 let swapUsernameIfExists = function(username) {
@@ -168,6 +166,7 @@ Accounts.onCreateUser(function(options, user) {
       "new_member",
       "new_hangout",
       "new_discussion",
+      "new_direct_message",
       "bi_weekly_newsletter",
       "monthly_update"
     ];
@@ -192,6 +191,7 @@ Accounts.onCreateUser(function(options, user) {
       "new_member",
       "new_hangout",
       "new_discussion",
+      "new_direct_message",
       "bi_weekly_newsletter",
       "monthly_update"
     ];

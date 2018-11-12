@@ -28,18 +28,9 @@ Template.layout.events({
             }
           });
         } else if (result.dismiss === "esc" || result.dismiss === "overlay") {
-          swal(
-            "No worries!",
-            "Sign up or sign in with Slack or Github at any time.",
-            "info"
-          );
+          swal("No worries!", "Sign up or sign in with Slack or Github at any time.", "info");
         } else {
-          swal(
-            "Oops! Something went wrong",
-            error.error,
-            +"\n Try again",
-            "error"
-          );
+          swal("Oops! Something went wrong", error.error, +"\n Try again", "error");
         }
       });
     }

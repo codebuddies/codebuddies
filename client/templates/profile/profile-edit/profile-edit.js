@@ -45,9 +45,7 @@ Template.profileEdit.events({
     $('input[name="lastname"]').val("");
     $('input[name="location"]').val("");
     $("#bio-text").val("");
-    $("#skills-improve-text").val(""),
-      $("#skills-help-text").val(""),
-      $('input[name="website"]').val();
+    $("#skills-improve-text").val(""), $("#skills-help-text").val(""), $('input[name="website"]').val();
     $('input[name="twitter"]').val("");
     $('input[name="github"]').val("");
     $('input[name="facebook"]').val("");

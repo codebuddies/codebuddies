@@ -89,6 +89,7 @@
             {{#unless isInRole 'admin' 'CB'}}
               <!-- notification for user-->
               <li><a href="{{pathFor 'user notification'}}"><i class="fas fa-bell" aria-hidden="true"></i> {{#if userNotificationCount}}<small><span class="badge">{{userNotificationCount}}</span></small>{{/if}} </a></li>
+              <li><a href="{{pathFor 'inbox'}}"><i class="far fa-envelope" aria-hidden="true"></i> {{#if unreadConversationCount}}<small><span class="badge">{{unreadConversationCount}}</span></small>{{/if}} </a></li>
               <!-- dropdown for user-->
               <li id="user-drop-down" class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">

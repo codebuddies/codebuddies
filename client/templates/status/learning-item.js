@@ -54,24 +54,13 @@ Template.learningItem.events({
     }).then(result => {
       console.log(result);
       if (result.value) {
-        Meteor.call("deleteLearning", learningId, Meteor.userId(), function(
-          error
-        ) {
+        Meteor.call("deleteLearning", learningId, Meteor.userId(), function(error) {
           swal("Poof!", "Your learning was deleted!", "success");
         });
-      } else if (
-        result.dismiss === "cancel" ||
-        result.dismiss === "esc" ||
-        result.dismiss === "overlay"
-      ) {
+      } else if (result.dismiss === "cancel" || result.dismiss === "esc" || result.dismiss === "overlay") {
         swal("Phew!", "No changes made", "info");
       } else {
-        swal(
-          "Oops! Something went wrong",
-          error.error,
-          +"\n Try again",
-          "error"
-        );
+        swal("Oops! Something went wrong", error.error, +"\n Try again", "error");
       }
     });
   }

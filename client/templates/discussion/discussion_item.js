@@ -19,25 +19,12 @@ Template.discussionItem.events({
       swal.disableButtons();
       if (result.value) {
         Meteor.call("discussions.remove", data, function(error) {
-          swal(
-            "Poof!",
-            "Your Discussion has been successfully deleted!",
-            "success"
-          );
+          swal("Poof!", "Your Discussion has been successfully deleted!", "success");
         });
-      } else if (
-        result.dismiss === "cancel" ||
-        result.dismiss === "esc" ||
-        result.dismiss === "overlay"
-      ) {
+      } else if (result.dismiss === "cancel" || result.dismiss === "esc" || result.dismiss === "overlay") {
         swal("Phew!", "No changes made", "info");
       } else {
-        swal(
-          "Oops! Something went wrong",
-          error.error,
-          +"\n Try again",
-          "error"
-        );
+        swal("Oops! Something went wrong", error.error, +"\n Try again", "error");
       }
     }); // sweetAlert2
   },

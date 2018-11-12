@@ -38,10 +38,7 @@ Template.memberStatus.events({
         study_group_id: FlowRouter.getParam("studyGroupId")
       };
 
-      Meteor.call("updateUserStatusForStudyGroup", data, function(
-        error,
-        result
-      ) {
+      Meteor.call("updateUserStatusForStudyGroup", data, function(error, result) {
         if (error) {
           console.log(error);
           return Bert.alert(error.reason, "danger", "growl-top-right");

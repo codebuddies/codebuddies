@@ -35,6 +35,11 @@
                   <i class="fas fa-download" aria-hidden="true"></i>
                   {{_ "Download my data"}}
                 </a>
+              {{else}}
+                <div class="btn-edit loadConversation">
+                  <i class="far fa-envelope" aria-hidden="true"></i>
+                  {{_ "message"}}
+                </div>
               {{/if}}
 
               <h3 class="username">
@@ -61,6 +66,10 @@
                     <i class="fab fa-slack-hash" aria-hidden="true"></i>
                   </a>
                 {{/if}}
+
+                <a href="" target="_blank">
+                  <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                </a>
 
                 {{# if profile.social.twitter}}
                   <a href="https://twitter.com/{{profile.social.twitter}}" target="_blank">

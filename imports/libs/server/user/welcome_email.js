@@ -23,10 +23,7 @@ function sendWelcomeMessage(user) {
 
     CBMailer(mail_data, template_name, template_data);
   } else {
-    throw new Meteor.Error(
-      "welcomeEmailToNewUser.invalid-user",
-      "Supplied user must have a valid email address."
-    );
+    throw new Meteor.Error("welcomeEmailToNewUser.invalid-user", "Supplied user must have a valid email address.");
   }
 }
 

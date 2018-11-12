@@ -1,8 +1,6 @@
 Template.hangoutFrame.onCreated(function() {
   let instance = this;
-  instance.room = new ReactiveVar(
-    `cb${instance.data._id || instance.data.hroom}`
-  );
+  instance.room = new ReactiveVar(`cb${instance.data._id || instance.data.hroom}`);
 
   instance.autorun(() => {
     instance.subscribe("hangoutParticipants", instance.room.get());
@@ -43,9 +41,7 @@ Template.hangoutFrame.onCreated(function() {
 
     $("[id^=" + "jitsiConference" + "]").css("width", "100%");
     //only show the launch hangout button if Jitsi is not loaded
-    $("[id^=" + "jitsiConference" + "]").length == 1
-      ? $(".load-hangout").hide()
-      : $("#load-hangout").show();
+    $("[id^=" + "jitsiConference" + "]").length == 1 ? $(".load-hangout").hide() : $("#load-hangout").show();
 
     instance.api.on("readyToClose", () => {
       Bert.alert({
@@ -80,10 +76,7 @@ Template.hangoutFrame.onRendered(function() {
    * Chrome or Firefox
    */
 
-  if (
-    (!!window.chrome && !!window.chrome.webstore) ||
-    typeof InstallTrigger !== "undefined"
-  ) {
+  if ((!!window.chrome && !!window.chrome.webstore) || typeof InstallTrigger !== "undefined") {
     //console.log('using firefox or chrome')
     $("p.chrome-firefox-warning").hide();
   } else {
@@ -92,17 +85,14 @@ Template.hangoutFrame.onRendered(function() {
   }
 
   //Google Hangout support
-  $("head").append(
-    '<script src="https://apis.google.com/js/platform.js" async defer></script>'
-  );
+  $("head").append('<script src="https://apis.google.com/js/platform.js" async defer></script>');
 });
 
 Template.hangoutFrame.events({
   "click .load-hangout": function(event, template) {
     const data = {
       room: this._id || template.data.hroom,
-      username:
-        (Meteor.user() && Meteor.user().username) || template.data.huser,
+      username: (Meteor.user() && Meteor.user().username) || template.data.huser,
       type: template.data.htype || this.type,
       avatar: template.data.havatar || Meteor.user().profile.avatar.default
     };

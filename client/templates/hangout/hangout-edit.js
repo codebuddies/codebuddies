@@ -11,8 +11,7 @@ Template.editHangoutModal.rendered = function() {
   });
 
   templateInstance.editor.setContents(
-    templateInstance.data.hangout.data.description_in_quill_delta ||
-      templateInstance.data.hangout.data.description
+    templateInstance.data.hangout.data.description_in_quill_delta || templateInstance.data.hangout.data.description
   );
 
   //instructions for start date time picker
@@ -36,9 +35,7 @@ Template.editHangoutModal.events({
   "click #edit-hangout": function() {
     var templateInstance = Template.instance();
     const topic = $("#topic").val();
-    const description = QuillEditor.generatePlainTextFromDeltas(
-      templateInstance.editor.getContents()
-    );
+    const description = QuillEditor.generatePlainTextFromDeltas(templateInstance.editor.getContents());
     const description_in_quill_delta = templateInstance.editor.getContents();
     const start = $("#start-date-time").val();
     const startDate = new Date(start);
@@ -46,9 +43,7 @@ Template.editHangoutModal.events({
     const duration = Number($("#end-date-time").val()) || 1440;
     const end = new Date(startDate.getTime() + 1000 * 60 * duration);
     const type = $('input[name="hangout-type"]:checked').val();
-    const externalCheckbox = $('input[name="externalCheckbox"]').prop(
-      "checked"
-    );
+    const externalCheckbox = $('input[name="externalCheckbox"]').prop("checked");
     const externalButtonText = $('input[name="externalButtonText"]').val();
     const externalURL = $('input[name="externalURL"]').val();
 

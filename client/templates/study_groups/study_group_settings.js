@@ -6,11 +6,9 @@ Template.studyGroupSettings.onRendered(function() {
   instance.$("#transferOwnership").prop("disabled", true);
   const members = instance.data.members;
   if (members.length > 1) {
-    const eligibleMembers = members
-      .filter(member => member.role !== `owner`)
-      .map(member => {
-        return { id: member.id, text: member.name };
-      });
+    const eligibleMembers = members.filter(member => member.role !== `owner`).map(member => {
+      return { id: member.id, text: member.name };
+    });
 
     instance.$("#studyGroupMemberList").prop("disabled", false);
     instance.$("#transferOwnership").prop("disabled", false);
@@ -55,17 +53,9 @@ Template.studyGroupSettings.events({
         Meteor.call("archiveStudyGroup", studyGroupId, function(error) {
           FlowRouter.go("all study groups");
           swal("Poof!", "Your study group has been archived", "success");
-          return Bert.alert(
-            "Study Group Archived",
-            "success",
-            "growl-top-right"
-          );
+          return Bert.alert("Study Group Archived", "success", "growl-top-right");
         });
-      } else if (
-        result.dismiss === "cancel" ||
-        result.dismiss === "esc" ||
-        result.dismiss === "overlay"
-      ) {
+      } else if (result.dismiss === "cancel" || result.dismiss === "esc" || result.dismiss === "overlay") {
         swal("Phew!", "No changes made", "info");
       } else {
         return Bert.alert(error.reason, "danger", "growl-top-right");
@@ -75,8 +65,7 @@ Template.studyGroupSettings.events({
   "change #hangoutPermission": function(event, template) {
     const data = {
       id: this._id,
-      permission:
-        template.find("#hangoutPermission").value == "true" ? true : false
+      permission: template.find("#hangoutPermission").value == "true" ? true : false
     };
 
     swal({
@@ -94,11 +83,7 @@ Template.studyGroupSettings.events({
           swal("Yay!", "Permissions have been successfully updated", "success");
           return Bert.alert("Permission updated", "success", "growl-top-right");
         });
-      } else if (
-        result.dismiss === "cancel" ||
-        result.dismiss === "esc" ||
-        result.dismiss === "overlay"
-      ) {
+      } else if (result.dismiss === "cancel" || result.dismiss === "esc" || result.dismiss === "overlay") {
         swal("Phew!", "No changes made", "info");
       } else {
         return Bert.alert(error.reason, "danger", "growl-top-right");
@@ -110,9 +95,7 @@ Template.studyGroupSettings.events({
       studyGroupId: this._id,
       newOwnerId: template.find("#studyGroupMemberList").value
     };
-    const newOwnerUsername = template.find(
-      "#studyGroupMemberList option:selected"
-    ).text;
+    const newOwnerUsername = template.find("#studyGroupMemberList option:selected").text;
 
     swal({
       type: "warning",
@@ -128,17 +111,9 @@ Template.studyGroupSettings.events({
         Meteor.call("transferStudyGroupOwnership", data, function(error) {
           $('div.study-group-body [role="presentation"] a:first').tab("show");
           swal("Poof!", "Your Study Group has been transferred", "success");
-          return Bert.alert(
-            `Study Group transferred to ${newOwnerUsername}`,
-            "success",
-            "growl-top-right"
-          );
+          return Bert.alert(`Study Group transferred to ${newOwnerUsername}`, "success", "growl-top-right");
         });
-      } else if (
-        result.dismiss === "cancel" ||
-        result.dismiss === "esc" ||
-        result.dismiss === "overlay"
-      ) {
+      } else if (result.dismiss === "cancel" || result.dismiss === "esc" || result.dismiss === "overlay") {
         swal("Phew!", "No changes made", "info");
       } else {
         return Bert.alert(error.reason, "danger", "growl-top-right");
@@ -162,17 +137,9 @@ Template.studyGroupSettings.events({
 
       if (result.value) {
         Meteor.call("saveHangoutChannel", data, function(error) {
-          return Bert.alert(
-            `Hangout channels saved`,
-            "success",
-            "growl-top-right"
-          );
+          return Bert.alert(`Hangout channels saved`, "success", "growl-top-right");
         });
-      } else if (
-        result.dismiss === "cancel" ||
-        result.dismiss === "esc" ||
-        result.dismiss === "overlay"
-      ) {
+      } else if (result.dismiss === "cancel" || result.dismiss === "esc" || result.dismiss === "overlay") {
         swal("Phew!", "No changes made", "info");
       } else {
         return Bert.alert(error.reason, "danger", "growl-top-right");
