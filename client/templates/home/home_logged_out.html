@@ -1,52 +1,56 @@
 <template name="homeLoggedOut">
   <div class="section home-top">
     <div class="container">
-      <div class="statistic-row">
-        <div class="statistic-circle">
-          <div class="statistic-content">
-            <p class="total">{{ instance.hangoutsCount.get }}</p>
-            <p class="category">{{_ "hangouts_organized"}}</p>
-          </div>
-        </div>
-        <div class="statistic-circle">
-          <div class="statistic-content">
-            <p class="total">{{ instance.learningsCount.get }}</p>
-            <p class="category">{{_ "learnings_reported"}}</p>
-          </div>
-        </div>
-        <div class="statistic-circle">
-          <div class="statistic-content">
-            <p class="total">{{ instance.studyGroupCount.get }}</p>
-            <p class="category">{{_ "study_groups"}}</p>
-          </div>
-        </div>
-        <div class="statistic-circle">
-          <div class="statistic-content">
-            <p class="total">{{ instance.discussionCount.get }}</p>
-            <p class="category">{{_ "discussions"}}</p>
-          </div>
-        </div>
-      </div>
+
       <div class="row">
         <div class="col-md-12">
 
           <div id="intro">
             <h2>Learn and chat about code!</h2>
             <p class="intro">CodeBuddies is a global community of code learners who help each other through conversations on <strong>Slack</strong> and peer-to-peer organized <strong>study groups</strong> and <strong>virtual hangouts</strong>.</p>
-            <p>This project is free and <a href="http://opencollective.com/codebuddies" target="_blank" class="link">transparent on Open Collective</a>, not-for-profit, <a href="https://github.com/codebuddies/codebuddies" target="_blank" class="link">open-sourced</a>, and powered by a fantastic team of core volunteer <a href="/about" class="link">contributors</a>.</p>
+            <p>This project is free, not-for-profit, <a href="http://opencollective.com/codebuddies" target="_blank" class="link">transparent on Open Collective</a>, <i class="fab fa-github" aria-hidden="true"></i> <a href="https://github.com/codebuddies/codebuddies" target="_blank" class="link">open-sourced</a>, and powered by a fantastic team of core volunteer <a href="/about" class="link">contributors</a>.</p>
             <div class="join-slack">
-              <p>Get your Slack invite <a href="https://codebuddiesmeet.herokuapp.com" class="link" target="_blank">here</a>.</p>
-              <p>Sign in with <a href="#" class="signIn link">Slack</a> or <a href="#" class="signInGithub link">Github</a>.
-              <br />If Slack, sign in to the <strong>codebuddies</strong>.slack.com team.</p>
+              <p><strong>Sign Up/Sign In</strong> with <a href="#" class="signIn link">Slack</a> or <a href="#" class="signInGithub link">Github</a>.
+              </p>
             </div>
           </div>
           <div class="row">
             <div class="col-md-12">
+
+              <div class="statistic-row">
+                <div class="statistic-circle">
+                  <div class="statistic-content">
+                    <p class="total">{{ instance.hangoutsCount.get }}</p>
+                    <p class="category">{{_ "hangouts_organized"}}</p>
+                  </div>
+                </div>
+                <div class="statistic-circle">
+                  <div class="statistic-content">
+                    <p class="total">{{ instance.learningsCount.get }}</p>
+                    <p class="category">{{_ "learnings_reported"}}</p>
+                  </div>
+                </div>
+                <div class="statistic-circle">
+                  <div class="statistic-content">
+                    <p class="total">{{ instance.studyGroupCount.get }}</p>
+                    <p class="category">{{_ "study_groups"}}</p>
+                  </div>
+                </div>
+                <div class="statistic-circle">
+                  <div class="statistic-content">
+                    <p class="total">{{ instance.discussionCount.get }}</p>
+                    <p class="category">{{_ "discussions"}}</p>
+                  </div>
+                </div>
+              </div>
+
               <div class="slack-window">
                 <img src="/images/slack-window.png" class="img-responsive" id="slack-screenshot">
               </div>
             </div>
           </div>
+
+
 
         </div>
 
@@ -210,7 +214,7 @@
         <div class="col-md-5">
 
           <h3>Can I get help with my code?</h3>
-          <p>Sure! Ask questions in our Slack chatroom. Our community is always helping each other learn. Please be sure to read the Slack Etiquette Guidelines found on our <a href="/faq">FAQ</a>.</p>
+          <p>Sure! Ask questions in our Slack chatroom. Our community is always helping each other learn. Please be sure to read the Slack Etiquette Guidelines <a href="/slack">here</a>.</p>
 
 
           <h3>How long are the hangouts?</h3>
@@ -230,7 +234,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <h2>Testimonials</h2>
+          <h2>Testimonials (Anonymous)</h2>
           <p class="align-center">Don't just take our word for it; these are what some of our members
             <a href="https://medium.com/codebuddies/codebuddies-community-survey-results-really-insightful-commentary-from-yall-8dcb36965d71" target="_blank">
               have said anonymously</a> about CodeBuddies.</p>
@@ -285,8 +289,7 @@
         <div class="col-md-12">
           <h2>Start learning with us now!</h2>
           <div class="join-slack">
-            <p>Get your Slack invite <a href="https://codebuddiesmeet.herokuapp.com" class="link" target="_blank">here</a>.
-            <br />Sign in with <a href="#" class="signIn link">Slack</a> or <a href="#" class="signInGithub link">Github</a>.
+            <p><br /><strong>Sign Up/Sign In</strong> with <a href="#" class="signIn link">Slack</a> or <a href="#" class="signInGithub link">Github</a>.
             <br />Select <strong>CodeBuddies</strong> or sign into the <strong>codebuddies</strong>.slack.com team.</p>
           </div>
         </div>

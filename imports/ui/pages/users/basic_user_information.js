@@ -23,9 +23,9 @@ Template.basicUserInformation.events({
       return Bert.alert("Last name can't be empty", "warning", "growl-top-right");
     }
     // Validating the intro
-    if ($.trim(template.find("#intro").value) == "") {
-      $("#intro").css({ border: "#FF0000 1px solid" });
-      return Bert.alert("One line intro of yourself can't be empty", "warning", "growl-top-right");
+    if ($.trim(template.find("#bio").value) == "") {
+      $("#bio").css({ border: "#FF0000 1px solid" });
+      return Bert.alert("One line biography of yourself can't be empty", "warning", "growl-top-right");
     }
 
     // Validating the skills can you help others with
@@ -61,7 +61,7 @@ Template.basicUserInformation.events({
       firstname: $.trim(template.find("#fName").value),
       lastname: $.trim(template.find("#lName").value),
       username: $.trim(template.find("#username").value).toLowerCase(),
-      intro: $.trim(template.find("#intro").value).toLowerCase(),
+      bio: $.trim(template.find("#bio").value).toLowerCase(),
       skillsHelpOthersWith: $.trim(template.find("#skillsHelpOthers").value).toLowerCase(),
       skillsWantToImprove: $.trim(template.find("#skillsImprove").value).toLowerCase()
     };

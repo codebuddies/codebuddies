@@ -18,7 +18,9 @@ Meteor.methods({
       linkedin: String,
       buymeacoffee: String,
       patreon: String,
-      nonprofit: String
+      nonprofit: String,
+      skillHelpOthersWith: String,
+      skillWantToImprove: String
     };
 
     // check(profileInfo, pattern);
@@ -39,7 +41,9 @@ Meteor.methods({
           "profile.social.linkedin": profileInfo.linkedin,
           "profile.support_links.patreon": profileInfo.patreon,
           "profile.support_links.nonprofit": profileInfo.nonprofit,
-          "profile.support_links.buymeacoffee": profileInfo.buymeacoffee
+          "profile.support_links.buymeacoffee": profileInfo.buymeacoffee,
+          "profile.skillHelpOthersWith": profileInfo.skillHelpOthersWith,
+          "profile.skillWantToImprove": profileInfo.skillWantToImprove
         }
       }
     );
@@ -112,7 +116,7 @@ Meteor.methods({
       firstname: String,
       lastname: String,
       username: String,
-      intro: String,
+      bio: String,
       skillsHelpOthersWith: String,
       skillsWantToImprove: String
     });
@@ -142,7 +146,7 @@ Meteor.methods({
           username: data.username,
           "profile.firstname": data.firstname,
           "profile.lastname": data.lastname,
-          "profile.intro": data.intro,
+          "profile.bio": data.bio,
           "profile.skillHelpOthersWith": data.skillsHelpOthersWith,
           "profile.skillWantToImprove": data.skillsWantToImprove,
           "profile.complete": true
