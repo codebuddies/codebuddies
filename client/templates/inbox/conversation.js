@@ -77,6 +77,9 @@ Template.conversation.helpers({
 
     return messages;
     // return Messages.find({conversation_id: FlowRouter.getParam('conversationId')}, {sort: {sent: 1}});
+  },
+  conversation() {
+    return Conversations.findOne({ _id: FlowRouter.getParam("conversationId") });
   }
 });
 

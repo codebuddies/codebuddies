@@ -19,9 +19,9 @@ Meteor.methods({
 
     // find if already exists.
     const convo = Conversations.findOne({
-      "participants.id": data.userId,
-      "participants.id": actor._id,
-      private: true
+      participants: {
+        $all: [{ $elemMatch: { id: data.userId } }, { $elemMatch: { id: actor._id } }]
+      }
     });
 
     // return conversation `_id` if found.
