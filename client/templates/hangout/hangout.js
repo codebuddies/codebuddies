@@ -1,9 +1,7 @@
 import QuillEditor from "../../libs/QuillEditor";
 
 Meteor.startup(function() {
-  $("head").append(
-    '<link href="https://cdn.quilljs.com/1.0.3/quill.snow.css" rel="stylesheet">'
-  );
+  $("head").append('<link href="https://cdn.quilljs.com/1.0.3/quill.snow.css" rel="stylesheet">');
   //$('head').append('<script src="https://meet.jit.si/external_api.js"></script>');
 });
 
@@ -53,7 +51,7 @@ Template.hangout.events({
 
     Meteor.call("addUserToHangout", data, function(error, result) {
       if (result) {
-        sweetAlert({
+        swal({
           title: TAPi18n.__("you_are_awesome"),
           text: TAPi18n.__("looking_forward_to_see_you"),
           confirmButtonText: TAPi18n.__("ok"),
@@ -64,7 +62,7 @@ Template.hangout.events({
   },
   "click #leave-hangout": function() {
     if (this.host.id == Meteor.userId()) {
-      sweetAlert({
+      swal({
         title: TAPi18n.__("remove_owner_from_hangout"),
         confirmButtonText: TAPi18n.__("ok"),
         type: "warning"

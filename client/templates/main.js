@@ -1,8 +1,6 @@
 if (Meteor.isClient) {
   Meteor.startup(function() {
-    $("head").append(
-      '<script src="https://meet.jit.si/external_api.js"></script>'
-    );
+    $("head").append('<script src="https://meet.jit.si/external_api.js"></script>');
 
     if (!Meteor.settings.public.isModeDebug) {
       console = console || {};
@@ -11,16 +9,10 @@ if (Meteor.isClient) {
 
     const defaultLang = "en";
     const localStorageLang = localStorage.getItem("languageCode");
-    const browserLang = (
-      window.navigator.userLanguage ||
-      window.navigator.language ||
-      ""
-    ).slice(0, 2);
+    const browserLang = (window.navigator.userLanguage || window.navigator.language || "").slice(0, 2);
     TAPi18n.setLanguage(localStorageLang || browserLang || defaultLang)
       .fail(console.log)
-      .always(() =>
-        localStorage.setItem("languageCode", TAPi18n.getLanguage())
-      );
+      .always(() => localStorage.setItem("languageCode", TAPi18n.getLanguage()));
   });
 }
 
@@ -30,6 +22,12 @@ Template.registerHelper("equals", function(a, b) {
 
 Template.registerHelper("cleanDateFormatCalendar", function(date) {
   return moment(date).calendar();
+});
+
+Template.registerHelper("relativeTime", function(date) {
+  return moment(date)
+    .startOf("minute")
+    .fromNow();
 });
 
 Template.registerHelper("isUserCommentAuthor", function(authorId) {
@@ -129,17 +127,10 @@ Template.registerHelper("isHangoutEndTimeTBA", function(start, end) {
 Template.registerHelper("isOwnerOfTheGroup", function(userId, groupId) {
   const loggedInUserId = Meteor.userId();
 
-  return loggedInUserId !== userId &&
-    Roles.userIsInRole(loggedInUserId, ["owner"], groupId)
-    ? true
-    : false;
+  return loggedInUserId !== userId && Roles.userIsInRole(loggedInUserId, ["owner"], groupId) ? true : false;
 });
 
-Template.registerHelper("canUpdateUserRoleForGroup", function(
-  subjectId,
-  groupId,
-  subjectRole
-) {
+Template.registerHelper("canUpdateUserRoleForGroup", function(subjectId, groupId, subjectRole) {
   const loggedInUserId = Meteor.userId();
 
   return loggedInUserId !== subjectId &&
@@ -205,4 +196,15 @@ Template.registerHelper("truncateIt", function(text, length) {
 
 Template.registerHelper("instance", function() {
   return Template.instance();
+});
+
+Template.registerHelper("relativeTimeInMinute", function(date) {
+  return moment(date)
+    .startOf("minute")
+    .fromNow();
+});
+
+Template.registerHelper("exceptMe", function(id) {
+  // return _.reject(items, { 'id': Meteor.userId() });
+  return id != Meteor.userId() ? true : false;
 });

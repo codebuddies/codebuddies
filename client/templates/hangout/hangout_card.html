@@ -1,75 +1,81 @@
 <template name="hangoutCard">
-    {{#if group}}<a href="{{pathFor 'study group' studyGroupSlug=group.slug studyGroupId=group.id}}"> <span class="study-group-tag label label-default pull-right">{{group.title}}</span> </a>{{/if}}
-    <a href="{{pathFor 'hangout' hangoutId=_id }}" class="hangout-card {{#if isHangoutCompleted end }}completed{{/if}}" data-toggle="popover" data-placement="top" data-content="{{ getDescriptionTruncated description }}">
-    <div class="card-header-wrapper">
-      <div class="pull-left calendar">
-        <h4 class="hangout-topic {{#if isHangoutCompleted end }}completed{{/if}}">{{#if isHangoutCompleted end }}<i class="fas fa-check" aria-hidden="true"></i>{{/if}} {{truncate topic}}</h4>
-        <h4 class="hangout-date {{#if isHangoutCompleted end }}completed{{/if}}">{{getHangoutStartDateDay start}}</h4>
-        <h4 class="hangout-date {{#if isHangoutCompleted end }}completed{{/if}}">{{getHangoutStartTime start}}</h4>
+
+  <a href="{{pathFor 'hangout' hangoutId=_id }}"
+    class="hangout-card {{#if isHangoutCompleted end }}completed{{/if}}"
+    data-toggle="popover"
+    data-placement="top"
+    data-content="{{ getDescriptionTruncated description }}"
+  >
+      <div class="card-header-wrapper">
+        <div class="left-section">
+          {{#if group}}
+            <a class="hangout-title-tag" href="{{pathFor 'study group' studyGroupSlug=group.slug studyGroupId=group.id}}">
+                {{group.title}}
+            </a>
+          {{/if}}
+        </div>
+        <div class="right-section">
+          <i class="icon-spacing info-icon fas fa-info-circle"></i>
+          <i class="icon-spacing fas {{getHangoutTypeSign type}}"></i>
+          {{> hangoutActionBar}}
+        </div>
+      </div>
+
+      <div class="card-details">
+        <h4 class="hangout-topic {{#if isHangoutCompleted end }}completed{{/if}}">{{#if isHangoutCompleted end }}<i class="fas fa-check"
+            aria-hidden="true"></i>{{/if}} {{truncate topic}}</h4>
+
         {{#if isHangoutInProgress start end}}
-          <h5 class="in-progress"><span class="oval"></span> LIVE</h5>
+        <h5 class="in-progress"><span class="oval"></span> LIVE NOW</h5>
         {{/if}}
+
+        <h4 class="hangout-date {{#if isHangoutCompleted end }}completed{{/if}} {{#if isHangoutInProgress start end }}hide-date{{/if}}">
+          {{getHangoutStartDateDay start}}
+        </h4>
+        <h4 class="hangout-date {{#if isHangoutCompleted end }}completed{{/if}} {{#if isHangoutInProgress start end}}hangout-in-progress-time{{/if}}">
+          {{#if isHangoutInProgress start end}}
+           Started at
+          {{/if}}
+          {{getHangoutStartTime start}}
+        </h4>
+
         {{# unless isHangoutCompleted end}}
-          {{#unless isHangoutInProgress start end}}
-            <p class="upcoming">{{#if equals visibility false}}{{_ "deleted"}}{{else}}{{upcomingTime start}}{{/if}}</p>
-          {{/unless}}
-        {{ else }}
-            <h5 class="hangout-date completed show-on-hover">{{_ "completed"}}</h5>
+        {{#unless isHangoutInProgress start end}}
+          <p class="upcoming">{{#if equals visibility false}}{{_ "deleted"}}{{else}}{{upcomingTime start}}{{/if}}</p>
         {{/unless}}
-      </div>
-      <div class="pull-right more-options">
-          <i class="fas {{getHangoutTypeSign type}}"></i>
-         {{> hangoutActionBar}}
-      </div>
+        {{ else }}
+        <h5 class="hangout-date completed show-on-hover">{{_ "completed"}}</h5>
+        {{/unless}}
+
     </div>
 
-    <h4 class="hangout-meta clear">
-      <small class="hangout-details">
-           Scheduled by
-            {{#unless currentUser}}
-              <a href="#" class="{{#unless currentUser}} continue-popup {{/unless}}">{{host.name}}</a>
-            {{else}}
-              <a href="{{pathFor 'profile' name=host.name userId=host.id}}">{{host.name}}</a>
-            {{/unless}}
-       </small>
-        <small class="hangout-details details-extra">
-            with {{users.length}} RSVPed <br/>
-            {{#if views}} <i class="fas fa-eye" aria-hidden="true" data-toggle="tooltip" title="Views" > {{views}} views </i> {{/if}}
-        </small>
-    </h4>
-
-        <div class="rsvp-buttons align-center">
+      <div class="rsvp-buttons align-center">
         {{# unless isHangoutCompleted end}}
-            {{#if isHangoutInProgress start end}}
+          {{#if isHangoutInProgress start end}}
 
-              {{#if isAttending users}}
-                  <a class="btn btn-cb2 btn-grey btn-success join-now" href="{{pathFor 'hangout' hangoutId=_id }}">{{_ "launch"}}</a>
-              {{else}}
-                {{# unless isHangoutCompleted end}}
-                  <button class="btn btn-cb2 join-hangout {{#unless currentUser}} continue-popup {{/unless}}">{{_ "join_in_session"}}</button>
-                {{/unless}}
-              {{/if}}
-
+            {{#if isAttending users}}
+                <!-- <a class="btn btn-cb2 btn-grey btn-success join-now" href="{{pathFor 'hangout' hangoutId=_id }}">{{_ "launch"}}</a> -->
             {{else}}
-
-              {{#if isAttending users}}
-                <button id="leave-hangout" class="btn btn-cb2 align-center">{{_ "leave"}}</button>
-              {{else}}
-
-                {{# unless isHangoutCompleted end}}
-                  <!-- <button id="join-hangout" class="btn btn-cb2">{{_ "rsvp"}}</button> -->
-                  <button class="btn btn-cb2 {{#if currentUser}} join-hangout {{else}} continue-popup {{/if}}">{{_ "rsvp"}}</button>
-                {{/unless}}
-
-              {{/if}}
-
+              {{# unless isHangoutCompleted end}}
+                <button class="btn btn-cb2 join-hangout {{#unless currentUser}} continue-popup {{/unless}}">{{_ "join_in_session"}}</button>
+              {{/unless}}
             {{/if}}
+          {{else}}
+            {{#if isAttending users}}
+              <button id="leave-hangout" class="btn btn-cb2 align-center">{{_ "leave"}}</button>
+            {{else}}
+              {{# unless isHangoutCompleted end}}
+                <!-- <button id="join-hangout" class="btn btn-cb2">{{_ "rsvp"}}</button> -->
+                <button class="btn btn-cb2 {{#if currentUser}} join-hangout {{else}} continue-popup {{/if}}">{{_ "rsvp"}}</button>
+              {{/unless}}
+            {{/if}}
+          {{/if}}
 
-          {{/unless}}
-        </div>
+        {{/unless}}
+      </div>
 
 
-  </a>
+    </a>
 
 </template>
 

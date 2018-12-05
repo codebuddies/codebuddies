@@ -2,7 +2,7 @@ Template.statusList.onCreated(function() {
   var instance = this;
   // initialize the reactive variables
   instance.loaded = new ReactiveVar(0);
-  instance.limit = new ReactiveVar(5);
+  instance.limit = new ReactiveVar(10);
   instance.totalNumberOfLearnings = new ReactiveVar(0);
 
   instance.autorun(function() {
@@ -33,10 +33,7 @@ Template.statusList.onCreated(function() {
     });
   });
   instance.learnings = function() {
-    return Learnings.find(
-      {},
-      { limit: instance.loaded.get(), sort: { created_at: -1 } }
-    );
+    return Learnings.find({}, { limit: instance.loaded.get(), sort: { created_at: -1 } });
   };
 });
 Template.statusList.helpers({

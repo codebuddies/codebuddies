@@ -1,45 +1,123 @@
 .hangout-card {
   &.completed {
-      height: 185px;
+    height: 280px;
+
+    @media screen and (min-width: 482px) and (max-width: 603px) {
+      height: 380px;
+    }
+  }
+
+  @media screen and (min-width: 482px) and (max-width: 520px) {
+    height: 350px;
+  }
+  @media screen and (max-width: 389px) {
+    height: 320px;
   }
   border-radius: 0 !important;
   background: $white;
-  display: inline-block;
-  height: 230px;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 300px;
   width: 100%;
   margin: 5px 0px;
-  padding: 10px;
+  padding: 15px 20px;
   overflow: hidden;
   position: relative;
+
+  .card-details {
+    flex: 1;
+  }
 
   p.overflowtext {
     color: $secondary-grey;
   }
   .hangout-topic {
+    width: 85%;
+    line-height: 30px;
     margin-top: 6px;
-    margin-bottom: 5px;
-    @include font-face(600, 17px, normal, $black);
+    margin-bottom: 10px;
+    @include font-face(600, 20px, normal, $dodgerblue);
     text-align: left;
+    text-transform: capitalize;
     &.completed {
       color: $secondary-grey;
     }
   }
   .hangout-date {
     letter-spacing: 0.2px;
+    margin: 7px 0px;
   }
   .hangout-meta {
     font-size: 18px;
-    line-height: 0.8;
+    line-height: 1.2;
     margin: 0;
   }
   button {
     display: inline;
+    padding: 0 8px;
+  }
+  .btn-default {
+    border: none !important;
+    color: #777;
+
+    &:hover, &:focus, &:active {
+      color: #777;
+      border: none !important;
+      background: none !important;
+    }
   }
   .join-now {
     width: 65%;
   }
   .card-header-wrapper {
-    height: 40px;
+    // flex parent
+    display: flex;
+    padding: 5px 0px;
+    align-items: center;
+    width: 100%;
+
+    .left-section {
+      // flex child
+      width: 60%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: flex;
+      // also a flex container/parent
+    }
+
+    .right-section {
+      // flex child, also a flex parent
+      width: 40%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .icon-spacing {
+      padding: 0px 8px;
+
+      @media screen and (max-width: 339px) {
+        padding: 0px 2px;
+      }
+    }
+
+    .info-icon {
+      font-size: 20px;
+    }
+  }
+  .hangout-title-tag {
+    // flex child for .left-section flex container
+    font-size: 95%;
+    border: 2px solid #1e90ff;
+    border-radius: 4px;
+    padding: 2px 12px;
+    font-weight: bold;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   div.calendar {
     width: 80%;
@@ -52,11 +130,11 @@
     display: none;
   }
   .rsvp-buttons {
-      position: absolute;
-      bottom: 0px;
+    width: 100%;
   }
   .rsvp-buttons .btn-cb2 {
-      width: 100%;
+    padding: 5px 15px;
+    width: 100%;
   }
 }
 
@@ -73,4 +151,15 @@
     overflow-wrap: break-word;
     word-wrap: break-word;
   }
+}
+
+.hide-date {
+  display: none !important;
+}
+
+.hangout-in-progress-time {
+  font-weight: 400;
+  color: #777 !important;
+  text-transform: uppercase;
+  font-style: italic;
 }

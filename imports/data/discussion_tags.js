@@ -1,5 +1,5 @@
 // available discussion tags
-export default discussion_tags  = [
+export default (discussion_tags = [
   "advice",
   "algorithms",
   "augmented-reality",
@@ -38,6 +38,6 @@ export default discussion_tags  = [
   "sql-lite",
   "vuejs",
   "virtual-reality",
-  "wordpress"
-
-]
+  "wordpress",
+  "mud"
+]);

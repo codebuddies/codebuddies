@@ -23,7 +23,7 @@ Template.hangoutLearned.events({
 
       if ($.trim(learningStatus) == "") {
         $("#topic").focus();
-        sweetAlert({
+        swal({
           title: TAPi18n.__("Please share something you've learned"),
           confirmButtonText: TAPi18n.__("ok"),
           type: "error"
