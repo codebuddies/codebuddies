@@ -69,13 +69,21 @@
       <div class="col-md-4 padding-none">
         <div class="full-width-tabs">
           <ul class="nav nav-tabs" role="tablist">
-            <li role="presentation" class="full-width-tab active"><a href="#userLearningList" aria-controls="userLearningList"
-                role="tab" data-toggle="tab">{{_ "today_i_learned"}}</a></li>
+            <li role="presentation" class="full-width-tab active">
+              <a href="#onlineUserList" aria-controls="onlineUserList" role="tab" data-toggle="tab">{{_ "i_am_working_on"}}</a>
+            </li>
+            <li role="presentation" class="full-width-tab">
+              <a href="#userLearningList" aria-controls="userLearningList" role="tab" data-toggle="tab">{{_ "today_i_learned"}}</a>
+            </li>
           </ul>
 
           <!-- Tab panes -->
           <div class="tab-content">
-            <div role="tabpanel" class="tab-pane active" id="userLearningList">
+            <div role="tabpanel" class="tab-pane active" id="onlineUserList">
+              {{> updateStatus type="working"}}
+              {{> statusList type="working"}}
+            </div>
+            <div role="tabpanel" class="tab-pane" id="userLearningList">
               {{> updateStatus type="learned"}}
               {{> statusList type="learned"}}
             </div>
