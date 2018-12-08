@@ -20,12 +20,9 @@ Meteor.methods({
     );
 
     if (!this.userId) {
-      throw new Meteor.Error(
-        "Hangout.methods.createHangout.not-logged-in",
-        "Must be logged in to create new hangout."
-      );
+      throw new Meteor.Error("Hangout.methods.createHangout.not-logged-in", "Must be logged in to create new hangout.");
     }
-    
+
     const loggedInUser = Meteor.user();
     Helpers.createHangout(data, loggedInUser);
 
@@ -39,10 +36,7 @@ Meteor.methods({
     });
 
     if (!this.userId) {
-      throw new Meteor.Error(
-        "Hangout.methods.deleteHangout.not-logged-in",
-        "Must be logged in to delete hangout."
-      );
+      throw new Meteor.Error("Hangout.methods.deleteHangout.not-logged-in", "Must be logged in to delete hangout.");
     }
 
     const hangout = Hangouts.findOne(data.hangoutId);
@@ -53,23 +47,14 @@ Meteor.methods({
     } else {
       const actor = Meteor.user();
       if (actor._id === data.hostId) {
-        Hangouts.update(
-          { _id: data.hangoutId },
-          { $set: { visibility: false } }
-        );
+        Hangouts.update({ _id: data.hangoutId }, { $set: { visibility: false } });
         return true;
       } else {
         if (!Roles.userIsInRole(this.userId, ["admin", "moderator"], "CB")) {
-          throw new Meteor.Error(
-            "Hangout.methods.deleteHangout.accessDenied",
-            "Cannot delete hangout, Access denied"
-          );
+          throw new Meteor.Error("Hangout.methods.deleteHangout.accessDenied", "Cannot delete hangout, Access denied");
         }
 
-        Hangouts.update(
-          { _id: data.hangoutId },
-          { $set: { visibility: false } }
-        );
+        Hangouts.update({ _id: data.hangoutId }, { $set: { visibility: false } });
 
         const notification = {
           actorId: actor._id,
@@ -109,10 +94,7 @@ Meteor.methods({
 
     const loggedInUser = Meteor.user();
     if (!this.userId) {
-      throw new Meteor.Error(
-        "Hangout.methods.editHangout.not-logged-in",
-        "Must be logged in to edit hangout."
-      );
+      throw new Meteor.Error("Hangout.methods.editHangout.not-logged-in", "Must be logged in to edit hangout.");
     }
     const hangout = Hangouts.findOne({ _id: data.hangoutId });
     const { start } = hangout;
@@ -148,9 +130,7 @@ Meteor.methods({
       }
 
       return true;
-    } else if (
-      Roles.userIsInRole(loggedInUser._id, ["admin", "moderator"], "CB")
-    ) {
+    } else if (Roles.userIsInRole(loggedInUser._id, ["admin", "moderator"], "CB")) {
       Hangouts.update(
         { _id: data.hangoutId },
         {
@@ -192,10 +172,7 @@ Meteor.methods({
 
       return true;
     } else {
-      throw new Meteor.Error(
-        "Hangouts.methods.editHangout.accessDenied",
-        "Cannot update hangout, Access denied"
-      );
+      throw new Meteor.Error("Hangouts.methods.editHangout.accessDenied", "Cannot update hangout, Access denied");
     }
   },
   getHangout: function(hangoutId) {
@@ -219,10 +196,7 @@ Meteor.methods({
 
     const loggedInUser = Meteor.user();
     if (!this.userId) {
-      throw new Meteor.Error(
-        "Hangout.methods.addUserToHangout.not-logged-in",
-        "Must be logged in to RSVP."
-      );
+      throw new Meteor.Error("Hangout.methods.addUserToHangout.not-logged-in", "Must be logged in to RSVP.");
     }
 
     const attendee = {
@@ -260,10 +234,7 @@ Meteor.methods({
 
     const loggedInUser = Meteor.user();
     if (!this.userId) {
-      throw new Meteor.Error(
-        "Hangout.methods.removeUserFromHangout.not-logged-in",
-        "Must be logged in to RSVP."
-      );
+      throw new Meteor.Error("Hangout.methods.removeUserFromHangout.not-logged-in", "Must be logged in to RSVP.");
     }
 
     const attendee = {
@@ -335,17 +306,10 @@ Meteor.methods({
     check(userId, String);
 
     if (this.userId !== userId) {
-      throw new Meteor.Error(
-        "Hangout.methods.removeHangouts.not-logged-in",
-        "Must be logged in to Remove Hangouts."
-      );
+      throw new Meteor.Error("Hangout.methods.removeHangouts.not-logged-in", "Must be logged in to Remove Hangouts.");
     }
 
-    return Hangouts.update(
-      { "host.id": userId },
-      { $set: { visibility: false } },
-      { multi: true }
-    );
+    return Hangouts.update({ "host.id": userId }, { $set: { visibility: false } }, { multi: true });
   }
 });
 
@@ -358,10 +322,7 @@ Meteor.methods({
     const end = date.setMinutes(date.getMinutes());
     const oneMinuteAgo = new Date(end - 60000);
     if (!this.userId) {
-      throw new Meteor.Error(
-        "Hangout.methods.endHangout.not-logged-in",
-        "Must be logged in to end hangout."
-      );
+      throw new Meteor.Error("Hangout.methods.endHangout.not-logged-in", "Must be logged in to end hangout.");
     }
     const hangout = Hangouts.findOne({ _id: data.hangoutId });
 
@@ -377,9 +338,7 @@ Meteor.methods({
       );
 
       return true;
-    } else if (
-      Roles.userIsInRole(loggedInUser._id, ["admin", "moderator"], "CB")
-    ) {
+    } else if (Roles.userIsInRole(loggedInUser._id, ["admin", "moderator"], "CB")) {
       Hangouts.update(
         { _id: data.hangoutId },
         {
@@ -406,10 +365,7 @@ Meteor.methods({
 
       return true;
     } else {
-      throw new Meteor.Error(
-        "Hangouts.methods.endHangout.accessDenied",
-        "Cannot end hangout, Access denied"
-      );
+      throw new Meteor.Error("Hangouts.methods.endHangout.accessDenied", "Cannot end hangout, Access denied");
     }
   }
 });

@@ -19,9 +19,7 @@ Template.allStudyGroups.onCreated(function() {
     let studyGroupsFilter = instance.studyGroupsFilter.get();
     instance.subscribe("allStudyGroups", limit, studyGroupsFilter);
 
-    const hangoutIds = StudyGroups.find({}, { fields: { _id: 1 } }).map(
-      x => `cb${x._id}`
-    );
+    const hangoutIds = StudyGroups.find({}, { fields: { _id: 1 } }).map(x => `cb${x._id}`);
     instance.subscribe("allHangoutParticipants", hangoutIds);
   });
 
@@ -29,15 +27,15 @@ Template.allStudyGroups.onCreated(function() {
     return StudyGroups.find({}, { sort: { createdAt: flag } });
   };
 
-  instance.addMoreStudyGroups = function(){
-    if(StudyGroups.find().count() == instance.limit.get()){
+  instance.addMoreStudyGroups = function() {
+    if (StudyGroups.find().count() == instance.limit.get()) {
       instance.limit.set(instance.limit.get() + 9);
-    } else{
-      if(StudyGroups.find().count() < instance.limit.get()){
+    } else {
+      if (StudyGroups.find().count() < instance.limit.get()) {
         instance.flag.set(true);
       }
     }
-  }
+  };
 });
 
 Template.allStudyGroups.helpers({
@@ -86,11 +84,7 @@ Template.allStudyGroups.events({
         return Bert.alert(error.reason, "danger", "growl-top-right");
       }
       if (result) {
-        return Bert.alert(
-          "You have left the study group!",
-          "success",
-          "growl-top-right"
-        );
+        return Bert.alert("You have left the study group!", "success", "growl-top-right");
       }
     });
   },
@@ -108,16 +102,12 @@ Template.allStudyGroups.events({
           return Bert.alert(error.reason, "danger", "growl-top-right");
         }
         if (result) {
-          return Bert.alert(
-            "You have joined the study group!",
-            "success",
-            "growl-top-right"
-          );
+          return Bert.alert("You have joined the study group!", "success", "growl-top-right");
         }
       });
     }
   },
-  "click #loadMoreStudyGroups" : function(event, template){
+  "click #loadMoreStudyGroups": function(event, template) {
     template.addMoreStudyGroups();
   }
 });

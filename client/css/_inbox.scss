@@ -1,0 +1,27 @@
+.conversation-unread {
+  background: $light-grey;
+}
+
+// chat bubble
+
+.ib-clear {clear: both}
+.ib-from-me {
+	position:relative;
+	padding:15px;
+  margin-bottom: 4px;
+	color: black;
+  border: 1px solid $light-grey;
+	border-radius:25px;
+	float: right;
+}
+.ib-from-them {
+	position:relative;
+	padding:10px 20px;
+  margin-bottom: 4px;
+	// background:#E5E5EA;
+  border: 1px solid $light-grey;
+	border-radius:25px;
+	color: black;
+  float: left;
+  cursor: pointer;
+}

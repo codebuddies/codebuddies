@@ -35,6 +35,11 @@
                   <i class="fas fa-download" aria-hidden="true"></i>
                   {{_ "Download my data"}}
                 </a>
+              {{else}}
+                <div class="btn-edit loadConversation">
+                  <i class="far fa-envelope" aria-hidden="true"></i>
+                  {{_ "message"}}
+                </div>
               {{/if}}
 
               <h3 class="username">
@@ -45,12 +50,26 @@
               </h3>
 
               <p class="bio">{{profile.bio}}</p>
+             <div class="row">
+                <div class="col-md-6">
+                  <h4>Skill(s) can help others with</h4>
+                  <p>{{profile.skillHelpOthersWith}}</p>
+                </div>
+                <div class="col-md-6">
+                  <h4>Skill(s) want to improve</h4>
+                  <p>{{profile.skillWantToImprove}}</p>
+                </div>
+              </div>
               <div class="social-icons">
                 {{# if userInfo.username }}
                   <a href="https://codebuddies.slack.com/messages/{{userInfo.username}}/" target="_blank">
                     <i class="fab fa-slack-hash" aria-hidden="true"></i>
                   </a>
                 {{/if}}
+
+                <a href="" target="_blank">
+                  <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                </a>
 
                 {{# if profile.social.twitter}}
                   <a href="https://twitter.com/{{profile.social.twitter}}" target="_blank">

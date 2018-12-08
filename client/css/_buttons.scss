@@ -61,6 +61,7 @@
   &:hover {
     background: $white;
     color: $cta-blue;
+    cursor: pointer;
   }
 }
 
@@ -177,7 +178,7 @@
   color: $white;
 
   &.btn-unlike {
-    color: $cta-blue;
+    color: $cta-red;
   }
 
   &.btn-like {

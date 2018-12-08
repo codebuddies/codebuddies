@@ -1,5 +1,6 @@
 import md5 from "md5";
 import "/imports/startup/server";
+import { sendWelcomeMessage } from "/imports/libs/server/user/welcome_email";
 import SlackAPI from "./slack/slack-api";
 
 Meteor.startup(function() {
@@ -94,9 +95,7 @@ let getRandomUsername = function(username) {
     "weird",
     "cryptic"
   ];
-  return `${
-    adjectiveList[Math.floor(Math.random() * adjectiveList.length)]
-  }${username}`;
+  return `${adjectiveList[Math.floor(Math.random() * adjectiveList.length)]}${username}`;
 };
 
 let swapUsernameIfExists = function(username) {
@@ -144,7 +143,7 @@ Accounts.onCreateUser(function(options, user) {
     user.email = email;
     user.profile = profile;
 
-    return swapUserIfExists(email, service, user);
+    user = swapUserIfExists(email, service, user);
   }
 
   if (service === "github") {
@@ -167,11 +166,12 @@ Accounts.onCreateUser(function(options, user) {
       "new_member",
       "new_hangout",
       "new_discussion",
+      "new_direct_message",
       "bi_weekly_newsletter",
       "monthly_update"
     ];
 
-    return swapUserIfExists(email, service, user);
+    user = swapUserIfExists(email, service, user);
   }
 
   if (service === "password") {
@@ -191,13 +191,17 @@ Accounts.onCreateUser(function(options, user) {
       "new_member",
       "new_hangout",
       "new_discussion",
+      "new_direct_message",
       "bi_weekly_newsletter",
       "monthly_update"
     ];
 
     SlackAPI.inviteUser(user.email);
-    return user;
+    user = user;
   }
+
+  sendWelcomeMessage(user);
+  return user;
 });
 
 // global users observer for app_stats

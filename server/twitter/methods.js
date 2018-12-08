@@ -16,11 +16,7 @@ export const tweetHangout = hangout => {
       Meteor.absoluteUrl("hangout/" + hangout._id) +
       " #codebuddies";
 
-    client.post("statuses/update", { status: status }, function(
-      error,
-      tweet,
-      response
-    ) {
+    client.post("statuses/update", { status: status }, function(error, tweet, response) {
       if (error) {
         // console.log("error",JSON.stringify(error));
         //throw error;
@@ -39,17 +35,9 @@ export const tweetLearning = learning => {
     } else {
       userDisplay = learning.username;
     }
-    const status =
-      learning.title.replace("@", " ").truncate(250) +
-      " ~" +
-      userDisplay +
-      " #TodayILearned";
+    const status = learning.title.replace("@", " ").truncate(250) + " ~" + userDisplay + " #TodayILearned";
 
-    client.post("statuses/update", { status: status }, function(
-      error,
-      tweet,
-      response
-    ) {
+    client.post("statuses/update", { status: status }, function(error, tweet, response) {
       if (error) {
         // console.log("error",JSON.stringify(error));
         //throw error;

@@ -7,53 +7,28 @@ const Helpers = {
     if (data.groupId == "CB") {
       group = { _id: "CB", title: "CB", slug: "CB" };
     } else {
-      const temp_item = StudyGroups.findOne(
-        { _id: data.groupId },
-        { exempt_from_default_permission: 1 }
-      );
+      const temp_item = StudyGroups.findOne({ _id: data.groupId }, { exempt_from_default_permission: 1 });
 
       // check for exempt_from_default_permission
       if (temp_item && temp_item.exempt_from_default_permission) {
         //check if user is a member
-        if (
-          !user ||
-          !Roles.userIsInRole(
-            user,
-            ["owner", "admin", "moderator", "member"],
-            data.groupId
-          )
-        ) {
+        if (!user || !Roles.userIsInRole(user, ["owner", "admin", "moderator", "member"], data.groupId)) {
           throw new Meteor.Error(403, "Access denied");
         } else {
-          group = StudyGroups.findOne(
-            { _id: data.groupId },
-            { title: 1, slug: 1 }
-          );
+          group = StudyGroups.findOne({ _id: data.groupId }, { title: 1, slug: 1 });
         }
       } else {
         //check if user has permission
-        if (
-          !user ||
-          !Roles.userIsInRole(
-            user,
-            ["owner", "admin", "moderator"],
-            data.groupId
-          )
-        ) {
+        if (!user || !Roles.userIsInRole(user, ["owner", "admin", "moderator"], data.groupId)) {
           throw new Meteor.Error(403, "Access denied");
         } else {
-          group = StudyGroups.findOne(
-            { _id: data.groupId },
-            { title: 1, slug: 1 }
-          );
+          group = StudyGroups.findOne({ _id: data.groupId }, { title: 1, slug: 1 });
         }
       }
     } // if ends
 
     let createdAt = new Date();
-    let createdAtPlusTwoHour = new Date(
-      createdAt.getTime() + 2 * 1000 * 60 * 60
-    );
+    let createdAtPlusTwoHour = new Date(createdAt.getTime() + 2 * 1000 * 60 * 60);
     const reminder = data.start <= createdAtPlusTwoHour ? true : false;
 
     var hangout = {
@@ -99,6 +74,15 @@ const Helpers = {
     const hangout_id = Hangouts.insert(hangout);
     hangout._id = hangout_id;
 
+    StudyGroups.update(
+      { _id: data.groupId },
+      {
+        $set: {
+          updatedAt: new Date()
+        }
+      }
+    );
+
     //tweet new hangout
     tweetHangout(hangout);
     Helpers.sendNotifications(hangout, group);
@@ -109,10 +93,7 @@ const Helpers = {
     if (hangout && group) {
       let hangoutChannels = [];
       if (group._id !== "CB") {
-        const studyGroup = StudyGroups.findOne(
-          { _id: group._id },
-          { fields: { hangoutChannels: 1 } }
-        );
+        const studyGroup = StudyGroups.findOne({ _id: group._id }, { fields: { hangoutChannels: 1 } });
         hangoutChannels = (studyGroup && studyGroup.hangoutChannels) || [];
       }
       slackNotification(hangout, type, hangoutChannels);

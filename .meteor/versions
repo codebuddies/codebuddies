@@ -26,6 +26,7 @@ caching-html-compiler@1.1.3
 callback-hook@1.1.0
 cfs:http-methods@0.0.32
 check@1.3.1
+cleandersonlobo:sweetalert2@1.5.0
 coffeescript@1.0.17
 copleykj:livestamp@1.1.7
 dburles:mongo-collection-instances@0.3.5
@@ -88,6 +89,8 @@ meteortesting:mocha@1.0.0
 meteortoys:toykit@2.2.1
 minifier-js@2.3.5
 minimongo@1.4.4
+mizzao:timesync@0.3.4
+mizzao:user-status@0.6.8
 mobile-experience@1.0.5
 mobile-status-bar@1.0.14
 modern-browsers@0.1.2
@@ -109,7 +112,6 @@ oauth@1.2.3
 oauth2@1.2.0
 observe-sequence@1.0.16
 ordered-dict@1.1.0
-patrickml:swal@1.0.0
 peppelg:bootstrap-3-modal@1.0.4
 percolate:migrations@1.0.2
 percolate:synced-cron@1.3.0

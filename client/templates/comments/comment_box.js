@@ -77,7 +77,7 @@ Template.commentBox.events({
   "click .addNewMessage": function(event, template) {
     event.preventDefault();
     if ($.trim($("#newMessage").val()) == "") {
-      sweetAlert({
+      swal({
         title: TAPi18n.__("Comment can't be empty"),
         // text: TAPi18n.__("login_create_hangout_message"),
         confirmButtonText: TAPi18n.__("ok"),
@@ -115,10 +115,7 @@ Template.commentBox.events({
     if (userId && !_.includes(this.upvotes, userId)) {
       //checking if user has already voted for other category if true then switching
       if (userId && _.includes(this.downvotes, userId)) {
-        Meteor.call("voteSwitching", commentId, "downvote-to-upvote", function(
-          error,
-          result
-        ) {
+        Meteor.call("voteSwitching", commentId, "downvote-to-upvote", function(error, result) {
           if (error) {
             console.log("error", error);
           }
@@ -147,10 +144,7 @@ Template.commentBox.events({
     if (userId && !_.includes(this.downvotes, userId)) {
       //checking if user has already voted for other category if true then switching
       if (userId && _.includes(this.upvotes, userId)) {
-        Meteor.call("voteSwitching", commentId, "upvote-to-downvote", function(
-          error,
-          result
-        ) {
+        Meteor.call("voteSwitching", commentId, "upvote-to-downvote", function(error, result) {
           if (error) {
             console.log("error", error);
           }
@@ -191,7 +185,7 @@ Template.commentBox.events({
     event.preventDefault();
 
     if ($.trim($("#commentReply").val()) == "") {
-      sweetAlert({
+      swal({
         title: TAPi18n.__("Comment can't be empty"),
         // text: TAPi18n.__("login_create_hangout_message"),
         confirmButtonText: TAPi18n.__("ok"),
