@@ -19,14 +19,7 @@ Meteor.methods({
 
     const actor = Meteor.user();
 
-    if (
-      !actor ||
-      !Roles.userIsInRole(
-        actor,
-        ["owner", "admin", "moderator", "member", "user"],
-        data.groupId
-      )
-    ) {
+    if (!actor || !Roles.userIsInRole(actor, ["owner", "admin", "moderator", "member", "user"], data.groupId)) {
       throw new Meteor.Error(403, "Access denied");
     } else {
     }
@@ -69,6 +62,15 @@ Meteor.methods({
 
     //insert
     discussion._id = Discussions.insert(discussion);
+
+    StudyGroups.update(
+      { _id: study_group.id },
+      {
+        $set: {
+          updatedAt: new Date()
+        }
+      }
+    );
 
     // slack alert
     discussionsSlackAlert(discussion);
@@ -503,10 +505,6 @@ Meteor.methods({
       );
     }
 
-    return Discussions.update(
-      { "author.id": userId },
-      { $set: { visibility: false } },
-      { multi: true }
-    );
+    return Discussions.update({ "author.id": userId }, { $set: { visibility: false } }, { multi: true });
   }
 });

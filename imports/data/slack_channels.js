@@ -1,5 +1,5 @@
 // available public slack channels for alert
-export default slack_channels = [
+export default (slack_channels = [
   "#algorithms",
   "#announcements",
   "#blockchain",
@@ -29,5 +29,6 @@ export default slack_channels = [
   "#security",
   "#vuejs",
   "#wordpress",
-  "#water-cooler"
-]
+  "#water-cooler",
+  "#mud"
+]);

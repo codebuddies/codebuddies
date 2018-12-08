@@ -23,7 +23,7 @@ html, body {
 }
 
 h2 {
-  margin: 0 0 30px;
+  margin: 30px 0px;
 }
 
 h3 {
@@ -197,4 +197,32 @@ a:hover {
 
 label#twitterWarning {
   font-weight: 400;
+}
+
+//cb-icons for slack.html
+.cb-icon {
+  width: 50px;
+  height: 50px;
+}
+
+.signin-example {
+  border: 5px solid $github;
+  margin: 5px;
+  width: 150px;
+  &.slack {
+    border: 5px solid $slack;
+  }
+}
+
+ol li {
+  margin: 20px 0px;
+}
+
+figure {
+  margin: 20px 0px;
+}
+
+figcaption {
+  text-align: center;
+  font-style: italic;
 }

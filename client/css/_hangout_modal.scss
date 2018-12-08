@@ -7,6 +7,9 @@
   h4 {
     @include font-face(700, 20px, bold, $black);
   }
+  #external label {
+    font-weight: 400;
+  }
 }
 
 .modal.study-group {

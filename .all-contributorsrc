@@ -999,6 +999,58 @@
         "question",
         "example"
       ]
+    },
+    {
+      "login": "gauravchl",
+      "name": "Gaurav Chikhale",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/3471415?v=4",
+      "profile": "https://gauravchl.com",
+      "contributions": [
+        "code",
+        "video"
+      ]
+    },
+    {
+      "login": "peoray",
+      "name": "Emmanuel Raymond",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/23735423?v=4",
+      "profile": "http://medium.com/@peoray",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "billglover",
+      "name": "Bill Glover",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/94501?v=4",
+      "profile": "http://billglover.co.uk/",
+      "contributions": [
+        "question",
+        "blog",
+        "bug",
+        "code",
+        "eventOrganizing",
+        "ideas",
+        "video"
+      ]
+    },
+    {
+      "login": "9jaswag",
+      "name": "Chuks Opia",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/8125356?v=4",
+      "profile": "https://www.linkedin.com/in/opiachuks/",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "mahamshahid18",
+      "name": "Maham Shahid",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/12479952?v=4",
+      "profile": "https://mahamshahid18.github.io",
+      "contributions": [
+        "code"
+      ]
     }
   ]
 }

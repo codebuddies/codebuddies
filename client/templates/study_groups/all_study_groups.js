@@ -19,39 +19,23 @@ Template.allStudyGroups.onCreated(function() {
     let studyGroupsFilter = instance.studyGroupsFilter.get();
     instance.subscribe("allStudyGroups", limit, studyGroupsFilter);
 
-    const hangoutIds = StudyGroups.find({}, { fields: { _id: 1 } }).map(
-      x => `cb${x._id}`
-    );
+    const hangoutIds = StudyGroups.find({}, { fields: { _id: 1 } }).map(x => `cb${x._id}`);
     instance.subscribe("allHangoutParticipants", hangoutIds);
   });
 
-  instance.loadStudyGroups = function() {
-    return StudyGroups.find({}, { sort: { title: 1 } });
+  instance.loadStudyGroups = function(flag = 1) {
+    return StudyGroups.find({}, { sort: { createdAt: flag } });
   };
-});
 
-Template.allStudyGroups.onRendered(function() {
-  let instance = this;
-  let studyGroupsFilter = instance.studyGroupsFilter.get() || "new";
-  instance.studyGroupsFilter.set(studyGroupsFilter);
-
-  instance.scrollHandler = function() {
-    if (
-      $(window).scrollTop() > $(document).height() - $(window).height() - 20 &&
-      !instance.flag.get()
-    ) {
-      if (StudyGroups.find().count() === instance.limit.get()) {
-        instance.limit.set(instance.limit.get() + 9);
-        $("body").addClass("stop-scrolling");
-      } else {
-        if (StudyGroups.find().count() < instance.limit.get()) {
-          instance.flag.set(true);
-        } else {
-        }
+  instance.addMoreStudyGroups = function() {
+    if (StudyGroups.find().count() == instance.limit.get()) {
+      instance.limit.set(instance.limit.get() + 9);
+    } else {
+      if (StudyGroups.find().count() < instance.limit.get()) {
+        instance.flag.set(true);
       }
     }
-  }.bind(instance);
-  $(window).on("scroll", instance.scrollHandler);
+  };
 });
 
 Template.allStudyGroups.helpers({
@@ -100,11 +84,7 @@ Template.allStudyGroups.events({
         return Bert.alert(error.reason, "danger", "growl-top-right");
       }
       if (result) {
-        return Bert.alert(
-          "You have left the study group!",
-          "success",
-          "growl-top-right"
-        );
+        return Bert.alert("You have left the study group!", "success", "growl-top-right");
       }
     });
   },
@@ -122,13 +102,12 @@ Template.allStudyGroups.events({
           return Bert.alert(error.reason, "danger", "growl-top-right");
         }
         if (result) {
-          return Bert.alert(
-            "You have joined the study group!",
-            "success",
-            "growl-top-right"
-          );
+          return Bert.alert("You have joined the study group!", "success", "growl-top-right");
         }
       });
     }
+  },
+  "click #loadMoreStudyGroups": function(event, template) {
+    template.addMoreStudyGroups();
   }
 });
