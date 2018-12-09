@@ -3,6 +3,26 @@
 
 import Chrono from "chrono-node";
 
+function removeFormatting(originalTopic) {
+  let topic = ` ${originalTopic}`.slice(1);
+  let idxOpen = topic.indexOf("<http");
+  while (idxOpen !== -1) {
+    let idxClose = topic.indexOf(">", idxOpen + 1);
+    if (idxClose !== -1) {
+      const urls = topic.substring(idxOpen + 1, idxClose);
+      const idxBar = urls.indexOf("|");
+      const url = idxBar !== -1 ? urls.substring(0, idxBar) : urls;
+      const firstPart = topic.substring(0, idxOpen);
+      const lastPart = topic.substring(idxClose + 1);
+      topic = `${firstPart}${url}${lastPart}`;
+    } else {
+      return topic;
+    }
+    idxOpen = topic.indexOf("<http");
+  }
+  return topic;
+}
+
 const TOPIC_LEN = 300;
 const Parser = {
   parse(message) {
@@ -26,7 +46,8 @@ const Parser = {
       if (!action.date) action.reply = "Date unrecognized. Please try Again.";
     } else if (action.command === "til") {
       const [_, ...rest] = segments;
-      const topic = rest.join(", ").trim();
+      const concatTopic = rest.join(", ").trim();
+      const topic = removeFormatting(concatTopic);
       if (!topic) {
         action.reply = "Please share something you learned. Try Again.";
         return action;
