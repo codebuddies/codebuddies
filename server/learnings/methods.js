@@ -1,4 +1,4 @@
-import { tweetLearning } from "../twitter/methods.js";
+import LearningHelper from "./helpers";
 
 Meteor.methods({
   addLearning: function(data) {
@@ -12,33 +12,11 @@ Meteor.methods({
     });
 
     if (!this.userId) {
-      throw new Meteor.Error(
-        "Learnings.methods.addLearning.not-logged-in",
-        "Must be logged in to add new learning."
-      );
+      throw new Meteor.Error("Learnings.methods.addLearning.not-logged-in", "Must be logged in to add new learning.");
     }
 
-    const learning = {
-      title: data.title,
-      userId: data.user_id,
-      username: data.username,
-      created_at: new Date(),
-      hangout_id: data.hangout_id,
-      study_group_id: data.study_group_id,
-      kudos: 0
-    };
-
-    try {
-      Learnings.insert(learning);
-
-      //tweet user learning
-      if (data.optInTweet === true) {
-        tweetLearning(learning);
-      }
-      return true;
-    } catch (e) {
-      console.log("learning error", e.toString());
-    }
+    LearningHelper.addLearning(data);
+    return true;
   },
 
   deleteLearning: function(learningId) {
@@ -57,15 +35,9 @@ Meteor.methods({
     check(data.title, String);
 
     if (!this.userId) {
-      throw new Meteor.Error(
-        "Learnings.methods.editLearning.not-logged-in",
-        "Must be logged in to edit the learning."
-      );
+      throw new Meteor.Error("Learnings.methods.editLearning.not-logged-in", "Must be logged in to edit the learning.");
     }
-    Learnings.update(
-      { _id: data.learningId, userId: this.userId },
-      { $set: { title: data.title } }
-    );
+    Learnings.update({ _id: data.learningId, userId: this.userId }, { $set: { title: data.title } });
     return true;
   },
 
@@ -117,11 +89,7 @@ Meteor.methods({
       );
     }
 
-    return Learnings.update(
-      { hostId: userId },
-      { $set: { visibility: false } },
-      { multi: true }
-    );
+    return Learnings.update({ hostId: userId }, { $set: { visibility: false } }, { multi: true });
   }
 });
 

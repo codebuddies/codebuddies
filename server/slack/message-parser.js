@@ -3,6 +3,7 @@
 
 import Chrono from "chrono-node";
 
+const TOPIC_LEN = 300;
 const Parser = {
   parse(message) {
     const segments = message
@@ -23,6 +24,19 @@ const Parser = {
       action.title = segments[2];
       action.date = Parser.getDate(segments[1]);
       if (!action.date) action.reply = "Date unrecognized. Please try Again.";
+    } else if (action.command === "til") {
+      const [_, ...rest] = segments;
+      const topic = rest.join(", ").trim();
+      if (!topic) {
+        action.reply = "Please share something you learned. Try Again.";
+        return action;
+      } else if (topic.length > TOPIC_LEN) {
+        action.reply = `Please keep the message to no more than ${TOPIC_LEN} characters. Current length: ${
+          topic.length
+        }`;
+        return action;
+      }
+      action.topic = topic;
     }
     return action;
   },
@@ -36,9 +50,7 @@ const Parser = {
   },
 
   getAction(text) {
-    const { command, reply } = ActionsTable.find(
-      item => text.toLowerCase().indexOf(item.command) > -1
-    );
+    const { command, reply } = ActionsTable.find(item => text.toLowerCase().indexOf(item.command) > -1);
     return { command, reply };
   }
 };
@@ -53,6 +65,7 @@ const ActionsTable = [
       "create hangout, today from 9 to 10pm, teaching intermediate git for practice"
       "create hangout, next sunday from 7:30 to 9 pm, pairing on algorithms",
       "create hangout, in 2 hours, studying python from the Official Python tutorial"
+      "til, #Django crispy forms rocks! https://django-crispy-forms.readthedocs.io/en/latest/ #Python #WebDev"
     `
   },
   {
@@ -64,5 +77,8 @@ const ActionsTable = [
   },
   {
     command: "list hangouts"
+  },
+  {
+    command: "til"
   }
 ];
