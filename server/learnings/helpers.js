@@ -12,8 +12,6 @@ export default {
       kudos: 0
     };
 
-    console.log("learning", learning);
-
     try {
       const learning_id = Learnings.insert(learning);
 

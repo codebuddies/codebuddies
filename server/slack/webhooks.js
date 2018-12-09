@@ -143,26 +143,9 @@ const webhooks = {
       console.error("slackWebhooks.processEvent[meteor user not found]");
       return SlackAPI.postMessage(channel, "Your account was not found on codebuddies.org");
     }
-    console.log("user", user._id, user.username);
-
-    const topic = action.topic;
-    // let idx = topic.indexOf("<http");
-    // while (idx !== -1) {
-    //   let idxCloseAngle = topic.indexOf(idx + 1, ">");
-    //   if (idxCloseAngle !== -1) {
-    //     let url = topic.substring(idx, idxCloseAngle + 1);
-    //     const idxBar = url.indexOf("|");
-    //     let firstUrl = "";
-    //     if (idxBar !== -1) {
-    //       firstUrl = topic.indexOf(url + 1, idxCloseAngle);
-    //     } else {
-    //       firstUrl = topic.indexOf(idx + 1, idxCloseAngle);
-    //     }
-    //   }
-    // }
 
     LearningHelper.addLearning({
-      title: topic,
+      title: action.topic,
       user_id: user._id,
       username: user.username
     });
