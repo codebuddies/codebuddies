@@ -20,6 +20,10 @@ function removeFormatting(originalTopic) {
     }
     idxOpen = topic.indexOf("<http");
   }
+
+  const charsToReplace = [{ from: "&lt;", to: "<" }, { from: "&gt;", to: ">" }, { from: "&amp;", to: "&" }];
+  topic = charsToReplace.reduce((acc, tuple) => acc.split(tuple.from).join(tuple.to), topic);
+
   return topic;
 }
 
