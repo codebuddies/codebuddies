@@ -41,19 +41,19 @@ const Parser = {
     if (action.command === "create hangout") {
       if (!segments[2] || !segments[1]) {
         action.reply = !segments[1]
-          ? "Date is required for hangout. Try Again."
-          : "Title is required for hangout. Try Again.";
+          ? "Date is required for hangout. Try again."
+          : "Title is required for hangout. Try again.";
         return action;
       }
       action.title = segments[2];
       action.date = Parser.getDate(segments[1]);
-      if (!action.date) action.reply = "Date unrecognized. Please try Again.";
+      if (!action.date) action.reply = "Date unrecognized. Please try again.";
     } else if (action.command === "til") {
       const [_, ...rest] = segments;
       const concatTopic = rest.join(", ").trim();
       const topic = removeFormatting(concatTopic);
       if (!topic) {
-        action.reply = "Please share something you learned. Try Again.";
+        action.reply = "Please share something you learned. Try again.";
         return action;
       } else if (topic.length > TOPIC_LEN) {
         action.reply = `Please keep the message to no more than ${TOPIC_LEN} characters. Current length: ${

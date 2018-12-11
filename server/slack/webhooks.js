@@ -151,7 +151,7 @@ const webhooks = {
     });
 
     const url = Meteor.absoluteUrl("/hangouts");
-    SlackAPI.postMessage(channel, `Today I learned is created for you at ${url}.`);
+    SlackAPI.postMessage(channel, `Your learning was archived on ${url}.`);
   }
 };
 
