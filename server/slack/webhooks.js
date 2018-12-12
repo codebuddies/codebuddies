@@ -1,8 +1,8 @@
-import { HTTP } from "meteor/http";
-import SlackAPI from "/server/slack/slack-api.js";
-import Parser from "/server/slack/message-parser.js";
 import moment from "moment-timezone";
 import HangoutHelper from "/server/hangouts/helpers.js";
+import LearningHelper from "/server/learnings/helpers.js";
+import Parser from "/server/slack/message-parser.js";
+import SlackAPI from "/server/slack/slack-api.js";
 
 const BOT_ID = Meteor.settings.cbJarvisId;
 const MAX_ALLOWED_HANGOUT_PER_DAY = 5;
@@ -55,10 +55,11 @@ const webhooks = {
 
     if (action.reply) return SlackAPI.postMessage(channel, action.reply);
 
-    if (action.command === "create hangout")
-      return webhooks.createHangout(slackUserId, action, channel);
-    if (action.command === "list hangouts" || action.command === "list hangout")
-      return webhooks.listHangout(channel);
+    if (action.command === "create hangout") return webhooks.createHangout(slackUserId, action, channel);
+    if (action.command === "list hangouts" || action.command === "list hangout") return webhooks.listHangout(channel);
+    if (action.command === "til") {
+      return webhooks.createTodayILearned(slackUserId, action, channel);
+    }
   },
 
   // First get User and it's email and it's timezone from slack API
@@ -66,22 +67,15 @@ const webhooks = {
   // If Meteor user's and slack user's have same email then create hangout
   createHangout(slackUserId, action, channel) {
     const slackUser = SlackAPI.getUser(slackUserId);
-    if (!slackUser)
-      return console.error("slackWebhooks.processEvent[slack user not found]");
+    if (!slackUser) return console.error("slackWebhooks.processEvent[slack user not found]");
     const slackUserEmail = slackUser.profile && slackUser.profile.email;
     const slackUserTimeZone = slackUser.tz || "America/New_York";
-    if (!slackUserEmail)
-      return console.error(
-        "slackWebhooks.processEvent[slack user email not found]"
-      );
+    if (!slackUserEmail) return console.error("slackWebhooks.processEvent[slack user email not found]");
 
     const user = Meteor.users.findOne({ email: slackUserEmail });
     if (!user) {
       console.error("slackWebhooks.processEvent[meteor user not found]");
-      return SlackAPI.postMessage(
-        channel,
-        "Your account was not found on codebuddies.org"
-      );
+      return SlackAPI.postMessage(channel, "Your account was not found on codebuddies.org");
     }
 
     const totalHangouts = HangoutHelper.getUpcomingHangoutCounts(user._id);
@@ -89,10 +83,7 @@ const webhooks = {
     const isProduction = Meteor.settings.isModeProduction;
 
     if (limitExceeded && isProduction) {
-      return SlackAPI.postMessage(
-        channel,
-        "You are not allowed to create more hangouts today."
-      );
+      return SlackAPI.postMessage(channel, "You are not allowed to create more hangouts today.");
     }
 
     const startString = moment(action.date.start).format("YYYY-MM-DDTHH:mm:ss");
@@ -103,9 +94,7 @@ const webhooks = {
           .format("YYYY-MM-DDTHH:mm:ss");
 
     // Use user's timezone
-    const startDate = moment
-      .tz(startString, slackUserTimeZone)
-      .startOf("minute");
+    const startDate = moment.tz(startString, slackUserTimeZone).startOf("minute");
     const endDate = moment.tz(endString, slackUserTimeZone).startOf("minute");
     const duration = endDate.diff(startDate, "minutes");
 
@@ -141,6 +130,28 @@ const webhooks = {
   listHangout(channel) {
     const count = HangoutHelper.getUpcomingHangoutCounts();
     SlackAPI.postMessage(channel, `${count} hangouts are scheduled currently.`);
+  },
+
+  createTodayILearned(slackUserId, action, channel) {
+    const slackUser = SlackAPI.getUser(slackUserId);
+    if (!slackUser) {
+      return console.error("slackWebhooks.processEvent[slack user not found]");
+    }
+    const slackUserEmail = slackUser.profile && slackUser.profile.email;
+    const user = Meteor.users.findOne({ email: slackUserEmail });
+    if (!user) {
+      console.error("slackWebhooks.processEvent[meteor user not found]");
+      return SlackAPI.postMessage(channel, "Your account was not found on codebuddies.org");
+    }
+
+    LearningHelper.addLearning({
+      title: action.topic,
+      user_id: user._id,
+      username: user.username
+    });
+
+    const url = Meteor.absoluteUrl("/hangouts");
+    SlackAPI.postMessage(channel, `Your learning was archived on ${url}.`);
   }
 };
 
