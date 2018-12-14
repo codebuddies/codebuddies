@@ -22,7 +22,7 @@ const Actions = {
     `;
 
     if (segments && segments[0]) {
-      if (segments[0] === "who is strongest avenger?") {
+      if (segments[0] === "who is the strongest avenger?") {
         return SlackAPI.postMessage(
           channel,
           "Thor. Although stronger than most of his mortal teammates, Thor is far from the strongest Avenger."
