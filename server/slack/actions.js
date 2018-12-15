@@ -38,7 +38,7 @@ const Actions = {
     SlackAPI.postMessage(channel, `${count} hangouts are scheduled currently.`);
   },
 
-  // First get User and it's email and it's timezone from slack API
+  // First get User and its email and timezone from Slack API
   // Find Meteor user whos email is same as slack's one
   // If Meteor user's and slack user's have same email then create hangout
   handleCreateHangout(slackUserId, channel, segments) {
