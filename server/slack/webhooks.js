@@ -69,6 +69,48 @@ const webhooks = {
     if (Commands.LIST_HANGOUTS.includes(command)) {
       return Actions.handleListHangout(channel);
     }
+  },
+
+  handleNewCommand(params, req, res) {
+    const { token, channel_id, user_id, command, text } = req.body || {};
+    const { slackAppToken } = Meteor.settings;
+    console.log("webhooks.handleNewCommand", command, text);
+
+    if (!token || token !== slackAppToken) {
+      console.log("webhooks.handleNewCommand[Unauthorized]");
+      res.statusCode = 401; // Unauthorized
+      res.end();
+      return;
+    }
+
+    const segments = text
+      .trim()
+      .split(",")
+      .map(item => item.trim())
+      .filter(Boolean);
+
+    if (Commands.HELP.includes(command)) {
+      Actions.handleHelp(channel_id, segments);
+    }
+
+    if (Commands.HOW_ARE_YOU.includes(command)) {
+      Actions.handleHowAreYou(channel_id);
+    }
+
+    if (Commands.TIL.includes(command)) {
+      Actions.handleTIL(user_id, channel_id, segments);
+    }
+
+    if (Commands.CREATE_HANGOUT.includes(command)) {
+      Actions.handleCreateHangout(user_id, channel_id, segments);
+    }
+
+    if (Commands.LIST_HANGOUTS.includes(command)) {
+      Actions.handleListHangout(channel_id);
+    }
+
+    res.statusCode = 200; // Not Acceptable
+    res.end();
   }
 };
 
