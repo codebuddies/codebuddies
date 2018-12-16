@@ -109,7 +109,7 @@ const webhooks = {
       Actions.handleListHangout(channel_id);
     }
 
-    res.statusCode = 200; // Not Acceptable
+    res.statusCode = 200;
     res.end();
   }
 };
