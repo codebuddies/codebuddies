@@ -84,6 +84,17 @@ Template.conversation.helpers({
 });
 
 Template.conversation.events({
+  "click i.submit"(event, template) {
+    if (
+      $("#message-body")
+        .val()
+        .trim() != ""
+    ) {
+      event.preventDefault();
+      const target = event.currentTarget;
+      $(event.target).submit();
+    }
+  },
   "keypress form.sendMessage"(event, template) {
     if (
       event.which === 13 &&
