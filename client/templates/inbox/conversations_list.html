@@ -1,6 +1,6 @@
 <template name="conversations_list">
   {{#if conversations.count}}
-    <div style="overflow-y: scroll; height:400px ;">
+    <div id="conversations_list">
       {{#each conversations}}
         <a href="{{pathFor 'conversation' conversationId=_id}}">
           <div class="panel panel-default">

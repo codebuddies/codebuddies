@@ -1,3 +1,8 @@
+#conversations_list {
+	overflow-y: scroll;
+	max-height: 400px;
+	margin-bottom: 20px;
+}
 .conversation-unread {
   background: $light-grey;
 }
