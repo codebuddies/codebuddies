@@ -2,6 +2,14 @@
   background: $light-grey;
 }
 
+// conversations
+.conversation-bubble {
+	color: $white;
+	background: $cta-blue;
+	padding: 10px;
+	@include border-radius(15px); 
+}
+
 // chat bubble
 
 .ib-clear {clear: both}
