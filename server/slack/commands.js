@@ -1,6 +1,6 @@
 // All commands are case insensitive
 const Commands = {
-  TIL: ["#til", "til", "#todayilearn", "/til", "/todayilearn"],
+  TIL: ["#til", "til", "#todayilearn", "/til", "/todayilearned"],
   HELP: ["#help"],
   CREATE_HANGOUT: ["#createhangout", "/createhangout"],
   LIST_HANGOUTS: ["#listhangouts", "#listhangout", "/listhangout"],
