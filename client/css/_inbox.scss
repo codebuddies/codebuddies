@@ -13,6 +13,9 @@
 // chat bubble
 
 .ib-clear {clear: both}
+.ib {
+	p { margin: 0;}
+}
 .ib-from-me {
 	position:relative;
 	padding:15px;
@@ -31,5 +34,5 @@
 	border-radius:25px;
 	color: black;
   float: left;
-  cursor: pointer;
+	cursor: pointer;
 }

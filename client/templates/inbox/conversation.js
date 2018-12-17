@@ -23,7 +23,7 @@ Template.conversation.onRendered(function() {
   $("#chatbox").bind("scroll", function() {
     // add more message
     if ($("#chatbox").scrollTop() < 100) {
-      console.log("load more message");
+      //console.log("load more message");
       const limit = instance.limit.get() + 10;
       instance.limit.set(limit);
     }
@@ -36,9 +36,9 @@ Template.conversation.onRendered(function() {
     addedAt(document, atIndex, before) {
       if (atIndex == instance.limit.get() - 1) {
         $("#chatbox").scrollTop($("#chatbox")[0].scrollHeight);
-        console.log("if ", atIndex, " ", instance.limit.get());
+        //console.log("if ", atIndex, " ", instance.limit.get());
       } else {
-        console.log("else ", atIndex, " ", instance.limit.get());
+        //console.log("else ", atIndex, " ", instance.limit.get());
       }
     }
   });
@@ -73,7 +73,7 @@ Template.conversation.helpers({
       .flatten()
       .value();
 
-    console.log(messages);
+    //console.log(messages);
 
     return messages;
     // return Messages.find({conversation_id: FlowRouter.getParam('conversationId')}, {sort: {sent: 1}});
