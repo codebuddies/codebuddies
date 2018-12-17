@@ -88,7 +88,7 @@ Template.conversation.events({
     if (
       event.which === 13 &&
       !event.shiftKey &&
-      $("#messge-body")
+      $("#message-body")
         .val()
         .trim() != ""
     ) {
@@ -99,8 +99,8 @@ Template.conversation.events({
   },
   "submit .sendMessage"(event, template) {
     event.preventDefault();
-    const body = $("#messge-body").val();
-    const body_delta = $("#messge-body")
+    const body = $("#message-body").val();
+    const body_delta = $("#message-body")
       .val()
       .replace(/\r?\n/g, "<br />");
     const data = {
@@ -117,7 +117,7 @@ Template.conversation.events({
         Meteor.setTimeout(function() {
           $("#chatbox").scrollTop($("#chatbox")[0].scrollHeight);
         }, 200);
-        $("#messge-body").val("");
+        $("#message-body").val("");
       }
     });
   }
