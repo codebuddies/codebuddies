@@ -8,6 +8,9 @@
 	background: $cta-blue;
 	padding: 10px;
 	@include border-radius(15px); 
+	&:hover {
+		color: $white;
+	}
 }
 
 // chat bubble
