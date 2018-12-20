@@ -45,6 +45,7 @@
                  <i class="fab fa-medium fa-fw" aria-hidden="true"></i>Publication
                  <i class="fas fa-external-link-alt fa-fw" aria-hidden="true"></i>
                </a></li>
+               <li role="separator" class="divider"></li>
                <li><a href="https://www.youtube.com/channel/UCOBp46r9_g8kKRCc0y-rJVg" target="_blank">
                  <i class="fab fa-youtube fa-fw" aria-hidden="true"></i>YouTube
                  <i class="fas fa-external-link-alt fa-fw" aria-hidden="true"></i>
@@ -56,7 +57,7 @@
                <!-- Donate -->
 			   <li role="separator" class="divider"></li>
                <li><a href="https://opencollective.com/codebuddies" target="_blank">
-                 Sponsor Us <i class="fas fa-external-link-alt fa-fw" aria-hidden="true"></i>
+                <i class="fas fa-dollar fa-fw" aria-hidden="true"></i>Sponsor Us <i class="fas fa-external-link-alt fa-fw" aria-hidden="true"></i>
                </a></li>
              </ul>
           </li>
@@ -89,6 +90,7 @@
             {{#unless isInRole 'admin' 'CB'}}
               <!-- notification for user-->
               <li><a href="{{pathFor 'user notification'}}"><i class="fas fa-bell" aria-hidden="true"></i> {{#if userNotificationCount}}<small><span class="badge">{{userNotificationCount}}</span></small>{{/if}} </a></li>
+              <li><a href="{{pathFor 'inbox'}}"><i class="far fa-envelope" aria-hidden="true"></i> {{#if unreadConversationCount}}<small><span class="badge">{{unreadConversationCount}}</span></small>{{/if}} </a></li>
               <!-- dropdown for user-->
               <li id="user-drop-down" class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">

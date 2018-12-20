@@ -45,6 +45,21 @@
 
         <div class="panel panel-default">
           <div class="panel-heading">
+            <h3 class="panel-title">Inbox</h3>
+          </div>
+          <div class="panel-body">
+            <label class="control-label">Email me when:</label>
+            <div class="checkbox">
+              <label>
+              <input type="checkbox" name="email_preference" value="new_direct_message" checked="{{#if inList emails_preference 'new_direct_message'}}checked{{/if}}">
+                Someone message me
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading">
             <h3 class="panel-title">Study Groups</h3>
           </div>
           <div class="panel-body">

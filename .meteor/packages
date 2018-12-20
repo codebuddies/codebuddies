@@ -68,3 +68,4 @@ underscore
 twbs:bootstrap@=3.3.5
 percolate:migrations
 cleandersonlobo:sweetalert2
+mizzao:user-status

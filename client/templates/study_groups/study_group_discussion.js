@@ -26,12 +26,7 @@ Template.studyGroupDiscussion.onCreated(function() {
         projection.sort = { created_at: -1 };
     }
 
-    instance.subscribe(
-      "studyGroupDiscussions",
-      studyGroupId,
-      limit,
-      discussionFilter
-    );
+    instance.subscribe("studyGroupDiscussions", studyGroupId, limit, discussionFilter);
   });
 
   console.log(projection);
@@ -45,10 +40,7 @@ Template.studyGroupDiscussion.onRendered(function() {
   let instance = this;
 
   instance.scrollHandler = function() {
-    if (
-      $(window).scrollTop() > $(document).height() - $(window).height() - 20 &&
-      !instance.flag.get()
-    ) {
+    if ($(window).scrollTop() > $(document).height() - $(window).height() - 20 && !instance.flag.get()) {
       if (Discussions.find().count() === instance.limit.get()) {
         instance.limit.set(instance.limit.get() + 10);
         $("body").addClass("stop-scrolling");
@@ -100,25 +92,12 @@ Template.studyGroupDiscussion.events({
 
       if (result.value) {
         Meteor.call("discussions.remove", data, function(error) {
-          swal(
-            "Poof!",
-            "Your Discussion has been successfully deleted!",
-            "success"
-          );
+          swal("Poof!", "Your Discussion has been successfully deleted!", "success");
         });
-      } else if (
-        result.dismiss === "cancel" ||
-        result.dismiss === "esc" ||
-        result.dismiss === "overlay"
-      ) {
+      } else if (result.dismiss === "cancel" || result.dismiss === "esc" || result.dismiss === "overlay") {
         swal("Phew!", "No changes made", "info");
       } else {
-        swal(
-          "Oops! Something went wrong",
-          error.error,
-          +"\n Try again",
-          "error"
-        );
+        swal("Oops! Something went wrong", error.error, +"\n Try again", "error");
       }
     }); //sweetAlert 2
   },

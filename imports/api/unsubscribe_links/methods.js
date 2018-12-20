@@ -39,10 +39,7 @@ Meteor.methods({
       }
     });
 
-    Meteor.users.update(
-      { _id: recipient_id },
-      { $set: { emails_preference: emails_preference } }
-    );
+    Meteor.users.update({ _id: recipient_id }, { $set: { emails_preference: emails_preference } });
 
     //update link status
     UnsubscribeLinks.update({ _id: linkId }, { $set: { valid: false } });

@@ -1,0 +1,24 @@
+<template name="conversations_list">
+  {{#if conversations.count}}
+    <div id="conversations_list">
+      {{#each conversations}}
+        <a href="{{pathFor 'conversation' conversationId=_id}}">
+          <div class="panel panel-default">
+            <div class="panel-body {{#unless inList read_by currentUser._id}} conversation-unread {{/unless}}">
+              <h5>{{#each participants}} {{#if exceptMe id}} {{username}} {{/if}} {{/each}}<small class="pull-right">{{relativeTimeInMinute sent}}</small> </h5>
+            </div>
+          </div>
+        </a>
+      {{/each}}
+    </div>
+  {{else}}
+    <div class="jumbotron align-center">
+      <div class="container">
+        <div class="row">
+            <i class="fas  fa-envelope fa-5x"></i>
+            <h5>Your inbox is empty</h5>
+        </div>
+       </div>
+    </div>
+  {{/if}}
+</template>

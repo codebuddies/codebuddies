@@ -4,18 +4,11 @@ Template.unsubscribeFromMailingList.onCreated(function() {
   const instance = this;
   instance.processing = new ReactiveVar(false);
   instance.list = new ReactiveVar([]);
-  instance.subscribe(
-    "unsubscribe.link",
-    FlowRouter.getParam("unsubscribeLinkId")
-  );
+  instance.subscribe("unsubscribe.link", FlowRouter.getParam("unsubscribeLinkId"));
 
-  Meteor.call(
-    "users.getEmailPreferences",
-    FlowRouter.getParam("unsubscribeLinkId"),
-    (error, result) => {
-      instance.list.set(result);
-    }
-  );
+  Meteor.call("users.getEmailPreferences", FlowRouter.getParam("unsubscribeLinkId"), (error, result) => {
+    instance.list.set(result);
+  });
 });
 
 Template.unsubscribeFromMailingList.helpers({

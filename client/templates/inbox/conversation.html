@@ -1,0 +1,57 @@
+<template name="conversation">
+  <div class="container">
+    <div class="page-header">
+      <h4>
+        <a href="{{pathFor 'inbox'}}">
+          <button class="btn btn-default btn-xs">
+            <i class="fas fa-arrow-left fa-xs"></i> Back
+          </button>
+        </a> &nbsp;
+        Conversations
+      </h4>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3">
+        {{> conversations_list}}
+      </div>
+      <div class="col-md-9">
+        <div id="participants">
+          {{#with conversation }}
+            Participants: {{#each participants }} <a href="/profile/{{username}}/{{id}}" class="conversation-bubble">{{username}}</a>{{/each}}
+           {{/with}}
+        </div>
+        <div style="overflow-y: scroll; height:350px ;" id="chatbox">
+          {{#each messages}}
+            {{#if sent}}
+              <h5 class="text-center">
+                <small > {{relativeTimeInMinute sent}} </small>
+              </h5>
+            {{/if}}
+            {{> message_bubble}}
+          {{else}}
+            <i>This is the very beginning of this conversation.</i>
+          {{/each}}
+        </div>
+
+        <br>
+        <!-- input box -->
+        <div class="row">
+          <div class="col-md-12">
+            <form class="sendMessage">
+              <div class="form-group">
+                <!-- <label for="reply">Reply</label> -->
+                <textarea class="form-control" rows="3" cols="40" id="message-body"></textarea>
+                <i class="fas fa-paper-plane submit"></i>
+              </div>
+             
+              <!-- <button type="submit" class="btn btn-default pull-right">Send</button> -->
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div><!-- ./row -->
+
+  </div>
+</template>

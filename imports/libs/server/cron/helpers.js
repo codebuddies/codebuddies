@@ -16,11 +16,7 @@ function getEligibleRecipients(type, recipients) {
     recipients.forEach(recipients => {
       const user = Meteor.users.findOne({ _id: recipients.id });
       // if user has enabled notification for the 'type'
-      if (
-        user &&
-        user.emails_preference &&
-        user.emails_preference.indexOf(type) != -1
-      ) {
+      if (user && user.emails_preference && user.emails_preference.indexOf(type) != -1) {
         result.push(user.email);
       }
     });
@@ -67,11 +63,7 @@ function getGroupOrganizers(study_group_id) {
 
   if (group && group.members) {
     const organizers = group.members.filter(function(member) {
-      return (
-        member.role === "owner" ||
-        member.role === "admin" ||
-        member.role === "moderator"
-      );
+      return member.role === "owner" || member.role === "admin" || member.role === "moderator";
     });
     return organizers;
   }
@@ -179,12 +171,7 @@ function createdFromNow(item) {
  * @param { string } emailType - email type
  * @return { string } unsubLink - unique url
  */
-function generateUnsubscribeLink(
-  email,
-  emailType,
-  discussionId = null,
-  discussionTopic = null
-) {
+function generateUnsubscribeLink(email, emailType, discussionId = null, discussionTopic = null) {
   // fetch user
   const recipient = Meteor.users.findOne({ email: email });
 
@@ -205,6 +192,37 @@ function generateUnsubscribeLink(
   return Meteor.absoluteUrl(`unsubscribe/${id}`);
 }
 
+/**
+ * get list of new conversations
+ * @function
+ * @name getNewConversations
+ * @return { Array } conversations - list of new conversations
+ */
+function getNewConversations() {
+  return Conversations.find({
+    "email_notifications.initial": false
+  }).fetch();
+}
+
+/**
+ * get list of new messages
+ * @function
+ * @name getNewMessages
+ * @return { Array } messages - list of new messages
+ */
+function getNewMessages(conversationId, recipient, last_seen) {
+  const { id: recipient_id } = recipient;
+
+  return Messages.find(
+    {
+      conversation_id: conversationId,
+      "to.id": recipient_id,
+      sent: { $gte: last_seen[recipient_id] }
+    },
+    { limit: 5 }
+  ).fetch();
+}
+
 export {
   getEligibleRecipients,
   getGroupMembers,
@@ -215,5 +233,7 @@ export {
   getNewDiscussionResponses,
   getNewMembers,
   createdFromNow,
-  generateUnsubscribeLink
+  generateUnsubscribeLink,
+  getNewConversations,
+  getNewMessages
 };

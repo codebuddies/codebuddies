@@ -1,0 +1,51 @@
+<template name="report_message_modal">
+  <div id="report-message-modal" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn btn-circle btn-outline btn-info pull-right" data-dismiss="modal"><i class="fas fa-times"></i></button>
+          <h4 class="modal-title text-center">Report this message</h4>
+        </div>
+        <div class="modal-body">
+
+          <div class="row">
+              <div id="hangout-options" class="col-md-12 text-left">
+                <div class="btn-group btn-group-vertical" data-toggle="buttons">
+                  <label class="btn active">
+                    <input type="radio" name='report-category' value="spam" checked><i class="fas fa-circle fa-2x"></i><i class="fas fa-dot-circle fa-2x"></i> <span class="title"> {{_ "report hangout category spam"}}</span>
+                  </label>
+                  <label class="btn">
+                    <input type="radio" name='report-category' value="abusive"><i class="fas fa-circle fa-2x"></i><i class="fas fa-dot-circle fa-2x"></i> <span class="title"> {{_ "report hangout category abusive"}}  </span>
+                  </label>
+                  <label class="btn">
+                    <input type="radio" name='report-category' value="inappropriate"><i class="fas fa-circle fa-2x"></i><i class="fas fa-dot-circle fa-2x"></i> <span class="title"> {{_ "report hangout category inappropriate"}} </span>
+                  </label>
+                  <label class="btn">
+                    <input type="radio" name='report-category' value="offensive"><i class="fas fa-circle fa-2x"></i><i class="fas fa-dot-circle fa-2x"></i> <span class="title"> {{_ "report hangout category offensive"}} </span>
+                  </label>
+                </div>
+              </div><!-- col-md-12 -->
+          </div><!-- row -->
+
+          <br>
+
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <button id="report-message" class="btn btn-cb2">{{_ "report_a_hangout"}}</button>
+            </div>
+          </div>
+
+          <br>
+
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <span class="message">We'll review this and remove anything that doesn't follow the CodeBuddies <a href="/slack" target="_blank">Code of Conduct</a>. We may also warn or disable the person responsible.</span>
+            </div>
+          </div>
+
+        </div><!-- modal body -->
+      </div><!--modal content-->
+    </div><!-- modal dialog -->
+  </div><!-- modal -->
+
+</template>

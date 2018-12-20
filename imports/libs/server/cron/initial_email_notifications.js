@@ -12,7 +12,9 @@ import {
   getNewDiscussionResponses,
   getNewMembers,
   createdFromNow,
-  generateUnsubscribeLink
+  generateUnsubscribeLink,
+  getNewConversations,
+  getNewMessages
 } from "./helpers";
 
 /**
@@ -41,10 +43,7 @@ async function initialEmailNotificationsForHangouts() {
 
         if (recipients && recipients.length) {
           // get eligible recipients
-          const eligible_recipients = await getEligibleRecipients(
-            "new_hangout",
-            recipients
-          );
+          const eligible_recipients = await getEligibleRecipients("new_hangout", recipients);
 
           if (eligible_recipients) {
             eligible_recipients.forEach(recipient => {
@@ -61,10 +60,7 @@ async function initialEmailNotificationsForHangouts() {
                 hangouts: listOfNewHangouts,
                 group: listOfNewHangouts[0].group,
                 base_url: Meteor.absoluteUrl(),
-                unsubscribe_link: generateUnsubscribeLink(
-                  recipient,
-                  template_name
-                )
+                unsubscribe_link: generateUnsubscribeLink(recipient, template_name)
               };
 
               CBMailer(mail_data, template_name, template_data);
@@ -106,19 +102,14 @@ async function initialEmailNotificationsForDiscussions() {
 
         if (recipients && recipients.length) {
           // get eligible receive
-          const eligible_recipients = await getEligibleRecipients(
-            "new_discussion",
-            recipients
-          );
+          const eligible_recipients = await getEligibleRecipients("new_discussion", recipients);
 
           if (eligible_recipients) {
             eligible_recipients.forEach(recipient => {
               const mail_data = {
                 to: recipient,
                 from: Meteor.settings.email_from,
-                subject: `${
-                  listOfDiscussions[0].study_group.title
-                } New Discussions`
+                subject: `${listOfDiscussions[0].study_group.title} New Discussions`
               };
 
               // private/email/new_discussion.html
@@ -128,10 +119,7 @@ async function initialEmailNotificationsForDiscussions() {
                 discussions: listOfDiscussions,
                 group: listOfDiscussions[0].study_group,
                 base_url: Meteor.absoluteUrl(),
-                unsubscribe_link: generateUnsubscribeLink(
-                  recipient,
-                  template_name
-                )
+                unsubscribe_link: generateUnsubscribeLink(recipient, template_name)
               };
 
               CBMailer(mail_data, template_name, template_data);
@@ -159,10 +147,7 @@ async function initialEmailNotificationsForResponses() {
   const discussionResponses = await getNewDiscussionResponses();
 
   if (discussionResponses && discussionResponses.length) {
-    const responsesByDiscussion = await _.groupBy(
-      discussionResponses,
-      "discussion_id"
-    );
+    const responsesByDiscussion = await _.groupBy(discussionResponses, "discussion_id");
     for (const discussionId in responsesByDiscussion) {
       if (responsesByDiscussion.hasOwnProperty(discussionId)) {
         let listOfResponses = responsesByDiscussion[discussionId];
@@ -188,12 +173,7 @@ async function initialEmailNotificationsForResponses() {
               discussion: discussion,
               discussionResponses: listOfResponses,
               base_url: Meteor.absoluteUrl(),
-              unsubscribe_link: generateUnsubscribeLink(
-                recipient,
-                template_name,
-                discussionId,
-                discussion.topic
-              )
+              unsubscribe_link: generateUnsubscribeLink(recipient, template_name, discussionId, discussion.topic)
             };
 
             CBMailer(mail_data, template_name, template_data);
@@ -234,10 +214,7 @@ async function initialEmailNotificationsForNewMembers() {
 
         if (recipients && recipients.length) {
           // get eligible recipients
-          const eligible_recipients = await getEligibleRecipients(
-            "new_member",
-            recipients
-          );
+          const eligible_recipients = await getEligibleRecipients("new_member", recipients);
 
           if (eligible_recipients) {
             eligible_recipients.forEach(recipient => {
@@ -254,10 +231,7 @@ async function initialEmailNotificationsForNewMembers() {
                 activities: listOfActivities,
                 group: listOfActivities[0].study_group,
                 base_url: Meteor.absoluteUrl(),
-                unsubscribe_link: generateUnsubscribeLink(
-                  recipient,
-                  template_name
-                )
+                unsubscribe_link: generateUnsubscribeLink(recipient, template_name)
               };
 
               CBMailer(mail_data, template_name, template_data);
@@ -281,11 +255,96 @@ async function initialEmailNotificationsForNewMembers() {
   }
 }
 
+async function initialEmailNotificationsForNewMessages() {
+  // get new conversations
+  const conversations = await getNewConversations();
+
+  if (conversations && conversations.length) {
+    for (const key in conversations) {
+      const { _id: conversationId, read_by, participants, last_seen } = conversations[key];
+
+      // check if all the participants has
+      // read the conversation or not.
+      if (read_by.length < participants.length) {
+        // email recipients = participants - read_by
+        const recipients = participants.filter(p => {
+          return read_by.indexOf(p.id) == -1;
+        });
+
+        if (recipients.length) {
+          // check for new messages
+          for (const key in recipients) {
+            const recipient = recipients[key];
+
+            let messages = await getNewMessages(conversationId, recipient, last_seen);
+
+            messages = _.chain(messages)
+              .map(m => {
+                m.from_now = moment(m.sent)
+                  .startOf("minute")
+                  .fromNow();
+                return m;
+              })
+              .groupBy("from_now")
+              .forEach((i, key) => {
+                return _.map(i, (m, key) => {
+                  if (key > 0) {
+                    delete m["sent"];
+                  }
+                  return m;
+                });
+              })
+              .values()
+              .flatten()
+              .value();
+
+            if (messages && messages.length) {
+              const eligible_recipients = await getEligibleRecipients("new_direct_message", recipients);
+
+              if (eligible_recipients) {
+                eligible_recipients.forEach(recipient => {
+                  const mail_data = {
+                    to: recipient,
+                    from: Meteor.settings.email_from,
+                    subject: `New Message from ${messages[0].from.username}`
+                  };
+
+                  // private/email/new_member.html
+                  const template_name = "new_direct_message";
+
+                  const template_data = {
+                    messages: messages,
+                    base_url: Meteor.absoluteUrl(),
+                    unsubscribe_link: generateUnsubscribeLink(recipient, template_name)
+                  };
+
+                  CBMailer(mail_data, template_name, template_data);
+                });
+              } // endif eligible_recipients
+            } // end messages
+          }
+        }
+      }
+
+      // set intial flag for email_notifications true
+      Conversations.update(
+        { _id: conversationId },
+        {
+          $set: {
+            "email_notifications.initial": true
+          }
+        }
+      );
+    } //for conversation
+  }
+}
+
 async function initialEmailNotifications() {
   await initialEmailNotificationsForHangouts();
   await initialEmailNotificationsForDiscussions();
   await initialEmailNotificationsForNewMembers();
   await initialEmailNotificationsForResponses();
+  await initialEmailNotificationsForNewMessages();
 }
 
 export { initialEmailNotifications };

@@ -75,8 +75,7 @@ Template.updateStatus.events({
   },
   "click .btn-hangout-status": function(event) {
     var currentType = $(event.currentTarget).attr("data-type");
-    if (currentType !== undefined)
-      Meteor.call("setHangoutStatus", currentType, function(error, result) {});
+    if (currentType !== undefined) Meteor.call("setHangoutStatus", currentType, function(error, result) {});
   },
   "click .btn-hangout-status": function(event) {
     var currentType = $(event.currentTarget).attr("data-type");

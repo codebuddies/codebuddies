@@ -36,5 +36,18 @@ Template.profile.events({
     a.href = `data:text/csv;charset=utf-8,${encodeURIComponent(csvString)}`;
     a.download = "my_codebuddies_data.csv";
     a.click();
+  },
+  "click .loadConversation": function() {
+    const data = {
+      userId: FlowRouter.getParam("userId")
+    };
+    Meteor.call("conversation.getId", data, function(error, result) {
+      if (error) {
+        console.log("error", error);
+      }
+      if (result) {
+        FlowRouter.go(`/conversation/${result}`);
+      }
+    });
   }
 });

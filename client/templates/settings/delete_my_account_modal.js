@@ -2,10 +2,7 @@ Template.deleteMyAccountModal.events({
   "click #delete": function(event, template) {
     event.preventDefault();
     //console.log(template.find('input:radio[name="reasonForDeletingAccount"]:checked').value);
-    if (
-      template.find('input:radio[name="reasonForDeletingAccount"]:checked') ===
-      null
-    ) {
+    if (template.find('input:radio[name="reasonForDeletingAccount"]:checked') === null) {
       swal({
         title: TAPi18n.__("Please select your reason for leaving"),
         confirmButtonText: TAPi18n.__("ok"),
@@ -13,9 +10,7 @@ Template.deleteMyAccountModal.events({
       });
       return;
     }
-    const reason = template.find(
-      'input:radio[name="reasonForDeletingAccount"]:checked'
-    ).value;
+    const reason = template.find('input:radio[name="reasonForDeletingAccount"]:checked').value;
     const detail = template.find("#detail").value;
 
     if ($.trim(reason) == "other" && $.trim(detail) == "") {

@@ -10,6 +10,7 @@
   //profile page
   "send_profile_message": "Send __username__ a message",
   "chat": "Chat",
+  "message": "Message",
 
   // other pages
   "about": "About",
@@ -129,8 +130,7 @@
   "report_hangout_message":
     "We'll review the Hangout and remove anything that doesn't follow the Code Buddies Standards. We may also warn or disable the person responsible.",
   "hangout_has_been_reported": "Reported Successfully.",
-  "hangout_reported_message":
-    "We appreciate your assistance in maintaining the quality of this community.",
+  "hangout_reported_message": "We appreciate your assistance in maintaining the quality of this community.",
 
   // admin header
   "manage_user": "Manage Users",
@@ -180,8 +180,7 @@
     "We'll review the Discussion and remove anything that doesn't follow the Code Buddies Standards. We may also warn or disable the person responsible.",
   "report_a_discussion": "Report",
   "discussion_has_been_reported": "Reported Successfully.",
-  "discussion_reported_message":
-    "We appreciate your assistance in maintaining the quality of this community.",
+  "discussion_reported_message": "We appreciate your assistance in maintaining the quality of this community.",
   "discussions": "discussions",
   "hangouts_organized": "hangouts organized",
   "learnings_reported": "learnings reported",
