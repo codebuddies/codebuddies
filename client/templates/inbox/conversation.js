@@ -23,7 +23,7 @@ Template.conversation.onRendered(function() {
   $("#chatbox").bind("scroll", function() {
     // add more message
     if ($("#chatbox").scrollTop() < 100) {
-      console.log("load more message");
+      //console.log("load more message");
       const limit = instance.limit.get() + 10;
       instance.limit.set(limit);
     }
@@ -36,9 +36,9 @@ Template.conversation.onRendered(function() {
     addedAt(document, atIndex, before) {
       if (atIndex == instance.limit.get() - 1) {
         $("#chatbox").scrollTop($("#chatbox")[0].scrollHeight);
-        console.log("if ", atIndex, " ", instance.limit.get());
+        //console.log("if ", atIndex, " ", instance.limit.get());
       } else {
-        console.log("else ", atIndex, " ", instance.limit.get());
+        //console.log("else ", atIndex, " ", instance.limit.get());
       }
     }
   });
@@ -73,7 +73,7 @@ Template.conversation.helpers({
       .flatten()
       .value();
 
-    console.log(messages);
+    //console.log(messages);
 
     return messages;
     // return Messages.find({conversation_id: FlowRouter.getParam('conversationId')}, {sort: {sent: 1}});
@@ -84,11 +84,22 @@ Template.conversation.helpers({
 });
 
 Template.conversation.events({
+  "click i.submit"(event, template) {
+    if (
+      $("#message-body")
+        .val()
+        .trim() != ""
+    ) {
+      event.preventDefault();
+      const target = event.currentTarget;
+      $(event.target).submit();
+    }
+  },
   "keypress form.sendMessage"(event, template) {
     if (
       event.which === 13 &&
       !event.shiftKey &&
-      $("#messge-body")
+      $("#message-body")
         .val()
         .trim() != ""
     ) {
@@ -99,8 +110,8 @@ Template.conversation.events({
   },
   "submit .sendMessage"(event, template) {
     event.preventDefault();
-    const body = $("#messge-body").val();
-    const body_delta = $("#messge-body")
+    const body = $("#message-body").val();
+    const body_delta = $("#message-body")
       .val()
       .replace(/\r?\n/g, "<br />");
     const data = {
@@ -117,7 +128,7 @@ Template.conversation.events({
         Meteor.setTimeout(function() {
           $("#chatbox").scrollTop($("#chatbox")[0].scrollHeight);
         }, 200);
-        $("#messge-body").val("");
+        $("#message-body").val("");
       }
     });
   }
