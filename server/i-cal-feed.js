@@ -14,6 +14,7 @@ const iCalFeed = {
     }).fetch();
     const events = hangouts.map(hangout => {
       return {
+        productId: "codebuddies/ics",
         uid: hangout._id,
         title: hangout.topic,
         description: hangout.description + `\n${hangout.externalURL}`,
@@ -25,7 +26,11 @@ const iCalFeed = {
           .utc(hangout.start)
           .format("YYYY-M-D-H-m")
           .split("-"),
-        organizer: { name: hangout.host && hangout.host.name }
+        organizer: {
+          name: hangout.host && hangout.host.name,
+          email: "noreply@codebuddies.org"
+        },
+        method: "REQUEST"
       };
     });
 
