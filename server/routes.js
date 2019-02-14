@@ -1,5 +1,6 @@
 var bodyParser = require("body-parser");
 import webhooks from "/server/slack/webhooks.js";
+import iCalFeed from "/server/i-cal-feed.js";
 
 Picker.middleware(bodyParser.json());
 Picker.middleware(bodyParser.urlencoded({ extended: false }));
@@ -22,3 +23,4 @@ Picker.route("/callback/hangout/:_id", function(params, req, res) {
 
 Picker.route("/webhook/slack/", webhooks.handleNewEvent);
 Picker.route("/webhook/slack-command", webhooks.handleNewCommand);
+Picker.route("/i-cal-feed", iCalFeed.handleRequest);
