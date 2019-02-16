@@ -153,7 +153,7 @@ const Actions = {
     });
 
     const url = Meteor.absoluteUrl("/learnings");
-    SlackAPI.postMessage(channel, `Thank you for sharing a learning/a win! It has been archived on ${url}.`);
+    SlackAPI.postMessage(channel, `Thank you for sharing something you learned/a win! It has been archived on ${url}.`);
   }
 };
 
