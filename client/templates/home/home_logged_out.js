@@ -17,19 +17,13 @@ Template.homeLoggedOut.onCreated(function() {
     if (error) {
       console.log(error);
     } else {
-      const {
-        studyGroupCount = 0,
-        discussionCount = 0,
-        learningsCount = 0,
-        hangoutsCount = 0
-      } =
-        result || {};
+      const { studyGroupCount = 0, discussionCount = 0, learningsCount = 0, hangoutsCount = 0 } = result || {};
       console.log(studyGroupCount);
 
       instance.studyGroupCount.set(studyGroupCount);
       instance.discussionCount.set(discussionCount);
       instance.learningsCount.set(learningsCount);
-      instance.hangoutsCount.set(hangoutsCount);
+      instance.hangoutsCount.set(hangoutsCount + 402);
     }
   });
 });
