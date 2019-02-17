@@ -42,8 +42,8 @@
     color: $danger-red;
   }
   .card {
-    @include breakpoint(medium) { height: 160px; padding: 19px 19px 10px; }
-    @include breakpoint(large) { height: 160px; padding: 19px 19px 10px; }
+    @include breakpoint(medium) { height: 190px; padding: 19px 19px 10px; }
+    @include breakpoint(large) { height: 190px; padding: 19px 19px 10px; }
   }
   p {
   	margin: 10px 0px;
@@ -64,6 +64,9 @@
       color: $black;
       padding-left: 5px;
     }
+  }
+  small.members {
+    white-space: nowrap;
   }
   a.memberDetail {
     position: relative;
