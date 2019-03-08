@@ -23,8 +23,8 @@ Template.allStudyGroups.onCreated(function() {
     instance.subscribe("allHangoutParticipants", hangoutIds);
   });
 
-  instance.loadStudyGroups = function(flag = 1) {
-    return StudyGroups.find({}, { sort: { createdAt: flag } });
+  instance.loadStudyGroups = function(flag = -1) {
+    return StudyGroups.find({}, { sort: { updatedAt: flag } });
   };
 
   instance.addMoreStudyGroups = function() {

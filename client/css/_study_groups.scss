@@ -15,6 +15,7 @@
     background: linear-gradient(to top, rgba(30, 144, 255, .5) 0%, rgba(30, 144, 255, .5) 0%, rgba(30, 144, 255, .5) 0%, rgba(30, 144, 255, .55) 18%, rgba(30, 144, 255, .64) 46%, rgba(3, 87, 232, .8) 100%), url(/images/language-logos.svg) center repeat;
     padding: 100px 0;
     h2 { @include font-face(700, 32px, bold, $bg-white); }
+    p { color: $white; }
     span.label { padding: .3em .6em;}
   }
   #newHangout {
@@ -41,8 +42,8 @@
     color: $danger-red;
   }
   .card {
-    @include breakpoint(medium) { height: 160px; padding: 19px 19px 10px; }
-    @include breakpoint(large) { height: 160px; padding: 19px 19px 10px; }
+    @include breakpoint(medium) { height: 190px; padding: 19px 19px 10px; }
+    @include breakpoint(large) { height: 190px; padding: 19px 19px 10px; }
   }
   p {
   	margin: 10px 0px;
@@ -63,6 +64,9 @@
       color: $black;
       padding-left: 5px;
     }
+  }
+  small.members {
+    white-space: nowrap;
   }
   a.memberDetail {
     position: relative;
@@ -114,9 +118,7 @@
 
   .btn-leave-study-group,
   .btn-leave-study-group-1 {
-    &:hover {
       background-color: $danger-red;
-    }
   }
 }
 

@@ -152,8 +152,8 @@ const Actions = {
       username: user.username
     });
 
-    const url = Meteor.absoluteUrl("/hangouts");
-    SlackAPI.postMessage(channel, `Your learning was archived on ${url}.`);
+    const url = Meteor.absoluteUrl("/learnings");
+    SlackAPI.postMessage(channel, `Thank you for sharing something you learned/a win! It has been archived on ${url}.`);
   }
 };
 
