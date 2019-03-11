@@ -1,12 +1,10 @@
 <template name="discussionItem">
   <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-10">
       <h4><a href="{{pathFor 'discussion' discussionId=_id}}">{{topic}}</a> {{#if modified_at}}<small>(Edited)</small>{{/if}}</h4>
+      <h5><small>Started by <a href="{{pathFor 'profile' name=author.username userId=author.id}}">{{author.username}}</a></small></h5>
       <h5>{{#each tag in tags}} <span class="label label-default select-tag pointer" data-tag="{{tag}}">{{tag}}</span> {{/each}}</h5>
       <h4><small>{{truncateIt description '90'}}</small></h4>
-    </div>
-    <div class="col-md-2">
-      <h5><a href="{{pathFor 'profile' name=author.username userId=author.id}}">{{author.username}}</a></h5>
     </div>
     <div class="col-md-2">
       {{! available actions as a button grouping }}
