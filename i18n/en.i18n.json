@@ -155,7 +155,7 @@
   "twentyforseven": "24/7 Hangout",
   "hangouts": "All Hangouts",
   "members": "Members",
-  "learnings": "Progress Log",
+  "learnings": "Learnings",
   "links": "Links",
   "notes": "Notes",
   "availability": "Availability",
@@ -173,7 +173,7 @@
 
   // Discussion
   "discussion": "Discussion",
-  "new_discussion": "Start a new Discussion",
+  "new_discussion": "Start a New Discussion",
   "discussion_topic": "Discussion Topic",
   "report_this_discussion": "Report This Discussion",
   "report_discussion_message":

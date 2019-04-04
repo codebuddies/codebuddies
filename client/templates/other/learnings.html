@@ -1,0 +1,43 @@
+<template name="learnings">
+        <div id="learnings">
+      
+        <div class="section learnings-top">
+            <div class="container">
+              <div class="row">
+                  <div class="col-md-12 align-center">
+                    <h2>Learnings and Accomplishments</h2>
+                </div>
+              </div>
+          </div>
+        </div>
+            
+            <div class="section learnings-middle">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 status-input">
+                                {{> hangoutLearned }}
+                                <div class="alert alert-info"><strong>Did you know?</strong> You can share a learning directly from a public <a href="/slack">CodeBuddies Slack channel</a> by typing #TIL, #til, #win, or /til</div>
+                        </div>
+                        <div class="col-md-6">
+                                <h3><strong>{{_ "accomplishment_message" count=learnedUsersCount}}</strong> reported by the community</h3>
+                                <div class="status-list">
+                                        <div class="learnings">
+                                            
+                                            {{#each learnings}}
+                                                {{> learningItem}}
+                                            {{/each}}
+                                        {{#if Template.subscriptionsReady}}
+                                            {{#if hasMoreLearnings}}
+                                                <button id="load-more-learnings" class="btn btn-default btn-block">Load more</button>
+                                            {{/if}}
+                                        {{/if}}
+                                        </div>
+                                        </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+</template>

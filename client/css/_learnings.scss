@@ -1,0 +1,20 @@
+#learnings {
+    p, li {
+      @include font-face(400, 16px, normal, $primary-grey);
+      line-height: 27px;
+    }
+    .learnings-top {
+      background: linear-gradient(to top, rgba(30, 144, 255, .5) 0%, rgba(30, 144, 255, .5) 0%, rgba(30, 144, 255, .5) 0%, rgba(30, 144, 255, .55) 18%, rgba(30, 144, 255, .64) 46%, rgba(3, 87, 232, .8) 100%), url(/images/language-logos.svg) center repeat;
+      padding: 100px 0;
+      h2 { @include font-face(700, 32px, bold, $bg-white); }
+    }
+  
+    .learnings-middle {
+      background: $bg-white;
+      padding: 50px 0px;
+    }
+  
+    h3 { font-weight: 200; margin: 0px 0px 15px 0px;}
+  
+  }
+  

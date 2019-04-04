@@ -1,6 +1,7 @@
+
 <template name="header">
   {{> connectionBanner}}
-  <div class="banner-notification">New: <a href="/coworking"><i class="fas fa-desktop"></i> 24/7 space for silent productivity</a> and <i class="fab fa-connectdevelop"></i> <a href="http://bit.ly/codebuddies-connect" target="_blank">CodeBuddies Connect</a></div>
+  <div class="banner-notification">New: <a href="/coworking"><i class="fas fa-desktop"></i> 24/7 space for silent productivity</a></div>
   {{# unless user.profile.privacyResponse}}{{#if currentUser}}{{> privacyAgreement}}{{/if}}{{/unless}}
   <nav class="navbar navbar-default navbar-static-top" role="navigation">
     <div class="container">
@@ -45,18 +46,27 @@
                  <i class="fab fa-medium fa-fw" aria-hidden="true"></i>Publication
                  <i class="fas fa-external-link-alt fa-fw" aria-hidden="true"></i>
                </a></li>
+               <li role="separator" class="divider"></li>
                <li><a href="https://www.youtube.com/channel/UCOBp46r9_g8kKRCc0y-rJVg" target="_blank">
                  <i class="fab fa-youtube fa-fw" aria-hidden="true"></i>YouTube
                  <i class="fas fa-external-link-alt fa-fw" aria-hidden="true"></i>
                </a></li>
                <li role="separator" class="divider"></li>
+               <li><a href="{{pathFor 'coworking'}}">
+                  <i class="fas fa-code fa-fw" aria-hidden="true"></i> 24/7 Silent Hangout
+                </a></li>
+               <li role="separator" class="divider"></li>
+               <li><a href="{{pathFor 'learnings'}}">
+                  <i class="fas fa-book fa-fw" aria-hidden="true"></i>{{_ "learnings"}}
+                </a></li>
+                <li role="separator" class="divider"></li>
                <li><a href="{{pathFor 'faq'}}">
                  <i class="fas fa-question fa-fw" aria-hidden="true"></i>{{_ "faq"}}
                </a></li>
                <!-- Donate -->
 			   <li role="separator" class="divider"></li>
                <li><a href="https://opencollective.com/codebuddies" target="_blank">
-                 Sponsor Us <i class="fas fa-external-link-alt fa-fw" aria-hidden="true"></i>
+                <i class="fas fa-dollar fa-fw" aria-hidden="true"></i>Sponsor Us <i class="fas fa-external-link-alt fa-fw" aria-hidden="true"></i>
                </a></li>
              </ul>
           </li>
