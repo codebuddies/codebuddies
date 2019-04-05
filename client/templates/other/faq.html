@@ -1,80 +1,133 @@
 <template name="faq">
   <div id="faq">
 
-  <div class="section faq-top">
+    <div class="section faq-top">
       <div class="container">
         <div class="row">
-            <div class="col-md-12 align-center">
-              <h2>FAQ</h2>
+          <div class="col-md-12 align-center">
+            <h2>FAQ</h2>
           </div>
         </div>
+      </div>
     </div>
-  </div>
 
-  <div class="section faq-middle">
+    <div class="section faq-middle">
       <div class="container container-large">
         <div class="row">
-            <div class="col-md-4">
+          <div class="col-md-4">
             <h3>Helpful Links</h3>
-              <br>
-                <ul>
-                  <li><a href="http://codebuddies.slack.com" target="_blank">Slack</a> (<a href="http://codebuddiesmeet.herokuapp.com" target="_blank" >Get your invite</a>)</li>
-                  <li><a href="https://www.youtube.com/channel/UCOBp46r9_g8kKRCc0y-rJVg" target="_blank">YouTube</a></li>
-                  <li><a href="https://forum.codebuddies.org" target="_blank">Forum</a></li>
-                  <li><a href="https://github.com/codebuddies/codebuddies">Github</a> - <a href="https://github.com/codebuddies/codebuddies/blob/master/contributing.md" target="_blank">Contributing.md</a>, <a href="https://github.com/codebuddies/codebuddies/pulls" target="_blank">Pull Requests</a>
-                  </li>
-                  <li><a href="http://twitter.com/codebuddiesmeet" target="_blank">@codebuddiesmeet</a></li>
-                  <li><a href="http://opencollective.com/codebuddies">Open Collective</a></li>
-                </ul>
-                     </div>
-            <div class="col-md-8">
-                <h3>When was this site created? Why did you all work together to build this site?</h3>
-                  <p>The very first iteration of CodeBuddies (a static splash page linking to Google Groups) launched in June 2014. The second iteration launched a few months afterwards. The <a href="http://github.com/codebuddies/codebuddies" target="_blank">codebase</a> that our current site runs on had its first commit on January 6th, 2016 and has been built entirely by volunteers.</p>
-                  <p>Our community spends a lot of time helping each other on Slack, but it's hard to schedule study times in advance in a chatroom, and it's also hard to know who else is online possibly working on the same thing at the same time. This website solves those issues by letting anyone start a virtual hangout to meet with others who might want to study with them.</p>
-                  <p>We're sort of like a meetup.com -- except we only meet virtually (leading to experiences where four different timezones are represented in a single hangout), and we're all about helping each other learn faster.</p>
-              <h3>Outside of hangouts, where can I ask questions and chat with others in the community?</h3>
-                <p>Our community spends a lot of time helping each other on  <a href="https://codebuddies.slack.com">Slack</a>. To join, you can get an invite by clicking on the button below and entering your email. </p>
-                <p><script async defer src="https://codebuddiesmeet.herokuapp.com/slackin.js?large"></script></p>
-              <h3>What can I expect in a hangout?</h3>
-                <p>1. We typically turn off the video camera.   </p>
-                <p>2. We sometimes schedule things called "silent hangouts".</p>
-                <p>Please read our <a href="/hangout-faq" target="_blank">Hangout FAQ</a> guide to learn more! :)</p>
-                <p>Here's a diagram that shows the hangout interface: <img src="/images/codebuddies_jitsi_diagram.jpg" width="100%"></p>
-              <h3>How do I use this website?</h3>
-                <p>To login to this web site, you use the same Slack login that you use for codebuddies.slack.com.</p>
-                <p>After you log in, you can start or join hangouts and <a href="/study-groups">study groups</a> and log what you learned in each. Each study group also has a 24/7 hangout room where you can meet to study with others without going through the steps of scheduling a hangout.</p>
-              <h3>Who can start or schedule a hangout?</h3>
-                <p>Anyone can schedule a hangout! You don't need to be an expert about a topic to start a hangout to discuss or study it. </p>
+            <br>
+            <ul>
+              <li><a href="http://codebuddies.slack.com" target="_blank">Slack</a> (<a
+                  href="http://codebuddiesmeet.herokuapp.com" target="_blank">Get your invite</a>)</li>
+              <li><a href="https://www.youtube.com/channel/UCOBp46r9_g8kKRCc0y-rJVg" target="_blank">YouTube</a></li>
+              <li><a href="https://forum.codebuddies.org" target="_blank">Forum</a></li>
+              <li><a href="https://github.com/codebuddies/codebuddies">Github</a> - <a
+                  href="https://github.com/codebuddies/codebuddies/blob/master/contributing.md"
+                  target="_blank">Contributing.md</a>, <a href="https://github.com/codebuddies/codebuddies/pulls"
+                  target="_blank">Pull Requests</a>
+              </li>
+              <li><a href="http://twitter.com/codebuddiesmeet" target="_blank">@codebuddiesmeet</a></li>
+              <li><a href="http://opencollective.com/codebuddies">Open Collective</a></li>
+            </ul>
+          </div>
+          <div class="col-md-8">
+            <h3>When was this site created? Why did you all work together to build this site?</h3>
+            <p>The very first iteration of CodeBuddies (a static splash page linking to Google Groups) launched in June
+              2014. The second iteration launched a few months afterwards. The <a
+                href="http://github.com/codebuddies/codebuddies" target="_blank">codebase</a> that our current site runs
+              on had its first commit on January 6th, 2016 and has been built entirely by volunteers.</p>
+            <p>Our community spends a lot of time helping each other on Slack, but it's hard to schedule study times in
+              advance in a chatroom, and it's also hard to know who else is online possibly working on the same thing at
+              the same time. This website solves those issues by letting anyone start a virtual hangout to meet with
+              others who might want to study with them.</p>
+            <p>We're sort of like a meetup.com -- except we only meet virtually (leading to experiences where four
+              different timezones are represented in a single hangout), and we're all about helping each other learn
+              faster.</p>
+            <h3>Outside of hangouts, where can I ask questions and chat with others in the community?</h3>
+            <p>Our community spends a lot of time helping each other on <a
+                href="https://codebuddies.slack.com">Slack</a>. To join, you can get an invite by clicking on the button
+              below and entering your email. </p>
+            <p>
+              <script async defer src="https://codebuddiesmeet.herokuapp.com/slackin.js?large"></script>
+            </p>
+            <h3>What can I expect in a hangout?</h3>
+            <p>1. We typically turn off the video camera. </p>
+            <p>2. We sometimes schedule things called "silent hangouts".</p>
+            <p>Please read our <a href="/hangout-faq" target="_blank">Hangout FAQ</a> guide to learn more! :)</p>
+            <p>Here's a diagram that shows the hangout interface: <img src="/images/codebuddies_jitsi_diagram.jpg"
+                width="100%"></p>
+            <h3>How do I use this website?</h3>
+            <p>To login to this web site, you use the same Slack login that you use for codebuddies.slack.com.</p>
+            <p>After you log in, you can start or join hangouts and <a href="/study-groups">study groups</a> and log
+              what you learned in each. Each study group also has a 24/7 hangout room where you can meet to study with
+              others without going through the steps of scheduling a hangout.</p>
+            <h3>Who can start or schedule a hangout?</h3>
+            <p>Anyone can schedule a hangout! You don't need to be an expert about a topic to start a hangout to discuss
+              or study it. </p>
 
-              <h3> <i class="fas fa-lightbulb" aria-hidden="true"></i> What are the "learnings" sections on each hangout post?</h3>
-                <p>During the hangout, you'll often have lightbulb moments that you want to keep track of. If you type in what you learned in the box below the hangout frame and hit enter, this learning will get tracked on the hangout page and will also appear in your learnings' list on your profile page.</p>
-              <h3>Why the emphasis on hangouts?</h3>
-                <p>We've discovered that the act of scheduling times to study is a good way to motivate ourselves to learn new things faster. Plus, learning with others and being able to talk through a tutorial or project or some snippet makes learning a LOT more fun. </p>
-              <h3>How is this project funded?</h3>
-                <p>We're a community of people who enjoy helping each other and are passionate about learning, not a legal entity. This project operates in full transparency as a member of the <a href="http://opencollective.com/codebuddies" target="_blank">Open Collective</a>. Please help support our monthly server costs by becoming a <a href="http://opencollective.com/codebuddies" target="_blank">sponsor or backer</a>. You can help keep this project alive! If you'd like to contribute in other ways (helping with outreach to new sponsors, community management, the Medium publication, contributing to bug fixes and new features on <a href="http://github.com/codebuddies/codebuddies" target="_blank">Github</a> etc.), please say hello in the #codebuddies-meta channel.</p>
-             <h3>Do you have a community code of conduct?</h3>
-                <p>Yes. See <a href="https://github.com/codebuddies/codebuddies/blob/master/CODE_OF_CONDUCT.md"> this.</a></p>
+            <h3> <i class="fas fa-lightbulb" aria-hidden="true"></i> What are the "learnings" sections on each hangout
+              post?</h3>
+            <p>During the hangout, you'll often have lightbulb moments that you want to keep track of. If you type in
+              what you learned in the box below the hangout frame and hit enter, this learning will get tracked on the
+              hangout page and will also appear in your learnings' list on your profile page.</p>
+            <h3>Why the emphasis on hangouts?</h3>
+            <p>We've discovered that the act of scheduling times to study is a good way to motivate ourselves to learn
+              new things faster. Plus, learning with others and being able to talk through a tutorial or project or some
+              snippet makes learning a LOT more fun. </p>
+            <h3>How is this project funded?</h3>
+            <p>We're a community of people who enjoy helping each other and are passionate about learning, not a legal
+              entity. This project operates in full transparency as a member of the <a
+                href="http://opencollective.com/codebuddies" target="_blank">Open Collective</a>. Please help support
+              our monthly server costs by becoming a <a href="http://opencollective.com/codebuddies"
+                target="_blank">sponsor or backer</a>. You can help keep this project alive! If you'd like to contribute
+              in other ways (helping with outreach to new sponsors, community management, the Medium publication,
+              contributing to bug fixes and new features on <a href="http://github.com/codebuddies/codebuddies"
+                target="_blank">Github</a> etc.), please say hello in the #codebuddies-meta channel.</p>
+            <h3>Do you have a community code of conduct?</h3>
+            <p>Yes. See <a href="https://github.com/codebuddies/codebuddies/blob/master/CODE_OF_CONDUCT.md"> this.</a>
+            </p>
 
-              <h3>What is the Slack Etiquette in this community?</h3>
-              <h4>General Rules to Follow</h4>
-              <ul>
-                <li>Introduce yourself in the #introduce-yourself channel and please help welcome others there too! The more we know about each other, the better we can connect and collaborate. </li>
-                <li>Check the #announcements channel for notifications about new hangouts that your peers in the community have started or scheduled on the website!</li>
-                <li>If you have a specific learning goal (e.g. complete a book or tutorial, master a specific topic like functional or a specific ruby book or design patterns or blockchain), start a study group on codebuddies.org/study-groups. Invite folks on Slack to join your study group so that you can motivate each other to master that learning goal.</li>
-                <li>We are a pay-it-forward community. If someone here has helped you, please give back by helping someone else!</li>
-              </ul>
-              <h4>Etiquette for Posting Questions</h4>
-              <ul>
-                <li>This is a safe space. No question is too "stupid." But please be specific with your questions so all of us can help you even when you aren't online. Share a code snippet, a link to where you're seeing the issue, a description of what is confusing you, or specifics on what you've tried so far. More often than not, it also helps to paste your error logs into a snippet or text file (<a href="https://get.slack.help/hc/en-us/articles/204145658-Create-a-snippet" target="_blank">instructions here on how to do that in Slack</a>) to accompany your question/issue.</li>
-                <li>Ask questions in a public channel; you are more likely to receive an answer than if you DM people. Other people in the channel may have had the same issue before and can point you in the right direction - and if not, they will benefit from the answer you receive or work out.</li>
-                <li>When asking for help, please don't ask if anybody is available to help - just ask the question!</li>
-                <li>Please don't cross post the same question in multiple channels. Folks in this community may not be super-chatty at any given moment, but we are reading posts across all chanels. Someone will eventually see (and help) you.</li>
-              </ul>
-                <p>Thanks to everyone who've been more or less following these etiquette rules already! This community is international and distributed across timezones, and it's nice to find that even with our diversity of backgrounds and experience levels and nationalities, we have similar goals and can support each other so easily. </p>
-                <p>Always a delight to be late-night coding – and suddenly realize that halfway around the world, my hangout collaborator is just having their first cup of coffee.</p>
-           </div>
+            <h3>What is the Slack Etiquette in this community?</h3>
+            <h4>General Rules to Follow</h4>
+            <ul>
+              <li>Introduce yourself in the #introduce-yourself channel and please help welcome others there too! The
+                more we know about each other, the better we can connect and collaborate. </li>
+              <li>Check the #announcements channel for notifications about new hangouts that your peers in the community
+                have started or scheduled on the website!</li>
+              <li>If you have a specific learning goal (e.g. complete a book or tutorial, master a specific topic like
+                functional or a specific ruby book or design patterns or blockchain), start a study group on
+                codebuddies.org/study-groups. Invite folks on Slack to join your study group so that you can motivate
+                each other to master that learning goal.</li>
+              <li>We are a pay-it-forward community. If someone here has helped you, please give back by helping someone
+                else!</li>
+            </ul>
+            <h4>Etiquette for Posting Questions</h4>
+            <ul>
+              <li>This is a safe space. No question is too "stupid." But please be specific with your questions so all
+                of us can help you even when you aren't online. Share a code snippet, a link to where you're seeing the
+                issue, a description of what is confusing you, or specifics on what you've tried so far. More often than
+                not, it also helps to paste your error logs into a snippet or text file (<a
+                  href="https://get.slack.help/hc/en-us/articles/204145658-Create-a-snippet"
+                  target="_blank">instructions here on how to do that in Slack</a>) to accompany your question/issue.
+              </li>
+              <li>Ask questions in a public channel; you are more likely to receive an answer than if you DM people.
+                Other people in the channel may have had the same issue before and can point you in the right direction
+                - and if not, they will benefit from the answer you receive or work out.</li>
+              <li>When asking for help, please don't ask if anybody is available to help - just ask the question!</li>
+              <li>Please don't cross post the same question in multiple channels. Folks in this community may not be
+                super-chatty at any given moment, but we are reading posts across all chanels. Someone will eventually
+                see (and help) you.</li>
+            </ul>
+            <p>Thanks to everyone who've been more or less following these etiquette rules already! This community is
+              international and distributed across timezones, and it's nice to find that even with our diversity of
+              backgrounds and experience levels and nationalities, we have similar goals and can support each other so
+              easily. </p>
+            <p>Always a delight to be late-night coding – and suddenly realize that halfway around the world, my hangout
+              collaborator is just having their first cup of coffee.</p>
           </div>
         </div>
+      </div>
     </div>
 
     <div class="section faq-hangout">
@@ -82,29 +135,49 @@
         <div class="row">
           <div class="col-md-8 col-md-offset-2">
             <h2>General Hangout Tips!</h2>
-              <ul>
-               <li>You can use the <a href="http://codebuddies.slack.com" target="_blank">CodeBuddies Slack</a> OR the hangout chat box to chat and type questions.</li>
-               <li>Screensharing is always optional, but some of us like to do it so that we don't get distracted by Facebook or YouTube during a <i class="fas fa-microphone-slash text-danger-color type"></i><strong>silent</strong> hangout, or so that we can more easily track where everyone is at and debug issues more easily during a <i class="fas fa-user text-warning-color type"></i><strong>teaching</strong> or <i class="fas fa-users text-success-color type"></i><strong>collaboration</strong> hangout.</li>
-               <li>The hangouts platform we use (Jitsi) lets multiple people screenshare with each other at the same time. You can click on a person's individual icon to see their screen.
-               </li>
-              </ul>
+            <ul>
+              <li>You can use the <a href="http://codebuddies.slack.com" target="_blank">CodeBuddies Slack</a> OR the
+                hangout chat box to chat and type questions.</li>
+              <li>You agree not to stream copyrighted or otherwise objectionable content in the hangout.</li>
+              <li>Screensharing is always optional, but some of us like to do it so that we don't get distracted by
+                Facebook or YouTube during a <i
+                  class="fas fa-microphone-slash text-danger-color type"></i><strong>silent</strong> hangout, or so that
+                we can more easily track where everyone is at and debug issues more easily during a <i
+                  class="fas fa-user text-warning-color type"></i><strong>teaching</strong> or <i
+                  class="fas fa-users text-success-color type"></i><strong>collaboration</strong> hangout.</li>
+              <li>The hangouts platform we use (Jitsi) lets multiple people screenshare with each other at the same
+                time. You can click on a person's individual icon to see their screen.
+              </li>
+            </ul>
             <h3>3 types of hangouts you can join or create:</h3>
             <h3><i class="fas fa-microphone-slash text-danger-color type"></i> Silent Hangout</h3>
-              <p>
-               Think of this type of hangout as a virtual coffeeshop for people who want to be productive. You can make the hangout topic generic enough that people are working on different things, or you can have the hangout be about working through the same coding exercises. <strong>As a silent hangout host, you can do a quick microphone-on check-in near the end of the session, but in general participants will expect the majority of the hangout to be silent and be screensharing only.</strong>
-              </p>
-            <h3><i class="fas fa-user text-warning-color type"></i> Teaching Hangout</h3>
-              <p>
-              Share what you know with others in a teaching hangout! Use the hangout as a space to practice teaching a concept or to walk participants through a codebase. <strong>As a teaching hangout host, you'll have your microphone and screensharing turned on, whereas it is optional to have the microphone turned on for the participants.</strong>
-              </p>
-            <h3><i class="fas fa-users text-success-color type"></i> Collaboration Hangout</h3>
-              <p>
-               Use a collaboration hangout as a space to pair program on a coding exercise, talk through a chapter of a coding tutorial together, or work on an open-sourced project with anyone who might be interested. <strong>As a collaboration hangout host or participant, you are expected to have microphone and screensharing turned on.</strong>
-              </p>
-              <br>
-              <hr class="divider">
             <p>
-              <strong>P.S.</strong> Unlike "regular" hangouts, we usually turn off the video camera by clicking on the <img src="/images/icon-video-off.png" width="25" height="25">icon.<img src="/images/see_no_evil.png" width="25" height="auto">
+              Think of this type of hangout as a virtual coffeeshop for people who want to be productive. You can make
+              the hangout topic generic enough that people are working on different things, or you can have the hangout
+              be about working through the same coding exercises. <strong>As a silent hangout host, you can do a quick
+                microphone-on check-in near the end of the session, but in general participants will expect the majority
+                of the hangout to be silent and be screensharing only.</strong>
+            </p>
+            <h3><i class="fas fa-user text-warning-color type"></i> Teaching Hangout</h3>
+            <p>
+              Share what you know with others in a teaching hangout! Use the hangout as a space to practice teaching a
+              concept or to walk participants through a codebase. <strong>As a teaching hangout host, you'll have your
+                microphone and screensharing turned on, whereas it is optional to have the microphone turned on for the
+                participants.</strong>
+            </p>
+            <h3><i class="fas fa-users text-success-color type"></i> Collaboration Hangout</h3>
+            <p>
+              Use a collaboration hangout as a space to pair program on a coding exercise, talk through a chapter of a
+              coding tutorial together, or work on an open-sourced project with anyone who might be interested.
+              <strong>As a collaboration hangout host or participant, you are expected to have microphone and
+                screensharing turned on.</strong>
+            </p>
+            <br>
+            <hr class="divider">
+            <p>
+              <strong>P.S.</strong> Unlike "regular" hangouts, we usually turn off the video camera by clicking on the
+              <img src="/images/icon-video-off.png" width="25" height="25">icon.<img src="/images/see_no_evil.png"
+                width="25" height="auto">
             </p>
           </div>
         </div>
