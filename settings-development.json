@@ -8,10 +8,10 @@
       "listId": "mailchimp-list-id"
     },
     "twitter": {
-      "consumer_key": "5tuwUTjY4NwMs5KuVEgDBTIJV",
-      "consumer_secret": "k05UXe9j4En8PeZ1m9qfjGgud76KutvlJ2T55qNftuT7VwhvbK",
-      "access_token_key": "2770917768-WmbE99Qj7SUz0IAVNjHXACYIYgyWS2hCHt7ROB7",
-      "access_token_secret": "b1e7icigIxXcIXupJDapAjujfJdzSmvgd98Um6d15BbYw"
+      "consumer_key": "consumer-key",
+      "consumer_secret": "consumer-secret",
+      "access_token_key": "access-token-key",
+      "access_token_secret": "access-token-secret"
     },
     "montiapm": {
       "KADIRA_APP_ID": "KADIRA_APP_ID",
@@ -23,28 +23,28 @@
     },
     "smtp": {
       "username": "SMTP_Injection",
-      "password": "539bf41e8ff8dcf43afeebb32d68c38470eefabb",
+      "password": "sparkpost-api-key",
       "server": "smtp.sparkpostmail.com",
       "port": "587"
     }
   },
   "isModeProduction": false,
   "seeder": true,
-  "slack_clientid": "4364220508.48656557590",
-  "slack_clientsecret": "33e0c6dda98e994f194efdc9b6d35c46",
+  "slack_clientid": "slack-client-id",
+  "slack_clientsecret": "slack-client-secret",
   "slack": "https://hooks.slack.com/services/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",
   "email_from": "linda@codebuddies.org",
   "team_id":"T04AQ6GEY",
   "slack_alert_channel": "#codebuddies-test-hang",
   "slack_alert_username": "CodeBuddies Alerts",
   "hangout_reminder_interval": "every 1 hour",
-  "root_email":"robert.mcelvenny@gmail.com",
-  "root_username":"thunatos",
+  "root_email":"example@example.com",
+  "root_username":"example",
   "root_gravatar":"http://www.gravatar.com/avatar/",
   "slack_studygroup_alert_username": "Study Group Alerts",
   "slack_facebook_alert_channel": "#fb-group-private",
-  "github_clientid": "fba6a99da8ddc60fe7f6",
-  "github_clientsecret": "a447f020986a5b85b3d5b4b550eaf932809d12cc",
+  "github_clientid": "github-client-id",
+  "github_clientsecret": "github-client-secret",
   "slackAppToken": "XXX",
   "slackOauthToken": "xoxa-1234",
   "cbJarvisId": "1234"
