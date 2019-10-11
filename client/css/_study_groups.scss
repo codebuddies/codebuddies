@@ -42,7 +42,16 @@
     color: $danger-red;
   }
   .card {
-    @media screen and (min-width: 992px) { height: 190px; padding: 19px 19px 10px; }
+    @media screen and (min-width: 992px) {
+      height: 190px;
+      padding: 19px 19px 10px;
+      h4 a {
+        display: block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
     @include breakpoint(large) { height: 190px; padding: 19px 19px 10px; }
   }
   p {
