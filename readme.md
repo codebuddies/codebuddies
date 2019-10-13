@@ -113,7 +113,7 @@ Thank you to DigitalOcean for sponsoring our hosting, MongoDB Atlas for sponsori
 
 <a href="https://www.mongodb.com/cloud/atlas?jmp=codebuddies" target="_blank"><img src="https://github.com/codebuddies/codebuddies/blob/staging/public/images/mdb-atlas-reg.png" width="200" alt="Hosted by MongoDB Atlas"/>
   
-<a href="https://netlify.com" target="_blank"<img src="https://user-images.githubusercontent.com/4512699/66627175-ba5d6d80-ebaf-11e9-8a78-554e3e8a4987.png" width="200" alt="Netlify"/>
+<a href="https://netlify.com" target="_blank"><img src="https://user-images.githubusercontent.com/4512699/66627175-ba5d6d80-ebaf-11e9-8a78-554e3e8a4987.png" width="200" alt="Netlify"/>
 
 <a href="http://stickermule.com" target="_blank"><img src="http://i.imgur.com/WblcveC.png" width="180" alt="Thank you to StickerMule for sponsoring $50 in credits!"></a>
 
