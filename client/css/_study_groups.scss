@@ -42,7 +42,24 @@
     color: $danger-red;
   }
   .card {
-    @include breakpoint(medium) { height: 190px; padding: 19px 19px 10px; }
+    @media screen and (min-width: 992px) {
+      height: 190px;
+      padding: 19px 19px 10px;
+      h4 {
+        a {
+          display: block;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+        small.tagline {
+          overflow-y: auto;
+          display: block;
+          max-height: 2.5rem;
+          line-height: 1.5;
+        }
+      }
+    }
     @include breakpoint(large) { height: 190px; padding: 19px 19px 10px; }
   }
   p {
