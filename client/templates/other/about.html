@@ -1,211 +1,407 @@
 <template name="about">
-<div id="about">
-
+  <div id="about">
     <div class="section about-top">
-		  <div class="container">
-		    <div class="row">
-		        <div class="col-md-12 align-center">
-		          <h2>About CodeBuddies</h2>
-		        </div>
-		    </div>
-		  </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 align-center">
+            <h2>About CodeBuddies</h2>
+          </div>
+        </div>
+      </div>
     </div>
 
-  <div class="section about-middle">
-		  <div class="container">
-		    <div class="row align-center">
-		        <div class="col-md-8 col-md-offset-2">
-		          <h2>Who are we?</h2>
-  		          <p>CodeBuddies is a community of independent code learners who enjoy sharing knowledge and helping each other learn faster. Our community members come from all over the world! Everyone is welcome, independent of previous knowledge.</p>
-  		      </div>
-  		      <div class="col-md-offset-3 col-md-6 col-md-offset-3 flags-group">
-  		      	<div class="flags">
-                {{#each countries}}
-                   <img src='{{this}}'/>
-                {{/each}}
-  		        </div>
-  		      </div>
-		      </div>
-		     <div class="row">
-  	        <div class="col-md-6">
-        	    <h3>Why we built this</h3>
-    	        	<p>Oftentimes, <em>people</em> - mentors, coworkers, hackathon buddies and study partners - are key to accelerating one’s learning. But not everyone can commute to a tech meetup, or has access to study partners or mentors/coworkers who can help them.</p>
-    	        	<p>Our community spends a lot of time helping each other on <a href="http://codebuddies.slack.com">Slack</a>, and uses this website to schedule screensharing/voice hangouts to co-work silently on personal projects, pair program, or help each other master tutorials.</p>
-  	        </div>
-  	        <div class="col-md-6">
-		        	<h3>How we built this</h3>
-  		        	<p> This project is 100% built by volunteers in the community. We created a Google Doc with specs, volunteers stepped up to talk design and create mockups, more volunteers built the foundations of the codebase, and more continually step up to help with our <a href="https://github.com/codebuddies/codebuddies/" target="_blank">Github issues</a>. In addition, volunteers keep our <a href="http://codebuddies.slack.com" target="_blank">Slack chatroom</a> alive, moderating the chat, sharing useful links and discounts, and answering each other's coding-related questions.</p>
-		        </div>
-		     </div>
-				 <div class="row">
-						 <div class="col-md-6">
-		           <h3>Our Pledge</h3>
-  		           <p>In the interest of fostering an open and welcoming environment, we as community members, contributors and maintainers pledge to making participation in our project and our community a harassment-free experience for everyone, regardless of age, body size, disability, ethnicity, gender identity and expression, level of experience, nationality, personal appearance, race, religion, or sexual identity and orientation. <a href="https://github.com/codebuddies/codebuddies/blob/master/CODE_OF_CONDUCT.md" target="_blank">Read our code of conduct.</a></p>
-	           </div>
-		         <div class="col-md-6">
-               <h3>We are open-sourced</h3>
-             		<p>This website is <strong>100%</strong> community-built and open-sourced on Github. Come say hi and <a href="https://github.com/codebuddies/codebuddies/blob/master/contributing.md" target="_blank">contribute to this project</a> if you want to help!
-             		</p>
-		           <h3>We are fully transparent</h3>
-      					<p>This project operates in full transparency as a member of the Open Collective. Please help support our monthly server costsby becoming a <a href="http://opencollective.com/codebuddies" target="_blank">sponsor or backer</a>. You can help keep this project alive!</p>
+    <div class="section about-middle">
+      <div class="container">
+        <div class="row align-center">
+          <div class="col-md-8 col-md-offset-2">
+            <h2>Who are we?</h2>
+            <p>
+              CodeBuddies is a community of independent code learners who enjoy
+              sharing knowledge and helping each other learn faster. Our
+              community members come from all over the world! Everyone is
+              welcome, independent of previous knowledge.
+            </p>
+          </div>
+          <div class="col-md-offset-3 col-md-6 col-md-offset-3 flags-group">
+            <div class="flags">
+              {{#each countries}}
+              <img src="{{this}}" />
+              {{/each}}
             </div>
-         </div>
-		</div>
-  </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <h3>Why we built this</h3>
+            <p>
+              Oftentimes, <em>people</em> - mentors, coworkers, hackathon
+              buddies and study partners - are key to accelerating one’s
+              learning. But not everyone can commute to a tech meetup, or has
+              access to study partners or mentors/coworkers who can help them.
+            </p>
+            <p>
+              Our community spends a lot of time helping each other on
+              <a href="http://codebuddies.slack.com">Slack</a>, and uses this
+              website to schedule screensharing/voice hangouts to co-work
+              silently on personal projects, pair program, or help each other
+              master tutorials.
+            </p>
+          </div>
+          <div class="col-md-6">
+            <h3>How we built this</h3>
+            <p>
+              This project is 100% built by volunteers in the community. We
+              created a Google Doc with specs, volunteers stepped up to talk
+              design and create mockups, more volunteers built the foundations
+              of the codebase, and more continually step up to help with our
+              <a
+                href="https://github.com/codebuddies/codebuddies/"
+                target="_blank"
+                >Github issues</a
+              >. In addition, volunteers keep our
+              <a href="http://codebuddies.slack.com" target="_blank"
+                >Slack chatroom</a
+              >
+              alive, moderating the chat, sharing useful links and discounts,
+              and answering each other's coding-related questions.
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <h3>Our Pledge</h3>
+            <p>
+              In the interest of fostering an open and welcoming environment, we
+              as community members, contributors and maintainers pledge to
+              making participation in our project and our community a
+              harassment-free experience for everyone, regardless of age, body
+              size, disability, ethnicity, gender identity and expression, level
+              of experience, nationality, personal appearance, race, religion,
+              or sexual identity and orientation.
+              <a
+                href="https://github.com/codebuddies/codebuddies/blob/master/CODE_OF_CONDUCT.md"
+                target="_blank"
+                >Read our code of conduct.</a
+              >
+            </p>
+            <h3>Thank you to our hosting sponsors!</h3>
+            <a href="https://digitalocean.com" target="_blank" rel="noopener"
+              ><img src="/images/powered_by_digitalocean.png" width="300"
+            /></a>
+            <a href="https:///netlify.com" target="_blank" rel="noopener"
+              ><img src="/images/netlify.png" width="300"
+            /></a>
+            <a href="https://www.mongodb.com/" target="_blank" rel="noopener"
+              ><img src="/images/mdb-atlas-reg.png" width="300"
+            /></a>
+          </div>
+          <div class="col-md-6">
+            <h3>We are open-sourced</h3>
+            <p>
+              This website is <strong>100%</strong> community-built and
+              open-sourced on Github. Come say hi and
+              <a
+                href="https://github.com/codebuddies/codebuddies/blob/master/contributing.md"
+                target="_blank"
+                >contribute to this project</a
+              >
+              if you want to help!
+            </p>
+            <h3>We are fully transparent</h3>
+            <p>
+              This project operates in full transparency as a member of the Open
+              Collective. Please help support our monthly server costsby
+              becoming a
+              <a href="http://opencollective.com/codebuddies" target="_blank"
+                >sponsor or backer</a
+              >. You can help keep this project alive!
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <div class="section about-bottom align-center">
-		  <div class="container">
-		    <div class="row">
-                <h1>Contributors</h1>
-		    	<div class="col-md-6">
-		    	<h2 class="contributors-title">Code</h2>
-					<table id="contributors-code" class="table table-striped table-hover">
-						<thead>
-							<tr>
-								<th></th>
-								<th>Contributor</th>
-								<th></th>
-								<th>Contribution</th>
-							</tr>
-						</thead>
-						<tbody>
-		            {{#each contributors}}
-		              {{#if equals type 'code'}}
-							<tr>
-								<td>{{#if avatar }}<img src="{{avatar}}" class="img-circle" alt="{{name}}" width="20"/>{{/if}}</td>
-								<td>
-									<!-- <img src="{{avatar}}" class="img-circle" alt="{{name}}" width="20"/> -->
-									<p>{{ name }}</p>
-									<p>{{#if socials.twitter }} <a href='{{socials.twitter}}' target='_blank'><i class='fab fa-twitter'></i></a> {{/if}}
-		                {{#if socials.github }} <a href='{{socials.github}}' target='_blank'><i class='fab fa-github'></i></a> {{/if}}
-		                {{#if socials.blog }} <a href='{{socials.blog}}' target='_blank'><i class='fas fa-link'></i></a> {{/if}}</p>
-								</td>
-								<td>{{# if location }}{{ location }}{{/if}}</td>
-								<td>{{# if contribution }}{{ contribution }}{{/if}}</td>
-							</tr>
-		              {{/if}}
-		            {{/each}}
-						</tbody>
+      <div class="container">
+        <div class="row">
+          <h1>Contributors</h1>
+          <div class="col-md-6">
+            <h2 class="contributors-title">Code</h2>
+            <table
+              id="contributors-code"
+              class="table table-striped table-hover"
+            >
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Contributor</th>
+                  <th></th>
+                  <th>Contribution</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{#each contributors}} {{#if equals type 'code'}}
+                <tr>
+                  <td>
+                    {{#if avatar }}<img
+                      src="{{avatar}}"
+                      class="img-circle"
+                      alt="{{name}}"
+                      width="20"
+                    />{{/if}}
+                  </td>
+                  <td>
+                    <!-- <img src="{{avatar}}" class="img-circle" alt="{{name}}" width="20"/> -->
+                    <p>{{ name }}</p>
+                    <p>
+                      {{#if socials.twitter }}
+                      <a href="{{socials.twitter}}" target="_blank"
+                        ><i class="fab fa-twitter"></i
+                      ></a>
+                      {{/if}} {{#if socials.github }}
+                      <a href="{{socials.github}}" target="_blank"
+                        ><i class="fab fa-github"></i
+                      ></a>
+                      {{/if}} {{#if socials.blog }}
+                      <a href="{{socials.blog}}" target="_blank"
+                        ><i class="fas fa-link"></i
+                      ></a>
+                      {{/if}}
+                    </p>
+                  </td>
+                  <td>{{# if location }}{{ location }}{{/if}}</td>
+                  <td>{{# if contribution }}{{ contribution }}{{/if}}</td>
+                </tr>
+                {{/if}} {{/each}}
+              </tbody>
+            </table>
+            <p>
+              See more Github contributors
+              <a
+                href="https://github.com/codebuddies/codebuddies/graphs/contributors"
+                >here</a
+              >
+              and <a href="https://github.com/codebuddies/greetbot">here</a>. If
+              your name should be here, please bug Linda and also submit
+              <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSfw7HrMhCIaxASH6sQosLL6QZq2OfoivWD6nV4fsVrMvTUqNg/viewform"
+                >this form</a
+              >.
+            </p>
+          </div>
+          <div class="col-md-6">
+            <h2 class="contributors-title">Slack</h2>
+            <table
+              id="contributors-code"
+              class="table table-striped table-hover"
+            >
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Contributor</th>
+                  <th></th>
+                  <th>Contribution</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{#each contributors}} {{#if equals type 'slack'}}
+                <tr>
+                  <td>
+                    {{#if avatar }}<img
+                      src="{{avatar}}"
+                      class="img-circle"
+                      alt="{{name}}"
+                      width="20"
+                    />{{/if}}
+                  </td>
+                  <td>
+                    <!-- <img src="{{avatar}}" class="img-circle" alt="{{name}}" width="20"/> -->
+                    <p>{{ name }}</p>
+                    <p>
+                      {{#if socials.twitter }}
+                      <a href="{{socials.twitter}}" target="_blank"
+                        ><i class="fab fa-twitter"></i
+                      ></a>
+                      {{/if}} {{#if socials.github }}
+                      <a href="{{socials.github}}" target="_blank"
+                        ><i class="fab fa-github"></i
+                      ></a>
+                      {{/if}} {{#if socials.blog }}
+                      <a href="{{socials.blog}}" target="_blank"
+                        ><i class="fas fa-link"></i
+                      ></a>
+                      {{/if}}
+                    </p>
+                  </td>
+                  <td>{{# if location }}{{ location }}{{/if}}</td>
+                  <td>{{# if contribution }}{{ contribution }}{{/if}}</td>
+                </tr>
+                {{/if}} {{/each}}
+              </tbody>
+            </table>
+            <p>
+              On the CodeBuddies Slack, everyone is free to ask questions and to
+              help each other, and we hope that those who receive help will pay
+              it forward. If you've been actively helping out on Slack for a few
+              months and you think your name should be here, please bug Linda
+              and also submit
+              <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSfw7HrMhCIaxASH6sQosLL6QZq2OfoivWD6nV4fsVrMvTUqNg/viewform"
+                >this form</a
+              >.
+            </p>
 
-					</table>
-					<p>See more Github contributors <a href="https://github.com/codebuddies/codebuddies/graphs/contributors">here</a> and <a href="https://github.com/codebuddies/greetbot">here</a>. If your name should be here, please bug Linda and also submit <a href="https://docs.google.com/forms/d/e/1FAIpQLSfw7HrMhCIaxASH6sQosLL6QZq2OfoivWD6nV4fsVrMvTUqNg/viewform">this form</a>.</p>
-			    </div>
-                <div class="col-md-6">
-                <h2 class="contributors-title">Slack</h2>
-				<table id="contributors-code" class="table table-striped table-hover">
-					<thead>
-						<tr>
-							<th></th>
-							<th>Contributor</th>
-							<th></th>
-							<th>Contribution</th>
-						</tr>
-					</thead>
-					<tbody>
-	            {{#each contributors}}
-	              {{#if equals type 'slack'}}
-						<tr>
-							<td>{{#if avatar }}<img src="{{avatar}}" class="img-circle" alt="{{name}}" width="20"/>{{/if}}</td>
-							<td>
-								<!-- <img src="{{avatar}}" class="img-circle" alt="{{name}}" width="20"/> -->
-								<p>{{ name }}</p>
-								<p>{{#if socials.twitter }} <a href='{{socials.twitter}}' target='_blank'><i class='fab fa-twitter'></i></a> {{/if}}
-	                {{#if socials.github }} <a href='{{socials.github}}' target='_blank'><i class='fab fa-github'></i></a> {{/if}}
-	                {{#if socials.blog }} <a href='{{socials.blog}}' target='_blank'><i class='fas fa-link'></i></a> {{/if}}</p>
-							</td>
-							<td>{{# if location }}{{ location }}{{/if}}</td>
-							<td>{{# if contribution }}{{ contribution }}{{/if}}</td>
-						</tr>
-	              {{/if}}
-	            {{/each}}
-					</tbody>
-				</table>
-                <p>On the CodeBuddies Slack, everyone is free to ask questions and to help each other, and we hope that those who receive help will pay it forward. If you've been actively helping out on Slack for a few months and you think your name should be here, please bug Linda and also submit <a href="https://docs.google.com/forms/d/e/1FAIpQLSfw7HrMhCIaxASH6sQosLL6QZq2OfoivWD6nV4fsVrMvTUqNg/viewform">this form</a>.</p>
+            <h2 class="contributors-title">Welcome Experience</h2>
+            <table
+              id="contributors-code"
+              class="table table-striped table-hover"
+            >
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Contributor</th>
+                  <th></th>
+                  <th>Contribution</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{#each contributors}} {{#if equals type 'welcome'}}
+                <tr>
+                  <td>
+                    {{#if avatar }}<img
+                      src="{{avatar}}"
+                      class="img-circle"
+                      alt="{{name}}"
+                      width="20"
+                    />{{/if}}
+                  </td>
+                  <td>
+                    <!-- <img src="{{avatar}}" class="img-circle" alt="{{name}}" width="20"/> -->
+                    <p>{{ name }}</p>
+                    <p>
+                      {{#if socials.twitter }}
+                      <a href="{{socials.twitter}}" target="_blank"
+                        ><i class="fab fa-twitter"></i
+                      ></a>
+                      {{/if}} {{#if socials.github }}
+                      <a href="{{socials.github}}" target="_blank"
+                        ><i class="fab fa-github"></i
+                      ></a>
+                      {{/if}} {{#if socials.blog }}
+                      <a href="{{socials.blog}}" target="_blank"
+                        ><i class="fas fa-link"></i
+                      ></a>
+                      {{/if}}
+                    </p>
+                  </td>
+                  <td>{{# if location }}{{ location }}{{/if}}</td>
+                  <td>{{# if contribution }}{{ contribution }}{{/if}}</td>
+                </tr>
+                {{/if}} {{/each}}
+              </tbody>
+            </table>
+            <p>
+              If you think your name should be here, please submit
+              <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSfw7HrMhCIaxASH6sQosLL6QZq2OfoivWD6nV4fsVrMvTUqNg/viewform"
+                >this form</a
+              >.
+            </p>
 
+            <h2 class="contributors-title">Sponsors Outreach</h2>
+            <table
+              id="contributors-code"
+              class="table table-striped table-hover"
+            >
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Contributor</th>
+                  <th></th>
+                  <th>Contribution</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{#each contributors}} {{#if equals type 'sponsors'}}
+                <tr>
+                  <td>
+                    {{#if avatar }}<img
+                      src="{{avatar}}"
+                      class="img-circle"
+                      alt="{{name}}"
+                      width="20"
+                    />{{/if}}
+                  </td>
+                  <td>
+                    <!-- <img src="{{avatar}}" class="img-circle" alt="{{name}}" width="20"/> -->
+                    <p>{{ name }}</p>
+                    <p>
+                      {{#if socials.twitter }}
+                      <a href="{{socials.twitter}}" target="_blank"
+                        ><i class="fab fa-twitter"></i
+                      ></a>
+                      {{/if}} {{#if socials.github }}
+                      <a href="{{socials.github}}" target="_blank"
+                        ><i class="fab fa-github"></i
+                      ></a>
+                      {{/if}} {{#if socials.blog }}
+                      <a href="{{socials.blog}}" target="_blank"
+                        ><i class="fas fa-link"></i
+                      ></a>
+                      {{/if}}
+                    </p>
+                  </td>
+                  <td>{{# if location }}{{ location }}{{/if}}</td>
+                  <td>{{# if contribution }}{{ contribution }}{{/if}}</td>
+                </tr>
+                {{/if}} {{/each}}
+              </tbody>
+            </table>
+            <p>
+              If you think your name should be here, please submit
+              <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSfw7HrMhCIaxASH6sQosLL6QZq2OfoivWD6nV4fsVrMvTUqNg/viewform"
+                >this form</a
+              >.
+            </p>
 
-                <h2 class="contributors-title">Welcome Experience</h2>
-				<table id="contributors-code" class="table table-striped table-hover">
-					<thead>
-						<tr>
-							<th></th>
-							<th>Contributor</th>
-							<th></th>
-							<th>Contribution</th>
-						</tr>
-					</thead>
-					<tbody>
-	            {{#each contributors}}
-	              {{#if equals type 'welcome'}}
-						<tr>
-							<td>{{#if avatar }}<img src="{{avatar}}" class="img-circle" alt="{{name}}" width="20"/>{{/if}}</td>
-							<td>
-								<!-- <img src="{{avatar}}" class="img-circle" alt="{{name}}" width="20"/> -->
-								<p>{{ name }}</p>
-								<p>{{#if socials.twitter }} <a href='{{socials.twitter}}' target='_blank'><i class='fab fa-twitter'></i></a> {{/if}}
-	                {{#if socials.github }} <a href='{{socials.github}}' target='_blank'><i class='fab fa-github'></i></a> {{/if}}
-	                {{#if socials.blog }} <a href='{{socials.blog}}' target='_blank'><i class='fas fa-link'></i></a> {{/if}}</p>
-							</td>
-							<td>{{# if location }}{{ location }}{{/if}}</td>
-							<td>{{# if contribution }}{{ contribution }}{{/if}}</td>
-						</tr>
-	              {{/if}}
-	            {{/each}}
-					</tbody>
-				</table>
-                <p>If you think your name should be here, please submit <a href="https://docs.google.com/forms/d/e/1FAIpQLSfw7HrMhCIaxASH6sQosLL6QZq2OfoivWD6nV4fsVrMvTUqNg/viewform">this form</a>.</p>
+            <h2 class="contributors-title">Hangout/Study Group Organizers</h2>
+            <p>Leaderboard coming soon.</p>
 
-                <h2 class="contributors-title">Sponsors Outreach</h2>
-				<table id="contributors-code" class="table table-striped table-hover">
-					<thead>
-						<tr>
-							<th></th>
-							<th>Contributor</th>
-							<th></th>
-							<th>Contribution</th>
-						</tr>
-					</thead>
-					<tbody>
-	            {{#each contributors}}
-	              {{#if equals type 'sponsors'}}
-						<tr>
-							<td>{{#if avatar }}<img src="{{avatar}}" class="img-circle" alt="{{name}}" width="20"/>{{/if}}</td>
-							<td>
-								<!-- <img src="{{avatar}}" class="img-circle" alt="{{name}}" width="20"/> -->
-								<p>{{ name }}</p>
-								<p>{{#if socials.twitter }} <a href='{{socials.twitter}}' target='_blank'><i class='fab fa-twitter'></i></a> {{/if}}
-	                {{#if socials.github }} <a href='{{socials.github}}' target='_blank'><i class='fab fa-github'></i></a> {{/if}}
-	                {{#if socials.blog }} <a href='{{socials.blog}}' target='_blank'><i class='fas fa-link'></i></a> {{/if}}</p>
-							</td>
-							<td>{{# if location }}{{ location }}{{/if}}</td>
-							<td>{{# if contribution }}{{ contribution }}{{/if}}</td>
-						</tr>
-	              {{/if}}
-	            {{/each}}
-					</tbody>
-				</table>
-                <p>If you think your name should be here, please submit <a href="https://docs.google.com/forms/d/e/1FAIpQLSfw7HrMhCIaxASH6sQosLL6QZq2OfoivWD6nV4fsVrMvTUqNg/viewform">this form</a>.</p>
+            <h2 class="contributors-title">Financial Backers</h2>
+            <p>
+              Many thanks to everyone who contributed a 501c3 tax-deductible
+              donation to our transparent
+              <a href="http://opencollective.com/codebuddies" target="_blank"
+                >Open Collective</a
+              >! All the funds go back to the project.
+            </p>
 
-                <h2 class="contributors-title">Hangout/Study Group Organizers</h2>
-                <p>Leaderboard coming soon.</p>
-
-                <h2 class="contributors-title">Financial Backers</h2>
-                <p>Many thanks to everyone who contributed a 501c3 tax-deductible donation to our transparent <a href="http://opencollective.com/codebuddies" target="_blank">Open Collective</a>! All the funds go back to the project.</p>
-
-                <h2 class="contributors-title">Facebook Group</h2>
-                <p>The moderators on our <a href="https://www.facebook.com/groups/TOPSTUDYGROUP/">Facebook Group</a> that we co-organize with The Odin Project include Bryant Tunbutr, Omar Sanseviero, Sebastian Pancia, Ada Chiu, William Wilson, Kevin Mulhern, Andrej Dragojevic, John Lampe, Matias Pan, and Linda Peng.</p>
-
-
-		     </div><!--col-md-6-->
-         </div>
-             <div class="col-md-12">
-                 <h2>Past Contributors</h2>
- 	            {{#each contributors}}
- 	              {{#if equals type 'other'}}
-                      {{#if avatar }}<img src="{{avatar}}" class="img-circle" alt="{{name}}" title="{{name}}" width="20"/>{{/if}}
-                  {{/if}}
-                {{/each}}
-		    </div>
-		  </div>
-	</div>
-</div>
+            <h2 class="contributors-title">Facebook Group</h2>
+            <p>
+              The moderators on our
+              <a href="https://www.facebook.com/groups/TOPSTUDYGROUP/"
+                >Facebook Group</a
+              >
+              that we co-organize with The Odin Project include Bryant Tunbutr,
+              Omar Sanseviero, Sebastian Pancia, Ada Chiu, William Wilson, Kevin
+              Mulhern, Andrej Dragojevic, John Lampe, Matias Pan, and Linda
+              Peng.
+            </p>
+          </div>
+          <!--col-md-6-->
+        </div>
+        <div class="col-md-12">
+          <h2>Past Contributors</h2>
+          {{#each contributors}} {{#if equals type 'other'}} {{#if avatar }}<img
+            src="{{avatar}}"
+            class="img-circle"
+            alt="{{name}}"
+            title="{{name}}"
+            width="20"
+          />{{/if}} {{/if}} {{/each}}
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
