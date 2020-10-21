@@ -22,9 +22,15 @@ Learning with each other helps us learn faster. We strive to create a safe space
 Join us on Slack! You can get your invite by clicking on the Slack invite button and join the community by verifying your invitation through your e-mail!
 
 ## How do I contribute to this project?
-**PLEASE go to _[contributing.md](contributing.md)_ and refer to the contribution steps listed there!** There are also helpful resources there, in case you get stuck. To add yourself as a contributor, please see the [How do I add myself as a contributor?](contributing.md#how-do-i-add-myself-as-a-contributor) section.
+Much of the work on this platform has shifted to the next version of CodeBuddies (aka CBv3), built in React + Django API instead of Meteor. 
 
-Please check out [docs.codebuddies.org](http://docs.codebuddies.org) for the full documentation.
+The two new repositories:
+- https://github.com/codebuddies/backend - Python / Django / Django Rest Framework (hosted on DigitalOcean)
+- https://github.com/codebuddies/frontend - React (hosted on Netlify)
+
+~~**PLEASE go to _[contributing.md](contributing.md)_ and refer to the contribution steps listed there!** There are also helpful resources there, in case you get stuck. To add yourself as a contributor, please see the [How do I add myself as a contributor?](contributing.md#how-do-i-add-myself-as-a-contributor) section.~~
+
+~~Please check out [docs.codebuddies.org](http://docs.codebuddies.org) for the full documentation.~~
 
 ## What are you trying to build here?
 
