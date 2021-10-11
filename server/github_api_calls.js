@@ -1,20 +1,34 @@
 githubAuthRevoke = function(accessToken) {
+  console.log('testing github')
   check(accessToken, String);
   const clientId = Meteor.settings.github_clientid;
   const clientSecret = Meteor.settings.github_clientsecret;
-  const options = {
-    headers: {
-      "User-Agent": "CodeBuddies",
-      "Authorization": `token ${accessToken}`
-    },
-    auth: `${clientId}:${clientSecret}`
-  };
-  const response = HTTP.del(
-    "https://api.github.com/user/repos",
-    options
+
+  // Requesting a user's GitHub identity
+  try {
+  const response = HTTP.get(
+    "https://github.com/login/oauth/authorize/",
+    {client_id: clientId, redirect_uri: "https://codebuddies.org/_oauth/github"}
   );
-  const { statusCode = null } = response || {};
-  console.log(response) //Needed for debugging
+  console.log('response', response)
+  } catch(e) {
+    console.log(e)
+    return false;
+  }
+
+  // After users are redirected back to the site by GitHub
+  try {
+    const { code } = response;
+    console.log('code', code);
+    const response = HTTP.post(
+      "https://github.com/login/oauth/access_token",
+      {client_id: clientId, client_secret: clientSecret, code}
+    );
+  } catch(e) {
+    console.log(e);
+    return false;
+  }
+
   return {
     ok: statusCode === 204
   };
