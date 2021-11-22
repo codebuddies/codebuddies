@@ -64,3 +64,4 @@ accounts-github
 accounts-password
 mizzao:user-status@0.6.8
 alanning:roles@1.2.19
+acemtp:accounts-slack

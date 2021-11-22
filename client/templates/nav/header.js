@@ -51,7 +51,7 @@ Template.header.events({
     Modal.show('addDiscussionModal', data);
   },
   'click .signInGithub': function(event) {
-    var options = { requestPermissions: ['user'] };
+    var options = { requestPermissions: ['user:email'] };
 
     Meteor.loginWithGithub(options, error => {
       if (error) {

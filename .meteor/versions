@@ -2,6 +2,7 @@ accounts-base@1.4.4
 accounts-github@1.4.3
 accounts-oauth@1.1.16
 accounts-password@1.5.2
+acemtp:accounts-slack@1.1.5
 alanning:roles@1.2.19
 aldeed:simple-schema@1.5.4
 allow-deny@1.1.0
