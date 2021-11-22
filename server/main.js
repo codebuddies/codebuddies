@@ -11,20 +11,20 @@ Meteor.startup(function() {
   // fire off cron jobs
   SyncedCron.start();
 
-  // Accounts.loginServiceConfiguration.remove({
-  //   service: "slack"
-  // });
+  Accounts.loginServiceConfiguration.remove({
+    service: 'slack'
+  });
   //
   // Accounts.loginServiceConfiguration.remove({
   //   service: "github"
   // });
   //
-  // Accounts.loginServiceConfiguration.insert({
-  //   service: "slack",
-  //   clientId: Meteor.settings.slack_clientid,
-  //   secret: Meteor.settings.slack_clientsecret,
-  //   loginStyle: "popup"
-  // });
+  Accounts.loginServiceConfiguration.insert({
+    service: 'slack',
+    clientId: Meteor.settings.slack_clientid,
+    secret: Meteor.settings.slack_clientsecret,
+    loginStyle: 'popup'
+  });
   //
   // Accounts.loginServiceConfiguration.insert({
   //   service: "github",
