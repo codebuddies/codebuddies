@@ -4,17 +4,17 @@ githubAuthRevoke = function(accessToken) {
   const clientSecret = Meteor.settings.github_clientsecret;
   const options = {
     headers: {
-      "User-Agent": "CodeBuddies",
-      "Authorization": `token ${accessToken}`
+      Accept: 'application/vnd.github.v3+json'
     },
-    auth: `${clientId}:${clientSecret}`
+    data: {
+      access_token: accessToken
+    }
   };
-  const response = HTTP.del(
-    "https://api.github.com/user/repos",
-    options
-  );
+  // please see the following documentation
+  // https://docs.github.com/en/rest/reference/apps#delete-an-app-authorization--code-samples
+  const response = HTTP.del('https://api.github.com/applications/${clientId}/grant', options);
   const { statusCode = null } = response || {};
-  console.log(response) //Needed for debugging
+  console.log(response); //Needed for debugging
   return {
     ok: statusCode === 204
   };

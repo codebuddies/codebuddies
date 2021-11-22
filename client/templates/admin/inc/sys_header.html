@@ -29,7 +29,7 @@
           {{/if}}
 
           {{#unless currentUser}}
-            {{> loginButtons align="right"}}
+            <!-- {{> loginButtons align="right"}} -->
           {{else}}
             {{#if isInRole 'moderator' 'CB'}}
               <li id="user-drop-down" class="dropdown">
@@ -45,7 +45,7 @@
               </li>
             {{/if}}
             {{#if isInRole 'admin' 'CB'}}
-              {{> loginButtons align="right"}}
+              <!-- {{> loginButtons align="right"}} -->
             {{/if}}
           {{/unless}}
         </ul>
