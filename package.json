@@ -33,7 +33,7 @@
     "md5": "^2.2.1",
     "meteor-node-stubs": "0.4.1",
     "moment": "^2.21.0",
-    "moment-timezone": "^0.5.21",
+    "moment-timezone": "^0.5.35",
     "quill": "^1.0.6",
     "quill-render": "^1.0.5",
     "remove": "^0.1.5",
